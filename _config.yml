@@ -1,0 +1,15 @@
+---
+auto        : false
+lsi         : false
+pygments    : true
+permalink   : none
+markdown    : maruku
+
+maruku:
+    use_divs: true
+    use_tex: true
+    png_engine : blahtex
+    png_dir    : images/latex/
+    png_url    : /images/latex/
+
+    
