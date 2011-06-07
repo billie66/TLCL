@@ -11,15 +11,15 @@ system on our Linux system. In this chapter we will introduce the following comm
 
 我们需要学习的第一件事（除了打字之外），是如何在Linux文件系统中跳转。在这一章节中，我们将介绍以下命令：
 
-● pwd - Print name of current working directory
+pwd - Print name of current working directory
 
 * pwd — 打印出当前工作目录名
 
-● cd - Change directory
+cd - Change directory
 
 * cd — 更改目录
 
-● ls - List directory contents
+ls - List directory contents
 
 * ls — 列出目录内容
 
@@ -157,7 +157,7 @@ Important Facts About Filenames
 
 ### 关于文件名的重要规则
 
-1. Filenames that begin with a period character are hidden. This only means that
+1.  Filenames that begin with a period character are hidden. This only means that
 ls will not list them unless you say ls -a. When your account was created,
 several hidden files were placed in your home directory to configure things
 for your account. Later on we will take a closer look at some of these files to
@@ -165,31 +165,31 @@ see how you can customize your environment. In addition, some applications
 place their configuration and settings files in your home directory as hidden
 files.
 
-以"."字符开头的文件名是隐藏文件。这仅表示，ls命令不能列出它们，除非使用ls -a 命令。当你创建帐号后，
+1.  以"."字符开头的文件名是隐藏文件。这仅表示，ls命令不能列出它们，除非使用ls -a 命令。当你创建帐号后，
 几个配置帐号的隐藏文件被放置在你的主目录下。稍后，我们会仔细研究一些隐藏文件，来定制你的系统环境。另外，
 一些应用程序也会把它们的配置文件以隐藏文件的形式放在你的主目录下面。
 
-2. Filenames and commands in Linux, like Unix, are case sensitive. The
+2.  Filenames and commands in Linux, like Unix, are case sensitive. The
 filenames “File1” and “file1” refer to different files.
 
-文件名和命令名是大小写敏感的。文件名“File1” 和 “file1”是指两个不同的文件名。
+2.  文件名和命令名是大小写敏感的。文件名“File1” 和 “file1”是指两个不同的文件名。
 
-3. Linux has no concept of a “file extension” like some other operating systems.
+3.  Linux has no concept of a “file extension” like some other operating systems.
 You may name files any way you like. The contents and/or purpose of a file is
 determined by other means. Although Unix-like operating system don’t use
 file extensions to determine the contents/purpose of files, some application
 programs do.
 
-Linux没有“文件扩展名”的概念，不像其它一些系统。可以用你喜欢的任何名字来给文件起名。文件内容或用途由
+3.  Linux没有“文件扩展名”的概念，不像其它一些系统。可以用你喜欢的任何名字来给文件起名。文件内容或用途由
 其它方法来决定。虽然类似Unix的操作系统，不用文件扩展名来决定文件的内容或用途，但是应用程序会。
 
-4. Though Linux supports long filenames which may contain embedded spaces
+4.  Though Linux supports long filenames which may contain embedded spaces
 and punctuation characters, limit the punctuation characters in the names of
 files you create to period, dash, and underscore. Most importantly, do not
 embed spaces in filenames. If you want to represent spaces between words in
 a filename, use underscore characters. You will thank yourself later.
 
-虽然Linux支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限使用“.”，“－”，“_”。最重要的是，
+4.  虽然Linux支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限使用“.”，“－”，“_”。最重要的是，
 不要在文件名中使用空格。如果你想表示词与词间的空格，用下划线字符来代替。过些时候，你会感激自己这样做。
 
 
