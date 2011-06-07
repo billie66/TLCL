@@ -6,12 +6,12 @@ title: 什么是shell
 
 ## 2 — 什么是Shell?
 
-When we speak of the command line, we are really referring to the shell. The shell is a
-program that takes keyboard commands and passes them to the operating system to carry
-out. Almost all Linux distributions supply a shell program from the GNU Project called
-bash. The name “bash” is an acronym for “Bourne Again SHell”, a reference to the fact
-bash is an enhanced replacement for sh, the original Unix shell program written by
-Steve Bourne.
+When we speak of the command line, we are really referring to the shell. The
+shell is a program that takes keyboard commands and passes them to the
+operating system to carry out. Almost all Linux distributions supply a shell
+program from the GNU Project called bash. The name “bash” is an acronym for
+“Bourne Again SHell”, a reference to the fact bash is an enhanced replacement
+for sh, the original Unix shell program written by Steve Bourne.
 
 当一说到命令行，我们真正指的是shell。shell就是一个程序，它接受从键盘输入的命令，然后把命令传递给操作系统去执行。
 几乎所有的Linux发行版都提供一个shell程序，它来自于名为bash的GNU项目。“bash”是“Bourne Again SHell”的首字母
@@ -21,13 +21,14 @@ Terminal Emulators
 
 ### 终端仿真器
 
-When using a graphical user interface, we need another program called a terminal
-emulator to interact with the shell. If we look through our desktop menus, we will
-probably find one. KDE uses konsole and GNOME uses gnome-terminal, though
-it's likely called simply “terminal” on our menu. There are a number of other terminal
-emulators available for Linux, but they all basically do the same thing; give us access to
-the shell. You will probably develop a preference for one or another based on the number
-of bells and whistles it has.
+When using a graphical user interface, we need another program called a
+terminal emulator to interact with the shell. If we look through our desktop
+menus, we will probably find one. KDE uses konsole and GNOME uses
+gnome-terminal, though it's likely called simply “terminal” on our menu. There
+are a number of other terminal emulators available for Linux, but they all
+basically do the same thing; give us access to the shell. You will probably
+develop a preference for one or another based on the number of bells and
+whistles it has.
 
 当使用图形用户界面时，我们需要另一个叫做终端仿真器的程序，去和shell进行交互。浏览一下我们的桌面菜单，我们可能会找到一个。
 虽然在菜单里它可能都被简单地称为“terminal”，但是KDE用的是konsole程序, 而GNOME则使用gnome-terminal。还有其他一些
@@ -38,36 +39,39 @@ Your First Keystrokes
 
 ### 第一次按键
 
-So let's get started. Launch the terminal emulator! Once it comes up, we should see
-something like this:
+So let's get started. Launch the terminal emulator! Once it comes up, we
+should see something like this:
 
 好，开始吧。启动终端仿真器！一旦它运行起来，我们应该能够看到一行类似下面文字的输出：
 
     [me@linuxbox ~]$
 
-This is called a shell prompt and it will appear whenever the shell is ready to accept
-input. While it may vary in appearance somewhat depending on the distribution, it will
-usually include your username@machinename, followed by the current working directory 
-(more about that in a little bit) and a dollar sign.
+This is called a shell prompt and it will appear whenever the shell is ready
+to accept input. While it may vary in appearance somewhat depending on the
+distribution, it will usually include your username@machinename, followed by
+the current working directory (more about that in a little bit) and a dollar
+sign.
 
 这叫做shell提示符，当shell准备好了去接受输入时，它就会出现。然而，它可能会以各种各样的面孔显示，这则取决于不同的
 Linux发行版，它通常包括你的username@machinename，紧接着当前工作目录（关于它的知识有点多）和一个美元符号。
 
-If the last character of the prompt is a pound sign (“#”) rather than a dollar sign, the
-terminal session has superuser privileges. This means either we are logged in as the root
-user or we selected a terminal emulator that provides superuser (administrative) privileges.
+If the last character of the prompt is a pound sign (“#”) rather than a dollar
+sign, the terminal session has superuser privileges. This means either we are
+logged in as the root user or we selected a terminal emulator that provides
+superuser (administrative) privileges.
 
 如果提示符的最后一个字符是“#”, 而不是“$”, 那么这个终端会话就有超级用户权限。这意味着，我们或是以根用户的身份登录的，
 或者是我们选择的终端仿真器，提供超级用户（管理员）权限。
 
-Assuming that things are good so far, let's try some typing. Type some gibberish at the
-prompt like so:
+Assuming that things are good so far, let's try some typing. Type some
+gibberish at the prompt like so:
 
 假定到目前为止，所有事情都进行顺利，那我们试着打字吧。在提示符下敲入一些乱七八糟的无用数据，如下所示：
 
     [me@linuxbox ~]$ kaekfjaeifj
 
-Since this command makes no sense, the shell will tell us so and give us another chance:
+Since this command makes no sense, the shell will tell us so and give us
+another chance:
 
 因为这个命令没有任何意义，所以shell会提示错误信息，并让我们再试一下：
 
@@ -178,7 +182,7 @@ Likewise, to display the amount of free memory, type the free command.
     [me@linuxbox ~]$ free
     total       used       free     shared    buffers     cached
     Mem:       2059676     846456    1213220          0
-    44028     360568
+    44028      360568
     -/+ buffers/cache:     441860    1617816
     Swap:      1042428          0    1042428
 
@@ -197,13 +201,13 @@ The Console Behind The Curtain
 
 ### 幕后控制台
 
-Even if we have no terminal emulator running, several terminal sessions continue
-to run behind the graphical desktop. Called virtual terminals or virtual consoles,
-these sessions can be accessed on most Linux distributions by pressing Ctrl-
-Alt-F1 through Ctrl-Alt-F6 on most systems. When a session is accessed,
-it presents a login prompt into which we can enter our user name and password.
-To switch from one virtual console to another, press Alt and F1-F6. To return to
-the graphical desktop, press Alt-F7.
+Even if we have no terminal emulator running, several terminal sessions
+continue to run behind the graphical desktop. Called virtual terminals or
+virtual consoles, these sessions can be accessed on most Linux distributions
+by pressing Ctrl- Alt-F1 through Ctrl-Alt-F6 on most systems. When a session
+is accessed, it presents a login prompt into which we can enter our user name
+and password.  To switch from one virtual console to another, press Alt and
+F1-F6. To return to the graphical desktop, press Alt-F7.
 
 即使，终端仿真器没有运行，几个终端会话仍然在后台运行着。它们叫做虚拟终端或者是虚拟控制台。在大多数Linux
 发行版中，这些终端会话都可以访问，按下Ctrl-Alt-F1到Ctrl-Alt-F6访问不同的虚拟终端。当一个会话被访问的时候，
@@ -214,14 +218,14 @@ Further Reading
 
 ### 扩展阅读
 
-● To learn more about Steve Bourne, father of the Bourne Shell, see this Wikipedia
+To learn more about Steve Bourne, father of the Bourne Shell, see this Wikipedia
    article:
 
 *  想了解更多关于Steve Bourne的故事，Bourne Shell之父，读一下这篇文章：
 
   http://en.wikipedia.org/wiki/Steve_Bourne
 
-● Here is an article about the concept of shells in computing:
+Here is an article about the concept of shells in computing:
 
 *  这是一篇关于在计算机领域里，shells概念的文章：
 
