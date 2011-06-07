@@ -9,7 +9,7 @@ title: 引言
 故事内容不是关于Linus Torvalds在1991年怎样写了Linux内核的第一个版本，因为你可以在许多Linux书籍中读到它。我也不想告诉你，
 更早之前，Richard Stallman怎样开始GNU项目，去设计一个免费的类似UNIX的操作系统。这也是一个很重要的故事，但大多数Linux书籍也讲到了它。
 
-我想告诉大家一个关于你如何拿回你的计算机管理权的故事。
+我想告诉大家一个你如何拿回你的计算机管理权的故事。
 
 在18世纪70年代末，作为一个大学生，当我开始和计算机打交道时，有一场变革正在进行。微处理器的发明，使普通老百姓，就像你和我，能拥有自己的计算机，
 成为可能。今天，人们难以想象，当只有大企业和政府才能够管理计算机的世界，是怎样的一个世界。让我说说看，你想不出多少来。
@@ -246,14 +246,14 @@ Further Reading
 
 进一步阅读
 
-● Here are some Wikipedia articles on the famous people mentioned in this chapter:
+Here are some Wikipedia articles on the famous people mentioned in this chapter:
 
 * Wikipedia网站上有些介绍本章提到的名人的文章，以下是链接地址：
 
    http://en.wikipedia.org/wiki/Linux_Torvalds
    http://en.wikipedia.org/wiki/Richard_Stallman
 
-● The Free Software Foundation and the GNU Project:
+The Free Software Foundation and the GNU Project:
 
 * 介绍自由软件基金会及GNU项目的网站和文章：
 
@@ -261,7 +261,7 @@ Further Reading
    http://www.fsf.org
    http://www.gnu.org
 
-● Richard Stallman has written extensively on the “GNU/Linux” naming issue:
+Richard Stallman has written extensively on the “GNU/Linux” naming issue:
 
 * Richard Stallman用了大量的文字来叙述“GNU/Linux”的命名问题，可以浏览以下网页：
 
