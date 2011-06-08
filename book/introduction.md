@@ -4,7 +4,6 @@ title: 引言
 ---
 ## 1-引言
 
-
 我要给大家讲个故事。
 
 故事内容不是关于Linus Torvalds在1991年怎样写了linux内核的第一个版本，
@@ -243,31 +242,49 @@ down and get typing!
 都可以自己动手练习，坐下来，敲入命令，体验一下吧。
 
 
-<table>
+<table cellspacing="0" cellpadding="0" border="1" width="100%">
 <tr>
 <td>
 
 <h3>Why I Don't Call It “GNU/Linux”</h3>
 
 <h3>为什么我不叫它“GNU/Linux”</h3>
-<p>关于Richard
- Stallman，天才的哲学家，自由软件运动创始人，自由软件基金会创办者，创建了GNU工程，
+
+<p>In some quarters, it's politically correct to call the Linux operating system
+the “GNU/Linux operating system.” The problem with “Linux” is that there is no
+completely correct way to name it because it was written by many different
+people in a vast, distributed development effort. Technically speaking, Linux
+is the name of the operating system's kernel, nothing more.  The kernel is
+very important of course, since it makes the operating system go, but it's not
+enough to form a complete operating system.</p>
+
+<p>在某些领域，从政治上讲，把Linux操作系统称为“GNU/Linux 操作系统.”是正确的。但“Linux”的问题是，
+没有一个完全正确的方式能命名它，因为它是由许许多多，分布在世界各地的贡献者们，合作开发而成的。
+从技术层面讲，Linux只是操作系统的内核名字，没别的含义。当然，内核非常重要，因为有它，
+操作系统才能运行起来，但它并不能构成一个完备的操作系统。</P>
+
+<p>Enter Richard Stallman, the genius-philosopher who founded the Free Software
+movement, started the Free Software Foundation, formed the GNU Project, wrote
+the first version of the GNU C Compiler (gcc), created the GNU General Public
+License (the GPL), etc., etc., etc. He insists that you call it “GNU/Linux” to
+properly reflect the contributions of the GNU Project. While the GNU Project
+predates the Linux kernel, and the project's contributions are extremely deserving
+of recognition, placing them in the name is unfair to everyone else who made
+significant contributions. Besides, I think “Linux/GNU” would be more
+technically accurate since the kernel boots first and everything else runs on top ofit.</p>
+
+<p>关于Richard Stallman，天才的哲学家，自由软件运动创始人，自由软件基金会创办者，创建了GNU工程，
 编写了第一版GNU C 编译器（gcc），创立了GNU通用公共协议（the GPL),等等。
 他坚持把Linux称为“GNU/Linux”，为的是准确地反映GNU工程对Linux操作系统的贡献。
 然而，GNU项目早于Linux内核，而GNU项目的贡献得到极高的赞誉，把GNU用在Linux名字里，
 这对其他每个，对Linux的发展，做出重大贡献的程序员来说，就不公平了。</p>
 
-<p>
-In popular usage, “Linux” refers to the kernel and all the other free and open
-source software found in the typical Linux distribution; that is, the entire
-Linux ecosystem, not just the GNU components. The operating system marketplace
+<p>In popular usage, “Linux” refers to the kernel and all the other free and open
+source software found in the typical Linux distribution; that is, the entire Linux
+ecosystem, not just the GNU components. The operating system marketplace
 seems to prefer one-word names such as DOS, Windows, MacOS, Solaris, Irix,
 AIX. I have chosen to use the popular format. If, however, you prefer to use
-“GNU/Linux” instead, please perform a mental search and replace while reading
-this book. I won't mind.
-</p>
-
-
+“GNU/Linux” instead, please perform a mental search and replace while reading this book. I won't mind.</p>
 
 <p>在目前流行的用法中，“Linux”指的是内核以及一个典型的Linux发行版中所包含的所有免费及开源软件；
 也就是说，整个Linux生态系统，不只有GNU项目软件。操作系统商界，看起来喜欢一个单词的名字，
