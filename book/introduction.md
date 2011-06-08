@@ -249,6 +249,7 @@ down and get typing!
 
 <h3>Why I Don't Call It “GNU/Linux”</h3>
 
+<h3>为什么我不叫它“GNU/Linux”</h3>
 
 </td>
 </tr>
