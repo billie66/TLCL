@@ -265,7 +265,7 @@ seems to prefer one-word names such as DOS, Windows, MacOS, Solaris, Irix,
 AIX. I have chosen to use the popular format. If, however, you prefer to use
 “GNU/Linux” instead, please perform a mental search and replace while reading
 this book. I won't mind.
-</P>
+</p>
 
 
 
