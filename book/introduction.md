@@ -242,7 +242,7 @@ down and get typing!
 都可以自己动手练习，坐下来，敲入命令，体验一下吧。
 
 
-<table cellspacing="0" cellpadding="0" border="1" width="100%">
+<table cellspacing="0" cellpadding="10" width="100%">
 <tr>
 <td>
 
