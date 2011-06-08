@@ -251,18 +251,6 @@ down and get typing!
 
 <h3>为什么我不叫它“GNU/Linux”</h3>
 
-<p>关于Richard Stallman，天才的哲学家，自由软件运动创始人，自由软件基金会创办者，创建了GNU工程，
-编写了第一版GNU C 编译器（gcc），创立了GNU通用公共协议（the GPL),等等。
-他坚持把Linux称为“GNU/Linux”，为的是准确地反映GNU工程对Linux操作系统的贡献。
-然而，GNU项目早于Linux内核，而GNU项目的贡献得到极高的赞誉，把GNU用在Linux名字里，
-这对其他每个，对Linux的发展，做出重大贡献的程序员来说，就不公平了。</p>
-
-<p>In popular usage, “Linux” refers to the kernel and all the other free and open
-source software found in the typical Linux distribution; that is, the entire Linux
-ecosystem, not just the GNU components. The operating system marketplace
-seems to prefer one-word names such as DOS, Windows, MacOS, Solaris, Irix,
-AIX. I have chosen to use the popular format. If, however, you prefer to use
-“GNU/Linux” instead, please perform a mental search and replace while reading this book. I won't mind.</P>
 
 <p>在目前流行的用法中，“Linux”指的是内核以及一个典型的Linux发行版中所包含的所有免费及开源软件；
 也就是说，整个Linux生态系统，不只有GNU项目软件。操作系统商界，看起来喜欢一个单词的名字，
