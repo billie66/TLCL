@@ -251,6 +251,12 @@ down and get typing!
 
 <h3>为什么我不叫它“GNU/Linux”</h3>
 
+
+<p>在目前流行的用法中，“Linux”指的是内核以及一个典型的Linux发行版中所包含的所有免费及开源软件；
+也就是说，整个Linux生态系统，不只有GNU项目软件。操作系统商界，看起来喜欢一个单词的名字，
+比如说 DOS, Windows, MacOS, Solaris, Irix, AIX. 所以，我选择用流行的
+命名规则。然而，如果你喜欢用“GNU/Linux”，当你读这本书时，可以搜索并代替“Linux”。我不介意。</p>
+
 </td>
 </tr>
 </table>
