@@ -47,4 +47,8 @@ padding: 8px 12px 8px 12px;
 font-size: 15px;
 font-weight: bold;
 }
+table
+{
+border:5px solid #000000;
+}
 
