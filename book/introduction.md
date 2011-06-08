@@ -195,19 +195,6 @@ Prerequisites
 
 #### 前提条件
 
-
-<h1>peter</h1>
-<table border="1">
-<tr>
-fkjds fks dfj ksd fksdj fkjsd fk sdkf sdkfsd
-dsfsdjfksd f
-ds
-f
-ds
-fds
-</tr>
-</table> 
-
 To use this book, all you will need is a working Linux installation. You can get this in
 one of two ways:
 
@@ -255,7 +242,7 @@ down and get typing!
 都可以自己动手练习，坐下来，敲入命令，体验一下吧。
 
 
-<table cellspacing="0" cellpadding="0" border="1			" width="100%">
+<table cellspacing="0" cellpadding="0" border="1" width="100%">
 <tr>
 <td>
 
@@ -274,7 +261,7 @@ enough to form a complete operating system.</p>
 <p>在某些领域，从政治上讲，把Linux操作系统称为“GNU/Linux 操作系统.”是正确的。但“Linux”的问题是，
 没有一个完全正确的方式能命名它，因为它是由许许多多，分布在世界各地的贡献者们，合作开发而成的。
 从技术层面讲，Linux只是操作系统的内核名字，没别的含义。当然，内核非常重要，因为有它，
-操作系统才能运行起来，但它并不能构成一个完备的操作系统。</P>
+操作系统才能运行起来，但它并不能构成一个完备的操作系统。</p>
 
 <p>Enter Richard Stallman, the genius-philosopher who founded the Free Software
 movement, started the Free Software Foundation, formed the GNU Project, wrote
