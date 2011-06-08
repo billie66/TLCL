@@ -257,6 +257,17 @@ down and get typing!
 然而，GNU项目早于Linux内核，而GNU项目的贡献得到极高的赞誉，把GNU用在Linux名字里，
 这对其他每个，对Linux的发展，做出重大贡献的程序员来说，就不公平了。</p>
 
+<p>
+In popular usage, “Linux” refers to the kernel and all the other free and open
+source software found in the typical Linux distribution; that is, the entire
+Linux ecosystem, not just the GNU components. The operating system marketplace
+seems to prefer one-word names such as DOS, Windows, MacOS, Solaris, Irix,
+AIX. I have chosen to use the popular format. If, however, you prefer to use
+“GNU/Linux” instead, please perform a mental search and replace while reading
+this book. I won't mind.
+</P>
+
+
 
 <p>在目前流行的用法中，“Linux”指的是内核以及一个典型的Linux发行版中所包含的所有免费及开源软件；
 也就是说，整个Linux生态系统，不只有GNU项目软件。操作系统商界，看起来喜欢一个单词的名字，
