@@ -195,6 +195,9 @@ Prerequisites
 
 #### 前提条件
 
+
+<h1>peter</h1>
+
 To use this book, all you will need is a working Linux installation. You can get this in
 one of two ways:
 
@@ -242,7 +245,7 @@ down and get typing!
 都可以自己动手练习，坐下来，敲入命令，体验一下吧。
 
 
-<table cellspacing="0" cellpadding="0" border="1" width="100%">
+<table cellspacing="0" cellpadding="0" border="1			" width="100%">
 <tr>
 <td>
 
