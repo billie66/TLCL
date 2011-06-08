@@ -50,9 +50,6 @@ font-weight: bold;
 table
 {
 border:2px solid #dfd505;
-margin-bottom:  1em;
-margin-left:    1em;
-margin-right:   1em;
-margin-top:     1em;
+cellpadding:10px;
 }
 
