@@ -2,7 +2,7 @@
 layout: book
 title: 引言 
 ---
-## 1-引言
+### 1-引言
 
 我要给大家讲个故事。
 
@@ -304,27 +304,27 @@ Here are some Wikipedia articles on the famous people mentioned in this chapter:
 
 * Wikipedia网站上有些介绍本章提到的名人的文章，以下是链接地址：
 
-   > <http://en.wikipedia.org/wiki/Linux_Torvalds>
+    <http://en.wikipedia.org/wiki/Linux_Torvalds>
 
-   > <http://en.wikipedia.org/wiki/Richard_Stallman>
+    <http://en.wikipedia.org/wiki/Richard_Stallman>
 
 The Free Software Foundation and the GNU Project:
 
 * 介绍自由软件基金会及GNU项目的网站和文章：
 
-   > <http://en.wikipedia.org/wiki/Free_Software_Foundation>
+    <http://en.wikipedia.org/wiki/Free_Software_Foundation>
 
-   > <http://www.fsf.org>
+    <http://www.fsf.org>
 
-   > <http://www.gnu.org>
+    <http://www.gnu.org>
 
 Richard Stallman has written extensively on the “GNU/Linux” naming issue:
 
 * Richard Stallman用了大量的文字来叙述“GNU/Linux”的命名问题，可以浏览以下网页：
 
-   > <http://www.gnu.org/gnu/why-gnu-linux.html>
+    <http://www.gnu.org/gnu/why-gnu-linux.html>
 
-   > <http://www.gnu.org/gnu/gnu-linux-faq.html#tools>
+    <http://www.gnu.org/gnu/gnu-linux-faq.html#tools>
 
 
 
