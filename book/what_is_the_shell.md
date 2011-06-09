@@ -14,9 +14,11 @@ program from the GNU Project called bash. The name “bash” is an acronym for
 for sh, the original Unix shell program written by Steve Bourne.
 
 当一说到命令行，我们真正指的是shell。shell就是一个程序，它接受从键盘输入的命令，
-然后把命令传递给操作系统去执行。几乎所有的Linux发行版都提供一个shell程序，
-它来自于名为bash的GNU项目。“bash”是“Bourne Again SHell”的首字母缩写，
-所指的是这样一个事实，bash是sh的增强版，sh是最初Unix的shell程序，由Steve Bourne写成。
+然后把命令传递给操作系统去执行。
+几乎所有的Linux发行版都提供一个名为bash程序，是Shell的一种，来自于GNU项目。“bash”是“Bourne
+Again SHell”的首字母 缩写，
+所指的是这样一个事实，bash是sh的增强版，sh是最初Unix的shell程序，由Steve
+Bourne写成。
 
 Terminal Emulators
 
