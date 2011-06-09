@@ -197,22 +197,24 @@ programs do.</p></li>
 and punctuation characters, limit the punctuation characters in the names of
 files you create to period, dash, and underscore. Most importantly, do not
 embed spaces in filenames. If you want to represent spaces between words in
-a filename, use underscore characters. You will thank yourself later.</p></li>
+a filename, use underscore characters. You will thank yourself
+later.</p></li></ol>
 
-1.  以"."字符开头的文件名是隐藏文件。这仅表示，ls命令不能列出它们，
+<ol><li><p>
+以"."字符开头的文件名是隐藏文件。这仅表示，ls命令不能列出它们，
 除非使用ls -a 命令。当你创建帐号后，几个配置帐号的隐藏文件被放置在
 你的主目录下。稍后，我们会仔细研究一些隐藏文件，来定制你的系统环境。
-另外，一些应用程序也会把它们的配置文件以隐藏文件的形式放在你的主目录下面。
+另外，一些应用程序也会把它们的配置文件以隐藏文件的形式放在你的主目录下面。</p></li>
 
-2.  文件名和命令名是大小写敏感的。文件名“File1” 和 “file1”是指两个不同的文件名。
+<li><p>文件名和命令名是大小写敏感的。文件名“File1” 和 “file1”是指两个不同的文件名。</p></li>
 
-3.  Linux没有“文件扩展名”的概念，不像其它一些系统。可以用你喜欢的任何名字
+<li><p>Linux没有“文件扩展名”的概念，不像其它一些系统。可以用你喜欢的任何名字
 来给文件起名。文件内容或用途由其它方法来决定。虽然类似Unix的操作系统，
-不用文件扩展名来决定文件的内容或用途，但是应用程序会。
+不用文件扩展名来决定文件的内容或用途，但是应用程序会。</p></li>
 
-4.  虽然Linux支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限
+<li><p>虽然Linux支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限
 使用“.”，“－”，下划线。最重要的是，不要在文件名中使用空格。如果你想表示词与
-词间的空格，用下划线字符来代替。过些时候，你会感激自己这样做。
+词间的空格，用下划线字符来代替。过些时候，你会感激自己这样做。</p></li></ol>
 </td>
 </tr>
 </table>
