@@ -163,17 +163,17 @@ for commands.
 Part 3 – Configuration And The Environment covers editing configuration files
 that control the computer's operation from the command line.
 
-<ul><p>第三部分 — 配置文件及环境 讲述了如何编写配置文件，通过配置文件，用命令行来
-  操控计算机。</p></ul>
+<ul><li><p>第三部分 — 配置文件及环境 讲述了如何编写配置文件，通过配置文件，用命令行来
+  操控计算机。</p></li></ul>
 
 Part 4 – Common Tasks And Essential Tools explores many of the ordinary tasks
 that are commonly performed from the command line. Unix-like operating
 systems, such as Linux, contain many “classic” command line programs that are
 used to perform powerful operations on data.
 
-<ul><p> 第四部分 — 常见任务及主要工具  探究了许多命令行经常执行的普通任务。类似于
+<ul><li><p> 第四部分 — 常见任务及主要工具  探究了许多命令行经常执行的普通任务。类似于
   Unix的操作系统，例如Linux, 包括许多经典的命令行程序，这些程序被用来对数据进行
-  强大的操作。</p></ul>
+  强大的操作。</p></li></ul>
 
 Part 5 – Writing Shell Scripts introduces shell programming, an admittedly
 rudimentary, but easy to learn, technique for automating many common
