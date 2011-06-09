@@ -169,13 +169,15 @@ the working directory to /usr/bin again:
 符号"."指的是工作目录，".."指的是工作目录的父目录。下面的例子说明怎样使用它。
 再次更改工作目录到/usr/bin：
 
-Important Facts About Filenames
-
-### 关于文件名的重要规则
-<table cellpadding="10",width="%100">
+<table cellpadding="10" width="%100">
 <tr>
 <td>
-<ol><li><p>
+
+<h3>Important Facts About Filenames</h3>
+
+<h3> 关于文件名的重要规则</h3>
+<ol>
+<li><p>
 Filenames that begin with a period character are hidden. This only means that
 ls will not list them unless you say ls -a. When your account was created,
 several hidden files were placed in your home directory to configure things
@@ -198,9 +200,11 @@ and punctuation characters, limit the punctuation characters in the names of
 files you create to period, dash, and underscore. Most importantly, do not
 embed spaces in filenames. If you want to represent spaces between words in
 a filename, use underscore characters. You will thank yourself
-later.</p></li></ol>
+later.</p></li>
+</ol>
 
-<ol><li><p>
+<ol>
+<li><p>
 以"."字符开头的文件名是隐藏文件。这仅表示，ls命令不能列出它们，
 除非使用ls -a 命令。当你创建帐号后，几个配置帐号的隐藏文件被放置在
 你的主目录下。稍后，我们会仔细研究一些隐藏文件，来定制你的系统环境。
@@ -214,10 +218,10 @@ later.</p></li></ol>
 
 <li><p>虽然Linux支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限
 使用“.”，“－”，下划线。最重要的是，不要在文件名中使用空格。如果你想表示词与
-词间的空格，用下划线字符来代替。过些时候，你会感激自己这样做。</p></li></ol>
+词间的空格，用下划线字符来代替。过些时候，你会感激自己这样做。</p></li>
+</ol>
+
 </td>
 </tr>
 </table>
-
-
 
