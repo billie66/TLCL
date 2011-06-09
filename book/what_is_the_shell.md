@@ -46,7 +46,10 @@ should see something like this:
 
 好，开始吧。启动终端仿真器！一旦它运行起来，我们应该能够看到一行类似下面文字的输出：
 
-    [me@linuxbox ~]$
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$</tt>
+</pre>
+</div>
 
 This is called a shell prompt and it will appear whenever the shell is ready
 to accept input. While it may vary in appearance somewhat depending on the
