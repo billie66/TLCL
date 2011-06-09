@@ -157,20 +157,20 @@ the command line including such things as the structure of commands, file
 system navigation, command line editing, and finding help and documentation
 for commands.
 
-* 第二部分 —— 学习shell 开始探究命令行基本语言，包括这些东西，例如命令组成结构，
+* 第二部分 — 学习shell 开始探究命令行基本语言，包括这些东西，例如命令组成结构，
   文件系统浏览，编写命令行，查找命令帮助文档
 
 Part 3 – Configuration And The Environment covers editing configuration files
 that control the computer's operation from the command line.
 
-* 第三部分 —— 配置文件及环境 讲述了如何编写配置文件，通过配置文件，用命令行来操控计算机
+* 第三部分 — 配置文件及环境 讲述了如何编写配置文件，通过配置文件，用命令行来操控计算机。
 
 Part 4 – Common Tasks And Essential Tools explores many of the ordinary tasks
 that are commonly performed from the command line. Unix-like operating
 systems, such as Linux, contain many “classic” command line programs that are
 used to perform powerful operations on data.
 
-* 第四部分 —— 常见任务及主要工具  探究了许多命令行经常执行的普通任务。类似于Unix的操作系统，
+* 第四部分 — 常见任务及主要工具  探究了许多命令行经常执行的普通任务。类似于Unix的操作系统，
   例如Linux, 包括许多经典的命令行程序，
   这些程序被用来对数据进行强大的操作。
 
@@ -179,7 +179,7 @@ rudimentary, but easy to learn, technique for automating many common
 computing tasks. By learning shell programming, you will become familiar with
 concepts that can be applied to many other programming languages.
 
-* 第五部分 —— 编写Shell脚本  介绍了shell编程，一个无可否认的基本技能，能够自动化许多
+* 第五部分 — 编写Shell脚本  介绍了shell编程，一个无可否认的基本技能，能够自动化许多
   常见的计算任务，很容易学。通过学习shell编程，你会逐渐熟悉一些计算机语言概念，
   这些概念也适用于其他的编程语言。
 
