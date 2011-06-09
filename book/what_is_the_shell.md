@@ -86,8 +86,7 @@ another chance:
 因为这个命令没有任何意义，所以shell会提示错误信息，并让我们再试一下：
 
 <div class="code"><pre>
-<tt>
-bash: kaekfjaeifj: command not found
+<tt>bash: kaekfjaeifj: command not found
 [me@linuxbox ~]$
 </tt>
 </pre></div>
@@ -170,8 +169,7 @@ date. This command displays the current time and date.
 这个命令显示系统当前时间和日期。
 
 <div class="code"><pre>
-<tt>
-[me@linuxbox ~]$ date
+<tt>[me@linuxbox ~]$ date
 Thu Oct 25 13:51:54 EDT 2007
 </tt>
 </pre></div>
@@ -181,8 +179,7 @@ A related command is cal which, by default, displays a calendar of the current m
 一个相关联的命令，cal，它默认显示当前月份的日历。
 
 <div class="code"><pre>
-<tt>
-[me@linuxbox ~]$ cal
+<tt>[me@linuxbox ~]$ cal
 October 2007
 Su Mo Tu We Th Fr Sa
 1 2 3 4 5 6
@@ -198,8 +195,7 @@ To see the current amount of free space on your disk drives, type df:
 查看磁盘剩余空间的数量，输入df:
 
 <div class="code"><pre>
-<tt>
-[me@linuxbox ~]$ df
+<tt>[me@linuxbox ~]$ df
 Filesystem           1K-blocks      Used Available Use% Mounted on
 /dev/sda2             15115452   5012392   9949716  34% /
 /dev/sda5             59631908  26545424  30008432  47% /home
@@ -213,8 +209,7 @@ Likewise, to display the amount of free memory, type the free command.
 同样地，显示空闲内存的数量，输入命令free。
 
 <div class="code"><pre>
-<tt>
-[me@linuxbox ~]$ free
+<tt>[me@linuxbox ~]$ free
 total       used       free     shared    buffers     cached
 Mem:       2059676     846456    1213220          0
 44028      360568
@@ -233,9 +228,7 @@ entering the exit command at the shell prompt:
 我们可以终止一个终端会话，通过关闭终端仿真器窗口，或者是在shell提示符下输入exit命令：
 
 <div class="code"><pre>
-<tt>
-[me@linuxbox ~]$ exit
-</tt>
+<tt>[me@linuxbox ~]$ exit</tt>
 </pre></div>
 
 The Console Behind The Curtain
