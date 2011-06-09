@@ -157,33 +157,34 @@ the command line including such things as the structure of commands, file
 system navigation, command line editing, and finding help and documentation
 for commands.
 
-*    第二部分 —— 学习shell 开始探究命令行基本语言，包括这些东西，例如命令组成结构，
-     文件系统浏览，编写命令行，查找命令帮助文档
+* 第二部分 —— 学习shell 开始探究命令行基本语言，包括这些东西，例如命令组成结构，
+  文件系统浏览，编写命令行，查找命令帮助文档
 
 Part 3 – Configuration And The Environment covers editing configuration files
 that control the computer's operation from the command line.
 
-*    第三部分 —— 配置文件及环境 讲述了如何编写配置文件，通过配置文件，用命令行来操控计算机
+* 第三部分 —— 配置文件及环境 讲述了如何编写配置文件，通过配置文件，用命令行来操控计算机
 
- Part 4 – Common Tasks And Essential Tools explores many of the ordinary tasks
- that are commonly performed from the command line. Unix-like operating
- systems, such as Linux, contain many “classic” command line programs that are
- used to perform powerful operations on data.
+Part 4 – Common Tasks And Essential Tools explores many of the ordinary tasks
+that are commonly performed from the command line. Unix-like operating
+systems, such as Linux, contain many “classic” command line programs that are
+used to perform powerful operations on data.
 
-*    第四部分 —— 常见任务及主要工具  探究了许多命令行经常执行的普通任务。类似于Unix的操作系统，
-     例如Linux, 包括许多经典的命令行程序，
-     这些程序被用来对数据进行强大的操作。
+* 第四部分 —— 常见任务及主要工具  探究了许多命令行经常执行的普通任务。类似于Unix的操作系统，
+  例如Linux, 包括许多经典的命令行程序，
+  这些程序被用来对数据进行强大的操作。
 
 Part 5 – Writing Shell Scripts introduces shell programming, an admittedly
 rudimentary, but easy to learn, technique for automating many common
 computing tasks. By learning shell programming, you will become familiar with
 concepts that can be applied to many other programming languages.
 
-*    第五部分 —— 编写Shell脚本  介绍了shell编程，一个无可否认的基本技能，能够自动化许多
-     常见的计算任务，很容易学。通过学习shell编程，你会逐渐熟悉一些计算机语言概念，
-     这些概念也适用于其他的编程语言。
+* 第五部分 —— 编写Shell脚本  介绍了shell编程，一个无可否认的基本技能，能够自动化许多
+  常见的计算任务，很容易学。通过学习shell编程，你会逐渐熟悉一些计算机语言概念，
+  这些概念也适用于其他的编程语言。
 
 How To Read This Book
+
 ### 怎样阅读这本书
 
 Start at the beginning of the book and follow it to the end. It isn’t written as a reference
@@ -200,32 +201,34 @@ one of two ways:
 
 为了使用这本书，你需要安装Linux操作系统。你可以通过两种方式，来完成安装。
 
-1. Install Linux on a (not so new) computer. It doesn't matter which
-   distribution you choose, though most people today start out with either
-   Ubuntu, Fedora, or . If in doubt, try Ubuntu first. Installing a modern
-   Linux distribution can be ridiculously easy or ridiculously difficult
-   depending on your hardware. I suggest a desktop computer that is a couple
-   of years old and has at least 256 megabytes of RAM and 6 gigabytes of free
-   hard disk space. Avoid laptops and wireless networks if at all possible, as
-   these are often more difficult to get working.
+<ol>
+<li><p>Install Linux on a (not so new) computer. It doesn't matter which
+distribution you choose, though most people today start out with either
+Ubuntu, Fedora, or . If in doubt, try Ubuntu first. Installing a modern
+Linux distribution can be ridiculously easy or ridiculously difficult
+depending on your hardware. I suggest a desktop computer that is a couple
+of years old and has at least 256 megabytes of RAM and 6 gigabytes of free
+hard disk space. Avoid laptops and wireless networks if at all possible, as
+these are often more difficult to get working.</p></li>
 
-1.    在一台（不是很新）的电脑上安装Linux。你选择哪个Linux发行版安装，是无关紧要的事。
-虽然大多数人一开始选择安装Ubuntu, Fedora, 或者OpenSUSE。如果你拿不定主意，那就先试试Ubuntu。
-由于主机硬件配置不同，安装Linux时，你可能不费吹灰之力就装上了，也可能费了九牛二虎之力还装不上。
-所以我建议，一台使用了几年的台式机，至少要有256M的内存，6G的硬盘可用空间。尽可能避免使用
-笔记本电脑和无线网络，在Linux环境下，它们经常不能工作。
+<li><p>Use a “Live CD.” One of the cool things you can do with many Linux
+distributions is run them directly from a CDROM without installing them at
+all.  Just go into your BIOS setup and set your computer to “Boot from
+CDROM,” insert the live CD, and reboot. Using a live CD is a great way to
+test a computer for Linux compatibility prior to installation. The
+disadvantage of using a live CD is that it may be very slow compared to
+having Linux installed on your hard drive.  Both Ubuntu and Fedora (among
+others) have live CD versions.</p></li>
+</ol>
 
-2. Use a “Live CD.” One of the cool things you can do with many Linux
-   distributions is run them directly from a CDROM without installing them at
-   all.  Just go into your BIOS setup and set your computer to “Boot from
-   CDROM,” insert the live CD, and reboot. Using a live CD is a great way to
-   test a computer for Linux compatibility prior to installation. The
-   disadvantage of using a live CD is that it may be very slow compared to
-   having Linux installed on your hard drive.  Both Ubuntu and Fedora (among
-   others) have live CD versions.
+1. 在一台（不是很新）的电脑上安装Linux。你选择哪个Linux发行版安装，是无关紧要的事。
+   虽然大多数人一开始选择安装Ubuntu, Fedora, 或者OpenSUSE。如果你拿不定主意，那就先试试Ubuntu。
+   由于主机硬件配置不同，安装Linux时，你可能不费吹灰之力就装上了，也可能费了九牛二虎之力还装不上。
+   所以我建议，一台使用了几年的台式机，至少要有256M的内存，6G的硬盘可用空间。尽可能避免使用
+   笔记本电脑和无线网络，在Linux环境下，它们经常不能工作。
 
-2.    使用“Live CD.” 许多Linux发行版都自带一个比较酷的功能，你可以直接从系统安装盘CDROM中运行Linux，
-而不必安装Linux。开机进入BIOS设置界面，更改引导项，设置为“Boot from CDROM”。
+2. 使用“Live CD.” 许多Linux发行版都自带一个比较酷的功能，你可以直接从系统安装盘CDROM中运行Linux，
+   而不必安装Linux。开机进入BIOS设置界面，更改引导项，设置为“Boot from CDROM”。
 
 Regardless of how you install Linux, you will need to have occasional
 superuser (i.e., administrative) privileges to carry out the lessons in this
@@ -233,14 +236,12 @@ book.
 
 不管你怎样安装Linux，你需要有超级用户（管理员）权限，才能练习书中的课程。
 
-
 After you have a working installation, start reading and follow along with
 your own computer. Most of the material in this book is “hands on,” so sit
 down and get typing!
 
 当你创建了一个Linux工作环境之后，跟随着你的电脑，开始阅读这本书吧。这本书中大部分内容
 都可以自己动手练习，坐下来，敲入命令，体验一下吧。
-
 
 <table cellspacing="0" cellpadding="10" width="100%">
 <tr>
@@ -295,31 +296,35 @@ AIX. I have chosen to use the popular format. If, however, you prefer to use
 </tr>
 </table>
 
-Further Reading
+### Further Reading
 
-进一步阅读
+### 扩展阅读
 
 Here are some Wikipedia articles on the famous people mentioned in this chapter:
 
 * Wikipedia网站上有些介绍本章提到的名人的文章，以下是链接地址：
 
-   http://en.wikipedia.org/wiki/Linux_Torvalds
-   http://en.wikipedia.org/wiki/Richard_Stallman
+   > <http://en.wikipedia.org/wiki/Linux_Torvalds>
+
+   > <http://en.wikipedia.org/wiki/Richard_Stallman>
 
 The Free Software Foundation and the GNU Project:
 
 * 介绍自由软件基金会及GNU项目的网站和文章：
 
-   http://en.wikipedia.org/wiki/Free_Software_Foundation
-   http://www.fsf.org
-   http://www.gnu.org
+   > <http://en.wikipedia.org/wiki/Free_Software_Foundation>
+
+   > <http://www.fsf.org>
+
+   > <http://www.gnu.org>
 
 Richard Stallman has written extensively on the “GNU/Linux” naming issue:
 
 * Richard Stallman用了大量的文字来叙述“GNU/Linux”的命名问题，可以浏览以下网页：
 
-   http://www.gnu.org/gnu/why-gnu-linux.html
-   http://www.gnu.org/gnu/gnu-linux-faq.html#tools
+   > <http://www.gnu.org/gnu/why-gnu-linux.html>
+
+   > <http://www.gnu.org/gnu/gnu-linux-faq.html#tools>
 
 
 
