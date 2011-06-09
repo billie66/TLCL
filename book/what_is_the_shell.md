@@ -75,6 +75,7 @@ gibberish at the prompt like so:
 
 假定到目前为止，所有事情都进行顺利，那我们试着打字吧。在提示符下敲入
 一些乱七八糟的无用数据，如下所示：
+
 <div class="code"><pre>
 <tt>
     [me@linuxbox ~]$ kaekfjaeifj
@@ -85,6 +86,7 @@ Since this command makes no sense, the shell will tell us so and give us
 another chance:
 
 因为这个命令没有任何意义，所以shell会提示错误信息，并让我们再试一下：
+
 <div class="code"><pre>
 <tt>
     bash: kaekfjaeifj: command not found
@@ -168,6 +170,7 @@ date. This command displays the current time and date.
 
 现在，我们学习了怎样输入命令，那我们执行一些简单的命令吧。第一个命令是date。
 这个命令显示系统当前时间和日期。
+
 <div class="code"><pre>
 <tt>
     [me@linuxbox ~]$ date
@@ -178,6 +181,7 @@ date. This command displays the current time and date.
 A related command is cal which, by default, displays a calendar of the current month.
 
 一个相关联的命令，cal，它默认显示当前月份的日历。
+
 <div class="code"><pre>
 <tt>
     [me@linuxbox ~]$ cal
@@ -194,6 +198,7 @@ A related command is cal which, by default, displays a calendar of the current m
 To see the current amount of free space on your disk drives, type df:
 
 查看磁盘剩余空间的数量，输入df:
+
 <div class="code"><pre>
 <tt>
     [me@linuxbox ~]$ df
@@ -208,6 +213,7 @@ To see the current amount of free space on your disk drives, type df:
 Likewise, to display the amount of free memory, type the free command.
 
 同样地，显示空闲内存的数量，输入命令free。
+
 <div class="code"><pre>
 <tt>
     [me@linuxbox ~]$ free
@@ -227,6 +233,7 @@ We can end a terminal session by either closing the terminal emulator window, or
 entering the exit command at the shell prompt:
 
 我们可以终止一个终端会话，通过关闭终端仿真器窗口，或者是在shell提示符下输入exit命令：
+
 <div class="code"><pre>
 <tt>
     [me@linuxbox ~]$ exit
