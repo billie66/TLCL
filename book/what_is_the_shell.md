@@ -87,8 +87,7 @@ another chance:
 
 <div class="code"><pre>
 <tt>bash: kaekfjaeifj: command not found
-[me@linuxbox ~]$
-</tt>
+[me@linuxbox ~]$</tt>
 </pre></div>
 
 Command History
@@ -170,8 +169,7 @@ date. This command displays the current time and date.
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ date
-Thu Oct 25 13:51:54 EDT 2007
-</tt>
+Thu Oct 25 13:51:54 EDT 2007</tt>
 </pre></div>
 
 A related command is cal which, by default, displays a calendar of the current month.
@@ -186,8 +184,7 @@ Su Mo Tu We Th Fr Sa
 7 8 9 10 11 12 13
 14 15 16 17 18 19 20
 21 22 23 24 25 26 27
-28 29 30 31
-</tt>
+28 29 30 31</tt>
 </pre></div>
 
 To see the current amount of free space on your disk drives, type df:
@@ -200,8 +197,7 @@ Filesystem           1K-blocks      Used Available Use% Mounted on
 /dev/sda2             15115452   5012392   9949716  34% /
 /dev/sda5             59631908  26545424  30008432  47% /home
 /dev/sda1               147764     17370   122765   13% /boot
-tmpfs                   256856         0   256856    0% /dev/shm
-</tt>
+tmpfs                   256856         0   256856    0% /dev/shm</tt>
 </pre></div>
 
 Likewise, to display the amount of free memory, type the free command.
@@ -214,8 +210,7 @@ total       used       free     shared    buffers     cached
 Mem:       2059676     846456    1213220          0
 44028      360568
 -/+ buffers/cache:     441860    1617816
-Swap:      1042428          0    1042428
-</tt>
+Swap:      1042428          0    1042428</tt>
 </pre></div>
 
 Ending A Terminal Session
