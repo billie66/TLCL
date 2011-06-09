@@ -172,7 +172,9 @@ the working directory to /usr/bin again:
 Important Facts About Filenames
 
 ### 关于文件名的重要规则
-
+<table cellpadding="10",width="%100">
+<tr>
+<td>
 <ol><li><p>
 Filenames that begin with a period character are hidden. This only means that
 ls will not list them unless you say ls -a. When your account was created,
@@ -211,6 +213,9 @@ a filename, use underscore characters. You will thank yourself later.</p></li>
 4.  虽然Linux支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限
 使用“.”，“－”，下划线。最重要的是，不要在文件名中使用空格。如果你想表示词与
 词间的空格，用下划线字符来代替。过些时候，你会感激自己这样做。
+</td>
+</tr>
+</table>
 
 
 

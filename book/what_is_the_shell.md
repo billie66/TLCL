@@ -236,13 +236,13 @@ Wikipedia article:
 
 *  想了解更多关于Steve Bourne的故事，Bourne Shell之父，读一下这篇文章：
 
-  <http://en.wikipedia.org/wiki/Steve_Bourne>
+   <http://en.wikipedia.org/wiki/Steve_Bourne>
 
 Here is an article about the concept of shells in computing:
 
 *  这是一篇关于在计算机领域里，shells概念的文章：
 
- <http://en.wikipedia.org/wiki/Shell_(computing)>
+   <http://en.wikipedia.org/wiki/Shell_(computing)>
 
 
  
