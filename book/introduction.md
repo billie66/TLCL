@@ -158,21 +158,22 @@ system navigation, command line editing, and finding help and documentation
 for commands.
 
 * 第二部分 — 学习shell 开始探究命令行基本语言，包括这些东西，例如命令组成结构，
-  文件系统浏览，编写命令行，查找命令帮助文档
+  文件系统浏览，编写命令行，查找命令帮助文档。
 
 Part 3 – Configuration And The Environment covers editing configuration files
 that control the computer's operation from the command line.
 
-* 第三部分 — 配置文件及环境 讲述了如何编写配置文件，通过配置文件，用命令行来操控计算机。
+* 第三部分 — 配置文件及环境 讲述了如何编写配置文件，通过配置文件，用命令行来
+  操控计算机。
 
 Part 4 – Common Tasks And Essential Tools explores many of the ordinary tasks
 that are commonly performed from the command line. Unix-like operating
 systems, such as Linux, contain many “classic” command line programs that are
 used to perform powerful operations on data.
 
-* 第四部分 — 常见任务及主要工具  探究了许多命令行经常执行的普通任务。类似于Unix的操作系统，
-  例如Linux, 包括许多经典的命令行程序，
-  这些程序被用来对数据进行强大的操作。
+* 第四部分 — 常见任务及主要工具  探究了许多命令行经常执行的普通任务。类似于
+  Unix的操作系统，例如Linux, 包括许多经典的命令行程序，这些程序被用来对数据进行
+  强大的操作。
 
 Part 5 – Writing Shell Scripts introduces shell programming, an admittedly
 rudimentary, but easy to learn, technique for automating many common
