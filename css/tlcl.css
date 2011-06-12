@@ -50,15 +50,17 @@ padding: 8px 12px 8px 12px;
 font-size: 15px;
 font-weight: bold;
 }
-table
+table.single
 {
 border:2px solid #dfd505;
 background-color: #E0E0E0;
 }
-table.multi{
+table.multi
+{
     text-align:left;
 }
-div.code{
+div.code
+{
     background-color: #E0E0E0;
     padding: 0.1em;
     font-size: 150%;
