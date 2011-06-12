@@ -256,7 +256,7 @@ quickly changed.
 <table class="multi" boder="0">
 <caption style="font-style:italic" align="left">Table 3-1: cd Shortcuts</caption>
 <tr>
-<th style="background-color:#E0E0E0" colspan="2"> Shortcut </th>
+<th style="background-color:#E0E0E0"> Shortcut </th>
 <th style="background-color:#E0E0E0"> Result </th>
 </tr>
 <tr>
@@ -268,7 +268,7 @@ quickly changed.
 <td> Changes the working directory to the previous working directory.</td>
 </tr>
 <tr>
-<td> cd ~user_name </td>
+<td> <pre>cd ~user_name</pre> </td>
 <td> Changes the working directory to the home directory of
 user_name. For example, cd ~bob will change the directory to
 the home directory of user “bob.”
