@@ -252,6 +252,7 @@ Some Helpful Shortcuts
 In table 3-1 we see some useful ways the current working directory can be
 quickly changed.
 
+<p>
 <table class="multi" cellpadding="10" border="1">
 <caption class="cap">Table 3-1: cd Shortcuts</caption>
 <tr>
@@ -267,15 +268,16 @@ quickly changed.
 <td> Changes the working directory to the previous working directory.</td>
 </tr>
 <tr>
-<td> <p>cd ~user_name </p></td>
+<td>cd ~user_name</td>
 <td> <p>Changes the working directory to the home directory of
 user_name. For example, cd ~bob will change the directory to
 the home directory of user “bob.”</p>
 </td>
 </tr>
 </table>
+</p>
 
-
+<p>
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
@@ -331,4 +333,5 @@ later.</p></li>
 </td>
 </tr>
 </table>
+</p>
 
