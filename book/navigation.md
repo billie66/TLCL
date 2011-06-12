@@ -63,7 +63,7 @@ represents the file system tree as in Figure 1. Notice that the tree is
 usually shown upended, that is, with the root at the top and the various
 branches descending below.
 
-<center><p><img src="./images/3.png" alt="file tree" /></p></center>
+<p style="text-align:center"><img src="./images/3.png" alt="file tree" /></p>
 
 <p class="figure">Figure 1: File system tree as shown by a graphical file manager</p>
 
