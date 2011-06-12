@@ -16,6 +16,10 @@ a {text-decoration:none;}
 /*this is very important for me*/
 pre { margin-left: 3% }
 
+p.figure{
+font-style:italic;
+text-align:center;
+}
 
 #menu
 {
