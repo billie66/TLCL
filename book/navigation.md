@@ -88,6 +88,11 @@ the pwd (print working directory) command.
 以及通往上面目录（父目录）和下面子目录的路径。我们所在的目录则称为
 当前工作目录。我们使用pwd（打印工作目录）命令，来显示当前工作目录。
 
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ pwd
+/home/me</tt>
+</pre></div>
+
 When we first log in to our system (or start a terminal emulator session) our
 current working directory is set to our home directory. Each user account is
 given its own home directory and when operating as a regular user, the home
@@ -105,6 +110,12 @@ To list the files and directories in the current working directory, we use the
 ls command.
 
 列出一个目录包含的文件及子目录，使用ls命令。
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ ls
+Desktop Documents Music Pictures Public Templates Videos</tt>
+</pre></div>
+
 
 Actually, we can use the ls command to list the contents of any directory, not
 just the current working directory, and there are many other fun things it can
@@ -146,6 +157,15 @@ pathname) there is a directory called "usr" which contains a directory called
 路径名是/usr/bin。它意味着从根目录（用开头的“/"表示）开始，有一个叫"usr"的
 目录包含了目录"bin"。
 
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ cd /usr/bin
+[me@linuxbox bin]$ pwd
+/usr/bin
+[me@linuxbox bin]$ ls
+...Listing of many, many files ...</tt>
+</pre></div>
+
+
 Now we can see that we have changed the current working directory to /usr/bin
 and that it is full of files. Notice how the shell prompt has changed? As a
 convenience, it is usually set up to automatically display the name of the
@@ -172,6 +192,91 @@ the working directory to /usr/bin again:
 
 符号"."指的是工作目录，".."指的是工作目录的父目录。下面的例子说明怎样使用它。
 再次更改工作目录到/usr/bin：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ cd /usr/bin
+[me@linuxbox bin]$ pwd
+/usr/bin</tt>
+</pre></div>
+
+Okay, now let's say that we wanted to change the working directory to the
+parent of /usr/bin which is /usr. We could do that two different ways. 
+Either with an absolute pathname:
+
+<div class="code"><pre>
+<tt>[me@linuxbox bin]$ cd /usr
+[me@linuxbox usr]$ pwd
+/usr</tt>
+</pre></div>
+
+Or, with a relative pathname:
+
+<div class="code"><pre>
+<tt>[me@linuxbox bin]$ cd ..
+[me@linuxbox usr]$ pwd
+/usr</tt>
+</pre></div>
+
+Two different methods with identical results. Which one should we use? The one
+that requires the least typing!
+
+Likewise, we can change the working directory from /usr to /usr/bin in two
+different ways. Either using an absolute pathname:
+
+<div class="code"><pre>
+<tt>[me@linuxbox usr]$ cd /usr/bin
+[me@linuxbox bin]$ pwd
+/usr/bin</tt>
+</pre></div>
+
+Or, with a relative pathname:
+
+<div class="code"><pre>
+<tt>[me@linuxbox usr]$ cd ./bin
+[me@linuxbox bin]$ pwd
+/usr/bin</tt>
+</pre></div>
+
+Now, there is something important that I must point out here. In almost all
+cases, you can omit the "./". It is implied. Typing:
+
+<div class="code"><pre>
+<tt>[me@linuxbox usr]$ cd bin</tt>
+</pre></div>
+
+does the same thing. In general, if you do not specify a pathname to
+something, the working directory will be assumed.
+
+Some Helpful Shortcuts
+
+In table 3-1 we see some useful ways the current working directory can be
+quickly changed.
+
+<table class="multi" boder="0">
+<caption style="font-style:italic">Table 3-1: cd Shortcuts</caption>
+<tr>
+<th style="background-color:#E0E0E0"> Shortcut </th>
+<th style="background-color:#E0E0E0"> Result </th>
+</tr>
+<tr>
+<td> cd</td>
+<td> Changes the working directory to your home directory.</td>
+</tr>
+<hr>
+<tr>
+<td> cd -</td>
+<td> Changes the working directory to the previous working directory.</td>
+</tr>
+<hr>
+<tr>
+<td> cd ~user_name</td>
+<td> Changes the working directory to the home directory of
+user_name. For example, cd ~bob will change the directory to
+the home directory of user “bob.”
+</td>
+</tr>
+<hr>
+</table>
 
 <table cellpadding="10" width="%100">
 <tr>
