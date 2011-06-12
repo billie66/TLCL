@@ -59,6 +59,15 @@ table.multi
 {
     text-align:left;
 }
+caption.cap
+{
+    font-style:italic;
+    text-align:left;
+}
+th.title
+{
+    background-color:#E0E0E0;
+}
 div.code
 {
     background-color: #E0E0E0;

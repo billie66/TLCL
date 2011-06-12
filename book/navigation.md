@@ -253,10 +253,10 @@ In table 3-1 we see some useful ways the current working directory can be
 quickly changed.
 
 <table class="multi" cellpadding="10" border="1">
-<caption style="font-style:italic, text-align:left">Table 3-1: cd Shortcuts</caption>
+<caption class="cap">Table 3-1: cd Shortcuts</caption>
 <tr>
-<th style="background-color:#E0E0E0"> Shortcut          </th>
-<th style="background-color:#E0E0E0"> Result </th>
+<th class="title">Shortcut          </th>
+<th class="title"> Result </th>
 </tr>
 <tr>
 <td> cd</td>
@@ -275,7 +275,6 @@ the home directory of user “bob.”</p>
 </tr>
 </table>
 
-<hr />
 
 <table class="single" cellpadding="10" width="%100">
 <tr>
