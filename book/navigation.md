@@ -268,13 +268,16 @@ quickly changed.
 <td> Changes the working directory to the previous working directory.</td>
 </tr>
 <tr>
-<td>cd ~user_name</td>
+<td width="%50">cd ~user_name</td>
 <td> <p>Changes the working directory to the home directory of
 user_name. For example, cd ~bob will change the directory to
 the home directory of user “bob.”</p>
 </td>
 </tr>
 </table>
+</p>
+
+<p> 
 </p>
 
 <p>
