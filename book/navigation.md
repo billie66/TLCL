@@ -260,21 +260,21 @@ quickly changed.
 <th class="title"> Result </th>
 </tr>
 <tr>
-<td> cd</td>
-<td> Changes the working directory to your home directory.</td>
+<td valign="top"> cd</td>
+<td valign="top"> Changes the working directory to your home directory.</td>
 </tr>
 <tr>
-<td> cd -</td>
-<td> Changes the working directory to the previous working directory.</td>
+<td valign="top"> cd -</td>
+<td valign="top"> Changes the working directory to the previous working directory.</td>
 </tr>
 <tr>
-<td width="%18">cd ~user_name</td>
-<td> <p>Changes the working directory to the home directory of
+<td width="%18" valign="top">cd ~user_name</td>
+<td valign="top"> <p>Changes the working directory to the home directory of
 user_name. For example, cd ~bob will change the directory to
 the home directory of user “bob.”</p>
 </td>
 </tr>
-</table><br/>
+</table>
 </p>
 
 <p><br/></p>

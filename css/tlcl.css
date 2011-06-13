@@ -9,7 +9,10 @@ body
 margin-left: 100px;
 margin-right: 100px;
 }
-
+h1
+{
+    font-size: 
+}
 /*Remove the line under links*/
 a {text-decoration:none;}
 
@@ -68,6 +71,7 @@ th.title
 {
     background-color:#E0E0E0;
 }
+
 div.code
 {
     background-color: #E0E0E0;
