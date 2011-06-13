@@ -269,9 +269,9 @@ quickly changed.
 </tr>
 <tr>
 <td width="%18" valign="top">cd ~user_name</td>
-<td valign="top"> <p>Changes the working directory to the home directory of
+<td valign="top"> Changes the working directory to the home directory of
 user_name. For example, cd ~bob will change the directory to
-the home directory of user “bob.”</p>
+the home directory of user “bob.”
 </td>
 </tr>
 </table>
