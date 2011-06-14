@@ -298,7 +298,7 @@ the home directory of user “bob.”
 <p><br/></p> 
 
 <p>
-<table class="multi" cellpadding="10" border="1">
+<table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">表3-1: cd 快捷键</caption>
 <tr>
 <th class="title">快捷键</th>
