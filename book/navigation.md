@@ -203,6 +203,8 @@ Okay, now let's say that we wanted to change the working directory to the
 parent of /usr/bin which is /usr. We could do that two different ways. 
 Either with an absolute pathname:
 
+好的，比方说更改工作目录到/usr/bin的父目录/usr。可以通过两种方法来实现。每种方法都用到绝对路径名：
+
 <div class="code"><pre>
 <tt>[me@linuxbox bin]$ cd /usr
 [me@linuxbox usr]$ pwd
@@ -210,6 +212,8 @@ Either with an absolute pathname:
 </pre></div>
 
 Or, with a relative pathname:
+
+或者， 使用相对路径：
 
 <div class="code"><pre>
 <tt>[me@linuxbox bin]$ cd ..
@@ -220,8 +224,12 @@ Or, with a relative pathname:
 Two different methods with identical results. Which one should we use? The one
 that requires the least typing!
 
+两种不同的方法，一样的结果。我们应该选哪一个呢？ 输入量最少的那个。
+
 Likewise, we can change the working directory from /usr to /usr/bin in two
 different ways. Either using an absolute pathname:
+
+同样地，从目录/usr/到/usr/bin也有两种途径。每个使用绝对路径：
 
 <div class="code"><pre>
 <tt>[me@linuxbox usr]$ cd /usr/bin
@@ -230,6 +238,8 @@ different ways. Either using an absolute pathname:
 </pre></div>
 
 Or, with a relative pathname:
+
+或者，相对路径：
 
 <div class="code"><pre>
 <tt>[me@linuxbox usr]$ cd ./bin
@@ -240,6 +250,8 @@ Or, with a relative pathname:
 Now, there is something important that I must point out here. In almost all
 cases, you can omit the "./". It is implied. Typing:
 
+有一件很重要的事，我必须指出来。在几乎所有的情况下，你可以省略"./"。它是隐含地。输入：
+
 <div class="code"><pre>
 <tt>[me@linuxbox usr]$ cd bin</tt>
 </pre></div>
@@ -247,10 +259,16 @@ cases, you can omit the "./". It is implied. Typing:
 does the same thing. In general, if you do not specify a pathname to
 something, the working directory will be assumed.
 
+实现相同的效果，如果不指定一个文件的目录，那它的工作目录会被假定为当前工作目录。
+
 Some Helpful Shortcuts
+
+###有用的快捷键
 
 In table 3-1 we see some useful ways the current working directory can be
 quickly changed.
+
+在表3-1中，列举出了一些快速改变当前工作目录的有效方法。
 
 <p>
 <table class="multi" cellpadding="10" border="1">
@@ -273,6 +291,30 @@ quickly changed.
 user_name. For example, cd ~bob will change the directory to
 the home directory of user “bob.”
 </td>
+</tr>
+</table>
+</p>
+
+<p><br/></p> 
+
+<p>
+<table class="multi" cellpadding="10" border="1">
+<caption class="cap">表3-1: cd 快捷键</caption>
+<tr>
+<th class="title">快捷键</th>
+<th class="title">运行结果</th>
+</tr>
+<tr>
+<td valign="top">cd</td>
+<td valign="top">更改工作目录到主目录。</td>
+</tr>
+<tr>
+<td valign="top"> cd -</td>
+<td valign="top"> 更改工作目录到先前的工作目录。</td>
+</tr>
+<tr>
+<td width="%18" valign="top">cd ~user_name</td>
+<td valign="top"> 更改工作目录到用户主目录。例如, cd ~bob 会更改工作目录到用户“bob”的主目录。</td>
 </tr>
 </table>
 </p>
