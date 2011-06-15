@@ -4,7 +4,7 @@ title: 文件系统中跳转
 ---
 3 – Navigation
 
-### 3 — 在文件系统中航行
+### 3 — 在文件系统中跳转
 
 The first thing we need to learn to do (besides just typing) is how to
 navigate the file system on our Linux system. In this chapter we will
@@ -126,7 +126,7 @@ ls命令还能完成许多有趣的事情。在下一章节，我们将介绍更
 
 Changing The Current Working Directory
 
-###　更改当前工作目录
+### 更改当前工作目录
 
 To change your working directory (where we are standing in our tree-shaped
 maze) we use the cd command. To do this, type cd followed by the pathname of
@@ -271,7 +271,7 @@ quickly changed.
 在表3-1中，列举出了一些快速改变当前工作目录的有效方法。
 
 <p>
-<table class="multi" cellpadding="10" border="1">
+<table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">Table 3-1: cd Shortcuts</caption>
 <tr>
 <th class="title">Shortcut</th>
