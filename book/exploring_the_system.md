@@ -528,10 +528,11 @@ Table 4-4 lists just a few of the directories we can explore. Feel free to try m
 <td valign="top">Contains binaries (programs) that must be present for
 the system to boot and run.</td>
 </tr>
+
 <tr>
 <td valign="top">/boot</td>
 <td valign="top">Contains the linux kernel, intial RMA disk image (for
-drivers needed at boot time), and the boot loader.<br />
+drivers needed at boot time), and the boot loader.
 <p>Interesting files:</p>
 <ul>
 <li>/boot/grub/grub.conf or menu.lst, which are used to configure the boot
@@ -545,20 +546,22 @@ loader.</li>
 "Everything is a file" also applies to devices. Here is where the kernel
 maintains a list of alll the devices it understands. </td>
 </tr>
+
 <tr>
 <td valign="top">/etc</td>
 <td valign="top">The /etc directory contains all of the system-wide
 configuration files. It also contains a collection of shell scripts which start
 each of the system services at boot time. Everything in this directory should
 be readable text.
-<br />
 <p>Interesting files:While everything in /etc is interesting, here are some of my
 all-time favorites:</p>
 <ul>
 <li>/etc/crontab, a file that defines when automated jobs will run.</li>
 <li>/etc/fstab, a table of storage devices and their associated mount
 points.</li>
-<li>/etc/passwd, a list of the user accounts. </li></td>
+<li>/etc/passwd, a list of the user accounts. </li>
+</ul></td>
+
 </tr>
 <tr>
 <td valign="top">/home</td>
@@ -568,6 +571,7 @@ directories. This limitation protects the system from errant
 user activity.
 </td>
 </tr>
+
 <tr>
 <td valign="top">/lib </td>
 <td valign="top">Contains shared library files used by the core system
