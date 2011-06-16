@@ -719,10 +719,11 @@ we change the name of the shared resource, we have to track down every program t
 might use it and change it to look for a new resource name every time a new version of
 the resource is installed. That doesn't sound like fun at all.
 
-描绘这种情景：一个程序要求使用某个包含在名为“foo,”文件中的共享资源，但是“foo”经常改变版本号。
+描绘一下这种情景：一个程序要求使用某个包含在名为“foo”文件中的共享资源，但是“foo”经常改变版本号。
 这样，在文件名中包含版本号，会是一个好主意，因此管理员或者其它相关方，会知道安装了哪个“foo”版本。
 这就导致一个问题。如果我们更改了共享资源的名字，那么我们必须跟踪每个可能使用了
-这个共享资源的程序，当每次这个资源的新版本被安装后，都要让使用了它的程序去寻找新的资源名。这听起来很没趣。
+这个共享资源的程序，当每次这个资源的新版本被安装后，都要让使用了它的程序去寻找新的资源名。
+这听起来很没趣。
 
 Here is where symbolic links save the day. Let's say we install version 2.6 of “foo,”
 which has the filename “foo-2.6” and then create a symbolic link simply called “foo” that
@@ -736,12 +737,12 @@ Imagine that “foo-2.7” has a bug (damn those developers!) and we need to rev
 old version. Again, we just delete the symbolic link pointing to the new version and
 create a new symbolic link pointing to the old version.
 
-这就是符号链接存在至今的原因。比方说，我们安装了“foo,”2.6版，它的文件名是“foo-2.6”，然后创建了叫做“foo” 
+这就是符号链接存在至今的原因。比方说，我们安装了文件“foo”的2.6版本，它的文件名是“foo-2.6”，然后创建了叫做“foo” 
 的符号链接，这个符号链接指向“foo-2.6”。这意味着，当一个程序打开文件 “foo”时，它实际上是打开文件“foo-2.6”。
-现在，每个人都很高兴。依赖于“foo”文件的程序能找到这个文件，并且我们能知道安装了哪个文件版本。当到升级到“foo-2.7,”
+现在，每个人都很高兴。依赖于“foo”文件的程序能找到这个文件，并且我们能知道安装了哪个文件版本。当到升级到“foo-2.7”
 版本的时候，仅添加这个文件到文件系统中，删除符号链接“foo”，创建一个指向新版本的符号链接。这不仅解决了版本升级问题
-而且允许在系统中保存两个文件版本。想象“foo-2.7”有个错误（该死的开发者！），那我们需要回到原来的版本。再一次，
-我们仅仅删除指向新版本的符号链接，然后创建指向旧版本的符号链接。
+，而且还允许在系统中保存两个不同的文件版本。假想“foo-2.7”有个错误（该死的开发者！）,那我们得回到原来的版本。
+一样的操作，我们只需要删除指向新版本的符号链接，然后创建指向旧版本的符号链接就可以了。
 
 The directory listing above (from the /lib directory of a Fedora system) shows a
 symbolic link called “libc.so.6” that points to a shared library file called “libc-2.6.so.”
