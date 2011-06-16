@@ -248,7 +248,7 @@ F1-F6. To return to the graphical desktop, press Alt-F7.
 
 Further Reading
 
-### 扩展阅读
+### 拓展阅读
 
 To learn more about Steve Bourne, father of the Bourne Shell, see this
 Wikipedia article:

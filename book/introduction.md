@@ -299,7 +299,7 @@ AIX. I have chosen to use the popular format. If, however, you prefer to use
 
 ### Further Reading
 
-### 扩展阅读
+### 拓展阅读
 
 Here are some Wikipedia articles on the famous people mentioned in this chapter:
 
