@@ -316,6 +316,7 @@ less命令是一个用来浏览文本文件的程序。纵观Linux系统，有�
 
 <table class="single" cellpadding="10" width="%100">
 <tr>
+<td>
 <h3>What Is "Text"</h3>
 <h3> 什么是“文本”</h3>
 <p>There are many ways to represent information on a computer. All methods
@@ -350,6 +351,7 @@ program is an editor for plain ASCII text files.  </p>
 普通的ASCII文件，只包含字符本身，和一些基本的控制符，像制表符，回车符及换行符。纵观Linux系统，许多文件
 以文本格式存储，也有许多Linux工具来处理文本文件。甚至Windows也承认这种文件格式的重要性。著名的NOTEPAD.EXE
 程序就是一个ASCII文本文件编辑器。 </p>
+</td>
 </tr>
 </table>
 
@@ -424,7 +426,7 @@ The table below lists the most common keyboard commands used by less.
 </tr>
 <tr>
 <td valign="top">/charaters</td>
-<td valign="top">Search forward for the next occurrence of characters/td>
+<td valign="top">Search forward for the next occurrence of characters</td>
 </tr>
 <tr>
 <td valign="top">n</td>
@@ -568,8 +570,7 @@ user activity.
 <tr>
 <td valign="top">/lib </td>
 <td valign="top">Contains shared library files used by the core system
-programs. These are similar to DLLs in Windows.
-</td>
+programs. These are similar to DLLs in Windows. </td>
 </tr>
 <tr>
 <td valign="top">/lost+found </td>
@@ -577,15 +578,13 @@ programs. These are similar to DLLs in Windows.
 such as ext3, will have this directory. It is used in the case
 of a partial recovery from a file system corruption event.
 Unless something really bad has happened to your system,
-this directory will remain empty.
-</td>
+this directory will remain empty.  </td>
 </tr>
 <tr>
 <td valign="top">/media </td>
 <td valign="top">On modern Linux systems the /media directory will
 contain the mount points for removable media such USB drives, CD-ROMs, etc. 
-that are mounted automatically at insertion.
-</td>
+that are mounted automatically at insertion.  </td>
 </tr>
 <tr>
 <td valign="top">/mnt</td>
@@ -682,8 +681,7 @@ spool files, user mail, etc. are located here.
 activity. These are very important and should be monitored
 from time to time. The most useful one is
 /var/log/messages. Note that for security reasons on
-some systems, you must be the superuser to view log files .
-</td>
+some systems, you must be the superuser to view log files.</td>
 </tr>
 </table>
 </p>
