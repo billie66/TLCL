@@ -253,11 +253,11 @@ later in this chapter.  </td>
 <td valign="top">Size of the file in bytes.  </td>
 </tr>
 <tr>
-<td valign="top">2007-04-03 11:05 </td>
+<td valign="top" width="%20">2007-04-03 11:05 </td>
 <td valign="top">Date and time of the file's last modification.  </td>
 </tr>
 <tr>
-<td valign="top">oo-cd-cover.odf </td>
+<td valign="top" width="%20">oo-cd-cover.odf </td>
 <td valign="top">Name of the file.  </td>
 </tr>
 </table>
@@ -530,9 +530,9 @@ the system to boot and run.</td>
 </tr>
 <tr>
 <td valign="top">/boot</td>
-<td valign="top">/Contains the linux kernel, intial RMA disk image (for
+<td valign="top">Contains the linux kernel, intial RMA disk image (for
 drivers needed at boot time), and the boot loader.<br />
-Interesting files:
+<p>Interesting files:</p>
 <ul>
 <li>/boot/grub/grub.conf or menu.lst, which are used to configure the boot
 loader.</li>
@@ -550,9 +550,10 @@ maintains a list of alll the devices it understands. </td>
 <td valign="top">The /etc directory contains all of the system-wide
 configuration files. It also contains a collection of shell scripts which start
 each of the system services at boot time. Everything in this directory should
-be readable text. <br />
-Interesting files:While everything in /etc is interesting, here are some of my
-all-time favorites:
+be readable text.
+<br />
+<p>Interesting files:While everything in /etc is interesting, here are some of my
+all-time favorites:</p>
 <ul>
 <li>/etc/crontab, a file that defines when automated jobs will run.</li>
 <li>/etc/fstab, a table of storage devices and their associated mount
