@@ -5,11 +5,15 @@ title: 操作文件和目录
 At this point, we are ready for some real work! This chapter will introduce
 the following commands:
 
-● cp – Copy files and directories
-● mv – Move/rename files and directories
-● mkdir – Create directories
-● rm – Remove files and directories
-● ln – Create hard and symbolic links
+* cp – Copy files and directories
+
+* mv – Move/rename files and directories
+
+* mkdir – Create directories
+
+* rm – Remove files and directories
+
+* ln – Create hard and symbolic links
 
 These five commands are among the most frequently used Linux commands. They
 are used for manipulating both files and directories.
@@ -27,7 +31,7 @@ are newer than the versions in the destination directory? Pretty hard with with 
 manager. Pretty easy with the command line:
 
 <div class="code"><pre>
-<tt>cp -u \*.html destination </tt>
+<tt>cp -u *.html destination </tt>
 </pre></div>
 
 Wildcards
