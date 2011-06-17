@@ -325,9 +325,10 @@ Edit/Select Pattern menu item. Just enter a file selection pattern with
 wildcards and the files in the currently viewed directory will be highlighted
 for selection.</li>
 <li>In Dolphin and Konqueror (the file managers for KDE), you can enter
-wildcards directly on thehhhiiiiii location bar. For example, if you want to see all the
-files starting with a lowercase “u” in the /usr/bin directory, type “/usr/bin/u*”
-into the location bar and it will display the result.</li>
+wildcards directly on the location bar. For example, if you want to see all the
+files starting with a lowercase “u” in the /usr/bin directory, type “/usr/bin/u”
+into the location bar and it will display the result.
+</li>
 </ul>
 
 <p>Many ideas originally found in the command line interface make their way into
