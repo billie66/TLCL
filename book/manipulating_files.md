@@ -317,7 +317,7 @@ character classes instead.</p>
 <h3>Wildcards Work In The GUI Too</h3>
 
 <p>Wildcards are especially valuable not only because they are used so frequently on
-the command line, but are also supported by some graphical file managers.</P>
+the command line, but are also supported by some graphical file managers.</p>
 
 <ul>
 <li>In Nautilus (the file manager for GNOME), you can select files using the
@@ -326,7 +326,7 @@ wildcards and the files in the currently viewed directory will be highlighted
 for selection.</li>
 <li>In Dolphin and Konqueror (the file managers for KDE), you can enter
 wildcards directly on the location bar. For example, if you want to see all the
-files starting with a lowercase “u” in the /usr/bin directory, type “/usr/bin/u”
+files starting with a lowercase “u” in the /usr/bin directory, type “/usr/bin/u*”
 into the location bar and it will display the result.
 </li>
 </ul>
