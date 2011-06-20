@@ -301,6 +301,8 @@ numerals</td>
 Wildcards can be used with any command that accepts filenames as arguments, but we’ll
 talk more about that in Chapter 8.
 
+接受文件名作为参数的任何命令，都可以使用通配符，我们会在第八章更深人的谈到这个知识点。
+
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
@@ -339,9 +341,41 @@ desktop so powerful.
 </tr>
 </table>
 
+<table class="single" cellpadding="10" width="%100">
+<tr>
+<td>
+<h3>字符范围</h3>
+
+<p>
+如果你用过别的类似Unix的操作环境，或者是读过这方面的书籍，你可能遇到过[A-Z]或
+[a-z]形式的字符范围表示法。这些都是传统的Unix表示法，并且在早期的Linux版本中仍有效。
+虽然它们仍然起作用，但是你必须小心地使用它们，因为它们不会产生你期望的输出结果，除非
+你合理地配置它们。从现在开始，你应该避免使用它们，并且用字符类来代替它们。</p>
+
+<h3>通配符在GUI中也有效</h3>
+
+<p>通配符非常重要，不仅因为它们经常用在命令行中，而且一些图形文件管理器也支持它们。</p>
+
+<ul>
+<li>在Nautilus (GNOME文件管理器）中，可以通过Edit/Select模式菜单项来选择文件。
+输入一个用通配符表示的文件选择模式后，那么当前所浏览的目录中，所匹配的文件名
+就会高亮显示。</li>
+<li>在Dolphin和Konqueror（KDE文件管理器）中，可以在地址栏中直接输入通配符。例如，如果你
+想查看目录/usr/bin中，所有以小写字母"u"开头的文件，在地址栏中敲入"/usr/bin/u*"，则
+文件管理器会显示匹配的结果。</li>
+</ul>
+
+<p>最初源于命令行界面中的想法，在图形界面中也适用。这就是使Linux桌面系统
+如此强大的众多原因中的一个。</p>
+</td>
+</tr>
+</table>
+
 ### mkdir — Create Directories
 
 The mkdir command is used to create directories. It works like this:
+
+mkdir命令是用来创建目录的。它这样工作：
 
 <div class="code"><pre>
 <tt>mkdir directory...</tt>
@@ -351,21 +385,32 @@ __A note on notation:__ When three periods follow an argument in the
 description of a command (as above), it means that the argument can be
 repeated, thus:
 
+__注意表示法:__ 在描述一个命令时（如上所示），当有三个圆点跟在一个命令的参数后面，
+这意味着那个参数可以重复，就像这样：
+
 <div class="code"><pre>
 <tt>mkdir dir1</tt>
 </pre></div>
 
 would create a single directory named "dir1", while
 
+会创建一个名为"dir1"的目录，而
+
 <div class="code"><pre>
 <tt>mkdir dir1 dir2 dir3</tt>
 </pre></div>
 
-would create three directories named "dir1", "dir2", "dir3".
+would create three directokries named "dir1", "dir2", "dir3".
+
+会创建三个目录，名为"dir1", "dir2", "dir3"。
 
 ### cp — Copy Files And Directories
 
+### cp — 复制文件和目录
+
 The cp command copies files or directories. It can be used two dfferent ways:
+
+cp命令，复制文件或者目录。它有两种使用方法：
 
 <div class="code"><pre>
 <tt>cp item1 item2</tt>
@@ -373,16 +418,24 @@ The cp command copies files or directories. It can be used two dfferent ways:
 
 to copy the single file or directory “item1” to file or directory “item2” and:
 
+复制单个文件或目录"item1"到文件或目录"item2"，和：
+
 <div class="code"><pre>
 <tt>cp item... directory</tt>
 </pre></div>
 
 to copy multiple items (either files or directories) into a directory.
 
+复制多个项目（文件或目录）到一个目录下。
+
 ### Useful Options And Examples
+
+### 有用的选项和实例
 
 Here are some of the commonly used options (the short option and the equivalent long
 option) for cp:
+
+这里列举了cp命令一些有用的选项（短选项和等效的长选项）：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -427,6 +480,40 @@ performed.</td>
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">表5－4：cp选项</caption>
+<tr>
+<th class="title">选项</th>
+<th class="title">意义</th>
+</tr>
+<tr>
+<td valign="top" width="25%">-a, --archive</td>
+<td valign="top">复制文件和目录，以及它们的属性，包括所有权和权限。
+通常，复本具有用户所操作文件的默认属性。</td>
+</tr>
+<tr>
+<td valign="top">-i, --interactive</td>
+<td valign="top">在重写已存在文件之前，提示用户确认。如果这个选项不指定，
+cp命令会默认重写文件。</td>
+</tr>
+<tr>
+<td valign="top">-r, --recursive</td>
+<td valign="top">递归地复制目录及目录中的内容。当复制目录时，
+需要这个选项（或者-a选项）。</td>
+</tr>
+<tr>
+<td valign="top">-u, --update </td>
+<td valign="top">当把文件从一个目录复制到另一个目录时，仅复制
+目标目录中不存在的文件，或者是文件内容新于目标目录中已经存在的文件。</td>
+</tr>
+<tr>
+<td valign="top">-v, --verbose</td>
+<td valign="top">显示翔实的命令操作信息</td>
+</tr>
+</table>
+</p>
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">Table 5-5: cp Examples</caption>
 <tr>
 <th class="title">Command</th>
@@ -465,11 +552,188 @@ its contents) will be copied into dir2.
 </table>
 </p>
 
-### rm — Move And Rename Files
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">表 5—5： cp 实例</caption>
+<tr>
+<th class="title">命令</th>
+<th class="title">运行结果</th>
+</tr>
+<tr>，原
+<td valign="top" width="25%">cp file1 file2</td>
+<td valign="top">复制文件file1内容到文件file2。如果file2已经存在，file2的内容会被file1的
+内容重写。如果file2不存在，则会创建file2。</td>
+</tr>
+<tr>
+<td valign="top">cp -i file1 file2 </td>
+<td valign="top">这条命令和上面的命令一样，除了如果文件file2存在的话，在文件file2被重写之前，
+会提示用户确认信息。</td>
+</tr>
+<tr>
+<td valign="top">cp file1 file2 dir1 </td>
+<td valign="top">复制文件file1和文件file2到目录dir1。目录dir1必须存在。
+</td>
+</tr>
+<tr>
+<td valign="top">cp dir1/* dir2 </td>
+<td valign="top">使用一个通配符，在目录dir1中的所有文件都被复制到目录dir2中。
+dir2必须已经存在。</td>
+</tr>
+<tr>
+<td valign="top">cp -r dir1 dir2 </td>
+<td valign="top">复制目录dir1中的内容到目录dir2。如果目录dir2不存在，
+创建目录dir2，操作完成后，目录dir2中的内容和dir1中的一样。
+如果目录dir2存在，则目录dir1(和目录中的内容)将会被复制到dir2中。</td>
+</tr>
+</table>
+</p>
+
+### mv — Move And Rename Files
+
+### mv — 移动和重命名文件
 
 The mv command performs both file moving and file renaming, depending on how it is
 used. In either case, the original filename no longer exists after the operation. mv is used
 in much the same way as cp:
+
+mv命令可以执行文件移动和文件命名任务，这依赖于你怎样使用它。任何一种
+情况下，完成操作之后，原来的文件名不再存在。mv使用方法与cp很相像：
+
+<div class="code"><pre>
+<tt>mv item1 item2</tt>
+</pre></div>
+
+to move or rename file or directory “item1” to “item2” or:
+
+<div class="code"><pre>
+<tt>mv item... directory</tt>
+</pre></div>
+
+to move one or more items from one directory to another.
+
+### Useful Options And Examples
+
+### 有用的选项和实例
+
+mv shares many of the same options as cp:
+
+mv与cp共享了很多一样的选项：
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 5-6: mv options</caption>
+<tr>
+<th class="title">Option</th>
+<th class="title">Meaning</th>
+</tr>
+<tr>
+<td valign="top" width="25%">-i --interactive</td>
+<td valign="top">Before overwriting an existing file, prompt the user for
+confirmation. <b>If this option is not specified, mv command will silently 
+overwrite files</b></td>
+</tr>
+<tr>
+<td valign="top">-u --update</td>
+<td valign="top">When moving files from one directory to another, only
+move files that either don't exist, or are newer than the
+existing corresponding files in the destination
+directory.
+</td>
+</tr>
+<tr>
+<td valign="top">-v --verbose</td>
+<td valign="top">Display informative messages as the move is performed.</td>
+</tr>
+</table>
+</p>
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">表 5－6：mv 选项</caption>
+<tr>
+<th class="title">选项</th>
+<th class="title">意义</th>
+</tr>
+<tr>
+<td valign="top" width="25%">-i --interactive</td>
+<td valign="top">在重写一个已经存在的文件之前，提示用户确认信息。
+<b>如果不指定这个选项，mv命令会默认重写文件内容。</b></td>
+</tr>
+<tr>
+<td valign="top">-u --update</td>
+<td valign="top">当把文件从一个目录移动另一个目录时，只是移动不存在的文件，
+或者文件内容新于目标目录相对应文件的内容。
+</td>
+</tr>
+<tr>
+<td valign="top">-v --verbose</td>
+<td valign="top">当操作mv命令时，显示翔实的操作信息。</td>
+</tr>
+</table>
+</p>
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 5-7: mv Examples</caption>
+<tr>
+<th class="title">mv file1 file2</th>
+<th class="title">Move file1 to file2. <b>If file2 exists, it is overwritten
+with the contents of files. If file2 does not exist, it is created. <b>In
+either case, file1 ceases to exist.</b></th>
+</tr>
+<tr>
+<td valign="top" width="25%">mv -i file1 file2</td>
+<td valign="top">Same as above, except that if file2 exists, the user is
+prompted before it is overwritten.</td>
+</tr>
+<tr>
+<td valign="top">mv file1 file2 dir1</td>
+<td valign="top">Move file1 and file2 into dirctory dir1. dir1 must 
+already exist.
+</td>
+</tr>
+<tr>
+<td valign="top">mv dir1 dir2</td>
+<td valign="top">if directory dir2 does not exist, create directory dir2 and
+move the contents of directory dir1 into dir2 and delete directory dir1.
+if directory dir2 does exist, move directory dir1 (and its contents) into
+directory dir2.</td>
+</tr>
+</table>
+</p>
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">表 5－7 mv实例</caption>
+<tr>
+<th class="title">mv file1 file2</th>
+<th
+class="title">移动file1到file2。<b>如果file2存在，它的内容会被file1的内容重写。
+如果file2不存在，则创建file2。<b> 每种情况下，file1不再存在。</b></th>
+</tr>
+<tr>
+<td valign="top" width="25%">mv -i file1 file2</td>
+<td valign="top">除了如果file2存在的话，在file2被重写之前，用户会得到
+提示信息外，这个和上面的选项一样。</td>
+</tr>
+<tr>
+<td valign="top">mv file1 file2 dir1</td>
+<td valign="top">移动file1和file2到目录dir1中。dir1必须已经存在。
+</td>
+</tr>
+<tr>
+<td valign="top">mv dir1 dir2</td>
+<td valign="top">如果目录dir2不存在，创建目录dir2，并且移动目录dir1的内容到
+目录dir2中，同时删除目录dir1。如果目录dir2存在，移动目录dir1（及它的内容）到
+目录dir2。</td>
+</tr>
+</table>
+</p>
+
+### rm - Remove Files And Directories
+
+
+The rm command is used to remove(delete)files and directories:
 
 <div class="code"><pre>
 <tt>rm item...</tt>
@@ -477,9 +741,15 @@ in much the same way as cp:
 
 where "item" is one or more files or directories.
 
+"item"代表一个或多个文件或目录。
+
 ### Useful Options And Examples
 
+### 有用的选项和实例
+
 Here are some of the common options for rm:
+
+下表是一些普遍使用的rm选项：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -491,8 +761,36 @@ Here are some of the common options for rm:
 <tr>
 <td valign="top" width="25%">-i, --interactive </td>
 <td valign="top">Before deleting an existing file, prompt the user for
-confirmation. <em>If this option is not specified, rm will
-silently delete files.</em></td>
+confirmation. <b>If this option is not specified, rm will
+silently delete files.</b></td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+</table>
+</p>
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 5-8: rm Options</caption>
+<tr>
+<th class="title">Option</th>
+<th class="title">Meaning</th>
+</tr>
+<tr>
+<td valign="top" width="25%">-i, --interactive </td>
+<td valign="top">Before deleting an existing file, prompt the user for
+confirmation. <b>If this option is not specified, rm will
+silently delete files.</b></td>
 </tr>
 <tr>
 <td valign="top"></td>
@@ -532,6 +830,28 @@ silently delete files.</em></td>
 <td valign="top"></td>
 <td valign="top"></td>
 </tr>
+</table>
+</p>
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 5-9: rm Examples</caption>
+<tr>
+<th class="title">Command</th>
+<th class="title">Results</th>
+</tr>
+<tr>
+<td valign="top" width="25%">text</td>
+<td valign="top">text</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
 <tr>
 <td valign="top"></td>
 <td valign="top"></td>
@@ -554,7 +874,7 @@ you want to delete just the HTML files in a directory. To do this, you type:  </
 <p>rm * .html</p>
 <p>the rm command will delete all the files in the directory and then complain that
 there is no file called “.html”.</p>
-<p><em>Here is a useful tip.</em> Whenever you use wildcards with rm (besides carefully
+<p><b>Here is a useful tip.</b> Whenever you use wildcards with rm (besides carefully
 checking your typing!), test the wildcard first with ls. This will let you see the
 files that will be deleted. Then press the up arrow key to recall the command and
 replace the ls with rm.</p>
