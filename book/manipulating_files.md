@@ -340,7 +340,7 @@ desktop so powerful.
 </td>
 </tr>
 </table>
-
+<br />
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
@@ -559,7 +559,7 @@ its contents) will be copied into dir2.
 <th class="title">命令</th>
 <th class="title">运行结果</th>
 </tr>
-<tr>，原
+<tr>
 <td valign="top" width="25%">cp file1 file2</td>
 <td valign="top">复制文件file1内容到文件file2。如果file2已经存在，file2的内容会被file1的
 内容重写。如果file2不存在，则会创建file2。</td>
@@ -662,8 +662,7 @@ directory.
 <tr>
 <td valign="top">-u --update</td>
 <td valign="top">当把文件从一个目录移动另一个目录时，只是移动不存在的文件，
-或者文件内容新于目标目录相对应文件的内容。
-</td>
+或者文件内容新于目标目录相对应文件的内容。</td>
 </tr>
 <tr>
 <td valign="top">-v --verbose</td>
@@ -678,7 +677,7 @@ directory.
 <tr>
 <th class="title">mv file1 file2</th>
 <th class="title">Move file1 to file2. <b>If file2 exists, it is overwritten
-with the contents of files. If file2 does not exist, it is created. <b>In
+with the contents of files. </b>If file2 does not exist, it is created. <b>In
 either case, file1 ceases to exist.</b></th>
 </tr>
 <tr>
@@ -709,7 +708,7 @@ directory dir2.</td>
 <th class="title">mv file1 file2</th>
 <th
 class="title">移动file1到file2。<b>如果file2存在，它的内容会被file1的内容重写。
-如果file2不存在，则创建file2。<b> 每种情况下，file1不再存在。</b></th>
+</b>如果file2不存在，则创建file2。<b> 每种情况下，file1不再存在。</b></th>
 </tr>
 <tr>
 <td valign="top" width="25%">mv -i file1 file2</td>
@@ -731,7 +730,6 @@ class="title">移动file1到file2。<b>如果file2存在，它的内容会被fil
 </p>
 
 ### rm - Remove Files And Directories
-
 
 The rm command is used to remove(delete)files and directories:
 
@@ -874,6 +872,7 @@ valign="top">同上，除了如果文件file1，或目录dir1不存在的话，r
 <tr>
 <td>
 <h3>Be Careful With rm!</h3>
+
 <h3>小心rm!</h3>
 
 <p>Unix-like operating systems such as Linux do not have an undelete command.
@@ -885,6 +884,7 @@ you know what you're doing.  </p>
 
 <p>Be particularly careful with wildcards. Consider this classic example. Let's say
 you want to delete just the HTML files in a directory. To do this, you type:  </p>
+
 <p>rm *.html </p>
 
 <p>尤其要小心通配符。思考一下这个经典的例子。假如说，你只想删除一个目录中的HTML
@@ -893,7 +893,7 @@ you want to delete just the HTML files in a directory. To do this, you type:  </
 <p>which is correct, but if you accidentally place a space between the “*” and the
 “.html” like so:</p>
 
-<p>这是正确的，如果你不小心在"*"和".html"之间多输入了一个空格，就像这样：
+<p>这是正确的，如果你不小心在"*"和".html"之间多输入了一个空格，就像这样：</p>
 <p>rm * .html</p>
 
 <p>the rm command will delete all the files in the directory and then complain that
@@ -921,14 +921,7 @@ replace the ls with rm.</p>
 The ln command is used to create either hard or symbolic links. It is used in one of two
 ways:
 
-ln命令即可创建硬链接，也可以创建符号链接。可以用其中一种方法来使用它：
-
-<div class="code"><pre>
-<tt>ln file link</tt>
-</pre></div>
-
-to create a hard link, and:
-
+ln命令即可创建硬链接，也可以创建符号链接。可以用其中一种方法来使用它： <div class="code"><pre> <tt>ln file link</tt> </pre></div> to create a hard link, and: 
 创建硬链接，和：
 
 <div class="code"><pre>
@@ -1437,7 +1430,7 @@ including its subdirectories:
 <tt>[me@linuxbox playground]$ cd
 [me@linuxbox ~]$ rm -r playground</tt>
 </pre></div>
-
+<p>
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
@@ -1458,6 +1451,7 @@ copying, moving, or linking the file.
 </td>
 </tr>
 </table>
+</p>
 
 ### Summing Up
 
