@@ -5,7 +5,7 @@ title: 操作文件和目录
 At this point, we are ready for some real work! This chapter will introduce
 the following commands:
 
-此时此刻，我们已经准备好了做些真正的工作！在这一章节里，将会介绍一下命令：
+此时此刻，我们已经准备好了做些真正的工作！这一章节将会介绍以下命令：
 
 * cp – Copy files and directories
 
