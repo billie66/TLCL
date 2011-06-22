@@ -98,7 +98,7 @@ and what they select:
 characters</td>
 </tr>
 <tr>
-<td valign="top">[[:class:]]</td>
+<td valign="top" width="25%">[[:class:]]</td>
 <td valign="top">Matches any character that is a member of the specified class</td>
 </tr>
 </table>
@@ -127,7 +127,7 @@ characters</td>
 <td valign="top">匹配任意一个不是字符集中的字符</td>
 </tr>
 <tr>
-<td valign="top">[[:class:]]</td>
+<td valign="top" width="25%">[[:class:]]</td>
 <td valign="top">匹配任意一个属于指定字符类中的字符</td>
 </tr>
 </table>
@@ -157,7 +157,7 @@ Table 5-2 lists the most commonly used character classes:
 <td valign="top">Matches any numeral</td>
 </tr>
 <tr>
-<td valign="top">[:lower:]</td>
+<td valign="top" width="25%">[:lower:]</td>
 <td valign="top">Matches any lowercase letter</td>
 </tr>
 <tr>
@@ -191,7 +191,7 @@ Table 5-2 lists the most commonly used character classes:
 <td valign="top">匹配任意一个小写字母</td>
 </tr>
 <tr>
-<td valign="top">[:upper]</td>
+<td valign="top" width="25%">[:upper]</td>
 <td valign="top">匹配任意一个大写字母</td>
 </tr>
 </table>
@@ -246,7 +246,7 @@ numerals</td>
 </tr>
 <tr>
 <td valign="top">*[[:lower:]123]</td>
-<td valign="top">Any file ending with a lowercase letter or the numerals "1",
+<td valign="top" width="25%">Any file ending with a lowercase letter or the numerals "1",
 "2", or "3"</td>
 </tr>
 </table>
@@ -292,7 +292,7 @@ numerals</td>
 <td valign="top">以数字开头的文件</td>
 </tr>
 <tr>
-<td valign="top">*[[:lower:]123]</td>
+<td valign="top" width="25%">*[[:lower:]123]</td>
 <td valign="top">文件名以小写字母结尾，或以“1”，“2”，或“3”结尾的文件</td>
 </tr>
 </table>
@@ -867,7 +867,7 @@ valign="top">同上，除了如果文件file1，或目录dir1不存在的话，r
 </tr>
 </table>
 </p>
-
+<br />
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
