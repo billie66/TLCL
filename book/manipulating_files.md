@@ -245,8 +245,8 @@ numerals</td>
 <td valign="top">Any file not beginning with a numeral</td>
 </tr>
 <tr>
-<td valign="top">*[[:lower:]123]</td>
-<td valign="top" width="25%">Any file ending with a lowercase letter or the numerals "1",
+<td valign="top" width="25%">*[[:lower:]123]</td>
+<td valign="top">Any file ending with a lowercase letter or the numerals "1",
 "2", or "3"</td>
 </tr>
 </table>
