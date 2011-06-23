@@ -1,88 +1,310 @@
+---
+layout: book
+title: 使用命令 
+---
+
 Up to this point, we have seen a series of mysterious commands, each with its own
 mysterious options and arguments. In this chapter, we will attempt to remove some of
 that mystery and even create some of our own commands. The commands introduced in
 this chapter are:
-● type – Indicate how a command name is interpreted
-● which – Display which executable program will be executed
-● man – Display a command's manual page
-● apropos – Display a list of appropriate commands
-● info – Display a command's info entry
-● whatis – Display a very brief description of a command
-● alias – Create an alias for a command
-What Exactly Are Commands?
+
+在这之前，我们已经知道了一系列神秘的命令，每个命令都有自己奇妙的
+选项和参数。在这一章中，我们将试图去掉一些神秘性，甚至创建我们自己
+的命令。这一章将介绍以下命令：
+
+* type – Indicate how a command name is interpreted
+* which – Display which executable program will be executed
+* man – Display a command's manual page
+* apropos – Display a list of appropriate commands
+* info – Display a command's info entry
+* whatis – Display a very brief description of a command
+* alias – Create an alias for a command
+
+<ul>
+<li>type – 说明怎样解释一个命令名</li>
+<li> which – 显示会执行哪个可执行程序</li>
+<li> man – 显示命令手册页</li>
+<li> apropos – 显示一系列适合的命令</li>
+<li> info – 显示命令info</li>
+<li> whatis – 显示一个命令的简洁描述</li>
+<li> alias – 创建命令别名</li>
+</ul>
+
+### What Exactly Are Commands?
+
+### 到底什么是命令？
+
 A command can be one of four different things:
-1. An executable program like all those files we saw in /usr/bin. Within this
+
+命令可以是下面四种形式之一：
+
+<ol>
+<li> An executable program like all those files we saw in /usr/bin. Within this
 category, programs can be compiled binaries such as programs written in C and
 C++, or programs written in scripting languages such as the shell, perl, python,
-ruby, etc.
-2. A command built into the shell itself. bash supports a number of commands
-internally called shell builtins. The cd command, for example, is a shell builtin.
-3. A shell function. These are miniature shell scripts incorporated into the
-environment. We will cover configuring the environment and writing shell
-functions in later chapters, but for now, just be aware that they exist.
-4. An alias. Commands that we can define ourselves, built from other commands.
-Identifying Commands
+ruby, etc.</li>
+
+<li> A command built into the shell itself. bash supports a number of commands
+internally called shell builtins. The cd command, for example, is a shell builtin.</li>
+
+<li> A shell function. These are miniature shell scripts incorporated into
+the environment. We will cover configuring the environment and writing shell
+functions in later chapters, but for now, just be aware that they exist.</li>
+
+<li> An alias. Commands that we can define ourselves, built from other commands.</li>
+</ol>
+
+<ol>
+<li>是一个可执行程序，就像我们所看到的位于目录/usr/bin中的文件一样。
+属于这一类的程序，可以编译成二进制文件，诸如用C和C++语言写成的程序,
+也可以是由脚本语言写成的程序，比如说shell，perl，python，ruby，等等。</li>
+
+<li>是一个内建于shell自身的命令。bash支持若干命令，内部叫做shell内部命令
+(builtins)。例如，cd命令，就是一个shell内部命令。</li>
+
+<li>是一个shell函数。这些是小规模的shell脚本，它们混合到环境变量中。
+在后续的章节里，我们将讨论配置环境变量以及书写shell函数。但是现在，
+仅仅意识到它们的存在就可以了。</li>
+
+<li>是一个命令别名。我们可以定义自己的命令，建立在其它命令之上。</li>
+
+### Identifying Commands
+
+### 识别命令
+
 It is often useful to know exactly which of the four kinds of commands is being used and
 Linux provides a couple of ways to find out.
-type – Display A Command's Type
+
+这经常很有用，能确切地知道正在使用四类命令中的哪一类。Linux提供了一对方法来
+弄明白命令类型。
+
+### type – Display A Command's Type
+
+### type－显示命令的类型
+
 The type command is a shell builtin that displays the kind of command the shell will
 execute, given a particular command name. It works like this:
 
+type命令是shell内部命令，它会显示命令的类别，给出一个特定的命令名（做为参数）。
+它像这样工作：
+
+<div class="code"><pre>
+<tt>type command</tt>
+</pre></div>
+
+Where "command" is the name of the command you want to examine. Here are some
+examples:
+
+"command"是你要检测的命令名。这里有些例子：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ type type
+type is a shell builtins
+[me@linuxbox ~]$ type ls
+ls is aliased to `ls --color=tty`
+[me@linuxbox ~]$ type cp
+cp is /bin/cp</tt>
+</pre></div>
 
 Here we see the results for three different commands. Notice that the one for ls (taken
 from a Fedora system) and how the ls command is actually an alias for the ls command
 with the “-- color=tty” option added. Now we know why the output from ls is displayed
 in color!
-which – Display An Executable's Location
+
+我们看到这三个不同命令的检测结果。注意，ls命令（在Fedora系统中）的检查结果，ls命令实际上
+是ls命令加上选项"--color=tty"的别名。现在我们知道为什么ls的输出结果是有颜色的！
+
+### which – Display An Executable's Location
+
+### which － 显示一个可执行程序的位置
+
 Sometimes there is more than one version of an executable program installed on a
 system. While this is not very common on desktop systems, it's not unusual on large
 servers. To determine the exact location of a given executable, the which command is
 used:
+
+有时候在一个操作系统中，不只安装了可执行程序的一个版本。然而在桌面系统中，这并不普遍，
+但在大型服务器中，却很平常。为了确定所给定的执行程序的准确位置，使用which命令：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ which is
+/bin/ls</tt>
+</pre></div>
+
 which only works for executable programs, not builtins nor aliases that are substitutes
 for actual executable programs. When we try to use which on a shell builtin, for
 example, cd, we either get no response or an error message:
 
+这个命令只对可执行程序有效，不包括内部命令和命令别名，别名是真正的可执行程序的替代物。
+当我们试着使用shell内部命令时，例如，cd命令，我们或者得不到回应，或者是个错误信息：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ which cd
+/usr/bin/which: no cd in
+(/opt/jre1.6.0_03/bin:/usr/lib/qt-3.3/bin:/usr/kerberos/bin:/opt/jre1
+.6.0_03/bin:/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/home/me/bin
+)</tt>
+</pre></div>
+
 which is a fancy way of saying “command not found.”
-Getting A Command's Documentation
+
+说“命令没有找到”，真是很奇特。
+
+### Getting A Command's Documentation
+
+### 得到命令文档
+
 With this knowledge of what a command is, we can now search for the documentation
 available for each kind of command.
-help – Get Help For Shell Builtins
+
+知道了什么是命令，现在我们来寻找每一类命令的可得到的文档。
+
+### help – Get Help For Shell Builtins
+
+### help －得到shell内部命令的帮助文档
+
 bash has a built-in help facility available for each of the shell builtins. To use it, type
 “help” followed by the name of the shell builtin. For example:
+
+bash有一个内建的帮助工具，可供每一个shell内部命令使用。输入"type"，接着是shell
+内部命令名。例如：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ help cd
+cd: cd [-L|-P] [dir]
+Change ...</tt>
+</pre></div>
+
 
 A note on notation: When square brackets appear in the description of a command's
 syntax, they indicate optional items. A vertical bar character indicates mutually exclusive
 items. In the case of the cd command above:
-cd [-L|-P] [dir]
+
+注意表示法：出现在命令语法说明中的方括号，表示可选的项目。一个竖杠字符
+表示互斥选项。在上面cd命令的例子中：
+
+<p><b>cd [-L|-P] [dir]</b></p>
+
 This notation says that the command cd may be followed optionally by either a “-L” or a
 “-P” and further, optionally followed by the argument “dir”.
-While the output of help for the cd commands is concise and accurate, it is by no
 
+这种表示法说明，cd命令可能有一个"-L"选项或者"-P"选项，进一步，可能有参数"dir"。
+
+While the output of help for the cd commands is concise and accurate, it is by no
 means tutorial and as we can see, it also seems to mention a lot of things we haven't
 talked about yet! Don't worry. We'll get there.
---help – Display Usage Information
+
+虽然cd命令的帮助文档很简洁准确，但它决不是教材。正如我们所看到的，它似乎提到了许多
+我们还没有谈论到的东西！不要担心，我们会学到的。
+
+### --help – Display Usage Information
+
+### --help － 显示用法信息
+
 Many executable programs support a “--help” option that displays a description of the
 command's supported syntax and options. For example:
 
+许多可执行程序支持一个"--help"选项，这个选项是显示命令所支持的语法和选项说明。例如：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ mkdir --help
+Usage: mkdir [OPTION] DIRECTORY...
+Create ...</tt>
+</pre></div>
+
 Some programs don't support the “--help” option, but try it anyway. Often it results in an
 error message that will reveal the same usage information.
-man – Display A Program's Manual Page
+
+一些程序不支持"--help"选项，但不管怎样试一下。这经常会导致输出错误信息，但同时能
+揭示一样的命令用法信息。
+
+### man – Display A Program's Manual Page
+
+### man －显示程序手册页
+
 Most executable programs intended for command line use provide a formal piece of
 documentation called a manual or man page. A special paging program called man is
 used to view them. It is used like this:
 
+许多希望被命令行使用的可执行程序，提供了一个正式的文档，叫做手册或手册页(man
+page)。一个特殊的叫做man的分页程序，可用来浏览他们。它是这样使用的：
+
+<div class="code"><pre>
+<tt>man program</tt>
+</pre></div>
+
 where “program” is the name of the command to view.
+
+"program"是要浏览的命令名。
+
 Man pages vary somewhat in format but generally contain a title, a synopsis of the
 command's syntax, a description of the command's purpose, and a listing and description
 of each of the command's options. Man pages, however, do not usually include
 examples, and are intended as a reference, not a tutorial. As an example, let's try viewing
 the man page for the ls command:
 
+手册文档的格式有点不同，一般地包含一个标题，命令语法的纲要，命令用途的说明，
+和命令选项列表，及每个选项的说明。然而，通常手册文档并不包含实例，它打算
+作为一本参考手册，而不是教材。作为一个例子，浏览一下ls命令的手册文档：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ man ls</tt>
+</pre></div>
+
 On most Linux systems, man uses less to display the manual page, so all of the familiar
 less commands work while displaying the page.
+
+在大多数Linux系统中，man使用less工具来显示参考手册，所以当浏览文档时，你所熟悉的less
+命令都能有效。
+
 The “manual” that man displays is broken into sections and not only covers user
 commands but also system administration commands, programming interfaces, file
 formats and more. The table below describes the layout of the manual:
+
+man所显示的参考手册，被分成几个章节，它们不仅仅包括用户命令，也包括系统管理员
+命令，程序接口，文件格式等等。下表描绘了手册的布局：
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 6-1: Man Page Organization</caption>
+<tr>
+<th class="title">Section</th>
+<th class="title">Contents</th>
+</tr>
+<tr>
+<td valign="top" width="25%">1</td>
+<td valign="top">User commands</td>
+</tr>
+<tr>
+<td valign="top">2</td>
+<td valign="top">Programming interfaces kernel system calls</td>
+</tr>
+<tr>
+<td valign="top">3</td>
+<td valign="top">Programming interfaces to the C library</td>
+</tr>
+<tr>
+<td valign="top">4</td>
+<td valign="top">Special files such as device nodes and drivers</td>
+</tr>
+<tr>
+<td valign="top">5</td>
+<td valign="top">File formats</td>
+</tr>
+<tr>
+<td valign="top">6</td>
+<td valign="top">Games and amusements such as screen savers</td>
+</tr>
+<tr>
+<td valign="top">7</td>
+<td valign="top">Miscellaneous</td>
+</tr>
+<tr>
+<td valign="top">8</td>
+<td valign="top">System administration commands</td>
+</tr>
+</table>
+</p>
 
 Sometimes we need to look in a specific section of the manual to find what we are
 looking for. This is particularly true if we are looking for a file format that is also the
@@ -90,39 +312,129 @@ name of a command. Without specifying a section number, we will always get the f
 instance of a match, probably in section 1. To specify a section number, we use man like
 this:
 
+有时候，我们需要查看参考手册的特定章节，从而找到我们需要的信息。
+如果我们要查找一种文件格式，而同时它也是一个命令名时,这种情况尤其正确。
+没有指定章节号，我们总是得到第一个匹配项，可能在第一章节。我们这样使用man命令，
+来指定章节号：
+
+<div class="code"><pre>
+<tt>man section search_term</tt>
+</pre></div>
+
+For example: 
+
+例如：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ man 5 passwd</tt>
+</pre></div>
+
 This will display the man page describing the file format of the /etc/passwd file.
-apropos – Display Appropriate Commands
+
+命令运行结果会显示文件/etc/passwd的文件格式说明手册。
+
+### apropos – Display Appropriate Commands
+
+### apropos －显示适当的命令
+
 It is also possible to search the list of man pages for possible matches based on a search
 term. It's very crude but sometimes helpful. Here is an example of a search for man
 pages using the search term “floppy”:
 
+也有可能搜索参考手册列表，基于某个关键字的匹配项。虽然很粗糙但有时很有用。
+下面是一个以"floppy"为关键词来搜索参考手册的例子：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ apropos floppy
+create_floppy_devices (8)   - udev callout to create all possible
+...</tt>
+</pre></div>
+
 The first field in each line of output is the name of the man page, the second field shows
 the section. Note that the man command with the “-k” option performs the exact same
 function as apropos.
-whatis – Display A Very Brief Description Of A Command
+
+输出结果每行的第一个字段是手册页的名字，第二个字段展示章节。注意，man命令加上"-k"选项，
+和apropos完成一样的功能。
+
+### whatis – Display A Very Brief Description Of A Command
+
+### whatis －显示非常简洁的命令说明
+
 The whatis program displays the name and a one line description of a man page
 matching a specified keyword:
-The Most Brutal Man Page Of Them All
-As we have seen, the manual pages supplied with Linux and other Unix-like
+
+whatis程序显示匹配特定关键字的手册页的名字和一行命令说明：
+
+<table class="single" cellpadding="10" width="%100">
+<tr>
+<td>
+<h3>The Most Brutal Man Page Of Them All</h3>
+<h3>最晦涩难懂的手册页</h3>
+
+<p> As we have seen, the manual pages supplied with Linux and other Unix-like
 systems are intended as reference documentation and not as tutorials. Many man
 pages are hard to read, but I think that the grand prize for difficulty has got to go
 to the man page for bash. As I was doing my research for this book, I gave it
 careful review to ensure that I was covering most of its topics. When printed, it's
 over eighty pages long and extremely dense, and its structure makes absolutely no
-sense to a new user.
-On the other hand, it is very accurate and concise, as well as being extremely
+sense to a new user. </p>
+
+<p>正如我们所见到的，Linux和类似Unix系统所提供的手册页，只是打算作为参考手册使用，
+而不是教材。很多手册页很难阅读，但是我认为因为阅读难度而拿到特等奖的手册页，是bash
+的手册页。因为我正在为这本书做调查，所以我很仔细的浏览了bash手册，以此来确定我包括了
+大多数的bash主题。当我把bash参考手册打印出来，有八十多页，且内容极其紧密，并且文档
+结构对于初学者来说，完全没有意义。</p>
+
+<p> On the other hand, it is very accurate and concise, as well as being extremely
 complete. So check it out if you dare and look forward to the day when you can
-read it and it all makes sense.
-info – Display A Program's Info Entry
+read it and it all makes sense. </p>
+
+<p>另一方面，bash手册内容很精确简明，也非常完善。所以，如果你有胆量就
+查看一下，并且期望有一天你能读懂它。</p>
+
+</td>
+</tr>
+</table>
+
+### info – Display A Program's Info Entry
+
+### info －显示程序Info条目
+
 The GNU Project provides an alternative to man pages for their programs, called “info.”
 Info pages are displayed with a reader program named, appropriately enough, info.
 Info pages are hyperlinked much like web pages. Here is a sample:
+
+<div class="code"><pre>
+<tt>File:</tt>
+</pre></div>
+
 The info program reads info files, which are tree structured into individual nodes, each
 containing a single topic. Info files contain hyperlinks that can move you from node to
 node. A hyperlink can be identified by its leading asterisk, and is activated by placing the
 cursor upon it and pressing the enter key.
+
 To invoke info, type “info” followed optionally by the name of a program. Below is a
 table of commands used to control the reader while displaying an info page:
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">cap</caption>
+<tr>
+<th class="title">title</th>
+<th class="title">title</th>
+</tr>
+<tr>
+<td valign="top" width="25%">text</td>
+<td valign="top">text</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+</table>
+</p>
+
 Most of the command line programs we have discussed so far are part of the GNU
 Project's “coreutils” package, so typing:
 will display a menu page with hyperlinks to each program contained in the coreutils
