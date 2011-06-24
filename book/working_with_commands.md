@@ -405,8 +405,16 @@ The GNU Project provides an alternative to man pages for their programs, called 
 Info pages are displayed with a reader program named, appropriately enough, info.
 Info pages are hyperlinked much like web pages. Here is a sample:
 
+GNU项目提供了一个命令程序手册页的替代物，称为"info"。info内容可通过info阅读器
+程序读取。info页是超级链接形式的，和网页很相似。这有个例子：
+
 <div class="code"><pre>
-<tt>File:</tt>
+<tt>File: coreutils.info,    Node: ls invocation,    Next: dir invocation,
+ Up: Directory listing
+
+10.1 `ls': List directory contents
+==================================
+...</tt>
 </pre></div>
 
 The info program reads info files, which are tree structured into individual nodes, each
@@ -414,32 +422,119 @@ containing a single topic. Info files contain hyperlinks that can move you from 
 node. A hyperlink can be identified by its leading asterisk, and is activated by placing the
 cursor upon it and pressing the enter key.
 
+info程序读取info文件，info文件是树型结构，分化为各个结点，每一个包含一个题目。
+info文件包含超级链接，它可以让你从一个结点跳到另一个结点。一个超级链接可通过
+它开头的星号来辨别出来，把光标放在它上面并按下enter键，就可以激活它。
+
 To invoke info, type “info” followed optionally by the name of a program. Below is a
 table of commands used to control the reader while displaying an info page:
 
+输入"info"，接着输入程序名称，启动info。下表中的命令，当显示一个info页面时，
+用来控制阅读器。
+
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
-<caption class="cap">cap</caption>
+<caption class="cap">Tbale 6－2：info Commands</caption>
 <tr>
-<th class="title">title</th>
-<th class="title">title</th>
+<th class="title">Command</th>
+<th class="title">Action</th>
 </tr>
 <tr>
-<td valign="top" width="25%">text</td>
-<td valign="top">text</td>
+<td valign="top" width="25%">?</td>
+<td valign="top">Display command help</td>
 </tr>
 <tr>
-<td valign="top"></td>
-<td valign="top"></td>
+<td valign="top">PgUp or Backspace</td>
+<td valign="top">Display privious page </td>
+</tr>
+<tr>
+<td valign="top">PgDn or Space</td>
+<td valign="top">Display next page </td>
+</tr>
+<tr>
+<td valign="top">n</td>
+<td valign="top">Next - Display the next node</td>
+</tr>
+<tr>
+<td valign="top">p</td>
+<td valign="top">Previous - Display the previous node</td>
+</tr>
+<tr>
+<td valign="top">u</td>
+<td valign="top">Up - Display the parent node of the currently displayed
+node, usually a menu.</td>
+</tr>
+<tr>
+<td valign="top">Enter</td>
+<td valign="top">Follow the hyperlink at the cursor location </td>
+</tr>
+<tr>
+<td valign="top">q</td>
+<td valign="top">Quit</td>
+</tr>
+</table>
+</p>
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">表 6－2：info 命令</caption>
+<tr>
+<th class="title">命令</th>
+<th class="title">行为</th>
+</tr>
+<tr>
+<td valign="top" width="25%">?</td>
+<td valign="top">显示命令帮助</td>
+</tr>
+<tr>
+<td valign="top">PgUp or Backspace</td>
+<td valign="top">显示上一页 </td>
+</tr>
+<tr>
+<td valign="top">PgDn or Space</td>
+<td valign="top">显示下一页</td>
+</tr>
+<tr>
+<td valign="top">n</td>
+<td valign="top">下一个 - 显示下一个结点</td>
+</tr>
+<tr>
+<td valign="top">p</td>
+<td valign="top">上一个 - 显示上一个结点</td>
+</tr>
+<tr>
+<td valign="top">u</td>
+<td valign="top">Up - 显示当前所显示结点的父结点，通常是个菜单</td>
+</tr>
+<tr>
+<td valign="top">Enter</td>
+<td valign="top">激活光标位置下的超级链接</td>
+</tr>
+<tr>
+<td valign="top">q</td>
+<td valign="top">退出</td>
 </tr>
 </table>
 </p>
 
 Most of the command line programs we have discussed so far are part of the GNU
 Project's “coreutils” package, so typing:
+
+到目前为止，我们所讨论的大多数命令行程序，属于GNU项目"coreutils"包，所以输入：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ info coreutils</tt>
+</pre></div>
+
 will display a menu page with hyperlinks to each program contained in the coreutils
 package.
-README And Other Program Documentation Files
+
+将会显示一个包含超级链接的手册页，这些超级链接指向包含在coreutils包中的各个程序。
+
+### README And Other Program Documentation Files
+
+### README 和其它程序文档
+
 Many software packages installed on your system have documentation files residing in
 the /usr/share/doc directory. Most of these are stored in plain text format and can
 be viewed with less. Some of the files are in HTML format and can be viewed with a
@@ -448,14 +543,35 @@ indicates that they have been compressed with the gzip compression program. The 
 package includes a special version of less called zless that will display the contents
 of gzip-compressed text files.
 
-Creating Your Own Commands With alias
+许多安装在你系统中的软件，都有自己的文档文件，这些文件位于/usr/share/doc目录下。
+这些文件大多数是以文本文件的形式存储的，可用less阅读器来浏览。一些文件是HTML格式，
+可用网页浏览器来阅读。我们可能遇到许多以".gz"结尾的文件。这表示gzip压缩程序
+已经压缩了这些程序。gzip软件包包括一个特殊的less版本，叫做zless，zless可以显示由
+gzip压缩的文本文件的内容。
+
+### Creating Your Own Commands With alias
+
+### 用别名（alias）创建你自己的命令
 
 Now for our very first experience with programming! We will create a command of our
 own using the alias command. But before we start, we need to reveal a small
 command line trick. It's possible to put more than one command on a line by separating
 each command with a semicolon character. It works like this:
 
+现在是时候，感受第一次编程经历了！我们将用alias命令创建我们自己的命令。但在
+开始之前，我们需要展示一个命令行小技巧。可以把多个命令放在同一行上，命令之间
+用":"分开。它像这样工作：
+
 Here's the example we will use:
+
+我们会用到下面的例子：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ cd /usr; ls; cd -
+bin  games    kerberos  lib64    local  share  tmp
+...
+[me@linuxbox ~]$</tt>
+</pre></div>
 
 
 As we can see, we have combined three commands on one line. First we change
@@ -465,63 +581,167 @@ command using alias. The first thing we have to do is dream up a name for our ne
 command. Let's try “test”. Before we do that, it would be a good idea to find out if the
 name “test” is already being used. To find out, we can use the type command again:
 
+正如我们看到的，我们在一行上联合了三个命令。首先更改目录到/usr，然后列出目录
+内容，最后回到原始目录（用命令"cd ~"）,结束在开始的地方。现在，通过alia命令
+把这一串命令转变为一个命令。我们要做的第一件事就是为我们的新命令构想一个名字。
+比方说"test"。在使用"test"之前，查明是否"test"命令名已经存在系统中，是个很不错
+的主意。为了查清此事，可以使用type命令：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ type test
+test is a shell builtin</tt>
+</pre></div>
+
 Oops! The name “test” is already taken. Let's try “foo”:
+
+哦！"test"名字已经被使用了。试一下"foo":
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ type foo
+bash: type: foo: not found </tt>
+</pre></div>
 
 Great! “foo” is not taken. So let's create our alias:
 
+太棒了！"foo"还没被占用。创建命令别名：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ alias foo='cd /usr; ls; cd -'</tt>
+</pre></div>
 
 Notice the structure of this command:
+
+注意命令结构：
+
+<div class="code"><pre>
+<tt><b>alias name='string'</b></tt>
+</pre></div>
 
 After the command “alias” we give alias a name followed immediately (no whitespace
 allowed) by an equals sign, followed immediately by a quoted string containing the
 meaning to be assigned to the name. After we define our alias, it can be used anywhere
 the shell would expect a command. Let's try it:
 
+在命令"alias"之后，输入“name”，紧接着（没有空格）是一个等号，等号之后是
+一串用引号引起的字符串，字符串的内容要赋值给name。我们定义了别名之后，
+这个命令别名可以使用在任何地方。试一下：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ foo
+bin   games   kerberos  lib64    local   share  tmp
+...
+[me@linuxbox ~]$</tt>
+</pre></div>
 
 We can also use the type command again to see our alias:
 
+我们也可以使用type命令来查看我们的别名：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ type foo
+foo is aliased to `cd /usr; ls ; cd -'</tt>
+</pre></div>
 
 To remove an alias, the unalias command is used, like so:
 
+删除别名，使用unalias命令，像这样：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ unalias foo
+[me@linuxbox ~]$ type foo
+bash: type: foo: not found</tt>
+</pre></div>
 
 While we purposefully avoided naming our alias with an existing command name, it is
 not uncommon to do so. This is often done to apply a commonly desired option to each
 invocation of a common command. For instance, we saw earlier how the ls command is
 often aliased to add color support:
 
+虽然我们有意避免使用已经存在的命令名来命名我们的别名，但这是常做的事情。通常，
+会把一个普遍用到的选项加到一个经常使用的命令后面。例如，之前见到的ls命令，会
+带有色彩支持：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ type ls
+ls is aliased to 'ls --color=tty'</tt>
+</pre></div>
+
 To see all the aliases defined in the environment, use the alias command without
 arguments. Here are some of the aliases defined by default on a Fedora system. Try and
 figure out what they all do:
 
+要查看所有定义在系统环境中的别名，使用不带参数的alias命令。下面在Fedora系统中
+默认定义的别名。试着弄明白，它们是做什么的：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ alias
+alias l.='ls -d .* --color=tty'
+...</tt>
+</pre></div>
 
 There is one tiny problem with defining aliases on the command line. They vanish when
 your shell session ends. In a later chapter, we will see how to add our own aliases to the
 files that establish the environment each time we log on, but for now, enjoy the fact that
 we have taken our first, albeit tiny, step into the world of shell programming!
 
-Revisiting Old Friends
+在命令行中定义别名有点儿小问题。当你的shell会话结束时，它们会消失。随后的章节里，
+我们会了解怎样把自己的别名添加到文件中去，每次我们登录系统，这些文件会建立系统环境。
+现在，好好享受我们刚经历过的，步入shell编程世界的第一步吧，虽然微小。
+
+### Revisiting Old Friends
+
+### 拜访老朋友
 
 Now that we have learned how to find the documentation for commands, go and look up
 the documentation for all the commands we have encountered so far. Study what
 additional options are available and try them out!
 
-Further Reading
-There are many online sources of documentation for Linux and the command line. Here
-are some of the best:
-● ● The Bash FAQ contains answers to frequently asked questions regarding bash.
-       This list is aimed at intermediate to advanced users, but contains a lot of good
-      information.
-     http://mywiki.wooledge.org/BashFAQ
-● The GNU Project provides extensive documentation for its programs, which form
-   the core of the Linux command line experience. You can see a complete list here:
-  http://www.gnu.org/manual/manual.html
-● 
+既然我们已经学习了怎样找到命令的帮助文档，那就试着查阅，到目前为止，我们学到的所有
+命令的文档。学习命令其它可用的选项，练习一下！
 
-The Bash Reference Manual is a reference guide to the bash shell. It’s still a
- reference work but contains examples and is easier to read than the bash man
-page.
-http://www.gnu.org/software/bash/manual/bashref.html
-Wikipedia has an interesting article on man pages:
-http://en.wikipedia.org/wiki/Man_page
+### Further Reading
+
+### 拓展阅读
+
+* There are many online sources of documentation for Linux and the command line. Here
+  are some of the best:
+
+* 在网上，有许多关于Linux和命令行的文档。以下是一些最好的文档：
+
+* The Bash Reference Manual is a reference guide to the bash shell. It’s still a
+  reference work but contains examples and is easier to read than the bash man
+  page. 
+
+* Bash参考手册是一本bash shell的参考指南。它仍然是一本参考书，但是包含了很多
+  实例，而且它比bash手册页容易阅读。
+
+  <http://www.gnu.org/software/bash/manual/bashref.html>
+
+* The Bash FAQ contains answers to frequently asked questions regarding bash.
+  This list is aimed at intermediate to advanced users, but contains a lot of
+  good information. 
+
+* Bash FAQ包含关于bash，而经常提到的问题的答案。这个列表面向bash的中高级用户，
+  但它包含了许多有帮助的信息。
+
+  <http://mywiki.wooledge.org/BashFAQ>
+
+* The GNU Project provides extensive documentation for its programs, which form
+  the core of the Linux command line experience. You can see a complete list
+  here:
+
+* GUN项目为它的程序提供了大量的文档，这些文档组成了Linux命令行实验的核心。
+  这里你可以看到一个完整的列表：
+
+  <http://www.gnu.org/manual/manual.html>
+
+* Wikipedia has an interesting article on man pages:
+  
+* Wikipedia 有一篇关于手册页的有趣文章：  
+
+  <http://en.wikipedia.org/wiki/Man_page>
+
+
+
 
 
