@@ -304,7 +304,7 @@ man所显示的参考手册，被分成几个章节，它们不仅仅包括用�
 </tr>
 <tr>
 <td valign="top">8</td>
-<td valign="top">System administration commands</td>
+<td valign="top">System administration commands  系统管理员命令</td>
 </tr>
 </table>
 </p>
