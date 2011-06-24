@@ -67,6 +67,7 @@ functions in later chapters, but for now, just be aware that they exist.</li>
 仅仅意识到它们的存在就可以了。</li>
 
 <li>是一个命令别名。我们可以定义自己的命令，建立在其它命令之上。</li>
+</ol>
 
 ### Identifying Commands
 
