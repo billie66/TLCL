@@ -274,31 +274,33 @@ man所显示的参考手册，被分成几个章节，它们不仅仅包括用�
 </tr>
 <tr>
 <td valign="top" width="25%">1</td>
-<td valign="top">User commands</td>
+<td valign="top">User commands  用户命令</td>
 </tr>
 <tr>
 <td valign="top">2</td>
-<td valign="top">Programming interfaces kernel system calls</td>
+<td valign="top">Programming interfaces kernel system calls  程序接口内核系统调用</td>
 </tr>
 <tr>
 <td valign="top">3</td>
-<td valign="top">Programming interfaces to the C library</td>
+<td valign="top">Programming interfaces to the C library  C库函数程序接口</td>
 </tr>
 <tr>
 <td valign="top">4</td>
-<td valign="top">Special files such as device nodes and drivers</td>
+<td valign="top">Special files such as device nodes and drivers
+特殊文件，比如说设备结点和驱动程序</td>
 </tr>
 <tr>
 <td valign="top">5</td>
-<td valign="top">File formats</td>
+<td valign="top">File formats  文件格式</td>
 </tr>
 <tr>
 <td valign="top">6</td>
-<td valign="top">Games and amusements such as screen savers</td>
+<td valign="top">Games and amusements such as screen savers
+游戏娱乐，如屏幕保护程序</td>
 </tr>
 <tr>
 <td valign="top">7</td>
-<td valign="top">Miscellaneous</td>
+<td valign="top">Miscellaneous  其他方面</td>
 </tr>
 <tr>
 <td valign="top">8</td>
