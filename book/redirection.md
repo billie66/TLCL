@@ -537,9 +537,9 @@ we changed the data to produce a single, sorted list.
 各自针对一个目录。通过在管道线中包含sort，我们改变输出数据，从而产生一个
 有序列表。
 
-###　uniq - Report Or Omit Repeated Lines
+### uniq - Report Or Omit Repeated Lines
 
-###　uniq - 报道或忽略重复行
+### uniq - 报道或忽略重复行
 
 The uniq command is often used in conjunction with sort. uniq accepts a sorted list
 of data from either standard input or a single filename argument (see the uniq man page
@@ -649,6 +649,10 @@ first few lines or the last few lines. The head command prints the first ten lin
 and the tail command prints the last ten lines. By default, both commands print ten
 lines of text, but this can be adjusted with the “-n” option:
 
+有时候你不需要一个命令的所有输出。可能你只想要前几行或者后几行的输出内容。
+head命令打印文件的前十行，而tail命令打印文件的后十行。默认情况下，两个命令
+都打印十行文本，但是可以通过"-n"选项来调整命令打印的行数。
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ head -n 5 ls-output.txt
 total 343496
@@ -673,6 +677,11 @@ will look at the messages file in /var/log. Superuser privileges are required to
 this on some Linux distributions, since the /var/log/messages file may contain
 security information:
 
+tail有一个选项允许你实时的浏览文件。当观察日志文件的进展时，这很有用，因为
+它们同时在被写入。在以下的例子里，我们要查看目录/var/log里面的信息文件。在
+一些Linux发行版中，要求有超级用户权限才能阅读这些文件，因为文件/var/log/messages
+可能包含安全信息。
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ tail -f /var/log/messages
 Feb 8 13:40:05 twin4 dhclient: DHCPACK from 192.168.1.1
@@ -682,9 +691,13 @@ Feb 8 13:40:05 twin4 dhclient: DHCPACK from 192.168.1.1
 Using the “-f” option, tail continues to monitor the file and when new lines are
 appended, they immediately appear on the display. This continues until you type Ctrl-c.
 
+使用"-f"选项，tail命令继续监测这个文件，当新的内容添加到文件后，它们会立即
+出现在屏幕上。这会一直继续下去直到你输入Ctrl-c。
+
 ### tee – Read From Stdin And Output To Stdout And Files
 
-### tee － 从
+### tee － 从Stdin读取数据，并同时输出到Stdout和文件
+
 In keeping with our plumbing metaphor, Linux provides a command called tee which
 creates a “tee” fitting on our pipe. The tee program reads standard input and copies it to
 both standard output (allowing the data to continue down the pipeline) and to one or more
@@ -693,6 +706,12 @@ processing. Here we repeat one of our earlier examples, this time including tee 
 capture the entire directory listing to the file ls.txt before grep filters the pipeline's
 contents:
 
+为了和我们的管道隐喻保持一致，Linux提供了一个叫做tee的命令，这个命令制造了
+一个"tee"，安装到我们的管道上。tee程序从标准输入读入数据，并且同时复制数据
+到标准输出（允许数据继续随着管道线流动）和一个或多个文件。当在某个中间处理
+阶段来捕捉一个管道线的内容时，这很有帮助。这里，我们重复执行一个先前的例子，
+这次包含tee命令，在grep过滤管道线的内容之前，来捕捉整个目录列表到文件ls.txt：
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ls /usr/bin | tee ls.txt | grep zip
 bunzip2
@@ -700,7 +719,9 @@ bzip2
 ....</tt>
 </pre></div>
 
-Summing Up
+### Summing Up
+
+### 总结归纳
 
 As always, check out the documentation of each of the commands we have covered in
 this chapter. We have only seen their most basic usage. They all have a number of
@@ -708,6 +729,11 @@ interesting options. As we gain Linux experience, we will see that the redirecti
 of the command line is extremely useful for solving specialized problems. There are
 many commands that make use of standard input and output, and almost all command
 line programs use standard error to display their informative messages.
+
+一如既往，查看这章学到的每一个命令的文档。我们已经知道了他们最基本的用法。
+它们还有很多有趣的选项。随着我们Linux经验的积累，我们会了解命令行重定向特性
+在解决特殊问题时非常有用处。有许多命令利用标准输入和输出，而几乎所有的命令行
+程序都使用标准错误来显示它们的详细信息。
 
 <table class="single" cellpadding="10" width="%100">
 <tr>
@@ -717,6 +743,7 @@ line programs use standard error to display their informative messages.
 <p> When I am asked to explain the difference between Windows and Linux, I often
 use a toy analogy.
 </p>
+<p>当我被要求解释Windows和Linux之间的差异时，我经常拿玩具来作比喻。</p>
 
 <p> Windows is like a Game Boy. You go to the store and buy one all shiny new in
 the box. You take it home, turn it on and play with it. Pretty graphics, cute
@@ -729,6 +756,13 @@ thing!” The person behind the counter says you can't change it. The games are
 all sealed up in their cartridges. You discover that your toy is limited to the games
 that others have decided that you need and no more.
 </p>
+<p>Windows就像一个游戏机。你去商店，买了一个包装在盒子里面的全新的游戏机。
+你把它带回家，打开盒子，开始玩游戏。精美的画面，动人的声音。玩了一段时间之后，
+你厌倦了它自带的游戏，所以你返回商店，又买了另一个游戏机。这个过程反复重复。
+最后，你玩腻了游戏机自带的游戏，你回到商店，告诉售货员，“我想要一个这样的游戏！”
+但售货员告诉你没有这样的游戏存在，因为它没有“市场需求”。然后你说，“但是我只
+需要修改一下这个游戏！“，售货员又告诉你不能修改它。所有游戏都被封装在它们的
+存储器中。到头来，你发现你的玩具只局限于别人为你规定好的游戏。
 
 <p>Linux, on the other hand, is like the world's largest Erector Set. You open it up
 and it's just a huge collection of parts. A lot of steel struts, screws, nuts, gears,
@@ -739,16 +773,19 @@ the store, as you already have everything you need. The Erector Set takes on the
 shape of your imagination. It does what you want.
 </p>
 
+<p>另一方面，Linux就像一个全世界上最大的建造模型。你打开它，发现它只是一个巨大的
+部件集合。有许多钢支柱，螺钉，螺母，齿轮，滑轮，发动机，和一些怎样来建造它的说明书。
+然后你开始摆弄它。你建造了一个又一个样板模型。过了一会儿，你发现你要建造自己的模型。
+你不必返回商店，因为你已经拥有了你需要的一切。建造模型以你构想的形状为模板，搭建
+你想要的模型。
+</p>
+
 <p>Your choice of toys is, of course, a personal thing, so which toy would you find
 more satisfying?
 </p>
+<p>当然，选择哪一个玩具，是你的事情，那么你觉得哪个玩具更令人满意呢？</p>
 
 </td>
 </tr>
 </table>
-
-
-
-
-
 
