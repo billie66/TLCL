@@ -253,7 +253,7 @@ descriptor one (standard output) using the notation 2>&1.
 使用这种方法，我们完成两个重定向。首先重定向标准输出到文件ls-output.txt，然后
 重定向文件描述符2（标准错误）到文件描述符1（标准输出）使用表示法2>&1。
 
-<br />
+<hr />
 Notice that the order of the redirections is significant. The redirection of
 standard error must always occur after redirecting standard output or it doesn't
 work. In the example above,
@@ -272,6 +272,7 @@ redirects standard error to the file ls-output.txt, but if the order is changed 
 standard error is directed to the screen.
 
 则标准错误定向到屏幕。
+<hr />
 
 Recent versions of bash provide a second, more streamlined method for performing this
 combined redirection:
