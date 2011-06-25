@@ -279,7 +279,7 @@ combined redirection:
 现在的bash版本提供了第二种方法，更精简合理的方法来执行这种联合的重定向。
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /bin/usr &amp;&lt;ls-output.txt </tt>
+<tt>[me@linuxbox ~]$ ls -l /bin/usr &amp;&lt; ls-output.txt </tt>
 </pre></div>
 
 In this example, we use the single notation &> to redirect both standard output and
@@ -436,7 +436,7 @@ example. We would do this:
 的文件，这个文件包含例子中的文本。我们这样做：
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat > lazy_dog.txt
+<tt>[me@linuxbox ~]$ cat &gt; lazy_dog.txt
 The quick brown fox jumped over the lazy dog.</tt>
 </pre></div>
 
@@ -460,7 +460,7 @@ let's try redirecting standard input:
 现在我们知道怎讲接受标准输入，除了文件名参数，让我们试着重定向标准输入：
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat < lazy_dog.txt
+<tt>[me@linuxbox ~]$ cat &lt; lazy_dog.txt
 The quick brown fox jumped over the lazy dog.</tt>
 </pre>
 </div>
