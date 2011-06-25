@@ -445,7 +445,7 @@ The table below lists the most common keyboard commands used by less.
 
 Less Is More
 
-### less命令就是more命令
+### less就是more（禅语：色即是空）
 
 The less program was designed as an improved replacement of an earlier Unix
 program called more. The name “less” is a play on the phrase “less is more”—a
