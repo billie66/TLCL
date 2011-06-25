@@ -261,7 +261,7 @@ work. In the example above,
 注意重定向的顺序安排非常重要。标准错误的重定向必须总是出现在标准输出
 重定向之后，要不然它不起作用。上面的例子，
 
->ls-output.txt 2>&1
+<p>>ls-output.txt 2>&1</p>
 
 redirects standard error to the file ls-output.txt, but if the order is changed to
 
@@ -280,7 +280,7 @@ combined redirection:
 现在的bash版本提供了第二种方法，更精简合理的方法来执行这种联合的重定向。
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /bin/usr &> ls-output.txt</tt>
+<tt>[me@linuxbox ~]$ ls -l /bin/usr &> ls-output.txt </tt>
 </pre></div>
 
 In this example, we use the single notation &> to redirect both standard output and
@@ -306,6 +306,8 @@ To suppress error messages from a command, we do this:
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ls -l /bin/usr 2> /dev/null</tt>
 </pre></div>
+
+<br />
 
 <table class="single" cellpadding="10" width="%100">
 <tr>
@@ -461,7 +463,8 @@ let's try redirecting standard input:
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ cat < lazy_dog.txt
 The quick brown fox jumped over the lazy dog.</tt>
-</pre></div>
+</pre>
+</div>
 
 Using the “<” redirection operator, we change the source of standard input from the
 keyboard to the file lazy_dog.txt. We see that the result is the same as passing a
