@@ -318,6 +318,7 @@ To suppress error messages from a command, we do this:
 in many parts of Unix culture. When someone says he/she is sending your
 comments to /dev/null, now you know what it means. For more examples,
 see the Wikipedia article on “/dev/null”.
+</p>
 <p>位存储桶是个古老的Unix概念，由于它的普遍性，它的身影出现在Unix文化的
 许多部分。当有人说他/她正在发送你的评论到/dev/null，现在你应该知道那是
 什么意思了。更多的例子，可以阅读Wikipedia关于"/dev/null"的文章。
@@ -606,7 +607,7 @@ grep is a powerful program used to find text patterns within files. It's used li
 grep是个很强大的程序，用来找到文件中的匹配文本。这样使用grep命令：
 
 <div class="code"><pre>
-<tt>grep pattern [file...]/tt>
+<tt>grep pattern [file...]</tt>
 </pre></div>
 
 When grep encounters a “pattern” in the file, it prints out the lines containing it. The
@@ -739,6 +740,7 @@ line programs use standard error to display their informative messages.
 <tr>
 <td>
 <h3>Linux Is About Imagination</h3>
+<h3>Linux是关于想象力的</h3>
 
 <p> When I am asked to explain the difference between Windows and Linux, I often
 use a toy analogy.
@@ -763,6 +765,7 @@ that others have decided that you need and no more.
 但售货员告诉你没有这样的游戏存在，因为它没有“市场需求”。然后你说，“但是我只
 需要修改一下这个游戏！“，售货员又告诉你不能修改它。所有游戏都被封装在它们的
 存储器中。到头来，你发现你的玩具只局限于别人为你规定好的游戏。
+</p>
 
 <p>Linux, on the other hand, is like the world's largest Erector Set. You open it up
 and it's just a huge collection of parts. A lot of steel struts, screws, nuts, gears,
