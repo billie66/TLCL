@@ -9,7 +9,7 @@ you can redirect the input and output of commands to and from files, as well as 
 multiple commands together into powerful command pipelines. To show off this facility,
 we will introduce the following commands:
 
-这堂课，我们将介绍可能是命令行最酷的特性。它叫做I/O重定向。"I/O"代表输入/输出，
+这堂课，我们来介绍可能是命令行最酷的特性。它叫做I/O重定向。"I/O"代表输入/输出，
 通过这个工具，你可以重定向命令的输入输出，命令的输入来自文件，而输出也存到文件。
 也可以把多个命令连接起来组成一个强大的命令管道。为了炫耀这个工具，我们将叙述
 以下命令：
@@ -279,7 +279,7 @@ combined redirection:
 现在的bash版本提供了第二种方法，更精简合理的方法来执行这种联合的重定向。
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /bin/usr  ls-output.txt </tt>
+<tt>[me@linuxbox ~]$ ls -l /bin/usr &amp;&lt;ls-output.txt </tt>
 </pre></div>
 
 In this example, we use the single notation &> to redirect both standard output and
@@ -299,7 +299,7 @@ To suppress error messages from a command, we do this:
 
 有时候“沉默是金”，我们不想要一个命令的输出结果，只想把它们扔掉。这种情况
 尤其适用于错误和状态信息。系统为我们提供了解决问题的方法，通过重定向输出结果
-到一个特殊叫做"/dev/null"的文件。这个文件是系统设备，叫做位存储桶，它可以
+到一个特殊的叫做"/dev/null"的文件。这个文件是系统设备，叫做位存储桶，它可以
 接受输入，并且对输入不做任何处理。为了隐瞒命令错误信息，我们这样做：
 
 <div class="code"><pre>
@@ -328,7 +328,7 @@ see the Wikipedia article on “/dev/null”.
 </tr>
 </table>
 
-###　Redirecting Standard Input
+### Redirecting Standard Input
 
 ### 重定向标准输入
 
@@ -747,7 +747,7 @@ line programs use standard error to display their informative messages.
 <p> When I am asked to explain the difference between Windows and Linux, I often
 use a toy analogy.
 </p>
-<p>当我被要求解释Windows和Linux之间的差异时，我经常拿玩具来作比喻。</p>
+<p>当我被要求解释Windows与Linux之间的差异时，我经常拿玩具来作比喻。</p>
 
 <p> Windows is like a Game Boy. You go to the store and buy one all shiny new in
 the box. You take it home, turn it on and play with it. Pretty graphics, cute
