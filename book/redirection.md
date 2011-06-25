@@ -272,7 +272,6 @@ redirects standard error to the file ls-output.txt, but if the order is changed 
 standard error is directed to the screen.
 
 则标准错误定向到屏幕。
-<br />
 
 Recent versions of bash provide a second, more streamlined method for performing this
 combined redirection:
@@ -280,7 +279,7 @@ combined redirection:
 现在的bash版本提供了第二种方法，更精简合理的方法来执行这种联合的重定向。
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /bin/usr &> ls-output.txt </tt>
+<tt>[me@linuxbox ~]$ ls -l /bin/usr  ls-output.txt </tt>
 </pre></div>
 
 In this example, we use the single notation &> to redirect both standard output and
@@ -480,9 +479,9 @@ Before we move on, check out the man page for cat, as it has several interesting
 
 在我们继续之前，查看cat的手册页，因为它有几个有趣的选项。
 
-###　Pipelines
+### Pipelines
 
-###　管道线
+### 管道线
 
 The ability of commands to read data from standard input and send to standard output is
 utilized by a shell feature called pipelines. Using the pipe operator “|” (vertical bar), the
