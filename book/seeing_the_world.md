@@ -20,7 +20,7 @@ complex features of the shell, we will do it with just one new command:
 
 Each time you type a command line and press the enter key, bash performs several
 processes upon the text before it carries out your command. We have seen a couple of
-cases of how a simple character sequence, for example “*”, can have a lot of meaning to
+cases of how a simple character sequence, for example “\*”, can have a lot of meaning to
 the shell. The process that makes this happen is called expansion. With expansion, you
 type something and it is expanded into something else before the shell acts upon it. To
 demonstrate what we mean by this, let's take a look at the echo command. echo is a
@@ -28,7 +28,7 @@ shell builtin that performs a very simple task. It prints out its text arguments
 output:
 
 每一次你输入一个命令，然后按下enter键，在bash执行你的命令之前，bash会对输入
-的字符完成几个步骤处理。我们已经知道两三个案例，怎样一个简单的字符序列，例如"*",
+的字符完成几个步骤处理。我们已经知道两三个案例，怎样一个简单的字符序列，例如"\*",
 对shell来说，有很多的涵义。使这个发生的过程叫做（字符）展开。通过展开，
 你输入的字符，在shell对它起作用之前，会展开成为别的字符。为了说明我们所要
 表达的意思，让我们看一看echo命令。echo是一个shell内部命令，来完成非常简单的认为。
@@ -45,16 +45,16 @@ another example:
 [me@linuxbox ~]$ echo *
 Desktop Documents ls-output.txt Music Pictures Public Templates Videos
 
-So what just happened? Why didn't echo print “*”? As you recall from our work with
-wildcards, the “*” character means match any characters in a filename, but what we didn't
+So what just happened? Why didn't echo print “\*”? As you recall from our work with
+wildcards, the “\*” character means match any characters in a filename, but what we didn't
 see in our original discussion was how the shell does that. The simple answer is that the
-shell expands the “*” into something else (in this instance, the names of the files in the
+shell expands the “\*” into something else (in this instance, the names of the files in the
 
 Expansion
 
 current working directory) before the echo command is executed. When the enter key is
 pressed, the shell automatically expands any qualifying characters on the command line
-before the command is carried out, so the echo command never saw the “*”, only its
+before the command is carried out, so the echo command never saw the “\*”, only its
 expanded result. Knowing this, we can see that echo behaved as expected.
 
 Pathname Expansion
@@ -105,14 +105,14 @@ and looking beyond our home directory:
 <p> As we know, filenames that begin with a period character are hidden.
 Pathname expansion also respects this behavior. An expansion such as: </p>
 
-<p> echo * </p>
+echo \* 
 
 <p>does not reveal hidden files.  </p>
 
 <p>It might appear at first glance that we could include hidden files in an
 expansion by starting the pattern with a leading period, like this: </p>
 
-<p>echo .* </p>
+echo .\* 
 
 <p> It almost works. However, if we examine the results closely, we will see
 that the names “.” and “..” will also appear in the results. Since these names
@@ -120,12 +120,12 @@ refer to the current working directory and its parent directory, using this
 pattern will likely produce an incorrect result. We can see this if we try the
 command: </p>
 
-<p> ls -d .* | less </p>
+ls -d .\* | less
 
 <p> To correctly perform pathname expansion in this situation, we have to
 employ a more specific pattern. This will work correctly: </p>
 
-<p> ls -d .[!.]?* </p>
+ls -d .[!.]?\* 
 
 <p>This pattern expands into every filename that begins with a period, does not
 include a second period, contains at least one additional character and can be
