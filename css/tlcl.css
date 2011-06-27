@@ -13,6 +13,10 @@ h1
 {
     font-size: 150%; 
 }
+h2{
+    font-size: 150%;
+}
+
 /*Remove the line under links*/
 a {text-decoration:none;}
 
