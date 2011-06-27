@@ -126,7 +126,7 @@ and looking beyond our home directory:
 <p> As we know, filenames that begin with a period character are hidden.
 Pathname expansion also respects this behavior. An expansion such as: </p>
 <p>正如我们知道的，以圆点字符开头的文件名是隐藏文件。路径名展开也尊重这种
-行为。像这样的展开：
+行为。像这样的展开：</p>
 
 <p>echo * </p>
 
@@ -147,7 +147,7 @@ pattern will likely produce an incorrect result. We can see this if we try the
 command: </p>
 <p>它几乎是起作用了。然而，如果我们仔细检查一下输出结果，我们会看到名字"."
 和".."也出现在结果中。因为这些名字是指当前工作目录和它的父目录，使用这种
-模式可能会产生不正确的结果。我们能看到这样的结果，如果我们试一下这个命令：
+模式可能会产生不正确的结果。我们能看到这样的结果，如果我们试一下这个命令：</p>
 
 <p>ls -d .\* | less</p>
 
@@ -162,7 +162,7 @@ employ a more specific pattern. This will work correctly: </p>
 include a second period, contains at least one additional character and can be
 followed by any other characters.</p>
 <p>这种模式展开成为文件名，每个文件名以圆点开头，第二个字符不包含圆点，再包含至少一个字符，
-并且这个字符之后紧接着任意多个字符。
+并且这个字符之后紧接着任意多个字符。</p>
 </td>
 </tr>
 </table>
