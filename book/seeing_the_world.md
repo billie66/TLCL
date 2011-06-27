@@ -33,3 +33,70 @@ output:
 你输入的字符，在shell对它起作用之前，会展开成为别的字符。为了说明我们所要
 表达的意思，让我们看一看echo命令。echo是一个shell内部命令，来完成非常简单的认为。
 它在标准输出中打印出它的文本参数。
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ echo this is a test
+this is a test</tt>
+</pre></div>
+
+That's pretty straightforward. Any argument passed to echo gets displayed. Let's try
+another example:
+
+这个命令的作用相当简单明了。
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ echo *
+Desktop Documents ls-output.txt Music Pictures Public Templates Videos</tt>
+</pre></div>
+
+So what just happened? Why didn't echo print “\*”? As you recall from our work with
+wildcards, the “\*” character means match any characters in a filename, but what we didn't
+see in our original discussion was how the shell does that. The simple answer is that the
+shell expands the “\*” into something else (in this instance, the names of the files in the
+
+### Expansion
+
+current working directory) before the echo command is executed. When the enter key is
+pressed, the shell automatically expands any qualifying characters on the command line
+before the command is carried out, so the echo command never saw the “\*”, only its
+expanded result. Knowing this, we can see that echo behaved as expected.
+
+### Pathname Expansion
+
+The mechanism by which wildcards work is called pathname expansion. If we try some
+of the techniques that we employed in our earlier chapters, we will see that they are really
+expansions. Given a home directory that looks like this:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ ls
+Desktop   ls-output.txt   Pictures   Templates
+....</tt>
+</pre></div>
+
+we could carry out the following expansions:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ echo D\*
+Desktop  Documents</tt>
+</pre></div>
+
+and:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ echo \*s
+Documents Pictures Templates Videos</tt>
+</pre></div>
+
+or even:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ echo [[:upper:]]\*
+Desktop Documents Music Pictures Public Templates Videos</tt>
+</pre></div>
+
+and looking beyond our home directory:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ echo /usr/\*/share
+/usr/kerberos/share  /usr/local/share </tt>
+</pre></div>
