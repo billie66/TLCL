@@ -117,6 +117,8 @@ and looking beyond our home directory:
 /usr/kerberos/share  /usr/local/share </tt>
 </pre></div>
 
+<br />
+
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
@@ -478,12 +480,13 @@ bash也支持这种语法。它使用倒引号来代替美元符号和括号：
 
 ### Quoting
 
-### 引号
+### 引用
 
 Now that we've seen how many ways the shell can perform expansions, it's time to learn
 how we can control it. Take for example:
 
 我们已经知道shell有许多方式可以完成展开，现在是时候学习怎样来控制展开了。
+以下面例子来说明：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo this is a    test
@@ -504,19 +507,34 @@ command's list of arguments. In the second example, parameter expansion substitu
 empty string for the value of “$1” because it was an undefined variable. The shell
 provides a mechanism called quoting to selectively suppress unwanted expansions.
 
+在第一个例子中，shell从echo命令的参数列表中，删除多余的空格。在第二个例子中，
+参数展开把"$1"的值替换为一个空字符串，因为"1"是没有定义的变量。shell提供了一种
+叫做引用的机制，来有选择地禁止不需要的展开。
+
 ### Double Quotes
 
 ### 双引号
 
-The first type of quoting we will look at is double quotes. If you place text inside double
-quotes, all the special characters used by the shell lose their special meaning and are
-treated as ordinary characters. The exceptions are “$”, “\” (backslash), and “`” (back-
-quote). This means that word-splitting, pathname expansion, tilde expansion, and brace
-expansion are suppressed, but parameter expansion, arithmetic expansion, and command
-substitution are still carried out. Using double quotes, we can cope with filenames
-containing embedded spaces. Say we were the unfortunate victim of a file called
-two words.txt. If we tried to use this on the command line, word-splitting would
-cause this to be treated as two separate arguments rather than the desired single argument:
+<p>The first type of quoting we will look at is double quotes. If you place text
+inside double quotes, all the special characters used by the shell lose their
+special meaning and are treated as ordinary characters. The exceptions are
+“$”, “\” (backslash), and “`” (back- quote). This means that word-splitting,
+pathname expansion, tilde expansion, and brace expansion are suppressed, but
+parameter expansion, arithmetic expansion, and command substitution are still
+carried out. Using double quotes, we can cope with filenames containing
+embedded spaces. Say we were the unfortunate victim of a file called 
+<b>two words.txt</b>.If we tried to use this on the command line, word-splitting would
+cause this to be treated as two separate arguments rather than the desired
+single argument:</p>
+
+我们将要看一下引用的第一种类型，双引号。如果你把文本放在双引号中，
+shell使用的特殊字符，除了"$", "\"(反斜杠），和"`"（倒引号）之外，
+则失去它们的特殊含义，被当作普通字符来看待。这意味着单词分割，路径名展开，
+波浪线展开，和花括号展开都被禁止，然而参数展开，算术展开，和命令替换
+仍然执行。使用双引号，我们可以处理包含空格的文件名。比方说我们是不幸的
+名为<b>two words.txt</b>文件的受害者。如果我们试图在命令行中使用这个
+文件，单词分割机制会导致这个文件名被看作两个独自的参数，而不是所期望
+的单个参数：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ls -l two words.txt
@@ -527,6 +545,9 @@ ls: cannot access words.txt: No such file or directory</tt>
 By using double quotes, we stop the word-splitting and get the desired result; further, we
 can even repair the damage:
 
+使用双引号，我们可以阻止单词分割，得到期望的结果；进一步，我们甚至可以修复
+破损的文件名。
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ls -l "two words.txt"
 -rw-rw-r-- 1 me   me   18 2008-02-20 13:03 two words.txt
@@ -534,8 +555,13 @@ can even repair the damage:
 </pre></div>
 
 There! Now we don't have to keep typing those pesky double quotes.
+
+你瞧！现在我们不必一直输入那些讨厌的双引号了。
+
 Remember, parameter expansion, arithmetic expansion, and command substitution still
 take place within double quotes:
+
+记住，在双引号中，参数展开，算术表达式展开，和命令替换仍然有效：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "$USER $((2+2)) $(cal)"
@@ -547,6 +573,9 @@ Su Mo Tu We Th Fr Sa
 We should take a moment to look at the effect of double quotes on command substitution.
 First let's look a little deeper at how word splitting works. In our earlier example, we saw
 how word-splitting appears to remove extra spaces in our text:
+
+我们应该花费一点时间来看一下双引号在命令替换中的效果。首先仔细研究一下单词分割
+是怎样工作的。在之前的范例中，我们已经看到单词分割机制是怎样来删除文本中额外空格的：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo this is a   test
@@ -560,6 +589,10 @@ separators. Since they separate the words into different arguments, our example
 command line contains a command followed by four distinct arguments. If we add
 double quotes:
 
+在默认情况下，单词分割机制会在单词中寻找空格，制表符，和换行符，并把它们看作
+单词之间的界定符。它们只作为分隔符使用。因为它们把单词分为不同的参数，在范例中，
+命令行包含一个带有四个不同参数的命令。如果我们加上双引号：
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "this is a    test"
 this is a    test </tt>
@@ -568,8 +601,15 @@ this is a    test </tt>
 word-splitting is suppressed and the embedded spaces are not treated as delimiters, rather
 they become part of the argument. Once the double quotes are added, our command line
 contains a command followed by a single argument.
+
+单词分割被禁止，内嵌的空格也不会被当作界定符，它们成为参数的一部分。
+一旦加上双引号，我们的命令行就包含一个带有一个参数的命令。
+
 The fact that newlines are considered delimiters by the word-splitting mechanism causes
 an interesting, albeit subtle, effect on command substitution. Consider the following:
+
+事实上，单词分割机制把换行符看作界定符，对命令替换产生了一个，虽然微妙，但有趣的影响。
+考虑下面的例子：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo $(cal)
@@ -583,9 +623,18 @@ February 2008
 In the first instance, the unquoted command substitution resulted in a command line
 containing thirty-eight arguments. In the second, a command line with one argument that
 includes the embedded spaces and newlines.
-Single Quotes
+
+在第一个实例中，没有引用的命令替换导致命令行包含38个参数。在第二个例子中，
+命令行只有一个参数，参数中包括嵌入的空格和换行符。
+
+###　Single Quotes
+
+###  单引号
+
 If we need to suppress all expansions, we use single quotes. Here is a comparison of
 unquoted, double quotes, and single quotes:
+
+如果需要禁止所有的展开，我们使用单引号。以下例子是无引用，双引号，和单引号的比较结果：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo text ~/*.txt {a,b} $(echo foo) $((2+2)) $USER
@@ -599,6 +648,8 @@ text ~/*.txt  {a,b} $(echo foo) $((2+2)) $USER</tt>
 As we can see, with each succeeding level of quoting, more and more of the expansions
 are suppressed.
 
+正如我们所看到的，随着引用程度加强，越来越多的展开被禁止。
+
 ### Escaping Characters
 
 ### 转义字符
@@ -606,6 +657,9 @@ are suppressed.
 Sometimes we only want to quote a single character. To do this, we can precede a
 character with a backslash, which in this context is called the escape character. Often
 this is done inside double quotes to selectively prevent an expansion:
+
+有时候我们只想引用单个字符。我们可以在字符之前加上一个反斜杠，在这个上下文中叫做转义字符。
+经常在双引号中使用转义字符，来有选择地阻止展开。
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "The balance for user $USER is: \$5.00"
@@ -617,6 +671,10 @@ filename. For example, it is possible to use characters in filenames that normal
 special meaning to the shell. These would include “$”, “!”, “&”, “ “, and others. To
 include a special character in a filename you can to this:
 
+使用转义字符来消除文件名中一个字符的特殊含义，是很普遍的。例如，在文件名中可能使用
+一些对于shell来说，有特殊含义的字符。这些字符包括"$", "!", " "等字符。在文件名
+中包含特殊字符，你可以这样做：
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ mv bad\&filename good_filename</tt>
 </pre></div>
@@ -624,44 +682,53 @@ include a special character in a filename you can to this:
 To allow a backslash character to appear, escape it by typing “\\”. Note that within single
 quotes, the backslash loses its special meaning and is treated as an ordinary character.
 
+为了允许反斜杠字符出现，输入"\\"来转义。注意在单引号中，反斜杠失去它的特殊含义，它
+被看作普通字符。
+
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
 <h3>Backslash Escape Sequences</h3>
+<h3>反斜杠转义字符序列</h3>
 
 <p>In addition to its role as the escape character, the backslash is also used as part of
 a notation to represent certain special characters called control codes. The first
 thirty-two characters in the ASCII coding scheme are used to transmit commands
 to teletype-like devices. Some of these codes are familiar (tab, backspace,
 linefeed, and carriage return), while others are not (null, end-of-transmission, and
-acknowledge).
-</p>
+acknowledge).</p>
+<p>反斜杠除了作为转义字符外，反斜杠也是一种表示法的一部分，这种表示法代表某种
+特殊字符，叫做控制码。ASCII编码表中前32个字符被用来把命令转输到像电报机
+一样的设备。一些编码是众所周知的（制表符，退格符，换行符，和回车符），其它
+一些编码就不熟悉了（空值，传输结束码，和确认）。</p>
+
 <br />
 <p>
 <table cellpadding="10" border="1" width="%80">
 <tr>
-<th class="title">Escape Sequence</th>
-<th class="title">Meaning</th>
+<th class="title">Escape Sequence &nbsp; 转义序列</th>
+<th class="title">Meaning &nbsp; 意思</th>
 </tr>
 <tr>
 <td valign="top" width="25%">\a</td>
-<td valign="top">Bell("Alert"-causes the computer to beep)</td>
+<td valign="top">Bell("Alert"-causes the computer to beep) &nbsp; 响铃（"警告"－导致计算机嘟嘟响）</td>
 </tr>
 <tr>
 <td valign="top">\b</td>
-<td valign="top">Backspace</td>
+<td valign="top">Backspace &nbsp; 退格符</td>
 </tr>
 <tr>
 <td valign="top">\n</td>
-<td valign="top">Newline. On Unix-like systems, this produces a linefeed.</td>
+<td valign="top">Newline. On Unix-like systems, this produces a linefeed.
+&nbsp; 新的一行。在类似Unix系统中，产生换行。</td>
 </tr>
 <tr>
 <td valign="top">\r</td>
-<td valign="top">Carriage return</td>
+<td valign="top">Carriage return &nbsp; 回车符</td>
 </tr>
 <tr>
 <td valign="top">\t</td>
-<td valign="top">Tab</td>
+<td valign="top">Tab &nbsp; 制表符</td>
 </tr>
 </table>
 </p>
@@ -670,14 +737,26 @@ acknowledge).
 behind this representation using the backslash originated in the C programming
 language and has been adopted by many others, including the shell.
 </p>
+
+<p>上表列出了一些常见的反斜杠转义字符。反斜杠表示法背后的思想来源于C编程语言，
+许多其它语言也采用了这种表示方法，包括shell。</p>
+
 <p>Adding the “-e” option to echo will enable interpretation of escape sequences.
 You may also place them inside $' '. Here, using the sleep command, a
 simple program that just waits for the specified number of seconds and then exits,
 we can create a primitive countdown timer:
 </p>
+<p>echo命令带上"-e"选项，能够解释转义序列。你可以把转义序列放在$' '里面。
+以下例子，使用sleep命令，一个简单的程序，它会等待指定的秒数，然后退出。
+我们可以创建一个简单的倒数计数器：</p>
+
 <p><b>sleep 10; echo -e  "Time's up\a"</b></p>
+
 <p>We could also do this:</p>
+<p>我们也可以这样做：</p>
+
 <p><b>sleep 10; echo "Time's up" $'\a'</b></p>
+
 </td>
 </tr>
 </table>
@@ -691,12 +770,24 @@ be used with increasing frequency, so it makes sense to get a good understanding
 way they works. In fact, it could be argued that they are the most important subjects to
 learn about the shell. Without a proper understanding of expansion, the shell will always
 be a source of mystery and confusion, and much of it potential power wasted.
-Further Reading
+
+随着我们继续学习shell，你会发现使用展开和引用的频率逐渐多起来，所以能够很好的
+理解他们的工作方式很有意义。事实上，可以这样说，他们是学习shell的最重要的主题。
+如果没有准确地理解展开模式，shell总是神秘和混乱的源泉，并且shell潜在的能力也
+浪费掉了。
+
+### Further Reading
+
+### 拓展阅读
 
 * The bash man page has major sections on both expansion and quoting which
   cover these topics in a more formal manner.
 
+* Bash手册页有主要段落是关于展开和引用的，它们以更正式的方式介绍了这些题目。
+
 * The Bash Reference Manual also contains chapters on expansion and quoting:
+
+* Bash参考手册也包含章节，介绍展开和引用：
 
   <http://www.gnu.org/software/bash/manual/bashref.html>
 
