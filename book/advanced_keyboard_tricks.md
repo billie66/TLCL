@@ -336,7 +336,7 @@ completion:
 <table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">Table 9-4: Completion Commands &nbsp; 自动补全命令</caption>
 <tr>
-<th class="title">Key &nbsp; 键</th>
+<th class="title">Key &nbsp; 按键</th>
 <th class="title">Action &nbsp; 行动</th>
 </tr>
 <tr>
