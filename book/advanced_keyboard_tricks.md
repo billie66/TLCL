@@ -242,9 +242,9 @@ Readline程序的开发者们，不能确定一个专用多余的控制键的存
 </tr>
 </table>
 
-###　Completion
+### Completion
 
-###　自动补全
+### 自动补全
 
 Another way that the shell can help you is through a mechanism called completion.
 Completion occurs when you press the tab key while typing a command. Let's see how
@@ -434,12 +434,12 @@ discovered line we could do this:
 历史命令展开，我们会用到这个数字。我们可以这样做，来使用我们所发现的行：
 
 <div class="code"><pre>
-<tt></tt>
-</pre>[me@linuxbox ~]$ !88</div>
+<tt>[me@linuxbox ~]$ !88</tt>
+</pre></div>
 
 bash will expand “!88” into the contents of the eighty-eighth line in the
-history list.  There are other forms of history expansion that we will cover a
-little later.  bash also provides the ability to search the history list
+history list. There are other forms of history expansion that we will cover a
+little later. bash also provides the ability to search the history list
 incrementally. This means that we can tell bash to search the history list as
 we enter characters, with each additional character further refining our
 search. To start incremental search type Ctrl-r followed by the text you are
