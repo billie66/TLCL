@@ -194,6 +194,7 @@ location. &nbsp; 把剪切环中的文本粘贴到光标位置。</td>
 </tr>
 </table>
 </p>
+<br />
 
 <table class="single" cellpadding="10" width="%100">
 <tr>
@@ -208,7 +209,7 @@ key.” On modern keyboards this maps to the Alt key but it wasn't always so.
 
 <p> 如果你冒险进入到Readline的文档中，你会在bash手册页的READLINE段落，
 遇到一个术语"元键"（meta key）。在当今的键盘上，这个元键是指Alt键，但
-并不总是这样。
+并不总是这样。</p>
 <p>Back in the dim times (before PCs but after Unix) not everybody had their own
 computer. What they might have had was a device called a terminal. A terminal
 was a communication device that featured a text display screen and a keyboard
@@ -236,7 +237,7 @@ Unix系统有一个非常精巧的方法来处理各种终端产品和它们不�
 Readline程序的开发者们，不能确定一个专用多余的控制键的存在，他们发明了一个
 控制键，并把它叫做"元"（"meta"）。然而在现代的键盘上，Alt键作为元键来服务。
 如果你仍然在使用终端（在Linux中，你仍然可以得到一个终端），你也可以按下和
-释放Esc键来得到如控制Alt键一样的效果。
+释放Esc键来得到如控制Alt键一样的效果。</p>
 </td>
 </tr>
 </table>
@@ -353,7 +354,7 @@ to use more than one possible match. &nbsp;
 </tr>
 </table>
 </p>
-
+<br />
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
@@ -397,6 +398,8 @@ typing you have to do, especially when combined with command line editing.
 
 ### Searching History
 
+### 搜索历史命令
+
 At any time, we can view the contents of the history list by:
 
 在任何时候，我们都可以浏览历史列表的内容，通过：
@@ -421,7 +424,7 @@ this:
 
 比方说在我们的搜索结果之中，我们得到一行，包含了有趣的命令，像这样；
 
-88  ls -l /usr/bin > ls-output.txt
+<p>88  ls -l /usr/bin > ls-output.txt</p>
 
 The number “88” is the line number of the command in the history list. We could use this
 immediately using another type of expansion called history expansion. To use our
@@ -434,16 +437,17 @@ discovered line we could do this:
 <tt></tt>
 </pre>[me@linuxbox ~]$ !88</div>
 
-bash will expand “!88” into the contents of the eighty-eighth line in the history list.
-There are other forms of history expansion that we will cover a little later.
-bash also provides the ability to search the history list incrementally. This means that
-we can tell bash to search the history list as we enter characters, with each additional
-character further refining our search. To start incremental search type Ctrl-r followed
-by the text you are looking for. When you find it, you can either type Enter to execute
-the command or type Ctrl-j to copy the line from the history list to the current
-command line. To find the next occurrence of the text (moving “up” the history list),
-type Ctrl-r again. To quit searching, type either Ctrl-g or Ctrl-c. Here we see it
-in action:
+bash will expand “!88” into the contents of the eighty-eighth line in the
+history list.  There are other forms of history expansion that we will cover a
+little later.  bash also provides the ability to search the history list
+incrementally. This means that we can tell bash to search the history list as
+we enter characters, with each additional character further refining our
+search. To start incremental search type Ctrl-r followed by the text you are
+looking for. When you find it, you can either type Enter to execute the
+command or type Ctrl-j to copy the line from the history list to the current
+command line. To find the next occurrence of the text (moving “up” the history
+list), type Ctrl-r again. To quit searching, type either Ctrl-g or Ctrl-c.
+Here we see it in action:
 
 bash会把"!88"展开成为历史列表中88行的内容。还有其它的历史命令展开形式，我们一会儿
 讨论它们。bash也具有按递增顺序来搜索历史列表的能力。这意味着随着字符的输入，我们
@@ -507,53 +511,40 @@ The table below lists some of the keystrokes used to manipulate the history list
 <tr>
 <td valign="top">Ctrl-n </td>
 <td valign="top">Move to the next history entry. Same action as the down arrow.
-&nbsp; 移动到下一个历史条目。类似于下箭头按键。
-</td>
+&nbsp; 移动到下一个历史条目。类似于下箭头按键。</td>
 </tr>
 <tr>
-<td valign="top">Alt-< 
-</td>
+<td valign="top">Alt-< </td>
 <td valign="top">Move to the beginning (top) of the history list. &nbsp;
-移动到历史列表开头。
-</td>
+移动到历史列表开头。</td>
 </tr>
 <tr>
-<td valign="top">Alt-> 
-</td>
+<td valign="top">Alt-> </td>
 <td valign="top">Move to the end (bottom) of the history list, i.e., the current
-command line. &nbsp; 移动到历史列表结尾，即当前命令行。
-</td>
+command line. &nbsp; 移动到历史列表结尾，即当前命令行。</td>
 </tr>
 <tr>
-<td valign="top">Ctrl-r 
-</td>
+<td valign="top">Ctrl-r </td>
 <td valign="top">Reverse incremental search. Searches incrementally from the 
-current command line up the history list. &nbsp; 反向递增搜索。从当前命令行开始，向上递增搜索。
-</td>
+current command line up the history list. &nbsp; 反向递增搜索。从当前命令行开始，向上递增搜索。</td>
 </tr>
 <tr>
-<td valign="top">Alt-p 
-</td>
+<td valign="top">Alt-p </td>
 <td valign="top">Reverse search, non-incremental. With this key, type in the search
 string and press enter before the search is performed. &nbsp;
-反向搜索，不是递增顺序。输入要查找的字符串，然后按下Enter，执行搜索。
-</td>
+反向搜索，不是递增顺序。输入要查找的字符串，然后按下Enter，执行搜索。</td>
 </tr>
 <tr>
-<td valign="top">Alt-n 
-</td>
+<td valign="top">Alt-n </td>
 <td valign="top">Forward search, non-incremental. &nbsp;
-向前搜索，非递增顺序。
-</td>
+向前搜索，非递增顺序。</td>
 </tr>
 <tr>
-<td valign="top">Ctrl-o 
-</td>
+<td valign="top">Ctrl-o </td>
 <td valign="top">Execute the current item in the history list and advance to the next
 one. This is handy if you are trying to re-execute a sequence of
 commands in the history list. &nbsp; 执行历史列表中的当前项，并移到下一个。
-如果你想要执行历史列表中一系列的命令，这很方便。
-</td>
+如果你想要执行历史列表中一系列的命令，这很方便。</td>
 </tr>
 </table>
 </p>
