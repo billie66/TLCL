@@ -514,12 +514,12 @@ The table below lists some of the keystrokes used to manipulate the history list
 &nbsp; 移动到下一个历史条目。类似于下箭头按键。</td>
 </tr>
 <tr>
-<td valign="top">Alt-< </td>
+<td valign="top">Alt-&lt; </td>
 <td valign="top">Move to the beginning (top) of the history list. &nbsp;
 移动到历史列表开头。</td>
 </tr>
 <tr>
-<td valign="top">Alt-> </td>
+<td valign="top">Alt-&gt; </td>
 <td valign="top">Move to the end (bottom) of the history list, i.e., the current
 command line. &nbsp; 移动到历史列表结尾，即当前命令行。</td>
 </tr>
@@ -549,9 +549,9 @@ commands in the history list. &nbsp; 执行历史列表中的当前项，并移�
 </table>
 </p>
 
-###　History Expansion
+### History Expansion
 
-###　历史命令展开
+### 历史命令展开
 
 The shell offers a specialized type of expansion for items in the history list by using the
 “!” character. We have already seen how the exclamation point can be followed by a
@@ -636,9 +636,9 @@ typescript。查看脚本的手册页，可以得到一个关于script程序选�
 </tr>
 </table>
 
-###　Summing Up
+### Summing Up
 
-###　总结归纳
+### 总结归纳
 
 In this chapter we have covered some of the keyboard tricks that the shell provides to
 help hardcore typists reduce their workloads. I suspect that as time goes by and you
@@ -649,9 +649,9 @@ up more of these tricks. For now, consider them optional and potentially helpful
 随着时光流逝，你和命令行打交道越来越多，我猜想你会重新翻阅这一章的内容，学会更多的技巧。
 目前，你就认为它们是可选的，潜在地有帮助的。
 
-###　Further Reading
+### Further Reading
 
-###　拓展阅读
+### 拓展阅读
 
 The Wikipedia has a good article on computer terminals:
 
