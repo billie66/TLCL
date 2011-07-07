@@ -69,7 +69,7 @@ the following commands:
 When we were exploring the system back in Chapter 4, we may have encountered a
 problem when trying to examine a file such as /etc/shadow:
 
-在第四章探究文件系统时，当我们试图查看一个像/etc/shadow那样的文件的时候，我们遇到一个问题。
+在第四章探究文件系统时，当我们试图查看一个像/etc/shadow那样的文件的时候，我们会遇到一个问题。
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ file /etc/shadow
@@ -81,7 +81,7 @@ problem when trying to examine a file such as /etc/shadow:
 The reason for this error message is that, as regular users, we do not have permission to
 read this file.
 
-产生这种错误信息的原因是，作为一个普通文件，我们没有权限来读取这个文件。
+产生这种错误信息的原因是，作为一个普通用户，我们没有权限来读取这个文件。
 
 In the Unix security model, a user may own files and directories. When a user owns a file
 or directory, the user has control over its access. Users can, in turn, belong to a group
