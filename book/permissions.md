@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 权限 
+title: 权&nbsp;限 
 ---
 
 Operating systems in the Unix tradition differ from those in the MS-DOS tradition in
@@ -159,7 +159,7 @@ the user. This makes certain types of permission assignment easier.
 
 ### Reading, Writing, And Executing
 
-### 读取，写入，执行
+### 读取，写入，和执行
 
 Access rights to files and directories are defined in terms of read access, write access, and
 execution access. If we look at the output of the ls command, we can get some clue as
@@ -189,7 +189,7 @@ common types too):
 <th class="title">File Type &nbsp; 文件类型</th>
 </tr>
 <tr>
-<td valign="top" width="20%">-</td>
+<td valign="top">-</td>
 <td valign="top">a regular file &nbsp; 一个普通文件</td>
 </tr>
 <tr>
@@ -332,15 +332,15 @@ scheme used to store the file mode. This table shows what we mean:
 3个二进制数字，这种对应关系，正好映射到用来存储文件模式所使用的方案上。下表展示了
 我们所要表达的意思：
 
-<p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<p style="text-align:center">
+<table class="multi" cellpadding="10" border="1" width="%80">
 <tr>
 <th class="title">Octal</th>
 <th class="title">Binary</th>
 <th class="title">File Mode</th>
 </tr>
 <tr>
-<td valign="top" width="20%">0 </td>
+<td valign="top">0 </td>
 <td valign="top">000</td>
 <td valign="top">---</td>
 </tr>
@@ -420,12 +420,12 @@ chmod命令支持一种符号表示法，来指定文件模式。符号表示法
 chmod命令符号表示法
 </caption>
 <tr>
-<th class="title">u</th>
-<th class="title">Short for "user", but means the file or directory owner. &nbsp;
-"user"的简写，意思是文件或目录的所有者。</th>
+<td class="title">u</td>
+<td class="title">Short for "user", but means the file or directory owner. &nbsp;
+"user"的简写，意思是文件或目录的所有者。</td>
 </tr>
 <tr>
-<td valign="top" width="20%">g</td>
+<td valign="top">g</td>
 <td valign="top">Group owner. &nbsp; 用户组。</td>
 </tr>
 <tr>
@@ -460,12 +460,12 @@ of symbolic notation:
 chmod符号表示法实例
 </caption>
 <tr>
-<th class="title">u+x </th>
-<th class="title">Add execute permission for the owner. &nbsp;
-为文件所有者添加可执行权限。</th>
+<td class="title">u+x </td>
+<td class="title">Add execute permission for the owner. &nbsp;
+为文件所有者添加可执行权限。</td>
 </tr>
 <tr>
-<td valign="top" width="20%">u-x</td>
+<td valign="top">u-x</td>
 <td valign="top">Remove execute permission from the owner. &nbsp;
 删除文件所有者的可执行权限。</td>
 </tr>
@@ -476,18 +476,18 @@ Equivalent to a+x. &nbsp; 为文件所有者，用户组，和其他所有人添
 等价于a+x。</td>
 </tr>
 <tr>
-<td valign="top" width="20%">o-rw</td>
+<td valign="top">o-rw</td>
 <td valign="top">Remove the read and write permission from anyone besides the
 owner and group owner. &nbsp; 除了文件所有者和用户组，删除其他人的读权限和写权限。</td>
 </tr>
 <tr>
-<td valign="top" width="20%">go=rw</td>
+<td valign="top">go=rw</td>
 <td valign="top">Set the group owner and anyone besides the owner to have read and
 write permission. If either the group owner or world previously had
 execute permissions, they are removed. &nbsp; </td>
 </tr>
 <tr>
-<td valign="top" width="20%">u+x,go=rw</td>
+<td valign="top">u+x,go=rw</td>
 <td valign="top">Add execute permission for the owner and set the permissions for
 the group and others to read and execute. Multiple specifications
 may be separated by commas.</td>
@@ -591,7 +591,7 @@ what happens:
 怎么回事，我们需要看一下掩码的八进制形式。把掩码展开成二进制形式，然后与文件属性
 相比较，看看有什么区别：
 
-<p>
+<p style="text-align:center">
 <table class="multi" cellpadding="10" border="1" width="%60">
 <tr>
 <td valign="top">Original file mode </td>
@@ -619,7 +619,7 @@ does:
 任务。掩码的二进制形式中，出现数字1的位置，相应地关掉一个文件模式属性。看一下
 掩码0022的作用：
 
-<p>
+<p style="text-align:center">
 <table class="multi" cellpadding="10" border="1" width="%60">
 <tr>
 <td valign="top">Original file mode </td>
@@ -907,6 +907,8 @@ User me may run the following commands on this host:
 (ALL) ALL</tt>
 </pre></div>
 
+<br />
+
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
@@ -1069,12 +1071,12 @@ same way as chown, except for being more limited.
 
 ### 练习使用权限 
 
-Now that we have learned how this permissions thing works, it's time to show it off. We
-are going to demonstrate the solution to a common problem — setting up a shared   
-directory. Let's imagine that we have two users named “bill” and “karen.” They both
-have music CD collections and wish to set up a shared directory, where they will each
-store their music files as Ogg Vorbis or MP3. User bill has access to superuser
-privileges via sudo.
+Now that we have learned how this permissions thing works, it's time to show
+it off. We are going to demonstrate the solution to a common problem — setting
+up a shared   directory. Let's imagine that we have two users named “bill” and
+“karen.” They both have music CD collections and wish to set up a shared
+directory, where they will each store their music files as Ogg Vorbis or MP3.
+User bill has access to superuser privileges via sudo.
 
 到目前为止，我们已经知道了，权限这类东西是怎样工作的，现在是时候炫耀一下了。我们
 将展示一个常见问题的解决方案，这个问题是如何设置一个共享目录。假想我们有两个用户，
@@ -1209,6 +1211,8 @@ umask permanent.
 会话结束后，则必须重新设置。在这本书的第三部分，我们将看一下，怎样使掩码值永久生效。
 
 ### Changing Your Password
+
+### 更改用户密码
 
 The last topic we'll cover in this chapter is setting passwords for yourself (and for other
 users if you have access to superuser privileges.) To set or change a password, the
