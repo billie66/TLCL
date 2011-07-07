@@ -185,7 +185,7 @@ common types too):
 <table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">Table 10-1: File Types &nbsp; 文件类型</caption>
 <tr>
-<th class="title">Attribute &nbsp; 属性</th>
+<th class="title" width="15%">Attribute &nbsp; 属性</th>
 <th class="title">File Type &nbsp; 文件类型</th>
 </tr>
 <tr>
@@ -333,7 +333,7 @@ scheme used to store the file mode. This table shows what we mean:
 我们所要表达的意思：
 
 <p style="text-align:center">
-<table class="multi" cellpadding="10" border="1" width="%80">
+<table class="multi" cellpadding="10" border="1" width="%60">
 <tr>
 <th class="title">Octal</th>
 <th class="title">Binary</th>
@@ -591,7 +591,7 @@ what happens:
 怎么回事，我们需要看一下掩码的八进制形式。把掩码展开成二进制形式，然后与文件属性
 相比较，看看有什么区别：
 
-<p style="text-align:center">
+<center>
 <table class="multi" cellpadding="10" border="1" width="%60">
 <tr>
 <td valign="top">Original file mode </td>
@@ -606,7 +606,7 @@ what happens:
 <td valign="top">--- rw- rw- r--</td>
 </tr>
 </table>
-</p>
+</center>
 
 Ignore for the moment the leading zeros (we'll get to those in a minute) and observe that
 where the 1 appears in our mask, an attribute was removed—in this case, the world   
