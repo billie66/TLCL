@@ -332,7 +332,7 @@ scheme used to store the file mode. This table shows what we mean:
 3个二进制数字，这种对应关系，正好映射到用来存储文件模式所使用的方案上。下表展示了
 我们所要表达的意思：
 
-<p style="text-align:center">
+<center>
 <table class="multi" cellpadding="10" border="1" width="%60">
 <tr>
 <th class="title">Octal</th>
@@ -380,7 +380,7 @@ scheme used to store the file mode. This table shows what we mean:
 <td valign="top">rwx</td>
 </tr>
 </table>
-</p>
+</center>
 
 By using three octal digits, we can set the file mode for the owner, group owner, and
 world:
@@ -420,7 +420,7 @@ chmod命令支持一种符号表示法，来指定文件模式。符号表示法
 chmod命令符号表示法
 </caption>
 <tr>
-<td class="title">u</td>
+<td class="title" width="15%">u</td>
 <td class="title">Short for "user", but means the file or directory owner. &nbsp;
 "user"的简写，意思是文件或目录的所有者。</td>
 </tr>
@@ -460,7 +460,7 @@ of symbolic notation:
 chmod符号表示法实例
 </caption>
 <tr>
-<td class="title">u+x </td>
+<td class="title" width="15%">u+x </td>
 <td class="title">Add execute permission for the owner. &nbsp;
 为文件所有者添加可执行权限。</td>
 </tr>
@@ -619,7 +619,7 @@ does:
 任务。掩码的二进制形式中，出现数字1的位置，相应地关掉一个文件模式属性。看一下
 掩码0022的作用：
 
-<p style="text-align:center">
+<center>
 <table class="multi" cellpadding="10" border="1" width="%60">
 <tr>
 <td valign="top">Original file mode </td>
@@ -634,7 +634,7 @@ does:
 <td valign="top">--- rw- r-- r--</td>
 </tr>
 </table>
-</p>
+</center>
 
 Again, where a 1 appears in the binary value, the corresponding attribute is unset. Play
 with some values (try some sevens) to get used to how this works. When you're done,
@@ -996,7 +996,7 @@ chown命令可以更改文件所有者和/或文件用户组，依据于这个�
 <th class="title">Results</th>
 </tr>
 <tr>
-<td valign="top" width="20%">bob</td>
+<td valign="top" width="15%">bob</td>
 <td valign="top">Changes the ownership of the file from its current owner to user
 bob. &nbsp; 把文件所有者从当前属主更改为用户bob。</td>
 </tr>
