@@ -264,7 +264,7 @@ more information:
 <tt>[me@linuxbox ~]$ ps aux
 USER   PID  %CPU  %MEM     VSZ    RSS  TTY   STAT   START   TIME  COMMAND
 root     1   0.0   0.0    2136    644  ?     Ss     Mar05   0:31  init
-root     2   0.0   0.0       0      0  ?     S<     Mar05   0:00  [kt]
+root     2   0.0   0.0       0      0  ?     S&lt;     Mar05   0:00  [kt]
 
 and many more...</tt>
 </pre></div>
@@ -694,7 +694,7 @@ immediately placed in the background, we follow the command with an- “&” cha
 运行，我们在程序命令之后，加上"&"字符：
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ xlogo &
+<tt>[me@linuxbox ~]$ xlogo &amp;
 [1] 28236
 [me@linuxbox ~]$</tt>
 </pre></div>
@@ -723,7 +723,7 @@ launched from our terminal. Using the jobs command, we can see this list:
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ jobs
-[1]+ Running            xlogo &</tt>
+[1]+ Running            xlogo &amp;</tt>
 </pre></div>
 
 The results show that we have one job, numbered “1”, that it is running, and that the
@@ -744,7 +744,7 @@ fg命令，让一个进程返回前台执行：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ jobs
-[1]+ Running        xlogo &
+[1]+ Running        xlogo &amp;
 [me@linuxbox ~]$ fg %1 
 xlogo</tt>
 </pre></div>
@@ -785,7 +785,7 @@ background with the bg command:
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ bg %1
-[1]+ xlogo &
+[1]+ xlogo &amp;
 [me@linuxbox ~]$</tt>
 </pre></div>
 
@@ -823,7 +823,7 @@ that need killing. Here's an example:
 kill命令被用来“杀死”程序。这样我们就可以终止需要杀死的程序。这里有一个实例：
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ xlogo &
+<tt>[me@linuxbox ~]$ xlogo &amp;
 [1] 28401
 [me@linuxbox ~]$ kill 28401
 [1]+ Terminated               xlogo</tt>
@@ -996,7 +996,7 @@ Let's try out the kill command:
 让我们实验一下kill命令：
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ xlogo &
+<tt>[me@linuxbox ~]$ xlogo &amp;
 [1] 13546
 [me@linuxbox ~]$ kill -1 13546
 [1]+ Hangup         xlogo</tt>
@@ -1014,7 +1014,7 @@ number or by name, including the name prefixed with the letters “SIG”:
 加上字母“SIG”，来指定所要发送的信号。
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ xlogo &
+<tt>[me@linuxbox ~]$ xlogo &amp;
 [1] 13546
 [me@linuxbox ~]$ kill -1 13546
 [1]+ Hangup                    xlogo</tt>
@@ -1138,9 +1138,9 @@ terminate them:
 为了说明情况，我们将启动一对xlogo程序的实例，然后再终止它们：
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ xlogo &
+<tt>[me@linuxbox ~]$ xlogo &amp;
 [1] 18801
-[me@linuxbox ~]$ xlogo &
+[me@linuxbox ~]$ xlogo &amp;
 [2] 18802
 [me@linuxbox ~]$ killall xlogo
 [1]- Terminated                xlogo
@@ -1170,7 +1170,7 @@ commands for it. Here are some to play with:
 <th class="title">Description</th>
 </tr>
 <tr>
-<td valign="top" width="25%">pstree </td>
+<td valign="top" width="15%">pstree </td>
 <td valign="top">Outputs a process list arranged in a tree-like pattern showing the
 parent/child relationships between processes.</td>
 </tr>
@@ -1203,7 +1203,7 @@ Terminate the output with Ctrl-c.</td>
 <th class="title">命令描述</th>
 </tr>
 <tr>
-<td valign="top" width="25%">pstree </td>
+<td valign="top" width="15%">pstree </td>
 <td valign="top">输出一个树型结构的进程列表，这个列表展示了进程间父/子关系。</td>
 </tr>
 <tr>
