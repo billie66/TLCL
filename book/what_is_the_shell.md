@@ -4,8 +4,6 @@ title: 什么是shell
 ---
 2 – What Is The Shell?
 
-### 2 — 什么是Shell?
-
 When we speak of the command line, we are really referring to the shell. The
 shell is a program that takes keyboard commands and passes them to the
 operating system to carry out. Almost all Linux distributions supply a shell
