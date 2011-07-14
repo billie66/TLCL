@@ -14,7 +14,7 @@ efficient.
 
 开玩笑地说，我经常把Unix描述为“这个操作系统是为喜欢敲键盘的人们服务的。”
 当然，Unix甚至还有一个命令行，这个事实是个确凿的证据，证明了我所说的话。
-但是命令行用户不喜欢敲入那么字。为什么这么多命令有这样简短的命令名，像
+但是命令行用户不喜欢敲入那么多字。那又为什么如此多的命令会有这样简短的命令名，像
 cp，ls，mv，和rm？事实上，命令行最为珍视的目标之一就是懒惰；用最少的击键次数
 来完成最多的工作。另一个目标是你的手指永远不必离开键盘，永不触摸鼠标。在这一
 章节，我们将看一下bash特性，这些特性使键盘使用起来更加迅速，更加高效。
@@ -23,11 +23,11 @@ The following commands will make an appearance:
 
 以下命令将会露面：
 
-* clear – Clear the screen
+* clear - Clear the screen
+
+* history - Display the contents of the history list
 
 * clear － 清空屏幕
-
-* history – Display the contents of the history list
 
 * history － 显示历史列表内容
 
