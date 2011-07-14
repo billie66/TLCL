@@ -1,10 +1,8 @@
 ---
 layout: book
-title: 文&nbsp;件&nbsp;系&nbsp;统&nbsp;中&nbsp;跳&nbsp;转 
+title: 文件系统中跳转 
 ---
 3 – Navigation
-
-### 3 — 在文件系统中跳转
 
 The first thing we need to learn to do (besides just typing) is how to
 navigate the file system on our Linux system. In this chapter we will
