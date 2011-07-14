@@ -94,7 +94,7 @@ the items upon which the command acts. So most commands look kind of like this:
 更进一步，选项后面会带有一个或多个参数，这些参数是命令作用的对象。所以大多数命令看起来像这样：
 
 <div class="code"><pre>
-<tt>command -options arguments</tt>
+<tt><b>command -options arguments</b></tt>
 </pre></div>
 
 Most commands use options consisting of a single character preceded by a dash, 
@@ -191,8 +191,7 @@ ls display its results in ascending alphabetical order.
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
-<caption class="cap">表 4-1: ls命令选项 
-</caption>
+<caption class="cap">表 4-1: ls命令选项 </caption>
 <tr>
 <th class="title" width="10%">选项</th>
 <th class="title" width="15%" >长选项</th>
@@ -202,7 +201,7 @@ ls display its results in ascending alphabetical order.
 <td valign="top">-a</td>
 <td valign="top">--all</td>
 <td valign="top">列出所有文件名，包括以圆点开头的文件名，一般不会
-列出隐藏文件名。
+列出隐藏文件名。</td>
 </tr>
 <tr>
 <td valign="top">-d</td>
@@ -214,23 +213,18 @@ valign="top">通常，如果指定了目录名，ls命令会列出这个目录�
 <tr>
 <td valign="top">-F</td>
 <td valign="top">--classify</td>
-<td
-valign="top">这个选项会在每个所列出的名字后面加上一个指示符。例如，如果名字是
-目录名，则会加上一个“/”字符。
-</td>
+<td valign="top">这个选项会在每个所列出的名字后面加上一个指示符。例如，如果名字是
+目录名，则会加上一个“/”字符。 </td>
 </tr>
 <tr>
 <td valign="top">-h</td>
 <td valign="top">--human-readable</td>
-<td
-valign="top">以长格式列出。以人们可读的格式，而不是以字节数来显示文件的大小。
-</td>
+<td valign="top">以长格式列出。以人们可读的格式，而不是以字节数来显示文件的大小。</td>
 </tr>
 <tr>
 <td valign="top">-l</td>
 <td valign="top"> </td>
-<td valign="top">以长格式显示结果。
-</td>
+<td valign="top">以长格式显示结果。 </td>
 </tr>
 <tr>
 <td valign="top">-r</td>
@@ -504,7 +498,7 @@ The table below lists the most common keyboard commands used by less.
 <table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">Table 4-3: less Commands</caption>
 <tr>
-<th class="title">Command</th>
+<th class="title" width="30%">Command</th>
 <th class="title">Action</th>
 </tr>
 <tr>
@@ -554,7 +548,7 @@ The table below lists the most common keyboard commands used by less.
 <table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">表 4-3: less命令</caption>
 <tr>
-<th class="title">命令</th>
+<th class="title" width="30%">命令</th>
 <th class="title">行为</th>
 </tr>
 <tr>
@@ -1010,7 +1004,7 @@ valign="top">除了/tmp和/home目录之外，相对来说，目前我们看到�
 <td
 valign="top">这个/var/log目录包含日志文件，各种系统活动的记录。这些文件非常重要，并且
 应该时时监测它们。其中最重要的一个文件是/var/log/messages。注意，为了系统安全，在一些系统中，
-你必须是超级用户才能查看这些日志文件。</tr>
+你必须是超级用户才能查看这些日志文件。</td></tr>
 </table>
 </p>
 
