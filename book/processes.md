@@ -318,7 +318,7 @@ a date is used.</td>
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
-<caption class="cap">表11-2: BSD风格的ps命令（运行结果的）列标题
+<caption class="cap">表11-2: BSD风格的ps命令列标题
 </caption>
 <tr>
 <th class="title">标题</th>
@@ -865,7 +865,7 @@ like this:
 kill命令被用来给程序发送信号。它最常见的语法形式看起来像这样：
 
 <div class="code"><pre>
-<tt>kill [-signal] PID...</tt>
+<tt><b>kill [-signal] PID...</b></tt>
 </pre></div>
 
 If no signal is specified on the command line, then the TERM (Terminate) signal is sent by
@@ -1129,7 +1129,7 @@ user name by using the killall command. Here is the syntax:
 也有可能通过killall命令，给匹配特定程序或用户名的多个进程发送信号。下面是killall命令的语法形式：
 
 <div class="code"><pre>
-<tt>killall [-u user] [-signal] name...</tt>
+<tt><b>killall [-u user] [-signal] name...</b></tt>
 </pre></div>
 
 To demonstrate, we will start a couple of instances of the xlogo program and then
@@ -1144,8 +1144,7 @@ terminate them:
 [2] 18802
 [me@linuxbox ~]$ killall xlogo
 [1]- Terminated                xlogo
-[2]+ Terminated                xlogo
-</tt>
+[2]+ Terminated                xlogo</tt>
 </pre></div>
 
 Remember, as with kill, you must have superuser privileges to send signals to
