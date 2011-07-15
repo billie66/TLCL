@@ -11,11 +11,11 @@ introduce the following commands:
 我们需要学习的第一件事（除了打字之外），是如何在Linux文件系统中跳转。
 在这一章节中，我们将介绍以下命令：
 
-pwd - Print name of current working directory
+* pwd - Print name of current working directory
 
-cd - Change directory
+* cd - Change directory
 
-ls - List directory contents
+* ls - List directory contents
 
 * pwd — 打印出当前工作目录名
 
@@ -38,7 +38,7 @@ and so on and so on.
 正如Windows，一个类似于Unix的操作系统，比如说Linux，以分层目录结构来组织所有文件。
 这就意味着所有文件组成了一棵树型目录（有时候在其它系统中叫做文件夹），
 这个目录树可能包含文件和其它的目录。文件系统中的第一级目录称为根目录。
-根目录包含文件和子目录，子目录包含更多的文件和子目录，诸如此类。
+根目录包含文件和子目录，子目录包含更多的文件和子目录，依此类推。
 
 Note that unlike Windows, which has a separate file system tree for each
 storage device, Unix-like systems such as Linux always have a single file
@@ -49,8 +49,8 @@ the person (or persons) responsible for the maintenance of the system.
 
 注意不同于Windows，Windows每个存储设备都有一个独自的文件系统，类似于Unix的操作系统，
 比如说Linux，总是有一个单一的文件系统树，不管有多少个磁盘或者存储设备连接到计算机上。
-根据系统管理员的兴致，存储设备连接到（或着更精确些，是挂载到）目录树的各个节点上，
-系统管理员负责操作系统维护。
+根据系统管理员的兴致，存储设备连接到（或着更精确些，是挂载到）目录树的各个节点上。
+系统管理员负责维护系统安全。
 
 The Current Working Directory
 
@@ -65,7 +65,7 @@ branches descending below.
 <p class="figure">Figure 1: File system tree as shown by a graphical file manager</p>
 
 大多数人都可能熟悉图形文件管理器，它描述了文件系统树的结构，正如图1所示。
-注意这是一棵倒立的树，也就是说，树根在最上面而各种各样的分支在下面。
+注意通常，这是一棵倒置的树，也就是说，树根在最上面，而各个枝干在下面展开。
 
 However, the command line has no pictures, so to navigate the file system tree
 we need to think of it in a different way.
@@ -82,7 +82,7 @@ the pwd (print working directory) command.
 
 把文件系统想象成一个迷宫形状，就像一棵倒立的大树，我们站在迷宫的中间位置。
 在任意时刻，我们处于一个目录里面，我们能看到这个目录包含的所有文件，
-以及通往上面目录（父目录）和下面子目录的路径。我们所在的目录则称为
+以及通往上面目录（父目录）的路径，和下面的各个子目录。我们所在的目录则称为
 当前工作目录。我们使用pwd（打印工作目录）命令，来显示当前工作目录。
 
 <div class="code"><pre>
@@ -112,7 +112,6 @@ ls command.
 <tt>[me@linuxbox ~]$ ls
 Desktop Documents Music Pictures Public Templates Videos</tt>
 </pre></div>
-
 
 Actually, we can use the ls command to list the contents of any directory, not
 just the current working directory, and there are many other fun things it can
