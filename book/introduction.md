@@ -3,46 +3,104 @@ layout: book
 title: 引言 
 ---
 
+I want to tell you a story.
+
 我要给大家讲个故事。
 
-故事内容不是关于Linus Torvalds在1991年怎样写了linux内核的第一个版本，
-因为你可以在许多Linux书籍中读到它。我也不想告诉你，更早之前，Richard Stallman
-怎样开始GNU项目，去设计一个免费的类似unix的操作系统。这也是一个很重要的故事，
+No, not the story of how, in 1991, Linus Torvalds wrote the first version of the Linux
+kernel. You can read that story in lots of Linux books. Nor am I going to tell you the
+story of how, some years earlier, Richard Stallman began the GNU Project to create a free
+Unix-like operating system. That's an important story too, but most other Linux books
+have that one, as well.
+
+故事内容不是，Linus Torvalds在1991年怎样写了linux内核的第一个版本，
+因为这些内容你可以在许多Linux书籍中读到。我也不想告诉你，更早之前，Richard Stallman
+是如何开始GNU项目，来设计一个免费的类似unix的操作系统。这也是一个很有意义的故事，
 但大多数Linux书籍也讲到了它。
 
-我想告诉大家一个你如何拿回你的计算机管理权的故事。
+No, I want to tell you the story of how you can take back control of your computer.
 
-在18世纪70年代末，作为一个大学生，当我开始和计算机打交道时，有一场变革正在进行。
-微处理器的发明，使普通老百姓，就像你和我，能拥有自己的计算机，成为可能。今天，
-人们难以想象，当只有大企业和政府才能够管理计算机的世界，是怎样的一个世界。让我说说看，你想不出多少来。
+我想告诉大家一个如何夺回计算机管理权的故事。
+
+When I began working with computers as a college student in the late 1970s, there was a
+revolution going on. The invention of the microprocessor had made it possible for
+ordinary people like you and me to actually own a computer. It's hard for many people
+today to imagine what the world was like when only big business and big government ran
+all the computers. Let's just say, you couldn't get much done.
+
+在20世纪70年代末，作为一个大学生，当我开始和计算机打交道时，有一场变革正在进行。
+微处理器的发明，使普通老百姓，就像你和我，能拥有自己的计算机成为可能。今天，
+人们难以想象，只有大企业和强大的政府才能够拥有计算机的世界，是怎样的一个世界。
+让我说，你想不出多少来。
+
+Today, the world is very different. Computers are everywhere, from tiny wristwatches to
+giant data centers to everything in between. In addition to ubiquitous computers, we also
+have a ubiquitous network connecting them together. This has created a wondrous new
+age of personal empowerment and creative freedom, but over the last couple of decades
+something else has been happening. A single giant corporation has been imposing its
+control over most of the world's computers and deciding what you can and cannot do
+with them. Fortunately, people from all over the world are doing something about it.
+They are fighting to maintain control of their computers by writing their own software.
+They are building Linux.
 
 今天，世界已经日新月异。计算机遍布各个领域，从小手表到大型数据中心，及大小介于它们之间的每件东西。
-除了随处可见的计算机之外，我们还有一个无处不在 的连接所有计算机的网络。这已经开创了一个奇妙的，
+除了随处可见的计算机之外，我们还有一个无处不在的连接所有计算机的网络。这已经开创了一个奇妙的，
 个人授权和创作自由的新时代，但是在过去的二三十年里，一些事情一直在发生着。一个大公司一直在把它的
-管理权强加于世界上大多数的计算机上，并且决定你能用电脑做什么。幸运地，来自世界各地的人们，
+管理权强加到世界上大多数的计算机上，并且决定你能用电脑做什么。幸运地，来自世界各地的人们，
 针对这种情况，正在做些事情。他们通过写自己的软件，一直在为维护自己电脑的管理权而战斗着。
 他们建立了Linux。
 
-对于Linux，人们都会说到“自由”，但我不认为他们都知道“自由”的真正涵义。“自由”是一种权力，
-它决定你的计算机能做什么，同时能够拥有这种“自由”的唯一
-方式就是知道计算机正在做什么。“自由”是指一台没有任何秘密的计算机，你可以从它那里了解一切，
-只要你用心的去寻找。
+Many people speak of “freedom” with regard to Linux, but I don't think most people
+know what this freedom really means. Freedom is the power to decide what your
+computer does, and the only way to have this freedom is to know what your computer is
+doing. Freedom is a computer that is without secrets, one where everything can be
+known if you care enough to find out.
+
+一提到Linux，许多人都会说到“自由”，但我不认为他们都知道“自由”的真正涵义。“自由”是一种权力，
+它决定你的计算机能做什么，同时能够拥有这种“自由”的唯一方式就是知道计算机正在做什么。
+“自由”是指一台没有任何秘密的计算机，你可以从它那里了解一切，只要你用心的去寻找。
+
+### Why Use The Command Line?
 
 ### 为什么使用命令行
 
-你是否注意到，在电影中，一个“超级黑客”，坐在电脑前，他能够在30秒内侵入到超安全的军事计算机，
+Have you ever noticed in the movies when the “super hacker,”— you know, the guy who 
+can break into the ultra-secure military computer in under thirty seconds —sits down at
+the computer, he never touches a mouse? It's because movie makers realize that we, as
+human beings, instinctively know the only way to really get anything done on a computer
+is by typing on a keyboard.
+
+你是否注意到，在电影中，一个“超级黑客”，坐在电脑前，他能够在30秒内侵入到超安全的军事计算机中，
 却从不摸一下鼠标。这是因为电影制片人意识到，我们人类本能的知道，让计算机真正地完成
 任何工作的唯一方法，就是通过操作键盘。
+
+Most computer users today are only familiar with the graphical user interface (GUI) and
+have been taught by vendors and pundits that the command line interface (CLI) is a
+terrifying thing of the past. This is unfortunate, because a good command line interface is
+a marvelously expressive way of communicating with a computer in much the same way
+the written word is for human beings. It's been said that “graphical user interfaces make
+easy tasks easy, while command line interfaces make difficult tasks possible” and this is
+still very true today.
 
 现在，大多数的计算机用户只是熟悉图形用户界面（GUI），并且产品供应商和此领域的学者会灌输给用户这样的思想，
 命令行界面（CLI）是过去使用的一种很恐怖的东西。这就很不幸，因为一个友好的命令行界面，
 是和计算机交流沟通，正如像人类社会使用文字互通信息一样。据说，“图形用户界面让简单的任务更容易完成，
 而命令行界面使完成复杂的任务成为可能”，到现在这句话仍然很正确。
 
+Since Linux is modeled after the Unix family of operating systems, it shares the same
+rich heritage of command line tools as Unix. Unix came into prominence during the
+early 1980s (although it was first developed a decade earlier), before the widespread
+adoption of the graphical user interface and, as a result, developed an extensive command
+line interface instead. In fact, one of the strongest reasons early adopters of Linux chose it
+over, say, Windows NT was the powerful command line interface which made the
+“difficult tasks possible.”
+
 因为Linux是以Unix家族的操作系统为模型写成的，所以它分享了Unix丰富的命令行工具。
 Unix在18世纪80年代初，显赫一时(虽然，开发它在更早之前），在广泛地使用图形界面之前，
 导致，开发一种全面的命令行界面。事实上，一个主要的原因，Linux开发者优先采用命令行界面
 而不是其他的系统，比如说Windows NT，是因为强大的命令行界面，可以使“完成复杂的任务成为可能”。
+
+###What This Book Is About
 
 ### 这本书讲什么
 
