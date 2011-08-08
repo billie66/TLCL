@@ -11,12 +11,10 @@ program from the GNU Project called bash. The name “bash” is an acronym for
 “Bourne Again SHell”, a reference to the fact bash is an enhanced replacement
 for sh, the original Unix shell program written by Steve Bourne.
 
-当一说到命令行，我们真正指的是shell。shell就是一个程序，它接受从键盘输入的命令，
-然后把命令传递给操作系统去执行。
-几乎所有的Linux发行版都提供一个名为bash程序，是Shell的一种，来自于GNU项目。“bash”是“Bourne
-Again SHell”的首字母 缩写，
-所指的是这样一个事实，bash是sh的增强版，sh是最初Unix的shell程序，由Steve
-Bourne写成。
+一说到命令行，我们真正指的是shell。shell就是一个程序，它接受从键盘输入的命令，
+然后把命令传递给操作系统去执行。几乎所有的Linux发行版都提供一个名为bash的程序，
+bash是shell的一种，来自于GNU项目。“bash”是“Bourne Again SHell”的首字母缩写，
+所指的是这样一个事实，bash是sh的增强版，sh是最初Unix的shell程序，由Steve Bourne写成。
 
 Terminal Emulators
 
@@ -31,11 +29,11 @@ basically do the same thing; give us access to the shell. You will probably
 develop a preference for one or another based on the number of bells and
 whistles it has.
 
-当使用图形用户界面时，我们需要另一个叫做终端仿真器的程序，去和shell进行交互。
+当使用图形用户界面时，我们需要另一个叫做终端仿真器的程序，去和shell交互。
 浏览一下我们的桌面菜单，我们可能会找到一个。虽然在菜单里它可能都
 被简单地称为“terminal”，但是KDE用的是konsole程序, 而GNOME则使用gnome-terminal。
 还有其他一些终端仿真器可供Linux使用，但基本上，它们都是为了完成同样的事情，
-让我们能访问shell。也许，你会喜欢上这个或那个终端，因为它所附加的一系列花俏功能。
+让我们能访问shell。也许，你会喜欢上这个或那个终端，由于它所附加的一系列花俏功能。
 
 Your First Keystrokes
 
@@ -59,7 +57,7 @@ sign.
 
 这叫做shell提示符，当shell准备好了去接受输入时，它就会出现。然而，
 它可能会以各种各样的面孔显示，这则取决于不同的Linux发行版，
-它通常包括你的，用户名@主机名，紧接着当前工作目录（关于它的知识有点多）和一个美元符号。
+它通常包括你的用户名@主机名，紧接着当前工作目录（关于它的知识有点多）和一个美元符号。
 
 If the last character of the prompt is a pound sign (“#”) rather than a dollar
 sign, the terminal session has superuser privileges. This means either we are
@@ -67,8 +65,7 @@ logged in as the root user or we selected a terminal emulator that provides
 superuser (administrative) privileges.
 
 如果提示符的最后一个字符是“#”, 而不是“$”, 那么这个终端会话就有超级用户权限。
-这意味着，我们或是以根用户的身份登录的，或者是我们选择的终端仿真器，
-提供超级用户（管理员）权限。
+这意味着，我们或者是以根用户的身份登录，或者是我们选择的终端仿真器提供超级用户（管理员）权限。
 
 Assuming that things are good so far, let's try some typing. Type some
 gibberish at the prompt like so:
@@ -127,7 +124,7 @@ be pasted at the cursor location. Try it.
 
 虽然，shell是和键盘打交道的，但你也可以在终端仿真器里使用鼠标。X窗口系统
 （使GUI工作的底层引擎）内建了一种机制，支持快速拷贝和粘贴技巧。
-如果，你想高亮一些文本，可以按下鼠标左键，沿着文本拖动鼠标（或者双击一个单词），
+如果你想高亮一些文本，可以按下鼠标左键，沿着文本拖动鼠标（或者双击一个单词），
 那么这些高亮的文本就被拷贝到了一个由X管理的缓冲区里面。然后按下鼠标中键，
 这些文本就被粘贴到光标所在的位置。试试看。
 
@@ -135,9 +132,8 @@ Note: Don't be tempted to use Ctrl-c and Ctrl-v to perform copy and paste
 inside a terminal window. They don't work. These control codes have different
 meanings to the shell and were assigned many years before Microsoft Windows.
 
-注意： 不要受诱惑在一个终端窗口里，使用Ctrl-c和Ctrl-v快捷键，去执行拷贝和粘贴操作。
-它们不起作用。对于shell,这些控制代码有着不同的含义，它们被赋值，
-早于Microsoft Windows许多年。
+注意： 不要受诱惑在一个终端窗口里，使用Ctrl-c和Ctrl-v快捷键，来执行拷贝和粘贴操作。
+它们不起作用。对于shell来说，这些控制代码有着不同的含义，它们被赋值，早于Microsoft Windows许多年。
 
 Your graphical desktop environment (most likely KDE or GNOME), in an effort
 to behave like Windows, probably has its focus policy set to “click to focus.”
@@ -150,7 +146,7 @@ paste technique even more useful. Give it a try. I think if you give it a chance
 you will prefer it. You will find this setting in the configuration program for your
 window manager.
 
-你的图形桌面环境（像KDE或GNOME），努力想和Windows一样，可能把它的聚焦策略
+你的图形桌面环境（像KDE或GNOME），努力想和Windows一样，可能会把它的聚焦策略
 设置成“单击聚焦”。这意味着，为了让窗口聚焦（变得活跃）你需要单击它。
 这与“聚焦跟随着鼠标”的传统X行为相反，传统X行为是指只要把鼠标移动到一个窗口的上方，
 这个窗口就成为活动窗口。这个窗口不会成为前端窗口，直到你单击它，但它能接受输入。
@@ -241,7 +237,7 @@ F1-F6. To return to the graphical desktop, press Alt-F7.
 即使，终端仿真器没有运行，几个终端会话仍然在后台运行着。它们叫做虚拟终端
 或者是虚拟控制台。在大多数Linux 发行版中，这些终端会话都可以访问，
 按下Ctrl-Alt-F1到Ctrl-Alt-F6访问不同的虚拟终端。当一个会话被访问的时候，
-它会显示登录提示框，我们要输入用户名和密码。从一个虚拟控制台转换到另一个，
+它会显示登录提示框，我们需要输入用户名和密码。从一个虚拟控制台转换到另一个，
 按下 Alt 和 F1-F6。返回图形桌面，按下Alt-F7。
 
 Further Reading

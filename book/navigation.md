@@ -199,7 +199,7 @@ Okay, now let's say that we wanted to change the working directory to the
 parent of /usr/bin which is /usr. We could do that two different ways. 
 Either with an absolute pathname:
 
-好的，比方说更改工作目录到/usr/bin的父目录/usr。可以通过两种方法来实现。每种方法都用到绝对路径名：
+好的，比方说更改工作目录到/usr/bin的父目录/usr。可以通过两种方法来实现。或者使用绝对路径名：
 
 <div class="code"><pre>
 <tt>[me@linuxbox bin]$ cd /usr
@@ -225,7 +225,7 @@ that requires the least typing!
 Likewise, we can change the working directory from /usr to /usr/bin in two
 different ways. Either using an absolute pathname:
 
-同样地，从目录/usr/到/usr/bin也有两种途径。每个使用绝对路径：
+同样地，从目录/usr/到/usr/bin也有两种途径。或者使用绝对路径：
 
 <div class="code"><pre>
 <tt>[me@linuxbox usr]$ cd /usr/bin
@@ -235,7 +235,7 @@ different ways. Either using an absolute pathname:
 
 Or, with a relative pathname:
 
-或者，相对路径：
+或者，用相对路径：
 
 <div class="code"><pre>
 <tt>[me@linuxbox usr]$ cd ./bin

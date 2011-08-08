@@ -424,16 +424,20 @@ less命令是一个用来浏览文本文件的程序。纵观Linux系统，有�
 involve defining a relationship between the information and some numbers that
 will be used to represent it. Computers, after all, only understand numbers and all
 data is converted to numeric representation.</p>
-<p>在计算机里，有许多方法可以表达信息。所有的方法都涉及到，在信息与一些数字之间确立一种关系，而这些数字可以
-用来表达信息。毕竟，计算机，只能理解数字，这样所有的数据都被转换成数值表示法。</p>
+
+<p>在计算机中，有许多方法可以表达信息。所有的方法都涉及到，在信息与一些数字之间确立一种关系，而这些数字可以
+用来表达信息。毕竟，计算机只能理解数字，这样所有的数据都被转换成数值表示法。</p>
+
 <p> Some of these representation systems are very complex (such as compressed
 video files), while others are rather simple. One of the earliest and simplest is
 called ASCII text. ASCII (pronounced "As-Key") is short for American Standard
 Code for Information Interchange. This is a simple encoding scheme that was first
 used on Teletype machines to map keyboard characters to numbers. </p>
+
 <p>有些数值表达法非常复杂（例如压缩的视频文件），而其它的就相当简单。最早也是最简单的一种表达法，叫做
 ASCII文本。ASCII（发音是"As-Key"）是美国信息交换标准码的简称。这是一个简单的编码方法，它首先
 被用在电传打字机上，用来实现键盘字符到数字的映射。</p>
+
 <p>Text is a simple one-to-one mapping of characters to numbers. It is very
 compact.  Fifty characters of text translates to fifty bytes of data. It is
 important to understand that text only contains a simple mapping of characters
@@ -446,6 +450,7 @@ returns and line feeds.  Throughout a Linux system, many files are stored in
 text format and there are many Linux tools that work with text files. Even
 Windows recognizes the importance of this format. The well-known NOTEPAD.EXE
 program is an editor for plain ASCII text files.  </p>
+
 <p>文本是简单的字符与数字之间的一对一映射。它非常紧凑。五十个字符的文本翻译成五十个字节的数据。文本只是包含
 简单的字符到数字的映射，理解这点很重要。它和一些文字处理器文档不一样，比如说由微软和OpenOffice.org文档
 编辑器创建的文件。这些文件，和简单的ASCII文件形成鲜明对比，它们包含许多非文本元素，来描述它的结构和格式。
@@ -464,8 +469,8 @@ learn how to edit text files in order to modify systems settings and write our o
 but for now we will just look at their contents.
 
 为什么我们要查看文本文件呢？ 因为许多包含系统设置的文件（叫做配置文件），是以文本格式存储的，阅读它们
-可以更深入的了解系统是如何工作的。另外，许多系统用到的实际的程序（叫做脚本）也是以这种格式存储的。在随后的章节里，
-我们将要学习怎样编辑文本文件，为的是修改系统设置，还有学习编写自己的脚本文件，但现在我们只是看看它们的内容而已。
+可以更深入的了解系统是如何工作的。另外，许多系统所用到的实际程序（叫做脚本）也是以这种格式存储的。在随后的章节里，
+我们将要学习怎样编辑文本文件，为的是修改系统设置，还要学习编写自己的脚本文件，但现在我们只是看看它们的内容而已。
 
 The less command is used like this:
 
@@ -489,7 +494,7 @@ Once the less program starts, we may view the contents of the file. If the file 
 than one page, we can scroll up and down. To exit less, press the “q” key.
 The table below lists the most common keyboard commands used by less.
 
-一旦less程序运行起来，我们就能浏览文件内容了。如果文件内容长于一页，那么我们可以上下滚动文件。按下“q”键，
+一旦less程序运行起来，我们就能浏览文件内容了。如果文件内容多于一页，那么我们可以上下滚动文件。按下“q”键，
 退出less程序。
 
 下表列出了less程序最常使用的键盘命令。
@@ -602,7 +607,7 @@ The less program was designed as an improved replacement of an earlier Unix
 program called more. The name “less” is a play on the phrase “less is more”—a
 motto of modernist architects and designers.
 
-less程序是早期Unix程序more的改进版。“less”，这个名字，对习语“less is more”开了个玩笑，
+less程序是早期Unix程序more的改进版。“less”这个名字，对习语“less is more”开了个玩笑，
 这个习语是现代主义建筑师和设计者的座右铭。
 
 less falls into the class of programs called “pagers,” programs that allow the
@@ -611,7 +616,7 @@ more program could only page forward, the less program allows paging both
 forward and backward and has many other features as well.
 
 less属于"页面调度器"程序类，这些程序允许通过页方式，在一页中轻松地浏览长长的文本文档。然而more
-程序只能向前分页浏览，而less程序允许前后分页浏览，还有很多其它的特性。
+程序只能向前分页浏览，而less程序允许前后分页浏览，它还有很多其它的特性。
 
 A Guided Tour
 
@@ -630,8 +635,8 @@ Linux system tick. This will give you a chance to practice your navigation skill
 the things we will discover is that many of the interesting files are in plain human-
 readable text. As we go about our tour, try the following:
 
-下一步，我们将在文件系统中游荡，来了解Linux系统的工作原理。这会给你一个温习跳转命令的机会。其中一件事，我们
-会发现很多有趣的文件都是普通的可读文本。将开始旅行，做做以下练习：
+下一步，我们将在文件系统中游玩，来了解Linux系统的工作原理。这会给你一个温习跳转命令的机会。
+我们会发现很多有趣的文件都是普通的可读文本。将开始旅行，做做以下练习：
 
 1. cd into a given directory
 2. List the directory contents with ls -l
@@ -659,9 +664,9 @@ complains about something, just move on to something else. Spend some time looki
 around. The system is ours to explore. Remember, in Linux, there are no secrets!
 Table 4-4 lists just a few of the directories we can explore. Feel free to try more!
 
-在系统中游玩时，不要害怕观察事物。普通用户是很难把东西搞乱的。那是系统管理员的工作！如果一个命令抱怨一些事情，不要管它，
-尽管去玩别的东西。花一些 k时间四处走走。系统是我们自己的，尽情地探究吧。记住，在Linux中，没有秘密存在！
-表4-4仅仅列出了一些我们可以查看的目录。闲暇时试试看！
+在系统中游玩时，不要害怕粘花惹草。普通用户是很难把东西弄乱的。那是系统管理员的工作！如果一个命令抱怨一些事情，不要管它，
+尽管去玩别的东西。花一些时间四处走走。系统是我们自己的，尽情地探究吧。记住在Linux中，没有秘密存在！
+表4-4仅仅列出了一些我们可以浏览的目录。闲暇时试试看！
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -1014,7 +1019,7 @@ Symbolic Links
 
 As we look around, we are likely to see a directory listing with an entry like this:
 
-在我们到处查看时，我们可能看到一个目录，列出像这样的一条信息：
+在我们到处查看时，我们可能会看到一个目录，列出像这样的一条信息：
 
 <div class="code"><pre>
 <tt>lrwxrwxrwx 1 root root 11 2007-08-11 07:34 libc.so.6 -> libc-2.6.so </tt>
@@ -1026,7 +1031,7 @@ symlink.) In most Unix-like systems it is possible to have a file referenced by 
 names. While the value of this may not be obvious, it is really a useful feature.
 
 注意，这条信息第一个字符是“l”，并且看起来像有两个文件名？ 这是一个特殊文件，叫做符号链接（也称为软链接或者symlink）。
-在大多数类似Unix系统中，有可能一个文件被多个文件名参考。而这种特性的意义并不明显，但它真地很有用。
+在大多数类似Unix系统中，有可能一个文件被多个文件名参考。虽然这种特性的意义并不明显，但它真地很有用。
 
 Picture this scenario: a program requires the use of a shared resource of some kind
 contained in a file named “foo,” but “foo” has frequent version changes. It would be
@@ -1036,9 +1041,9 @@ we change the name of the shared resource, we have to track down every program t
 might use it and change it to look for a new resource name every time a new version of
 the resource is installed. That doesn't sound like fun at all.
 
-描绘一下这种情景：一个程序要求使用某个包含在名为“foo”文件中的共享资源，但是“foo”经常改变版本号。
+描绘一下这样的情景：一个程序要求使用某个包含在名为“foo”文件中的共享资源，但是“foo”经常改变版本号。
 这样，在文件名中包含版本号，会是一个好主意，因此管理员或者其它相关方，会知道安装了哪个“foo”版本。
-这就导致一个问题。如果我们更改了共享资源的名字，那么我们必须跟踪每个可能使用了
+这又会导致一个问题。如果我们更改了共享资源的名字，那么我们必须跟踪每个可能使用了
 这个共享资源的程序，当每次这个资源的新版本被安装后，都要让使用了它的程序去寻找新的资源名。
 这听起来很没趣。
 
@@ -1056,7 +1061,7 @@ create a new symbolic link pointing to the old version.
 
 这就是符号链接存在至今的原因。比方说，我们安装了文件“foo”的2.6版本，它的文件名是“foo-2.6”，然后创建了叫做“foo” 
 的符号链接，这个符号链接指向“foo-2.6”。这意味着，当一个程序打开文件 “foo”时，它实际上是打开文件“foo-2.6”。
-现在，每个人都很高兴。依赖于“foo”文件的程序能找到这个文件，并且我们能知道安装了哪个文件版本。当到升级到“foo-2.7”
+现在，每个人都很高兴。依赖于“foo”文件的程序能找到这个文件，并且我们能知道安装了哪个文件版本。当升级到“foo-2.7”
 版本的时候，仅添加这个文件到文件系统中，删除符号链接“foo”，创建一个指向新版本的符号链接。这不仅解决了版本升级问题
 ，而且还允许在系统中保存两个不同的文件版本。假想“foo-2.7”有个错误（该死的开发者！）,那我们得回到原来的版本。
 一样的操作，我们只需要删除指向新版本的符号链接，然后创建指向旧版本的符号链接就可以了。
@@ -1088,7 +1093,7 @@ Further Reading
 
 The full version of the Linux Filesystem Hierarchy Standard can be found here:
 
-整版的Linux文件系统层次标准可通过以下链接找到：
+完整的Linux文件系统层次标准可通过以下链接找到：
 
 <http://www.pathname.com/fhs/>
 
