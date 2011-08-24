@@ -37,8 +37,8 @@ easily done with a graphical file manager. With a file manager, we can drag and 
 file from one directory to another, cut and paste files, delete files, etc. So why use these
 old command line programs?
 
-现在，坦诚地说，图形文件管理器来完成一些由这些命令执行的任务会更容易些。使用文件管理器，
-我们可以把文件从一个目录拖放到另一个目录，剪贴和粘贴文件，删除文件，等等。那么，
+现在，坦诚地说，用图形文件管理器来完成一些由这些命令执行的任务会更容易些。使用文件管理器，
+我们可以把文件从一个目录拖放到另一个目录，剪贴和粘贴文件，删除文件等等。那么，
 为什么还使用早期的命令行程序呢？
 
 The answer is power and flexibility. While it is easy to perform simple file
@@ -48,9 +48,9 @@ to another, but only copy files that do not exist in the destination directory o
 are newer than the versions in the destination directory? Pretty hard with a file
 manager. Pretty easy with the command line:
 
-答案是命令行程序功能强大灵活。虽然图形文件管理器能轻松地实现简单的文件操作，但是对于
+答案是命令行程序，功能强大灵活。虽然图形文件管理器能轻松地实现简单的文件操作，但是对于
 复杂的文件操作任务，则使用命令行程序比较容易完成。例如，怎样复制一个目录下的HTML文件
-到另一个目录，这些HTML文件不存在于目标目录，或者是文件版本新于目标目录里的文件？
+到另一个目录，但这些HTML文件不存在于目标目录，或者是文件版本新于目标目录里的文件？
 要完成这个任务，使用文件管理器相当难，使用命令行相当容易：
 
 <div class="code"><pre>
@@ -301,7 +301,7 @@ numerals</td>
 Wildcards can be used with any command that accepts filenames as arguments, but we’ll
 talk more about that in Chapter 8.
 
-接受文件名作为参数的任何命令，都可以使用通配符，我们会在第八章更深人的谈到这个知识点。
+接受文件名作为参数的任何命令，都可以使用通配符，我们会在第八章更深入的谈到这个知识点。
 
 <table class="single" cellpadding="10" width="%100">
 <tr>
@@ -347,7 +347,7 @@ desktop so powerful.
 <h3>字符范围</h3>
 
 <p>
-如果你用过别的类似Unix的操作环境，或者是读过这方面的书籍，你可能遇到过[A-Z]或
+如果你用过别的类似Unix系统的操作环境，或者是读过这方面的书籍，你可能遇到过[A-Z]或
 [a-z]形式的字符范围表示法。这些都是传统的Unix表示法，并且在早期的Linux版本中仍有效。
 虽然它们仍然起作用，但是你必须小心地使用它们，因为它们不会产生你期望的输出结果，除非
 你合理地配置它们。从现在开始，你应该避免使用它们，并且用字符类来代替它们。</p>
