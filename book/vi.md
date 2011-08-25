@@ -29,7 +29,7 @@ how to play “chopsticks” in vi.
 学习Linux命令行，就像要成为一名造诣很深的钢琴家一样，它不是我们一下午就能学会的技能。这需要
 经历几年的勤苦练习。在这一章中，我们将介绍vi（发音“vee eye”）文本编辑器，它是Unix传统中核心程序之一。
 vi因它难用的用户界面而有点声名狼藉，但是当我们看到一位大师坐在钢琴前开始演奏时，我们的确成了
-伟大艺术的见证人。虽然我们在这里不能成为大师，但是当我们学完这一章后，
+伟大艺术的见证人。虽然我们在这里不能成为vi大师，但是当我们学完这一章后，
 我们会知道怎样在vi中玩“筷子”。
 
 Why We Should Learn vi
@@ -68,4 +68,78 @@ Okay, maybe two good reasons.
 
 好吧，可能只有两个充分的理由。
 
+A Little Background
+
+### 一点儿背景介绍
+
+The first version of vi was written in 1976 by Bill Joy, a University of California at
+Berkley student who later went on to co-found Sun Microsystems. vi derives its name
+from the word “visual,” because it was intended to allow editing on a video terminal with
+a moving cursor. Previous to visual editors, there were line editors which operated on a
+single line of text at a time. To specify a change, we tell a line editor to go to a particular
+line and describe what change to make, such as adding or deleting text. With the advent
+of video terminals (rather than printer-based terminals like teletypes) visual editing
+became possible. vi actually incorporates a powerful line editor called ex, and we can
+use line editing commands while using vi.
+
+Most Linux distributions don't include real vi; rather, they ship with an enhanced
+replacement called vim (which is short for “vi improved”) written by Bram Moolenaar.
+vim is a substantial improvement over traditional Unix vi and is usually symbolically
+linked (or aliased) to the name “vi” on Linux systems. In the discussions that follow, we
+will assume that we have a program called “vi” that is really vim.
+
+Starting And Stopping vi
+
+### 启动和停止vi
+
+To start vi, we simply type the following:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ vi</tt>
+</pre></div>
+
+And a screen like this should appear:
+
+<div class="code"><pre>
+<tt>VIM - Vi Improved
+....</tt>
+</pre></div>
+
+Just as we did with nano earlier, the first thing to learn is how to exit. To exit, we enter
+the following command (note that the colon character is part of the command):
+
+<div class="code"><pre>
+<tt>:q</tt>
+</pre></div>
+
+The shell prompt should return. If, for some reason, vi will not quit (usually because we
+made a change to a file that has not yet been saved), we can tell vi that we really mean it
+by adding an exclamation point to the command:
+
+<div class="code"><pre>
+<tt>:q!</tt>
+</pre></div>
+
+Tip: If you get “lost” in vi, try pressing the Esc key twice to find your way again.
+
+<table class="single" cellpadding="10" width="%100">
+<tr>
+<td>
+<h3>Compatibility Mode</h3>
+<p>In the example startup screen above (taken from Ubuntu 8.04), we see the text
+“Running in Vi compatible mode.” This means that vim will run in a mode that
+is closer to the normal behavior of vi rather than the enhanced behavior of vim.
+For purposes of this chapter, we will want to run vim with its enhanced behavior.
+To do this, you have a few options: </p>
+<p>Try running vim instead of vi.</p>
+<p>If that works, consider adding alias vi='vim' to your .bashrc file. </p>
+<p>Alternately, use this command to add a line to your vim configuration file: </p>
+<p>echo "set nocp" &gt;&gt; ~/.vimrc </p>
+<p>Different Linux distributions package vim in different ways. Some distributions
+install a minimal version of vim by default that only supports a limiting set of
+vim features. While preforming the lessons that follow, you may encounter
+missing features. If this is the case, install the full version of vim.</p>
+</td>
+</tr>
+</table>
 
