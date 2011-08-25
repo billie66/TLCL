@@ -82,11 +82,24 @@ of video terminals (rather than printer-based terminals like teletypes) visual e
 became possible. vi actually incorporates a powerful line editor called ex, and we can
 use line editing commands while using vi.
 
+第一版vi是在1976由Bill Joy写成的，当时他是加州大学伯克利分校的学生，
+后来他共同创建了Sun微系统公司。vi这个名字
+来源于单词“visual”，因为它打算在带有可移动光标的视频终端上编辑文本。在发明可视化编辑器之前，
+有一次只能操作一行文本的行编辑器。为了指定一个修改，我们告诉行编辑器到一个特殊行并且
+说明做什么修改，比方说添加或删除文本。视频终端（而不是基于打印机的终端，像电传打印机）的出现
+，可视化编辑成为可能。vi实际上整合了一个强大的叫做ex行编辑器,
+所以我们在使用vi时能运行行编辑命令。 
+
 Most Linux distributions don't include real vi; rather, they ship with an enhanced
 replacement called vim (which is short for “vi improved”) written by Bram Moolenaar.
 vim is a substantial improvement over traditional Unix vi and is usually symbolically
 linked (or aliased) to the name “vi” on Linux systems. In the discussions that follow, we
 will assume that we have a program called “vi” that is really vim.
+
+大多数Linux发行版不包含真正的vi；而是自带一款高级替代版本，叫做vim（它是“vi
+improved”的简写）由Bram Moolenaar开发的。vim相对于传统的Unix
+vi来说，取得了实质性进步。通常，vim在Linux系统中是“vi”的符号链接（或别名）。
+在随后的讨论中，我们将会假定我们有一个叫做“vi”的程序，但它其实是vim。
 
 Starting And Stopping vi
 
@@ -94,19 +107,25 @@ Starting And Stopping vi
 
 To start vi, we simply type the following:
 
+要想启动vi，只要简单地输入以下命令：
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ vi</tt>
 </pre></div>
 
 And a screen like this should appear:
 
+一个像这样的屏幕应该出现：
+
 <div class="code"><pre>
-<tt>VIM - Vi Improved
-....</tt>
+<tt><center>VIM - Vi Improved
+....</center></tt>
 </pre></div>
 
 Just as we did with nano earlier, the first thing to learn is how to exit. To exit, we enter
 the following command (note that the colon character is part of the command):
+
+正如我们之前操作nano时，首先要学的是怎样退出vi。要退出vi，输入下面的命令（注意冒号是命令的一部分）：
 
 <div class="code"><pre>
 <tt>:q</tt>
@@ -116,11 +135,16 @@ The shell prompt should return. If, for some reason, vi will not quit (usually b
 made a change to a file that has not yet been saved), we can tell vi that we really mean it
 by adding an exclamation point to the command:
 
+shell提示符应该返回。如果由于某种原因，vi不能退出（通常因为我们对文件做了修改，却没有保存文件）。
+通过给命令加上叹号，我们可以告诉vi我们真要退出vi。
+
 <div class="code"><pre>
 <tt>:q!</tt>
 </pre></div>
 
 Tip: If you get “lost” in vi, try pressing the Esc key twice to find your way again.
+
+小贴示：如果你在vi中“迷失”了，试着按下Esc键两次来找到路（回到普通模式）。
 
 <table class="single" cellpadding="10" width="%100">
 <tr>
@@ -131,14 +155,35 @@ Tip: If you get “lost” in vi, try pressing the Esc key twice to find your wa
 is closer to the normal behavior of vi rather than the enhanced behavior of vim.
 For purposes of this chapter, we will want to run vim with its enhanced behavior.
 To do this, you have a few options: </p>
+
+<P>上面实例中的启动屏幕（来自于Ubuntu
+8.04），我们看到一行文字“以Vi兼容的模式运行”。这意味着vim将以近似于vi常规的模式
+运行，而不是vim的高级规范。为了这章的目的，我们想要使用vim的高级规范。要想这样做，
+你有几个选择：</P>
+
 <p>Try running vim instead of vi.</p>
+
+<p>用vim来代替vi。</p>
+
 <p>If that works, consider adding alias vi='vim' to your .bashrc file. </p>
+
+<p>如果命令生效，考虑在你的.bashrc文件中添加别名vi='vim'。</p>
+
 <p>Alternately, use this command to add a line to your vim configuration file: </p>
+
+<p>或者，使用这个命令在你的vim配置文件中添加一行：</p>
+
 <p>echo "set nocp" &gt;&gt; ~/.vimrc </p>
+
 <p>Different Linux distributions package vim in different ways. Some distributions
 install a minimal version of vim by default that only supports a limiting set of
 vim features. While preforming the lessons that follow, you may encounter
 missing features. If this is the case, install the full version of vim.</p>
+
+<p>不同的Linux发行版其vim软件包也迥然不同。一些发行版只是安装了vim的最小版本，
+其默认只支持有限的vim特性。当练习随后的课程时，你可能会遇到缺失的功能。
+如果是这种情况，就安装vim的完整版。</p>
+
 </td>
 </tr>
 </table>
