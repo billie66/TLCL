@@ -183,8 +183,364 @@ missing features. If this is the case, install the full version of vim.</p>
 <p>不同的Linux发行版其vim软件包也迥然不同。一些发行版只是安装了vim的最小版本，
 其默认只支持有限的vim特性。当练习随后的课程时，你可能会遇到缺失的功能。
 如果是这种情况，就安装vim的完整版。</p>
-
 </td>
 </tr>
 </table>
+
+Editing Modes
+
+### 编辑模式
+
+Let's start up vi again, this time passing to it the name of a nonexistent file. This is how
+we can create a new file with vi:
+
+再次启动vi，这次传递给vi一个不存在的文件名。这也是用vi创建新文件的方法。
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ rm -f foo.txt
+[me@linuxbox ~]$ vi foo.txt</tt>
+</pre></div>
+
+If all goes well, we should get a screen like this:
+
+如果一切运行正常，我们应该获得一个像这样的屏幕：
+
+<div class="code"><pre>
+<tt>....
+"foo.txt" [New File]</tt>
+</pre></div>
+
+The leading tilde characters (”~”) indicate that no text exists on that line. This shows that
+we have an empty file. Do not type anything yet!
+
+每行开头的波浪号（"~"）指示那一行不存在文本。这表示我们有一个空文件。还没有输入任何字符？
+
+The second most important thing to learn about vi (after learning how to exit) is that vi
+is a modal editor. When vi starts up, it begins in command mode. In this mode, almost
+every key is a command, so if we were to start typing, vi would basically go crazy and
+make a big mess.
+
+学习vi时，要知道的第二件非常重要的事情是（知道了如何退出vi后）vi是一个模式编辑器。当vi启动后，进入
+的是命令模式。这种模式下，几乎每个按键都是一个命令，所以如果我们打算输入字符，vi会发疯，弄得一团糟。
+
+Entering Insert Mode
+
+#### 插入模式
+
+In order to add some text to our file, we must first enter insert mode. To do this, we press
+the “i” key. Afterwards, we should see the following at the bottom of the screen if vim is
+running in its usual enhanced mode (this will not appear in vi compatible mode):
+
+为了在文件中添加文本，首先我们必须进入插入模式。按下"i"按键进入插入模式。之后，我们应该
+在屏幕底部看到下面一行，如果vi运行在高级模式下（这不会出现在vi兼容模式下）：
+
+<div class="code"><pre>
+<tt>-- INSERT --</tt>
+</pre></div>
+
+Now we can enter some text. Try this:
+
+现在我们能输入一些文本了。试着输入这些文本：
+
+<div class="code"><pre>
+<tt>The quick brown fox jumped over the lazy dog.</tt>
+</pre></div>
+
+To exit insert mode and return to command mode, press the Esc key.
+
+按下Esc按键，退出插入模式并返回命令模式。
+
+Saving Our Work
+
+#### 保存我们的工作
+
+To save the change we just made to our file, we must enter an ex command while in
+command mode. This is easily done by pressing the “:” key. After doing this, a colon
+character should appear at the bottom of the screen:
+
+为了保存我们刚才对文件所做的修改，我们必须在命令模式下输入一个ex命令。
+通过按下":"键，这很容易完成。按下冒号键之后，一个冒号字符应该出现在屏幕的底部：
+
+<div class="code"><pre>
+<tt>:</tt>
+</pre></div>
+
+To write our modified file, we follow the colon with a “w” then Enter:
+
+为了写入我们修改的文件，我们在冒号之后输入"w"字符，然后按下回车键：
+
+<div class="code"><pre>
+<tt>:w</tt>
+</pre></div>
+
+The file will be written to the hard drive and we should get a confirmation message at the
+bottom of the screen, like this:
+
+文件将会写入到硬盘，并且我们应该在屏幕底部得到一个确认信息，就像这样：
+
+<div class="code"><pre>
+<tt>"foo.txt" [New] 1L, 46C written</tt>
+</pre></div>
+
+Tip: If you read the vim documentation, you will notice that (confusingly)
+command mode is called normal mode and ex commands are called command
+mode. Beware.
+
+小贴示：如果你阅读vim的文档，你注意到（混淆地）命令模式被叫做普通模式，ex命令
+叫做命令模式。当心。
+
+Moving The Cursor Around
+
+### 移动光标
+
+While in command mode, vi offers a large number of movement commands, some of
+which it shares with less. Here is a subset:
+
+当在vi命令模式下时，vi提供了大量的移动命令，其中一些是与less阅读器共享的。这里
+列举了一些：
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 13-1: Cursor Movement Keys</caption>
+<tr>
+<th class="title">Key</th>
+<th class="title">Move The Cursor</th>
+</tr>
+<tr>
+<td valign="top" width="25%">l or Right Arrow </td>
+<td valign="top">Right one character.</td>
+</tr>
+<tr>
+<td valign="top">h or Left Arrow </td>
+<td valign="top">Left one character</td>
+</tr>
+<tr>
+<td valign="top">j or Down Arrow</td>
+<td valign="top">Down one line</td>
+</tr>
+<tr>
+<td valign="top">k or Up Arrow </td>
+<td valign="top">Up one line</td>
+</tr>
+<tr>
+<td valign="top">0 (zero) </td>
+<td valign="top">To the beginning of the current line.</td>
+</tr>
+<tr>
+<td valign="top">^</td>
+<td valign="top">To the first non-whitespace character on the current line.</td>
+</tr>
+<tr>
+<td valign="top">$</td>
+<td valign="top">To the end of the current line.</td>
+</tr>
+<tr>
+<td valign="top">w</td>
+<td valign="top">To the beginning of the next word or puntuation character.</td>
+</tr>
+<tr>
+<td valign="top">W</td>
+<td valign="top">To the beginning of the next word, ignoring puntuation character.</td>
+</tr>
+<tr>
+<td valign="top">b</td>
+<td valign="top">To the beginning of the previous word or punctuation character.</td>
+</tr>
+<tr>
+<td valign="top">B</td>
+<td valign="top">To the beginning of the previous word, ignoring
+punctuation characters.</td>
+</tr>
+<tr>
+<td valign="top">Ctrl-f or Page Down </td>
+<td valign="top">Down one page.</td>
+</tr>
+<tr>
+<td valign="top">Ctrl-b or Page Up </td>
+<td valign="top">Up one page.</td>
+</tr>
+<tr>
+<td valign="top">numberG</td>
+<td valign="top">To line number. For example, 1G moves to the first
+line of the file.</td>
+</tr>
+<tr>
+<td valign="top">G</td>
+<td valign="top">To the last line of the file.</td>
+</tr>
+</table>
+</p>
+
+Why are the h, j, k, and l keys used for cursor movement? Because when vi was
+originally written, not all video terminals had arrow keys, and skilled typists could use
+regular keyboard keys to move the cursor without ever having to lift their fingers from
+the keyboard.
+
+为什么h，j，k，和l按键被用来移动光标呢？因为在开发vi之初，并不是所有的视频终端都有
+箭头按键，熟练的打字员可以使用规则的键盘按键来移动光标，他们的手从不需要移开键盘。
+
+Many commands in vi can be prefixed with a number, as with the “G” command listed
+above. By prefixing a command with a number, we may specify the number of times a
+command is to be carried out. For example, the command “5j” causes vi to move the
+cursor down five lines.
+
+vi中的许多命令都可以在前面加上一个数字，比方说上面提到的"G"命令。在命令之前加上一个
+数字，我们就可以指定命令执行的次数。例如，命令"5j"导致vi向下移动5行。
+
+Basic Editing
+
+### 基本编辑
+
+Most editing consists of a few basic operations such as inserting text, deleting text and
+moving text around by cutting and pasting. vi, of course, supports all of these
+operations in its own unique way. vi also provides a limited form of undo. If we press
+the “u” key while in command mode, vi will undo the last change that you made. This
+will come in handy as we try out some of the basic editing commands.
+
+大多数编辑工作由一些基本的操作组成，比如说插入文本，删除文本和通过剪切和粘贴来移动文本。
+vi，当然，以它自己的独特方式来支持所有的操作。vi也提供了有限的撤销形式。如果我们按下“u”
+按键，当在命令模式下，vi将会撤销你所做的最后一次修改。当我们试着执行一些基本的
+编辑命令时，这会很方便。
+
+Appending Text
+
+#### 追加文本
+
+vi has several different ways of entering insert mode. We have already used the i
+command to insert text.
+
+vi有几种不同进入插入模式的方法。我们已经使用了i命令来插入文本。
+
+Let's go back to our foo.txt file for a moment:
+
+让我们返回到我们的foo.txt文件中，呆一会儿：
+
+<div class="code"><pre>
+<tt>The quick brown fox jumped over the lazy dog.</tt>
+</pre></div>
+
+If we wanted to add some text to the end of this sentence, we would discover that the i
+command will not do it, since we can't move the cursor beyond the end of the line. vi
+provides a command to append text, the sensibly named “a” command. If we move the
+cursor to the end of the line and type “a”, the cursor will move past the end of the line
+and vi will enter insert mode. This will allow us to add some more text:
+
+如果我们想要在这个句子的末尾添加一些文本，我们会发现i命令不能完成任务，因为我们不能把
+光标移到行尾。
+
+<div class="code"><pre>
+<tt>The quick brown fox jumped over the lazy dog. It was cool.</tt>
+</pre></div>
+
+Remember to press the Esc key to exit insert mode.
+
+记住按下Esc按键来退出插入模式。
+
+Since we will almost always want to append text to the end of a line, vi offers a shortcut
+to move to end of the current line and start appending. It's the “A” command. Let's try it
+and add some more lines to our file.
+
+因为我们几乎总是想要在行尾附加文本，所以vi提供了一种快捷方式来移动到当前行的末尾，并且能添加
+文本。它是"A"命令。试着用一下它，给文件添加更多行。
+
+First, we'll move the cursor to the beginning of the line using the “0” (zero) command.
+Now we type “A” and add the following lines of text:
+
+首先，使用"0"(零)命令，将光标移动到行首。现在我们输入"A"，来添加以下文本行：
+
+<div class="code"><pre>
+<tt>The quick brown fox jumped over the lazy dog. It was cool.
+Line 2
+Line 3
+Line 4
+Line 5</tt>
+</pre></div>
+
+Again, press the Esc key to exit insert mode.
+
+再一次，按下Esc按键退出插入模式。
+
+As we can see, the “A” command is more useful as it moves the cursor to the end of the
+line before starting insert mode.
+
+正如我们所看到的，大A命令非常有用，因为在启动插入模式之前，它把光标移动了行尾。
+
+Opening A Line
+
+#### 打开一行
+
+Another way we can insert text is by “opening” a line. This inserts a blank line between
+two existing lines and enters insert mode. This has two variants:
+
+我们插入文本的另一种方式是“打开”一行。这会在存在的两行之间插入一个空白行，并且进入插入模式。
+这种方式有两个变体：
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 13-2: Line Opening Keys</caption>
+<tr>
+<th class="title">Command </th>
+<th class="title">Opens</th>
+</tr>
+<tr>
+<td valign="top" width="25%">o</td>
+<td valign="top">The line below the current line.</td>
+</tr>
+<tr>
+<td valign="top">O</td>
+<td valign="top">The line above the current line.</td>
+</tr>
+</table>
+</p>
+
+We can demonstrate this as follows: place the cursor on “Line 3” then press the o key.
+
+我们可以演示一下：把光标放到"Line 3"上，按下小o按键。
+
+<div class="code"><pre>
+<tt>The quick brown fox jumped over the lazy dog. It was cool.
+Line 2
+Line 3
+
+line 4
+line 5</tt>
+</pre></div>
+
+A new line was opened below the third line and we entered insert mode. Exit insert mode
+by pressing the Esc key. Press the u key to undo our change.
+
+在第三行之下打开了新的一行，并且进入插入模式。按下Esc，退出插入模式。按下u按键，撤销我们的修改。
+
+Press the O key to open the line above the cursor:
+
+按下大O按键在光标之上打开新的一行：
+
+<div class="code"><pre>
+<tt>The quick brown fox jumped over the lazy dog. It was cool.
+Line 2
+
+Line 3
+Line 4
+Line 5</tt>
+</pre></div>
+
+Exit insert mode by pressing the Esc key and undo our change by pressing u.
+
+按下Esc按键，退出插入模式，并且按下u按键，撤销我们的更改。
+
+Deleting Text
+
+#### 删除文本
+
+As we might expect, vi offers a variety of ways to delete text, all of which contain one
+of two keystrokes. First, the x key will delete a character at the cursor location. x may
+be preceded by a number specifying how many characters are to be deleted. The d key is
+more general purpose. Like x, it may be preceded by a number specifying the number of
+times the deletion is to be performed. In addition, d is always followed by a movement
+command that controls the size of the deletion. Here are some examples:
+
+正如我们期望的，vi提供了各种各样的方式来删除文本，所有的方式包含一个或两个按键。首先，
+x按键会删除光标位置的一个字符。可以在x命令之前带上一个数字，来指明要删除的字符个数。
+d按键更通用一些。类似x命令，d命令之前可以带上一个数字，来指定要执行的删除次数。另外，
+d命令之后总是带上一个移动命令，用来控制删除的范围。这里有些实例：
 
