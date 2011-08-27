@@ -426,7 +426,8 @@ cursor to the end of the line and type “a”, the cursor will move past the en
 and vi will enter insert mode. This will allow us to add some more text:
 
 如果我们想要在这个句子的末尾添加一些文本，我们会发现i命令不能完成任务，因为我们不能把
-光标移到行尾。
+光标移到行尾。vi提供了追加文本的命令，明智地命名为"a"命令。如果我们把光标移动到行尾，输入"a",
+光标就会越过行尾，vi进入插入模式。这样就允许我们添加更多的文本：
 
 <div class="code"><pre>
 <tt>The quick brown fox jumped over the lazy dog. It was cool.</tt>
@@ -543,4 +544,526 @@ command that controls the size of the deletion. Here are some examples:
 x按键会删除光标位置的一个字符。可以在x命令之前带上一个数字，来指明要删除的字符个数。
 d按键更通用一些。类似x命令，d命令之前可以带上一个数字，来指定要执行的删除次数。另外，
 d命令之后总是带上一个移动命令，用来控制删除的范围。这里有些实例：
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 13-3: Text Deletion Commands</caption>
+<tr>
+<th class="title">Command</th>
+<th class="title">Deletes</th>
+</tr>
+<tr>
+<td valign="top" width="25%">x</td>
+<td valign="top">The current character.</td>
+</tr>
+<tr>
+<td valign="top">3x</td>
+<td valign="top">The current character and the next two character.</td>
+</tr>
+<tr>
+<td valign="top" width="25%">dd</td>
+<td valign="top">The current line.</td>
+</tr>
+<tr>
+<td valign="top" width="25%">5dd</td>
+<td valign="top">The current line and the next four lines.</td>
+</tr>
+<tr>
+<td valign="top" width="25%">dW</td>
+<td valign="top">From the cursor position to the beginning of the next word.</td>
+</tr>
+<tr>
+<td valign="top" width="25%">d$</td>
+<td valign="top">From the cursor position to the end of the current line.</td>
+</tr>
+<tr>
+<td valign="top" width="25%">d0</td>
+<td valign="top">From the cursor position to the beginning of the current
+line.</td>
+</tr>
+<tr>
+<td valign="top" width="25%">d^</td>
+<td valign="top">From the cursor position to the first non-whitespace character
+of the the line.</td>
+</tr>
+<tr>
+<td valign="top" width="25%">dG</td>
+<td valign="top">From the current line to the end of the file.</td>
+</tr>
+<tr>
+<td valign="top" width="25%">d20G</td>
+<td valign="top">From the current line to the twentieth line of the file.</td>
+</tr>
+</table>
+</p>
+
+Place the cursor on the word “It” on the first line of our text. Press the x key repeatedly
+until the rest of the sentence is deleted. Next, press the u key repeatedly until the
+deletion is undone.
+
+把光标放到第一行单词“It”之上。重复按下x按键直到删除剩下的部分。下一步，重复按下u按键
+直到恢复原貌。
+
+Note: Real vi only supports a single level of undo. vim supports multiple levels.
+
+注意：真正的vi只是支持单层面的undo命令。vim则支持多个层面的。
+
+Let's try the deletion again, this time using the d command. Again, move the cursor to
+the word “It” and press dW to delete the word:
+
+我们再次执行删除命令，这次使用d命令。还是移动光标到单词"It"之上，按下的dW来删除单词：
+
+<div class="code"><pre>
+<tt>The quick brown fox jumped over the lazy dog. was cool.
+Line 2
+Line 3
+Line 4
+Line 5</tt>
+</pre></div>
+
+Press d$ to delete from the cursor position to the end of the line:
+
+按下d$删除从光标位置到行尾的文本：
+
+<div class="code"><pre>
+<tt>The quick brown fox jumped over the lazy dog.
+Line 2
+Line 3
+Line 4
+Line 5</tt>
+</pre></div>
+
+Press dG to delete from the current line to the end of the file:
+
+按下dG按键删除从当前行到文件末尾的所有行：
+
+<div class="code"><pre>
+<tt>
+~ 
+....</tt>
+</pre></div>
+
+Press u three times to undo the deletion.
+
+连续按下u按键三次，来恢复删除部分。
+
+Cutting, Copying And Pasting Text
+
+#### 剪切，复制和粘贴文本
+
+The d command not only deletes text, it also “cuts” text. Each time we use the d
+command the deletion is copied into a paste buffer (think clipboard) that we can later
+recall with the p command to paste the contents of the buffer after the cursor or the P
+command to paste the contents before the cursor.
+
+这个d命令不仅删除文本，它还“剪切”文本。每次我们使用d命令，删除的部分被复制到一个
+粘贴缓冲区中（看作剪切板）。过后我们执行小p命令把剪切板中的文本粘贴到光标位置之后，
+或者是大P命令把文本粘贴到光标之前。
+
+The y command is used to “yank” (copy) text in much the same way the d command is
+used to cut text. Here are some examples combining the y command with various
+movement commands:
+
+y命令用来“拉”（复制）文本，和d命令剪切文本的方式差不多。这里有些把y命令和各种移动命令
+结合起来使用的实例：
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table13- 4: Yanking Commands
+</caption>
+<tr>
+<th class="title">Command</th>
+<th class="title">Copies</th>
+</tr>
+<tr>
+<td valign="top" width="25%">yy</td>
+<td valign="top">The current line.</td>
+</tr>
+<tr>
+<td valign="top">5yy</td>
+<td valign="top">The current line and the next four lines.</td>
+</tr>
+<tr>
+<td valign="top">yW</td>
+<td valign="top">From the current cursor position to the beginning of
+the next word.</td>
+</tr>
+<tr>
+<td valign="top">y$</td>
+<td valign="top">From the current cursor location to the end of the current
+line.</td>
+</tr>
+<tr>
+<td valign="top">y0</td>
+<td valign="top">From the current cursor location to the beginning of
+the line.</td>
+</tr>
+<tr>
+<td valign="top">y^</td>
+<td valign="top">From the current cursor location to the first non-
+whitespace character in the line.</td>
+</tr>
+<tr>
+<td valign="top">yG</td>
+<td valign="top">From the current line to the end of the file.</td>
+</tr>
+<tr>
+<td valign="top">y20G</td>
+<td valign="top">From the current line to the twentieth line of the file.</td>
+</tr>
+</table>
+</p>
+
+Let's try some copy and paste. Place the cursor on the first line of the text and type yy to
+copy the current line. Next, move the cursor to the last line (G) and type p to paste the
+line below the current line:
+
+我们试着做些复制和粘贴工作。把光标放到文本第一行，输入yy来复制当前行。下一步，把光标移动
+最后一行（G），输入小写的p把复制的一行粘贴到当前行的下面：
+
+<div class="code"><pre>
+<tt>The quick brown fox jumped over the lazy dog. It was cool.
+Line 2
+Line 3
+Line 4
+Line 5
+The quick brown fox jumped over the lazy dog. <b>It was cool.</b></tt>
+</pre></div>
+
+Just as before, the u command will undo our change. With the cursor still positioned on
+the last line of the file, type P to paste the text above the current line:
+
+和以前一样，u命令会撤销我们的修改。光标仍然位于文件的最后一行，输入大写的P命令把
+所复制的文本粘贴到当前行之上：
+
+<div class="code"><pre>
+<tt>The quick brown fox jumped over the lazy dog. It was cool.
+Line 2
+Line 3
+Line 4
+Line 5
+The quick brown fox jumped over the lazy dog. <b>It was cool.</b></tt>
+</pre></div>
+
+Try out some of the other y commands in the table above and get to know the behavior of
+both the p and P commands. When you are done, return the file to its original state.
+
+试着执行上表中一些其他的y命令，了解小写p和大写P命令的行为。当你完成练习之后，把文件
+恢复原样。
+
+Joining Lines
+
+#### 连接行
+
+vi is rather strict about its idea of a line. Normally, it is not possible to move the cursor
+to the end of a line and delete the end-of-line character to join one line with the one
+below it. Because of this, vi provides a specific command, J (not to be confused with j,
+which is for cursor movement) to join lines together.
+
+vi对于行的概念相当严格。通常，不可能把光标移到行尾，再删除行尾结束符（回车符）来连接
+当前行和它下面的一行。由于这个原因，vi提供了一个特定的命令，大写的J（不要与小写的j混淆了，
+j是用来移动光标的）把行与行之间连接起来。
+
+If we place the cursor on line 3 and type the J command, here's what happens:
+
+如果我们把光标放到line 3上，输入大写的J命令，看看发生什么情况：
+
+<div class="code"><pre>
+<tt>The quick brown fox jumped over the lazy dog. It was cool.
+Line 2
+<b>Line 3 Line 4</b>
+Line 5</tt>
+</pre></div>
+
+Search And Replace
+
+### 查找和替换
+
+vi has the ability to move the cursor to locations based on searches. It can do this on
+both a single line or over an entire file. It can also perform text replacements with or
+without confirmation from the user.
+
+vi有能力把光标移到搜索到的匹配项上。vi可以在单一行或整个文件中运用这个功能。
+它也可以在有或没有用户确认的情况下实现文本替换。
+
+Searching Within A Line
+
+#### 查找一行
+
+The f command searches a line and moves the cursor to the next instance of a specified
+character. For example, the command fa would move the cursor to the next occurrence
+of the character “a” within the current line. After performing a character search within a
+line, the search may be repeated by typing a semicolon.
+
+f命令查找一行，移动光标到下一个所指定的字符上。例如，命令fa会把光标定位到同一行中
+下一个出现的"a"字符上。在一行中执行了字符的查找命令之后，通过输入分号来重复这个查找。
+
+Searching The Entire File
+
+#### 查找整个文件
+
+To move the cursor to the next occurrence of a word or phrase, the / command is used.
+This works the same way as we learned earlier in the less program. When you type the
+/ command a “/” will appear at the bottom of the screen. Next, type the word or phrase
+to be searched for, followed by the Enter key. The cursor will move to the next
+location containing the search string. A search may be repeated using the previous search
+string with the n command. Here's an example:
+
+移动光标到下一个出现的单词或短语上，使用/命令。这个命令和我们之前在less程序中学到
+的一样。当你输入/命令后，一个"/"字符会出现在屏幕底部。下一步，输入要查找的单词或短语后，
+按下回车。光标就会移动到下一个包含所查找字符串的位置。通过n命令来重复先前的查找。
+这里有个例子：
+
+<div class="code"><pre>
+<tt>The quick brown fox jumped over the lazy dog. It was cool.
+Line 2
+Line 3
+Line 4
+Line 5</tt>
+</pre></div>
+
+Place the cursor on the first line of the file. Type:
+
+把光标移动到文件的第一行。输入：
+
+<div class="code"><pre>
+<tt><b>/Line</b></tt>
+</pre></div>
+
+followed by the Enter key. The cursor will move to line 2. Next, type n and the cursor
+will move to line 3. Repeating the n command will move the cursor down the file until it
+runs out of matches. While we have so far only used words and phrases for our search
+patterns, vi allows the use of regular expressions, a powerful method of expressing
+complex text patterns. We will cover regular expressions in some detail in a later chapter.
+
+然后键入回车。光标会移动到第二行。下一步，输入n，光标移到第三行。重复这个n命令，光标会
+继续向下移动直到遍历了所有的匹配项。虽然目前，我们只是使用了单词和短语来作为我们的查找
+模式，但是vi允许使用正则表达式，一种强大的用来表示复杂文本模式的方法。我们将会在随后
+的章节里面详尽地介绍正则表达式。
+
+Global Search And Replace
+
+#### 全局查找和替代
+
+vi uses an ex command to perform search and replace operations (called “substitution”
+in vi) over a range of lines or the entire file. To change the word “Line” to “line” for the
+entire file, we would enter the following command:
+
+vi使用ex命令来执行查找和替代操作（vi中叫做“替换”）。把整个文件中的单词“Line”更改为“line”，
+我们输入以下命令：
+
+<div class="code"><pre>
+<tt><b>:%s/Line/line/g</b></tt>
+</pre></div>
+
+Let's break this command down into separate items and see what each one does:
+
+我们把这个命令分解为几个单独的部分，看一下每部分的含义：
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<tr>
+<th class="title">Item</th>
+<th class="title">Meaning</th>
+</tr>
+<tr>
+<td valign="top" width="25%">:</td>
+<td valign="top">The colon character starts an ex command.</td>
+</tr>
+<tr>
+<td valign="top">%</td>
+<td valign="top">Specifies the range of lines for the operation. % is a shortcut
+meaning from the first line to the last line. Alternately, the
+range could have been specified 1,5 (since our file is five
+lines long), or 1,$ which means “from line 1 to the last line in
+the file.” If the range of lines is omitted, the operation is only
+performed on the current line.</td>
+</tr>
+<tr>
+<td valign="top">s</td>
+<td valign="top">Specifies the operation. In this case, substitution (search and
+replace).</td>
+</tr>
+<tr>
+<td valign="top">/Line/line</td>
+<td valign="top">The search pattern and the replacement text.
+</td>
+</tr>
+<tr>
+<td valign="top">g</td>
+<td valign="top">This means “global” in the sense that the search and replace is
+performed on every instance of the search string in the line. If omitted, 
+only the first instance of the search string on each line is replaced.</td>
+</tr>
+</table>
+</p>
+
+After executing our search and replace command our file looks like this:
+
+执行完查找和替代命令之后，我们的文件看起来像这样：
+
+<div class="code"><pre>
+<tt>The quick brown fox jumped over the lazy dog. It was cool.
+line 2
+line 3
+line 4
+line 5</tt>
+</pre></div>
+
+We can also specify a substitution command with user confirmation. This is done by
+adding a “c” to the end of the command. For example:
+
+我们也可以指定一个需要用户确认的替换命令。通过添加一个"c"字符到这个命令的末尾，来完成
+这个替换命令。例如：
+
+<div class="code"><pre>
+<tt><b>:%s/line/Line/gc</b></tt>
+</pre></div>
+
+This command will change our file back to its previous form; however, before each
+substitution, vi stops and asks us to confirm the substitution with this message:
+
+这个命令会把我们的文件恢复先前的模样；然而，在执行每个替换命令之前，vi会停下来，
+通过下面的信息，来要求我们确认这个替换：
+
+<div class="code"><pre>
+<tt>replace with Line (y/n/a/q/l/^E/^Y)?</tt>
+</pre></div>
+
+Each of the characters within the parentheses is a possible choice as follows:
+
+括号中的每个字符都是一个可能的选择，如下所示：
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 13-5: Replace Confirmation Keys</caption>
+<tr>
+<th class="title">Key</th>
+<th class="title">Action</th>
+</tr>
+<tr>
+<td valign="top" width="25%">y</td>
+<td valign="top">Perform the substitution.</td>
+</tr>
+<tr>
+<td valign="top">n</td>
+<td valign="top">Skip this instance of the pattern.</td>
+</tr>
+<tr>
+<td valign="top">a</td>
+<td valign="top">Perform the substitution on this and all subsequent instances
+of the pattern.</td>
+</tr>
+<tr>
+<td valign="top">q or esc</td>
+<td valign="top">Quit the substitution.</td>
+</tr>
+<tr>
+<td valign="top">l</td>
+<td valign="top">Perform this substitution and then quit. Short for"last".</td>
+</tr>
+<tr>
+<td valign="top">Ctrl-e, Ctrl-y</td>
+<td valign="top">Scroll down and scroll up, respectively. Useful for viewing
+the context of the proposed substitution.</td>
+</tr>
+</table>
+</p>
+
+If you type y, the substitution will be performed, n will cause vi to skip this instance and
+move on to the next one.
+
+如果你输入y，则执行这个替换，输入n则会导致vi跳过这个实例，而移到下一个匹配项上。
+
+Editing Multiple Files
+
+### 编辑多个文件
+
+It's often useful to edit more than one file at a time. You might need to make changes to
+multiple files or you may need to copy content from one file into another. With vi we
+can open multiple files for editing by specifying them on the command line:
+
+同时能够编辑多个文件是很有用的。你可能需要更改多个文件或者从一个文件复制内容到
+另一个文件。通过vi，我们可以打开多个文件来编辑，只要在命令行中指定要编辑的文件名。
+
+<div class="code"><pre>
+<tt>vi file1 file2 file3...</tt>
+</pre></div>
+
+Let's exit our existing vi session and create a new file for editing. Type :wq to exit vi
+saving our modified text. Next, we'll create an additional file in our home directory that
+we can play with. We'll create the file by capturing some output from the ls command:
+
+我们先退出已经存在的vi会话，然后创建一个新文件来编辑。输入:wq来退出vi并且保存了所做的修改。
+下一步，我们将在主目录下创建一个额外的用来玩耍的文件。通过获取从ls命令的输出，来创建这个文件。
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ ls -l /usr/bin > ls-output.txt</tt>
+</pre></div>
+
+Let's edit our old file and our new one with vi:
+
+用vi来编辑我们的原文件和新创建的文件：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ vi foo.txt ls-output.txt</tt>
+</pre></div>
+
+vi will start up and we will see the first file on the screen:
+
+vi启动，我们会看到第一个文件显示出来：
+
+<div class="code"><pre>
+<tt>The quick brown fox jumped over the lazy dog. It was cool.
+Line 2
+Line 3
+Line 4
+Line 5</tt>
+</pre></div>
+
+Switching Between Files
+
+#### 文件之间转换
+
+To switch from one file to the next, use this ex command:
+
+从这个文件转到下一个文件，使用这个ex命令：
+
+<div class="code"><pre>
+<tt>:n</tt>
+</pre></div>
+
+To move back to the previous file use:
+
+回到先前的文件使用：
+
+<div class="code"><pre>
+<tt>:N</tt>
+</pre></div>
+
+While we can move from one file to another, vi enforces a policy that prevents us from
+switching files if the current file has unsaved changes. To force vi to switch files and
+abandon your changes, add an exclamation point (!) to the command.
+
+当我们从一个文件移到另一个文件时，如果当前文件没有保存修改，vi会阻止我们转换文件，
+这是vi强制执行的政策。在命令之后添加感叹号，可以强迫vi放弃修改而转换文件。
+
+In addition to the switching method described above, vim (and some versions of vi) also
+provide some ex commands that make multiple files easier to manage. We can view a list
+of files being edited with the :buffers command. Doing so will display a list of the
+files at the bottom of the display:
+
+另外，上面所描述的转换方法，vim（和一些版本的vi）也提供了一些ex命令，这些命令使
+多个文件更容易管理。我们可以查看正在编辑的文件列表，使用:buffers命令。运行这个
+命令后，屏幕顶部就会显示出一个文件列表：
+
+<div class="code"><pre>
+<tt>:buffers
+1 #     "foo.txt"                 line 1
+2 %a    "ls-output.txt"           line 0
+Press ENTER or type command to continue
+</tt>
+</pre></div>
+
+
 
