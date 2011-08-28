@@ -1248,7 +1248,7 @@ continue your journey towards vi mastery:
 
 * The Vim Book－vim项目，一本570页的书籍，包含了（几乎）所有的vim特性。你能在下面链接中找到它：
 
-  <a href="ftp://ftp.vim.org/pub/vim/doc/book/vimbook-OPL.pdf."></a>
+  ftp://ftp.vim.org/pub/vim/doc/book/vimbook-OPL.pdf.
 
 * A Wikipedia article on Bill Joy, the creator of vi.:
 
