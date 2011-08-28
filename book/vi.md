@@ -1241,24 +1241,24 @@ continue your journey towards vi mastery:
 * 学习vi编辑器－一本来自于Wikipedia的Wikibook，是一本关于vi的简要指南，并
   介绍了几个类似vi的程序，其中包括vim。它可以在以下链接中得到：
 
-  http://en.wikibooks.org/wiki/Vi
+  <http://en.wikibooks.org/wiki/Vi>
 
 * The Vim Book - The vim project has a 570-page book that covers (almost) all of
   the features in vim. You can find it at:
 
 * The Vim Book－vim项目，一本570页的书籍，包含了（几乎）所有的vim特性。你能在下面链接中找到它：
 
-  ftp://ftp.vim.org/pub/vim/doc/book/vimbook-OPL.pdf.
+  <ftp://ftp.vim.org/pub/vim/doc/book/vimbook-OPL.pdf.>
 
 * A Wikipedia article on Bill Joy, the creator of vi.:
 
 * Wikipedia上关于Bill Joy的文章，vi的创始人。
 
-   http://en.wikipedia.org/wiki/Bill\_Joy
+  <http://en.wikipedia.org/wiki/Bill\_Joy>
 
 * A Wikipedia article on Bram Moolenaar, the author of vim:
 
 * Wikipedia上关于Bram Moolenaar的文章，vim的作者：
 
-   http://en.wikipedia.org/wiki/Bram\_Moolenaar
+  <http://en.wikipedia.org/wiki/Bram\_Moolenaar>
 
