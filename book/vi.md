@@ -1213,14 +1213,16 @@ foo1.txt, we would enter the following:
 <tt><b>:w foo1.txt</b></tt>
 </pre></div>
 
-</hr>
+<br />
+<hr />
 Note: While the command above saves the file under a new name, it does not
 change the name of the file you are editing. As you continue to edit, you will still
 be editing foo.txt, not foo1.txt.
 
 注意：当上面的命令以一个新名字保存文件时，但它并没有更改你正在编辑的文件的名字。
 如果你继续编辑的话，你还是在编辑文件foo.txt，而不是foo1.txt。
-</hr>
+
+<hr />
 
 Further Reading
 
@@ -1250,13 +1252,13 @@ continue your journey towards vi mastery:
 
 * A Wikipedia article on Bill Joy, the creator of vi.:
 
-* Wikipedia上关于Bill Joy的文章，vi的创始人。：
+* Wikipedia上关于Bill Joy的文章，vi的创始人。
 
-   http://en.wikipedia.org/wiki/Bill_Joy
+   http://en.wikipedia.org/wiki/Bill\_Joy
 
 * A Wikipedia article on Bram Moolenaar, the author of vim:
 
 * Wikipedia上关于Bram Moolenaar的文章，vim的作者：
 
-   http://en.wikipedia.org/wiki/Bram_Moolenaar
+   http://en.wikipedia.org/wiki/Bram\_Moolenaar
 
