@@ -1061,9 +1061,202 @@ files at the bottom of the display:
 <tt>:buffers
 1 #     "foo.txt"                 line 1
 2 %a    "ls-output.txt"           line 0
-Press ENTER or type command to continue
-</tt>
+Press ENTER or type command to continue</tt>
 </pre></div>
 
+Note: You cannot switch to files loaded with the :e command using either the :n
+or :N command. To switch files, use the :buffer command followed by the
+buffer number.
 
+注意：你不同通过:n或:N命令在由:e命令加载的文件之间进行切换。这时要使用:buffer命令，
+其后加上缓冲区号码，来转换文件。
+
+
+Copying Content From One File Into Another
+
+#### 从一个文件复制内容到另一个文件
+
+Often while editing multiple files, we will want to copy a portion of one file into another
+file that we are editing. This is easily done using the usual yank and paste commands we
+used earlier. We can demonstrate as follows. First, using our two files, switch to buffer 1
+(foo.txt) by entering:
+
+当我们编辑多个文件时，经常地要复制文件的一部分到另一个正在编辑的文件。使用之前我们学到的
+拉（yank）和粘贴命令，这很容易完成。说明如下。以打开的两个文件为例，首先转换到缓冲区1（foo.txt）
+，输入：
+
+<div class="code"><pre>
+<tt><b>:buffer 1</b></tt>
+</pre></div>
+
+which should give us this:
+
+我们应该得到以下输出：
+
+<div class="code"><pre>
+<tt>The quick brown fox jumped over the lazy dog. It was cool.
+Line 2
+Line 3
+Line 4
+Line 5</tt>
+</pre></div>
+
+Next, move the cursor to the first line, and type yy to yank (copy) the line.
+
+下一步，把光标移到第一行，并且输入yy来复制这一行。
+
+Switch to the second buffer by entering:
+
+转换到第二个缓冲区，输入：
+
+<div class="code"><pre>
+<tt><b>:buffer 2</b></tt>
+</pre></div>
+
+The screen will now contain some file listings like this (only a portion is shown here):
+
+现在屏幕会包含一些文件列表（这里只列出了一部分）：
+
+<div class="code"><pre>
+<tt>total 343700
+-rwxr-xr-x 1 root root    31316  2007-12-05  08:58 [
+....</tt>
+</pre></div>
+
+Move the cursor to the first line and paste the line we copied from the preceding file by
+typing the p command:
+
+移动光标到第一行，输入p命令把我们从前面文件中复制的一行粘贴到这个文件中：
+
+<div class="code"><pre>
+<tt>total 343700
+<b>The quick brown fox jumped over the lazy dog. It was cool.</b>
+-rwxr-xr-x 1 root root    31316  2007-12-05  08:58 [
+....</tt>
+</pre></div>
+
+Inserting An Entire File Into Another
+
+#### 插入整个文件到另一个文件
+
+It's also possible to insert an entire file into one that we are editing. To see this in action,
+let's end our vi session and start a new one with just a single file:
+
+也有可能把整个文件插入到我们所编辑的文件中。看一下实际操作，结束vi会话，重新
+启动一个只打开一个文件的vi会话：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ vi ls-output.txt</tt>
+</pre></div>
+
+We will see our file listing again:
+
+再一次看到我们的文件列表：
+
+<div class="code"><pre>
+<tt>total 343700
+-rwxr-xr-x 1 root root    31316  2007-12-05  08:58 [</tt>
+</pre></div>
+
+Move the cursor to the third line, then enter the following ex command:
+
+移动光标到第三行，然后输入以下ex命令：
+
+<div class="code"><pre>
+<tt><b>:r foo.txt</b></tt>
+</pre></div>
+
+The :r command (short for “read”) inserts the specified file before the cursor position.
+Our screen should now look like this:
+
+这个:r命令（是"read"的简称）把指定的文件插入到光标位置之前。现在屏幕应该看起来像这样：
+
+<div class="code"><pre>
+<tt>total 343700
+-rwxr-xr-x 1 root root     31316 2007-12-05  08:58 [
+....
+<b>The quick brown fox jumped over the lazy dog. It was cool.
+Line 2
+Line 3
+Line 4
+Line 5</b>
+-rwxr-xr-x 1 root root     111276 2008-01-31  13:36 a2p
+....</tt>
+</pre></div>
+
+Saving Our Work
+
+### 保存工作
+
+Like everything else in vi, there are several different ways to save our edited files. We
+have already covered the ex command :w, but there are some others we may also find
+helpful.
+
+像vi中的其它操作一样，有几种不同的方法来保存我们所修改的文件。我们已经研究了:w这个
+ex命令， 但还有几种方法，可能我们也觉得有帮助。
+
+In command mode, typing ZZ will save the current file and exit vi. Likewise, the ex
+command :wq will combine the :w and :q commands into one that will both save the
+file and exit.
+
+在命令模式下，输入ZZ就会保存并退出当前文件。同样地，ex命令:wq把:w和:q命令结合到
+一起，来完成保存和退出任务。
+
+The :w command may also specify an optional filename. This acts like “Save As...” For
+example, if we were editing foo.txt and wanted to save an alternate version called
+foo1.txt, we would enter the following:
+
+这个:w命令也可以指定可选的文件名。这个的作用就如"Save As..."。例如，如果我们
+正在编辑foo.txt文件，想要保存一个副本，叫做foo1.txt，那么我们可以执行以下命令：
+
+<div class="code"><pre>
+<tt><b>:w foo1.txt</b></tt>
+</pre></div>
+
+</hr>
+Note: While the command above saves the file under a new name, it does not
+change the name of the file you are editing. As you continue to edit, you will still
+be editing foo.txt, not foo1.txt.
+
+注意：当上面的命令以一个新名字保存文件时，但它并没有更改你正在编辑的文件的名字。
+如果你继续编辑的话，你还是在编辑文件foo.txt，而不是foo1.txt。
+</hr>
+
+Further Reading
+
+### 拓展阅读
+
+Even with all that we have covered in this chapter, we have barely scratched the surface
+of what vi and vim can do. Here are a couple of on-line resources you can use to
+continue your journey towards vi mastery:
+
+即使把这章所学的内容都加起来，我们也只是学了vi和vim的一点儿皮毛而已。这里
+有一些在线的资料，你可以用来继续vi学习之旅。
+
+* Learning The vi Editor – A Wikibook from Wikipedia that offers a concise guide
+  to vi and several of its work-a-likes including vim. It's available at:
+
+* 学习vi编辑器－一本来自于Wikipedia的Wikibook，是一本关于vi的简要指南，并
+  介绍了几个类似vi的程序，其中包括vim。它可以在以下链接中得到：
+
+  http://en.wikibooks.org/wiki/Vi
+
+* The Vim Book - The vim project has a 570-page book that covers (almost) all of
+  the features in vim. You can find it at:
+
+* The Vim Book－vim项目，一本570页的书籍，包含了（几乎）所有的vim特性。你能在下面链接中找到它：
+
+  ftp://ftp.vim.org/pub/vim/doc/book/vimbook-OPL.pdf.
+
+* A Wikipedia article on Bill Joy, the creator of vi.:
+
+* Wikipedia上关于Bill Joy的文章，vi的创始人。：
+
+   http://en.wikipedia.org/wiki/Bill_Joy
+
+* A Wikipedia article on Bram Moolenaar, the author of vim:
+
+* Wikipedia上关于Bram Moolenaar的文章，vim的作者：
+
+   http://en.wikipedia.org/wiki/Bram_Moolenaar
 
