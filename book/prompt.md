@@ -447,3 +447,325 @@ appearance of “light” colors:
 这里是一个可用的文本颜色列表。注意这些颜色被分为两组，由应用程序粗体字符属性（1）
 分化开来，这个属性可以描绘出“浅”色文本。
 
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table14- 2: Escape Sequences Used To Set Text Colors</caption>
+<tr>
+<th class="title">Sequence</th>
+<th class="title">Text Color</th>
+<th class="title">Sequence</th>
+<th class="title">Text Color</th>
+</tr>
+<tr>
+<td valign="top">\033[0;30m</td>
+<td valign="top">Black</td>
+<td valign="top">\033[1;30m </td>
+<td valign="top">Dark Gray</td>
+</tr>
+<tr>
+<td valign="top">\033[0;31m</td>
+<td valign="top">Red</td>
+<td valign="top">\033[1;31m </td>
+<td valign="top">Light Red</td>
+</tr>
+<tr>
+<td valign="top">\033[0;32m </td>
+<td valign="top">Green</td>
+<td valign="top">\033[1;32m </td>
+<td valign="top">Light Green</td>
+</tr>
+<tr>
+<td valign="top">\033[0;33m </td>
+<td valign="top">Brown</td>
+<td valign="top">\033[1;33m </td>
+<td valign="top">Yellow</td>
+</tr>
+<tr>
+<td valign="top">\033[0;34m </td>
+<td valign="top">Blue</td>
+<td valign="top">\033[1;34m </td>
+<td valign="top">Light Blue</td>
+</tr>
+<tr>
+<td valign="top">\033[0;35m </td>
+<td valign="top">Purple</td>
+<td valign="top">\033[1;35m </td>
+<td valign="top">Light Purple</td>
+</tr>
+<tr>
+<td valign="top">\033[0;36m </td>
+<td valign="top">Cyan</td>
+<td valign="top">\033[1;36m </td>
+<td valign="top">Light Cyan</td>
+</tr>
+<tr>
+<td valign="top">\033[0;37m </td>
+<td valign="top">Light Gray</td>
+<td valign="top">\033[1;37m </td>
+<td valign="top">White</td>
+</tr>
+</table>
+</p>
+
+Let's try to make a red prompt. We'll insert the escape code at the beginning:
+
+让我们试着制作一个红色提示符。我们将在开头加入转义编码：
+
+<div class="code"><pre>
+<tt><me@linuxbox ~>$ PS1="\[\033[0;31m\]<\u@\h \W>\$ "
+<me@linuxbox ~>$
+</tt>
+</pre></div>
+
+That works, but notice that all the text that we type after the prompt is also red. To fix
+this, we will add another escape code to the end of the prompt that tells the terminal
+emulator to return to the previous color:
+
+我们的提示符生效了，但是注意我们在提示符之后输入的文本也是红色的。为了修改这个问题，
+我们将添加另一个转义编码到这个提示符的末尾来告诉终端仿真器恢复到原来的颜色。
+
+<div class="code"><pre>
+<tt><me@linuxbox ~>$ PS1="\[\033[0;31m\]<\u@\h \W>\$\[\033[0m\] "
+<me@linuxbox ~>$
+</tt>
+</pre></div>
+
+That's better!
+
+这看起来要好些！
+
+It's also possible to set the text background color using the codes listed below. The
+background colors do not support the bold attribute.
+
+也有可能要设置文本的背景颜色，使用下面列出的转义编码。这个背景颜色不支持黑体属性。
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 14-3: Escape Sequences Used To Set Background Color</caption>
+<tr>
+<td valign="top">\033[0;40m </td>
+<td valign="top">Blue</td>
+<td valign="top">\033[1;44m </td>
+<td valign="top">Black</td>
+</tr>
+<tr>
+<td valign="top">\033[0;41m </td>
+<td valign="top">Red</td>
+<td valign="top">\033[1;45m </td>
+<td valign="top">Purple</td>
+</tr>
+<tr>
+<td valign="top">\033[0;42m </td>
+<td valign="top">Green</td>
+<td valign="top">\033[1;46m </td>
+<td valign="top">Cyan</td>
+</tr>
+<tr>
+<td valign="top">\033[0;43m </td>
+<td valign="top">Brown</td>
+<td valign="top">\033[1;47m </td>
+<td valign="top">Light Gray</td>
+</tr>
+</table>
+</p>
+
+We can create a prompt with a red background by applying a simple change to the first
+escape code:
+
+我们可以创建一个带有红色背景的提示符，只是对第一个转义编码做个简单的修改。
+
+<div class="code"><pre>
+<tt><me@linuxbox ~>$ PS1="\[\033[0;41m\]<\u@\h \W>\$\[\033[0m\] "
+<me@linuxbox ~>$
+</tt>
+</pre></div>
+
+Try out the color codes and see what you can create!
+
+试试这些颜色编码，看看你能定制出怎样的提示符！
+<br />
+<hr />
+Note: Besides the normal (0) and bold (1) character attributes, text may also be
+given underscore (4), blinking (5), and inverse (7) attributes as well. In the
+interests of good taste, many terminal emulators refuse to honor the blinking
+attribute, however.
+
+注意：除了正常的（0）和黑体（1）字符属性之外，文本也可以具有下划线（4），闪烁（5），
+和反向（7）属性。
+<hr />
+
+Moving The Cursor
+Escape codes can be used to position the cursor. This is commonly used to provide a
+clock or some other kind of information at a different location on the screen such as an
+upper corner each time the prompt is drawn. Here is a list of the escape codes that
+position the cursor:
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 14-4: Cursor Movement Escape Sequences</caption>
+<tr>
+<th class="title">Escape Code</th>
+<th class="title">Action</th>
+</tr>
+<tr>
+<td valign="top" width="25%">\033[l;cH </td>
+<td valign="top">Move the cursor to line l and column c.  </td>
+</tr>
+<tr>
+<td valign="top">\033[nA </td>
+<td valign="top">Move the cursor up n lines.  </td>
+</tr>
+<tr>
+<td valign="top">\033[nB </td>
+<td valign="top">Move the cursor down n lines.  </td>
+</tr>
+<tr>
+<td valign="top">\033[nC </td>
+<td valign="top">Move the cursor forward n characters.  </td>
+</tr>
+<tr>
+<td valign="top">\033[nD </td>
+<td valign="top">Move the cursor backward n characters.  </td>
+</tr>
+<tr>
+<td valign="top">\033[2J </td>
+<td valign="top">Clear the screen and move the cursor to the upper left corner (line
+0, column 0).
+</td>
+</tr>
+<tr>
+<td valign="top">\033[K </td>
+<td valign="top">Clear from the cursor position to the end of the current line.  </td>
+</tr>
+<tr>
+<td valign="top">\033[s </td>
+<td valign="top">Store the current cursor position.  </td>
+</tr>
+<tr>
+<td valign="top">\033[u </td>
+<td valign="top">Recall the stored cursor position.  </td>
+</tr>
+</table>
+</p>
+
+Using the codes above, we'll construct a prompt that draws a red bar at the top of the
+screen containing a clock (rendered in yellow text) each time the prompt is displayed.
+The code for the prompt is this formidable looking string:
+
+<div class="code"><pre>
+<tt><b>PS1="\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
+<\u@\h \W>\$ "
+</b></tt>
+</pre></div>
+
+Let's take a look at each part of the string to see what it does:
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<tr>
+<th class="title">Squence</th>
+<th class="title">Action</th>
+</tr>
+<tr>
+<td valign="top" width="25%">\[</td>
+<td valign="top">Begins a non-printing character sequence. The real purpose of
+this is to allow bash to correctly calculate the size of the
+visible prompt. Without this, command line editing features
+will improperly position the cursor.  </td>
+</tr>
+<tr>
+<td valign="top">\033[s </td>
+<td valign="top">Store the cursor position. This is needed to return to the prompt
+location after the bar and clock have been drawn at the top of
+the screen. Be aware that some terminal emulators do not
+honor this code.  </td>
+</tr>
+<tr>
+<td valign="top">\033[0;0H </td>
+<td valign="top">Move the cursor to the upper left corner, which is line zero,
+column zero.  </td>
+</tr>
+<tr>
+<td valign="top">\033[0;41m </td>
+<td valign="top">Set the background color to red.  </td>
+</tr>
+<tr>
+<td valign="top">\033[K </td>
+<td valign="top">Clear from the current cursor location (the top left corner) to
+the end of the line. Since the background color is now red, the
+line is cleared to that color creating our bar. Note that clearing
+to the end of the line does not change the cursor position, which
+remains at the upper left corner.
+</td>
+</tr>
+<tr>
+<td valign="top">\033[1;33m </td>
+<td valign="top">Set the text color to yellow.  </td>
+</tr>
+<tr>
+<td valign="top">\t </td>
+<td valign="top">Display the current time. While this is a “printing” element, we
+still include it in the non-printing portion of the prompt, since
+we don't want bash to include the clock when calculating the
+true size of the displayed prompt.  </td>
+</tr>
+<tr>
+<td valign="top">\033[0m </td>
+<td valign="top">Turn off color. This affects both the text and background.  </td>
+</tr>
+<tr>
+<td valign="top">\033[u </td>
+<td valign="top">Restore the cursor position saved earlier.  </td>
+</tr>
+<tr>
+<td valign="top">\] </td>
+<td valign="top">End non-printing characters sequence.  </td>
+</tr>
+<tr>
+<td valign="top"><\u@\h \W>\$ </td>
+<td valign="top">Prompt string.</td>
+</tr>
+</table>
+</p>
+
+Saving The Prompt
+
+### 保存提示符
+
+Obviously, we don't want to be typing that monster all the time, so we'll want to store our
+prompt someplace. We can make the prompt permanent by adding it to our .bashrc
+file. To do so, add these two lines to the file:
+
+<div class="code"><pre>
+<tt><b>PS1="\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
+<\u@\h \W>\$ "
+
+export PS1</b></tt>
+</pre></div>
+
+Summing Up
+
+### 总结归纳
+
+Believe it or not, there is much more that can be done with prompts involving shell
+functions and scripts that we haven't covered here, but this is a good start. Not everyone
+will care enough to change the prompt, since the default prompt is usually satisfactory.
+But for those of us who like to tinker, the shell provides the opportunity for many hours
+of trivial fun.
+
+Further Reading
+
+### 拓展阅读
+
+ 
+* The Bash Prompt HOWTO from the Linux Documentation Project provides a
+  pretty complete discussion of what the shell prompt can be made to do. It is
+  available at:
+
+  <http://tldp.org/HOWTO/Bash-Prompt-HOWTO/>
+
+* Wikipedia has a good article on the ANSI Escape Codes:
+
+  <http://en.wikipedia.org/wiki/ANSI_escape_code>
+
+
