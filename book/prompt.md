@@ -575,7 +575,7 @@ escape code:
 我们可以创建一个带有红色背景的提示符，只是对第一个转义编码做个简单的修改。
 
 <div class="code"><pre>
-<tt><me@linuxbox ~>$ PS1="\[\033[0;41m\]<\u@\h \W>\$\[\033[0m\] "
+<tt><me@linuxbox ~>$ PS1="\[\033[0;41m\]&lt;\u@\h \W&gt;\$\[\033[0m\] "
 <me@linuxbox ~>$
 </tt>
 </pre></div>
