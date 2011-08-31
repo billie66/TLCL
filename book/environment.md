@@ -586,11 +586,6 @@ entered. This means that when we want to create a directory within our home dire
 for storing our own private programs, the shell is ready to accommodate us. All we have
 to do is call it bin, and we&apos;re ready to go.
 
-使用这种技巧，我们可以把文本附加到一个变量值的末尾。通过添加字符串$HOME/bin到PATH变量值
-的末尾，则目录$HOME/bin就添加到了命令搜索目录列表中。这意味着当我们想要在自己的主目录下，
-创建一个目录来存储我们自己的私人程序时，shell已经给我们准备好了。我们所要做的事就是
-把创建的目录叫做bin，赶快行动吧。
-
 Note: Many distributions provide this PATH setting by default. Some Debian
 based distributions, such as Ubuntu, test for the existence of the ~/bin directory at
 login, and dynamically add it to the PATH variable if the directory is found.
