@@ -579,12 +579,12 @@ This is some
 This is some text.</tt>
 </pre></div>
 
-Using this technique, we can append text to the end of a variable&apos;s contents.
-By adding the string $HOME/bin to the end of the PATH variable&apos;s contents, the
+<p>Using this technique, we can append text to the end of a variable's contents.
+By adding the string $HOME/bin to the end of the PATH variable's contents, the
 directory $HOME/bin is added to the list of directories searched when a command is
 entered. This means that when we want to create a directory within our home directory
 for storing our own private programs, the shell is ready to accommodate us. All we have
-to do is call it bin, and we&apos;re ready to go.
+to do is call it bin, and we're ready to go.</p>
 
 Note: Many distributions provide this PATH setting by default. Some Debian
 based distributions, such as Ubuntu, test for the existence of the ~/bin directory at
