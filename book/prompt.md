@@ -512,8 +512,8 @@ Let's try to make a red prompt. We'll insert the escape code at the beginning:
 让我们试着制作一个红色提示符。我们将在开头加入转义编码：
 
 <div class="code"><pre>
-<tt><me@linuxbox ~>$ PS1="\[\033[0;31m\]<\u@\h \W>\$ "
-<me@linuxbox ~>$
+<tt>&lt;me@linuxbox ~&gt;$ PS1=&quot;\[\033[0;31m\]&lt;\u@\h \W&gt;\$ &quot; 
+&lt;me@linuxbox ~&gt;$
 </tt>
 </pre></div>
 
