@@ -501,10 +501,10 @@ What's In A Startup File?
 
 ### 一个启动文件的内容
 
-If we take a look inside a typical .bash\_profile (taken from a CentOS 4 system), it
+If we take a look inside a typical .bash_profile (taken from a CentOS 4 system), it
 looks something like this:
 
-如果我们看一下典型的.bash\_profile文件（来自于CentOS 4系统），它看起来像这样：
+如果我们看一下典型的.bash_profile文件（来自于CentOS 4系统），它看起来像这样：
 
 <div class="code"><pre>
 <tt># .bash\_profile
@@ -527,8 +527,7 @@ following code:
 <div class="code"><pre>
 <tt>if [ -f ~/.bashrc ]; then
 . ~/.bashrc
-fi</tt>
-</pre></div>
+fi</tt></pre></div>
 
 This is called an if compound command, which we will cover fully when we get to shell
 scripting in Part 5, but for now we will translate:
@@ -537,7 +536,7 @@ scripting in Part 5, but for now we will translate:
 
 <div class="code"><pre>
 <tt>If the file &quot;~/.bashrc&quot; exists, then
-        read the &quot;~/.bashrc&quot; file.</tt>
+        read the &quot;~/.bashrc&quot; file. </tt>
 </pre></div>
 
 We can see that this bit of code is how a login shell gets the contents of .bashrc. The
@@ -551,7 +550,7 @@ command line? For example, when we enter ls, the shell does not search the entir
 computer to find /bin/ls (the full pathname of the ls command), rather, it searches a
 list of directories that are contained in the PATH variable.
 
-曾经是否迷惑shell是怎样知道到哪里找到我们在命令行中输入的命令的？例如，当我们输入ls后，
+曾经是否感到迷惑shell是怎样知道到哪里找到我们在命令行中输入的命令的？例如，当我们输入ls后，
 shell不会查找整个计算机系统，来找到/bin/ls（ls命令的绝对路径名），而是，它查找一个目录列表，
 这些目录包含在PATH变量中。
 
@@ -634,7 +633,7 @@ directory. It is certainly possible to change the files in /etc such as profile,
 many cases it would be sensible to do so, but for now, let's play it safe.
 
 按照通常的规则，添加目录到你的PATH变量或者是定义额外的环境变量，要把这些更改放置到
-.bash_profile文件中（或者其替代文件中，根据不同的发行版。例如，Ubuntu使用.profile文件。）
+.bash_profile文件中（或者其替代文件中，根据不同的发行版。例如，Ubuntu使用.profile文件）。
 对于其它的更改，要放到.bashrc文件中。除非你是系统管理员，需要为系统中的所有用户修改
 默认设置，那么则限定你只能对自己主目录下的文件进行修改。当然，有可能会更改/etc目录中的
 文件，比如说profile文件，而且在许多情况下，修改这些文件也是明智的，但是现在，我们要
