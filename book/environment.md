@@ -797,6 +797,118 @@ Here is the meaning of our additions:
 
 下表是所添加行的意义：
 
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<tr>
+<th class="title">Line</th>
+<th class="title">Meaning</th>
+</tr>
+<tr>
+<td valign="top" width="25%">umask 0002 </td>
+<td valign="top">Sets the umask to solve the
+problem with shared directories</td>
+</tr>
+<tr> <td valign="top">export HISTCONTROL=ignoredups </td> <td
+valign="top">Causes the shell's history recording feature to ignore a command
+if the same command was just recorded.</td>
+<tr>
+<td valign="top" width="25%">export HISTSIZE=1000 
+</td>
+<td valign="top">Increases the size of the command history from the default of
+500 lines to 1000 lines.</td>
+</tr>
+<tr>
+<td valign="top" width="25%">alias l.=&apos;ls -d .\* --color=auto&apos; </td>
+<td valign="top">Creates a new command called “l.” which displays all
+directory entries that begin with a dot.</td>
+</tr>
+<tr>
+<td valign="top" width="25%">alias ll=&apos;ls -l --color=auto&apos; 
+</td>
+<td valign="top">Creates a new command called “ll” which displays a long
+format directory listing.</td>
+</tr>
+</table>
+</p>
+
+As we can see, many of our additions are not intuitively obvious, so it would be a good
+idea to add some comments to our .bashrc file to help explain things to the humans.
+Using the editor, change our additions to look like this:
+
+正如我们所看到的，我们的许多附加物意思直觉上并不是明显的，所以添加注释到我们的文件.bashrc中是
+一个好主意，可以帮助人们理解。使用编辑器，更改我们的附加物，让它们看起来像这样：
+
+<div class="code"><pre>
+<tt># Change umask to make directory sharing easier
+umask 0002
+ # Ignore duplicates in command history and increase
+ # history size to 1000 lines
+export HISTCONTROL=ignoredups
+export HISTSIZE=1000
+ # Add some helpful aliases
+alias l.=&apos;ls -d .\* --color=auto&apos;
+alias ll=&apos;ls -l --color=auto&apos;
+</tt>
+</pre></div>
+
+Ah, much better! With our changes complete, type Ctrl-o to save our modified
+.bashrc file, and Ctrl-x to exit nano.
+
+啊，看起来好多了! 当我们完成修改后，输入Ctrl-o来保存我们修改的.bashrc文件，输入Ctrl-x退出nano。
+
+<table class="single" cellpadding="10" width="%100">
+<tr>
+<td>
+<h3>Why Comments Are Important</h3>
+
+<h3>为什么注释很重要？</h3>
+
+<p> Whenever you modify configuration files it's a good idea to add some comments
+to document your changes. Sure, you will remember what you changed
+tomorrow, but what about six months from now? Do yourself a favor and add
+some comments. While you're at it, it’s not a bad idea to keep a log of what
+changes you make.</p>
+
+<p>不管什么时候你修改配置文件时，给你所做的更改加上注释都是一个好主意。的确，明天你会
+记得你修改了的内容，但是六个月之后会怎样呢？帮自己一个忙，加上一些注释吧。当你意识
+到这一点后，对你所做的修改做个日志是个不错的主意。</P>
+
+<p>Shell scripts and bash startup files use a &quot;#&quot; symbol to begin a comment. Other
+configuration files may use other symbols. Most configuration files will have
+comments. Use them as a guide.</p>
+
+<p>Shell脚本和bash启动文件都使用&quot;#&quot;符号来开始注释。其它配置文件可能使用其它的符号。
+大多数配置文件都有注释。把它们作为指南。</p>
+
+<p>You will often see lines in configuration files that are commented out to prevent
+them from being used by the affected program. This is done to give the reader
+suggestions for possible configuration choices or examples of correct
+configuration syntax. For example, the .bashrc file of Ubuntu 8.04 contains
+these lines:</p>
+
+<p>你会经常看到配置文件中的一些行被注释掉，以此防止它们被受影响的程序使用。这样做
+是为了给读者在可能的配置选项方面一些建议，或者给出正确的配置语法实例。例如，Ubuntu 8.04 
+中的.bashrc文件包含这些行：</p>
+
+<p># some more ls aliases</p>
+<p>#alias ll=&apos;ls -l&apos;</p>
+<p>#alias la=&apos;ls -A&apos;</p>
+<p>#alias l=&apos;ls -CF&apos;</p>
+
+<p>The last three lines are valid alias definitions that have been commented out. If
+you remove the leading &quot;#&quot; symbols from these three lines, a technique called
+uncommenting, you will activate the aliases. Conversely, if you add a &quot;#&quot;
+symbol to the beginning of a line, you can deactivate a configuration line while
+preserving the information it contains.</p>
+
+<p>最后三行是有效的被注释掉的别名定义。如果你删除这三行开头的&quot;#&quot;符号，此技术程称为
+uncommenting
+(不注释)，这样你就会激活这些别名。相反地，如果你在一行的开头加上&quot;#&quot;符号，你可以
+注销掉这一行，但会保留它所包含的信息。</p>
+</td>
+</tr>
+</table>
+
 Activating Our Changes
 
 ### 激活我们的修改
