@@ -387,18 +387,18 @@ Login shells read one or more startup files as shown in Table 12-2:
 <td valign="top">A global configuration script that applies to all users.</td>
 </tr>
 <tr>
-<td valign="top">~/.bash\_profile </td>
+<td valign="top">~/.bash_profile </td>
 <td valign="top">A user's personal startup file. Can be used to extend or
 override settings in the global configuration script.</td>
 </tr>
 <tr>
-<td valign="top">~/.bash\_login </td>
-<td valign="top">If ~/.bash\_profile is not found, bash attempts to
+<td valign="top">~/.bash_login </td>
+<td valign="top">If ~/.bash_profile is not found, bash attempts to
 read this script.</td>
 </tr>
 <tr>
 <td valign="top">~/.profile </td>
-<td valign="top">If neither ~/.bash\_profile nor ~/.bash\_login
+<td valign="top">If neither ~/.bash_profile nor ~/.bash_login
 is found, bash attempts to read this file. This is the
 default in Debian-based distributions, such as Ubuntu.</td>
 </tr>
@@ -417,18 +417,18 @@ default in Debian-based distributions, such as Ubuntu.</td>
 <td valign="top">应用于所有用户的全局配置脚本。</td>
 </tr>
 <tr>
-<td valign="top">~/.bash\_profile </td>
+<td valign="top">~/.bash_profile </td>
 <td valign="top">用户私人的启动文件。可以用来扩展或重写全局配置脚本中的设置。</td>
 </tr>
 <tr>
-<td valign="top">~/.bash\_login </td>
-<td valign="top">如果文件~/.bash\_profile没有找到，bash会尝试读取这个脚本。
+<td valign="top">~/.bash_login </td>
+<td valign="top">如果文件~/.bash_profile没有找到，bash会尝试读取这个脚本。
 </td>
 </tr>
 <tr>
 <td valign="top">~/.profile </td>
 <td
-valign="top">如果文件~/.bash\_profile或文件~/.bash\_login都没有找到，bash会试图读取这个文件。
+valign="top">如果文件~/.bash_profile或文件~/.bash_login都没有找到，bash会试图读取这个文件。
 这是基于Debian发行版的默认设置，比方说Ubuntu。
 </td>
 </tr>
@@ -505,6 +505,17 @@ If we take a look inside a typical .bash\_profile (taken from a CentOS 4 system)
 looks something like this:
 
 如果我们看一下典型的.bash\_profile文件（来自于CentOS 4系统），它看起来像这样：
+
+<div class="code"><pre>
+<tt># .bash\_profile
+ # Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+. ~/.bashrc
+fi
+ # User specific environment and startup programs
+PATH=$PATH:$HOME/bin
+export PATH</tt>
+</pre></div>
 
 Activating Our Changes
 
