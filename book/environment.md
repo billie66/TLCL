@@ -517,6 +517,129 @@ PATH=$PATH:$HOME/bin
 export PATH</tt>
 </pre></div>
 
+Lines that begin with a &quot;#&quot; are comments and are not read by the shell. These are there
+for human readability. The first interesting thing occurs on the fourth line, with the
+following code:
+
+以&quot;#&quot;开头的行是注释，shell不会读取它们。它们在那里是为了方便人们阅读。第一件有趣的事情
+发生在第四行，伴随着以下代码：
+
+<div class="code"><pre>
+<tt>if [ -f ~/.bashrc ]; then
+. ~/.bashrc
+fi</tt>
+</pre></div>
+
+This is called an if compound command, which we will cover fully when we get to shell
+scripting in Part 5, but for now we will translate:
+
+这叫做一个if复合命令，我们将会在第五部分详细地介绍它，现在我们对它翻译一下：
+
+<div class="code"><pre>
+<tt>If the file &quot;~/.bashrc&quot; exists, then
+        read the &quot;~/.bashrc&quot; file.</tt>
+</pre></div>
+
+We can see that this bit of code is how a login shell gets the contents of .bashrc. The
+next thing in our startup file has to do with the PATH variable.
+
+我们可以看到这一小段代码就是一个登录shell得到.bashrc文件内容的方式。在我们启动文件中，
+下一件有趣的事与PATH变量有关系。
+
+Ever wonder how the shell knows where to find commands when we enter them on the
+command line? For example, when we enter ls, the shell does not search the entire
+computer to find /bin/ls (the full pathname of the ls command), rather, it searches a
+list of directories that are contained in the PATH variable.
+
+曾经是否迷惑shell是怎样知道到哪里找到我们在命令行中输入的命令的？例如，当我们输入ls后，
+shell不会查找整个计算机系统，来找到/bin/ls（ls命令的绝对路径名），而是，它查找一个目录列表，
+这些目录包含在PATH变量中。
+
+The PATH variable is often (but not always, depending on the distribution) set by the
+/etc/profile startup file and with this code:
+
+PATH变量经常（但不总是，依赖于发行版）在/etc/profile启动文件中设置，通过这些代码：
+
+<div class="code"><pre>
+<tt>PATH=$PATH:$HOME/bin</tt>
+</pre></div>
+
+PATH is modified to add the directory $HOME/bin to the end of the list. This is an
+example of parameter expansion, which we touched on in Chapter 8. To demonstrate
+how this works, try the following:
+
+修改PATH变量，添加目录$HOME/bin到目录列表的末尾。这是一个参数展开的实例，
+参数展开我们在第八章中提到过。为了说明这是怎样工作的，试试下面的例子：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ foo=&quot;This is some &quot;
+[me@linuxbox ~]$ echo $foo
+This is some
+[me@linuxbox ~]$ foo=$foo&quot;text.&quot;
+[me@linuxbox ~]$ echo $foo
+This is some text.</tt>
+</pre></div>
+
+Using this technique, we can append text to the end of a variable's contents.
+By adding the string $HOME/bin to the end of the PATH variable's contents, the
+directory $HOME/bin is added to the list of directories searched when a command is
+entered. This means that when we want to create a directory within our home directory
+for storing our own private programs, the shell is ready to accommodate us. All we have
+to do is call it bin, and we’re ready to go.
+
+使用这种技巧，我们可以把文本附加到一个变量值的末尾。通过添加字符串$HOME/bin到PATH变量值
+的末尾，则目录$HOME/bin就添加到了命令搜索目录列表中。这意味着当我们想要在自己的主目录下，
+创建一个目录来存储我们自己的私人程序时，shell已经给我们准备好了。我们所要做的事就是
+把创建的目录叫做bin，赶快行动吧。
+
+Note: Many distributions provide this PATH setting by default. Some Debian
+based distributions, such as Ubuntu, test for the existence of the ~/bin directory at
+login, and dynamically add it to the PATH variable if the directory is found.
+
+注意：很多发行版默认地提供了这个PATH设置。一些基于Debian的发行版，例如Ubuntu，在登录
+的时候，会检测目录~/bin是否存在，若找到目录则把它动态地加到PATH变量中。
+
+Lastly, we have:
+
+最后，有下面一行代码：
+
+<div class="code"><pre>
+<tt>export PATH</tt>
+</pre></div>
+
+The export command tells the shell to make the contents of PATH available to child
+processes of this shell.
+
+export命令告诉shell让这个shell的子进程可以使用PATH变量的内容。
+
+Modifying The Environment
+
+### 修改shell环境
+
+Since we know where the startup files are and what they contain, we can modify them to
+customize our environment.
+
+既然我们知道了启动文件所在的位置和它们所包含的内容，我们就可以修改它们来定制自己的shell环境。
+
+Which Files Should We Modify?
+
+### 我们应该修改哪个文件？
+
+As a general rule, to add directories to your PATH, or define additional environment
+variables, place those changes in .bash_profile (or equivalent, according to your
+distribution. For example, Ubuntu uses .profile.) For everything else, place the
+changes in .bashrc. Unless you are the system administrator and need to change the
+defaults for all users of the system, restrict your modifications to the files in your home
+directory. It is certainly possible to change the files in /etc such as profile, and in
+many cases it would be sensible to do so, but for now, let's play it safe.
+
+按照通常的规则，添加目录到你的PATH变量或者是定义额外的环境变量，要把这些更改放置到
+.bash_profile文件中（或者其替代文件中，根据不同的发行版。例如，Ubuntu使用.profile文件。）
+对于其它的更改，要放到.bashrc文件中。除非你是系统管理员，需要为系统中的所有用户修改
+默认设置，那么则限定你只能对自己主目录下的文件进行修改。当然，有可能会更改/etc目录中的
+文件，比如说profile文件，而且在许多情况下，修改这些文件也是明智的，但是现在，我们要
+安全起见。
+
 Activating Our Changes
 
 ### 激活我们的修改
