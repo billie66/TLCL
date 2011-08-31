@@ -563,54 +563,6 @@ PATH变量经常（但不总是，依赖于发行版）在/etc/profile启动文�
 <tt>PATH=$PATH:$HOME/bin</tt>
 </pre></div>
 
-PATH is modified to add the directory $HOME/bin to the end of the list. This is an
-example of parameter expansion, which we touched on in Chapter 8. To demonstrate
-how this works, try the following:
-
-修改PATH变量，添加目录$HOME/bin到目录列表的末尾。这是一个参数展开的实例，
-参数展开我们在第八章中提到过。为了说明这是怎样工作的，试试下面的例子：
-
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ foo=&quot;This is some &quot;
-[me@linuxbox ~]$ echo $foo
-This is some
-[me@linuxbox ~]$ foo=$foo&quot;text.&quot;
-[me@linuxbox ~]$ echo $foo
-This is some text.</tt>
-</pre></div>
-
-Using this technique, we can append text to the end of a variable's contents.
-By adding the string $HOME/bin to the end of the PATH variable's contents, the
-directory $HOME/bin is added to the list of directories searched when a command is
-entered. This means that when we want to create a directory within our home directory
-for storing our own private programs, the shell is ready to accommodate us. All we have
-to do is call it bin, and we’re ready to go.
-
-使用这种技巧，我们可以把文本附加到一个变量值的末尾。通过添加字符串$HOME/bin到PATH变量值
-的末尾，则目录$HOME/bin就添加到了命令搜索目录列表中。这意味着当我们想要在自己的主目录下，
-创建一个目录来存储我们自己的私人程序时，shell已经给我们准备好了。我们所要做的事就是
-把创建的目录叫做bin，赶快行动吧。
-
-Note: Many distributions provide this PATH setting by default. Some Debian
-based distributions, such as Ubuntu, test for the existence of the ~/bin directory at
-login, and dynamically add it to the PATH variable if the directory is found.
-
-注意：很多发行版默认地提供了这个PATH设置。一些基于Debian的发行版，例如Ubuntu，在登录
-的时候，会检测目录~/bin是否存在，若找到目录则把它动态地加到PATH变量中。
-
-Lastly, we have:
-
-最后，有下面一行代码：
-
-<div class="code"><pre>
-<tt>export PATH</tt>
-</pre></div>
-
-The export command tells the shell to make the contents of PATH available to child
-processes of this shell.
-
-export命令告诉shell让这个shell的子进程可以使用PATH变量的内容。
-
 Modifying The Environment
 
 ### 修改shell环境
