@@ -524,7 +524,7 @@ emulator to return to the previous color:
 我们将添加另一个转义编码到这个提示符的末尾来告诉终端仿真器恢复到原来的颜色。
 
 <div class="code"><pre>
-<tt><me@linuxbox ~>$ PS1=&quot;\[\033[0;31m\]&lt;\u@\h \W&gt;\$\[\033[0m\]&quot; 
+<tt>&lt;me@linuxbox ~&gt;$ PS1=&quot;\[\033[0;31m\]&lt;\u@\h \W&gt;\$\[\033[0m\]&quot; 
 &lt;me@linuxbox ~&gt;$</tt>
 </pre></div>
 
