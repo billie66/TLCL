@@ -833,6 +833,39 @@ format directory listing.</td>
 </table>
 </p>
 
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<tr>
+<th class="title">Line</th>
+<th class="title">Meaning</th>
+</tr>
+<tr>
+<td valign="top" width="25%">umask 0002 </td>
+<td valign="top">设置掩码来解决共享目录的问题。</td>
+</tr>
+<tr> 
+<td valign="top">export HISTCONTROL=ignoredups </td> 
+<td valign="top">使得shell的历史记录功能忽略一个命令，如果相同的命令已被记录。</td>
+</tr>
+<tr>
+<td valign="top" width="25%">export HISTSIZE=1000 
+</td>
+<td valign="top">增加命令历史的大小，从默认的500行扩大到1000行。</td>
+</tr>
+<tr>
+<td valign="top" width="25%">alias l.=&apos;ls -d .\* --color=auto&apos; </td>
+<td
+valign="top">创建一个新命令，叫做&apos;l.&apos;，这个命令会显示所有以点开头的目录名。</td>
+</tr>
+<tr>
+<td valign="top" width="25%">alias ll=&apos;ls -l --color=auto&apos; 
+</td>
+<td valign="top">创建一个叫做&apos;ll&apos;的命令，这个命令会显示长格式目录列表。</td>
+</tr>
+</table>
+</p>
+
+<br />
 As we can see, many of our additions are not intuitively obvious, so it would be a good
 idea to add some comments to our .bashrc file to help explain things to the humans.
 Using the editor, change our additions to look like this:
