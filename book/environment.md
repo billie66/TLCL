@@ -808,9 +808,11 @@ Here is the meaning of our additions:
 <td valign="top">Sets the umask to solve the
 problem with shared directories</td>
 </tr>
-<tr> <td valign="top">export HISTCONTROL=ignoredups </td> <td
-valign="top">Causes the shell's history recording feature to ignore a command
+<tr> 
+<td valign="top">export HISTCONTROL=ignoredups </td> 
+<td valign="top">Causes the shell's history recording feature to ignore a command
 if the same command was just recorded.</td>
+</tr>
 <tr>
 <td valign="top" width="25%">export HISTSIZE=1000 
 </td>
@@ -871,7 +873,7 @@ changes you make.</p>
 
 <p>不管什么时候你修改配置文件时，给你所做的更改加上注释都是一个好主意。的确，明天你会
 记得你修改了的内容，但是六个月之后会怎样呢？帮自己一个忙，加上一些注释吧。当你意识
-到这一点后，对你所做的修改做个日志是个不错的主意。</P>
+到这一点后，对你所做的修改做个日志是个不错的主意。</p>
 
 <p>Shell scripts and bash startup files use a &quot;#&quot; symbol to begin a comment. Other
 configuration files may use other symbols. Most configuration files will have
