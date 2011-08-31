@@ -513,8 +513,7 @@ Let's try to make a red prompt. We'll insert the escape code at the beginning:
 
 <div class="code"><pre>
 <tt>&lt;me@linuxbox ~&gt;$ PS1=&quot;\[\033[0;31m\]&lt;\u@\h \W&gt;\$ &quot; 
-&lt;me@linuxbox ~&gt;$
-</tt>
+&lt;me@linuxbox ~&gt;$</tt>
 </pre></div>
 
 That works, but notice that all the text that we type after the prompt is also red. To fix
@@ -525,8 +524,8 @@ emulator to return to the previous color:
 我们将添加另一个转义编码到这个提示符的末尾来告诉终端仿真器恢复到原来的颜色。
 
 <div class="code"><pre>
-<tt><me@linuxbox ~>$ PS1="\[\033[0;31m\]<\u@\h \W>\$\[\033[0m\] "
-<me@linuxbox ~>$</tt>
+<tt><me@linuxbox ~>$ PS1=&quot;\[\033[0;31m\]&lt;\u@\h \W&gt;\$\[\033[0m\]&quot; 
+&lt;me@linuxbox ~&gt;$</tt>
 </pre></div>
 
 That's better!
@@ -589,14 +588,20 @@ interests of good taste, many terminal emulators refuse to honor the blinking
 attribute, however.
 
 注意：除了正常的（0）和黑体（1）字符属性之外，文本也可以具有下划线（4），闪烁（5），
-和反向（7）属性。
+和反向（7）属性。为了拥有好品味，然而，许多终端仿真器拒绝使用这个闪烁属性。
 <hr />
 
 Moving The Cursor
+
+### 移动光标
+
 Escape codes can be used to position the cursor. This is commonly used to provide a
 clock or some other kind of information at a different location on the screen such as an
 upper corner each time the prompt is drawn. Here is a list of the escape codes that
 position the cursor:
+
+转义编码也可以用来定位光标。这些编码被普遍地用来，每次当提示符出现的时候，会在屏幕的不同位置
+比如说上面一个角落，显示一个时钟或者其它一些信息。这里是一系列用来定位光标的转义编码：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -646,9 +651,59 @@ position the cursor:
 </table>
 </p>
 
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">表14－4： 光标移动转义序列</caption>
+<tr>
+<th class="title">转义编码</th>
+<th class="title">行动</th>
+</tr>
+<tr>
+<td valign="top" width="25%">\033[l;cH </td>
+<td valign="top">把光标移到第l行，第c列。</td>
+</tr>
+<tr>
+<td valign="top">\033[nA </td>
+<td valign="top">把光标向上移动n行。</td>
+</tr>
+<tr>
+<td valign="top">\033[nB </td>
+<td valign="top">把光标向下移动n行。</td>
+</tr>
+<tr>
+<td valign="top">\033[nC </td>
+<td valign="top">把光标向前移动n个字符。</td>
+</tr>
+<tr>
+<td valign="top">\033[nD </td>
+<td valign="top">把光标向后移动n个字符。</td>
+</tr>
+<tr>
+<td valign="top">\033[2J </td>
+<td valign="top">清空屏幕，把光标移到左上角（第零行，第零列）。</td>
+</tr>
+<tr>
+<td valign="top">\033[K </td>
+<td valign="top">清空从光标位置到当前行末的内容。</td>
+</tr>
+<tr>
+<td valign="top">\033[s </td>
+<td valign="top">存储当前光标位置。</td>
+</tr>
+<tr>
+<td valign="top">\033[u </td>
+<td valign="top">唤醒之前存储的光标位置。</td>
+</tr>
+</table>
+</p>
+
 Using the codes above, we'll construct a prompt that draws a red bar at the top of the
 screen containing a clock (rendered in yellow text) each time the prompt is displayed.
 The code for the prompt is this formidable looking string:
+
+使用上面的编码，我们将构建一个提示符，每次当这个提示符出现的时候，会在屏幕的上方画出一个
+包含时钟（由黄色文本渲染）的红色长条。提示符的编码就是这个看起来令人敬畏的字符串：
+
 
 <div class="code"><pre>
 <tt><b>PS1=&quot;\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
@@ -656,6 +711,8 @@ The code for the prompt is this formidable looking string:
 </pre></div>
 
 Let's take a look at each part of the string to see what it does:
+
+让我们分别看一下这个字符串的每一部分所表示的意思：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -725,6 +782,66 @@ true size of the displayed prompt.  </td>
 </table>
 </p>
 
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<tr>
+<th class="title">序列</th>
+<th class="title">行动</th>
+</tr>
+<tr>
+<td valign="top" width="25%">\[</td>
+<td valign="top">开始一个非打印字符序列。其真正的目的是为了让bash
+能够正确地计算提示符的大小。如果没有这个转义字符的话，命令行编辑
+功能会弄错光标的位置。</td>
+</tr>
+<tr>
+<td valign="top">\033[s </td>
+<td valign="top">存储光标位置。这个用来使光标能回到原来提示符的位置，
+当长条和时钟显示到屏幕上方之后。当心一些
+终端仿真器不推崇这个编码。</td>
+</tr>
+<tr>
+<td valign="top">\033[0;0H </td>
+<td valign="top"> 把光标移到屏幕左上角，也就是第零行，第零列的位置。 </td>
+</tr>
+<tr>
+<td valign="top">\033[0;41m </td>
+<td valign="top">把背景设置为红色。</td>
+</tr>
+<tr>
+<td valign="top">\033[K </td>
+<td valign="top">清空从当前光标位置到行末的内容。因为现在
+背景颜色是红色，则被清空行背景成为红色，以此来创建长条。注意虽然一直清空到行末，
+但是不改变光标位置，它仍然在屏幕左上角。</td>
+</tr>
+<tr>
+<td valign="top">\033[1;33m </td>
+<td valign="top">把文本颜色设为黄色。</td>
+</tr>
+<tr>
+<td valign="top">\t </td>
+<td valign="top">显示当前时间。虽然这是一个可“打印”的元素，但我们仍把它包含在提示符的非打印部分，
+因为我们不想bash在计算可见提示符的真正大小时包括这个时钟在内。</td>
+</tr>
+<tr>
+<td valign="top">\033[0m </td>
+<td valign="top">关闭颜色设置。这对文本和背景都起作用。</td>
+</tr>
+<tr>
+<td valign="top">\033[u </td>
+<td valign="top">恢复到之前保存过的光标位置处。</td>
+</tr>
+<tr>
+<td valign="top">\] </td>
+<td valign="top">结束非打印字符序列。</td>
+</tr>
+<tr>
+<td valign="top">&lt;\u@\h \W&gt;\$ </td>
+<td valign="top">提示符字符串。</td>
+</tr>
+</table>
+</p>
+
 Saving The Prompt
 
 ### 保存提示符
@@ -732,6 +849,9 @@ Saving The Prompt
 Obviously, we don't want to be typing that monster all the time, so we'll want to store our
 prompt someplace. We can make the prompt permanent by adding it to our .bashrc
 file. To do so, add these two lines to the file:
+
+显然地，我们不想总是敲入那个怪物，所以我们将要把这个提示符存储在某个地方。通过把它
+添加到我们的.bashrc文件，可以使这个提示符永久存在。为了达到目的，把下面这两行添加到.bashrc文件中。
 
 <div class="code"><pre>
 <tt><b>PS1=&quot;\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
@@ -750,6 +870,10 @@ will care enough to change the prompt, since the default prompt is usually satis
 But for those of us who like to tinker, the shell provides the opportunity for many hours
 of trivial fun.
 
+不管你信不信，还有许多事情可以由提示符来完成，涉及到我们在这里没有论及的shell函数和脚本，
+但这是一个好的开始。并不是每个人都会花心思来更改提示符，因为通常默认的提示符就很让人满意。
+但是对于我们这些喜欢思考的人们来说，shell却提供了许多制造琐碎乐趣的机会。
+
 Further Reading
 
 ### 拓展阅读
@@ -759,9 +883,14 @@ Further Reading
   pretty complete discussion of what the shell prompt can be made to do. It is
   available at:
 
+* The Bash Prompt HOWTO 来自于Linux文档工程，对shell提示符的用途进行了相当
+  完备的论述。可在以下链接中得到：
+
   <http://tldp.org/HOWTO/Bash-Prompt-HOWTO/>
 
 * Wikipedia has a good article on the ANSI Escape Codes:
+
+* Wikipedia上有一篇关于ANSI Escape Codes的好文章：
 
   <http://en.wikipedia.org/wiki/ANSI_escape_code>
 
