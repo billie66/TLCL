@@ -141,3 +141,42 @@ LS_COLORS=no=00:fi=00:di=00;34:ln=00;36:pi=40;33:so=00;35:bd=40;33;01
 :cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=00;32:\*.cmd=00;32:\*.exe:</tt>
 </pre></div>
 
+What we see is a list of environment variables and their values. For example, we see a
+variable called USER, which contains the value &quot;me&quot;. The printenv command can
+also list the value of a specific variable:
+
+我们所看到的是环境变量及其数值的列表。例如，我们看到一个叫做USER的变量，这个变量值是
+&quot;me&quot;。printenv命令也能够列出特定变量的数值：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ printenv USER
+me</tt>
+</pre></div>
+
+The set command, when used without options or arguments, will display both the shell
+and environment variables, as well as any defined shell functions. Unlike printenv,
+its output is courteously sorted in alphabetical order:
+
+当使用没有带选项和参数的set命令时，shell和环境变量二者都会显示，同时也会显示定义的
+shell函数。不同于printenv命令，set命令的输出结果很礼貌地按照字母顺序排列：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ set | less</tt>
+</pre></div>
+
+It is also possible to view the contents of a variable using the echo command, like this:
+
+也可以通过echo命令来查看一个变量的内容，像这样：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ echo $HOME
+/home/me</tt>
+</pre></div>
+
+One element of the environment that neither set nor printenv displays is aliases. To
+see them, enter the alias command without arguments:
+
+如果shell环境中的一个成员既不可用set命令也不可用printenv命令显示，则这个变量是别名。
+输入不带参数的alias命令来查看它们:
+
+
