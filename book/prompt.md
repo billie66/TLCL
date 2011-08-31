@@ -526,8 +526,7 @@ emulator to return to the previous color:
 
 <div class="code"><pre>
 <tt><me@linuxbox ~>$ PS1="\[\033[0;31m\]<\u@\h \W>\$\[\033[0m\] "
-<me@linuxbox ~>$
-</tt>
+<me@linuxbox ~>$</tt>
 </pre></div>
 
 That's better!
@@ -575,9 +574,8 @@ escape code:
 我们可以创建一个带有红色背景的提示符，只是对第一个转义编码做个简单的修改。
 
 <div class="code"><pre>
-<tt><me@linuxbox ~>$ PS1="\[\033[0;41m\]&lt;\u@\h \W&gt;\$\[\033[0m\] "
-<me@linuxbox ~>$
-</tt>
+<tt>&lt;me@linuxbox ~&gt;$ PS1=&quot;\[\033[0;41m\]&lt;\u@\h \W&gt;\$\[\033[0m\] &quot;
+&lt;me@linuxbox ~&gt;$</tt>
 </pre></div>
 
 Try out the color codes and see what you can create!
@@ -653,9 +651,8 @@ screen containing a clock (rendered in yellow text) each time the prompt is disp
 The code for the prompt is this formidable looking string:
 
 <div class="code"><pre>
-<tt><b>PS1="\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
-<\u@\h \W>\$ "
-</b></tt>
+<tt><b>PS1=&quot;\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
+&lt;\u@\h \W&gt;\$ &quot;</b></tt>
 </pre></div>
 
 Let's take a look at each part of the string to see what it does:
@@ -722,7 +719,7 @@ true size of the displayed prompt.  </td>
 <td valign="top">End non-printing characters sequence.  </td>
 </tr>
 <tr>
-<td valign="top"><\u@\h \W>\$ </td>
+<td valign="top">&lt;\u@\h \W&gt;\$ </td>
 <td valign="top">Prompt string.</td>
 </tr>
 </table>
@@ -737,8 +734,8 @@ prompt someplace. We can make the prompt permanent by adding it to our .bashrc
 file. To do so, add these two lines to the file:
 
 <div class="code"><pre>
-<tt><b>PS1="\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
-<\u@\h \W>\$ "
+<tt><b>PS1=&quot;\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
+&lt;\u@\h \W&gt;\$ &quot;
 
 export PS1</b></tt>
 </pre></div>
