@@ -116,3 +116,28 @@ environment:
 shell环境中包含相当多的变量，虽然你的shell环境可能不同于这里展示的，但是你可能会看到
 以下变量在你的shell环境中：
 
+<div class="code"><pre>
+<tt>KDE\_MULTIHEAD=false
+SSH\_AGENT\_PID=6666
+HOSTNAME=linuxbox
+GPG\_AGENT\_INFO=/tmp/gpg-PdOt7g/S.gpg-agent:6689:1
+SHELL=/bin/bash
+TERM=xterm
+XDG\_MENU\_PREFIX=kde-
+HISTSIZE=1000
+XDG\_SESSION\_COOKIE=6d7b05c65846c3eaf3101b0046bd2b00-1208521990.996705
+-1177056199
+GTK2\_RC\_FILES=/etc/gtk-2.0/gtkrc:/home/me/.gtkrc-2.0:/home/me/.kde/sh
+are/config/gtkrc-2.0
+GTK\_RC\_FILES=/etc/gtk/gtkrc:/home/me/.gtkrc:/home/me/.kde/share/confi
+g/gtkrc
+GS\_LIB=/home/me/.fonts
+WINDOWID=29360136
+QTDIR=/usr/lib/qt-3.3
+QTINC=/usr/lib/qt-3.3/include
+KDE\_FULL\_SESSION=true
+USER=me
+LS\_COLORS=no=00:fi=00:di=00;34:ln=00;36:pi=40;33:so=00;35:bd=40;33;01
+:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=00;32:\*.cmd=00;32:\*.exe:</tt>
+</pre></div>
+
