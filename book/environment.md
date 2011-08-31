@@ -570,15 +570,6 @@ how this works, try the following:
 修改PATH变量，添加目录$HOME/bin到目录列表的末尾。这是一个参数展开的实例，
 参数展开我们在第八章中提到过。为了说明这是怎样工作的，试试下面的例子：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ foo=&quot;This is some &quot;
-[me@linuxbox ~]$ echo $foo
-This is some
-[me@linuxbox ~]$ foo=$foo&quot;text.&quot;
-[me@linuxbox ~]$ echo $foo
-This is some text.</tt>
-</pre></div>
-
 Using this technique, we can append text to the end of a variable's contents.
 By adding the string $HOME/bin to the end of the PATH variable's contents, the
 directory $HOME/bin is added to the list of directories searched when a command is
