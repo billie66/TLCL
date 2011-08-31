@@ -692,6 +692,111 @@ installed on most Linux systems by default.</p>
 vim是我们下一章节的讨论对象。emacs编辑器最初由Richard Stallman写成。emacs是一个庞大的，多用途的，
 可做任何事情的编程环境。虽然emacs很容易获取，但是大多数Linux系统很少默认安装它。</p>
 
+Using A Text Editor
+
+### 使用文本编辑器
+
+All text editors can be invoked from the command line by typing the name of the editor
+followed by the name of the file you want to edit. If the file does not already exist, the
+editor will assume that you want to create a new file. Here is an example using gedit:
+
+所有的文本编辑器都可以通过在命令行中输入编辑器的名字，加上你所想要编辑的文件来唤醒。如果所
+输入的文件名不存在，编辑器则会假定你想要创建一个新文件。下面是一个使用gedit的例子：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ gedit some_file</tt>
+</pre></div>
+
+This command will start the gedit text editor and load the file named &quot;some_file&quot;, if it
+exists.
+
+这条命令将会启动gedit文本编辑器，同时加载名为&quot;some_file&quot;的文件，如果这个文件存在的话。
+
+All graphical text editors are pretty self-explanatory, so we won't cover them here.
+Instead, we will concentrate on our first text-based text editor, nano. Let's fire up nano
+and edit the .bashrc file. But before we do that, let's practice some &quot;safe computing.&quot;
+Whenever we edit an important configuration file, it is always a good idea to create a
+backup copy of the file first. This protects us in case we mess the file up while editing.
+To create a backup of the .bashrc file, do this:
+
+所有的图形文本编辑器都相当不言自明的，所以我们在这里不会介绍它们。反之，我们将集中精力在
+我们第一个基于文本的文本编辑器，nano。让我们启动nano，并且编辑文件.bashrc。但是在我们这样
+做之前，先练习一些&quot;安全计算&quot;。当我们编辑一个重要的配置文件时，首先创建一个这个文件的备份
+总是一个不错的主意。这样能避免我们在编辑文件时弄乱文件。创建文件.bashrc的备份文件，这样做：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ cp .bashrc .bashrc.bak</tt>
+</pre></div>
+
+It doesn't matter what you call the backup file, just pick an understandable name. The
+extensions &quot;.bak&quot;, &quot;.sav&quot;, &quot;.old&quot;, and &quot;.orig&quot; 
+are all popular ways of indicating a backup
+file. Oh, and remember that cp will overwrite existing files silently.
+
+备份文件的名字无关紧要，只要选择一个容易理解的文件名。扩展名&quot;.bak&quot;，&quot;.sav&quot;，&quot;.old&quot;，和&quot;.orig&quot;都是用来
+指示备份文件的流行方法。哦，记住cp命令会默默地重写存在的文件。
+
+Now that we have a backup file, we'll start the editor:
+
+现在我们有了一个备份文件，我们启动nano编辑器吧：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ nano .bashrc</tt>
+</pre></div>
+
+Once nano starts, we’ll get a screen like this:
+
+一旦nano编辑器启动后，我们将会得到一个像下面一样的屏幕：
+
+<div class="code"><pre>
+<tt>GNU nano 2.0.3
+....</tt>
+</pre></div>
+
+Note: If your system does not have nano installed, you may use a graphical editor
+instead.
+
+注意：如果你的系统中没有安装nano编辑器，你可以用一个图形化的编辑器代替。
+
+The screen consists of a header at the top, the text of the file being edited in the middle
+and a menu of commands at the bottom. Since nano was designed to replace the text
+editor supplied with an email client, it is rather short on editing features.
+The first command you should learn in any text editor is how to exit the program. In the
+case of nano, you type Ctrl-x to exit. This is indicated in the menu at the bottom of
+the screen. The notation &quot;^X&quot; means Ctrl-x. This is a common notation for control
+characters used by many programs.
+
+这个屏幕由上面的标头，中间正在编辑的文件文本和下面的命令菜单组成。因为设计nano是为了
+代替由电子邮件客户端提供的编辑器的，所以它相当缺乏编辑特性。在任一款编辑器中，你应该
+学习的第一个命令是怎样退出程序。以nano为例，你输入Ctrl-x来退出nano。在屏幕底层的菜单中
+说明了这个命令。&quot;^X&quot;表示法意思是Ctrl-x。这是控制字符的常见表示法，许多程序都使用它。
+
+The second command we need to know is how to save our work. With nano it's Ctrl-
+o. With this knowledge under our belts, we're ready to do some editing. Using the down
+arrow key and/or the PageDown key, move the cursor to the end of the file, then add the
+following lines to the .bashrc file:
+
+第二个我们需要知道的命令是怎样保存我们的劳动成果。对于nano来说是Ctrl-o。尽然我们
+已经获得了这些知识，接下来我们准备做些编辑工作。使用下箭头按键和／或下翻页按键，移动
+鼠标到文件的最后一行，然后添加以下几行到文件.bashrc中：
+
+<div class="code"><pre>
+<tt>umask 0002
+export HISTCONTROL=ignoredups
+export HISTSIZE=1000
+alias l.=&apos;ls -d .\* --color=auto&apos;
+alias ll=&apos;ls -l --color=auto&apos;</tt>
+</pre></div>
+
+Note: Your distribution may already include some of these, but duplicates won't
+hurt anything.
+
+注意：你的发行版可能已经包含其中的一些行，但是复制没有任何伤害。
+
+Here is the meaning of our additions:
+
+下表是所添加行的意义：
+
 Activating Our Changes
 
 ### 激活我们的修改
