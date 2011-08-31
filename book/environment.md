@@ -641,6 +641,57 @@ many cases it would be sensible to do so, but for now, let's play it safe.
 文件，比如说profile文件，而且在许多情况下，修改这些文件也是明智的，但是现在，我们要
 安全起见。
 
+Text Editors
+
+### 文本编辑器
+
+<p>To edit (i.e., modify) the shell's startup files, as well as most of the other configuration
+files on the system, we use a program called a text editor. A text editor is a program that
+is, in some ways, like a word processor in that it allows you to edit the words on the
+screen with a moving cursor. It differs from a word processor by only supporting pure
+text, and often contains features designed for writing programs. Text editors are the
+central tool used by software developers to write code, and by system administrators to
+manage the configuration files that control the system.</p>
+
+<p>为了编辑（例如，修改）shell的启动文件，还有系统中大多数其它配置文件，我们使用一个叫做文本
+编辑器的程序。文件编辑器是一个，在某些方面，类似于文字处理器的程序，比如说随着鼠标的移动，
+它允许你在屏幕上编辑文字。只有一点，文本编辑器不同于文字处理器，就是它只能支持纯文本，并且
+经常包含为便于写程序而设计的特性。文本编辑器是软件开发人员用来写代码，和系统管理原员用来管理
+系统配置文件的重要工具。</p>
+
+There are a lot of different text editors available for Linux; your system probably has
+several installed. Why so many different ones? Probably because programmers like
+writing them, and since programmers use them extensively, they write editors to express
+their own desires as to how they should work.
+
+Linux系统有许多不同类型的文本编辑器可用；你的系统中可能已经安装了几个。为什么会有这么
+多种呢？可能因为程序员喜欢编写它们，又因为程序员们会频繁地使用它们，所以程序员编写编辑器让
+它们按照程序员自己的愿望工作。
+
+Text editors fall into two basic categories: graphical and text based. GNOME and KDE
+both include some popular graphical editors. GNOME ships with an editor called
+gedit, which is usually called &quot;Text Editor&quot; in the GNOME menu. KDE usually ships
+with three which are (in order of increasing complexity) kedit, kwrite, and kate.
+
+文本编辑器分为两种基本类型：图形化的和基于文本的编辑器。GNOME和KDE两者都包含一些流行的
+图形编辑器。GNOME自带了一个叫做gedit的编辑器，这个编辑器通常在GNOME菜单中称为&quot;文本编辑器&quot;。
+KDE通常自带了三种编辑器，分别是（按照复杂度递增的顺序排列）kedit，kwrite，kate。
+
+<p>There are many text-based editors. The popular ones you will encounter are nano, vi,
+and emacs. The nano editor is a simple, easy-to-use editor designed as a replacement
+for the pico editor supplied with the PINE email suite. The vi editor (on most Linux
+systems replaced by a program named vim, which is short for &quot;Vi IMproved&quot;) is the
+traditional editor for Unix-like systems. It will be the subject of our next chapter. The
+emacs editor was originally written by Richard Stallman. It is a gigantic, all-purpose,
+does-everything programming environment. While readily available, it is seldom
+installed on most Linux systems by default.</p>
+
+<p>有许多基于文本的编辑器。你将会遇到一些流行的编辑器，它们是nano，vi，和emacs。这个nano编辑器
+是一个简单的，容易使用的编辑器，它是pico编辑器的替代物，pico编辑器由PINE邮件套件提供。vi编辑器
+（在大多数Linux系统中被vim替代，vim是&quot;Vi IMproved&quot;的简写）是类似于Unix操作系统的传统编辑器。
+vim是我们下一章节的讨论对象。emacs编辑器最初由Richard Stallman写成。emacs是一个庞大的，多用途的，
+可做任何事情的编程环境。虽然emacs很容易获取，但是大多数Linux系统很少默认安装它。</p>
+
 Activating Our Changes
 
 ### 激活我们的修改
