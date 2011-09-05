@@ -296,7 +296,7 @@ Installing A Package From A Repository
 High-level tools permit a package to be downloaded from a repository and installed with
 full dependency resolution.
 
-上层工具允许从一个资源库中下载一个软件包，通过安装它。
+上层工具允许从一个资源库中下载一个软件包，并经过完全依赖解析来安装它。
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -328,8 +328,12 @@ Example: To install the emacs text editor from an apt repository:
 
 Installing A Package From A Package File
 
+### 通过软件包文件来安装软件
+
 If a package file has been downloaded from a source other than a repository, it can be
 installed directly (though without dependency resolution) using a low-level tool.
+
+如果从某处而不是从资源库中下载了一个软件包文件，可以使用底层工具来直接（没有经过依赖解析）安装它。
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -341,10 +345,10 @@ installed directly (though without dependency resolution) using a low-level tool
 <tr>
 <td valign="top">Debian 
 </td>
-<td valign="top">Red Hat</td>
+<td valign="top">dpkg --install package_file</td>
 </tr>
 <tr>
-<td valign="top">dpkg --install package_file</td>
+<td valign="top">Red Hat</td>
 <td valign="top">rpm -i package_file</td>
 </tr>
 </table>
@@ -353,20 +357,31 @@ installed directly (though without dependency resolution) using a low-level tool
 Example: If the emacs-22.1-7.fc7-i386.rpm package file had been downloaded
 from a non-repository site, it would be installed this way:
 
+例如：如果已经从一个并非资源库的网站下载了软件包文件emacs-22.1-7.fc7-i386.rpm，
+则可以通过这种方法来安装它：
+
 <div class="code"><pre>
 <tt>rpm -i emacs-22.1-7.fc7-i386.rpm</tt>
 </pre></div>
 
+<br />
 <hr />
 Note: Since this technique uses the low-level rpm program to perform the
 installation, no dependency resolution is performed. If rpm discovers a missing
 dependency, rpm will exit with an error.
+
+注意：因为这项技术使用底层的rpm程序来执行安装任务，所以没有运行依赖解析。如果rpm
+程序发现缺少了一个依赖，则会报错并退出。
 <hr />
 
 Removing A Package
 
+### 卸载软件
+
 Packages can be uninstalled using either the high-level or low-tools. The high-level tools
 are shown below.
+
+可以使用上层或者底层工具来卸载软件。下面是可用的上层工具。
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -389,14 +404,21 @@ are shown below.
 
 Example: To uninstall the emacs package from a Debian-style system:
 
+例如：从Debian风格的系统中卸载emacs软件包：
+
 <div class="code"><pre>
 <tt>apt-get remove emacs</tt>
 </pre></div>
 
 Updating Packages From A Repository
 
+### 经过资源库来更新软件包
+
 The most common package management task is keeping the system up-to-date with the
 latest packages. The high-level tools can perform this vital task in one single step.
+
+最常见的软件包管理任务是保持系统中的软件包都是最新的。上层工具仅需一步就能完成
+这个至关重要的任务。
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -422,6 +444,8 @@ latest packages. The high-level tools can perform this vital task in one single 
 Example: To apply any available updates to the installed packages on a Debian-style
 system:
 
+例如：更新安装在Debian风格系统中的软件包：
+
 <div class="code"><pre>
 <tt>apt-get update; apt-get upgrade
 </tt>
@@ -429,8 +453,13 @@ system:
 
 Upgrading A Package From A Package File
 
+### 经过软件包文件来升级软件
+
 If an updated version of a package has been downloaded from a non-repository source, it
 can be installed, replacing the previous version:
+
+如果已经从一个非资源库网站下载了一个软件包的最新版本，可以安装这个版本，用它来
+替代先前的版本：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -456,18 +485,27 @@ can be installed, replacing the previous version:
 Example: Updating an existing installation of emacs to the version contained in the
 package file emacs-22.1-7.fc7-i386.rpm on a Red Hat system:
 
+例如：把Red Hat系统中所安装的emacs的版本更新到软件包文件emacs-22.1-7.fc7-i386.rpmz所包含的emacs版本。
+
 <div class="code"><pre>
 <tt>rpm -U emacs-22.1-7.fc7-i386.rpm</tt>
 </pre></div>
 
+<br />
 <hr />
 Note: dpkg does not have a specific option for upgrading a package versus
 installing one as rpm does.
+
+注意：dpkg程序与安装软件相比没有一个特定的选项，如rpm程序那样，来升级一个软件包，。
 <hr />
 
 Listing Installed Packages
 
+### 列出所安装的软件包
+
 These commands can be used to display a list of all the packages installed on the system:
+
+下表中的命令可以用来显示安装到系统中的所有软件包列表：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -491,7 +529,11 @@ These commands can be used to display a list of all the packages installed on th
 
 Determining If A Package Is Installed
 
+### 确定是否安装了一个软件包
+
 These low-level tools can be used to display whether a specified package is installed:
+
+这些底端工具可以用来显示是否安装了一个指定的软件包：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -516,14 +558,20 @@ These low-level tools can be used to display whether a specified package is inst
 
 Example: To determine if the emacs package is installed on a Debian style system:
 
+例如：确定是否Debian风格的系统中安装了这个emacs软件包：
+
 <div class="code"><pre>
 <tt>dpkg --status emacs</tt>
 </pre></div>
 
 Displaying Info About An Installed Package
 
+### 显示所安装软件包的信息
+
 If the name of an installed package is known, the following commands can be used to
 display a description of the package:
+
+如果知道了所安装软件包的名字，使用以下命令可以显示这个软件包的说明信息：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -546,14 +594,20 @@ display a description of the package:
 
 Example: To see a description of the emacs package on a Debian-style system:
 
+例如：查看Debian风格的系统中emacs软件包的说明信息：
+
 <div class="code"><pre>
 <tt>apt-cache show emacs</tt>
 </pre></div>
 
 Finding Which Package Installed A File
 
+### 查找安装了某个文件的软件包
+
 To determine what package is responsible for the installation of a particular file, the
 following commands can be used:
+
+确定哪个软件包对所安装的某个特殊文件负责，使用下表中的命令：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -578,11 +632,15 @@ following commands can be used:
 
 Example: To see what package installed the /usr/bin/vim file on a Red Hat system:
 
+例如：在Red Hat系统中，查看哪个软件包安装了/usr/bin/vim这个文件
+
 <div class="code"><pre>
 <tt>rpm -qf /usr/bin/vim</tt>
 </pre></div>
 
 Summing Up
+
+### 总结归纳
 
 In the chapters that follow, we will explore many different programs covering a wide
 range of application areas. While most of these programs are commonly installed by
@@ -590,24 +648,26 @@ default, we may need to install additional packages if necessary programs are no
 installed on our system. With our newfound knowledge (and appreciation) of package
 management, we should have no problem installing and managing the programs we need.
 
+在随后的章节里面，我们将探讨
+
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
-<h3>The Linux Software Installation Myth
-</h3>
+<h3>The Linux Software Installation Myth</h3>
+
 <p> People migrating from other platforms sometimes fall victim to the myth that
 software is somehow difficult to install under Linux and that the variety of
 packaging schemes used by different distributions is a hindrance. Well, it is a
 hindrance, but only to proprietary software vendors who wish to distribute binary-
-only versions of their secret software.
- </p>
-<p>  The Linux software ecosystem is based on the idea of open source code. If a
+only versions of their secret software.</p>
+
+<p>The Linux software ecosystem is based on the idea of open source code. If a
 program developer releases source code for a product, it is likely that a person
 associated with a distribution will package the product and include it in their
 repository. This method ensures that the product is well integrated into the
 distribution and the user is given the convenience of “one-stop shopping” for
-software, rather than having to search for each product's web site.
-</p>
+software, rather than having to search for each product's web site. </p>
+
 <p> Device drivers are are handled in much the same way, except that instead of being
 separate items in a distribution's repository, they become part of the Linux kernel
 itself. Generally speaking, there is no such thing as a “driver disk” in Linux.
@@ -615,35 +675,37 @@ Either the kernel supports a device or it doesn't, and the Linux kernel supports
 lot of devices. Many more, in fact, than Windows does. Of course, this is of no
 consolation if the particular device you need is not supported. When that
 happens, you need to look at the cause. A lack of driver support is usually caused
-by one of three things:
- </p>
- <ol>
- <li><b>The device is too new.</b>Since many hardware vendors don't actively support
+by one of three things: </p>
+
+<ol>
+<li><p><b>The device is too new.</b>Since many hardware vendors don't actively support
 Linux development, it falls upon a member of the Linux community to write the
-kernel driver code. This takes time.
-</li>
- <li><b>The device is too exotic.</b>Not all distributions include every possible device
+kernel driver code. This takes time.</p> </li>
+
+<li><p><b>The device is too exotic.</b>Not all distributions include every possible device
 driver. Each distribution builds their own kernels, and since kernels are very
 configurable (which is what makes it possible to run Linux on everything from
 wristwatches to mainframes) they may have overlooked a particular device. By
 locating and downloading the source code for the driver, it is possible for you
 (yes, you) to compile and install the driver yourself. This process is not overly
 difficult, but it is rather involved. We'll talk about compiling software in a later
-chapter.
-</li>
- <li><b>The hardware vendor is hiding something.</b>They have neither released
+chapter.</p></li>
+
+<li><p><b>The hardware vendor is hiding something.</b>They have neither released
 source code for a Linux driver, nor have they released the technical
 documentation for somebody to create one for them. This means that the
 hardware vendor is trying to keep the programming interfaces to the device a
 secret. Since we don't want secret devices in our computers, I suggest that you
 remove the offending hardware and pitch it into the trash, with your other useless
-items.</li>
- </ol>
+items.</p></li>
+</ol>
 </td>
 </tr>
 </table>
 
 Further Reading
+
+### 拓展阅读
 
 Spend some time getting to know the package management system for your distribution.
 Each distribution provides documentation for its package management tools. In addition,
