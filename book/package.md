@@ -289,4 +289,380 @@ used:
 <tt>yum search emacs</tt>
 </pre></div>
 
+Installing A Package From A Repository
+
+### 从资源库中安装一个软件包
+
+High-level tools permit a package to be downloaded from a repository and installed with
+full dependency resolution.
+
+上层工具允许从一个资源库中下载一个软件包，通过安装它。
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 15-4: Package Installation Commands
+</caption>
+<tr>
+<th class="title">Style</th>
+<th class="title">Command(s)</th>
+</tr>
+<tr>
+<td valign="top" >Debian</td>
+<td valign="top">apt-get update
+<p>apt-get install package_name</p></td>
+</tr>
+<tr>
+<td valign="top">Red Hat</td>
+<td valign="top">yum install package_name</td>
+</tr>
+</table>
+</p>
+
+Example: To install the emacs text editor from an apt repository:
+
+例如：从一个apt资源库来安装emacs文本编辑器：
+
+<div class="code"><pre>
+<tt>apt-get update; apt-get install emacs</tt>
+</pre></div>
+
+Installing A Package From A Package File
+
+If a package file has been downloaded from a source other than a repository, it can be
+installed directly (though without dependency resolution) using a low-level tool.
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 15-5: Low-Level Package Installation Commands</caption>
+<tr>
+<th class="title">Style</th>
+<th class="title">Command(s)</th>
+</tr>
+<tr>
+<td valign="top">Debian 
+</td>
+<td valign="top">Red Hat</td>
+</tr>
+<tr>
+<td valign="top">dpkg --install package_file</td>
+<td valign="top">rpm -i package_file</td>
+</tr>
+</table>
+</p>
+
+Example: If the emacs-22.1-7.fc7-i386.rpm package file had been downloaded
+from a non-repository site, it would be installed this way:
+
+<div class="code"><pre>
+<tt>rpm -i emacs-22.1-7.fc7-i386.rpm</tt>
+</pre></div>
+
+<hr />
+Note: Since this technique uses the low-level rpm program to perform the
+installation, no dependency resolution is performed. If rpm discovers a missing
+dependency, rpm will exit with an error.
+<hr />
+
+Removing A Package
+
+Packages can be uninstalled using either the high-level or low-tools. The high-level tools
+are shown below.
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table15- 6: Package Removal Commands
+</caption>
+<tr>
+<th class="title">Style</th>
+<th class="title">Command(s)</th>
+</tr>
+<tr>
+<td valign="top">Debian</td>
+<td valign="top">apt-get remove package_name</td>
+</tr>
+<tr>
+<td valign="top">Red Hat</td>
+<td valign="top">yum erase package_name</td>
+</tr>
+</table>
+</p>
+
+Example: To uninstall the emacs package from a Debian-style system:
+
+<div class="code"><pre>
+<tt>apt-get remove emacs</tt>
+</pre></div>
+
+Updating Packages From A Repository
+
+The most common package management task is keeping the system up-to-date with the
+latest packages. The high-level tools can perform this vital task in one single step.
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 15-7: Package Update Commands
+</caption>
+<tr>
+<th class="title">Style</th>
+<th class="title">Command(s)</th>
+</tr>
+<tr>
+<td valign="top">Debian</td>
+<td valign="top">apt-get update; apt-get upgrade
+</td>
+</tr>
+<tr>
+<td valign="top">Red Hat</td>
+<td valign="top">yum update
+</td>
+</tr>
+</table>
+</p>
+
+Example: To apply any available updates to the installed packages on a Debian-style
+system:
+
+<div class="code"><pre>
+<tt>apt-get update; apt-get upgrade
+</tt>
+</pre></div>
+
+Upgrading A Package From A Package File
+
+If an updated version of a package has been downloaded from a non-repository source, it
+can be installed, replacing the previous version:
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 15-8: Low-Level Package Upgrade Commands
+</caption>
+<tr>
+<th class="title">Style</th>
+<th class="title">Command(s)</th>
+</tr>
+<tr>
+<td valign="top">Debian</td>
+<td valign="top">dpkg --install package_file
+</td>
+</tr>
+<tr>
+<td valign="top">Red Hat</td>
+<td valign="top">rpm -U package_file
+</td>
+</tr>
+</table>
+</p>
+
+Example: Updating an existing installation of emacs to the version contained in the
+package file emacs-22.1-7.fc7-i386.rpm on a Red Hat system:
+
+<div class="code"><pre>
+<tt>rpm -U emacs-22.1-7.fc7-i386.rpm</tt>
+</pre></div>
+
+<hr />
+Note: dpkg does not have a specific option for upgrading a package versus
+installing one as rpm does.
+<hr />
+
+Listing Installed Packages
+
+These commands can be used to display a list of all the packages installed on the system:
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 15-9: Package Listing Commands
+</caption>
+<tr>
+<th class="title">Style</th>
+<th class="title">Command(s)</th>
+</tr>
+<tr>
+<td valign="top">Debian</td>
+<td valign="top">dpkg --list
+</td>
+</tr>
+<tr>
+<td valign="top">Red Hat</td>
+<td valign="top">rpm -qa</td>
+</tr>
+</table>
+</p>
+
+Determining If A Package Is Installed
+
+These low-level tools can be used to display whether a specified package is installed:
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 15-10: Package Status Commands
+</caption>
+<tr>
+<th class="title">Style</th>
+<th class="title">Command(s)</th>
+</tr>
+<tr>
+<td valign="top">Debian</td>
+<td valign="top">dpkg --status package_name
+</td>
+</tr>
+<tr>
+<td valign="top">Red Hat</td>
+<td valign="top">rpm -q package_name
+</td>
+</tr>
+</table>
+</p>
+
+Example: To determine if the emacs package is installed on a Debian style system:
+
+<div class="code"><pre>
+<tt>dpkg --status emacs</tt>
+</pre></div>
+
+Displaying Info About An Installed Package
+
+If the name of an installed package is known, the following commands can be used to
+display a description of the package:
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 15-11: Package Information Commands
+</caption>
+<tr>
+<th class="title">Style</th>
+<th class="title">Command(s)</th>
+</tr>
+<tr>
+<td valign="top">Debian</td>
+<td valign="top">apt-cache show package_name</td>
+</tr>
+<tr>
+<td valign="top">Red Hat</td>
+<td valign="top">yum info package_name</td>
+</tr>
+</table>
+</p>
+
+Example: To see a description of the emacs package on a Debian-style system:
+
+<div class="code"><pre>
+<tt>apt-cache show emacs</tt>
+</pre></div>
+
+Finding Which Package Installed A File
+
+To determine what package is responsible for the installation of a particular file, the
+following commands can be used:
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 15-12: Package File Identification Commands
+</caption>
+<tr>
+<th class="title">Style</th>
+<th class="title">Command(s)</th>
+</tr>
+<tr>
+<td valign="top">Debian</td>
+<td valign="top">dpkg --search file_name
+</td>
+</tr>
+<tr>
+<td valign="top">Red Hat</td>
+<td valign="top">rpm -qf file_name
+</td>
+</tr>
+</table>
+</p>
+
+Example: To see what package installed the /usr/bin/vim file on a Red Hat system:
+
+<div class="code"><pre>
+<tt>rpm -qf /usr/bin/vim</tt>
+</pre></div>
+
+Summing Up
+
+In the chapters that follow, we will explore many different programs covering a wide
+range of application areas. While most of these programs are commonly installed by
+default, we may need to install additional packages if necessary programs are not already
+installed on our system. With our newfound knowledge (and appreciation) of package
+management, we should have no problem installing and managing the programs we need.
+
+<table class="single" cellpadding="10" width="%100">
+<tr>
+<td>
+<h3>The Linux Software Installation Myth
+</h3>
+<p> People migrating from other platforms sometimes fall victim to the myth that
+software is somehow difficult to install under Linux and that the variety of
+packaging schemes used by different distributions is a hindrance. Well, it is a
+hindrance, but only to proprietary software vendors who wish to distribute binary-
+only versions of their secret software.
+ </p>
+<p>  The Linux software ecosystem is based on the idea of open source code. If a
+program developer releases source code for a product, it is likely that a person
+associated with a distribution will package the product and include it in their
+repository. This method ensures that the product is well integrated into the
+distribution and the user is given the convenience of “one-stop shopping” for
+software, rather than having to search for each product's web site.
+</p>
+<p> Device drivers are are handled in much the same way, except that instead of being
+separate items in a distribution's repository, they become part of the Linux kernel
+itself. Generally speaking, there is no such thing as a “driver disk” in Linux.
+Either the kernel supports a device or it doesn't, and the Linux kernel supports a
+lot of devices. Many more, in fact, than Windows does. Of course, this is of no
+consolation if the particular device you need is not supported. When that
+happens, you need to look at the cause. A lack of driver support is usually caused
+by one of three things:
+ </p>
+ <ol>
+ <li><b>The device is too new.</b>Since many hardware vendors don't actively support
+Linux development, it falls upon a member of the Linux community to write the
+kernel driver code. This takes time.
+</li>
+ <li><b>The device is too exotic.</b>Not all distributions include every possible device
+driver. Each distribution builds their own kernels, and since kernels are very
+configurable (which is what makes it possible to run Linux on everything from
+wristwatches to mainframes) they may have overlooked a particular device. By
+locating and downloading the source code for the driver, it is possible for you
+(yes, you) to compile and install the driver yourself. This process is not overly
+difficult, but it is rather involved. We'll talk about compiling software in a later
+chapter.
+</li>
+ <li><b>The hardware vendor is hiding something.</b>They have neither released
+source code for a Linux driver, nor have they released the technical
+documentation for somebody to create one for them. This means that the
+hardware vendor is trying to keep the programming interfaces to the device a
+secret. Since we don't want secret devices in our computers, I suggest that you
+remove the offending hardware and pitch it into the trash, with your other useless
+items.</li>
+ </ol>
+</td>
+</tr>
+</table>
+
+Further Reading
+
+Spend some time getting to know the package management system for your distribution.
+Each distribution provides documentation for its package management tools. In addition,
+here are some more generic sources:
+
+* The Debian GNU/Linux FAQ chapter on package management provides an
+  overview of package management on Debian systems :
+
+  <http://www.debian.org/doc/FAQ/ch-pkgtools.en.html>
+
+* The home page for the RPM project:
+
+  <http://www.rpm.org>
+
+* The home page for the YUM project at Duke University:
+
+  <http://linux.duke.edu/projects/yum/>
+
+* For a little background, the Wikipedia has an article on metadata:
+
+  <http://en.wikipedia.org/wiki/Metadata>
 
