@@ -663,6 +663,7 @@ software is somehow difficult to install under Linux and that the variety of
 packaging schemes used by different distributions is a hindrance. Well, it is a
 hindrance, but only to proprietary software vendors who wish to distribute binary-
 only versions of their secret software.</p>
+
 <p>从其它平台迁移过来的用户有时会成为谣言的受害者，说是在Linux系统中，安装软件有些
 困难，并且不同系统发行版所使用的各种各样的打包方案是一个障碍。唉，它是一个障碍，
 但只是针对于那些希望把他们的秘密软件只以二进制版本发行的专有软件供应商。</p>
@@ -716,17 +717,22 @@ secret. Since we don't want secret devices in our computers, I suggest that you
 remove the offending hardware and pitch it into the trash, with your other useless
 items.</p></li>
 </ol>
+
 <ol>
 <li><P><b>设备太新。</b>因为许多硬件供应商没有积极地支持Linux的发展，那么编写内核
 驱动代码的任务就由一些Linux社区来承担，而这需要花费时间。</p></li>
+
 <li><p><b>设备太奇异。</b>不是所有的发行版都包含每个可能的设备驱动。每个发行版会建立
 它们自己的内核，因为内核是可以配置的（这使得从手表到主机的每台设备上运行Linux成为可能），
 这样它们可能会忽略某个特殊设备。通过定位和下载驱动程序的源码，可能需要你自己（是的，由你）
 来编译和安装驱动。这个过程不是很难，而是参与。我们将在随后的章节里来讨论编译软件。</p></li>
+
 <li><p><b>硬件供应商隐藏信息。</b>他们既不发布应用于Linux系统的驱动程序代码，
 也不发布技术文档来让某人创建它。这意味着硬件供应商试图保密此设备的程序接口。因为我们
 不想在计算机中使用保密的设备，所以我建议删除这令人厌恶的软件，
 把它和其它无用的项目都仍到垃圾桶里。</p></li>
+
+</ol>
 </td>
 </tr>
 </table>
