@@ -648,18 +648,24 @@ default, we may need to install additional packages if necessary programs are no
 installed on our system. With our newfound knowledge (and appreciation) of package
 management, we should have no problem installing and managing the programs we need.
 
-在随后的章节里面，我们将探讨
+在随后的章节里面，我们将探讨许多不同的程序，这些程序涵盖了广泛的应用程序领域。虽然
+大多数程序一般是默认安装的，但是若所需程序没有安装在系统中，那么我们可能需要安装额外的软件包。
+通过我们新学到的（和了解的）软件包管理知识，我们应该没有问题来安装和管理所需的程序。
 
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
 <h3>The Linux Software Installation Myth</h3>
+<h3>Linux软件安装谣言</h3>
 
 <p> People migrating from other platforms sometimes fall victim to the myth that
 software is somehow difficult to install under Linux and that the variety of
 packaging schemes used by different distributions is a hindrance. Well, it is a
 hindrance, but only to proprietary software vendors who wish to distribute binary-
 only versions of their secret software.</p>
+<p>从其它平台迁移过来的用户有时会成为谣言的受害者，说是在Linux系统中，安装软件有些
+困难，并且不同系统发行版所使用的各种各样的打包方案是一个障碍。唉，它是一个障碍，
+但只是针对于那些希望把他们的秘密软件只以二进制版本发行的专有软件供应商。</p>
 
 <p>The Linux software ecosystem is based on the idea of open source code. If a
 program developer releases source code for a product, it is likely that a person
@@ -667,6 +673,11 @@ associated with a distribution will package the product and include it in their
 repository. This method ensures that the product is well integrated into the
 distribution and the user is given the convenience of “one-stop shopping” for
 software, rather than having to search for each product's web site. </p>
+
+<p>Linux软件生态系统是基于开放源代码理念。如果一个程序开发人员发布了一款产品的
+源码，那么与系统发行版相关联的开发人员可能就会把这款产品打包，并把它包含在
+他们的资源库中。这种方法保证了这款产品能很好地与系统发行版整合在一起，同时为用户
+“一站式采购”软件提供了方便，从而用户不必去搜索每个产品的网站。</p>
 
 <p> Device drivers are are handled in much the same way, except that instead of being
 separate items in a distribution's repository, they become part of the Linux kernel
@@ -676,6 +687,12 @@ lot of devices. Many more, in fact, than Windows does. Of course, this is of no
 consolation if the particular device you need is not supported. When that
 happens, you need to look at the cause. A lack of driver support is usually caused
 by one of three things: </p>
+
+<p>设备驱动差不多也以同样的方式来处理，但它们不是系统发行版资源库中单独的项目，
+它们本身是Linux系统内核的一部分。一般来说，在Linux当中没有一个类似于“驱动盘”的东西。
+要不内核支持一个设备，要不不支持，反正Linux内核支持很多设备，事实上，多于Windows
+所支持的设备数目。当然，如果你需要的特定设备不被支持，这里也没有安慰。当那种情况
+发生时，你需要查找一下原因。缺少驱动程序支持通常是由以下三种情况之一导致：</p>
 
 <ol>
 <li><p><b>The device is too new.</b>Since many hardware vendors don't actively support
@@ -699,6 +716,17 @@ secret. Since we don't want secret devices in our computers, I suggest that you
 remove the offending hardware and pitch it into the trash, with your other useless
 items.</p></li>
 </ol>
+<ol>
+<li><P><b>设备太新。</b>因为许多硬件供应商没有积极地支持Linux的发展，那么编写内核
+驱动代码的任务就由一些Linux社区来承担，而这需要花费时间。</p></li>
+<li><p><b>设备太奇异。</b>不是所有的发行版都包含每个可能的设备驱动。每个发行版会建立
+它们自己的内核，因为内核是可以配置的（这使得从手表到主机的每台设备上运行Linux成为可能），
+这样它们可能会忽略某个特殊设备。通过定位和下载驱动程序的源码，可能需要你自己（是的，由你）
+来编译和安装驱动。这个过程不是很难，而是参与。我们将在随后的章节里来讨论编译软件。</p></li>
+<li><p><b>硬件供应商隐藏信息。</b>他们既不发布应用于Linux系统的驱动程序代码，
+也不发布技术文档来让某人创建它。这意味着硬件供应商试图保密此设备的程序接口。因为我们
+不想在计算机中使用保密的设备，所以我建议删除这令人厌恶的软件，
+把它和其它无用的项目都仍到垃圾桶里。</p></li>
 </td>
 </tr>
 </table>
@@ -711,20 +739,31 @@ Spend some time getting to know the package management system for your distribut
 Each distribution provides documentation for its package management tools. In addition,
 here are some more generic sources:
 
+花些时间来了解你所用发行版中的软件包管理系统。每个发行版都提供了关于自带软件包管理工具的
+文档。另外，这里有一些更普遍的资源：
+
 * The Debian GNU/Linux FAQ chapter on package management provides an
   overview of package management on Debian systems :
+
+* Debian GNU/Linux FAQ关于软件包管理一章对软件包管理进行了概述：
 
   <http://www.debian.org/doc/FAQ/ch-pkgtools.en.html>
 
 * The home page for the RPM project:
 
+* RPM工程的主页：
+
   <http://www.rpm.org>
 
 * The home page for the YUM project at Duke University:
 
+* 杜克大学YUM工程的主页：
+
   <http://linux.duke.edu/projects/yum/>
 
 * For a little background, the Wikipedia has an article on metadata:
+
+* 了解一点儿背景知识，Wikipedia上有一篇关于metadata的文章：
 
   <http://en.wikipedia.org/wiki/Metadata>
 
