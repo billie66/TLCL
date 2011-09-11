@@ -20,13 +20,13 @@ In this chapter, we will work with the following commands:
 
 在这一章，我们将用到以下命令：
 
-* printenv – Print part or all of the environment 打印部分或所有的环境数据
+* printenv – Print part or all of the environment 打印部分或所有的环境变量
 
 * set – Set shell options 设置shell选项
 
 * export – Export environment to subsequently executed programs
   
-* export — 导出环境变量到随后执行的程序
+* export — 导出环境变量，让随后执行的程序知道。
   
 * alias – Create an alias for a command 创建命令别名
 
