@@ -10,9 +10,16 @@ storage devices, whether physical storage, such as hard disks, or network storag
 virtual storage devices like RAID (Redundant Array of Independent Disks) and LVM
 (Logical Volume Manager).
 
+在前面章节中，我们已经从文件级别看了操作数据。在这章里，我们将从设备级别来考虑数据。
+Linux有着令人惊奇的能力来处理存储设备，不管是物理设备，比如说硬盘，还是网络设备，或者是
+虚拟存储设备，像RAID（独立磁盘冗余阵列)和LVM（逻辑卷管理器）。
+
 However, since this is not a book about system administration, we will not try to cover
 this entire topic in depth. What we will try to do is introduce some of the concepts and
 key commands that are used to manage storage devices.
+
+然而，这不是一本关于系统管理的书籍，我们不会试图深入地覆盖整个主题。我们将努力做的就是
+介绍一些概念和用来管理存储设备的重要命令。
 
 To carry out the exercises in this chapter, we will use a USB flash drive, a CD-RW disk
 (for systems equipped with a CD-ROM burner) and a floppy disk (again, if the system is
@@ -20,19 +27,21 @@ so equipped.)
 
 We will look at the following commands:
 
-* mount – Mount a file system
+我们将看看以下命令：
 
-* umount – Unmount a file system
+* mount – Mount a file system   挂载一个文件系统
 
-* fsck – Check and repair a file system
+* umount – Unmount a file system  卸载一个文件系统
 
-* fdisk – Partition table manipulator
+* fsck – Check and repair a file system  检查和修复一个文件系统
 
-* mkfs – Create a file system
+* fdisk – Partition table manipulator  分区表控制器 
 
-* fdformat – Format a floppy disk
+* mkfs – Create a file system  创建文件系统
 
-* dd – Write block oriented data directly to a device
+* fdformat – Format a floppy disk  格式化一张软盘
+
+* dd – Write block oriented data directly to a device  
 
 * genisoimage (mkisofs) – Create an ISO 9660 image file
 
@@ -60,8 +69,8 @@ There is a file named /etc/fstab that lists the devices (typically hard disk par
 that are to be mounted at boot time. Here is an example /etc/fstab file from a
 Fedora 7 system:
 
-<div class="code"><pre>
-<tt>LABEL=/12           /               ext3        defaults        1   1
+<div class="code"><pre><tt>
+LABEL=/12               /               ext3        defaults        1   1
 LABEL=/home             /home           ext3        defaults        1   2
 LABEL=/boot             /boot           ext3        defaults        1   2
 tmpfs                   /dev/shm        tmpfs       defaults        0   0
@@ -74,8 +83,8 @@ LABEL=SWAP-sda3         /swap           swap        defaults        0   0       
 Most of the file systems listed in this example file are virtual and are not applicable to our
 discussion. For our purposes, the interesting ones are the first three:
 
-<div class="code"><pre>
-<tt>LABEL=/12           /               ext3        defaults        1   1
+<div class="code"><pre><tt>
+LABEL=/12               /               ext3        defaults        1   1
 LABEL=/home             /home           ext3        defaults        1   2
 LABEL=/boot             /boot           ext3        defaults        1   2</tt>
 </pre></div>
@@ -91,7 +100,7 @@ These are the hard disk partitions. Each line of the file consists of six fields
 <th class="title">Description</th>
 </tr>
 <tr>
-<td valign="top" width="10%">1</td>
+<td valign="top" width="8%">1</td>
 <td valign="top">Device</td>
 <td valign="top">Traditionally, this field contains the actual name of a
 device file associated with the physical device, such as
@@ -108,14 +117,14 @@ device, it can still be correctly identified.
 </td>
 </tr>
 <tr>
-<td valign="top" width="10%">2</td>
+<td valign="top">2</td>
 <td valign="top">Mount Point</td>
 <td valign="top">The directory where the device is attached to the file
 system tree.
 </td>
 </tr>
 <tr>
-<td valign="top" width="10%">3</td>
+<td valign="top">3</td>
 <td valign="top">File System Type</td>
 <td valign="top">Linux allows many file system types to be mounted.
 Most native Linux file systems are ext3, but many
@@ -124,7 +133,7 @@ others are supported, such as FAT16 (msdos), FAT32
 </td>
 </tr>
 <tr>
-<td valign="top" width="10%">4</td>
+<td valign="top">4</td>
 <td valign="top">Options</td>
 <td valign="top">File systems can be mounted with various options. It
 is possible, for example, to mount file systems as
@@ -133,13 +142,13 @@ executed from them (a useful security feature for removable media.)
 </td>
 </tr>
 <tr>
-<td valign="top" width="10%">5</td>
+<td valign="top">5</td>
 <td valign="top">Frequency</td>
 <td valign="top">A single number that specifies if and when a file
 system is to be backed up with the dump command.</td>
 </tr>
 <tr>
-<td valign="top" width="10%">6</td>
+<td valign="top">6</td>
 <td valign="top">Order</td>
 <td valign="top">A single number that specifies in what order file
 systems should be checked with the fsck command.</td>
