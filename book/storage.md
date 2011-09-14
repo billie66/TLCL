@@ -131,7 +131,7 @@ These are the hard disk partitions. Each line of the file consists of six fields
 </tr>
 <tr>
 <td valign="top" width="8%">1</td>
-<td valign="top">Device</td>
+<td valign="top" width="8%">Device</td>
 <td valign="top">Traditionally, this field contains the actual name of a
 device file associated with the physical device, such as
 /dev/hda1 (the first partition of the master device
@@ -196,7 +196,7 @@ systems should be checked with the fsck command.</td>
 </tr>
 <tr>
 <td valign="top" width="8%">1</td>
-<td valign="top">设备名</td>
+<td valign="top" width="8%">设备名</td>
 <td valign="top">
 传统上，这个字段包含与物理设备相关联的设备文件的实际名字，比如说/dev/hda1（第一个IDE
 通道上第一个主设备分区）。然而今天的计算机，有很多热插拔设备（像USB驱动设备），许多
@@ -439,7 +439,7 @@ buffer and it would quickly be stored in the fast RAM so the computer could go
 back to work without waiting. Meanwhile, the printer buffer would slowly spool
 the data to the printer from the buffer's memory at the speed at which the printer
 could accept it.</p>
-<<p>如果你看一下free命令的输出结果，free命令用来显示内存使用情况的统计信息，你
+<p>如果你看一下free命令的输出结果，free命令用来显示内存使用情况的统计信息，你
 会看到一个统计值叫做”buffers“。计算机系统旨在尽可能快地运行。系统运行速度的
 一个阻碍是缓慢的设备。打印机是一个很好的例子。即使最快速的打印机相比于计算机标准也
 极其地缓慢。一台计算机确实会运行地非常慢，如果它要停下来等待一台打印机打印完一页。
