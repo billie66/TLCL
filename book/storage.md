@@ -774,3 +774,371 @@ entering “p” to print the partition table for the device:
 
 我们想要做的第一件事情是检查已存在的分区布局。输入"p"会打印出这个设备的分区表：
 
+<div class="code"><pre>
+<tt>Command (m for help): p
+
+Disk /dev/sdb: 16 MB, 16006656 bytes
+1 heads, 31 sectors/track, 1008 cylinders
+Units = cylinders of 31 * 512 = 15872 bytes
+
+Device Boot     Start        End     Blocks   Id        System
+/dev/sdb1           2       1008      15608+   b       w95 FAT32</tt>
+</pre></div>
+
+In this example, we see a 16 MB device with a single partition (1) that uses 1006 of the
+available 1008 cylinders on the device. The partition is identified as Windows 95 FAT32
+partition. Some programs will use this identifier to limit the kinds of operation that can
+be done to the disk, but most of the time it is not critical to change it. However, in the
+interest of demonstration, we will change it to indicate a Linux partition. To do this, we
+must first find out what ID is used to identify a Linux partition. In the listing above, we
+see that the ID “b” is used to specify the exiting partition. To see a list of the available
+partition types, we refer back to the program menu. There we can see the following
+choice:
+
+<div class="code"><pre>
+<tt>l   list known partition types</tt>
+</pre></div>
+
+If we enter “l” at the prompt, a large list of possible types is displayed. Among them we
+see “b” for our existing partition type and “83” for Linux.
+
+Going back to the menu, we see this choice to change a partition ID:
+
+<div class="code"><pre>
+<tt>t   change a partition's system id</tt>
+</pre></div>
+
+We enter “t” at the prompt enter the new ID:
+
+<div class="code"><pre>
+<tt>Command (m for help): t
+Selected partition 1
+Hex code (type L to list codes): 83
+Changed system type of partition 1 to 83 (Linux)</tt>
+</pre></div>
+
+This completes all the changes that we need to make. Up to this point, the device has
+been untouched (all the changes have been stored in memory, not on the physical device),
+so we will write the modified partition table to the device and exit. To do this, we enter
+“w” at the prompt:
+
+<div class="code"><pre>
+<tt>Command (m for help): w
+The partition table has been altered!
+Calling ioctl() to re-read partition table.
+WARNING: If you have created or modified any DOS 6.x
+partitions, please see the fdisk manual page for additional
+information.
+Syncing disks.
+[me@linuxbox ~]$</tt>
+</pre></div>
+
+If we had decided to leave the device unaltered, we could have entered “q” at the prompt,
+which would have exited the program without writing the changes. We can safely ignore
+the ominous sounding warning message.
+
+Creating A New File System With mkfs
+
+With our partition editing done (lightweight though it might have been) it’s time to create
+a new file system on our flash drive. To do this, we will use mkfs (short for “make file
+system”), which can create file systems in a variety of formats. To create an ext3 file
+system on the device, we use the “-t” option to specify the “ext3” system type, followed
+by the name of device containing the partition we wish to format:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ sudo mkfs -t ext3 /dev/sdb1
+mke2fs 1.40.2 (12-Jul-2007)
+Filesystem label=
+OS type: Linux
+Block size=1024 (log=0)
+Fragment size=1024 (log=0)
+3904 inodes, 15608 blocks
+780 blocks (5.00%) reserved for the super user
+First data block=1
+Maximum filesystem blocks=15990784
+2 block groups
+8192 blocks per group, 8192 fragments per group
+1952 inodes per group
+Superblock backups stored on blocks:
+8193
+Writing inode tables: done
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: done
+This filesystem will be automatically checked every 34 mounts or
+180 days, whichever comes first. Use tune2fs -c or -i to override.
+[me@linuxbox ~]$
+</tt>
+</pre></div>
+
+The program will display a lot of information when ext3 is the chosen file system type.
+To re-format the device to its original FAT32 file system, specify “vfat” as the file system
+type:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ sudo mkfs -t vfat /dev/sdb1</tt>
+</pre></div>
+
+This process of partitioning and formatting can be used anytime additional storage
+devices are added to the system. While we worked with a tiny flash drive, the same
+process can be applied to internal hard disks and other removable storage devices like
+USB hard drives.
+
+Testing And Repairing File Systems
+
+In our earlier discussion of the /etc/fstab file, we saw some mysterious digits at the
+end of each line. Each time the system boots, it routinely checks the integrity of the file
+systems before mounting them. This is done by the fsck program (short for “file system
+check”). The last number in each fstab entry specifies the order the devices are to be
+checked. In our example above, we see that the root file system is checked first, followed
+by the home and boot file systems. Devices with a zero as the last digit are not
+routinely checked.
+
+In addition to checking the integrity of file systems, fsck can also repair corrupt file
+systems with varying degrees of success, depending on the amount of damage. On Unix-
+like file systems, recovered portions of files are placed in the lost+found directory,
+located in the root of each file system.
+
+To check our flash drive (which should be unmounted first), we could do the following:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ sudo fsck /dev/sdb1
+fsck 1.40.8 (13-Mar-2008)
+e2fsck 1.40.8 (13-Mar-2008)
+/dev/sdb1: clean, 11/3904 files, 1661/15608 blocks</tt>
+</pre></div>
+
+In my experience, file system corruption is quite rare unless there is a hardware problem,
+such as a failing disk drive. On most systems, file system corruption detected at boot
+time will cause the system to stop and direct you to run fsck before continuing.
+
+<table class="single" cellpadding="10" width="%100">
+<tr>
+<td>
+<h3>What The fsck?</h3>
+<p>In Unix culture, the word “fsck” is often used in place of a popular word with
+which it shares three letters. This is especially appropriate, given that you will
+probably be uttering the aforementioned word if you find yourself in a situation
+where you are forced to run fsck.
+</p>
+<p>  </p>
+</td>
+</tr>
+</table>
+
+Formatting Floppy Disks
+
+For those of us still using computers old enough to be equipped with floppy diskette
+drives, we can manage those devices, too. Preparing a blank floppy for use is a two step
+process. First, we perform a low-format on the diskette, then create a file system. To
+accomplish the formatting, we use the fdformat program specifying the name of the
+floppy device (usually /dev/fd0):
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ sudo fdformat /dev/fd0
+Double-sided, 80 tracks, 18 sec/track. Total capacity 1440 kB.
+Formatting ... done
+Verifying ... done</tt>
+</pre></div>
+
+Next, we apply a FAT file system to the diskette with mkfs:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ sudo mkfs -t msdos /dev/fd0</tt>
+</pre></div>
+
+Notice that we use the “msdos” file system type to get the older (and smaller) style file
+allocation tables. After a diskette is prepared, it may be mounted like other devices.
+
+Moving Data Directly To/From Devices
+
+While we usually think of data on our computers as being organized into files, it is also
+possible to think of the data in “raw” form. If we look at a disk drive, for example, we
+see that it consists of a large number of “blocks” of data that the operating system sees as
+directories and files. However, if we could treat a disk drive as simply a large collection
+of data blocks, we could perform useful tasks, such as cloning devices.
+
+The dd program performs this task. It copies blocks of data from one place to another. It
+uses a unique syntax (for historical reasons) and is usually used this way:
+
+<div class="code"><pre>
+<tt><b>dd if=input_file of=output_file [bs=block_size [count=blocks]]</b></tt>
+</pre></div>
+
+Let’s say we had two USB flash drives of the same size and we wanted to exactly copy
+the first drive to the second. If we attached both drives to the computer and they are
+assigned to devices /dev/sdb and /dev/sdc respectively, we could copy everything
+on the first drive to the second drive with the following:
+
+<div class="code"><pre>
+<tt><b>dd if=/dev/sdb of=/dev/sdc</b></tt>
+</pre></div>
+
+Alternately, if only the first device were attached to the computer, we could copy its
+contents to an ordinary file for later restoration or copying:
+
+<div class="code"><pre>
+<tt><b>dd if=/dev/sdb of=flash_drive.img</b></tt>
+</pre></div>
+
+</ hr>
+Warning! The dd command is very powerful. Though its name derives from “data
+definition,” it is sometimes called “destroy disk” because users often mistype either
+the if or of specifications. <b>Always double check your input and output
+specifications before pressing enter!</b>
+</ hr>
+
+Creating CD-ROM Images
+
+Writing a recordable CD-ROM (either a CD-R or CD-RW) consists of two steps; first,
+constructing an iso image file that is the exact file system image of the CD-ROM and
+second, writing the image file onto the CD-ROM media.
+
+Creating An Image Copy Of A CD-ROM
+
+If we want to make an iso image of an existing CD-ROM, we can use dd to read all the
+data blocks off the CD-ROM and copy them to a local file. Say we had an Ubuntu CD
+and we wanted to make an iso file that we could later use to make more copies. After
+inserting the CD and determining its device name (we’ll assume /dev/cdrom), we can
+make the iso file like so:
+
+<div class="code"><pre>
+<tt><b>dd if=/dev/cdrom of=ubuntu.iso</b></tt>
+</pre></div>
+
+This technique works for data DVDs as well, but will not work for audio CDs, as they do
+not use a file system for storage. For audio CDs, look at the cdrdao command.
+Creating An Image From A Collection Of Files
+
+To create an iso image file containing the contents of a directory, we use the
+genisoimage program. To do this, we first create a directory containing all the files
+we wish to include in the image and then execute the genisoimage command to create
+the image file. For example, if we had created a directory called ~/cd-rom-files
+and filled it with files for our CD-ROM, we could create an image file named cd-
+rom.iso with the following command:
+
+<div class="code"><pre>
+<tt><b>genisoimage -o cd-rom.iso -R -J ~/cd-rom-files</b></tt>
+</pre></div>
+
+The “-R” option adds metadata for the Rock Ridge extensions, which allows the use of
+long filenames and POSIX style file permissions. Likewise, the “-J” option enables the
+Joliet extensions, which permit long filenames for Windows.
+
+<table class="single" cellpadding="10" width="%100">
+<tr>
+<td>
+<h3>A Program By Any Other Name...</h3>
+<p>If you look at on-line tutorials for creating and burning optical media like CD-
+ROMs and DVDs, you will frequently encounter two programs called mkisofs
+and cdrecord. These programs were part of a popular package called
+“cdrtools” authored by Jorg Schilling. In the summer of 2006, Mr. Schilling
+made a license change to a portion of the cdrtools package which, in the opinion
+of many in the Linux community, created a license incompatibility with the GNU
+GPL. As a result, a fork of the cdrtools project was started that now includes
+replacement programs for cdrecord and mkisofs named wodim and
+genisoimage, respectively.
+</p>
+<p>  </p>
+</td>
+</tr>
+</table>
+
+Writing CD-ROM Images
+
+After we have an image file, we can burn it onto our optical media. Most of the
+commands we will discuss below can be applied to both recordable CD-ROM and DVD
+media.
+
+Mounting An ISO Image Directly
+
+There is a trick that we can use to mount an iso image while it is still on our hard disk and
+treat it as though it was already on optical media. By adding the “-o loop” option to
+mount (along with the required “-t iso9660” file system type), we can mount the image
+file as though it were a device and attach it to the file system tree:
+
+<div class="code"><pre>
+<tt><b>mkdir /mnt/iso_image
+mount -t iso9660 -o loop image.iso /mnt/iso_image</b></tt>
+</pre></div>
+
+In the example above, we created a mount point named /mnt/iso_image and then
+mounted the image file image.iso at that mount point. After the image is mounted, it
+can be treated just as though it were a real CD-ROM or DVD. Remember to unmount the
+image when it is no longer needed.
+
+Blanking A Re-Writable CD-ROM
+
+Rewritable CD-RW media needs to be erased or blanked before it can be reused. To do
+this, we can use wodim, specifying the device name for the CD writer and the type of
+blanking to be performed. The wodim program offers several types. The most minimal
+(and fastest) is the “fast” type:
+
+<div class="code"><pre>
+<tt><b>wodim dev=/dev/cdrw blank=fast</b></tt>
+</pre></div>
+
+Writing An Image
+
+To write an image, we again use wodim, specifying the name of the optical media writer
+device and the name of the image file:
+
+<div class="code"><pre>
+<tt><b>wodim dev=/dev/cdrw image.iso</b></tt>
+</pre></div>
+
+In addition to the device name and image file, wodim supports a very large set of
+options. Two common ones are “-v” for verbose output, and “-dao” which writes the disk
+in disk-at-once mode. This mode should be used if you are preparing a disk for
+commercial reproduction. The default mode for wodim is track-at-once, which is useful
+for recording music tracks.
+
+Further Reading
+
+We have just touched on the many ways that the command line can be used to manage
+storage media. Take a look at the man pages of the commands we have covered. Some
+of them support huge numbers of options and operations. Also, look for on-line tutorials
+for adding hard drives to your Linux system (there are many) and working with optical
+media.
+
+Extra Credit
+
+It’s often useful to verify the integrity of an iso image that we have downloaded. In most
+cases, a distributor of an iso image will also supply a checksum file. A checksum is the
+result of an exotic mathematical calculation resulting in a number that represents the
+content of the target file. If the contents of the file change by even one bit, the resulting
+checksum will be much different. The most common method of checksum generation
+uses the md5sum program. When you use md5sum, it produces a unique hexadecimal
+number:
+
+<div class="code"><pre>
+<tt><b>md5sum image.iso</b>
+34e354760f9bb7fbf85c96f6a3f94ece    image.iso</tt>
+</pre></div>
+
+After you download an image, you should run md5sum against it and compare the results
+with the md5sum value supplied by the publisher.
+
+In addition to checking the integrity of a downloaded file, we can use md5sum to verify
+newly written optical media. To do this, we first calculate the checksum of the image file
+and then calculate a checksum for the media. The trick to verifying the media is to limit
+the calculation to only the portion of the optical media that contains the image. We do
+this by determining the number of 2048 byte blocks the image contains (optical media is
+always written in 2048 byte blocks) and reading that many blocks from the media. On
+some types of media, this is not required. A CD-R written in disk-at-once mode can be
+checked this way:
+
+<div class="code"><pre>
+<tt><b>md5sum /dev/cdrom</b>
+34e354760f9bb7fbf85c96f6a3f94ece    /dev/cdrom</tt>
+</pre></div>
+
+Many types of media, such as DVDs require a precise calculation of the number of
+blocks. In the example below, we check the integrity of the image file dvd-
+image.iso and the disk in the DVD reader /dev/dvd. Can you figure out how this
+works?
+
+<div class="code"><pre>
+<tt><b>md5sum dvd-image.iso; dd if=/dev/dvd bs=2048 count=$(( $(stat -c "%s"
+dvd-image.iso) / 2048 )) | md5sum</b></tt>
+</pre></div>
+
