@@ -439,7 +439,7 @@ buffer and it would quickly be stored in the fast RAM so the computer could go
 back to work without waiting. Meanwhile, the printer buffer would slowly spool
 the data to the printer from the buffer's memory at the speed at which the printer
 could accept it.</p>
-<p>如果你看一下free命令的输出结果，free命令用来显示内存使用情况的统计信息，你
+<p>如果你看一下free命令的输出结果，这个命令用来显示关于内存使用情况的统计信息，你
 会看到一个统计值叫做”buffers“。计算机系统旨在尽可能快地运行。系统运行速度的
 一个阻碍是缓慢的设备。打印机是一个很好的例子。即使最快速的打印机相比于计算机标准也
 极其地缓慢。一台计算机确实会运行地非常慢，如果它要停下来等待一台打印机打印完一页。
@@ -569,12 +569,55 @@ similar to the older /dev/hd* naming scheme described above.</td>
 </table>
 </p>
 
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap"> 表16－2： Linux 存储设备名称</caption>
+<tr>
+<th class="title">模式</th>
+<th class="title">设备</th>
+</tr>
+<tr>
+<td valign="top" width="15%">/dev/fd* </td>
+<td valign="top">软盘驱动器</td>
+</tr>
+<tr>
+<td valign="top">/dev/hd* </td>
+<td valign="top">老系统中的IDE(PATA)磁盘。典型的主板包含两个IDE连接器或者是通道，每个连接器
+带有一根缆线，每根缆线上有两个硬盘驱动器连接点。缆线上的第一个驱动器叫做主设备，
+第二个叫做从设备。设备名称这样安排，/dev/hdb是指第一通道上的主设备名；/dev/hdb
+是第一通道上的从设备名；/dev/hdc是第二通道上的主设备名，等等。末尾的数字表示
+硬盘驱动器上的分区。例如，/dev/hda1是指系统中第一硬盘驱动器上的第一个分区，而
+/dev/hda则是指整个硬盘驱动器。</td>
+</tr>
+<tr>
+<td valign="top">/dev/lp* </td>
+<td valign="top">打印机</td>
+</tr>
+<tr>
+<td valign="top">/dev/sd* </td>
+<td valign="top">
+SCSI磁盘。在最近的Linux系统中，内核把所有类似于磁盘的设备（包括PATA/SATA硬盘，
+闪存，和USB存储设备，比如说可移动的音乐播放器和数码相机）看作SCSI磁盘。
+剩下的命名系统类似于上述所描述的旧的/dev/hd*命名方案。</td>
+</tr>
+<tr>
+<td valign="top">/dev/sr* </td>
+<td valign="top">光盘（CD/DVD 读取器和烧写器）</td>
+</tr>
+</table>
+</p>
+
 In addition, we often see symbolic links such as /dev/cdrom, /dev/dvd and /dev/
 floppy, which point to the actual device files, provided as a convenience.
 If you are working on a system that does not automatically mount removable devices,
 you can use the following technique to determine how the removable device is named
 when it is attached. First, start a real-time view of the /var/log/messages file (you
 may require superuser privileges for this):
+
+另外，我们经常看到符号链接比如说/dev/cdrom，/dev/dvd和/dev/floppy，它们指向实际的
+设备文件，提供这些链接是为了方便使用。如果你工作的系统不能自动挂载可移动的设备，你可以使用
+下面的技巧来决定当可移动设备连接后，它是怎样被命名的。首先，启动一个实时查看文件/var/log/messages
+（你可能需要超级用户权限）：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sudo tail -f /var/log/messages</tt>
@@ -583,6 +626,10 @@ may require superuser privileges for this):
 The last few lines of the file will be displayed and then pause. Next, plug in the
 removable device. In this example, we will use a 16 MB flash drive. Almost
 immediately, the kernel will notice the device and probe it:
+
+这个文件的最后几行会被显示，然后停止。下一步，插入这个可移动的设备。在
+这个例子里，我们将使用一个16MB闪存。瞬间，内核就会发现这个设备，
+并且探测它：
 
 <div class="code"><pre>
 <tt>Jul 23 10:07:53 linuxbox kernel: usb 3-2: new full speed USB device
@@ -618,6 +665,9 @@ After the display pauses again, type Ctrl-c to get the prompt back. The interest
 of the output are the repeated references to “[sdb]” which matches our expectation of a
 SCSI disk device name. Knowing this, two lines become particularly illuminating:
 
+显示再次停止之后，输入Ctrl-c，重新得到提示符。输出结果的有趣部分是一再提及“[sdb]”，
+这正好符和我们期望的SCSI磁盘设备名称。知道这一点后，有两行输出变得颇具启发性：
+
 <div class="code"><pre>
 <tt>Jul 23 10:07:59 linuxbox kernel: sdb: sdb1
 Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] Attached SCSI
@@ -628,10 +678,18 @@ This tells us the device name is /dev/sdb for the entire device and /dev/sdb1 fo
 the first partition on the device. As we have seen, working with Linux is full of
 interesting detective work!
 
+这告诉我们这个设备名称是/dev/sdb指整个设备，/dev/sdb1是这个设备的第一分区。
+正如我们所看到的，使用Linux系统充满了有趣的监测工作。
+
 Tip: Using the tail -f /var/log/messages technique is a great way to
 watch what the system is doing in near real-time.
 
+小贴士：使用这个tail -f /var/log/messages技巧是一个很不错的方法，可以实时
+观察系统的一举一动。
+
 With our device name in hand, we can now mount the flash drive:
+
+既然知道了设备名称，我们就可以挂载这个闪存驱动器了：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sudo mkdir /mnt/flash
@@ -648,12 +706,20 @@ tmpfs           776808      0           776808      0%      /dev/shm
 The device name will remain the same as long as it remains physically attached to the
 computer and the computer is not rebooted. 
 
+这个设备名称会保持不变只要设备与计算机保持连接并且计算机不会重新启动。
+
 Creating New File Systems
+
+### 创建新的文件系统
 
 Let's say that we want to reformat the flash drive with a Linux native file system, rather
 than the FAT32 system it has now. This involves two steps: 1. (optional) create a new
 partition layout if the existing one is not to our liking, and 2. create a new, empty file
 system on the drive.
+
+假若我们想要用Linux本地文件系统来重新格式化这个闪存驱动器，而不是它现用的FAT32系统。
+这涉及到两个步骤：1.（可选的）创建一个新的分区布局若已存在的分区不是我们喜欢的。2.
+在这个闪存上创建一个新的空的文件系统。
 
 Warning! In the following exercise, we are going to format a flash drive. Use a
 drive that contains nothing you care about because it will be erased! Again, make
@@ -661,12 +727,22 @@ absolutely sure you are specifying the correct device name for your system, not
 the one shown in the text. Failure to heed this warning could result in you
 formatting (i.e., erasing) the wrong drive! 
 
+注意！在下面的练习中，我们将要格式化一个闪存驱动器。拿一个不包含有用数据的驱动器
+作为实验品，因为它将会被擦除！再次，请确定你指定了正确的系统设备名称。未能注意此
+警告可能导致你格式化（即擦除）错误的驱动器！
+
 Manipulating Partitions With fdisk 
+
+### 用fdisk命令操作分区
 
 The fdisk program allows us to interact directly with disk-like devices (such as hard
 disk drives and flash drives) at a very low level. With this tool we can edit, delete, and
 create partitions on the device. To work with our flash drive, we must first unmount it (if
 needed) and then invoke the fdisk program as follows:
+
+这个fdisk程序允许我们直接在底层与类似磁盘的设备（比如说硬盘驱动器和闪存驱动器）进行交互。
+使用这个工具可以在设备上编辑，删除，和创建分区。以我们的闪存驱动器为例，
+首先我们必须卸载它（如果需要的话），然后调用fdisk程序，如下所示：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sudo umount /dev/sdb1
@@ -676,11 +752,16 @@ needed) and then invoke the fdisk program as follows:
 Notice that we must specify the device in terms of the entire device, not by partition
 number. After the program starts up, we will see the following prompt:
 
+注意我们必须指定设备名称，就整个设备而言，而不是通过分区号。这个程序启动后，我们
+将看到以下提示：
+
 <div class="code"><pre>
 <tt>Command (m for help):</tt>
 </pre></div>
 
 Entering an “m” will display the program menu:
+
+输入"m"会显示程序菜单：
 
 <div class="code"><pre>
 <tt>Command action
@@ -690,4 +771,6 @@ a       toggle a bootable flag
 
 The first thing we want to do is examine the existing partition layout. We do this by
 entering “p” to print the partition table for the device:
+
+我们想要做的第一件事情是检查已存在的分区布局。输入"p"会打印出这个设备的分区表：
 
