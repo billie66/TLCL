@@ -795,6 +795,13 @@ see that the ID “b” is used to specify the exiting partition. To see a list 
 partition types, we refer back to the program menu. There we can see the following
 choice:
 
+在此例中，我们看到一个16MB的设备只有一个分区(1)，此分区占用了可用的1008个柱面中的1006个,
+并被标识为 Windows 95 FAT32分区。有些程序会使用这个标志符来限制一些可以对磁盘所做的操作，
+但大多数情况下更改这个标志符没有危害。然而，为了叙述方便，我们将会更改它，
+以此来表明是个Linux分区。在更改之前，首先我们必须找到被用来识别一个Linux分区的ID号码。
+在上面列表中，我们看到ID号码“b”被用来指定这个已存在的分区。要查看可用的分区类型列表，
+参考之前的程序菜单。我们会看到以下选项：
+
 <div class="code"><pre>
 <tt>l   list known partition types</tt>
 </pre></div>
@@ -802,13 +809,20 @@ choice:
 If we enter “l” at the prompt, a large list of possible types is displayed. Among them we
 see “b” for our existing partition type and “83” for Linux.
 
+如果我们在提示符下输入“l”，就会显示一个很长的可能类型列表。在它们之中会看到“b”为已存在分区
+类型的ID号，而“83”是针对Linux系统的ID号。
+
 Going back to the menu, we see this choice to change a partition ID:
+
+回到之前的菜单，看到这个选项来更改分区ID号：
 
 <div class="code"><pre>
 <tt>t   change a partition's system id</tt>
 </pre></div>
 
 We enter “t” at the prompt enter the new ID:
+
+我们先输入“t”，再输入新的ID号：
 
 <div class="code"><pre>
 <tt>Command (m for help): t
@@ -821,6 +835,10 @@ This completes all the changes that we need to make. Up to this point, the devic
 been untouched (all the changes have been stored in memory, not on the physical device),
 so we will write the modified partition table to the device and exit. To do this, we enter
 “w” at the prompt:
+
+这就完成了我们需要做得所有修改。到目前为止，还没有接触这个设备（所有修改都存储在内存中，
+而不是在此物理设备中），所以我们将会把修改过的分区表写入此设备，再退出。为此，我们输入
+在提示符下输入"w":
 
 <div class="code"><pre>
 <tt>Command (m for help): w
@@ -837,13 +855,23 @@ If we had decided to leave the device unaltered, we could have entered “q” a
 which would have exited the program without writing the changes. We can safely ignore
 the ominous sounding warning message.
 
+如果我们已经决定保持设备不变，可在提示符下输入"q"，这将退出程序而没有写更改。我们
+可以安全地忽略这些不祥的警告信息。
+
 Creating A New File System With mkfs
+
+### 用mkfs命令创建一个新的文件系统
 
 With our partition editing done (lightweight though it might have been) it’s time to create
 a new file system on our flash drive. To do this, we will use mkfs (short for “make file
 system”), which can create file systems in a variety of formats. To create an ext3 file
 system on the device, we use the “-t” option to specify the “ext3” system type, followed
 by the name of device containing the partition we wish to format:
+
+完成了分区编辑工作（它或许是轻量级的），是时候在我们的闪存驱动器上创建一个新的文件系统了。
+为此，我们会使用mkfs（"make file system"的简写），它能创建各种格式的文件系统。
+在此设备上创建一个ext3文件系统，我们使用"-t"
+选项来指定这个"ext3"系统类型，随后是我们要格式化的设备分区名称：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sudo mkfs -t ext3 /dev/sdb1
@@ -866,13 +894,15 @@ Creating journal (1024 blocks): done
 Writing superblocks and filesystem accounting information: done
 This filesystem will be automatically checked every 34 mounts or
 180 days, whichever comes first. Use tune2fs -c or -i to override.
-[me@linuxbox ~]$
-</tt>
+[me@linuxbox ~]$</tt>
 </pre></div>
 
 The program will display a lot of information when ext3 is the chosen file system type.
 To re-format the device to its original FAT32 file system, specify “vfat” as the file system
 type:
+
+当ext3被选为文件系统类型时，这个程序会显示许多信息。若把这个设备重新格式化为它最初的FAT32文件
+系统，指定"vfat"作为文件系统类型：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sudo mkfs -t vfat /dev/sdb1</tt>
@@ -883,7 +913,13 @@ devices are added to the system. While we worked with a tiny flash drive, the sa
 process can be applied to internal hard disks and other removable storage devices like
 USB hard drives.
 
+任何时候添加额外的存储设备到系统中时，都可以使用这个分区和格式化的过程。虽然我们
+只以一个小小的闪存驱动器为例，同样的操作可以被应用到内部硬盘和其它可移动的存储设备上
+像USB硬盘驱动器。
+
 Testing And Repairing File Systems
+
+### 测试和修复文件系统
 
 In our earlier discussion of the /etc/fstab file, we saw some mysterious digits at the
 end of each line. Each time the system boots, it routinely checks the integrity of the file
@@ -893,12 +929,24 @@ checked. In our example above, we see that the root file system is checked first
 by the home and boot file systems. Devices with a zero as the last digit are not
 routinely checked.
 
+在之前讨论文件/etc/fstab时，我们会在每行的末尾看到一些神秘的数字。每次系统启动时，
+在挂载系统之前，都会按照惯例检查文件系统的完整性。这个任务由fsck程序（是"file system
+check"的简写）完成。每个fstab项中的最后一个数字指定了设备的检查顺序。
+在上面的实例中，我们看到首先检查根文件系统，然后是home和boot文件系统。若最后一个数字
+是零则相应设备不会被检查。
+
 In addition to checking the integrity of file systems, fsck can also repair corrupt file
 systems with varying degrees of success, depending on the amount of damage. On Unix-
 like file systems, recovered portions of files are placed in the lost+found directory,
 located in the root of each file system.
 
+除了检查文件系统的完整性之外，fsck还能修复受损的文件系统，其成功度依赖于损坏的数量。
+在类似于Unix的文件系统中，文件恢复的部分被放置于lost+found目录里面，位于每个文件
+系统的根目录下面。
+
 To check our flash drive (which should be unmounted first), we could do the following:
+
+检查我们的闪存驱动器（首先应该卸载），我们能执行下面的操作：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sudo fsck /dev/sdb1
@@ -911,27 +959,40 @@ In my experience, file system corruption is quite rare unless there is a hardwar
 such as a failing disk drive. On most systems, file system corruption detected at boot
 time will cause the system to stop and direct you to run fsck before continuing.
 
+以我的经验，文件系统损坏情况相当罕见，除非硬件存在问题，如磁盘驱动器故障。
+在大多数系统中，系统启动阶段若探测到文件系统已经损坏了，则会导致系统停止下来，
+在系统继续执行之前，会指导你运行fsck程序。
+
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
 <h3>What The fsck?</h3>
+<h3>什么是fsck?</h3>
 <p>In Unix culture, the word “fsck” is often used in place of a popular word with
 which it shares three letters. This is especially appropriate, given that you will
 probably be uttering the aforementioned word if you find yourself in a situation
 where you are forced to run fsck.
 </p>
-<p>  </p>
+<p>在Unix文化中，"fsck"这个单词往往会被用来代替一个流行的词，“fsck”和这个词共享了三个
+字母。这个尤其适用，因为你可能会说出上文提到的词，若你发现自己处于这种境况下，
+被强制来运行fsck命令时。</p>
 </td>
 </tr>
 </table>
 
 Formatting Floppy Disks
 
+### 格式化软盘
+
 For those of us still using computers old enough to be equipped with floppy diskette
 drives, we can manage those devices, too. Preparing a blank floppy for use is a two step
 process. First, we perform a low-format on the diskette, then create a file system. To
 accomplish the formatting, we use the fdformat program specifying the name of the
 floppy device (usually /dev/fd0):
+
+对于那些还在使用配备了软盘驱动器的计算机的用户，我们也能管理这些设备。准备一
+张可用的空白软盘要分两个步骤。首先，对这张软盘执行低级格式化，然后创建一个文件系统。
+为了完成格式化，我们使用fdformat程序，同时指定软盘设备名称（通常为/dev/fd0）：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sudo fdformat /dev/fd0
@@ -942,6 +1003,8 @@ Verifying ... done</tt>
 
 Next, we apply a FAT file system to the diskette with mkfs:
 
+接下来，通过mkfs命令，给这个软盘创建一个FAT文件系统：
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sudo mkfs -t msdos /dev/fd0</tt>
 </pre></div>
@@ -949,7 +1012,12 @@ Next, we apply a FAT file system to the diskette with mkfs:
 Notice that we use the “msdos” file system type to get the older (and smaller) style file
 allocation tables. After a diskette is prepared, it may be mounted like other devices.
 
+注意我们使用这个“msdos”文件系统类型来得到旧（小的）风格的文件分配表。当一个软磁盘
+被准备好之后，则可能像其它设备一样挂载它。
+
 Moving Data Directly To/From Devices
+
+### 直接把数据移入/出设备
 
 While we usually think of data on our computers as being organized into files, it is also
 possible to think of the data in “raw” form. If we look at a disk drive, for example, we
@@ -957,8 +1025,16 @@ see that it consists of a large number of “blocks” of data that the operatin
 directories and files. However, if we could treat a disk drive as simply a large collection
 of data blocks, we could perform useful tasks, such as cloning devices.
 
+虽然我们通常认为计算机中的数据以文件形式来组织数据，也可以“原始的”形式来考虑数据。
+如果我们看一下磁盘驱动器，例如，
+我们看到它由大量的数据“块”组成，而操作系统却把这些数据块看作目录和文件。然而，如果
+把磁盘驱动器简单地看成一个数据块大集合，我们就能执行有用的任务，如克隆设备。
+
 The dd program performs this task. It copies blocks of data from one place to another. It
 uses a unique syntax (for historical reasons) and is usually used this way:
+
+这个dd程序能执行此任务。它可以把数据块从一个地方复制到另一个地方。它使用独特的语法（由于历史原因）
+，经常它被这样使用：
 
 <div class="code"><pre>
 <tt><b>dd if=input_file of=output_file [bs=block_size [count=blocks]]</b></tt>
@@ -969,6 +1045,11 @@ the first drive to the second. If we attached both drives to the computer and th
 assigned to devices /dev/sdb and /dev/sdc respectively, we could copy everything
 on the first drive to the second drive with the following:
 
+比方说我们有两个相同容量的USB闪存驱动器，并且要精确地把第一个驱动器（中的内容）
+复制给第二个。如果连接两个设备到计算机上，它们各自被分配到设备/dev/sdb和
+/dev/sdc上，这样我们就能通过下面的命令把第一个驱动器中的所有数据复制到第二个
+驱动器中。
+
 <div class="code"><pre>
 <tt><b>dd if=/dev/sdb of=/dev/sdc</b></tt>
 </pre></div>
@@ -976,24 +1057,37 @@ on the first drive to the second drive with the following:
 Alternately, if only the first device were attached to the computer, we could copy its
 contents to an ordinary file for later restoration or copying:
 
+或者，如果只有第一个驱动器被连接到计算机上，我们可以把它的内容复制到一个普通文件中供
+以后恢复或复制数据：
+
 <div class="code"><pre>
 <tt><b>dd if=/dev/sdb of=flash_drive.img</b></tt>
 </pre></div>
 
-</ hr>
+<hr />
 Warning! The dd command is very powerful. Though its name derives from “data
 definition,” it is sometimes called “destroy disk” because users often mistype either
 the if or of specifications. <b>Always double check your input and output
 specifications before pressing enter!</b>
-</ hr>
+
+警告！这个dd命令非常强大。虽然它的名字来自于“数据定义”，有时候也把它叫做“清除磁盘”
+因为用户经常会误输入if或of的规范。<b>在按下回车键之前，要再三检查输入与输出规范！</b>
+<hr />
 
 Creating CD-ROM Images
+
+### 创建CD-ROM映像
 
 Writing a recordable CD-ROM (either a CD-R or CD-RW) consists of two steps; first,
 constructing an iso image file that is the exact file system image of the CD-ROM and
 second, writing the image file onto the CD-ROM media.
 
+写入一个可记录的CD-ROM（一个CD-R或者是CD-RW）由两步组成；首先，构建一个iso映像文件，
+这就是一个CD-ROM的文件系统映像，第二步，把这个映像文件写入到CD-ROM媒介中。
+
 Creating An Image Copy Of A CD-ROM
+
+#### 创建一个CD-ROM的映像拷贝
 
 If we want to make an iso image of an existing CD-ROM, we can use dd to read all the
 data blocks off the CD-ROM and copy them to a local file. Say we had an Ubuntu CD
@@ -1001,13 +1095,24 @@ and we wanted to make an iso file that we could later use to make more copies. A
 inserting the CD and determining its device name (we’ll assume /dev/cdrom), we can
 make the iso file like so:
 
+如果想要制作一张现有CD-ROM的iso映像，我们可以使用dd命令来读取CD-ROW中的所有数据块，
+并把它们复制到本地文件中。比如说我们有一张Ubuntu
+CD，用它来制作一个iso文件，以后我们可以用它来制作更多的拷贝。插入这张CD之后，确定
+它的设备名称（假定是/dev/cdrom），然后像这样来制作iso文件：
+
 <div class="code"><pre>
 <tt><b>dd if=/dev/cdrom of=ubuntu.iso</b></tt>
 </pre></div>
 
 This technique works for data DVDs as well, but will not work for audio CDs, as they do
 not use a file system for storage. For audio CDs, look at the cdrdao command.
+
+这项技术也适用于DVD光盘，但是不能用于音频CD，因为它们不使用文件系统来存储数据。
+对于音频CD，看一下cdrdao命令。
+
 Creating An Image From A Collection Of Files
+
+#### 从文件集合中创建一个映像
 
 To create an iso image file containing the contents of a directory, we use the
 genisoimage program. To do this, we first create a directory containing all the files
@@ -1016,6 +1121,11 @@ the image file. For example, if we had created a directory called ~/cd-rom-files
 and filled it with files for our CD-ROM, we could create an image file named cd-
 rom.iso with the following command:
 
+创建一个包含目录内容的iso映像文件，我们使用genisoimage程序。为此，我们首先创建
+一个目录，这个目录中包含了要包括到此映像中的所有文件，然后执行这个genisoimage命令
+来创建映像文件。例如，如果我们已经创建一个叫做~/cd-rom-files的目录，然后用文件
+填充此目录，再通过下面的命令来创建一个叫做cd-rom.iso映像文件：
+
 <div class="code"><pre>
 <tt><b>genisoimage -o cd-rom.iso -R -J ~/cd-rom-files</b></tt>
 </pre></div>
@@ -1023,6 +1133,8 @@ rom.iso with the following command:
 The “-R” option adds metadata for the Rock Ridge extensions, which allows the use of
 long filenames and POSIX style file permissions. Likewise, the “-J” option enables the
 Joliet extensions, which permit long filenames for Windows.
+
+"-R"选项添加元数据
 
 <table class="single" cellpadding="10" width="%100">
 <tr>
@@ -1045,11 +1157,15 @@ genisoimage, respectively.
 
 Writing CD-ROM Images
 
+### 写入CD-ROM镜像
+
 After we have an image file, we can burn it onto our optical media. Most of the
 commands we will discuss below can be applied to both recordable CD-ROM and DVD
 media.
 
 Mounting An ISO Image Directly
+
+#### 直接挂载一个ISO镜像
 
 There is a trick that we can use to mount an iso image while it is still on our hard disk and
 treat it as though it was already on optical media. By adding the “-o loop” option to
@@ -1068,6 +1184,8 @@ image when it is no longer needed.
 
 Blanking A Re-Writable CD-ROM
 
+#### 清除一张可重写入的CD-ROM
+
 Rewritable CD-RW media needs to be erased or blanked before it can be reused. To do
 this, we can use wodim, specifying the device name for the CD writer and the type of
 blanking to be performed. The wodim program offers several types. The most minimal
@@ -1078,6 +1196,8 @@ blanking to be performed. The wodim program offers several types. The most minim
 </pre></div>
 
 Writing An Image
+
+#### 写入镜像
 
 To write an image, we again use wodim, specifying the name of the optical media writer
 device and the name of the image file:
@@ -1094,6 +1214,8 @@ for recording music tracks.
 
 Further Reading
 
+### 拓展阅读
+
 We have just touched on the many ways that the command line can be used to manage
 storage media. Take a look at the man pages of the commands we have covered. Some
 of them support huge numbers of options and operations. Also, look for on-line tutorials
@@ -1101,6 +1223,8 @@ for adding hard drives to your Linux system (there are many) and working with op
 media.
 
 Extra Credit
+
+### 友情提示
 
 It’s often useful to verify the integrity of an iso image that we have downloaded. In most
 cases, a distributor of an iso image will also supply a checksum file. A checksum is the
@@ -1138,7 +1262,6 @@ image.iso and the disk in the DVD reader /dev/dvd. Can you figure out how this
 works?
 
 <div class="code"><pre>
-<tt><b>md5sum dvd-image.iso; dd if=/dev/dvd bs=2048 count=$(( $(stat -c "%s"
-dvd-image.iso) / 2048 )) | md5sum</b></tt>
+<tt><b>md5sum dvd-image.iso; dd if=/dev/dvd bs=2048 count=$(( $(stat -c "%s" dvd-image.iso) / 2048 )) | md5sum</b></tt>
 </pre></div>
 
