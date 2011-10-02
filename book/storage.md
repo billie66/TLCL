@@ -1134,7 +1134,8 @@ The “-R” option adds metadata for the Rock Ridge extensions, which allows th
 long filenames and POSIX style file permissions. Likewise, the “-J” option enables the
 Joliet extensions, which permit long filenames for Windows.
 
-"-R"选项添加元数据
+"-R"选项添加元数据为Rock Ridge扩展，这允许使用长文件名和POSIX风格的文件权限。
+同样地，这个"-J"选项使Joliet扩展生效，这样Windows中就支持长文件名了。
 
 <table class="single" cellpadding="10" width="%100">
 <tr>
@@ -1150,7 +1151,11 @@ GPL. As a result, a fork of the cdrtools project was started that now includes
 replacement programs for cdrecord and mkisofs named wodim and
 genisoimage, respectively.
 </p>
-<p>  </p>
+<p>如果你看一下关于创建和烧写光介质如CD-ROMs和DVD的在线文档，你会经常碰到两个程序
+叫做mkisofs和cdrecord。这些程序是流行软件包"cdrtools"的一部分，"cdrtools"由Jorg Schilling
+编写成。在2006年春天，Schilling先生更改了部分cdrtools软件包的协议，许多Linux社区的意见是，
+这创建了一个与GNU GPL不相兼容的协议。结果，就fork了这个cdrtools项目，
+目前新项目里面包含cdrecord和mkisofs的替代程序，分别是wodim和genisoimage。</p>
 </td>
 </tr>
 </table>
@@ -1163,6 +1168,9 @@ After we have an image file, we can burn it onto our optical media. Most of the
 commands we will discuss below can be applied to both recordable CD-ROM and DVD
 media.
 
+有了一个映像文件之后，我们可以把它烧写到光盘中。下面讨论的大多数命令对可
+记录的CD-ROW和DVD媒介都适用。
+
 Mounting An ISO Image Directly
 
 #### 直接挂载一个ISO镜像
@@ -1171,6 +1179,10 @@ There is a trick that we can use to mount an iso image while it is still on our 
 treat it as though it was already on optical media. By adding the “-o loop” option to
 mount (along with the required “-t iso9660” file system type), we can mount the image
 file as though it were a device and attach it to the file system tree:
+
+有一个诀窍，我们可以用它来挂载iso映像文件，虽然此文件仍然在我们的硬盘中，但我们
+当作它已经在光盘中了。添加"-o loop"选项来挂载（同时带有必需的"-t
+iso9660"文件系统类型），挂载这个映像文件就好像它是一台设备，把它连接到文件系统树上：
 
 <div class="code"><pre>
 <tt><b>mkdir /mnt/iso_image
@@ -1182,6 +1194,10 @@ mounted the image file image.iso at that mount point. After the image is mounted
 can be treated just as though it were a real CD-ROM or DVD. Remember to unmount the
 image when it is no longer needed.
 
+上面的示例中，我们创建了一个挂载点叫做/mnt/iso_image，然后把此映像文件
+image.iso挂载到挂载点上。映像文件被挂载之后，可以把它当作，就好像它是一张
+真正的CD-ROM或者DVD。当不再需要此映像文件后，记得卸载它。
+
 Blanking A Re-Writable CD-ROM
 
 #### 清除一张可重写入的CD-ROM
@@ -1190,6 +1206,9 @@ Rewritable CD-RW media needs to be erased or blanked before it can be reused. To
 this, we can use wodim, specifying the device name for the CD writer and the type of
 blanking to be performed. The wodim program offers several types. The most minimal
 (and fastest) is the “fast” type:
+
+可重写入的CD-RW媒介在被重使用之前需要擦除或清空。为此，我们可以用wodim命令，指定
+设备名称和清空的类型。此wodim程序提供了几种清空类型。最小（且最快）的是"fast"类型：
 
 <div class="code"><pre>
 <tt><b>wodim dev=/dev/cdrw blank=fast</b></tt>
@@ -1202,6 +1221,8 @@ Writing An Image
 To write an image, we again use wodim, specifying the name of the optical media writer
 device and the name of the image file:
 
+写入一个映像文件，我们再次使用wodim命令，指定光盘设备名称和映像文件名：
+
 <div class="code"><pre>
 <tt><b>wodim dev=/dev/cdrw image.iso</b></tt>
 </pre></div>
@@ -1212,6 +1233,10 @@ in disk-at-once mode. This mode should be used if you are preparing a disk for
 commercial reproduction. The default mode for wodim is track-at-once, which is useful
 for recording music tracks.
 
+除了设备名称和映像文件之外，wodim命令还支持非常多的选项。常见的两个选项是，"-v"可详细输出，
+和"－dao"以disk-at-once模式写入光盘。如果你正在准备一张光盘为的是商业复制，那么应该使用这种模式。
+wodim命令的默认模式是track-at-once，这对于录制音乐很有用。
+
 Further Reading
 
 ### 拓展阅读
@@ -1221,6 +1246,10 @@ storage media. Take a look at the man pages of the commands we have covered. Som
 of them support huge numbers of options and operations. Also, look for on-line tutorials
 for adding hard drives to your Linux system (there are many) and working with optical
 media.
+
+我们刚才谈到了很多方法，可以使用命令行管理存储介质。看看我们所讲过命令的手册页。
+一些命令支持大量的选项和操作。此外，寻找一些如何添加硬盘驱动器到Linux系统（有许多）的在线教程，
+这些教程也要适用于光介质存储设备。
 
 Extra Credit
 
@@ -1234,6 +1263,9 @@ checksum will be much different. The most common method of checksum generation
 uses the md5sum program. When you use md5sum, it produces a unique hexadecimal
 number:
 
+通常验证我们下载的iso映像文件的完整性很有用处。在大多数情况下，iso映像文件的贡献者也会提供
+一个checksum文件。一个checksum是
+
 <div class="code"><pre>
 <tt><b>md5sum image.iso</b>
 34e354760f9bb7fbf85c96f6a3f94ece    image.iso</tt>
@@ -1241,6 +1273,8 @@ number:
 
 After you download an image, you should run md5sum against it and compare the results
 with the md5sum value supplied by the publisher.
+
+你下载映像文件之后，应该运行md5sum命令
 
 In addition to checking the integrity of a downloaded file, we can use md5sum to verify
 newly written optical media. To do this, we first calculate the checksum of the image file
@@ -1260,6 +1294,8 @@ Many types of media, such as DVDs require a precise calculation of the number of
 blocks. In the example below, we check the integrity of the image file dvd-
 image.iso and the disk in the DVD reader /dev/dvd. Can you figure out how this
 works?
+
+许多媒介类型，如DVD需要
 
 <div class="code"><pre>
 <tt><b>md5sum dvd-image.iso; dd if=/dev/dvd bs=2048 count=$(( $(stat -c "%s" dvd-image.iso) / 2048 )) | md5sum</b></tt>
