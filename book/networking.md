@@ -46,11 +46,11 @@ make full use of this chapter we should be familiar with the following terms:
 Please see the “Further Reading” section below for some useful articles regarding these
 terms.
 
-<hr />
+<hr style="width:90%;height:5px;background:teal" />
 Note: Some of the commands we will cover may (depending on your distribution)
 require the installation of additional packages from your distribution’s repositories,
 and some may require superuser privileges to execute.
-<hr />
+<hr style="width:90%;height:5px;background:teal" />
 
 ### Examining And Monitoring A Network
 
@@ -64,12 +64,12 @@ network packet called an IMCP ECHO\_REQUEST to a specified host. Most network
 devices receiving this packet will reply to it, allowing the network connection to be
 verified.
 
-<hr />
+<hr style="width:90%;height:5px;background:teal" />
 Note: It is possible to configure most network devices (including Linux hosts) to
 ignore these packets. This is usually done for security reasons, to partially obscure
 a host from a potential attacker. It is also common for firewalls to be configured to
 block IMCP traffic.
-<hr />
+<hr style="width:90%;height:5px;background:teal" />
 
 For example, to see if we can reach linuxcommand.org (one of our favorite sites ;-),
 we can use use ping like this:
@@ -373,12 +373,12 @@ system to receive remote connections, it must have the OpenSSH-server package
 installed, configured and running, and (if the system is either running or is behind a
 firewall) it must allow incoming network connections on TCP port 22.
 
-<hr />
+<hr style="width:90%;height:5px;background:teal" />
 Tip: If you don’t have a remote system to connect to but want to try these
 examples, make sure the OpenSSH-server package is installed on your system
 and use localhost as the name of the remote host. That way, your machine will
 create network connections with itself.
-<hr />
+<hr style="width:90%;height:5px;background:teal" />
 
 The SSH client program used to connect to remote SSH servers is called, appropriately
 enough, ssh. To connect to a remote host named remote-sys, we would use the ssh
@@ -582,12 +582,12 @@ desktop-i386.iso
 sftp> bye</tt>
 </pre></div>
 
-<hr />
+<hr style="width:90%;height:5px;background:teal" />
 Tip: The SFTP protocol is supported by many of the graphical file managers found
 in Linux distributions. Using either Nautilus (GNOME) or Konqueror (KDE), we
 can enter a URI beginning with sftp:// into the location bar and operate on files
 stored on a remote system running an SSH server.
-<hr />
+<hr style="width:90%;height:5px;background:teal" />
 
 <table class="single" cellpadding="10" width="%100">
 <tr>
