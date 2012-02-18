@@ -47,9 +47,9 @@ Please see the “Further Reading” section below for some useful articles rega
 terms.
 
 <hr style="width:90%;height:5px;background:teal" />
-Note: Some of the commands we will cover may (depending on your distribution)
+<p style="width:90%">Note: Some of the commands we will cover may (depending on your distribution)
 require the installation of additional packages from your distribution’s repositories,
-and some may require superuser privileges to execute.
+and some may require superuser privileges to execute.</p>
 <hr style="width:90%;height:5px;background:teal" />
 
 ### Examining And Monitoring A Network
