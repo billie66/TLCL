@@ -7,7 +7,8 @@ When it comes to networking, there is probably nothing that cannot be done
 with Linux.  Linux is used to build all sorts of networking systems and appliances,
 including firewalls, routers, name servers, NAS (Network Attached Storage) boxes and on and on.
 
-
+当谈及到网络系统层面，几乎任何东西都能由Linux来实现。Linux被用来创建各式各样的网络系统和装置，
+包括防火墙，路由器，名称服务器，网络连接式存储设备等等。
 
 Just as the subject of networking is vast, so are the number of commands that
 can be used to configure and control it. We will focus our attention on just a few of the
@@ -16,9 +17,13 @@ to monitor networks and those used to transfer files. In addition, we are going
 to explore the ssh program that is used to perform remote logins. This chapter will
 cover:
 
-
+被用来配置和操作网络系统的命令数目，就如网络系统主题一样巨大。我们仅仅会关注一些最经常
+使用到的命令。这些被选中用来测试的命令包括那些被用来监测网络和传输文件的命令。另外，我们
+还会探讨用来远端登录的ssh程序。这章会介绍：
 
 * ping - Send an ICMP ECHO\_REQUEST to network hosts
+
+* ping - 发送ICMP ECHO\_REQUEST软件包到网络主机 
 
 * traceroute - Print the route packets trace to a network host
 
@@ -35,27 +40,43 @@ We’re going to assume a little background in networking. In this, the Internet
 everyone using a computer needs a basic understanding of networking concepts. To
 make full use of this chapter we should be familiar with the following terms:
 
-
+我们假定你已经知道了一点网络系统背景知识。在这个因特网时代，每个计算机用户需要基本的网络
+系统概念理解。为了能够充分利用这一章节的内容，我们应该熟悉以下术语：
 
 * IP (Internet Protocol) address
 
+* IP (网络协议)地址
+
 * Host and domain name
+
+* 主机和域名
 
 * URI (Uniform Resource Identifier)
 
+* URI（统一资源标识符）
+
 Please see the “Further Reading” section below for some useful articles regarding these
 terms.
+
+请查看下面的“拓展阅读”部分，有几篇关于这些术语的有用文章。
 
 <hr style="width:100%;height:5px;background:teal" />
 <p align="left">Note: Some of the commands we will cover may (depending on your distribution)
 require the installation of additional packages from your distribution’s repositories,
 and some may require superuser privileges to execute.</p>
+
+注意：一些将要讲到的命令可能（取决于系统发行版）需要从系统发行版的仓库中安装额外的软件包，
+并且一些命令可能需要超级用户权限才能执行。
 <hr style="width:100%;height:5px;background:teal" />
 
 ### Examining And Monitoring A Network
 
+### 检查和监测网络
+
 Even if you’re not the system administrator, it’s often helpful to examine the performance
 and operation of a network.
+
+即使你不是一名系统管理员，检查一个网络的性能和运作情况也是经常有帮助的。
 
 #### ping
 
@@ -64,15 +85,24 @@ network packet called an IMCP ECHO\_REQUEST to a specified host. Most network
 devices receiving this packet will reply to it, allowing the network connection to be
 verified.
 
+最基本的网络命令是ping。这个ping命令发送一个特殊的网络数据包，叫做IMCP ECHO\_REQUEST，到
+一台指定的主机。大多数接收这个包的网络设备将会回复它，来允许网络连接验证。
+
 <hr style="width:100%;height:5px;background:teal" />
 Note: It is possible to configure most network devices (including Linux hosts) to
 ignore these packets. This is usually done for security reasons, to partially obscure
 a host from a potential attacker. It is also common for firewalls to be configured to
 block IMCP traffic.
+
+注意：有可能配置大多数网络设备（包括Linux主机）来忽略这些数据包。通常，这样做是出于网络安全
+原因，部分地遮蔽一台主机免受一个潜在攻击者地侵袭。配置防火墙来阻塞IMCP流量也很普遍。
 <hr style="width:100%;height:5px;background:teal" />
 
 For example, to see if we can reach linuxcommand.org (one of our favorite sites ;-),
 we can use use ping like this:
+
+例如，看看我们能否连接到网站linuxcommand.org（我喜欢的网站之一），
+我们可以这样使用ping命令：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ping linuxcommand.org</tt>
@@ -80,6 +110,8 @@ we can use use ping like this:
 
 Once started, ping continues to send packets at a specified interval (default is one
 second) until it is interrupted:
+
+一旦启动，ping命令会持续在特定的时间间隔内（默认是一秒）发送数据包，直到它被中断：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ping linuxcommand.org
@@ -102,18 +134,28 @@ prints performance statistics. A properly performing network will exhibit zero p
 packet loss. A successful “ping” will indicate that the elements of the network (its
 interface cards, cabling, routing and gateways) are in generally good working order.
 
-traceroute
+按下组合键Ctrl-c，中断这个命令之后，ping打印出运行统计信息。一个正常工作的网络会报告
+零个数据包丢失。一个成功执行的“ping”命令会显示网络的各个元素（网卡，电缆，路由，网关）
+一般都处于正常的工作秩序。
+
+#### traceroute
 
 The traceroute program (some systems use the similar tracepath program
 instead) displays a listing of all the “hops” network traffic takes to get
 from the local system to a specified host. For example, to see the route
 taken to reach slashdot.org, we would do this:
 
+这个traceroute程序（一些系统使用相似的tracepath程序来代替）会显示从本地到指定主机
+要经过的所有“跳数”的网络流量列表。例如，看一下到达slashdot.org网站，需要经过的路由
+器，我们将这样做：
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ traceroute slashdot.org</tt>
 </pre></div>
 
 The output looks like this:
+
+命令输出看起来像这样：
 
 <div class="code"><pre>
 <tt>traceroute to slashdot.org (216.34.181.45), 30 hops max, 40 byte
@@ -137,11 +179,19 @@ round-trip time from the local system to the router. For routers that do not pro
 identifying information (because of router configuration, network congestion, firewalls,
 etc.), we see asterisks as in the line for hop number two.
 
-netstat
+从输出结果中，我们可以看到连接测试系统到slashdot.org网站需要经由16个路由器。对于那些
+提供标识信息的路由器，我们能看到它们的主机名，IP地址和性能数据，这些数据包括三次从本地到
+此路由器的往返时间样本。对于那些没有提供标识信息的路由器（由于路由器配置，网络拥塞，防火墙等
+方面的原因），我们会看到几个星号，正如第二跳行中所示。
+
+#### netstat
 
 The netstat program is used to examine various network settings and statistics.
 Through the use of its many options, we can look at a variety of features in our network
 setup. Using the “-ie” option, we can examine the network interfaces in our system:
+
+这个netstat程序被用来检查各种各样的网络设置和统计数据。通过此命令的许多选项，我们
+可以看看网络设置中的各种特性。使用“-ie”选项，我们能够查看系统中的网络接口：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ netstat -ie
@@ -164,6 +214,10 @@ The first, called eth0, is the Ethernet interface and the second, called lo,
 is the loopback interface, a virtual interface that the system uses to “talk
 to itself.”
 
+在上述实例中，我们看到我们的测试系统有两个网络接口。第一个，叫做eth0，是
+因特网接口，和第二个，叫做lo，是内部循环网络接口，它是一个虚拟接口，系统用它来
+“自言自语”。
+
 When performing causal network diagnostics, the important things to look for
 are the presence of the word “UP” at the beginning of the fourth line for each
 interface, indicating that the network interface is enabled, and the presence
@@ -171,8 +225,16 @@ of a valid IP address in the inet addr field on the second line. For systems
 using DHCP (Dynamic Host Configuration Protocol), a valid IP address in this
 field will verify that the DHCP is working.
 
+当执行因果网络诊断程序时，要查看的重要信息是每个网络接口第四行开头出现的单词
+“UP”，说明这个网络接口已经生效，还要查看第二行中inet
+addr字段出现的有效IP地址。对于使用DHCP（动态主机配置协议）的系统，在
+这个字段中的一个有效IP地址则验证了DHCP正在工作。
+
 Using the “-r” option will display the kernel’s network routing table. This
 shows how the network is configured to send packets from network to network:
+
+使用这个“-r”选项会显示内核的网络路由表。这展示了如何配置系统网络，使其能够在
+网络之间发送数据包。
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ netstat -r
@@ -191,21 +253,32 @@ on the LAN. The next field, Gateway, is the name or IP address of the gateway
 (router) used to go from the current host to the destination network. An
 asterisk in this field indicates that no gateway is needed.
 
+在这个简单的例子里面，我们看到一个典型的路由表，位于防火墙／路由器之后。
+第一行显示了目的地192.168.1.0。
+IP地址以零结尾是指网络，而不是个人主机，所以这个目的地意味着局域网中的任何
+一台主机。下一个字段，Gateway，是网关（路由器）的名字或IP地址，用它来连接当前的主机
+和目的地的网络。若这个字段显示一个星号，则表明不需要网关。
+
 The last line contains the destination default. This means any traffic
 destined for a network that is not otherwise listed in the table. In our
 example, we see that the gateway is defined as a router with the address of
 192.168.1.1, which presumably knows what to do with the destination traffic.
 
+最后一行包含目的地default。这意味着
+
 The netstat program has many options and we have only looked at a couple.
 Check out the netstat man page for a complete list.
 
-Transporting Files Over A Network
+这个netstat程序有许多选项，我们仅仅讨论了几个。查看netstat命令的手册，可以
+得到所有选项的完整列表。
+
+### Transporting Files Over A Network
 
 What good is a network unless we know how to move files across it? There are many
 programs that move data over networks. We will cover two of them now and several
 more in later sections.
 
-ftp
+#### ftp
 
 One of the true “classic” programs, ftp gets it name from the protocol it uses, the File
 Transfer Protocol. FTP is used widely on the Internet for file downloads. Most, if not
@@ -344,7 +417,7 @@ background (allowing you to log off but continue downloading), and complete the
 download of a partially downloaded file. These features are well documented in its
 better-than-average man page.
 
-Secure Communication With Remote Hosts
+### Secure Communication With Remote Hosts
 
 For many years, Unix-like operating systems have had the ability to be administered
 remotely via a network. In the early days, before the general adoption of the Internet,
@@ -354,7 +427,7 @@ flaw that the ftp program does; they transmit all their communications (includin
 names and passwords) in cleartext. This makes them wholly inappropriate for use in the
 Internet age.
 
-ssh
+#### ssh
 
 To address this problem, a new protocol called SSH (Secure Shell) was developed. SSH
 solves the two basic problems of secure communication with a remote host. First, it
@@ -588,7 +661,7 @@ in Linux distributions. Using either Nautilus (GNOME) or Konqueror (KDE), we
 can enter a URI beginning with sftp:// into the location bar and operate on files
 stored on a remote system running an SSH server.
 <hr style="width:100%;height:5px;background:teal" />
-
+<br />
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
