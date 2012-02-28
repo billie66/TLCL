@@ -60,14 +60,14 @@ terms.
 
 请查看下面的“拓展阅读”部分，有几篇关于这些术语的有用文章。
 
-<hr style="width:100%;height:5px;background:teal" />
+<hr style="width:100%;height:5px;background:gray" />
 <p align="left">Note: Some of the commands we will cover may (depending on your distribution)
 require the installation of additional packages from your distribution’s repositories,
 and some may require superuser privileges to execute.</p>
 
 注意：一些将要讲到的命令可能（取决于系统发行版）需要从系统发行版的仓库中安装额外的软件包，
 并且一些命令可能需要超级用户权限才能执行。
-<hr style="width:100%;height:5px;background:teal" />
+<hr style="width:100%;height:5px;background:gray" />
 
 ### Examining And Monitoring A Network
 
@@ -88,7 +88,7 @@ verified.
 最基本的网络命令是ping。这个ping命令发送一个特殊的网络数据包，叫做IMCP ECHO\_REQUEST，到
 一台指定的主机。大多数接收这个包的网络设备将会回复它，来允许网络连接验证。
 
-<hr style="width:100%;height:5px;background:teal" />
+<hr style="width:100%;height:5px;background:gray" />
 Note: It is possible to configure most network devices (including Linux hosts) to
 ignore these packets. This is usually done for security reasons, to partially obscure
 a host from a potential attacker. It is also common for firewalls to be configured to
@@ -96,7 +96,7 @@ block IMCP traffic.
 
 注意：有可能配置大多数网络设备（包括Linux主机）来忽略这些数据包。通常，这样做是出于网络安全
 原因，部分地遮蔽一台主机免受一个潜在攻击者地侵袭。配置防火墙来阻塞IMCP流量也很普遍。
-<hr style="width:100%;height:5px;background:teal" />
+<hr style="width:100%;height:5px;background:gray" />
 
 For example, to see if we can reach linuxcommand.org (one of our favorite sites ;-),
 we can use use ping like this:
@@ -182,7 +182,7 @@ etc.), we see asterisks as in the line for hop number two.
 从输出结果中，我们可以看到连接测试系统到slashdot.org网站需要经由16个路由器。对于那些
 提供标识信息的路由器，我们能看到它们的主机名，IP地址和性能数据，这些数据包括三次从本地到
 此路由器的往返时间样本。对于那些没有提供标识信息的路由器（由于路由器配置，网络拥塞，防火墙等
-方面的原因），我们会看到几个星号，正如第二跳行中所示。
+方面的原因），我们会看到几个星号，正如行中所示。
 
 #### netstat
 
@@ -253,18 +253,20 @@ on the LAN. The next field, Gateway, is the name or IP address of the gateway
 (router) used to go from the current host to the destination network. An
 asterisk in this field indicates that no gateway is needed.
 
-在这个简单的例子里面，我们看到一个典型的路由表，位于防火墙／路由器之后。
-第一行显示了目的地192.168.1.0。
-IP地址以零结尾是指网络，而不是个人主机，所以这个目的地意味着局域网中的任何
-一台主机。下一个字段，Gateway，是网关（路由器）的名字或IP地址，用它来连接当前的主机
-和目的地的网络。若这个字段显示一个星号，则表明不需要网关。
+在这个简单的例子里面，我们看到了，位于防火墙之后的局域网中，一台客户端计算机的典型路由表。
+第一行显示了目的地192.168.1.0。IP地址以零结尾是指网络，而不是个人主机，
+所以这个目的地意味着局域网中的任何一台主机。下一个字段，Gateway，
+是网关（路由器）的名字或IP地址，用它来连接当前的主机和目的地的网络。
+若这个字段显示一个星号，则表明不需要网关。
 
 The last line contains the destination default. This means any traffic
 destined for a network that is not otherwise listed in the table. In our
 example, we see that the gateway is defined as a router with the address of
 192.168.1.1, which presumably knows what to do with the destination traffic.
 
-最后一行包含目的地default。这意味着
+最后一行包含目的地default。这意味着发往网络的任何流量没有在表中列出。
+在我们的实例中，我们看到网关被定义为拥有地址192.168.1.1的路由器，它大概能
+知道怎样来处理目的地流量。
 
 The netstat program has many options and we have only looked at a couple.
 Check out the netstat man page for a complete list.
@@ -274,9 +276,14 @@ Check out the netstat man page for a complete list.
 
 ### Transporting Files Over A Network
 
+### 网络中传输文件
+
 What good is a network unless we know how to move files across it? There are many
 programs that move data over networks. We will cover two of them now and several
 more in later sections.
+
+网络有什么用处呢？除非我们知道了怎样通过网络来传输文件。有许多程序可以用来在网络中
+传送数据。我们先讨论两个命令，随后的章节里再介绍几个命令。
 
 #### ftp
 
@@ -287,15 +294,28 @@ Before there were web browsers, there was the ftp program. ftp is used to
 communicate with FTP servers, machines that contain files that can be uploaded and
 downloaded over a network.
 
+ftp命令属于真正的“经典”程序之一，它的名字来源于其所使用的协议，就是文件传输协议。
+FTP被广泛地用来从因特网上下载文件。大多数，并不是所有的，网络浏览器都支持FTP，
+你经常可以看到它们的URI以协议ftp://开头。在出现网络浏览器之前，ftp程序已经存在了。
+ftp程序可用来与FTP服务器进行通信，FTP服务器就是存储文件的计算机，这些文件能够通过
+网络下载和上传。
+
 FTP (in its original form) is not secure, because it sends account names and passwords in
 cleartext. This means that they are not encrypted and anyone sniffing the network can see
 them. Because of this, almost all FTP done over the Internet is done by anonymous FTP
 servers. An anonymous server allows anyone to login using the login name
 “anonymous” and a meaningless password.
 
+FTP（它的原始形式）并不是安全的，因为它会以明码形式发送帐号的姓名和密码。这就意味着
+这些数据没有加密，任何嗅探网络的人都能看到。由于此种原因，几乎因特网中所有FTP服务器
+都是匿名的。一个匿名服务器能允许任何人使用注册名“anonymous”和无意义的密码登录系统。
+
 In the example below, we show a typical session with the ftp program downloading an
 Ubuntu iso image located in the /pub/cd\_images/Ubuntu-8.04 directory of the
 anonymous FTP server fileserver:
+
+在下面的例子中，我们将展示一个典型的会话，从匿名FTP服务器，其名字是fileserver，
+的/pub/\_images/Ubuntu-8.04的目录下，使用ftp程序下载一个Ubuntu系统映像文件。
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ftp fileserver
@@ -329,6 +349,8 @@ ftp> bye
 </pre></div>
 
 Here is an explanation of the commands entered during this session:
+
+这里是对会话期间所输入命令的解释说明：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -383,6 +405,10 @@ Typing “help” at the “ftp&gt;” prompt will display a list of the support
 ftp on a server where sufficient permissions have been granted, it is possible to perform
 many ordinary file management tasks. It’s clumsy, but it does work.
 
+在“ftp&gt;”提示符下，输入“help”，会显示所支持命令的列表。使用ftp登录到一台
+授予了用户足够权限的服务器中，则可以执行很多普通的文件管理任务。虽然很笨拙，
+但它真能工作。
+
 lftp – A Better ftp
 
 ftp is not the only command line FTP client. In fact, there are many. One of better (and
@@ -391,12 +417,20 @@ ftp program, but has many additional convenience features including multiple pro
 support (including HTTP), automatic re-try on failed downloads, background processes,
 tab completion of path names, and many more.
 
+ftp并不是唯一的命令行形式的FTP客户端。实际上，还有很多。其中比较好（也更流行的）是lftp程序，
+由Alexander Lukyanov编写完成。虽然lftp工作起来与传统的ftp程序很相似，但是它带有额外的便捷特性，包括
+多协议支持（包括HTTP），若下载失败会自动地重新下载，后台处理，用tab按键来补全路径名，还有很多。
+
 wget
 
 Another popular command line program for file downloading is wget. It is useful for
 downloading content from both web and FTP sites. Single files, multiple files, and even
 entire sites can be downloaded. To download the first page of linuxcommand.org
 we could do this:
+
+另一个流行的用来下载文件的命令行程序是wget。若想从网络和FTP网站两者上都能下载数据，wget是很有用处的。
+不只能下载单个文件，多个文件，甚至整个网站都能下载。下载linuxcommand.org网站的首页，
+我们可以这样做：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ wget http://linuxcommand.org/index.php
@@ -416,6 +450,9 @@ The program's many options allow wget to recursively download, download files in
 background (allowing you to log off but continue downloading), and complete the
 download of a partially downloaded file. These features are well documented in its
 better-than-average man page.
+
+这个程序的许多选项允许wget递归地下载，在后台下载文件（你退出后仍在下载），能完成未下载
+全的文件。这些特性在命令手册，better-than-average一节中有详尽地说明。
 
 ### Secure Communication With Remote Hosts
 
@@ -446,12 +483,12 @@ system to receive remote connections, it must have the OpenSSH-server package
 installed, configured and running, and (if the system is either running or is behind a
 firewall) it must allow incoming network connections on TCP port 22.
 
-<hr style="width:100%;height:5px;background:teal" />
+<hr style="width:100%;height:5px;background:gray" />
 Tip: If you don’t have a remote system to connect to but want to try these
 examples, make sure the OpenSSH-server package is installed on your system
 and use localhost as the name of the remote host. That way, your machine will
 create network connections with itself.
-<hr style="width:100%;height:5px;background:teal" />
+<hr style="width:100%;height:5px;background:gray" />
 
 The SSH client program used to connect to remote SSH servers is called, appropriately
 enough, ssh. To connect to a remote host named remote-sys, we would use the ssh
@@ -574,6 +611,7 @@ filename within the single quotes:
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ssh remote-sys 'ls * > dirlist.txt'</tt>
 </pre></div>
+<br />
 
 <table class="single" cellpadding="10" width="%100">
 <tr>
@@ -654,13 +692,13 @@ desktop-i386.iso
 /home/me/ubuntu-8.04-desktop-i386.iso 100% 699MB 7.4MB/s 01:35
 sftp> bye</tt>
 </pre></div>
-
-<hr style="width:100%;height:5px;background:teal" />
+<br />
+<hr style="width:100%;height:5px;background:gray" />
 Tip: The SFTP protocol is supported by many of the graphical file managers found
 in Linux distributions. Using either Nautilus (GNOME) or Konqueror (KDE), we
 can enter a URI beginning with sftp:// into the location bar and operate on files
 stored on a remote system running an SSH server.
-<hr style="width:100%;height:5px;background:teal" />
+<hr style="width:100%;height:5px;background:gray" />
 <br />
 <table class="single" cellpadding="10" width="%100">
 <tr>
