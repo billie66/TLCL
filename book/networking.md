@@ -27,14 +27,24 @@ cover:
 
 * traceroute - Print the route packets trace to a network host
 
+* traceroute - 打印到一台网络主机的路由数据包
+
 * netstat - Print network connections, routing tables, interface statistics,
             masquerade connections, and multicast memberships
 
+* netstat - 打印网络连接，路由表，接口统计数据，伪装连接，和多路广播成员
+
 * ftp - Internet file transfer program
+
+* ftp - 因特网文件传输程序 
 
 * wget - Non-interactive network downloader
 
+* wget - 非交互式网络下载器 
+
 * ssh - OpenSSH SSH client (remote login program)
+
+* ssh - OpenSSH SSH客户端（远程登录程序） 
 
 We’re going to assume a little background in networking. In this, the Internet age,
 everyone using a computer needs a basic understanding of networking concepts. To
