@@ -58,8 +58,9 @@ make full use of this chapter we should be familiar with the following terms:
 * IP (网络协议)地址
 
 * Host and domain name
-
-* 主机和域名
+<li>
+<p>主机和域名</p>
+</li>
 
 * URI (Uniform Resource Identifier)
 
@@ -461,7 +462,7 @@ many ordinary file management tasks. It’s clumsy, but it does work.
 授予了用户足够权限的服务器中，则可以执行很多普通的文件管理任务。虽然很笨拙，
 但它真能工作。
 
-lftp – A Better ftp
+#### lftp – A Better ftp
 
 ftp is not the only command line FTP client. In fact, there are many. One of better (and
 more popular) ones is lftp by Alexander Lukyanov. It works much like the traditional
@@ -473,7 +474,7 @@ ftp并不是唯一的命令行形式的FTP客户端。实际上，还有很多�
 由Alexander Lukyanov编写完成。虽然lftp工作起来与传统的ftp程序很相似，但是它带有额外的便捷特性，包括
 多协议支持（包括HTTP），若下载失败会自动地重新下载，后台处理，用tab按键来补全路径名，还有很多。
 
-wget
+#### wget
 
 Another popular command line program for file downloading is wget. It is useful for
 downloading content from both web and FTP sites. Single files, multiple files, and even
