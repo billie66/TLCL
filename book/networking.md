@@ -28,7 +28,7 @@ cover:
 * traceroute - Print the route packets trace to a network host
 
 * netstat - Print network connections, routing tables, interface statistics,
-  masquerade connections, and multicast memberships
+            masquerade connections, and multicast memberships
 
 * ftp - Internet file transfer program
 
@@ -401,6 +401,48 @@ The commands quit and exit may also be used. </td>
 </table>
 </p>
 
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<tr>
+<th class="title">命令</th>
+<th class="title">意思</th>
+</tr>
+<tr>
+<td valign="top" width="25%">ftp fileserver</td>
+<td valign="top">唤醒ftp程序，让它连接到FTP服务器，fileserver。</td>
+</tr>
+<tr>
+<td valign="top">anonymous</td>
+<td valign="top">登录名。输入登录名后，将出现一个密码提示。一些服务器将会接受空密码，
+其它一些则会要求一个邮件地址形式的密码。如果是这种情况，试着输入“user@example.com”。 </td>
+</tr>
+<tr>
+<td valign="top">cd pub/cd\_images/Ubuntu-8.04 </td>
+<td valign="top">跳转到远端系统中，要下载文件所在的目录下，
+注意在大多数匿名的FTP服务器中，支持公共下载的文件都能在目录pub下找到 </td>
+</tr>
+<tr>
+<td valign="top">ls</td>
+<td valign="top">列出远端系统中的目录。</td>
+</tr>
+<tr>
+<td valign="top">lcd Desktop</td>
+<td valign="top">跳转到本地系统中的~/Desktop目录下。在实例中，ftp程序在工作目录~下被唤醒。
+这个命令把工作目录改为~/Desktop </td>
+</tr>
+<tr>
+<td valign="top">get ubuntu-8.04-desktop- i386.iso </td>
+<td valign="top">告诉远端系统传送文件到本地。因为本地系统的工作目录
+已经更改到了~/Desktop，所以文件会被下载到此目录。 </td>
+</tr>
+<tr>
+<td valign="top">bye</td>
+<td
+valign="top">退出远端服务器，结束ftp程序会话。也可以使用命令quit和exit。</td>
+</tr>
+</table>
+</p>
+
 Typing “help” at the “ftp&gt;” prompt will display a list of the supported commands. Using
 ftp on a server where sufficient permissions have been granted, it is possible to perform
 many ordinary file management tasks. It’s clumsy, but it does work.
@@ -464,6 +506,11 @@ flaw that the ftp program does; they transmit all their communications (includin
 names and passwords) in cleartext. This makes them wholly inappropriate for use in the
 Internet age.
 
+通过网络来远程操控类似Unix的操作系统已经有很多年了。早些年，在因特网普遍推广之前，有
+一些受欢迎的程序被用来登录远程主机。它们是rlogin和telnet程序。然而这些程序，拥有和ftp程序
+一样的致命缺点；它们以明码形式来传输所有的交流信息（包括登录命令和密码）。这使它们完全不
+适合使用在因特网时代。
+
 #### ssh
 
 To address this problem, a new protocol called SSH (Secure Shell) was developed. SSH
@@ -472,9 +519,17 @@ authenticates that the remote host is who it says it is (thus preventing so-call
 the middle” attacks), and second, it encrypts all of the communications between the local
 and remote hosts.
 
+为了解决这个问题，开发了一款新的协议，叫做SSH（Secure Shell）。
+SSH解决了这两个基本的和远端主机安全交流的问题。首先，它要认证远端主机是否为它
+所知道的那台主机（这样就阻止了所谓的“中间人”的攻击），其次，它加密了本地与远程主机之间
+所有的通讯信息。
+
 SSH consists of two parts. An SSH server runs on the remote host, listening for incoming
 connections on port twenty-two, while an SSH client is used on the local system to
 communicate with the remote server.
+
+SSH由两部分组成。SSH服务器运行在远端主机上运行，在端口号22上监听将要到来的连接，而
+SSH客户端用在本地系统中，用来和远端服务器通信。
 
 Most Linux distributions ship an implementation of SSH called OpenSSH from the BSD
 project. Some distributions include both the client and the server packages by default
@@ -483,16 +538,28 @@ system to receive remote connections, it must have the OpenSSH-server package
 installed, configured and running, and (if the system is either running or is behind a
 firewall) it must allow incoming network connections on TCP port 22.
 
+大多数Linux发行版自带一个提供SSH功能的软件包，叫做OpenSSH，来自于BSD项目。一些发行版
+默认包含客户端和服务器端两个软件包（例如，Red
+Hat）,而另一些（比方说Ubuntu）则只是提供客户端服务。为了能让系统接受远端的连接，它必须
+安装OpenSSH-server软件包，配置，运行它，并且（如果系统正在运行，或者是在防火墙之后）
+它必须允许在TCP端口号上接收网络连接。
+
 <hr style="width:100%;height:5px;background:gray" />
 Tip: If you don’t have a remote system to connect to but want to try these
 examples, make sure the OpenSSH-server package is installed on your system
 and use localhost as the name of the remote host. That way, your machine will
 create network connections with itself.
+
+小贴示：如果你没有远端系统去连接，但还想试试这些实例，则确认安装了OpenSSH-server软件包
+，则可使用localhost作为远端主机的名字。这种情况下，计算机会和它自己创建网络连接。
 <hr style="width:100%;height:5px;background:gray" />
 
 The SSH client program used to connect to remote SSH servers is called, appropriately
 enough, ssh. To connect to a remote host named remote-sys, we would use the ssh
 client program like so:
+
+用来与远端SSH服务器相连接的SSH客户端程序，顺理成章，叫做ssh。连接到远端名为remote-sys
+的主机，我们可以这样使用ssh客户端程序：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ssh remote-sys
@@ -509,6 +576,10 @@ has never seen this remote host before. To accept the credentials of the remote 
 “yes” when prompted. Once the connection is established, the user is prompted for
 his/her password:
 
+第一次尝试连接，提示信息表明远端主机的真实性不能确立。这是因为客户端程序以前从没有
+看到过这个远端主机。为了接受远端主机的身份验证凭据，输入“yes”。一旦建立了连接，会提示
+用户输入他或她的密码：
+
 <div class="code"><pre>
 <tt>Warning: Permanently added 'remote-sys,192.168.1.4' (RSA) to the list
 of known hosts.
@@ -517,6 +588,8 @@ me@remote-sys's password:</tt>
 
 After the password is successfully entered, we receive the shell prompt from the remote
 system:
+
+成功地输入密码之后，我们会接收到远端系统的shell提示符：
 
 <div class="code"><pre>
 <tt>Last login: Sat Aug 30 13:00:48 2008
@@ -527,9 +600,15 @@ The remote shell session continues until the user enters the exit command at the
 shell prompt, thereby closing the remote connection. At this point, the local shell session
 resumes and the local shell prompt reappears.
 
+远端shell会话一直存在，直到用户输入exit命令后，则关闭了远程连接。这时候，本地的shell会话
+恢复，本地shell提示符重新出现。
+
 It is also possible to connect to remote systems using a different user name. For example,
 if the local user “me” had an account named “bob” on a remote system, user me could log
 in to the account bob on the remote system as follows:
+
+也有可能使用不同的用户名连接到远程系统。例如，如果本地用户“me”，在远端系统中有一个帐号名
+“bob”，则用户me能够用bob帐号登录到远端系统，如下所示：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ssh bob@remote-sys
@@ -540,6 +619,8 @@ Last login: Sat Aug 30 13:03:21 2008
 
 As stated before, ssh verifies the authenticity of the remote host. If the remote host does
 not successfully authenticate, the following message appears:
+
+正如之前所讲到的，ssh验证远端主机的真实性。如果远端主机不能成功地通过验证，则会提示以下信息：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ssh remote-sys
@@ -562,10 +643,19 @@ interests of security and safety however, the first possibility should not be di
 of hand. Always check with the administrator of the remote system when this message
 occurs.
 
+有两种可能的情形会提示这些信息。第一，某个攻击者企图制造“中间人”袭击。这很少见，
+因为每个人都知道ssh会针对这种状况发出警告。最有可能的罪魁祸首是远端系统已经改变了；
+例如，它的操作系统或者是SSH服务器重新安装了。然而，为了安全起见，第一个可能性不应该
+被轻易否定。当这条消息出现时，总要与远端系统的管理员查对一下。
+
 After it has been determined that the message is due to a benign cause, it is safe to correct
 the problem on the client side. This is done by using a text editor (vim perhaps) to
 remove the obsolete key from the ~/.ssh/known\_hosts file. In the example
 message above, we see this:
+
+当确定了这条消息归结为一个良性的原因之后，那么在客户端更正问题就很安全了。
+使用文本编辑器（可能是vim）从文件~/.ssh/known\_hosts中删除废弃的钥匙，
+就解决了问题。在上面的例子里，我们看到这样一句话：
 
 <div class="code"><pre>
 <tt>Offending key in /home/me/.ssh/known\_hosts:1</tt>
@@ -575,9 +665,16 @@ This means that line one of the known\_hosts file contains the offending key. De
 this line from the file, and the ssh program will be able to accept new authentication
 credentials from the remote system.
 
+这意味着文件known\_hosts里面某一行包含攻击型的钥匙。从文件中删除这一行，则ssh程序
+就能够从远端系统接受新的身份验证凭据。
+
 Besides opening a shell session on a remote system, ssh also allows us to execute a
 single command on a remote system. For example, to execute the free command on a
 remote host named remote-sys and have the results displayed on the local system:
+
+除了能够在远端系统中打开一个shell会话，ssh程序也允许我们在远端系统中执行单个命令。
+例如，在名为remote-sys的远端主机上，执行free命令，并把输出结果显示到本地系统
+shell会话中。
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ssh remote-sys free
@@ -596,6 +693,9 @@ It’s possible to use this technique in more interesting ways, such as this exa
 we perform an ls on the remote system and redirect the output to a file on the local
 system:
 
+有可能以更有趣的方式来利用这项技术，比方说下面的例子，我们在远端系统中执行ls命令，
+并把命令输出重定向到本地系统中的一个文件里面。
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ssh remote-sys 'ls \*' &gt; dirlist.txt
 me@twin4's password:
@@ -608,6 +708,10 @@ be performed on the remote system. Likewise, if we had wanted the output redirec
 a file on the remote machine, we could have placed the redirection operator and the
 filename within the single quotes:
 
+注意，上面的例子中使用了单引号。这样做是因为我们不想路径名展开操作在本地执行 ；而希望
+它在远端系统中被执行。同样地，如果我们想要把输出结果重定向到远端主机的文件中，我们可以
+把重定向操作符和文件名都放到单引号里面。
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ssh remote-sys 'ls * > dirlist.txt'</tt>
 </pre></div>
@@ -617,6 +721,8 @@ filename within the single quotes:
 <tr>
 <td>
 <h3>Tunneling With SSH</h3>
+<h3>SSH通道</h3>
+
 <p>Part of what happens when you establish a connection with a remote host via SSH
 is that an encrypted tunnel is created between the local and remote systems.
 Normally, this tunnel is used to allow commands typed at the local system to be
@@ -624,6 +730,11 @@ transmitted safely to the remote system, and for the results to be transmitted
 safely back. In addition to this basic function, the SSH protocol allows most
 types of network traffic to be sent through the encrypted tunnel, creating a sort of
 VPN (Virtual Private Network) between the local and remote systems.</p>
+
+<p>当你通过SSH协议与远端主机建立连接的时候，其中发生的事就是在本地与远端系统之间
+创建了一条加密通道。通常，这条通道被用来把在本地系统中输入的命令安全地传输到远端系统，
+同样地，再把执行结果安全地发送回来。除了这个基本功能之外，SSH协议允许大多数
+网络流量类型通过这条加密通道来被传送，在本地与远端系统之间创建某种VPN（虚拟专用网络）。</p>
 
 <p>Perhaps the most common use of this feature is to allow X Window system traffic
 to be transmitted. On a system running an X server (that is, a machine displaying
@@ -634,6 +745,12 @@ called linuxbox which is running an X server, and we want to run the xload
 program on a remote system named remote-sys and see the program’s
 graphical output on our local system. We could do this:</p>
 
+<p>可能这个特性的最普遍使用是允许传递X窗口系统流量。在运行着X服务器（也就是，
+能显示GUI的机器）的系统中，有可能在远端启动和运行一个X客户端程序（一个图形化应用程序），
+而应用程序的显示结果出现在本地。这很容易完成，这里有个例子：假设我们正坐在一台装有Linux系统，
+叫做linuxbox的机器之前，且系统中运行着X服务器，现在我们想要在名为remote-sys的远端系统中
+运行xload程序，但是要在我们的本地系统中看到这个程序的图形化输出。我们可以这样做：</p>
+
 <p> [me@linuxbox ~]$ ssh -X remote-sys</p>
 <p> me@remote-sys's password:</p>
 <p>Last login: Mon Sep 08 13:23:11 2008</p>
@@ -642,11 +759,14 @@ graphical output on our local system. We could do this:</p>
 <p>After the xload command is executed on the remote system, its window
 appears on the local system. On some systems, you may need to use the “-Y”
 option rather than the “-X” option to do this.</p>
+
+<p>这个xload命令在远端执行之后，它的窗口就会出现在本地。在某些系统中，你可能需要
+使用“－Y”选项，而不是“－X”选项来完成这个操作。</p>
 </td>
 </tr>
 </table>
 
-scp And sftp
+####scp And sftp
 
 The OpenSSH package also includes two programs that can make use of an SSH
 encrypted tunnel to copy files across the network. The first, scp (secure copy) is used
@@ -655,6 +775,12 @@ source or destination pathnames may be preceded with the name of a remote host,
 followed by a colon character. For example, if we wanted to copy a document named
 document.txt from our home directory on the remote system, remote-sys, to the
 current working directory on our local system, we could do this:
+
+这个OpenSSH软件包也包含两个程序，它们可以利用SSH加密通道在网络间复制文件。
+第一个，scp（安全复制）被用来复制文件，与熟悉的cp程序非常相似。最显著的区别就是
+源或者目标路径名要以远端主机的名字，后跟一个冒号字符开头。例如，如果我们想要
+从远端系统，remote-sys，的主目录下复制文档document.txt，到我们本地系统的当前工作目录下，
+可以这样操作：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ scp remote-sys:document.txt .
@@ -667,6 +793,9 @@ document.txt
 As with ssh, you may apply a user name to the beginning of the remote host’s name if
 the desired remote host account name does not match that of the local system:
 
+和ssh命令一样，如果你所期望的远端主机帐户与你本地系统中的不一致，
+则可以把用户名添加到远端主机名的开头。
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ scp bob@remote-sys:document.txt .</tt>
 </pre></div>
@@ -678,6 +807,12 @@ encrypted tunnel. sftp has an important advantage over conventional ftp in that 
 does not require an FTP server to be running on the remote host. It only requires the SSH
 server. This means that any remote machine that can connect with the SSH client can
 also be used as a FTP-like server. Here is a sample session:
+
+第二个SSH文件复制命令是sftp，正如其名字所示，它是ftp程序的安全替代品。sftp工作起来与我们
+之前使用的ftp程序很相似；然而，它不用明码形式来传递数据，它使用加密的SSH通道。sftp有一个
+重要特性强于传统的ftp命令，就是sftp不需要远端系统中运行FTP服务器。它仅仅要求SSH服务器。
+这意味着任何一台能用SSH客户端连接的远端机器，也可当作类似于FTP的服务器来使用。
+这里是一个样本会话：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sftp remote-sys
@@ -692,18 +827,29 @@ desktop-i386.iso
 /home/me/ubuntu-8.04-desktop-i386.iso 100% 699MB 7.4MB/s 01:35
 sftp> bye</tt>
 </pre></div>
+
 <br />
+
 <hr style="width:100%;height:5px;background:gray" />
 Tip: The SFTP protocol is supported by many of the graphical file managers found
 in Linux distributions. Using either Nautilus (GNOME) or Konqueror (KDE), we
 can enter a URI beginning with sftp:// into the location bar and operate on files
 stored on a remote system running an SSH server.
+
+小贴示：这个SFTP协议被许多Linux发行版中的图形化文件管理器支持。使用Nautilus (GNOME),
+ 或者是Konqueror (KDE)，我们都能在位置栏中输入以sftp://开头的URI，
+ 来操作存储在运行着SSH服务器的远端系统中的文件。
 <hr style="width:100%;height:5px;background:gray" />
+
 <br />
+
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
 <h3>An SSH Client For Windows?</h3>
+
+<h3>Windows中的SSH客户端</h3>
+
 <p>Let’s say you are sitting at a Windows machine but you need to log in to your
 Linux server and get some real work done, what do you do? Get an SSH client
 program for your Windows box, of course! There are a number of these. The
@@ -711,23 +857,38 @@ most popular one is probably PuTTY by Simon Tatham and his team. The
 PuTTY program displays a terminal window and allow a Windows user to open
 an SSH (or telnet) session on a remote host. The program also provides analogs
 for the scp and sftp programs.</p>
+
+<p>比方说你正坐在一台Windows机器前面，但是你需要登录到你的Linux服务器中，去完成
+一些实际的工作，那该怎么办呢？当然是得到一个Windows平台下的SSH客户端！有很多这样
+的工具。最流行的可能就是由Simon Tatham和他的团队开发的PuTTY了。这个PuTTY程序
+能够显示一个终端窗口，而且允许Windows用户在远端主机中打开一个SSH（或者telnet）会话。
+这个程序也提供了scp和sftp程序的类似物。</p>
+
 <p>PuTTY is available at http://www.chiark.greenend.org.uk/~sgtatham/putty/</p>
+
+<p>PuTTY可在链接 http://www.chiark.greenend.org.uk/~sgtatham/putty/ 处得到。</p>
 </td>
 </tr>
 </table>
 
 ### Further Reading
 
-Wikipedia contains many good networking articles. Here are some of the basics:
+### 拓展阅读
 
-http://tldp.org/LDP/nag2/index.html
+* For a broad (albeit dated) look at network administration, the Linux
+  Documentation Project provides the Linux Network Administrator’s Guide:
+
+  Linux文档项目提供了Linux网络管理指南，可以广泛地（虽然过时了）了解网络管理方面的知识。
+
+  <http://tldp.org/LDP/nag2/index.html>
        
-For a broad (albeit dated) look at network administration, the Linux
-Documentation Project provides the Linux Network Administrator’s Guide:
+* Wikipedia contains many good networking articles. Here are some of the basics:
 
-http://en.wikipedia.org/wiki/Internet\_protocol\_address
+* Wikipedia上包含了许多网络方面的优秀文章。这里有一些基础的：
 
-http://en.wikipedia.org/wiki/Host\_name
+  <http://en.wikipedia.org/wiki/Internet\_protocol\_address>
 
-http://en.wikipedia.org/wiki/Uniform\_Resource\_Identifier
+  <http://en.wikipedia.org/wiki/Host\_name>
+
+  <http://en.wikipedia.org/wiki/Uniform\_Resource\_Identifier>
 
