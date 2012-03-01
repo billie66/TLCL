@@ -509,6 +509,8 @@ better-than-average man page.
 
 ### Secure Communication With Remote Hosts
 
+### 与远程主机安全通信 
+
 For many years, Unix-like operating systems have had the ability to be administered
 remotely via a network. In the early days, before the general adoption of the Internet,
 there were a couple of popular programs used to log in to remote hosts. These were the
