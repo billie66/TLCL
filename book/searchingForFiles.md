@@ -461,22 +461,19 @@ ID.</td>
 </tr>
 <tr>
 <td valign="top">-cnewer file </td>
-<td valign="top">匹配的文件和目录的内容或属性最后修改时间早于那些文件。
-</td>
+<td valign="top">匹配的文件和目录的内容或属性最后修改时间早于那些文件。 </td>
 </tr>
 <tr>
 <td valign="top">-ctime n </td>
-<td valign="top">匹配的文件和目录的内容和属性最后修改时间在n\*24小时之前。
-</td>
+<td valign="top">匹配的文件和目录的内容和属性最后修改时间在n\*24小时之前。</td>
 </tr>
 <tr>
 <td valign="top">-empty </td>
-<td valign="top">匹配空文件和目录。
+<td valign="top">匹配空文件和目录。</td>
 </tr>
 <tr>
 <td valign="top">-group name </td>
-<td valign="top">匹配的文件和目录属于一个组。组可以用组名或组ID来表示
-</td>
+<td valign="top">匹配的文件和目录属于一个组。组可以用组名或组ID来表示。</td>
 </tr>
 <tr>
 <td valign="top">-iname pattern </td>
@@ -484,8 +481,7 @@ ID.</td>
 </tr>
 <tr>
 <td valign="top">-inum n </td>
-<td valign="top">匹配的文件的inode号是n。这对于找到某个特殊inode的所有硬链接很有帮助。
-</td>
+<td valign="top">匹配的文件的inode号是n。这对于找到某个特殊inode的所有硬链接很有帮助。 </td>
 </tr>
 <tr>
 <td valign="top">-mmin n </td>
@@ -493,8 +489,7 @@ ID.</td>
 </tr>
 <tr>
 <td valign="top">-mtime n </td>
-<td valign="top">匹配的文件或目录的内容被修改于n\*24小时之前。
-</td>
+<td valign="top">匹配的文件或目录的内容被修改于n\*24小时之前。 </td>
 </tr>
 <tr>
 <td valign="top">-name pattern </td>
@@ -504,19 +499,16 @@ ID.</td>
 <td valign="top">-newer file </td>
 <td
 valign="top">匹配的文件和目录的内容早于指定的文件。当编写shell脚本，做文件备份时，非常有帮助。
-每次你制作一个备份，更新文件（比如说日志），然后使用find命令来决定自从上次更新，哪一个文件已经更改了。
-</td>
+每次你制作一个备份，更新文件（比如说日志），然后使用find命令来决定自从上次更新，哪一个文件已经更改了。 </td>
 </tr>
 <tr>
 <td valign="top">-nouser </td>
 <td valign="top">匹配的文件和目录不属于一个有效用户。这可以用来查找
-属于删除帐户的文件或监测攻击行为。
-</td>
+属于删除帐户的文件或监测攻击行为。 </td>
 </tr>
 <tr>
 <td valign="top">-nogroup </td>
-<td valign="top">匹配的文件和目录不属于一个有效的组。
-</td>
+<td valign="top">匹配的文件和目录不属于一个有效的组。 </td>
 </tr>
 <tr>
 <td valign="top">-perm mode </td>
@@ -525,8 +517,7 @@ valign="top">匹配的文件和目录的内容早于指定的文件。当编写s
 </tr>
 <tr>
 <td valign="top">-samefile name </td>
-<td valign="top">相似于-inum测试。匹配和文件name享有同样inode号的文件。
-</td>
+<td valign="top">相似于-inum测试。匹配和文件name享有同样inode号的文件。 </td>
 </tr>
 <tr>
 <td valign="top">-size n </td>
@@ -539,8 +530,7 @@ valign="top">匹配的文件和目录的内容早于指定的文件。当编写s
 <tr>
 <td valign="top">-user name </td>
 <td
-valign="top">匹配的文件或目录属于某个用户。这个用户可以通过用户名或用户ID来表示。
-</td>
+valign="top">匹配的文件或目录属于某个用户。这个用户可以通过用户名或用户ID来表示。 </td>
 </tr>
 </table>
 </p>
