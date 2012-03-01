@@ -557,8 +557,7 @@ could do this:
 一种方法来结合测试，通过使用逻辑操作符来创建更复杂的逻辑关系。为了表达上述的测试，我们可以这样做：
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ find ~ \( -type f -not -perm 0600 \) -or \( -type d
--not -perm 0700 \)</tt>
+<tt>[me@linuxbox ~]$ find ~ \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)</tt>
 </pre></div>
 
 Yikes! That sure looks weird. What is all this stuff? Actually, the operators are not that
