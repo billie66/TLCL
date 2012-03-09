@@ -995,8 +995,8 @@ in place of -exec, the user is prompted before execution of each specified comma
 &lt; ls ... /home/me/bin/foo &gt; ? y
 -rwxr-xr-x 1 me    me 224 2007-10-29 18:44 /home/me/bin/foo
 &lt; ls ... /home/me/foo.txt &gt; ? y
--rw-r--r-- 1 me    me 0 2008-09-19 12:53 /home/me/foo.txt </tt>
-</pre></div>
+-rw-r--r-- 1 me    me 0 2008-09-19 12:53 /home/me/foo.txt </tt></pre>
+</div>
 
 In this example, we search for files with names starting with the string “foo” and execute
 the command ls -l each time one is found. Using the -ok action prompts the user
@@ -1279,8 +1279,7 @@ playground:
 最后，让我们回到之前那个错误权限的例子中，把它应用于操练场里：
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ find playground \( -type f -not -perm 0600 \) -or \(
--type d -not -perm 0700 \)</tt>
+<tt>[me@linuxbox ~]$ find playground \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)</tt>
 </pre></div>
 
 This command lists all one hundred directories and twenty-six hundred files in
@@ -1294,9 +1293,7 @@ to the files and directories in our playground:
 添加行为，对实战场中的文件和目录应用新的权限。
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ find playground \( -type f -not -perm 0600 -exec
-chmod 0600 '{}' ';' \) -or \( -type d -not -perm 0711 -exec chmod
-0700 '{}' ';' \)</tt>
+<tt>[me@linuxbox ~]$ find playground \( -type f -not -perm 0600 -exec chmod 0600 '{}' ';' \) -or \( -type d -not -perm 0711 -exec chmod 0700 '{}' ';' \)</tt>
 </pre></div>
 
 On a day-to-day basis, we might find it easier to issue two commands, one for the
