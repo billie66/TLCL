@@ -992,9 +992,9 @@ in place of -exec, the user is prompted before execution of each specified comma
 
 <div class="code"><pre>
 <tt>find ~ -type f -name 'foo\*' -ok ls -l '{}' ';'
-< ls ... /home/me/bin/foo > ? y
+&lt; ls ... /home/me/bin/foo &gt; ? y
 -rwxr-xr-x 1 me    me 224 2007-10-29 18:44 /home/me/bin/foo
-< ls ... /home/me/foo.txt > ? y
+&lt; ls ... /home/me/foo.txt &gt; ? y
 -rw-r--r-- 1 me    me 0 2008-09-19 12:53 /home/me/foo.txt </tt>
 </pre></div>
 
@@ -1097,6 +1097,7 @@ execute xargs with the --show-limits option.
 参数个数的指定命令，然后重复这个过程直到耗尽标准输入。执行带有--show--limits选项
 的xargs命令，来查看命令行的最大值。
 <hr style="height:5px;width:100%;background:gray" />
+<br />
 
 <table class="single" cellpadding="10" width="%100">
 <tr>
