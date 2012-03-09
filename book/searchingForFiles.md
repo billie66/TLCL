@@ -1054,8 +1054,7 @@ will execute ls each time a matching file is found. By changing the command to:
 <div class="code"><pre>
 <tt>find ~ -type f -name 'foo\*' -exec ls -l '{}' +
 -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
--rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt
-</tt>
+-rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt </tt>
 </pre></div>
 
 we get the same results, but the system only has to execute the ls command once.
@@ -1195,8 +1194,7 @@ hundred instances of the file we can confirm it this way:
 我们拥有一百个此文件的实例，我们可以用这种方式来确认：
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ find playground -type f -name 'file-A' | wc -l
-</tt>
+<tt>[me@linuxbox ~]$ find playground -type f -name 'file-A' | wc -l </tt>
 </pre></div>
 
 Next, let’s look at finding files based on their modification times. This will be helpful
@@ -1293,7 +1291,8 @@ to the files and directories in our playground:
 添加行为，对实战场中的文件和目录应用新的权限。
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ find playground \( -type f -not -perm 0600 -exec chmod 0600 '{}' ';' \) -or \( -type d -not -perm 0711 -exec chmod 0700 '{}' ';' \)</tt>
+<tt>[me@linuxbox ~]$ find playground \( -type f -not -perm 0600 -exec chmod 0600 '{}' ';' \) 
+   -or \( -type d -not -perm 0711 -exec chmod 0700 '{}' ';' \)</tt>
 </pre></div>
 
 On a day-to-day basis, we might find it easier to issue two commands, one for the
