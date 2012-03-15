@@ -674,7 +674,7 @@ expr2 is performed. Here’s how it works:
 <caption class="cap">Table 18-5: find AND/OR Logic</caption>
 <tr>
 <th class="title" width="%30">Results of expr1</th>
-<th class="title">Operator</th>
+<th class="title" width="%30">Operator</th>
 <th class="title">expr2 is...</th>
 </tr>
 <tr>
@@ -705,7 +705,7 @@ expr2 is performed. Here’s how it works:
 <caption class="cap">表18-5: find AND/OR 逻辑</caption>
 <tr>
 <th class="title" width="%30">expr1的结果</th>
-<th class="title">操作符</th>
+<th class="title" width="%30">操作符</th>
 <th class="title">expr2 is...</th>
 </tr>
 <tr>
