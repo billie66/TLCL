@@ -1149,8 +1149,9 @@ followed by the pathname of the repository.
   contain useful examples. In addition, the GNU Project has a good online manual
   for its version of tar. It can be found here:
 
-<ul> <li> 在这里讨论的所有命令的手册文档都相当清楚明白，并且包含了有用的例子。另外，
-  GNU版本的tar命令有一个不错的在线文档。可以在下面链接处找到： </li> </ul>
-  <http://www.gnu.org/software/tar/manual/index.html>
+<ul><li> 在这里讨论的所有命令的手册文档都相当清楚明白，并且包含了有用的例子。另外，
+  GNU版本的tar命令有一个不错的在线文档。可以在下面链接处找到： </li></ul>
+
+   <http://www.gnu.org/software/tar/manual/index.html>
 
 
