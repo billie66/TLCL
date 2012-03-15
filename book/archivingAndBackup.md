@@ -306,6 +306,7 @@ files:
 <hr style="height:5px;width:100%;background:gray" />
 <b>Tip:</b> There is a zless program, too. It performs the same function as the pipeline
 above.
+
 <b>小贴士:</b>还有一个zless程序。它与上面的管道线有相同的功能。
 <hr style="height:5px;width:100%;background:gray" />
 
@@ -676,7 +677,8 @@ tar命令也可以利用标准输出和输入。这里是一个完整的例子:
 
 <div class="code"><pre>
 <tt>[me@linuxbox foo]$ cd
-[me@linuxbox ~]$ find playground -name 'file-A' | tar cf - --files- from=- | gzip > playground.tgz </tt>
+[me@linuxbox ~]$ find playground -name 'file-A' | tar cf - --files- from=- 
+   | gzip > playground.tgz </tt>
 </pre></div>
 
 In this example, we used the find program to produce a list of matching files and piped
