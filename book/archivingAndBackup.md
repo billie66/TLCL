@@ -80,7 +80,6 @@ the basic goal remains the same—get rid of redundant data.
 我们只要简单地描述这个事实，我们有3万个黑色的像素数据块。所以，我们不存储包含3万个0
 （通常在图像文件中，黑色由0来表示）的数据块，取而代之，我们把这些数据压缩为数字30,000，
 后跟一个0，来表示我们的数据。这种数据压缩方案被称为游程编码，是一种最基本的压缩技术。
-
    
 Compression algorithms (the mathematical techniques used to carry out the compression)
 fall into two general categories, lossless and lossy. Lossless compression preserves all
@@ -959,12 +958,13 @@ where source and destination are one of the following:
 * A remote file or directory in the form of [user@]host:path
   
 * A remote rsync server specified with a URI of rsync://[user@]host[:port]/path
+<ul>
+<li> 一个本地文件或目录</li>
 
-* 一个本地文件或目录
+<li> 一个远端文件或目录，以[user@]host:path的形式存在</li>
 
-* 一个远端文件或目录，以[user@]host:path的形式存在
-
-* 一个远端rsync服务器，由rsync://[user@]host[:port]/path指定
+<li> 一个远端rsync服务器，由rsync://[user@]host[:port]/path指定</li>
+</ul>
 
 Note that either the source or destination must be a local file. Remote to remote copying
 is not supported.
@@ -1129,7 +1129,8 @@ Hat软件中心为它的Fedora发行版，维护着一个巨大的正在开发�
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ mkdir fedora-devel
-[me@linuxbox ~]$ rsync -av -delete rsync://rsync.gtlib.gatech.edu/fedora-linux-core/development/i386/os fedora-devel </tt>
+[me@linuxbox ~]$ rsync -av -delete rsync://rsync.gtlib.gatech.edu/fedora-linux-
+ core/development/i386/os fedora-devel </tt>
 </pre></div>
 
 In this example, we use the URI of the remote rsync server, which consists of a protocol
@@ -1147,10 +1148,11 @@ followed by the pathname of the repository.
   contain useful examples. In addition, the GNU Project has a good online manual
   for its version of tar. It can be found here:
 
-
-* 在这里讨论的所有命令的手册文档都相当清楚明白，并且包含了有用的例子。另外，
+<ul>
+<li> 在这里讨论的所有命令的手册文档都相当清楚明白，并且包含了有用的例子。另外，
   GNU版本的tar命令有一个不错的在线文档。可以在下面链接处找到：
-
+</li>
+</ul>
   <http://www.gnu.org/software/tar/manual/index.html>
 
 
