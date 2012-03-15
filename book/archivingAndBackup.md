@@ -303,11 +303,13 @@ files:
 <tt>[me@linuxbox ~]$ zcat foo.txt.gz | less </tt>
 </pre></div>
 
+<br />
 <hr style="height:5px;width:100%;background:gray" />
-<b>Tip:</b> There is a zless program, too. It performs the same function as the pipeline
-above.
+
+<b>Tip:</b> There is a zless program, too. It performs the same function as the pipeline above.
 
 <b>小贴士:</b>还有一个zless程序。它与上面的管道线有相同的功能。
+
 <hr style="height:5px;width:100%;background:gray" />
 
 #### bzip2
