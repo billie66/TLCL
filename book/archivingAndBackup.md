@@ -958,11 +958,12 @@ where source and destination are one of the following:
 * A remote file or directory in the form of [user@]host:path
   
 * A remote rsync server specified with a URI of rsync://[user@]host[:port]/path
-<ul>
-<li> 一个本地文件或目录</li>
-<li> 一个远端文件或目录，以[user@]host:path的形式存在</li>
-<li> 一个远端rsync服务器，由rsync://[user@]host[:port]/path指定</li>
-</ul>
+
+* 一个本地文件或目录
+
+* 一个远端文件或目录，以[user@]host:path的形式存在
+
+* 一个远端rsync服务器，由rsync://[user@]host[:port]/path指定
 
 Note that either the source or destination must be a local file. Remote to remote copying
 is not supported.
