@@ -306,9 +306,9 @@ files:
 <br />
 <hr style="height:5px;width:100%;background:gray" />
 
-<b>Tip:</b> There is a zless program, too. It performs the same function as the pipeline above.
+<p><b>Tip:</b> There is a zless program, too. It performs the same function as the pipeline above.</p>
 
-<b>小贴士:</b>还有一个zless程序。它与上面的管道线有相同的功能。
+<p><b>小贴士:</b>还有一个zless程序。它与上面的管道线有相同的功能。</p>
 
 <hr style="height:5px;width:100%;background:gray" />
 
@@ -1152,10 +1152,11 @@ followed by the pathname of the repository.
 * The man pages for all of the commands discussed here are pretty clear and
   contain useful examples. In addition, the GNU Project has a good online manual
   for its version of tar. It can be found here:
-<ul>
-<li>在这里讨论的所有命令的手册文档都相当清楚明白，并且包含了有用的例子。另外，
-GNU版本的tar命令有一个不错的在线文档。可以在下面链接处找到：</li>
-</ul>
-<p> <http://www.gnu.org/software/tar/manual/index.html></p>
+
+<ul> <li><p>在这里讨论的所有命令的手册文档都相当清楚明白，并且包含了有用的例子。另外，
+GNU版本的tar命令有一个不错的在线文档。可以在下面链接处找到：</p></li> </ul>
+
+   <http://www.gnu.org/software/tar/manual/index.html>
+
 
 
