@@ -2,7 +2,6 @@
 layout: book
 title: 软件包管理 
 ---
-Package Management
 
 If we spend any time in the Linux community, we hear many opinions as to which of the
 many Linux distributions is &quot;best.&quot; Often, these discussions get really silly, focusing on

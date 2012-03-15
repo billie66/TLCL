@@ -2,7 +2,6 @@
 layout: book
 title: 存储媒介 
 ---
-Storage Media
 
 In previous chapters we’ve looked at manipulating data at the file level. In this chapter,
 we will consider data at the device level. Linux has amazing capabilities for handling

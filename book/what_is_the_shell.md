@@ -2,7 +2,6 @@
 layout: book
 title: 什么是shell 
 ---
-2 – What Is The Shell?
 
 When we speak of the command line, we are really referring to the shell. The
 shell is a program that takes keyboard commands and passes them to the

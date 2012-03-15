@@ -3,8 +3,6 @@ layout: book
 title: 自定制shell提示符 
 ---
 
-14 – Customizing The Prompt
-
 In this chapter we will look at a seemingly trivial detail — our shell prompt. This
 examination will reveal some of the inner workings of the shell and the terminal emulator
 program itself.

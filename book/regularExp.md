@@ -668,14 +668,20 @@ This expression will match the filenames in our lists that start with either “
 </pre></div>
 
 changes to match any filename that begins with “bz” or contains “gz” or contains “zip”.
+
 Quantifiers
+
 Extended regular expressions support several ways to specify the number of times an
 element is matched.
+
 ? - Match An Element Zero Or One Time
+
 This quantifier means, in effect, “make the preceding element optional.” Let’s say we
 wanted to check a phone number for validity and we considered a phone number to be
 valid if it matched either of these two forms:
+
 (nnn) nnn-nnnn nnn nnn-nnnn
+
 where “n” is a numeral. We could construct a regular expression like this:
 
 ^\(?[0-9][0-9][0-9]\)?  [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$
