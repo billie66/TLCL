@@ -704,7 +704,7 @@ expr2 is performed. Here’s how it works:
 <table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">表18-5: find AND/OR 逻辑</caption>
 <tr>
-<th class="title" width=%30>expr1的结果</th>
+<th class="title" width="%30">expr1的结果</th>
 <th class="title">操作符</th>
 <th class="title">expr2 is...</th>
 </tr>
