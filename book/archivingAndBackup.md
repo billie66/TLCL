@@ -959,7 +959,9 @@ where source and destination are one of the following:
   
 * A remote rsync server specified with a URI of rsync://[user@]host[:port]/path
 
-* 一个本地文件或目录
+<ul>
+<p><li> 一个本地文件或目录</li></p>
+</ul>
 
 * 一个远端文件或目录，以[user@]host:path的形式存在
 
