@@ -960,9 +960,7 @@ where source and destination are one of the following:
 * A remote rsync server specified with a URI of rsync://[user@]host[:port]/path
 <ul>
 <li> 一个本地文件或目录</li>
-
 <li> 一个远端文件或目录，以[user@]host:path的形式存在</li>
-
 <li> 一个远端rsync服务器，由rsync://[user@]host[:port]/path指定</li>
 </ul>
 
@@ -1148,11 +1146,8 @@ followed by the pathname of the repository.
   contain useful examples. In addition, the GNU Project has a good online manual
   for its version of tar. It can be found here:
 
-<ul>
-<li> 在这里讨论的所有命令的手册文档都相当清楚明白，并且包含了有用的例子。另外，
-  GNU版本的tar命令有一个不错的在线文档。可以在下面链接处找到：
-</li>
-</ul>
+<ul> <li> 在这里讨论的所有命令的手册文档都相当清楚明白，并且包含了有用的例子。另外，
+  GNU版本的tar命令有一个不错的在线文档。可以在下面链接处找到： </li> </ul>
   <http://www.gnu.org/software/tar/manual/index.html>
 
 
