@@ -54,7 +54,7 @@ we can see that grep has something to do with regular expressions. In essence, g
 searches text files for the occurrence of a specified regular expression and outputs any
 line containing a match to standard output.
 
-我们将使用的主要程序是老朋友，grep程序，来和正则表达式一起合作。实际上，“grep”这个名字
+我们将使用的主要程序是我们的老朋友，grep程序，它会用到正则表达式。实际上，“grep”这个名字
 来自于短语“global regular expression print”，所以我们能看出grep程序和正则表达式有关联。
 本质上，grep程序会在文本文件中查找一个指定的正则表达式，并把匹配行输出到标准输出。
 
@@ -151,7 +151,7 @@ be specified --no-filename. </td>
 <tr>
 <td valign="top">-c</td>
 <td valign="top">打印匹配的数量（或者是不匹配的数目，若指定了-v选项），而不是文本行本身。
-也可用--count选项来指定。 </tr>
+也可用--count选项来指定。 </td></tr>
 <tr>
 <td valign="top">-l</td>
 <td valign="top">打印包含匹配项的文件名，而不是文本行本身，也可用--files-with-matches选项来指定。</td>
@@ -195,3 +195,76 @@ dirlist-bin.txt:bzip2
 dirlist-bin.txt:bzip2recover </tt>
 </pre></div>
 
+In this example, grep searches all of the listed files for the string bzip and finds two
+matches, both in the file dirlist-bin.txt. If we were only interested in the list of
+files that contained matches rather than the matches themselves, we could specify the -l
+option:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ grep -l bzip dirlist\*.txt
+dirlist-bin.txt </tt>
+</pre></div>
+
+Conversely, if we wanted only to see a list of the files that did not contain a match, we
+could do this:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ grep -L bzip dirlist\*.txt
+dirlist-sbin.txt
+dirlist-usr-bin.txt
+dirlist-usr-sbin.txt </tt>
+</pre></div>
+
+Metacharacters And Literals
+
+While it may not seem apparent, our grep searches have been using regular expressions
+all along, albeit very simple ones. The regular expression “bzip” is taken to mean that a
+match will occur only if the line in the file contains at least four characters and that
+somewhere in the line the characters “b”, “z”, “i”, and “p” are found in that order, with no
+other characters in between. The characters in the string “bzip” are all literal characters,
+in that they match themselves. In addition to literals, regular expressions may also
+include metacharacters that are used to specify more complex matches.
+Regular expression metacharacters consist of the following: 
+
+^ $ . [ ] { } - ? \* + ( ) | \
+
+All other characters are considered literals, though the backslash character is used in a
+few cases to create meta sequences, as well as allowing the metacharacters to be escaped
+and treated as literals instead of being interpreted as metacharacters.
+
+<hr style="height:5px;width:100%;background:gray" />
+Note: As we can see, many of the regular expression metacharacters are also
+characters that have meaning to the shell when expansion is performed. When we
+pass regular expressions containing metacharacters on the command line, it is vital
+that they be enclosed in quotes to prevent the shell from attempting to expand them.
+<hr style="height:5px;width:100%;background:gray" />
+
+The Any Character
+
+The first metacharacter we will look at is the dot or period character, which is used to
+match any character. If we include it in a regular expression, it will match any character
+in that character position. Here’s an example:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ grep -h '.zip' dirlist\*.txt
+bunzip2
+bzip2
+bzip2recover
+gunzip
+gzip
+funzip
+gpg-zip
+preunzip
+prezip
+prezip-bin
+unzip
+unzipsfx </tt>
+</pre></div>
+
+We searched for any line in our files that matches the regular expression “.zip”. There are
+a couple of interesting things to note about the results. Notice that the zip program was
+not found. This is because the inclusion of the dot metacharacter in our regular
+expression increased the length of the required match to four characters, and because the
+name “zip” only contains three, it does not match. Also, if there had been any files in our
+lists that contained the file extension .zip, they would have also been matched as well,
+because the period character in the file extension is treated as “any character,” too.
