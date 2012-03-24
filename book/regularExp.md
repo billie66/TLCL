@@ -303,6 +303,9 @@ The caret (^) and dollar sign ($) characters are treated as anchors in regular e
 This means that they cause the match to occur only if the regular expression is found at
 the beginning of the line (^) or at the end of the line ($):
 
+在正则表达式中，插入符号（^）和美元符号（$）被看作是锚（定位点）。这意味着只有当正则表达式
+在文本行的开头（^）或末尾（$）被找到时，才算发生一次匹配。
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ grep -h '^zip' dirlist\*.txt
 zip
@@ -324,86 +327,3 @@ zip
 zip </tt>
 </pre></div>
 
-Here we searched the list of files for the string “zip” located at the beginning of the line,
-the end of the line, and on a line where it is at both the beginning and the end of the line
-(i.e., by itself on the line.) Note that the regular expression ‘^$’ (a beginning and an end
-with nothing in between) will match blank lines.
-
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
-<h3>A Crossword Puzzle Helper </h3>
-<p> Even with our limited knowledge of regular expressions at this point, we can do
-something useful. </p>
-
-<p> My wife loves crossword puzzles and she will sometimes ask me for help with a
-particular question. Something like, “what’s a five letter word whose third letter
-is ‘j’ and last letter is ‘r’ that means...?” This kind of question got me thinking. </p>
-
-<p>Did you know that your Linux system contains a dictionary? It does. Take a look
-in the /usr/share/dict directory and you might find one, or several. The
-dictionary files located there are just long lists of words, one per line, arranged in
-alphabetical order. On my system, the words file contains just over 98,500
-words. To find possible answers to the crossword puzzle question above, we
-could do this:</p>
-
-<p>[me@linuxbox ~]$ grep -i '^..j.r$' /usr/share/dict/words </p>
-
-<p>Major</p>
-<p>major</p>
-<p>Using this regular expression, we can find all the words in our dictionary file that
-are five letters long and have a “j” in the third position and an “r” in the last
-position.</p>
-</td>
-</tr>
-</table>
-
-### Bracket Expressions And Character Classes
-
-In addition to matching any character at a given position in our regular expression, we
-can also match a single character from a specified set of characters by using bracket
-expressions. With bracket expressions, we can specify a set of characters (including
-characters that would otherwise be interpreted as metacharacters) to be matched. In this
-example, using a two character set:
-
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ grep -h '[bg]zip' dirlist\*.txt
-bzip2
-bzip2recover
-gzip </tt>
-</pre></div>
-
-we match any line that contains the string “bzip” or “gzip”.
-A set may contain any number of characters, and metacharacters lose their special
-meaning when placed within brackets. However, there are two cases in which
-metacharacters are used within bracket expressions, and have different meanings. The
-first is the caret (^), which is used to indicate negation; the second is the dash (-), which
-is used to indicate a character range.
-
-### Negation
-
-If the first character in a bracket expression is a caret (^), the remaining characters are
-taken to be a set of characters that must not be present at the given character position. We
-do this by modifying our previous example:
-
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ grep -h '[^bg]zip' dirlist\*.txt
-bunzip2
-gunzip
-funzip
-gpg-zip
-preunzip
-prezip
-prezip-bin
-unzip
-unzipsfx </tt>
-</pre></div>
-
-With negation activated, we get a list of files that contain the string “zip” preceded by any
-character except “b” or “g”. Notice that the file zip was not found. A negated character
-set still requires a character at the given position, but the character must not be a member
-of the negated set.
-
-The caret character only invokes negation if it is the first character within a bracket
-expression; otherwise, it loses its special meaning and becomes an ordinary character in
-the set.
