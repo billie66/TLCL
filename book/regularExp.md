@@ -200,6 +200,10 @@ matches, both in the file dirlist-bin.txt. If we were only interested in the lis
 files that contained matches rather than the matches themselves, we could specify the -l
 option:
 
+在这个例子里，grep程序在所有列出的文件中搜索字符串bzip，然后找到两个匹配项，其都在
+文件dirlist-bin.txt中。如果我们只是对包含匹配项的文件列表，而不是对匹配项本身感兴趣
+的话，我们可以指定-l选项：
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ grep -l bzip dirlist\*.txt
 dirlist-bin.txt </tt>
@@ -208,6 +212,8 @@ dirlist-bin.txt </tt>
 Conversely, if we wanted only to see a list of the files that did not contain a match, we
 could do this:
 
+相反地，如果我们只想查看不包含匹配项的文件列表，我们可以这样操作：
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ grep -L bzip dirlist\*.txt
 dirlist-sbin.txt
@@ -215,7 +221,7 @@ dirlist-usr-bin.txt
 dirlist-usr-sbin.txt </tt>
 </pre></div>
 
-Metacharacters And Literals
+### Metacharacters And Literals
 
 While it may not seem apparent, our grep searches have been using regular expressions
 all along, albeit very simple ones. The regular expression “bzip” is taken to mean that a
@@ -226,24 +232,40 @@ in that they match themselves. In addition to literals, regular expressions may 
 include metacharacters that are used to specify more complex matches.
 Regular expression metacharacters consist of the following: 
 
+它可能看起来不明显，但是我们的grep程序一直使用了正则表达式，虽然是非常简单的例子。
+这个正则表达式“bzip”意味着，匹配项所在行至少包含4个字符，并且按照字符 “b”, “z”, “i”, 和 “p”的顺序
+出现在匹配行的某处，字符之间没有其它的字符。字符串“bzip”中的所有字符都是原义字符，因为
+它们匹配本身。除了原义字符之外，正则表达式也可能包含元字符，其被用来指定更复杂的匹配项。
+正则表达式元字符由以下字符组成：
+
 ^ $ . [ ] { } - ? \* + ( ) | \
 
 All other characters are considered literals, though the backslash character is used in a
 few cases to create meta sequences, as well as allowing the metacharacters to be escaped
 and treated as literals instead of being interpreted as metacharacters.
 
+然后其它所有字符都被认为是原义字符，虽然在个别情况下，反斜杠会被用来创建元序列，
+也允许元字符被转义为原义字符，而不是被解释为元字符。
+
 <hr style="height:5px;width:100%;background:gray" />
 Note: As we can see, many of the regular expression metacharacters are also
 characters that have meaning to the shell when expansion is performed. When we
 pass regular expressions containing metacharacters on the command line, it is vital
 that they be enclosed in quotes to prevent the shell from attempting to expand them.
+
+<p>注意：正如我们所见到的，当shell执行展开的时候，许多正则表达式元字符，也是对shell有特殊
+含义的字符。当我们在命令行中传递包含元字符的正则表达式的时候，把元字符用引号引起来至关重要，
+这样可以阻止shell试图展开它们。</p>
 <hr style="height:5px;width:100%;background:gray" />
 
-The Any Character
+### The Any Character
 
 The first metacharacter we will look at is the dot or period character, which is used to
 match any character. If we include it in a regular expression, it will match any character
 in that character position. Here’s an example:
+
+我们将要查看的第一个院字符是圆点字符，其被用来匹配任意字符。如果我们在正则表达式中包含它，
+它将会匹配在此位置的任意一个字符。这里有个例子：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ grep -h '.zip' dirlist\*.txt
@@ -268,3 +290,120 @@ expression increased the length of the required match to four characters, and be
 name “zip” only contains three, it does not match. Also, if there had been any files in our
 lists that contained the file extension .zip, they would have also been matched as well,
 because the period character in the file extension is treated as “any character,” too.
+
+我们在文件中查找包含正则表达式“.zip”的文本行。对于搜索结果，有几点需要注意一下。
+注意没有找到这个zip程序。这是因为在我们的正则表达式中包含的圆点字符把所要求的匹配项的长度
+增加到四个字符，并且字符串“zip”只包含三个字符，所以这个zip程序不匹配。另外，如果我们的文件列表
+中有一些文件的扩展名是.zip，则它们也会成为匹配项，因为文件扩展名中的圆点符号也会被看作是
+“任意字符”。
+
+### Anchors
+
+The caret (^) and dollar sign ($) characters are treated as anchors in regular expressions.
+This means that they cause the match to occur only if the regular expression is found at
+the beginning of the line (^) or at the end of the line ($):
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ grep -h '^zip' dirlist\*.txt
+zip
+zipcloak
+zipgrep
+zipinfo
+zipnote
+zipsplit
+[me@linuxbox ~]$ grep -h 'zip$' dirlist\*.txt
+gunzip
+gzip
+funzip
+gpg-zip
+preunzip
+prezip
+unzip
+zip
+[me@linuxbox ~]$ grep -h '^zip$' dirlist\*.txt
+zip </tt>
+</pre></div>
+
+Here we searched the list of files for the string “zip” located at the beginning of the line,
+the end of the line, and on a line where it is at both the beginning and the end of the line
+(i.e., by itself on the line.) Note that the regular expression ‘^$’ (a beginning and an end
+with nothing in between) will match blank lines.
+
+<table class="single" cellpadding="10" width="%100">
+<tr>
+<td>
+<h3>A Crossword Puzzle Helper </h3>
+<p> Even with our limited knowledge of regular expressions at this point, we can do
+something useful. </p>
+
+<p> My wife loves crossword puzzles and she will sometimes ask me for help with a
+particular question. Something like, “what’s a five letter word whose third letter
+is ‘j’ and last letter is ‘r’ that means...?” This kind of question got me thinking. </p>
+
+<p>Did you know that your Linux system contains a dictionary? It does. Take a look
+in the /usr/share/dict directory and you might find one, or several. The
+dictionary files located there are just long lists of words, one per line, arranged in
+alphabetical order. On my system, the words file contains just over 98,500
+words. To find possible answers to the crossword puzzle question above, we
+could do this:</p>
+
+<p>[me@linuxbox ~]$ grep -i '^..j.r$' /usr/share/dict/words </p>
+
+<p>Major</p>
+<p>major</p>
+<p>Using this regular expression, we can find all the words in our dictionary file that
+are five letters long and have a “j” in the third position and an “r” in the last
+position.</p>
+</td>
+</tr>
+</table>
+
+### Bracket Expressions And Character Classes
+
+In addition to matching any character at a given position in our regular expression, we
+can also match a single character from a specified set of characters by using bracket
+expressions. With bracket expressions, we can specify a set of characters (including
+characters that would otherwise be interpreted as metacharacters) to be matched. In this
+example, using a two character set:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ grep -h '[bg]zip' dirlist\*.txt
+bzip2
+bzip2recover
+gzip </tt>
+</pre></div>
+
+we match any line that contains the string “bzip” or “gzip”.
+A set may contain any number of characters, and metacharacters lose their special
+meaning when placed within brackets. However, there are two cases in which
+metacharacters are used within bracket expressions, and have different meanings. The
+first is the caret (^), which is used to indicate negation; the second is the dash (-), which
+is used to indicate a character range.
+
+### Negation
+
+If the first character in a bracket expression is a caret (^), the remaining characters are
+taken to be a set of characters that must not be present at the given character position. We
+do this by modifying our previous example:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ grep -h '[^bg]zip' dirlist\*.txt
+bunzip2
+gunzip
+funzip
+gpg-zip
+preunzip
+prezip
+prezip-bin
+unzip
+unzipsfx </tt>
+</pre></div>
+
+With negation activated, we get a list of files that contain the string “zip” preceded by any
+character except “b” or “g”. Notice that the file zip was not found. A negated character
+set still requires a character at the given position, but the character must not be a member
+of the negated set.
+
+The caret character only invokes negation if it is the first character within a bracket
+expression; otherwise, it loses its special meaning and becomes an ordinary character in
+the set.
