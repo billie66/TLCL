@@ -297,33 +297,3 @@ because the period character in the file extension is treated as “any characte
 中有一些文件的扩展名是.zip，则它们也会成为匹配项，因为文件扩展名中的圆点符号也会被看作是
 “任意字符”。
 
-### Anchors
-
-The caret (^) and dollar sign ($) characters are treated as anchors in regular expressions.
-This means that they cause the match to occur only if the regular expression is found at
-the beginning of the line (^) or at the end of the line ($):
-
-在正则表达式中，插入符号（^）和美元符号（$）被看作是锚（定位点）。这意味着只有当正则表达式
-在文本行的开头（^）或末尾（$）被找到时，才算发生一次匹配。
-
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ grep -h '^zip' dirlist\*.txt
-zip
-zipcloak
-zipgrep
-zipinfo
-zipnote
-zipsplit
-[me@linuxbox ~]$ grep -h 'zip$' dirlist\*.txt
-gunzip
-gzip
-funzip
-gpg-zip
-preunzip
-prezip
-unzip
-zip
-[me@linuxbox ~]$ grep -h '^zip$' dirlist\*.txt
-zip </tt>
-</pre></div>
-
