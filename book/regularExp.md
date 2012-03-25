@@ -306,4 +306,23 @@ the beginning of the line or at the end of the line:
 在正则表达式中，插入符号和美元符号被看作是锚（定位点）。这意味着正则表达式
 只有在文本行的开头或末尾被找到时，才算发生一次匹配。
 
-
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ grep -h '^zip' dirlist\*.txt
+zip
+zipcloak
+zipgrep
+zipinfo
+zipnote
+zipsplit
+[me@linuxbox ~]$ grep -h 'zip$' dirlist\*.txt
+gunzip
+gzip
+funzip
+gpg-zip
+preunzip
+prezip
+unzip
+zip
+[me@linuxbox ~]$ grep -h '^zip$' dirlist\*.txt
+zip </tt>
+</pre></div>
