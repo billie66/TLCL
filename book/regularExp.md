@@ -303,7 +303,7 @@ The caret and dollar sign characters are treated as anchors in regular expressio
 This means that they cause the match to occur only if the regular expression is found at
 the beginning of the line or at the end of the line:
 
-在正则表达式中，插入符号（^）和美元符号（$）被看作是锚（定位点）。这意味着正则表达式
-只有在文本行的开头（^）或末尾（$）被找到时，才算发生一次匹配。
+在正则表达式中，插入符号和美元符号被看作是锚（定位点）。这意味着正则表达式
+只有在文本行的开头或末尾被找到时，才算发生一次匹配。
 
 
