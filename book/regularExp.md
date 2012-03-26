@@ -326,3 +326,304 @@ zip
 [me@linuxbox ~]$ grep -h '^zip$' dirlist\*.txt
 zip </tt>
 </pre></div>
+
+Here we searched the list of files for the string “zip” located at the beginning of the line,
+the end of the line, and on a line where it is at both the beginning and the end of the line
+(i.e., by itself on the line.) Note that the regular expression ‘^$’ (a beginning and an end
+with nothing in between) will match blank lines.
+
+这里我们分别在文件列表中搜索行首，行尾以及行首和行尾同时包含字符串“zip”（例如，zip独占一行）的匹配行。
+注意正则表达式‘^$’（行首和行尾之间没有字符）会匹配空行。
+
+<table class="single" cellpadding="10" width="%100">
+<tr>
+<td>
+<h3>A Crossword Puzzle Helper </h3>
+
+<h3>字谜助手 </h3>
+
+<p> Even with our limited knowledge of regular expressions at this point, we can do something useful. </p>
+<p> 到目前为止，甚至凭借我们有限的正则表达式知识，我们已经能做些有意义的事情了。 </p>
+
+<p> My wife loves crossword puzzles and she will sometimes ask me for help with a
+particular question. Something like, “what’s a five letter word whose third letter
+is ‘j’ and last letter is ‘r’ that means...?” This kind of question got me thinking. </p>
+
+<p>我妻子喜欢玩字谜游戏，有时候她会因为一个特殊的问题，而向我求助。类似这样的问题，“一个
+有五个字母的单词，它的第三个字母是‘j’，最后一个字母是‘r’，是哪个单词？”这类问题会
+让我动脑筋想想。</p>
+
+<p>Did you know that your Linux system contains a dictionary? It does. Take a look
+in the /usr/share/dict directory and you might find one, or several. The
+dictionary files located there are just long lists of words, one per line, arranged in
+alphabetical order. On my system, the words file contains just over 98,500
+words. To find possible answers to the crossword puzzle question above, we
+could do this:</p>
+<p>你知道你的Linux系统中带有一本英文字典吗？千真万确。看一下/usr/share/dict目录，你就能找到一本，
+或几本。存储在此目录下的字典文件，其内容仅仅是一个长长的单词列表，每行一个单词，按照字母顺序排列。在我的
+系统中，这个文件仅包含98,000个单词。为了找到可能的上述字谜的答案，我们可以这样做：</p>
+
+<p>[me@linuxbox ~]$ grep -i '^..j.r$' /usr/share/dict/words </p>
+
+<p>Major</p>
+<p>major</p>
+<p>Using this regular expression, we can find all the words in our dictionary file that
+are five letters long and have a “j” in the third position and an “r” in the last
+position.</p>
+<p>使用这个正则表达式，我们能在我们的字典文件中查找到包含五个字母，且第三个字母
+是“j”，最后一个字母是“r”的所有单词。</p>
+</td>
+</tr>
+</table>
+
+### Bracket Expressions And Character Classes
+
+### 中括号表达式和字符类
+
+In addition to matching any character at a given position in our regular expression, we
+can also match a single character from a specified set of characters by using bracket
+expressions. With bracket expressions, we can specify a set of characters (including
+characters that would otherwise be interpreted as metacharacters) to be matched. In this
+example, using a two character set:
+
+除了能够在正则表达式中的给定位置匹配任意字符之外，通过使用中括号表达式，
+我们也能够从一个指定的字符集合中匹配一个单个的字符。通过中括号表达式，我们能够指定
+一个字符集合（包含在不加中括号的情况下会被解释为元字符的字符）来被匹配。在这个例子里，使用了一个两个字符的集合：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ grep -h '[bg]zip' dirlist\*.txt
+bzip2
+bzip2recover
+gzip </tt>
+</pre></div>
+
+we match any line that contains the string “bzip” or “gzip”.
+
+我们匹配包含字符串“bzip”或者“gzip”的任意行。
+
+A set may contain any number of characters, and metacharacters lose their special
+meaning when placed within brackets. However, there are two cases in which
+metacharacters are used within bracket expressions, and have different meanings. The
+first is the caret (^), which is used to indicate negation; the second is the dash (-), which
+is used to indicate a character range.
+
+一个字符集合可能包含任意多个字符，并且元字符被放置到中括号里面后会失去了它们的特殊含义。
+然而，在两种情况下，会在中括号表达式中使用元字符，并且有着不同的含义。第一个元字符
+是插入字符，其被用来表示否定；第二个是短横线字符，其被用来表示一个字符区域。
+
+### Negation
+
+If the first character in a bracket expression is a caret (^), the remaining characters are
+taken to be a set of characters that must not be present at the given character position. We
+do this by modifying our previous example:
+
+如果在正则表示式中的第一个字符是一个插入字符，则剩余的字符被看作是不会在给定的字符位置出现的
+字符集合。通过修改之前的例子，我们试验一下：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ grep -h '[^bg]zip' dirlist\*.txt
+bunzip2
+gunzip
+funzip
+gpg-zip
+preunzip
+prezip
+prezip-bin
+unzip
+unzipsfx </tt>
+</pre></div>
+
+With negation activated, we get a list of files that contain the string “zip” preceded by any
+character except “b” or “g”. Notice that the file zip was not found. A negated character
+set still requires a character at the given position, but the character must not be a member
+of the negated set.
+
+通过激活否定操作，我们得到一个文件列表，它们的文件名都包含字符串“zip”，并且“zip”的前一个字符
+是除了“b”和“g”之外的任意字符。注意文件zip没有被发现。一个否定的字符集仍然在给定位置要求一个字符，
+但是这个字符必须不是否定字符集的成员。
+
+The caret character only invokes negation if it is the first character within a bracket
+expression; otherwise, it loses its special meaning and becomes an ordinary character in
+the set.
+
+这个插入字符如果是中括号表达式中的第一个字符的时候，才会唤醒否定功能；否则，它会失去
+它的特殊含义，变成字符集中的一个普通字符。
+
+### Traditional Character Ranges
+
+### 传统的字符区域
+
+If we wanted to construct a regular expression that would find every file in our lists
+beginning with an upper case letter, we could do this:
+
+如果我们想要构建一个正则表达式，它可以在我们的列表中找到每个以大写字母开头的文件，我们
+可以这样做：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ grep -h '^[ABCDEFGHIJKLMNOPQRSTUVWXZY]' dirlist\*.txt </tt>
+</pre></div>
+
+It’s just a matter of putting all twenty-six upper case letters in a bracket expression. But
+the idea of all that typing is deeply troubling, so there is another way:
+
+这只是一个在正则表达式中输入26个大写字母的问题。但是输入所有字母非常令人烦恼，所以有另外一种方式：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ grep -h '^[A-Z]' dirlist\*.txt
+MAKEDEV
+ControlPanel
+GET
+HEAD
+POST
+X
+X11
+Xorg
+MAKEFLOPPIES
+NetworkManager
+NetworkManagerDispatcher </tt>
+</pre></div>
+
+By using a three character range, we can abbreviate the twenty-six letters. Any range of
+characters can be expressed this way including multiple ranges, such as this expression
+that matches all filenames starting with letters and numbers:
+
+通过使用一个三字符区域，我们能够缩写26个字母。任意字符的区域都能按照这种方式表达，包括多个区域，
+比如下面这个表达式就匹配了所有以字母和数字开头的文件名：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ grep -h '^[A-Za-z0-9]' dirlist\*.txt </tt>
+</pre></div>
+
+In character ranges, we see that the dash character is treated specially, so how do we
+actually include a dash character in a bracket expression? By making it the first character
+in the expression. Consider these two examples:
+
+在字符区域中，我们看到这个短横线被特殊对待，所以我们怎样在一个正则表达式中包含一个短横线字符呢？
+方法就是使短横线字符成为表达式中的第一个字符。考虑一下这两个例子：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ grep -h '[A-Z]' dirlist\*.txt </tt>
+</pre></div>
+
+This will match every filename containing an upper case letter. While:
+
+这会匹配包含一个大写字母的文件名。然而：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ grep -h '[-AZ]' dirlist\*.txt </tt>
+</pre></div>
+
+will match every filename containing a dash, or a upper case “A” or an uppercase “Z”.
+
+上面的表达式会匹配包含一个短横线，或一个大写字母“A”，或一个大写字母“Z”的文件名。
+
+### POSIX Character Classes
+
+### POSIX字符集
+
+The traditional character ranges are an easily understood and effective way to handle the
+problem of quickly specifying sets of characters. Unfortunately, they don’t always work.
+While we have not encountered any problems with our use of `grep` so far, we might run
+into problems using other programs.
+
+这个传统的字符区域在处理快速地指定字符集合的问题方面，是一个易于理解的和有效的方式。
+不幸地是，它们不总是工作。到目前为止，虽然我们在使用grep程序的时候没有遇到任何问题，
+但是我们可能在使用其它程序的时候会遭遇困难。
+
+Back in Chapter 5, we looked at how wildcards are used to perform pathname expansion.
+In that discussion, we said that character ranges could be used in a manner almost
+identical to the way they are used in regular expressions, but here’s the problem:
+
+回到第5章，我们看看通配符怎样被用来完成路径名展开操作。在那次讨论中，我们说过在
+某种程度上，那个字符区域被使用的方式几乎与在正则表达式中的用法一样，但是有一个问题：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ ls /usr/sbin/[ABCDEFGHIJKLMNOPQRSTUVWXYZ]\*
+/usr/sbin/MAKEFLOPPIES
+/usr/sbin/NetworkManagerDispatcher
+/usr/sbin/NetworkManager</tt>
+</pre></div>
+
+(Depending on the Linux distribution, we will get a different list of files, possibly an
+empty list. This example is from Ubuntu) This command produces the expected result 
+— a list of only the files whose names begin with an uppercase letter, but:
+
+（依赖于不同的Linux发行版，我们将得到不同的文件列表，有可能是一个空列表。这个例子来自于Ubuntu）
+这个命令产生了期望的结果——只有以大写字母开头的文件名，但是：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ ls /usr/sbin/[A-Z]\*
+/usr/sbin/biosdecode
+/usr/sbin/chat
+/usr/sbin/chgpasswd
+/usr/sbin/chpasswd
+/usr/sbin/chroot
+/usr/sbin/cleanup-info
+/usr/sbin/complain
+/usr/sbin/console-kit-daemon</tt>
+</pre></div>
+
+with this command we get an entirely different result (only a partial listing of the results
+is shown). Why is that? It’s a long story, but here’s the short version:
+
+通过这个命令我们得到整个不同的结果（只显示了一部分结果列表）。为什么会是那样？
+说来话长，但是这个版本比较简短：
+
+Back when Unix was first developed, it only knew about ASCII characters, and this
+feature reflects that fact. In ASCII, the first thirty-two characters (numbers 0-31) are
+control codes (things like tabs, backspaces, and carriage returns). The next thirty-two
+(32-63) contain printable characters, including most punctuation characters and the
+numerals zero through nine. The next thirty-two (numbers 64-95) contain the uppercase
+letters and a few more punctuation symbols. The final thirty-one (numbers 96-127)
+contain the lowercase letters and yet more punctuation symbols. Based on this
+arrangement, systems using ASCII used a collation order that looked like this:
+
+追溯到Unix刚刚开发的时候，它只知道ASCII字符，并且这个特性反映了事实。在ASCII中，前32个字符
+（数字0－31）都是控制码（如tabs，backspaces，和回车）。随后的32个字符（32－63）包含可打印的字符，
+包括大多数的标点符号和数字0到9。再随后的32个字符（64－95）包含大写字符和一些更多的标点符号。
+最后的31个字符（96－127）包含小写字母和更多的标点符号。基于这种安排方式，系统使用这种排序规则
+的ASCII：
+
+<b>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</b>
+
+This differs from proper dictionary order, which is like this:
+
+这个不同于正常的字典顺序，其像这样：
+
+<b>aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ</b>
+
+As the popularity of Unix spread beyond the United States, there grew a need to support
+characters not found in U.S. English. The ASCII table was expanded to use a full eight
+bits, adding characters numbers 128-255, which accommodated many more languages.
+
+随着Unix系统的知名度在美国之外的国家传播开来，就需要支持不在U.S.英语范围内的字符。
+于是就扩展了这个ASCII字符表，使用了整个8位，添加了字符（数字128－255），这样就
+容纳了更多的语言。
+
+To support this ability, the POSIX standards introduced a concept called a locale, which
+could be adjusted to select the character set needed for a particular location. We can see
+the language setting of our system using this command:
+
+为了支持这种能力，POSIX标准介绍了一种叫做locale的概念，其可以被调整，来为某个特殊的区域，
+选择所需的字符集。通过使用下面这个命令，我们能够查看到我们系统的语言设置：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ echo $LANG
+en\_US.UTF-8 </tt>
+</pre></div>
+
+With this setting, POSIX compliant applications will use a dictionary collation order
+rather than ASCII order. This explains the behavior of the commands above. A character
+range of [A-Z] when interpreted in dictionary order includes all of the alphabetic
+characters except the lowercase “a”, hence our results.
+
+通过这个设置，POSIX相容的应用程序将会使用字典排列顺序而不是ASCII顺序。这就解释了上述命令的行为。
+当[A-Z]字符区域按照字典顺序解释的时候，包含除了小写字母“a”之外的所有字母，因此得到这样的结果。
+
+To partially work around this problem, the POSIX standard includes a number of
+character classes which provide useful ranges of characters. They are described in the
+table below:
+
+为了部分地解决这个问题，POSIX标准包含了大量的字符集，其提供了有用的字符区域。
+下表中描述了它们：
+
