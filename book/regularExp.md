@@ -409,7 +409,7 @@ is used to indicate a character range.
 
 一个字符集合可能包含任意多个字符，并且元字符被放置到中括号里面后会失去了它们的特殊含义。
 然而，在两种情况下，会在中括号表达式中使用元字符，并且有着不同的含义。第一个元字符
-是插入字符，其被用来表示否定；第二个是短横线字符，其被用来表示一个字符区域。
+是插入字符，其被用来表示否定；第二个是连字符字符，其被用来表示一个字符区域。
 
 ### Negation
 
@@ -498,8 +498,8 @@ In character ranges, we see that the dash character is treated specially, so how
 actually include a dash character in a bracket expression? By making it the first character
 in the expression. Consider these two examples:
 
-在字符区域中，我们看到这个短横线被特殊对待，所以我们怎样在一个正则表达式中包含一个短横线字符呢？
-方法就是使短横线字符成为表达式中的第一个字符。考虑一下这两个例子：
+在字符区域中，我们看到这个连字符被特殊对待，所以我们怎样在一个正则表达式中包含一个连字符呢？
+方法就是使连字符成为表达式中的第一个字符。考虑一下这两个例子：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ grep -h '[A-Z]' dirlist\*.txt </tt>
@@ -515,7 +515,7 @@ This will match every filename containing an upper case letter. While:
 
 will match every filename containing a dash, or a upper case “A” or an uppercase “Z”.
 
-上面的表达式会匹配包含一个短横线，或一个大写字母“A”，或一个大写字母“Z”的文件名。
+上面的表达式会匹配包含一个连字符，或一个大写字母“A”，或一个大写字母“Z”的文件名。
 
 ### POSIX Character Classes
 
@@ -576,7 +576,7 @@ control codes (things like tabs, backspaces, and carriage returns). The next thi
 numerals zero through nine. The next thirty-two (numbers 64-95) contain the uppercase
 letters and a few more punctuation symbols. The final thirty-one (numbers 96-127)
 contain the lowercase letters and yet more punctuation symbols. Based on this
-arrangement, systems using ASCII used a collation order that looked like this:
+arrangement, systems using ASCII used a `collation order` that looked like this:
 
 追溯到Unix刚刚开发的时候，它只知道ASCII字符，并且这个特性反映了事实。在ASCII中，前32个字符
 （数字0－31）都是控制码（如tabs，backspaces，和回车）。随后的32个字符（32－63）包含可打印的字符，
@@ -627,3 +627,744 @@ table below:
 为了部分地解决这个问题，POSIX标准包含了大量的字符集，其提供了有用的字符区域。
 下表中描述了它们：
 
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 20-2: POSIX Character Classes
+</caption>
+<tr>
+<th class="title">Character Class </th>
+<th class="title">Description </th>
+</tr>
+<tr>
+<td valign="top" width="25%">[:alnum:] </td>
+<td valign="top">The alphanumeric characters. In ASCII, equivalent to: [A-Za-z0-9] </td>
+</tr>
+<tr>
+<td valign="top">[:word:] 
+</td>
+<td valign="top">The same as [:alnum:], with the addition of the underscore
+(\_) character.
+</td>
+</tr>
+<tr>
+<td valign="top">[:alpha:] </td>
+<td valign="top">The alphabetic characters. In ASCII, equivalent to: [A-Za-z] </td>
+</tr>
+<tr>
+<td valign="top">[:blank:] </td>
+<td valign="top">Includes the space and tab characters.  </td>
+</tr>
+<tr>
+<td valign="top">[:cntrl:] </td>
+<td valign="top">The ASCII control codes. Includes the ASCII characters zero
+through thirty-one and 127.  </td>
+</tr>
+<tr>
+<td valign="top">[:digit:] </td>
+<td valign="top">The numerals zero through nine.  </td>
+</tr>
+<tr>
+<td valign="top">[:graph:]</td>
+<td valign="top">The visible characters. In ASCII, it includes characters 33 through 126.
+</td>
+</tr>
+<tr>
+<td valign="top">[:lower:] 
+</td>
+<td valign="top">The lowercase letters.
+</td>
+</tr>
+<tr>
+<td valign="top">[:punct:] </td>
+<td valign="top">The punctuation characters. In ASCII, equivalent to:
+[-!"#$%&'()\*+,./:;&lt;=&gt;?@[\\\]\_\`{|}~] </td>
+</tr>
+<tr>
+<td valign="top">[:print:] </td>
+<td valign="top">The printable characters. All the characters in [:graph:]
+plus the space character.  </td>
+</tr>
+<tr>
+<td valign="top">[:space:] </td>
+<td valign="top">The whitespace characters including space, tab, carriage
+return, newline, vertical tab, and form feed. In ASCII,
+equivalent to: [ \t\r\n\v\f] </td>
+</tr>
+<tr>
+<td valign="top">[:upper:] </td>
+<td valign="top">The upper case characters.  </td>
+</tr>
+<tr>
+<td valign="top">[:xdigit:] </td>
+<td valign="top">Characters used to express hexadecimal numbers. In ASCII,
+equivalent to: [0-9A-Fa-f] </td>
+</tr>
+</table>
+</p>
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">表20-2: POSIX 字符集
+</caption>
+<tr>
+<th class="title">字符集</th>
+<th class="title">说明</th>
+</tr>
+<tr>
+<td valign="top" width="25%">[:alnum:] </td>
+<td valign="top">字母数字字符。在ASCII中，等价于：[A-Za-z0-9] </td>
+</tr>
+<tr>
+<td valign="top">[:word:] 
+</td>
+<td valign="top">与[:alnum:]相同, 但增加了下划线字符。
+</td>
+</tr>
+<tr>
+<td valign="top">[:alpha:] </td>
+<td valign="top">字母字符。在ASCII中，等价于：[A-Za-z] </td>
+</tr>
+<tr>
+<td valign="top">[:blank:] </td>
+<td valign="top">包含空格和tab字符。</td>
+</tr>
+<tr>
+<td valign="top">[:cntrl:] </td>
+<td valign="top">ASCII的控制码。包含了0到31，和127的ASCII字符。</td>
+</tr>
+<tr>
+<td valign="top">[:digit:] </td>
+<td valign="top">数字0到9</td>
+</tr>
+<tr>
+<td valign="top">[:graph:]</td>
+<td valign="top">可视字符。在ASCII中，它包含33到126的字符。
+</td>
+</tr>
+<tr>
+<td valign="top">[:lower:] 
+</td>
+<td valign="top">小写字母。</td>
+</tr>
+<tr>
+<td valign="top">[:punct:] </td>
+<td valign="top">标点符号字符。在ASCII中，等价于：[-!"#$%&'()\*+,./:;&lt;=&gt;?@[\\\]\_\`{|}~] </td>
+</tr>
+<tr>
+<td valign="top">[:print:] </td>
+<td valign="top">可打印的字符。在[:graph:]中的所有字符，再加上空格字符。</td>
+</tr>
+<tr>
+<td valign="top">[:space:] </td>
+<td valign="top">空白字符，包括空格，tab，回车，换行，vertical tab, 和 form feed.在ASCII中， 
+等价于：[ \t\r\n\v\f] </td>
+</tr>
+<tr>
+<td valign="top">[:upper:] </td>
+<td valign="top">大写字母。</td>
+</tr>
+<tr>
+<td valign="top">[:xdigit:] </td>
+<td valign="top">用来表示十六进制数字的字符。在ASCII中，等价于：[0-9A-Fa-f] </td>
+</tr>
+</table>
+</p>
+
+Even with the character classes, there is still no convenient way to express partial ranges,
+such as [A-M].
+
+甚至通过字符集，仍然没有便捷的方法来表达部分区域，比如[A-M]。
+
+Using character classes, we can repeat our directory listing and see an improved result:
+
+通过使用字符集，我们重做上述的例题，看到一个改进的结果：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ ls /usr/sbin/[[:upper:]]\*
+/usr/sbin/MAKEFLOPPIES
+/usr/sbin/NetworkManagerDispatcher
+/usr/sbin/NetworkManager </tt>
+</pre></div>
+
+Remember, however, that this is not an example of a regular expression, rather it is the
+shell performing pathname expansion. We show it here because POSIX character classes
+can be used for both.
+
+记住，然而，这不是一个正则表达式的例子，而是shell正在执行路径名展开操作。我们在这里展示这个例子，
+是因为POSIX规范的字符集适用于二者。
+
+<table class="single" cellpadding="10" width="%100">
+<tr>
+<td>
+<h3>Reverting To Traditional Collation Order </h3>
+<h3>恢复到传统的排列顺序</h3>
+<p>You can opt to have your system use the traditional (ASCII) collation order by
+changing the value of the LANG environment variable. As we saw above, the
+LANG variable contains the name of the language and character set used in your
+locale. This value was originally determined when you selected an installation
+language as your Linux was installed. </p>
+
+<p>通过改变环境变量LANG的值，你可以选择让你的系统使用传统的（ASCII）排列规则。如上所示，这个
+LANG变量包含了语种和字符集。这个值最初由你安装Linux系统时所选择的安装语言决定。</p>
+
+<p> To see the locale settings, use the locale command: </p>
+<p>使用locale命令，来查看locale的设置。</p>
+
+<p>[me@linuxbox ~]$ locale</p>
+<p>LANG=en\_US.UTF-8 </p>
+<p>LC_CTYPE="en_US.UTF-8" </p>
+<p>LC_NUMERIC="en_US.UTF-8" </p>
+<p>LC_TIME="en_US.UTF-8" </p>
+<p>LC_COLLATE="en_US.UTF-8" </p>
+<p>LC_MONETARY="en_US.UTF-8" </p>
+<p>LC_MESSAGES="en_US.UTF-8" </p>
+<p>LC_PAPER="en_US.UTF-8" </p>
+<p>LC_NAME="en_US.UTF-8" </p>
+<p>LC_ADDRESS="en_US.UTF-8" </p>
+<p>LC_TELEPHONE="en_US.UTF-8" </p>
+<p>LC_MEASUREMENT="en_US.UTF-8" </p>
+<p>LC_IDENTIFICATION="en_US.UTF-8" </p>
+<p>LC\_ALL= </p>
+
+<p>To change the locale to use the traditional Unix behaviors, set the LANG variable
+to POSIX:</p>
+<p>把这个LANG变量设置为POSIX，来更改locale，使其使用传统的Unix行为。</p>
+
+<p>[me@linuxbox ~]$ export LANG=POSIX </p>
+
+<p>Note that this change converts the system to use U.S. English (more specifically,
+ASCII) for its character set, so be sure if this is really what you want.  </p>
+<p>You can make this change permanent by adding this line to you your .bashrc
+file:</p>
+<p>注意这个改动使系统为它的字符集使用U.S.英语（更准确地说，ASCII），所以要确认一下这
+是否是你真正想要的效果。通过把这条语句添加到你的.bashrc文件中，你可以使这个更改永久有效。</p>
+
+<p>export LANG=POSIX </p>
+</td>
+</tr>
+</table>
+
+### POSIX Basic Vs. Extended Regular Expressions
+
+### POSIX基本的Vs.扩展的正则表达式
+
+Just when we thought this couldn’t get any more confusing, we discover that POSIX also
+splits regular expression implementations into two kinds: basic regular expressions
+(BRE) and extended regular expressions (ERE). The features we have covered so far are
+supported by any application that is POSIX-compliant and implements BRE. Our grep
+program is one such program.
+
+就在我们认为这已经非常令人困惑了，我们却发现POSIX把正则表达式的实现分成了两类：
+基本正则表达式（BRE）和扩展的正则表达式（ERE）。既服从POSIX规范又实现了
+BRE的任意应用程序，都支持我们目前研究的所有正则表达式特性。我们的grep程序就是其中一个。
+
+What’s the difference between BRE and ERE? It’s a matter of metacharacters. With
+BRE, the following metacharacters are recognized:
+
+BRE和ERE之间有什么区别呢？这是关于元字符的问题。BRE可以辨别以下元字符：
+
+^ $ . [ ] *
+
+All other characters are considered literals. With ERE, the following metacharacters (and
+their associated functions) are added:
+
+其它的所有字符被认为是文本字符。ERE添加了以下元字符（以及与其相关的功能）:
+
+( ) { } ? + |
+
+However (and this is the fun part), the “(”, “)”, “{”, and “}” characters are treated as
+metacharacters in BRE if they are escaped with a backslash, whereas with ERE,
+preceding any metacharacter with a backslash causes it to be treated as a literal. Any
+weirdness that comes along will be covered in the discussions that follow.
+
+然而（这也是有趣的地方），在BRE中，字符“(”，“)”，“{”，和 “}”用反斜杠转义后，被看作是元字符,
+相反在ERE中，在任意元字符之前加上反斜杠会导致其被看作是一个文本字符。在随后的讨论中将会涵盖
+很多奇异的特性。
+
+Since the features we are going to discuss next are part of ERE, we are going to need to
+use a different grep. Traditionally, this has been performed by the egrep program, but
+the GNU version of grep also supports extended regular expressions when the -E
+option is used.
+
+因为我们将要讨论的下一个特性是ERE的一部分，我们将要使用一个不同的grep程序。照惯例，
+一直由egrep程序来执行这项操作，但是GUN版本的grep程序也支持扩展的正则表达式，当使用了-E选项之后。
+
+<table class="single" cellpadding="10" width="%100">
+<tr>
+<td>
+<h3>POSIX </h3>
+<p> During the 1980’s, Unix became a very popular commercial operating system, but
+by 1988, the Unix world was in turmoil. Many computer manufacturers had
+licensed the Unix source code from its creators, AT&T, and were supplying
+various versions of the operating system with their systems. However, in their
+efforts to create product differentiation, each manufacturer added proprietary
+changes and extensions. This started to limit the compatibility of the software. </p>
+
+<p>在世纪80年代，Unix成为一款非常流行的商业操作系统，但是到了1988年，Unix世界
+一片混乱。许多计算机制造商从Unix的创建者AT&T那里得到了许可的Unix源码，并且
+供应各种版本的操作系统。然而，在他们努力创造产品差异化的同时，每个制造商都增加了
+专用的更改和扩展。这就开始限制了软件的兼容性。</p>
+
+<p>As always with proprietary vendors, each was trying to play a winning game of
+“lock-in” with their customers. This dark time in the history of Unix is known
+today as “the Balkanization.” </p>
+
+<p>专有软件供应商一如既往，每个供应商都试图玩嬴游戏“锁定”他们的客户。这个Unix历史上
+的黑暗时代，就是今天众所周知的“巴尔干化”。</p>
+
+<p> Enter the IEEE (Institute of Electrical and Electronics Engineers). In the
+mid-1980s, the IEEE began developing a set of standards that would define how
+Unix (and Unix-like) systems would perform. These standards, formally known
+as IEEE 1003, define the application programming interfaces (APIs), shell and
+utilities that are to be found on a standard Unix-like system. The name “POSIX,”
+which stands for Portable Operating System Interface (with the “X” added to the
+end for extra snappiness), was suggested by Richard Stallman (yes, that Richard
+Stallman), and was adopted by the IEEE.  </p>
+
+<p>然后进入IEEE（电气与电子工程师协会）时代。在上世纪80年代中叶，IEEE开始制定一套标准，
+其将会定义Unix系统（以及类似于Unix的系统）如何执行。这些标准，正式成为IEEE
+1003，定义了应用程序编程接口（APIs），shell和一些实用程序，其将会在标准的类似于Unix
+操作系统中找到。“POSIX”这个名字，象征着可移植的操作系统接口（为了额外的，添加末尾的“X”），
+是由Richard Stallman建议的（是的，的确是Richard Stallman），后来被IEEE采纳。</p>
+</td>
+</tr>
+</table>
+
+### Alternation
+
+The first of the extended regular expression features we will discuss is called alternation,
+which is the facility that allows a match to occur from among a set of expressions. Just
+as a bracket expression allows a single character to match from a set of specified
+characters, alternation allows matches from a set of strings or other regular expressions.
+To demonstrate, we’ll use grep in conjunction with echo. First, let’s try a plain old
+string match:
+
+我们将要讨论的扩展表达式的第一个特性叫做alternation（交替），其是一款允许从一系列表达式
+之间选择匹配项的实用程序。就像中括号表达式允许从一系列指定的字符之间匹配单个字符那样，
+alternation允许从一系列字符串或者是其它的正则表达式中选择匹配项。为了说明问题，
+我们将会结合echo程序来使用grep命令。首先，让我们试一个普通的字符串匹配：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ echo "AAA" | grep AAA
+AAA
+[me@linuxbox ~]$ echo "BBB" | grep AAA
+[me@linuxbox ~]$ </tt>
+</pre></div>
+
+A pretty straightforward example, in which we pipe the output of echo into grep and
+see the results. When a match occurs, we see it printed out; when no match occurs, we
+see no results.
+
+一个相当直截了当的例子，我们把echo的输出管道给grep，然后看到输出结果。当出现
+一个匹配项时，我们看到它会打印出来；当没有匹配项时，我们看到没有输出结果。
+
+Now we’ll add alternation, signified by the vertical bar metacharacter:
+
+现在我们将添加alternation，以竖杠线元字符为标记：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ echo "AAA" | grep -E 'AAA|BBB'
+AAA
+[me@linuxbox ~]$ echo "BBB" | grep -E 'AAA|BBB'
+BBB
+[me@linuxbox ~]$ echo "CCC" | grep -E 'AAA|BBB'
+[me@linuxbox ~]$</tt>
+</pre></div>
+
+Here we see the regular expression 'AAA|BBB' which means “match either the string
+AAA or the string BBB.” Notice that since this is an extended feature, we added the -E
+option to grep (though we could have just used the egrep program instead), and we
+enclosed the regular expression in quotes to prevent the shell from interpreting the
+vertical bar metacharacter as a pipe operator. Alternation is not limited to two choices:
+
+这里我们看到正则表达式'AAA|BBB'，这意味着“匹配字符串AAA或者是字符串BBB”。注意因为这是
+一个扩展的特性，我们给grep命令（虽然我们能以egrep程序来代替）添加了-E选项，并且我们
+把这个正则表达式用单引号引起来，为的是阻止shell把竖杠线元字符解释为一个pipe操作符。
+Alternation并不局限于两种选择：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ echo "AAA" | grep -E 'AAA|BBB|CCC'
+AAA </tt>
+</pre></div>
+
+To combine alternation with other regular expression elements, we can use () to separate
+the alternation:
+
+为了把alternation和其它正则表达式元素结合起来，我们可以使用()来分离alternation。
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ grep -Eh '^(bz|gz|zip)' dirlist\*.txt </tt>
+</pre></div>
+
+This expression will match the filenames in our lists that start with either “bz”, “gz”, or
+“zip”. Had we left off the parentheses, the meaning of this regular expression :
+
+这个表达式将会在我们的列表中匹配以“bz”，或“gz”，或“zip”开头的文件名。如果我们删除了圆括号，
+这个表达式的意思：
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ grep -Eh '^bz|gz|zip' dirlist\*.txt </tt>
+</pre></div>
+
+changes to match any filename that begins with “bz” or contains “gz” or contains “zip”.
+
+会变成匹配任意以“bz”开头，或包含“gz”，或包含“zip”的文件名。
+
+### Quantifiers
+
+Extended regular expressions support several ways to specify the number of times an
+element is matched.
+
+#### ? - Match An Element Zero Or One Time
+
+This quantifier means, in effect, “make the preceding element optional.” Let’s say we
+wanted to check a phone number for validity and we considered a phone number to be
+valid if it matched either of these two forms:
+
+(nnn) nnn-nnnn nnn nnn-nnnn
+
+where “n” is a numeral. We could construct a regular expression like this:
+
+^\(?[0-9][0-9][0-9]\)?  [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$
+
+In this expression, we follow the parentheses characters with question marks to indicate
+that they are to be matched zero or one time. Again, since the parentheses are normally
+metacharacters (in ERE), we precede them with backslashes to cause them to be treated
+as literals instead.
+
+Let’s try it:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ echo "(555) 123-4567" | grep -E '^\(?[0-9][0-9][0-9]
+\)? [0-9][0-9][0-9]$'
+(555) 123-4567
+[me@linuxbox ~]$ echo "555 123-4567" | grep -E '^\(?[0-9][0-9][0-9]\)
+? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'
+555 123-4567
+[me@linuxbox ~]$ echo "AAA 123-4567" | grep -E '^\(?[0-9][0-9][0-9]\)
+? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'
+[me@linuxbox ~]$ </tt>
+</pre></div>
+
+Here we see that the expression matches both forms of the phone number, but does not
+match one containing non-numeric characters.
+
+#### \* - Match An Element Zero Or More Times
+
+Like the ? metacharacter, the \* is used to denote an optional item; however, unlike the ?,
+the item may occur any number of times, not just once. Let’s say we wanted to see if a
+string was a sentence; that is, it starts with an uppercase letter, then contains any number
+of upper and lowercase letters and spaces, and ends with a period. To match this (very
+crude) definition of a sentence, we could use a regular expression like this:
+
+[[:upper:]][[:upper:][:lower:] ]\*\.
+
+The expression consists of three items: a bracket expression containing the [:upper:]
+character class, a bracket expression containing both the [:upper:] and [:lower:]
+character classes and a space, and a period escaped with a backslash. The second element
+is trailed with an \* metacharacter, so that after the leading uppercase letter in our
+sentence, any number of upper and lowercase letters and spaces may follow it and still
+match:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ echo "This works." | grep -E '[[:upper:]][[:upper:][ :lower:] ]\*\.'
+This works.
+[me@linuxbox ~]$ echo "This Works." | grep -E '[[:upper:]][[:upper:][ :lower:] ]\*\.'
+This Works.
+[me@linuxbox ~]$ echo "this does not" | grep -E '[[:upper:]][[:upper: ][:lower:] ]\*\.'
+[me@linuxbox ~]$ </tt>
+</pre></div>
+
+The expression matches the first two tests, but not the third, since it lacks the required
+leading uppercase character and trailing period.
+
+#### + - Match An Element One Or More Times
+
+The + metacharacter works much like the \*, except it requires at least one instance of the
+preceding element to cause a match. Here is a regular expression that will only match
+lines consisting of groups of one or more alphabetic characters separated by single
+spaces:
+
+^([[:alpha:]]+ ?)+$
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ echo "This that" | grep -E '^([[:alpha:]]+ ?)+$'
+This that
+[me@linuxbox ~]$ echo "a b c" | grep -E '^([[:alpha:]]+ ?)+$'
+a b c
+[me@linuxbox ~]$ echo "a b 9" | grep -E '^([[:alpha:]]+ ?)+$'
+[me@linuxbox ~]$ echo "abc d" | grep -E '^([[:alpha:]]+ ?)+$'
+[me@linuxbox ~]$ </tt>
+</pre></div>
+
+We see that this expression does not match the line “a b 9” because it contains a non-
+alphabetic character; nor does it match “abc d” because more than one space character
+separates the characters “c” and “d”.
+
+#### { } - Match An Element A Specific Number Of Times
+
+The { and } metacharacters are used to express minimum and maximum numbers of
+required matches. They may be specified in four possible ways:
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 20-3: Specifying The Number Of Matches </caption>
+<tr>
+<th class="title">Specifier </th>
+<th class="title">Meaning </th>
+</tr>
+<tr>
+<td valign="top" width="25%">{n}</td>
+<td valign="top">Match the preceding element if it occurs exactly n times.  </td>
+</tr>
+<tr>
+<td valign="top">{n,m}</td>
+<td valign="top">Match the preceding element if it occurs at least n times, but no
+more than m times.  </td>
+</tr>
+<tr>
+<td valign="top">{n,}</td>
+<td valign="top">Match the preceding element if it occurs n or more times.  </td>
+</tr>
+<tr>
+<td valign="top">{,m}</td>
+<td valign="top">Match the preceding element if it occurs no more than m times.  </td>
+</tr>
+</table>
+</p>
+
+Going back to our earlier example with the phone numbers, we can use this method of
+specifying repetitions to simplify our original regular expression from:
+
+^\(?[0-9][0-9][0-9]\)?  [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$
+
+to:
+
+^\(?[0-9]{3}\)?  [0-9]{3}-[0-9]{4}$
+
+Let’s try it:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ echo "(555) 123-4567" | grep -E '^\(?[0-9]{3}\)? [0- 9]{3}-[0-9]{4}$'
+(555) 123-4567
+[me@linuxbox ~]$ echo "555 123-4567" | grep -E '^\(?[0-9]{3}\)? [0-9] {3}-[0-9]{4}$'
+555 123-4567
+[me@linuxbox ~]$ echo "5555 123-4567" | grep -E '^\(?[0-9]{3}\)? [0-9 ]{3}-[0-9]{4}$'
+[me@linuxbox ~]$ </tt>
+</pre></div>
+
+As we can see, our revised expression can successfully validate numbers both with and
+without the parentheses, while rejecting those numbers that are not properly formatted.
+
+### Putting Regular Expressions To Work
+
+Let’s look at some of the commands we already know and see how they can be used with
+regular expressions.
+
+### Validating A Phone List With grep
+
+In our earlier example, we looked at single phone numbers and checked them for proper
+formatting. A more realistic scenario would be checking a list of numbers instead, so
+let’s make a list. We’ll do this by reciting a magical incantation to the command line. It
+will be magic because we have not covered most of the commands involved, but worry
+not. We will get there in future chapters. Here is the incantation:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ for i in {1..10}; do echo "(${RANDOM:0:3}) ${RANDO
+M:0:3}-${RANDOM:0:4}" &gt;&gt; phonelist.txt; done </tt>
+</pre></div>
+
+This command will produce a file named phonelist.txt containing ten phone
+numbers. Each time the command is repeated, another ten numbers are added to the list.
+We can also change the value 10 near the beginning of the command to produce more or
+fewer phone numbers. If we examine the contents of the file, however, we see we have a
+problem:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ cat phonelist.txt
+(232) 298-2265
+(624) 381-1078
+(540) 126-1980
+(874) 163-2885
+(286) 254-2860
+(292) 108-518
+(129) 44-1379
+(458) 273-1642
+(686) 299-8268
+(198) 307-2440 </tt>
+</pre></div>
+
+Some of the numbers are malformed, which is perfect for our purposes, since we will use
+grep to validate them.
+One useful method of validation would be to scan the file for invalid numbers and display
+the resulting list on the display:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ grep -Ev '^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$'
+phonelist.txt
+(292) 108-518
+(129) 44-1379
+[me@linuxbox ~]$ </tt>
+</pre></div>
+
+Here we use the -v option to produce an inverse match so that we will only output the
+lines in the list that do not match the specified expression. The expression itself includes
+the anchor metacharacters at each end to ensure that the number has no extra characters at
+either end. This expression also requires that the parentheses be present in a valid
+number, unlike our earlier phone number example.
+
+### Finding Ugly Filenames With find
+
+The find command supports a test based on a regular expression. There is an important
+consideration to keep in mind when using regular expressions in find versus grep.
+Whereas grep will print a line when the line contains a string that matches an
+expression, find requires that the pathname exactly match the regular expression. In the
+following example, we will use find with a regular expression to find every pathname
+that contains any character that is not a member of the following set:
+
+[-\_./0-9a-zA-Z]
+
+Such a scan would reveal pathnames that contain embedded spaces and other potentially
+offensive characters:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ find . -regex \'.\*[^-\_./0-9a-zA-Z].\*\'</tt>
+</pre></div>
+
+Due to the requirement for an exact match of the entire pathname, we use .\* at both ends
+of the expression to match zero or more instances of any character. In the middle of the
+expression, we use a negated bracket expression containing our set of acceptable
+pathname characters.
+
+### Searching For Files With locate
+
+The locate program supports both basic (the --regexp option) and extended (the --
+regex option) regular expressions. With it, we can perform many of the same
+operations that we performed earlier with our dirlist files:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ locate --regex 'bin/(bz|gz|zip)'
+/bin/bzcat
+/bin/bzcmp
+/bin/bzdiff
+/bin/bzegrep
+/bin/bzexe
+/bin/bzfgrep
+/bin/bzgrep
+/bin/bzip2
+/bin/bzip2recover
+/bin/bzless
+/bin/bzmore
+/bin/gzexe
+/bin/gzip
+/usr/bin/zip
+/usr/bin/zipcloak
+/usr/bin/zipgrep
+/usr/bin/zipinfo
+/usr/bin/zipnote
+/usr/bin/zipsplit </tt>
+</pre></div>
+
+Using alternation, we perform a search for pathnames that contain either bin/bz, bin/gz, or /bin/zip.
+
+### Searching For Text In less And vim
+
+less and vim both share the same method of searching for text. Pressing the / key
+followed by a regular expression will perform a search. If we use less to view our
+phonelist.txt file:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ less phonelist.txt </tt>
+</pre></div>
+
+Then search for our validation expression:
+
+<div class="code"><pre>
+<tt>(232) 298-2265
+(624) 381-1078
+(540) 126-1980
+(874) 163-2885
+(286) 254-2860
+(292) 108-518
+(129) 44-1379
+(458) 273-1642
+(686) 299-8268
+(198) 307-2440
+~
+~
+~
+/^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$ </tt>
+</pre></div>
+
+less will highlight the strings that match, leaving the invalid ones easy to spot:
+
+<div class="code"><pre>
+<tt><b>(232) 298-2265
+(624) 381-1078
+(540) 126-1980
+(874) 163-2885
+(286) 254-2860</b>
+(292) 108-518
+(129) 44-1379
+<b>(458) 273-1642
+(686) 299-8268
+(198) 307-2440</b>
+~
+~
+~
+<b>(END)</b> </tt>
+</pre></div>
+
+vim, on the other hand, supports basic regular expressions, so our search expression
+would look like this:
+
+/([0-9]\{3\}) [0-9]\{3\}-[0-9]\{4\}
+
+We can see that the expression is mostly the same; however, many of the characters that
+are considered metacharacters in extended expressions are considered literals in basic
+expressions. They are only treated as metacharacters when escaped with a backslash.
+
+Depending on the particular configuration of vim on our system, the matching will be
+highlighted. If not, try this command mode command:
+
+:hlsearch
+
+to activate search highlighting.
+
+<hr style="height:5px;width:100%;background:gray" />
+Note: Depending on your distribution, vim may or may not support text search
+highlighting. Ubuntu, in particular, supplies a very stripped-down version of vim
+by default. On such systems, you may want to use your package manager to install
+a more complete version of vim.
+<hr style="height:5px;width:100%;background:gray" />
+
+### Summing Up
+
+In this chapter, we’ve seen a few of the many uses of regular expressions. We can find
+even more if we use regular expressions to search for additional applications that use
+them. We can do that by searching the man pages:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ cd /usr/share/man/man1
+[me@linuxbox man1]$ zgrep -El 'regex|regular expression' \*.gz </tt>
+</pre></div>
+
+The zgrep program provides a front end for grep, allowing it to read compressed files.
+In our example, we search the compressed section one man page files located in their
+usual location. The result of this command is a list of files containing either the string
+“regex” or “regular expression”. As we can see, regular expressions show up in a lot of
+programs.
+
+There is one feature found in basic regular expressions that we did not cover. Called
+back references, this feature will be discussed in the next chapter.
+
+### Further Reading
+
+There are many online resources for learning regular expressions, including various
+tutorials and cheat sheets.
+
+In addition, the Wikipedia has good articles on the following background topics:
+
+* POSIX: http://en.wikipedia.org/wiki/Posix
+
+* ASCII: http://en.wikipedia.org/wiki/Ascii
