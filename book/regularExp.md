@@ -629,8 +629,7 @@ table below:
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
-<caption class="cap">Table 20-2: POSIX Character Classes
-</caption>
+<caption class="cap">Table 20-2: POSIX Character Classes </caption>
 <tr>
 <th class="title">Character Class </th>
 <th class="title">Description </th>
@@ -640,11 +639,8 @@ table below:
 <td valign="top">The alphanumeric characters. In ASCII, equivalent to: [A-Za-z0-9] </td>
 </tr>
 <tr>
-<td valign="top">[:word:] 
-</td>
-<td valign="top">The same as [:alnum:], with the addition of the underscore
-(\_) character.
-</td>
+<td valign="top">[:word:] </td>
+<td valign="top">The same as [:alnum:], with the addition of the underscore (\_) character.  </td>
 </tr>
 <tr>
 <td valign="top">[:alpha:] </td>
@@ -665,19 +661,16 @@ through thirty-one and 127.  </td>
 </tr>
 <tr>
 <td valign="top">[:graph:]</td>
-<td valign="top">The visible characters. In ASCII, it includes characters 33 through 126.
-</td>
+<td valign="top">The visible characters. In ASCII, it includes characters 33 through 126.  </td>
 </tr>
 <tr>
-<td valign="top">[:lower:] 
-</td>
-<td valign="top">The lowercase letters.
-</td>
+<td valign="top">[:lower:] </td>
+<td valign="top">The lowercase letters.  </td>
 </tr>
 <tr>
 <td valign="top">[:punct:] </td>
 <td valign="top">The punctuation characters. In ASCII, equivalent to:
-[-!"#$%&'()\*+,./:;&lt;=&gt;?@[\\\]\_\`{|}~] </td>
+[-!"#$%&'()\*+,./:;&lt;=&gt;?@[\\\\]\_\`{|}~] </td>
 </tr>
 <tr>
 <td valign="top">[:print:] </td>
@@ -688,7 +681,7 @@ plus the space character.  </td>
 <td valign="top">[:space:] </td>
 <td valign="top">The whitespace characters including space, tab, carriage
 return, newline, vertical tab, and form feed. In ASCII,
-equivalent to: [ \t\r\n\v\f] </td>
+equivalent to: [\t\r\n\v\f] </td>
 </tr>
 <tr>
 <td valign="top">[:upper:] </td>
@@ -704,8 +697,7 @@ equivalent to: [0-9A-Fa-f] </td>
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
-<caption class="cap">表20-2: POSIX 字符集
-</caption>
+<caption class="cap">表20-2: POSIX 字符集 </caption>
 <tr>
 <th class="title">字符集</th>
 <th class="title">说明</th>
@@ -715,10 +707,8 @@ equivalent to: [0-9A-Fa-f] </td>
 <td valign="top">字母数字字符。在ASCII中，等价于：[A-Za-z0-9] </td>
 </tr>
 <tr>
-<td valign="top">[:word:] 
-</td>
-<td valign="top">与[:alnum:]相同, 但增加了下划线字符。
-</td>
+<td valign="top">[:word:] </td>
+<td valign="top">与[:alnum:]相同, 但增加了下划线字符。 </td>
 </tr>
 <tr>
 <td valign="top">[:alpha:] </td>
@@ -738,17 +728,15 @@ equivalent to: [0-9A-Fa-f] </td>
 </tr>
 <tr>
 <td valign="top">[:graph:]</td>
-<td valign="top">可视字符。在ASCII中，它包含33到126的字符。
-</td>
+<td valign="top">可视字符。在ASCII中，它包含33到126的字符。 </td>
 </tr>
 <tr>
-<td valign="top">[:lower:] 
-</td>
+<td valign="top">[:lower:] </td>
 <td valign="top">小写字母。</td>
 </tr>
 <tr>
 <td valign="top">[:punct:] </td>
-<td valign="top">标点符号字符。在ASCII中，等价于：[-!"#$%&'()\*+,./:;&lt;=&gt;?@[\\\]\_\`{|}~] </td>
+<td valign="top">标点符号字符。在ASCII中，等价于：[-!"#$%&'()\*+,./:;&lt;=&gt;?@[\\\\]\_\`{|}~] </td>
 </tr>
 <tr>
 <td valign="top">[:print:] </td>
@@ -757,7 +745,7 @@ equivalent to: [0-9A-Fa-f] </td>
 <tr>
 <td valign="top">[:space:] </td>
 <td valign="top">空白字符，包括空格，tab，回车，换行，vertical tab, 和 form feed.在ASCII中， 
-等价于：[ \t\r\n\v\f] </td>
+等价于：[\t\r\n\v\f] </td>
 </tr>
 <tr>
 <td valign="top">[:upper:] </td>
@@ -1012,20 +1000,30 @@ changes to match any filename that begins with “bz” or contains “gz” or 
 
 ### Quantifiers
 
+### 限定符 
+
 Extended regular expressions support several ways to specify the number of times an
 element is matched.
 
+扩展的正则表达式支持几种方法，来指定一个元素被匹配的次数。
+
 #### ? - Match An Element Zero Or One Time
+
+#### ? - 匹配一个元素零次或一次 
 
 This quantifier means, in effect, “make the preceding element optional.” Let’s say we
 wanted to check a phone number for validity and we considered a phone number to be
 valid if it matched either of these two forms:
 
-(nnn) nnn-nnnn nnn nnn-nnnn
+这个限定符意味着，实际上，“使”
+
+(nnn) nnn-nnnn 
+
+nnn nnn-nnnn
 
 where “n” is a numeral. We could construct a regular expression like this:
 
-^\(?[0-9][0-9][0-9]\)?  [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$
+^\\(?\[0-9\]\[0-9\]\[0-9\]\\)?  \[0-9\]\[0-9\]\[0-9\]-\[0-9\\][0-9\]\[0-9\]\[0-9\]$
 
 In this expression, we follow the parentheses characters with question marks to indicate
 that they are to be matched zero or one time. Again, since the parentheses are normally
@@ -1057,21 +1055,21 @@ string was a sentence; that is, it starts with an uppercase letter, then contain
 of upper and lowercase letters and spaces, and ends with a period. To match this (very
 crude) definition of a sentence, we could use a regular expression like this:
 
-[[:upper:]][[:upper:][:lower:] ]\*\.
+\[\[:upper:\]\]\[\[:upper:\]\[:lower:\]\]\*\\.
 
-The expression consists of three items: a bracket expression containing the [:upper:]
-character class, a bracket expression containing both the [:upper:] and [:lower:]
+The expression consists of three items: a bracket expression containing the \[:upper:\]
+character class, a bracket expression containing both the \[:upper:\] and \[:lower:\]
 character classes and a space, and a period escaped with a backslash. The second element
 is trailed with an \* metacharacter, so that after the leading uppercase letter in our
 sentence, any number of upper and lowercase letters and spaces may follow it and still
 match:
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "This works." | grep -E '[[:upper:]][[:upper:][ :lower:] ]\*\.'
+<tt>[me@linuxbox ~]$ echo "This works." | grep -E '[[:upper:]][[:upper:][:lower:]]\*\\.'
 This works.
-[me@linuxbox ~]$ echo "This Works." | grep -E '[[:upper:]][[:upper:][ :lower:] ]\*\.'
+[me@linuxbox ~]$ echo "This Works." | grep -E '[[:upper:]][[:upper:][:lower:]]\*\\.'
 This Works.
-[me@linuxbox ~]$ echo "this does not" | grep -E '[[:upper:]][[:upper: ][:lower:] ]\*\.'
+[me@linuxbox ~]$ echo "this does not" | grep -E '[[:upper:]][[:upper: ][:lower:]]\*\\.'
 [me@linuxbox ~]$ </tt>
 </pre></div>
 
@@ -1085,7 +1083,7 @@ preceding element to cause a match. Here is a regular expression that will only 
 lines consisting of groups of one or more alphabetic characters separated by single
 spaces:
 
-^([[:alpha:]]+ ?)+$
+^(\[\[:alpha:\]\]+ ?)+$
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "This that" | grep -E '^([[:alpha:]]+ ?)+$'
@@ -1136,11 +1134,11 @@ more than m times.  </td>
 Going back to our earlier example with the phone numbers, we can use this method of
 specifying repetitions to simplify our original regular expression from:
 
-^\(?[0-9][0-9][0-9]\)?  [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$
+^\(?\[0-9\]\[0-9\]\[0-9\]\)?  \[0-9\]\[0-9\]\[0-9\]-\[0-9\]\[0-9\]\[0-9\]\[0-9\]$
 
 to:
 
-^\(?[0-9]{3}\)?  [0-9]{3}-[0-9]{4}$
+^\(?\[0-9\]{3}\)?  \[0-9\]{3}-\[0-9\]{4}$
 
 Let’s try it:
 
@@ -1196,6 +1194,7 @@ problem:
 
 Some of the numbers are malformed, which is perfect for our purposes, since we will use
 grep to validate them.
+
 One useful method of validation would be to scan the file for invalid numbers and display
 the resulting list on the display:
 
@@ -1222,7 +1221,7 @@ expression, find requires that the pathname exactly match the regular expression
 following example, we will use find with a regular expression to find every pathname
 that contains any character that is not a member of the following set:
 
-[-\_./0-9a-zA-Z]
+\[-\_./0-9a-zA-Z\]
 
 Such a scan would reveal pathnames that contain embedded spaces and other potentially
 offensive characters:
