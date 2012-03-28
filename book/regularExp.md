@@ -635,7 +635,7 @@ table below:
 <th class="title">Description </th>
 </tr>
 <tr>
-<td valign="top" width="25%">[:alnum:] </td>
+<td valign="top" width="25%">[:alnum:]</td>
 <td valign="top">The alphanumeric characters. In ASCII, equivalent to: [A-Za-z0-9] </td>
 </tr>
 <tr>
@@ -670,7 +670,7 @@ through thirty-one and 127.  </td>
 <tr>
 <td valign="top">[:punct:] </td>
 <td valign="top">The punctuation characters. In ASCII, equivalent to:
-[-!"#$%&'()\*+,./:;&lt;=&gt;?@[\\\\]\_\`{|}~] </td>
+</td>
 </tr>
 <tr>
 <td valign="top">[:print:] </td>
@@ -736,7 +736,7 @@ equivalent to: [0-9A-Fa-f] </td>
 </tr>
 <tr>
 <td valign="top">[:punct:] </td>
-<td valign="top">标点符号字符。在ASCII中，等价于：[-!"#$%&'()\*+,./:;&lt;=&gt;?@[\\\\]\_\`{|}~] </td>
+<td valign="top">标点符号字符。在ASCII中，等价于：</td>
 </tr>
 <tr>
 <td valign="top">[:print:] </td>
@@ -898,7 +898,7 @@ changes and extensions. This started to limit the compatibility of the software.
 today as “the Balkanization.” </p>
 
 <p>专有软件供应商一如既往，每个供应商都试图玩嬴游戏“锁定”他们的客户。这个Unix历史上
-的黑暗时代，就是今天众所周知的“巴尔干化”。</p>
+的黑暗时代，就是今天众所周知的“the Balkanization”。</p>
 
 <p> Enter the IEEE (Institute of Electrical and Electronics Engineers). In the
 mid-1980s, the IEEE began developing a set of standards that would define how
@@ -1023,7 +1023,7 @@ nnn nnn-nnnn
 
 where “n” is a numeral. We could construct a regular expression like this:
 
-^\\(?\[0-9\]\[0-9\]\[0-9\]\\)?  \[0-9\]\[0-9\]\[0-9\]-\[0-9\\][0-9\]\[0-9\]\[0-9\]$
+^\(?[0-9][0-9][0-9]\)?  [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$
 
 In this expression, we follow the parentheses characters with question marks to indicate
 that they are to be matched zero or one time. Again, since the parentheses are normally
@@ -1047,7 +1047,7 @@ Let’s try it:
 Here we see that the expression matches both forms of the phone number, but does not
 match one containing non-numeric characters.
 
-#### \* - Match An Element Zero Or More Times
+\* - Match An Element Zero Or More Times
 
 Like the ? metacharacter, the \* is used to denote an optional item; however, unlike the ?,
 the item may occur any number of times, not just once. Let’s say we wanted to see if a
@@ -1055,35 +1055,35 @@ string was a sentence; that is, it starts with an uppercase letter, then contain
 of upper and lowercase letters and spaces, and ends with a period. To match this (very
 crude) definition of a sentence, we could use a regular expression like this:
 
-\[\[:upper:\]\]\[\[:upper:\]\[:lower:\]\]\*\\.
+[[:upper:]][[:upper:][:lower:] ]\*\.
 
-The expression consists of three items: a bracket expression containing the \[:upper:\]
-character class, a bracket expression containing both the \[:upper:\] and \[:lower:\]
+The expression consists of three items: a bracket expression containing the [:upper:]
+character class, a bracket expression containing both the [:upper:] and [:lower:]
 character classes and a space, and a period escaped with a backslash. The second element
 is trailed with an \* metacharacter, so that after the leading uppercase letter in our
 sentence, any number of upper and lowercase letters and spaces may follow it and still
 match:
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "This works." | grep -E '[[:upper:]][[:upper:][:lower:]]\*\\.'
+<tt>[me@linuxbox ~]$ echo "This works." | grep -E '[[:upper:]][[:upper:][ :lower:] ]\*\.'
 This works.
-[me@linuxbox ~]$ echo "This Works." | grep -E '[[:upper:]][[:upper:][:lower:]]\*\\.'
+[me@linuxbox ~]$ echo "This Works." | grep -E '[[:upper:]][[:upper:][ :lower:] ]\*\.'
 This Works.
-[me@linuxbox ~]$ echo "this does not" | grep -E '[[:upper:]][[:upper: ][:lower:]]\*\\.'
+[me@linuxbox ~]$ echo "this does not" | grep -E '[[:upper:]][[:upper: ][:lower:] ]\*\.'
 [me@linuxbox ~]$ </tt>
 </pre></div>
 
 The expression matches the first two tests, but not the third, since it lacks the required
 leading uppercase character and trailing period.
 
-#### + - Match An Element One Or More Times
++ - Match An Element One Or More Times
 
 The + metacharacter works much like the \*, except it requires at least one instance of the
 preceding element to cause a match. Here is a regular expression that will only match
 lines consisting of groups of one or more alphabetic characters separated by single
 spaces:
 
-^(\[\[:alpha:\]\]+ ?)+$
+^([[:alpha:]]+ ?)+$
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "This that" | grep -E '^([[:alpha:]]+ ?)+$'
@@ -1099,7 +1099,7 @@ We see that this expression does not match the line “a b 9” because it conta
 alphabetic character; nor does it match “abc d” because more than one space character
 separates the characters “c” and “d”.
 
-#### { } - Match An Element A Specific Number Of Times
+{ } - Match An Element A Specific Number Of Times
 
 The { and } metacharacters are used to express minimum and maximum numbers of
 required matches. They may be specified in four possible ways:
@@ -1134,11 +1134,11 @@ more than m times.  </td>
 Going back to our earlier example with the phone numbers, we can use this method of
 specifying repetitions to simplify our original regular expression from:
 
-^\(?\[0-9\]\[0-9\]\[0-9\]\)?  \[0-9\]\[0-9\]\[0-9\]-\[0-9\]\[0-9\]\[0-9\]\[0-9\]$
+^\(?[0-9][0-9][0-9]\)?  [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$
 
 to:
 
-^\(?\[0-9\]{3}\)?  \[0-9\]{3}-\[0-9\]{4}$
+^\(?[0-9]{3}\)?  [0-9]{3}-[0-9]{4}$
 
 Let’s try it:
 
@@ -1153,14 +1153,10 @@ Let’s try it:
 
 As we can see, our revised expression can successfully validate numbers both with and
 without the parentheses, while rejecting those numbers that are not properly formatted.
-
-### Putting Regular Expressions To Work
-
+Putting Regular Expressions To Work
 Let’s look at some of the commands we already know and see how they can be used with
 regular expressions.
-
-### Validating A Phone List With grep
-
+Validating A Phone List With grep
 In our earlier example, we looked at single phone numbers and checked them for proper
 formatting. A more realistic scenario would be checking a list of numbers instead, so
 let’s make a list. We’ll do this by reciting a magical incantation to the command line. It
@@ -1194,7 +1190,6 @@ problem:
 
 Some of the numbers are malformed, which is perfect for our purposes, since we will use
 grep to validate them.
-
 One useful method of validation would be to scan the file for invalid numbers and display
 the resulting list on the display:
 
@@ -1212,7 +1207,7 @@ the anchor metacharacters at each end to ensure that the number has no extra cha
 either end. This expression also requires that the parentheses be present in a valid
 number, unlike our earlier phone number example.
 
-### Finding Ugly Filenames With find
+Finding Ugly Filenames With find
 
 The find command supports a test based on a regular expression. There is an important
 consideration to keep in mind when using regular expressions in find versus grep.
@@ -1221,7 +1216,7 @@ expression, find requires that the pathname exactly match the regular expression
 following example, we will use find with a regular expression to find every pathname
 that contains any character that is not a member of the following set:
 
-\[-\_./0-9a-zA-Z\]
+[-\_./0-9a-zA-Z]
 
 Such a scan would reveal pathnames that contain embedded spaces and other potentially
 offensive characters:
@@ -1235,7 +1230,7 @@ of the expression to match zero or more instances of any character. In the middl
 expression, we use a negated bracket expression containing our set of acceptable
 pathname characters.
 
-### Searching For Files With locate
+Searching For Files With locate
 
 The locate program supports both basic (the --regexp option) and extended (the --
 regex option) regular expressions. With it, we can perform many of the same
@@ -1266,7 +1261,7 @@ operations that we performed earlier with our dirlist files:
 
 Using alternation, we perform a search for pathnames that contain either bin/bz, bin/gz, or /bin/zip.
 
-### Searching For Text In less And vim
+Searching For Text In less And vim
 
 less and vim both share the same method of searching for text. Pressing the / key
 followed by a regular expression will perform a search. If we use less to view our
@@ -1337,8 +1332,7 @@ by default. On such systems, you may want to use your package manager to install
 a more complete version of vim.
 <hr style="height:5px;width:100%;background:gray" />
 
-### Summing Up
-
+Summing Up
 In this chapter, we’ve seen a few of the many uses of regular expressions. We can find
 even more if we use regular expressions to search for additional applications that use
 them. We can do that by searching the man pages:
@@ -1357,7 +1351,7 @@ programs.
 There is one feature found in basic regular expressions that we did not cover. Called
 back references, this feature will be discussed in the next chapter.
 
-### Further Reading
+Further Reading
 
 There are many online resources for learning regular expressions, including various
 tutorials and cheat sheets.
@@ -1367,3 +1361,5 @@ In addition, the Wikipedia has good articles on the following background topics:
 * POSIX: http://en.wikipedia.org/wiki/Posix
 
 * ASCII: http://en.wikipedia.org/wiki/Ascii
+
+
