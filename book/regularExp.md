@@ -681,7 +681,7 @@ plus the space character.  </td>
 <td valign="top">[:space:] </td>
 <td valign="top">The whitespace characters including space, tab, carriage
 return, newline, vertical tab, and form feed. In ASCII,
-equivalent to: [\t\r\n\v\f] </td>
+equivalent to: [ \t\r\n\v\f] </td>
 </tr>
 <tr>
 <td valign="top">[:upper:] </td>
@@ -745,7 +745,7 @@ equivalent to: [0-9A-Fa-f] </td>
 <tr>
 <td valign="top">[:space:] </td>
 <td valign="top">空白字符，包括空格，tab，回车，换行，vertical tab, 和 form feed.在ASCII中， 
-等价于：[\t\r\n\v\f] </td>
+等价于：[ \t\r\n\v\f] </td>
 </tr>
 <tr>
 <td valign="top">[:upper:] </td>
@@ -1015,7 +1015,8 @@ This quantifier means, in effect, “make the preceding element optional.” Let
 wanted to check a phone number for validity and we considered a phone number to be
 valid if it matched either of these two forms:
 
-这个限定符意味着，实际上，“使”
+这个限定符意味着，实际上，“使前面的元素可有可无。”比方说我们想要查看一个电话号码的真实性，
+如果它匹配下面两种格式的任意一种，我们就认为这个电话号码是真实的：
 
 (nnn) nnn-nnnn 
 
@@ -1023,14 +1024,21 @@ nnn nnn-nnnn
 
 where “n” is a numeral. We could construct a regular expression like this:
 
-^\(?[0-9][0-9][0-9]\)?  [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$
+这里的“n”是一个数字。我们可以构建一个像这样的正则表达式：
+
+<p>^\(?[0-9][0-9][0-9]\)?  [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$</p>
 
 In this expression, we follow the parentheses characters with question marks to indicate
 that they are to be matched zero or one time. Again, since the parentheses are normally
 metacharacters (in ERE), we precede them with backslashes to cause them to be treated
 as literals instead.
 
+在这个表达式中，我们在圆括号之后加上一个问号，来表示它们将被匹配零次或一次。再一次，因为
+通常圆括号都是元字符（在ERE中），所以我们在圆括号之前加上了反斜杠，使它们成为文本字符。
+
 Let’s try it:
+
+让我们试一下：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "(555) 123-4567" | grep -E '^\(?[0-9][0-9][0-9]
@@ -1047,13 +1055,20 @@ Let’s try it:
 Here we see that the expression matches both forms of the phone number, but does not
 match one containing non-numeric characters.
 
-\* - Match An Element Zero Or More Times
+这里我们看到这个表达式匹配这个电话号码的两种形式，但是不匹配包含非数字字符的号码。
+
+#### \* - Match An Element Zero Or More Times
 
 Like the ? metacharacter, the \* is used to denote an optional item; however, unlike the ?,
 the item may occur any number of times, not just once. Let’s say we wanted to see if a
 string was a sentence; that is, it starts with an uppercase letter, then contains any number
 of upper and lowercase letters and spaces, and ends with a period. To match this (very
 crude) definition of a sentence, we could use a regular expression like this:
+
+像?元字符一样，这个\*被用来表示一个可选的字符；然而，又与?不同，匹配的字符可以出现
+任意多次，不仅是一次。比方说我们想要知道是否一个字符串是一句话；也就是说，字符串开始于
+一个大写字母，然后包含任意多个大写和小写的字母和空格，最后以句号收尾。为了匹配这个（非常粗略的）
+语句的定义，我们能够使用一个像这样的正则表达式：
 
 [[:upper:]][[:upper:][:lower:] ]\*\.
 
@@ -1063,6 +1078,10 @@ character classes and a space, and a period escaped with a backslash. The second
 is trailed with an \* metacharacter, so that after the leading uppercase letter in our
 sentence, any number of upper and lowercase letters and spaces may follow it and still
 match:
+
+这个表达式由三个元素组成：一个包含[:upper:]字符集的中括号表达式，一个包含[:upper:]和[:lower:]
+两个字符集以及一个空格的中括号表达式，和一个被反斜杠字符转义过的圆点。第二个元素末尾带有一个
+\*元字符，所以在开头的大写字母之后，可能会跟随着任意数目的大写和小写字母和空格，并且匹配：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "This works." | grep -E '[[:upper:]][[:upper:][ :lower:] ]\*\.'
@@ -1076,12 +1095,18 @@ This Works.
 The expression matches the first two tests, but not the third, since it lacks the required
 leading uppercase character and trailing period.
 
-+ - Match An Element One Or More Times
+这个表达式匹配前两个测试语句，但不匹配第三个，因为第三个句子缺少开头的大写字母和末尾的句号。
+
+####　+ - Match An Element One Or More Times
+
+####　+ - 匹配一个元素一次或多次 
 
 The + metacharacter works much like the \*, except it requires at least one instance of the
 preceding element to cause a match. Here is a regular expression that will only match
-lines consisting of groups of one or more alphabetic characters separated by single
-spaces:
+lines consisting of groups of one or more alphabetic characters separated by single spaces:
+
+这个+元字符的作用与\*非常相似，除了它要求前面的元素至少出现一次匹配。这个正则表达式只匹配
+那些由一个或多个字母字符组构成的文本行，字母字符之间由单个空格分开：
 
 ^([[:alpha:]]+ ?)+$
 
@@ -1091,18 +1116,25 @@ This that
 [me@linuxbox ~]$ echo "a b c" | grep -E '^([[:alpha:]]+ ?)+$'
 a b c
 [me@linuxbox ~]$ echo "a b 9" | grep -E '^([[:alpha:]]+ ?)+$'
-[me@linuxbox ~]$ echo "abc d" | grep -E '^([[:alpha:]]+ ?)+$'
+[me@linuxbox ~]$ echo "abc  d" | grep -E '^([[:alpha:]]+ ?)+$'
 [me@linuxbox ~]$ </tt>
 </pre></div>
 
 We see that this expression does not match the line “a b 9” because it contains a non-
-alphabetic character; nor does it match “abc d” because more than one space character
+alphabetic character; nor does it match “abc  d” because more than one space character
 separates the characters “c” and “d”.
 
-{ } - Match An Element A Specific Number Of Times
+我们看到这个正则表达式不匹配“a b 9”这一行，因为它包含了一个非字母的字符；它也不匹配
+ “abc  d” ，因为在字符“c”和“d”之间不止一个空格。
+
+####　{ } - Match An Element A Specific Number Of Times
+
+####　{ } - 匹配一个元素特定的次数
 
 The { and } metacharacters are used to express minimum and maximum numbers of
 required matches. They may be specified in four possible ways:
+
+{和}元字符都被用来表达要求匹配的最小和最大数目。它们可以通过四种方法来指定：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -1131,8 +1163,36 @@ more than m times.  </td>
 </table>
 </p>
 
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">表20-3: 指定匹配的数目 </caption>
+<tr>
+<th class="title">限定符</th>
+<th class="title">意思</th>
+</tr>
+<tr>
+<td valign="top" width="25%">{n}</td>
+<td valign="top">匹配前面的元素，如果它确切地出现了n次。</td>
+</tr>
+<tr>
+<td valign="top">{n,m}</td>
+<td valign="top">匹配前面的元素，如果它至少出现了n次，但是不多于m次。</td>
+</tr>
+<tr>
+<td valign="top">{n,}</td>
+<td valign="top">匹配前面的元素，如果它出现了n次或多于n次。</td>
+</tr>
+<tr>
+<td valign="top">{,m}</td>
+<td valign="top">匹配前面的元素，如果它出现的次数不多于m次。</td>
+</tr>
+</table>
+</p>
+
 Going back to our earlier example with the phone numbers, we can use this method of
 specifying repetitions to simplify our original regular expression from:
+
+回到之前处理电话号码的例子，我们能够使用这种指定重复次数的方法来简化我们最初的正则表达式：
 
 ^\(?[0-9][0-9][0-9]\)?  [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$
 
@@ -1141,6 +1201,8 @@ to:
 ^\(?[0-9]{3}\)?  [0-9]{3}-[0-9]{4}$
 
 Let’s try it:
+
+让我们试一下：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "(555) 123-4567" | grep -E '^\(?[0-9]{3}\)? [0- 9]{3}-[0-9]{4}$'
@@ -1153,15 +1215,33 @@ Let’s try it:
 
 As we can see, our revised expression can successfully validate numbers both with and
 without the parentheses, while rejecting those numbers that are not properly formatted.
-Putting Regular Expressions To Work
+
+我们可以看到，我们修订的表达式能成功地验证带有和不带有圆括号的数字，而拒绝那些格式
+不正确的数字。
+
+### Putting Regular Expressions To Work
+
+### 让正则表达式工作起来
+
 Let’s look at some of the commands we already know and see how they can be used with
 regular expressions.
-Validating A Phone List With grep
+
+让我们看看一些我们已经知道的命令，然后看一下它们怎样使用正则表达式。
+
+#### Validating A Phone List With grep
+
+#### 通过grep命令来验证一个电话簿
+
 In our earlier example, we looked at single phone numbers and checked them for proper
 formatting. A more realistic scenario would be checking a list of numbers instead, so
 let’s make a list. We’ll do this by reciting a magical incantation to the command line. It
 will be magic because we have not covered most of the commands involved, but worry
 not. We will get there in future chapters. Here is the incantation:
+
+在我们先前的例子中，我们查看过单个电话号码，并且检查了它们的格式。一个更现实的
+情形是检查一个数字列表，所以我们先创建一个列表。我们将背诵一个神奇的咒语到命令行中。
+它会很神奇，因为我们还没有涵盖所涉及的大部分命令，但是不要担心。我们将在后面的章节里面
+讨论那些命令。这是咒语：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ for i in {1..10}; do echo "(${RANDOM:0:3}) ${RANDO
@@ -1173,6 +1253,10 @@ numbers. Each time the command is repeated, another ten numbers are added to the
 We can also change the value 10 near the beginning of the command to produce more or
 fewer phone numbers. If we examine the contents of the file, however, we see we have a
 problem:
+
+这个命令会创建一个包含10个电话号码的名为phonelist.txt的文件。每次重复这个命令的时候，
+另外10个号码会被添加到这个列表中。我们也能够更改命令开头附近的数值10，来生成或多或少的
+电话号码。如果我们查看这个文件的内容，然而我们会发现一个问题：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ cat phonelist.txt
@@ -1190,8 +1274,13 @@ problem:
 
 Some of the numbers are malformed, which is perfect for our purposes, since we will use
 grep to validate them.
+
+一些号码是残缺的，但它们符号我们的目的，以为我们将使用grep命令来验证它们。
+
 One useful method of validation would be to scan the file for invalid numbers and display
 the resulting list on the display:
+
+一个有用的验证方法是扫描这个文件，查找无效的号码，并把搜索结果显示到屏幕上：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ grep -Ev '^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$'
@@ -1207,7 +1296,13 @@ the anchor metacharacters at each end to ensure that the number has no extra cha
 either end. This expression also requires that the parentheses be present in a valid
 number, unlike our earlier phone number example.
 
-Finding Ugly Filenames With find
+这里我们使用-v选项来产生相反的匹配，因此我们将只输出不匹配指定表达式的文本行。这个
+表达式自身的两端都包含定位点（锚）元字符，是为了确保这个号码的两端没有多余的字符。
+这个表达式也要求圆括号出现在一个有效的号码中，不同于我们先前电话号码的实例。
+
+#### Finding Ugly Filenames With find
+
+#### 用find查找丑陋的文件名 
 
 The find command supports a test based on a regular expression. There is an important
 consideration to keep in mind when using regular expressions in find versus grep.
@@ -1216,10 +1311,17 @@ expression, find requires that the pathname exactly match the regular expression
 following example, we will use find with a regular expression to find every pathname
 that contains any character that is not a member of the following set:
 
+这个find命令支持一个基于正则表达式的测试。当在使用正则表达式方面比较find和grep命令的时候，
+还有一个重要问题要牢记在心。当某一行包含的字符串匹配上了一个表达式的时候，grep命令会打印出这一行，
+然而find命令要求路径名精确地匹配这个正则表达式。在下面的例子里面，我们将使用带有一个正则
+表达式的find命令，来查找每个路径名，其包含的任意字符都不是以下字符集中的一员。
+
 [-\_./0-9a-zA-Z]
 
 Such a scan would reveal pathnames that contain embedded spaces and other potentially
 offensive characters:
+
+这样一种扫描会发现包含空格和其它潜在不规范字符的路径名：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ find . -regex \'.\*[^-\_./0-9a-zA-Z].\*\'</tt>
@@ -1230,11 +1332,19 @@ of the expression to match zero or more instances of any character. In the middl
 expression, we use a negated bracket expression containing our set of acceptable
 pathname characters.
 
-Searching For Files With locate
+由于要精确地匹配整个路径名，所以我们在表达式的两端使用了.\*，来匹配零个或多个字符。
+在表达式中间，我们使用了否定的中括号表达式，其包含了我们一系列可接受的路径名字符。
+
+#### Searching For Files With locate
+
+#### 用locate查找文件 
 
 The locate program supports both basic (the --regexp option) and extended (the --
 regex option) regular expressions. With it, we can perform many of the same
 operations that we performed earlier with our dirlist files:
+
+这个locate程序支持基本的（--regexp选项）和扩展的（--regex选项）正则表达式。通过
+locate命令，我们能够执行许多与先前操作dirlist文件时相同的操作：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ locate --regex 'bin/(bz|gz|zip)'
@@ -1261,17 +1371,26 @@ operations that we performed earlier with our dirlist files:
 
 Using alternation, we perform a search for pathnames that contain either bin/bz, bin/gz, or /bin/zip.
 
-Searching For Text In less And vim
+通过使用alternation，我们搜索包含bin/bz，bin/gz，或/bin/zip字符串的路径名。
+
+#### Searching For Text In less And vim
+
+#### 在less和vim中查找文本 
 
 less and vim both share the same method of searching for text. Pressing the / key
 followed by a regular expression will perform a search. If we use less to view our
 phonelist.txt file:
+
+less和vim两者享有相同的文本查找方法。按下/按键，然后输入正则表达式，来执行搜索任务。
+如果我们使用less程序来浏览我们的phonelist.txt文件：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ less phonelist.txt </tt>
 </pre></div>
 
 Then search for our validation expression:
+
+然后查找我们有效的表达式：
 
 <div class="code"><pre>
 <tt>(232) 298-2265
@@ -1291,6 +1410,8 @@ Then search for our validation expression:
 </pre></div>
 
 less will highlight the strings that match, leaving the invalid ones easy to spot:
+
+less将会高亮匹配到的字符串，这样就很容易看到无效的电话号码：
 
 <div class="code"><pre>
 <tt><b>(232) 298-2265
@@ -1312,30 +1433,49 @@ less will highlight the strings that match, leaving the invalid ones easy to spo
 vim, on the other hand, supports basic regular expressions, so our search expression
 would look like this:
 
+另一方面，vim支持基本的正则表达式，所以我们用于搜索的表达式看起来像这样：
+
 /([0-9]\{3\}) [0-9]\{3\}-[0-9]\{4\}
 
 We can see that the expression is mostly the same; however, many of the characters that
 are considered metacharacters in extended expressions are considered literals in basic
 expressions. They are only treated as metacharacters when escaped with a backslash.
 
+我们看到表达式几乎一样；然而，在扩展表达式中，许多被认为是元字符的字符在基本的表达式
+中被看作是文本字符。只有用反斜杠把它们转义之后，它们才被看作是元字符。
+
 Depending on the particular configuration of vim on our system, the matching will be
 highlighted. If not, try this command mode command:
+
+依赖于系统中vim的特殊配置，匹配项将会被高亮。如若不是，试试这个命令模式：
 
 :hlsearch
 
 to activate search highlighting.
+
+来激活搜索高亮功能。
 
 <hr style="height:5px;width:100%;background:gray" />
 Note: Depending on your distribution, vim may or may not support text search
 highlighting. Ubuntu, in particular, supplies a very stripped-down version of vim
 by default. On such systems, you may want to use your package manager to install
 a more complete version of vim.
+
+注意：依赖于你的发行版，vim有可能支持或不支持文本搜索高亮功能。尤其是Ubuntu自带了
+一款非常简化的vim版本。在这样的系统中，你可能要使用你的软件包管理器来安装一个功能
+更完备的vim版本。
 <hr style="height:5px;width:100%;background:gray" />
 
-Summing Up
+### Summing Up
+
+### 总结归纳 
+
 In this chapter, we’ve seen a few of the many uses of regular expressions. We can find
 even more if we use regular expressions to search for additional applications that use
 them. We can do that by searching the man pages:
+
+在这章中，我们已经看到几个使用正则表达式例子。如果我们使用正则表达式来搜索那些使用正则表达式的应用程序，
+我们可以找到更多的使用实例。通过查找手册页，我们就能找到：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ cd /usr/share/man/man1
@@ -1348,15 +1488,27 @@ usual location. The result of this command is a list of files containing either 
 “regex” or “regular expression”. As we can see, regular expressions show up in a lot of
 programs.
 
+这个zgrep程序是grep的前端，允许grep来读取压缩文件。在我们的例子中，我们在手册文件所在的
+目录中，搜索压缩文件中的内容。这个命令的结果是一个包含字符串“regex”或者“regular
+expression”的文件列表。正如我们所看到的，正则表达式会出现在大量程序中。
+
 There is one feature found in basic regular expressions that we did not cover. Called
 back references, this feature will be discussed in the next chapter.
 
-Further Reading
+基本正则表达式中有一个特性，我们没有涵盖。叫做反引用，这个特性在下一章中会被讨论到。
+
+### Further Reading
+
+### 拓展阅读 
 
 There are many online resources for learning regular expressions, including various
 tutorials and cheat sheets.
 
+有许多在线学习正则表达式的资源，包括各种各样的教材和速记表。
+
 In addition, the Wikipedia has good articles on the following background topics:
+
+另外，关于下面的背景话题，Wikipedia有不错的文章。
 
 * POSIX: http://en.wikipedia.org/wiki/Posix
 

@@ -9,6 +9,8 @@ chapter, we will look at programs that are used to “slice and dice” text. In
 chapter, we will look at more text processing, focusing on programs that are used to
 format text for printing and other kinds of human consumption.
 
+
+
 This chapter will revisit some old friends and introduce us to some new ones:
 
 * cat – Concatenate files and print on the standard output
