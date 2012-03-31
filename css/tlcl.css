@@ -5,80 +5,54 @@
         
 */
 body {
-    margin-left: 160px;
-    margin-right: 160px;
+  font: helvetica,arial,freesans,clean,sans-serif;
+  margin-left: 160px;
+  margin-right: 160px;
 }
 
-h1 { font-size: 150%; }
+h1 { 
+  font-size: 150%;
+}
 
-h2 { font-size: 140%; }
+h2 { 
+  font-size: 140%;
+}
 
 /*Remove the line under links*/
-a {text-decoration:none;}
+a {
+  text-decoration:none;
+}
 
 /*this is very important for me*/
-pre { margin-left: 2% }
-
-p.figure{
-    font-style:italic;
-    text-align:center;
+pre { 
+  margin-left: 2%
 }
 
-#menu
-{
-    position: relative;
-    background: #dbdbdb no-repeat;
-    height: 40px;
-    padding: 0px 0px 0px 0px;
-    margin: 0px 0px 10px 0px;
+p.figure {
+  font-style:italic;
+  text-align:center;
 }
 
-#menu ul li
-{
-    display: inline;
-    line-height: 40px;
-    padding-left: 3px;
+table.single {
+  border:2px solid #dfd505;
+  background-color: #E0E0E0;
 }
 
-#menu ul li.first
-{
-    border-left: 0px;
+table.multi {
+  text-align: left;
 }
 
-#menu ul li a
-{
-    background-color: transparent;
-    background-repeat: repeat-x;
-    padding: 8px 12px 8px 12px;
-    font-size: 15px;
-    font-weight: bold;
+caption.cap {
+  font-style: italic;
+  text-align: left;
 }
 
-table.single
-{
-    border:2px solid #dfd505;
-    background-color: #E0E0E0;
+th.title {
+  background-color:#E0E0E0;
 }
 
-table.multi
-{
-    text-align:left;
-}
-
-caption.cap
-{
-    font-style:italic;
-    text-align:left;
-}
-
-th.title
-{
-    background-color:#E0E0E0;
-}
-
-div.code
-{
-    background-color: #E0E0E0;
-    padding: 0.1em;
-    font-size: 150%;
+div.code {
+  background-color: #E0E0E0;
+  padding: 0.1em;
+  font-size: 150%;
 }
