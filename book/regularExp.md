@@ -1070,7 +1070,7 @@ crude) definition of a sentence, we could use a regular expression like this:
 一个大写字母，然后包含任意多个大写和小写的字母和空格，最后以句号收尾。为了匹配这个（非常粗略的）
 语句的定义，我们能够使用一个像这样的正则表达式：
 
-[[:upper:]][[:upper:][:lower:] ]\*\.
+<p>[[:upper:]][[:upper:][:lower:] ]\*\.</p>
 
 The expression consists of three items: a bracket expression containing the [:upper:]
 character class, a bracket expression containing both the [:upper:] and [:lower:]
@@ -1097,9 +1097,9 @@ leading uppercase character and trailing period.
 
 这个表达式匹配前两个测试语句，但不匹配第三个，因为第三个句子缺少开头的大写字母和末尾的句号。
 
-####　+ - Match An Element One Or More Times
+####+ - Match An Element One Or More Times
 
-####　+ - 匹配一个元素一次或多次 
+####+ - 匹配一个元素一次或多次 
 
 The + metacharacter works much like the \*, except it requires at least one instance of the
 preceding element to cause a match. Here is a regular expression that will only match
@@ -1108,7 +1108,7 @@ lines consisting of groups of one or more alphabetic characters separated by sin
 这个+元字符的作用与\*非常相似，除了它要求前面的元素至少出现一次匹配。这个正则表达式只匹配
 那些由一个或多个字母字符组构成的文本行，字母字符之间由单个空格分开：
 
-^([[:alpha:]]+ ?)+$
+<p>^([[:alpha:]]+ ?)+$</p>
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "This that" | grep -E '^([[:alpha:]]+ ?)+$'
@@ -1127,9 +1127,9 @@ separates the characters “c” and “d”.
 我们看到这个正则表达式不匹配“a b 9”这一行，因为它包含了一个非字母的字符；它也不匹配
  “abc  d” ，因为在字符“c”和“d”之间不止一个空格。
 
-####　{ } - Match An Element A Specific Number Of Times
+####{ } - Match An Element A Specific Number Of Times
 
-####　{ } - 匹配一个元素特定的次数
+####{ } - 匹配一个元素特定的次数
 
 The { and } metacharacters are used to express minimum and maximum numbers of
 required matches. They may be specified in four possible ways:
@@ -1194,11 +1194,11 @@ specifying repetitions to simplify our original regular expression from:
 
 回到之前处理电话号码的例子，我们能够使用这种指定重复次数的方法来简化我们最初的正则表达式：
 
-^\(?[0-9][0-9][0-9]\)?  [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$
+<p>^\(?[0-9][0-9][0-9]\)?  [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$</p>
 
 to:
 
-^\(?[0-9]{3}\)?  [0-9]{3}-[0-9]{4}$
+<p>^\(?[0-9]{3}\)?  [0-9]{3}-[0-9]{4}$</p>
 
 Let’s try it:
 
@@ -1316,7 +1316,7 @@ that contains any character that is not a member of the following set:
 然而find命令要求路径名精确地匹配这个正则表达式。在下面的例子里面，我们将使用带有一个正则
 表达式的find命令，来查找每个路径名，其包含的任意字符都不是以下字符集中的一员。
 
-[-\_./0-9a-zA-Z]
+<p>[-\_./0-9a-zA-Z]</p>
 
 Such a scan would reveal pathnames that contain embedded spaces and other potentially
 offensive characters:
@@ -1435,7 +1435,7 @@ would look like this:
 
 另一方面，vim支持基本的正则表达式，所以我们用于搜索的表达式看起来像这样：
 
-/([0-9]\{3\}) [0-9]\{3\}-[0-9]\{4\}
+<p>/([0-9]\{3\}) [0-9]\{3\}-[0-9]\{4\}</p>
 
 We can see that the expression is mostly the same; however, many of the characters that
 are considered metacharacters in extended expressions are considered literals in basic
@@ -1449,7 +1449,7 @@ highlighted. If not, try this command mode command:
 
 依赖于系统中vim的特殊配置，匹配项将会被高亮。如若不是，试试这个命令模式：
 
-:hlsearch
+<p>:hlsearch</p>
 
 to activate search highlighting.
 
