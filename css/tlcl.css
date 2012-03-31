@@ -5,7 +5,8 @@
         
 */
 body {
-  font: helvetica,arial,freesans,clean,sans-serif;
+  font-family: Helvetica, Arial, FreeSans, san-serif;
+  line-height: 1.4em;
   margin-left: 160px;
   margin-right: 160px;
 }
