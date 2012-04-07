@@ -270,11 +270,11 @@ on its name or description.
 <tr>
 <td valign="top">Debian</td>
 <td valign="top">apt-get update
-<p>apt-cache search search\_string</p></td>
+<p>apt-cache search search_string</p></td>
 </tr>
 <tr>
 <td valign="top">Red Hat</td>
-<td valign="top">yum search search\_string</td>
+<td valign="top">yum search search_string</td>
 </tr>
 </table>
 </p>
