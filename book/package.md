@@ -243,13 +243,13 @@ Common Package Management Tasks
 There are many operations that can be performed with the command line package
 management tools. We will look at the most common. Be aware that the low-level tools
 also support creation of package files, an activity outside the scope of this book.
-In the discussion below, the term &quot;package_name&quot; refers to the actual name of a
-package rather than the term “package_file,” which is the name of the file that
+In the discussion below, the term &quot;package\_name&quot; refers to the actual name of a
+package rather than the term “package\_file,” which is the name of the file that
 contains the package.
 
 通过命令行软件包管理工具可以完成许多操作。我们将会看一下最常用的工具。注意底层工具也
 支持软件包文件的创建，这个话题超出了本书叙述的范围。在以下的讨论中，&quot;package\_name&quot;
-这个术语是指软件包实际名称，而不是指&quot;package_file&quot;，它是包含在软件包中的文件名。
+这个术语是指软件包实际名称，而不是指&quot;package\_file&quot;，它是包含在软件包中的文件名。
 
 Finding A Package In A Repository
 
@@ -269,12 +269,12 @@ on its name or description.
 </tr>
 <tr>
 <td valign="top">Debian</td>
-<td valign="top"><p>apt-get update</p>
-apt-cache search search_string</td>
+<td valign="top">apt-get update
+<p>apt-cache search search\_string</p></td>
 </tr>
 <tr>
 <td valign="top">Red Hat</td>
-<td valign="top">yum search search_string</td>
+<td valign="top">yum search search\_string</td>
 </tr>
 </table>
 </p>
@@ -308,11 +308,11 @@ full dependency resolution.
 <tr>
 <td valign="top" >Debian</td>
 <td valign="top">apt-get update
-<p>apt-get install package_name</p></td>
+<p>apt-get install package\_name</p></td>
 </tr>
 <tr>
 <td valign="top">Red Hat</td>
-<td valign="top">yum install package_name</td>
+<td valign="top">yum install package\_name</td>
 </tr>
 </table>
 </p>

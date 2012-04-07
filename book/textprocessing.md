@@ -242,11 +242,13 @@ cat程序也包含用来修改文本的选项。最著名的两个选项是-n，
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ cat > foo.txt
 The quick brown fox
+
+
 jumped over the lazy dog.
 [me@linuxbox ~]$ cat -ns foo.txt
-1 The quick brown fox
+1   The quick brown fox
 2
-3 jumped over the lazy dog.
+3   jumped over the lazy dog.
 [me@linuxbox ~]$ </tt>
 </pre></div>
 
@@ -255,12 +257,19 @@ lines of text separated by two blank lines. After processing by cat with the -ns
 the extra blank line is removed and the remaining lines are numbered. While this is not
 much of a process to perform on text, it is a process.
 
-#### sort
+在这个例子里，我们创建了一个测试文件foo.txt的新版本，其包含两行文本，由两个空白行分开。
+经由带有-ns选项的cat程序处理之后，多余的空白行被删除，并且对保留的文本行进行编号。
+然而这并不是多个进程在操作这个文本，只有一个进程。
 
+#### sort
+ 
 The sort program sorts the contents of standard input, or one or more files specified on
 the command line, and sends the results to standard output. Using the same technique
 that we used with cat, we can demonstrate processing of standard input directly from
 the keyboard:
+
+这个sort程序对标准输入的内容，或命令行中指定的一个或多个文件进行排序，然后把排序
+结果发送到标准输出。使用与cat命令相同的技巧，我们能够演示如何用sort程序来处理标准输入：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sort > foo.txt
@@ -277,13 +286,399 @@ After entering the command, we type the letters “c”, “b”, and “a”, f
 Ctrl-d to indicate end-of-file. We then view the resulting file and see that the lines
 now appear in sorted order.
 
+输入命令之后，我们键入字母“c”，“b”，和“a”，然后再按下Ctrl-d组合键来表示文件的结尾。
+随后我们查看生成的文件，看到文本行有序地显示。
+
 Since sort can accept multiple files on the command line as arguments, it is possible to
 merge multiple files into a single sorted whole. For example, if we had three text files
 and wanted to combine them into a single sorted file, we could do something like this:
+
+因为sort程序能接受命令行中的多个文件作为参数，所以有可能把多个文件合并成一个有序的文件。例如，
+如果我们有三个文本文件，想要把它们合并为一个有序的文件，我们可以这样做：
 
 <div class="code"><pre>
 <tt><b>sort file1.txt file2.txt file3.txt > final_sorted_list.txt</b> </tt>
 </pre></div>
 
 sort has several interesting options. Here is a partial list:
+
+sort程序有几个有趣的选项。这里只是一部分列表：
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 21-1: Common sort Options</caption>
+<tr>
+<th class="title">Option</th>
+<th class="title">Long Option</th>
+<th class="title">Description</th>
+</tr>
+<tr>
+<td valign="top" width="25%">-b</td>
+<td valign="top">--ignore-leading-blanks </td>
+<th class="title">By default, sorting is performed on the entire line,
+starting with the first character in the line. This option causes sort to
+ignore leading spaces in lines and calculates sorting based on the first
+non-whitespace character on the line.</th>
+</tr>
+<tr>
+<td valign="top">-f</td>
+<td valign="top">--ignore-case </td>
+<td valign="top">Makes sorting case insensitive.</td>
+</tr>
+<tr>
+<td valign="top">-n</td>
+<td valign="top">--numeric-sort</td>
+<td valign="top">Performs sorting based on the numeric evaluation of a string.
+Using this option allows sorting to be performed on numeric values rather than
+alphabetic values.  </td>
+</tr>
+<tr>
+<td valign="top">-r</td>
+<td valign="top">--reverse </td>
+<td valign="top">Sort in reverse order. Results are
+in descending rather than ascending order.</td>
+</tr>
+<tr>
+<td valign="top">-k</td>
+<td valign="top">--key=field1[,field2] </td>
+<td valign="top">Sort based on a key field located from field1 to field2
+rather than the entire line. See discussion below.</td>
+</tr>
+<tr>
+<td valign="top">-m</td>
+<td valign="top">--merge</td>
+<td valign="top">Treat each each argument as the name of a presorted file.
+Merge multiple files into a single sorted result without performing any
+additional sorting. </td>
+</tr>
+<tr>
+<td valign="top">-o</td>
+<td valign="top">--output=file </td>
+<td valign="top">Send sorted output to file rather than standard output.</td>
+</tr>
+<tr>
+<td valign="top">-t</td>
+<td valign="top">--field-separator=char </td>
+<td valign="top">Define the field separator character. By default fields are
+separated by spaces or tabs.</td>
+</tr>
+</table>
+</p>
+
+Although most of the options above are pretty self-explanatory, some are not. First, let’s
+look at the -n option, used for numeric sorting. With this option, it is possible to sort
+values based on numeric values. We can demonstrate this by sorting the results of the du
+command to determine the largest users of disk space. Normally, the du command lists
+the results of a summary in pathname order:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ du -s /usr/share/\* | head
+252     /usr/share/aclocal
+96      /usr/share/acpi-support
+8       /usr/share/adduser
+196     /usr/share/alacarte
+344     /usr/share/alsa
+8       /usr/share/alsa-base
+12488   /usr/share/anthy
+8       /usr/share/apmd
+21440   /usr/share/app-install
+48      /usr/share/application-registry </tt>
+</pre></div>
+
+In this example, we pipe the results into head to limit the results to the first ten lines.
+We can produce a numerically sorted list to show the ten largest consumers of space this
+way:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ du -s /usr/share/\* | sort -nr | head
+509940         /usr/share/locale-langpack
+242660         /usr/share/doc
+197560         /usr/share/fonts
+179144         /usr/share/gnome
+146764         /usr/share/myspell
+144304         /usr/share/gimp
+135880         /usr/share/dict
+76508          /usr/share/icons
+68072          /usr/share/apps
+62844          /usr/share/foomatic </tt>
+</pre></div>
+
+By using the -nr options, we produce a reverse numerical sort, with the largest values
+appearing first in the results. This sort works because the numerical values occur at the
+beginning of each line. But what if we want to sort a list based on some value found
+within the line? For example, the results of an ls -l:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ ls -l /usr/bin | head
+total 152948
+-rwxr-xr-x 1 root   root     34824  2008-04-04  02:42 [
+-rwxr-xr-x 1 root   root    101556  2007-11-27  06:08 a2p
+...</tt>
+</pre></div>
+
+Ignoring, for the moment, that ls can sort its results by size, we could use sort to sort
+this list by file size, as well:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ ls -l /usr/bin | sort -nr -k 5 | head
+-rwxr-xr-x 1 root   root   8234216  2008-04-0717:42 inkscape
+-rwxr-xr-x 1 root   root   8222692  2008-04-07 17:42 inkview
+...</tt>
+</pre></div>
+
+Many uses of sort involve the processing of tabular data, such as the results of the ls
+command above. If we apply database terminology to the table above, we would say that
+each row is a record and that each record consists of multiple fields, such as the file
+attributes, link count, filename, file size and so on. sort is able to process individual
+fields. In database terms, we are able to specify one or more key fields to use as sort keys.
+In the example above, we specify the n and r options to perform a reverse numerical sort
+and specify -k 5 to make sort use the fifth field as the key for sorting.
+
+The k option is very interesting and has many features, but first we need to talk about
+how sort defines fields. Let’s consider a very simple text file consisting of a single line
+containing the author’s name:
+
+<div class="code"><pre>
+<tt>William      Shotts </tt>
+</pre></div>
+
+By default, sort sees this line as having two fields.
+characters:
+The first field contains the
+“William”
+and the second field contains the characters:
+“
+Shotts”
+meaning that whitespace characters (spaces and tabs) are used as delimiters between
+fields and that the delimiters are included in the field when sorting is performed.
+Looking again at a line from our ls output, we can see that a line contains eight fields
+and that the fifth field is the file size:
+
+<div class="code"><pre>
+<tt>-rwxr-xr-x 1 root root 8234216 2008-04-07 17:42 inkscape </tt>
+</pre></div>
+
+For our next series of experiments, let’s consider the following file containing the history
+of three popular Linux distributions released from 2006 to 2008. Each line in the file has
+three fields: the distribution name, version number, and date of release in
+MM/DD/YYYY format:
+
+<div class="code"><pre>
+<tt>SUSE        10.2   12/07/2006
+Fedora          10     11/25/2008
+SUSE            11.04  06/19/2008
+Ubuntu          8.04   04/24/2008
+Fedora          8      11/08/2007
+SUSE            10.3   10/04/2007 
+...</tt>
+</pre></div>
+
+Using a text editor (perhaps vim), we’ll enter this data and name the resulting file
+distros.txt.
+
+Next, we’ll try sorting the file and observe the results:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ sort distros.txt
+Fedora          10     11/25/2008
+Fedora          5     03/20/2006
+Fedora          6     10/24/2006
+Fedora          7     05/31/2007
+Fedora          8     11/08/2007
+...</tt>
+</pre></div>
+
+Well, it mostly worked. The problem occurs in the sorting of the Fedora version
+numbers. Since a “1” comes before a “5” in the character set, version “10” ends up at the
+top while version “9” falls to the bottom.
+
+To fix this problem we are going to have to sort on multiple keys. We want to perform an
+alphabetic sort on the first field and then a numeric sort on the third field. sort allows
+multiple instances of the -k option so that multiple sort keys can be specified. In fact, a
+key may include a range of fields. If no range is specified (as has been the case with our
+previous examples), sort uses a key that begins with the specified field and extends to
+the end of the line. Here is the syntax for our multi-key sort:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ sort --key=1,1 --key=2n distros.txt
+Fedora         5     03/20/2006
+Fedora         6     10/24/2006
+Fedora         7     05/31/2007
+...  </tt>
+</pre></div>
+
+Though we used the long form of the option for clarity, -k 1,1 -k 2n would be
+exactly equivalent. In the first instance of the key option, we specified a range of fields
+to include in the first key. Since we wanted to limit the sort to just the first field, we
+specified 1,1 which means “start at field one and end at field one.” In the second
+instance, we specified 2n, which means that field two is the sort key and that the sort
+should be numeric. An option letter may be included at the end of a key specifier to
+indicate the type of sort to be performed. These option letters are the same as the global
+options for the sort program: b (ignore leading blanks), n (numeric sort), r (reverse
+sort), and so on.
+
+The third field in our list contains a date in an inconvenient format for sorting. On
+computers, dates are usually formatted in YYYY-MM-DD order to make chronological
+sorting easy, but ours are in the American format of MM/DD/YYYY. How can we sort
+this list in chronological order?
+
+Fortunately, sort provides a way. The key option allows specification of offsets within
+fields, so we can define keys within fields:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ sort -k 3.7nbr -k 3.1nbr -k 3.4nbr distros.txt
+Fedora         10    11/25/2008
+Ubuntu         8.10  10/30/2008
+SUSE           11.0  06/19/2008
+...</tt>
+</pre></div>
+
+By specifying -k 3.7 we instruct sort to use a sort key that begins at the seventh
+character within the third field, which corresponds to the start of the year. Likewise, we
+specify -k 3.1 and -k 3.4 to isolate the month and day portions of the date. We also
+add the n and r options to achieve a reverse numeric sort. The b option is included to
+suppress the leading spaces (whose numbers vary from line to line, thereby affecting the
+outcome of the sort) in the date field.
+
+Some files don’t use tabs and spaces as field delimiters; for example, the /etc/passwd
+file:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ head /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+bin:x:2:2:bin:/bin:/bin/sh
+sys:x:3:3:sys:/dev:/bin/sh
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/bin/sh
+man:x:6:12:man:/var/cache/man:/bin/sh
+lp:x:7:7:lp:/var/spool/lpd:/bin/sh
+mail:x:8:8:mail:/var/mail:/bin/sh
+news:x:9:9:news:/var/spool/news:/bin/sh</tt>
+</pre></div>
+
+The fields in this file are delimited with colons (:), so how would we sort this file using a
+key field? sort provides the -t option to define the field separator character. To sort
+the passwd file on the seventh field (the account’s default shell), we could do this:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ sort -t ':' -k 7 /etc/passwd | head
+me:x:1001:1001:Myself,,,:/home/me:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+dhcp:x:101:102::/nonexistent:/bin/false
+gdm:x:106:114:Gnome Display Manager:/var/lib/gdm:/bin/false
+hplip:x:104:7:HPLIP system user,,,:/var/run/hplip:/bin/false
+klog:x:103:104::/home/klog:/bin/false
+messagebus:x:108:119::/var/run/dbus:/bin/false
+polkituser:x:110:122:PolicyKit,,,:/var/run/PolicyKit:/bin/false
+pulse:x:107:116:PulseAudio daemon,,,:/var/run/pulse:/bin/false</tt>
+</pre></div>
+
+By specifying the colon character as the field separator, we can sort on the seventh field.
+
+####uniq
+
+Compared to sort, the uniq program is a lightweight. uniq performs a seemingly
+trivial task. When given a sorted file (including standard input), it removes any duplicate
+lines and sends the results to standard output. It is often used in conjunction with sort
+to clean the output of duplicates.
+
+<hr style="height:5px;width:100%;background:gray" />
+<b>Tip:</b> While uniq is a traditional Unix tool often used with sort, the GNU version
+of sort supports a -u option, which removes duplicates from the sorted output.
+<hr style="height:5px;width:100%;background:gray" />
+
+Let’s make a text file to try this out:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ cat > foo.txt
+a
+b
+c
+a
+b
+c</tt>
+</pre></div>
+
+Remember to type Ctrl-d to terminate standard input. Now, if we run uniq on our
+text file:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ uniq foo.txt
+a
+b
+c
+a
+b
+c</tt>
+</pre></div>
+
+the results are no different from our original file; the duplicates were not removed. For
+uniq to actually do its job, the input must be sorted first:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ sort foo.txt | uniq
+a
+b
+c</tt>
+</pre></div>
+
+This is because uniq only removes duplicate lines which are adjacent to each other.
+uniq has several options. Here are the common ones:
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 21-2: Common uniq Options</caption>
+<tr>
+<th class="title">Option</th>
+<th class="title">Description</th>
+</tr>
+<tr>
+<td valign="top" width="25%">-c</td>
+<td valign="top">Output a list of duplicate lines preceded by the number of times the
+line occurs.</td>
+</tr>
+<tr>
+<td valign="top">-d</td>
+<td valign="top">Only output repeated lines, rather than unique lines.</td>
+</tr>
+<tr>
+<td valign="top">-f n</td>
+<td valign="top">Ignore n leading fields in each line. Fields are separated by
+whitespace as they are in sort; however, unlike sort, uniq has
+no option for setting an alternate field separator.</td>
+</tr>
+<tr>
+<td valign="top">-i</td>
+<td valign="top">Ignore case during the line comparisons.</td>
+</tr>
+<tr>
+<td valign="top">-s n</td>
+<td valign="top">Skip (ignore) the leading n characters of each line.</td>
+</tr>
+<tr>
+<td valign="top">-u</td>
+<td valign="top">Only output unique lines. This is the default.</td>
+</tr>
+</table>
+</p>
+
+Here we see uniq used to report the number of duplicates found in our text file, using
+the -c option:
+
+<div class="code"><pre>
+<tt>[me@linuxbox ~]$ sort foo.txt | uniq -c
+        2 a
+        2 b
+        2 c</tt>
+</pre></div>
+
+###Slicing And Dicing
+
+The next three programs we will discuss are used to peel columns of text out of files and
+recombine them in useful ways.
+
+####cut
+
+The cut program is used to extract a section of text from a line and output the extracted
 
