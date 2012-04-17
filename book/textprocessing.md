@@ -1746,9 +1746,9 @@ the -n option is not specified, output the current line.</td>
 <td valign="top">s/regexp/replacement/ </td>
 <td valign="top">Substitute the contents of replacement wherever
 regexp is found. replacement may include the
-special character &, which is equivalent to the text
+special character &amp;, which is equivalent to the text
 matched by regexp. In addition, replacement may
-include the sequences \\1 through \\9, which are
+include the sequences \1 through \9, which are
 the contents of the corresponding subexpressions
 in regexp. For more about this, see the discussion
 of back references below. After the trailing slash
