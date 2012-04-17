@@ -313,7 +313,7 @@ sort程序有几个有趣的选项。这里只是一部分列表：
 <th class="title">Description</th>
 </tr>
 <tr>
-<td valign="top" width="25%">-b</td>
+<td valign="top" width="20%">-b</td>
 <td valign="top">--ignore-leading-blanks </td>
 <td valign="top">By default, sorting is performed on the entire line,
 starting with the first character in the line. This option causes sort to
@@ -374,10 +374,10 @@ separated by spaces or tabs.</td>
 <th class="title">描述</th>
 </tr>
 <tr>
-<td valign="top" width="25%">-b</td>
+<td valign="top" width="20%">-b</td>
 <td valign="top">--ignore-leading-blanks </td>
-<th class="title"> 默认情况下，对整行进行排序，从每行的第一个字符开始。这个选项导致sort程序忽略
-每行开头的空格，从第一个非空白字符开始排序。</th>
+<td valign="top"> 默认情况下，对整行进行排序，从每行的第一个字符开始。这个选项导致sort程序忽略
+每行开头的空格，从第一个非空白字符开始排序。</td>
 </tr>
 <tr>
 <td valign="top">-f</td>
