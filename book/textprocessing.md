@@ -878,16 +878,21 @@ using the following options:
 may consist of one or more comma-separated numerical ranges.</td>
 </tr>
 <tr>
-<td valign="top"></td>
-<td valign="top"></td>
+<td valign="top">-f field\_list</td>
+<td valign="top">Extract one or more fields from the line as defined by
+field\_list. The list may contain one or more fields or field
+ranges separated by commas.</td>
 </tr>
 <tr>
-<td valign="top"></td>
-<td valign="top"></td>
+<td valign="top">-d delim\_char </td>
+<td valign="top">When -f is specified, use delim\_char as the field delimiting
+character. By default, fields must be separated by a single tab
+character.</td>
 </tr>
 <tr>
-<td valign="top"></td>
-<td valign="top"></td>
+<td valign="top">--complement </td>
+<td valign="top">Extract the entire line of text, except for those portions
+specified by -c and/or -f.</td>
 </tr>
 </table>
 </p>
@@ -1239,9 +1244,9 @@ If we use diff to look at our previous example files:
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ diff file1.txt file2.txt
 1d0
-< a
+&lt; a
 4a4
-> e</tt>
+&gt; e</tt>
 </pre></div>
 
 we see its default style of output: a terse description of the differences between the two
@@ -1258,15 +1263,18 @@ to convert the first file to the second file:
 </tr>
 <tr>
 <td valign="top" width="25%">r1ar2</td>
+<td valign="top">Append the lines at the position r2 in the second file to the position
+r1 in the first file.</td>
+</tr>
+<tr>
 <td valign="top">r1cr2</td>
+<td valign="top">Change (replace) the lines at position r1 with the lines at the
+position r2 in the second file.</td>
 </tr>
 <tr>
-<td valign="top"></td>
-<td valign="top"></td>
-</tr>
-<tr>
-<td valign="top"></td>
-<td valign="top"></td>
+<td valign="top">r1dr2</td>
+<td valign="top">Delete the lines in the first file at position r1, which would have
+appeared at range r2 in the second file.</td>
 </tr>
 </table>
 </p>
@@ -1419,8 +1427,8 @@ patch < diff\_file
 We’ll demonstrate with our test file:
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ diff -Naur file1.txt file2.txt > patchfile.txt
-[me@linuxbox ~]$ patch < patchfile.txt
+<tt>[me@linuxbox ~]$ diff -Naur file1.txt file2.txt &gt; patchfile.txt
+[me@linuxbox ~]$ patch &lt; patchfile.txt
 patching file file1.txt
 [me@linuxbox ~]$ cat file1.txt
 b
@@ -1493,6 +1501,7 @@ a complete list of the sequences and character classes tr supports, try:
 <tt>[me@linuxbox ~]$ tr --help</tt>
 </pre></div>
 
+<br />
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
@@ -1727,8 +1736,7 @@ behavior can be overridden by specifying the -n option.</td>
 <tr>
 <td valign="top">q</td>
 <td valign="top">Exit sed without processing any more lines. If
-the -n option is not specified, output the current
-line.</td>
+the -n option is not specified, output the current line.</td>
 </tr>
 <tr>
 <td valign="top">Q</td>
@@ -1740,7 +1748,7 @@ line.</td>
 regexp is found. replacement may include the
 special character &, which is equivalent to the text
 matched by regexp. In addition, replacement may
-include the sequences \1 through \9, which are
+include the sequences \\1 through \\9, which are
 the contents of the corresponding subexpressions
 in regexp. For more about this, see the discussion
 of back references below. After the trailing slash
@@ -1751,8 +1759,7 @@ specified to modify the s command’s behavior.</td>
 <td valign="top">y/set1/set2 </td>
 <td valign="top">Perform transliteration by converting characters
 from set1 to the corresponding characters in set2.
-Note that unlike tr, sed requires that both sets be
-of the same length.</td>
+Note that unlike tr, sed requires that both sets be of the same length.</td>
 </tr>
 </table>
 </p>
