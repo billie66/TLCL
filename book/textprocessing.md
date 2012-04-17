@@ -315,10 +315,10 @@ sort程序有几个有趣的选项。这里只是一部分列表：
 <tr>
 <td valign="top" width="25%">-b</td>
 <td valign="top">--ignore-leading-blanks </td>
-<th class="title">By default, sorting is performed on the entire line,
+<td valign="top">By default, sorting is performed on the entire line,
 starting with the first character in the line. This option causes sort to
 ignore leading spaces in lines and calculates sorting based on the first
-non-whitespace character on the line.</th>
+non-whitespace character on the line.</td>
 </tr>
 <tr>
 <td valign="top">-f</td>
