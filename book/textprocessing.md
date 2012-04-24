@@ -2276,8 +2276,9 @@ from this command, let’s look at how it was constructed. First, we know that t
 command will have this basic structure:
 
 哇！这个命令看起来很丑陋。但是它起作用了。仅用一步，我们就更改了文件中的日期格式。
-
-
+它也是一个关于为什么有时候会开玩笑地把正则表达式称为是“只写”媒介的完美的例子。我们
+能写正则表达式，但是有时候我们不能读它们。在我们恐惧地忍不住要逃离此命令之前，让我们看一下
+怎样来构建它。首先，我们知道此命令有这样一个基本的结构：
 
 <div class="code"><pre>
 <tt>sed 's/regexp/replacement/' distros.txt</tt>
@@ -2287,17 +2288,26 @@ Our next step is to figure out a regular expression that will isolate the date. 
 MM/DD/YYYY format and appears at the end of the line, we can use an expression like
 this:
 
+我们下一步是要弄明白一个正则表达式将要孤立出日期。因为日期是MM/DD/YYYY格式，并且
+出现在文本行的末尾，我们可以使用这样的表达式：
+
 <div class="code"><pre>
 <tt>[0-9]{2}/[0-9]{2}/[0-9]{4}$</tt>
 </pre></div>
 
 which matches two digits, a slash, two digits, a slash, four digits, and the end of line. So
-that takes care of regexp, but what about replacement? To handle that, we must introduce
+that takes care of _regexp_, but what about _replacement_? To handle that, we must introduce
 a new regular expression feature that appears in some applications which use BRE. This
-feature is called back references and works like this: if the sequence \n appears in
-replacement where n is a number from one to nine, the sequence will refer to the
+feature is called _back references_ and works like this: if the sequence \n appears in
+_replacement_ where n is a number from one to nine, the sequence will refer to the
 corresponding subexpression in the preceding regular expression. To create the subexpressions, 
 we simply enclose them in parentheses like so:
+
+此表达式匹配两位数字，一个斜杠，两位数字，一个斜杠，四位数字，以及行尾。如此关心_regexp_，
+那么_replacement_又怎样呢？为了解决此问题，我们必须介绍一个正则表达式的新功能，它出现
+在一些使用BRE的应用程序中。这个功能叫做_逆参照_，像这样工作：如果序列\n出现在_replacement_中
+，这里n是指从1到9的数字，则这个序列指的是在前面正则表达式中相对应的子表达式。为了
+创建这个子表达式，我们简单地把它们用圆括号括起来，像这样：
 
 <div class="code"><pre>
 <tt>([0-9]{2})/([0-9]{2})/([0-9]{4})$</tt>
@@ -2307,11 +2317,16 @@ We now have three subexpressions. The first contains the month, the second conta
 day of the month, and the third contains the year. Now we can construct replacement as
 follows:
 
+现在我们有了三个子表达式。第一个表达式包含月份，第二个包含某月中的某天，以及第三个包含年份。
+现在我们就可以构建_replacement_，如下所示：
+
 <div class="code"><pre>
 <tt>\3-\1-\2</tt>
 </pre></div>
 
 which gives us the year, a dash, the month, a dash, and the day.
+
+此表达式给出了年份，一个斜杠，月份，一个斜杠，和某天。
 
 Now, our command looks like this:
 
@@ -2326,16 +2341,27 @@ our regular expression will be taken as literals, rather than as metacharacters.
 solve both these problems with a liberal application of backslashes to escape the
 offending characters:
 
+我们还有两个问题。第一个是在我们表达式中额外的斜杠将会迷惑sed，当sed试图解释这个s命令
+的时候。第二个是因为sed，默认情况下，只接受基本的正则表达式，在表达式中的几个字符会
+被当作文字字面值，而不是元字符。我们能够解决这两个问题，通过反斜杠的自由应用来转义
+令人不快的字符：
+
 <div class="code"><pre>
 <tt>sed 's/\([0-9]\{2\}\)\/\([0-9]\{2\}\)\/\([0-9]\{4\}\)$/\3-\1-\2/' distros.txt</tt>
 </pre></div>
 
 And there you have it!
 
+你掌握了吧!
+
 Another feature of the s command is the use of optional flags that may follow the
 replacement string. The most important of these is the g flag, which instructs sed to
 apply the search and replace globally to a line, not just to the first instance, which is the
 default. Here is an example:
+
+s命令的另一个功能是使用可选标志，其跟随替代字符串。一个最重要的可选标志是g标志，其
+指示sed对某个文本行全范围地执行查找和替代操作，不仅仅是对第一个实例，这是默认行为。
+这里有个例子：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "aaabbbccc" | sed 's/b/B/'
@@ -2345,6 +2371,9 @@ aaaBbbccc</tt>
 We see that the replacement was performed, but only to the first instance of the letter “b,”
 while the remaining instances were left unchanged. By adding the g flag, we are able to
 change all the instances:
+
+我们看到虽然执行了替换操作，但是只针对第一个字母“b”实例，然而剩余的实例没有更改。通过添加g标志，
+我们能够更改所有的实例：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "aaabbbccc" | sed 's/b/B/g'
@@ -2358,6 +2387,10 @@ will feature a title at the top, our modified dates, and all the distribution na
 to upper case. To do this, we will need to write a script, so we’ll fire up our text editor
 and enter the following:
 
+目前为止，通过命令行我们只让sed执行单个命令。使用-f选项，也有可能在一个脚本文件中构建更加复杂的命令。
+为了演示，我们将使用sed和distros.txt文件来生成一个报告。我们的报告以开头标题，修改过的日期，以及
+大写的发行版名称为特征。为此，我们需要编写一个脚本，所以我们将打开文本编辑器，然后输入以下文字：
+
 <div class="code"><pre>
 <tt># sed script to produce Linux distributions report
 1 i\
@@ -2368,6 +2401,8 @@ y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/</tt>
 </pre></div>
 
 We will save our sed script as distros.sed and run it like this:
+
+我们将把sed脚本保存为distros.sed文件，然后像这样运行它：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sed -f distros.sed distros.txt
@@ -2391,6 +2426,9 @@ FEDORA	9	    2008-05-13
 As we can see, our script produces the desired results, but how does is do it? Let’s take
 another look at our script. We’ll use cat to number the lines:
 
+正如我们所见，我们的脚本文件产生了期望的结果，但是它是如何做到的呢？让我们再看一下我们的脚本文件。
+我们将使用cat来给每行文本编号：
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ cat -n distros.sed
     1 # sed script to produce Linux distributions report
@@ -2409,11 +2447,20 @@ human-readable text. Comments can be placed anywhere in the script (though not w
 commands themselves) and are helpful to any humans who might need to identify and/or
 maintain the script.
 
+我们脚本文件的第一行是一条注释。如同Linux系统中的许多配置文件和编程语言一样，注释以#字符开始，
+然后是人类可读的文本。注释可以被放到脚本中的任意地方（虽然不在命令本身之中），且对任何
+可能需要理解和／或维护脚本的人们都很有帮助。
+
 Line two is a blank line. Like comments, blank lines may be added to improve readability.
+
+第二行是一个空行。正如注释一样，添加空白行是为了提高程序的可读性。
 
 Many sed commands support line addresses. These are used to specify which lines of
 the input are to be acted upon. Line addresses may be expressed as single line numbers,
 line number ranges, and the special line number “$” which indicates the last line of input.
+
+许多sed命令支持行地址。这些行地址被用来指定对输入文本的哪一行执行操作。行地址可能被
+表示为单独的行号，行号范围，以及特殊的行号“$”，它表示输入文本的最后一行。
 
 Lines three through six contain text to be inserted at the address 1, the first line of the
 input. The i command is followed by the sequence backslash-carriage return to produce
@@ -2426,6 +2473,14 @@ allow multiple lines of text as long as each line, except the last, ends with a 
 continuation character. The sixth line of our script is actually the end of our inserted text
 and ends with a plain carriage return rather than a line continuation character, signaling
 the end of the i command.
+
+从第三行到第六行所包含地文本要被插入到地址1处，也就是输入文本的第一行中。这个i命令
+之后是反斜杠回车符，来产生一个转义的回车符，或者就是所谓的连行符。这个序列能够
+被用在许多环境下，包括shell脚本，从而允许把回车符嵌入到文本流中，而没有通知
+解释器（在这是指sed解释器）已经到达了文本行的末尾。这个i命令，同样地，命令a（追加文本，
+而不是插入文本）和c（取代文本）命令都允许多个文本行，只要每个文本行，除了最后一行，以一个
+连行符结束。实际上，脚本的第六行是插入文本的末尾，它以一个普通的回车符结尾，而不是一个
+连行符，通知解释器i命令结束了。
 
 <hr style="height:5px;width:100%;background:gray" />
 Note: A line continuation character is formed by a backslash followed immediately
@@ -2444,7 +2499,7 @@ not preceded by an address, it applies to every line in the input stream.
 <tr>
 <td>
 <h3>People Who Like sed Also Like...</h3>
-<p>  sed is a very capable program, able to perform fairly complex editing tasks to
+<p>sed is a very capable program, able to perform fairly complex editing tasks to
 streams of text. It is most often used for simple one line tasks rather than long
 scripts. Many users prefer other tools for larger tasks. The most popular of these
 are awk and perl. These go beyond mere tools, like the programs covered here,
@@ -2455,8 +2510,7 @@ development. awk is a little more specialized. Its specific strength is its abil
 manipulate tabular data. It resembles sed in that awk programs normally
 process text files line-by-line, using a scheme similar to the sed concept of an
 address followed by an action. While both awk and perl are outside the scope
-of this book, they are very good skills for the Linux command line user.
-</p>
+of this book, they are very good skills for the Linux command line user.</p>
 </td>
 </tr>
 </table>
