@@ -853,7 +853,7 @@ the -c option:
 The next three programs we will discuss are used to peel columns of text out of files and
 recombine them in useful ways.
 
-下面我们将要讨论的三个程序被用来
+下面我们将要讨论的三个程序用来从文件中获得文本列，并且以有用的方式重组它们。
 
 ####cut
 
@@ -861,8 +861,13 @@ The cut program is used to extract a section of text from a line and output the 
 section to standard output. It can accept multiple file arguments or input from standard
 input.
 
+这个cut程序被用来从文本行中抽取文本，并把其输出到标准输出。它能够接受多个文件参数或者
+标准输入。
+
 Specifying the section of the line to be extracted is somewhat awkward and is specified
 using the following options:
+
+从文本行中指定要抽取的文本有些麻烦，使用以下选项：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -897,11 +902,45 @@ specified by -c and/or -f.</td>
 </table>
 </p>
 
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">表21-3: cut程序选择项</caption>
+<tr>
+<th class="title">选项</th>
+<th class="title">说明</th>
+</tr>
+<tr>
+<td valign="top" width="25%">-c char\_list </td>
+<td valign="top">从文本行中抽取由char\_list定义的文本。这个列表可能由一个或多个逗号
+分隔开的数值区间组成。</td>
+</tr>
+<tr>
+<td valign="top">-f field\_list</td>
+<td valign="top">从文本行中抽取一个或多个由field\_list定义的字段。这个列表可能
+包括一个或多个字段，或由逗号分隔开的字段区间。 </td>
+</tr>
+<tr>
+<td valign="top">-d delim\_char </td>
+<td valign="top">当指定-f选项之后，使用delim\_char做为字段分隔符。默认情况下，
+字段之间必须由单个tab字符分隔开。</td>
+</tr>
+<tr>
+<td valign="top">--complement </td>
+<td valign="top">抽取整个文本行，除了那些由-c和／或-f选项指定的文本。 </td>
+</tr>
+</table>
+</p>
+
 As we can see, the way cut extracts text is rather inflexible. cut is best used to extract
 text from files that are produced by other programs, rather than text directly typed by
 humans. We’ll take a look at our distros.txt file to see if it is “clean” enough to be
 a good specimen for our cut examples. If we use cat with the -A option, we can see if
 the file meets our requirements of tab separated fields:
+
+正如我们所看到的，cut程序抽取文本的方式相当不灵活。cut命令最好用来从其它程序产生的文件中
+抽取文本，而不是从人们直接输入的文本中抽取。我们将会看一下我们的distros.txt文件，看看
+是否它足够“整齐”成为cut实例的一个好样本。如果我们使用带有-A选项的cat命令，我们能查看是否这个
+文件符号由tab字符分离字段的要求。
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ cat -A distros.txt
@@ -925,6 +964,9 @@ Fedora^I5^I03/20/2006$</tt>
 
 It looks good. No embedded spaces, just single tab characters between the fields. Since
 the file uses tabs rather than spaces, we’ll use the -f option to extract a field:
+
+看起来不错。字段之间仅仅是单个tab字符，没有嵌入空格。因为这个文件使用了tab而不是空格，
+我们将使用-f选项来抽取一个字段：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ cut -f 3 distros.txt
@@ -953,6 +995,11 @@ within the line difficult or impossible. In our example above, however, we now h
 extracted a field that luckily contains data of identical length, so we can show how
 character extraction works by extracting the year from each line:
 
+因为我们的distros文件是由tab分隔开的，最好用cut来抽取字段而不是字符。这是因为一个由tab分离的文件，
+每行不太可能包含相同的字符数，这就使计算每行中字符的位置变得困难或者是不可能。在以上事例中，然而，
+我们已经抽取了一个字段，幸运地是其包含地日期长度相同，所以通过从每行中抽取年份，我们能展示怎样
+来抽取字符：
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ cut -f 3 distros.txt | cut -c 7-10
 2006
@@ -978,10 +1025,14 @@ through 10, which corresponds to the year in our date field. The 7-10 notation i
 example of a range. The cut man page contains a complete description of how ranges
 can be specified.
 
+通过对我们的列表再次运行cut命令，我们能够抽取从位置7到10的字符，其对应于日期字段的年份。
+这个7-10表示法是一个区间的例子。cut命令手册包含了一个如何指定区间的完整描述。
+
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
 <h3>Expanding Tabs</h3>
+<h3>展开Tabs</h3>
 <p>Our distros.txt file is ideally formatted for extracting fields using cut. But
 what if we wanted a file that could be fully manipulated with cut by characters,
 rather than fields? This would require us to replace the tab characters within the
@@ -989,20 +1040,38 @@ file with the corresponding number of spaces. Fortunately, the GNU Coreutils
 package includes a tool for that. Named expand, this program accepts either
 one or more file arguments or standard input, and outputs the modified text to
 standard output.</p>
+
+<p>distros.txt的文件格式很适合使用cut程序来抽取字段。但是如果我们想要cut程序
+按照字符，而不是字段来操作一个文件，那又怎样呢？这要求我们用相应数目的空格来
+代替tab字符。幸运地是，GNU的Coreutils软件包有一个工具来解决这个问题。这个
+程序名为expand，它既可以接受一个或多个文件参数，也可以接受标准输入，并且把
+修改过的文本送到标准输出。</p>
+
 <p>If we process our distros.txt file with expand, we can use the cut -c to
 extract any range of characters from the file. For example, we could use the
 following command to extract the year of release from our list, by expanding the
 file and using cut to extract every character from the twenty-third position to the
 end of the line: </p>
+
+<p>如果我们通过expand来处理distros.txt文件，我们能够使用cut -c命令来从文件中抽取
+任意区间内的字符。例如，我们能够使用以下命令来从列表中抽取发行年份，通过展开
+此文件，再使用cut命令，来抽取从位置23开始到行尾的每一个字符：</p>
+
 <p> [me@linuxbox ~]$ expand distros.txt | cut -c 23- </p>
-<p>Coreutils also provides the unexpand program to substitute tabs for
-spaces.</p>
+
+<p>Coreutils also provides the unexpand program to substitute tabs for spaces.</p>
+
+<p>Coreutils软件包也提供了unexpand程序，用tab来代替空格。</p>
+
 </td>
 </tr>
 </table>
 
 When working with fields, it is possible to specify a different field delimiter rather than
 the tab character. Here we will extract the first field from the /etc/passwd file:
+
+当操作字段的时候，有可能指定不同的字段分隔符，而不是tab字符。这里我们将会从/etc/passwd文件中
+抽取第一个字段：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ cut -d ':' -f 1 /etc/passwd | head
@@ -1020,7 +1089,9 @@ news</tt>
 
 Using the -d option, we are able to specify the colon character as the field delimiter.
 
-paste
+使用-d选项，我们能够指定冒号做为字段分隔符。
+
+#### paste
 
 The paste command does the opposite of cut. Rather than extracting a column of text
 from a file, it adds one or more columns of text to a file. It does this by reading multiple
@@ -1029,8 +1100,16 @@ Like cut, paste accepts multiple file arguments and/or standard input. To demons
 how paste operates, we will perform some surgery on our distros.txt file to
 produce a chronological list of releases.
 
+这个paste命令的功能正好与cut相反。它会添加一个或多个文本列到文件中，而不是从文件中抽取文本列。
+它通过读取多个文件，然后把每个文件中的字段整合成单个文本流，输入到标准输出。类似于cut命令，
+paste接受多个文件参数和／或标准输入。为了说明paste是怎样工作的，我们将会对distros.txt文件
+动手术，来产生发行版的年代表。
+
 From our earlier work with sort, we will first produce a list of distros sorted by date
 and store the result in a file called distros-by-date.txt:
+
+从我们之前使用sort的工作中，首先我们将产生一个按照日期排序的发行版列表，并把结果
+存储在一个叫做distros-by-date.txt的文件中：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sort -k 3.7nbr -k 3.1nbr -k 3.4nbr distros.txt > distros-by-date.txt </tt>
@@ -1038,6 +1117,9 @@ and store the result in a file called distros-by-date.txt:
 
 Next, we will use cut to extract the first two fields from the file (the distro name and
 version), and store that result in a file named distro-versions.txt:
+
+下一步，我们将会使用cut命令从文件中抽取前两个字段（发行版名字和版本号），并把结果存储到
+一个名为distro-versions.txt的文件中：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ cut -f 1,2 distros-by-date.txt > distros-versions.txt
@@ -1051,13 +1133,13 @@ Fedora     8
 Ubuntu     7.10
 SUSE       10.3
 Fedora     7
-Ubuntu     7.04
-
-</tt>
+Ubuntu     7.04</tt>
 </pre></div>
 
 The final piece of preparation is to extract the release dates and store them a file named
 distro-dates.txt:
+
+最后的准备步骤是抽取发行日期，并把它们存储到一个名为distro-dates.txt文件中：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ cut -f 3 distros-by-date.txt > distros-dates.txt
@@ -1078,6 +1160,10 @@ We now have the parts we need. To complete the process, use paste to put the col
 of dates ahead of the distro names and versions, thus creating a chronological list. This is
 done simply by using paste and ordering its arguments in the desired arrangement:
 
+现在我们拥有了我们所需要的文本了。为了完成这个过程，使用paste命令来把日期列放到发行版名字
+和版本号的前面，这样就创建了一个年代列表。通过使用paste命令，然后按照期望的顺序来安排它的
+参数，就能很容易完成这个任务。
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ paste distros-dates.txt distros-versions.txt
 11/25/2008	Fedora     10
@@ -1092,7 +1178,7 @@ done simply by using paste and ordering its arguments in the desired arrangement
 04/19/2007	Ubuntu     7.04 </tt>
 </pre></div>
 
-join
+####　join
 
 In some ways, join is like paste in that it adds columns to a file, but it uses a unique
 way to do it. A join is an operation usually associated with relational databases where
@@ -1100,26 +1186,58 @@ data from multiple tables with a shared key field is combined to form a desired 
 The join program performs the same operation. It joins data from multiple files based
 on a shared key field.
 
+在某些方面，join命令类似于paste，它会往文件中添加列，但是它使用了独特的方法来完成。
+一个join操作通常与关系型数据库有关联，在关系型数据库中来自多个享有共同关键域的表格的
+数据结合起来，得到一个期望的结果。这个join程序执行相同的操作。它把来自于多个基于共享
+关键域的文件的数据结合起来。
+
 To see how a join operation is used in a relational database, let’s imagine a very small
 database consisting of two tables each containing a single record. The first table, called
 CUSTOMERS, has three fields: a customer number (CUSTNUM), the customer’s first
 name (FNAME) and the customer’s last name (LNAME):
 
+为了知道在关系数据库中是怎样使用join操作的，让我们想象一个很小的数据库，这个数据库由两个
+表格组成，每个表格包含一条记录。第一个表格，叫做CUSTOMERS，有三个数据域：一个客户号（CUSTNUM），
+客户的名字（FNAME）和客户的姓（LNAME）：
+
+CUSTNUM	    FNAME       ME
+========	=====       ======
+4681934	    John        Smith
+
 The second table is called ORDERS and contains four fields: an order number
 (ORDERNUM), the customer number (CUSTNUM), the quantity (QUAN), and the item
 ordered (ITEM).
 
+第二个表格叫做ORDERS，其包含四个数据域：订单号（ORDERNUM），客户号（CUSTNUM），数量（QUAN），
+和订购的货品（ITEM）。
+
+ORDERNUM        CUSTNUM     QUAN ITEM
+========        =======     ==== ====
+3014953305      4681934     1    Blue Widget
+
 Note that both tables share the field CUSTNUM. This is important, as it allows a
 relationship between the tables.
+
+注意两个表格共享数据域CUSTNUM。这很重要，因为它使表格之间建立了联系。
 
 Performing a join operation would allow us to combine the fields in the two tables to
 achieve a useful result, such as preparing an invoice. Using the matching values in the
 CUSTNUM fields of both tables, a join operation could produce the following:
 
+执行一个join操作将允许我们把两个表格中的数据域结合起来，得到一个有用的结果，例如准备
+一张发货单。通过使用两个表格CUSTNUM数字域中匹配的数值，一个join操作会产生以下结果：
+
+FNAME       LNAME       QUAN ITEM
+=====       =====       ==== ====
+John        Smith       1    Blue Widget
+
 To demonstrate the join program, we’ll need to make a couple of files with a shared
 key. To do this, we will use our distros-by-date.txt file. From this file, we will
 construct two additional files, one containing the release date (which will be our shared
 key for this demonstration) and the release name:
+
+为了说明join程序，我们需要创建一对包含共享键值的文件。为此，我们将使用我们的distros.txt文件。
+从这个文件中，我们将构建额外两个文件，一个包含发行日期（其会成为共享键值）和发行版名称：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ cut -f 1,1 distros-by-date.txt > distros-names.txt
@@ -1138,6 +1256,8 @@ key for this demonstration) and the release name:
 </pre></div>
 
 and the second file, which contains the release dates and the version numbers:
+
+第二个文件包含发行日期和版本号：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ cut -f 2,2 distros-by-date.txt > distros-vernums.txt
@@ -1158,6 +1278,9 @@ and the second file, which contains the release dates and the version numbers:
 We now have two files with a shared key (the “release date” field). It is important to
 point out that the files must be sorted on the key field for join to work properly.
 
+现在我们有两个具有共享键值（“发行日期”数据域）的文件。有必要指出，为了使join命令
+能正常工作，所有文件必须按照关键数据域排序。
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ join distros-key-names.txt distros-key-vernums.txt | head
 11/25/2008 Fedora 10
@@ -1176,7 +1299,12 @@ Note also that, by default, join uses whitespace as the input field delimiter an
 space as the output field delimiter. This behavior can be modified by specifying options.
 See the join man page for details.
 
-Comparing Text
+也要注意，默认情况下，join命令使用空白字符做为输入字段的界定符，一个空格作为输出字段
+的界定符。这种行为可以通过指定的选项来修改。详细信息，参考join命令手册。
+
+### Comparing Text
+
+### 比较文本 
 
 It is often useful to compare versions of text files. For system administrators and
 software developers, this is particularly important. A system administrator may, for
@@ -1184,11 +1312,18 @@ example, need to compare an existing configuration file to a previous version to
 a system problem. Likewise, a programmer frequently needs to see what changes have
 been made to programs over time.
 
-comm
+通常比较文本文件的版本很有帮助。对于系统管理员和软件开发者来说，这个尤为重要。
+一名系统管理员可能，例如，需要拿现有的配置文件与先前的版本做比较，来诊断一个系统错误。
+同样的，一名程序员经常需要查看程序的修改。
+
+#### comm
 
 The comm program compares two text files and displays the lines that are unique to each
 one and the lines they have in common. To demonstrate, we will create two nearly
 identical text files using cat:
+
+这个comm程序会比较两个文本文件，并且会显示每个文件特有的文本行和共有的文把行。
+为了说明问题，通过使用cat命令，我们将会创建两个内容几乎相同的文本文件：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ cat > file1.txt
@@ -1204,6 +1339,8 @@ e</tt>
 </pre></div>
 
 Next, we will compare the two files using comm:
+
+下一步，我们将使用comm命令来比较这两个文件：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ comm file1.txt file2.txt
@@ -1221,6 +1358,11 @@ options in the form -n where n is either 1, 2 or 3. When used, these options spe
 which column(s) to suppress. For example, if we only wanted to output the lines shared
 by both files, we would suppress the output of columns one and two:
 
+正如我们所见到的，comm命令产生了三列输出。第一列包含第一个文件独有的文本行；第二列，
+文本行是第二列独有的；第三列包含两个文件共有的文本行。comm支持-n形式的选项，这里n代表
+1，2或3。这些选项使用的时候，指定了要隐藏的列。例如，如果我们只想输出两个文件共享的文本行，
+我们将隐藏第一列和第二列的输出结果：
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ comm -12 file1.txt file2.txt
 b
@@ -1228,7 +1370,7 @@ c
 d</tt>
 </pre></div>
 
-diff
+#### diff
 
 Like the comm program, diff is used to detect the differences between files. However,
 diff is a much more complex tool, supporting many output formats and the ability to
@@ -1239,7 +1381,15 @@ One common use for diff is the creation of diff files or patches that are used b
 programs such as patch (which we’ll discuss shortly) to convert one version of a file (or
 files) to another version.
 
+类似于comm程序，diff程序被用来监测文件之间的差异。然而，diff是一款更加复杂的工具，它支持
+许多输出格式，并且一次能处理许多文本文件。软件开发员经常使用diff程序来检查不同程序源码
+版本之间的更改，diff能够递归地检查源码目录，经常称之为源码树。diff程序的一个常见用例是
+创建diff文件或者补丁，它会被其它程序使用，例如patch程序（我们一会儿讨论），来把文件
+从一个版本转换为另一个版本。
+
 If we use diff to look at our previous example files:
+
+如果我们使用diff程序，来查看我们之前的文件实例：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ diff file1.txt file2.txt
@@ -1251,8 +1401,12 @@ If we use diff to look at our previous example files:
 
 we see its default style of output: a terse description of the differences between the two
 files. In the default format, each group of changes is preceded by a change command in
-the form of range operation range to describe the positions and type of changes required
+the form of _range operation range_ to describe the positions and type of changes required
 to convert the first file to the second file:
+
+我们看到diff程序的默认输出风格：对两个文件之间差异的简短描述。在默认格式中，
+每组的更改之前都是一个更改命令，其形式为_range operation range_ ，
+用来描述要求更改的位置和类型，从而把第一个文件转变为第二个文件：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -1279,13 +1433,40 @@ appeared at range r2 in the second file.</td>
 </table>
 </p>
 
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">表21-4: diff 更改命令</caption>
+<tr>
+<th class="title">改变</th>
+<th class="title">说明</th>
+</tr>
+<tr>
+<td valign="top" width="25%">r1ar2</td>
+<td valign="top">把第二个文件中位置r2处的文件行添加到第一个文件中的r1处。</td>
+</tr>
+<tr>
+<td valign="top">r1cr2</td>
+<td valign="top">用第二个文件中位置r2处的文本行更改（替代）位置r1处的文本行。</td>
+</tr>
+<tr>
+<td valign="top">r1dr2</td>
+<td valign="top">删除第一个文件中位置r1处的文本行，这些文本行将会出现在第二个文件中位置r2处。</td>
+</tr>
+</table>
+</p>
+
 In this format, a range is a comma separated list of the starting line and the ending line.
 While this format is the default (mostly for POSIX compliance and backward
 compatibility with traditional Unix versions of diff), it is not as widely used as other,
-optional formats. Two of the more popular formats are the context format and the unified
-format.
+optional formats. Two of the more popular formats are the _context format_ and the _unified
+format_.
+
+在这种格式中，一个范围就是由逗号分隔开的开头行和结束行的列表。虽然这种格式是默认情况（），
+但是它并不像其它可选格式一样被广泛地使用。最流行的两种格式是上下文模式和统一模式。
 
 When viewed using the context format (the -c option), we will see this:
+
+当使用上下文模式（带上-c选项），我们将看到这些：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ diff -c file1.txt file2.txt
@@ -1310,14 +1491,22 @@ remainder of the listing, these markers will signify their respective files. Nex
 groups of changes, including the default number of surrounding context lines. In the first
 group, we see:
 
+这个输出结果以两个文件名和它们的时间戳开头。第一个文件用星号做标记，第二个文件用短横线做标记。
+纵观列表的其它部分，这些标记将象征它们各自代表的文件。下一步，我们看到几组修改，
+包括默认的周围上下文行数。在第一组中，我们看到：
+
 \*\*\* 1,4 \*\*\*
 
 which indicates lines one through four in the first file. Later we see:
+
+其表示第一个文件中从第一行到第四行的文本行。随后我们看到：
 
 --- 1,4 ---
 
 which indicates lines one through four in the second file. Within a change group, lines
 begin with one of four indicators:
+
+这表示第二个文件中从第一行到第四行的文本行。在更改组内，文本行以四个指示符之一开头：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -1346,8 +1535,36 @@ in its respective section of the change group.</td>
 </table>
 </p>
 
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">表21-5：diff上下文模式更改指示符</caption>
+<tr>
+<th class="title">指示符</th>
+<th class="title">意思</th>
+</tr>
+<tr>
+<td valign="top" width="25%">blank</td>
+<td valign="top">上下文显示行。它并不表示两个文件之间的差异。</td>
+</tr>
+<tr>
+<td valign="top">-</td>
+<td valign="top">删除行。这一行将会出现在第一个文件中，而不是第二个文件内。</td>
+</tr>
+<tr>
+<td valign="top">+</td>
+<td valign="top">添加行。这一行将会出现在第二个文件内，而不是第一个文件中。</td>
+</tr>
+<tr>
+<td valign="top">!</td>
+<td valign="top">更改行。将会显示某个文本行的两个版本，每个版本会出现在更改组的各自部分。</td>
+</tr>
+</table>
+</p>
+
 The unified format is similar to the context format, but is more concise. It is specified
 with the -u option:
+
+这个统一模式相似于上下文模式，但是更加简洁。通过-u选项来指定它：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ diff -u file1.txt file2.txt
@@ -1355,9 +1572,9 @@ with the -u option:
 +++ file2.txt 2008-12-23 06:40:34.000000000 -0500
 @@ -1,4 +1,4 @@
 -a
-b
-c
-d
+ b
+ c
+ d
 +e</tt>
 </pre></div>
 
@@ -1368,6 +1585,11 @@ format, followed by the string @@ -1,4 +1,4 @@. This indicates the lines in the 
 file and the lines in the second file described in the change group. Following this are the
 lines themselves, with the default three lines of context. Each line starts with one of three
 possible characters:
+
+上下文模式和统一模式之间最显著的差异就是重复上下文的消除，这就使得统一模式的输出结果要比上下文
+模式的输出结果简短。在我们上述实例中，我们看到类似于上下文模式中的文件时间戳，其紧紧跟随字符串
+@@ -1,4 +1,4 @@。这行字符串表示了在更改组中描述的第一个文件中的文本行和第二个文件中的文本行。
+这行字符串之后就是文本行本身，与三行默认的上下文。每行以可能的三个字符中的一个开头：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -1391,40 +1613,85 @@ possible characters:
 </table>
 </p>
 
-patch
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">表21-6：diff统一模式更改指示符</caption>
+<tr>
+<th class="title">字符</th>
+<th class="title">意思</th>
+</tr>
+<tr>
+<td valign="top" width="25%">空格</td>
+<td valign="top">两个文件都包含这一行。</td>
+</tr>
+<tr>
+<td valign="top">-</td>
+<td valign="top">在第一个文件中删除这一行。</td>
+</tr>
+<tr>
+<td valign="top">+</td>
+<td valign="top">添加这一行到第一个文件中。</td>
+</tr>
+</table>
+</p>
+
+#### patch
 
 The patch program is used to apply changes to text files. It accepts output from diff
 and is generally used to convert older version of files into newer versions. Let’s consider
 a famous example. The Linux kernel is developed by a large, loosely organized team of
 contributors who submit a constant stream of small changes to the source code. The
 Linux kernel consists of several million lines of code, while the changes that are made by
-one contributor at one time are quite small. Iit makes no sense for a contributor to send
+one contributor at one time are quite small. It makes no sense for a contributor to send
 each developer an entire kernel source tree each time a small change is made. Instead, a
 diff file is submitted. The diff file contains the change from the previous version of the
 kernel to the new version with the contributor's changes. The receiver then uses the
 patch program to apply the change to his own source tree. Using diff/patch offers
 two significant advantages:
 
+这个patch程序被用来把更改应用到文本文件中。它接受从diff程序的输出，并且通常被用来
+把较老的文件版本转变为较新的文件版本。让我们考虑一个著名的例子。Linux内核是由一个
+大型的，组织松散的贡献者团队开发而成，这些贡献者会提交固定的少量更改到源码包中。
+这个Linux内核由几百万行代码组成，虽然每个贡献者每次所做的修改相当少。对于一个贡献者
+来说，每做一个修改就给每个开发者发送整个的内核源码树，这是没有任何意义的。相反，
+提交一个diff文件。一个diff文件包含先前的内核版本与带有贡献者修改的新版本之间的差异。
+然后一个接受者使用patch程序，把这些更改应用到他自己的源码树中。使用diff/patch组合提供了
+两个重大优点：
+
 1. The diff file is very small, compared to the full size of the source tree.
 
 2. The diff file concisely shows the change being made, allowing reviewers of the patch to quickly evaluate it.
 
+1. 一个diff文件非常小，与整个源码树的大小相比较而言。
+
+2. 一个diff文件简洁地显示了所做的修改，从而允许程序补丁的审阅者能快速地评估它。
+
 Of course, diff/patch will work on any text file, not just source code. It would be
 equally applicable to configuration files or any other text.
 
+当然，diff/patch能工作于任何文本文件，不仅仅是源码文件。它同样适用于配置文件或任意其它文本。
+
 To prepare a diff file for use with patch, the GNU documentation (see Further Reading
 below) suggests using diff as follows:
+
+准备一个diff文件供patch程序使用，GNU文档（查看下面的拓展阅读部分）建议这样使用diff命令：
 
 diff -Naur old\_file new\_file > diff\_file
 
 Where old\_file and new\_file are either single files or directories containing files. The r
 option supports recursion of a directory tree.
 
+old\_file和new\_file部分不是单个文件就是包含文件的目录。这个r选项支持递归目录树。
+
 Once the diff file has been created, we can apply it to patch the old file into the new file:
+
+一旦创建了diff文件，我们就能应用它，把旧文件修补成新文件。
 
 patch < diff\_file
 
 We’ll demonstrate with our test file:
+
+我们将使用测试文件来说明：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ diff -Naur file1.txt file2.txt &gt; patchfile.txt
@@ -1442,23 +1709,38 @@ patch program to apply the patch. Note that we did not have to specify a target 
 patch, as the diff file (in unified format) already contains the filenames in the header.
 Once the patch is applied, we can see that file1.txt now matches file2.txt.
 
+在这个例子中，我们创建了一个名为patchfile.txt的diff文件，然后使用patch程序，
+来应用这个补丁。注意我们没有必要指定一个要修补的目标文件，因为diff文件（在统一模式中）已经
+在标题行中包含了文件名。一旦应用了补丁，我们能看到，现在file1.txt与file2.txt文件相匹配了。
+
 patch has a large number of options, and there are additional utility programs that can
 be used to analyze and edit patches.
 
-Editing On The Fly
+patch程序有大量的选项，而且还有额外的实用程序可以被用来分析和编辑补丁。
+
+### Editing On The Fly
+
+### 运行时编辑 
 
 Our experience with text editors has been largely interactive, meaning that we manually
 move a cursor around, then type our changes. However, there are non-interactive ways to
 edit text as well. It’s possible, for example, to apply a set of changes to multiple files
 with a single command.
 
-tr
+我们对于文本编辑器的经验是它们主要是交互式的，意思是我们手动移动光标，然后输入我们的修改。
+然而，也有非交互式的方法来编辑文本。有可能，例如，通过单个命令把一系列修改应用到多个文件中。
+
+#### tr
 
 The tr program is used to transliterate characters. We can think of this as a sort of
 character-based search-and-replace operation. Transliteration is the process of changing
 characters from one alphabet to another. For example, converting characters from
 lowercase to uppercase is transliteration. We can perform such a conversion with tr as
 follows:
+
+这个tr程序被用来更改字符。我们可以把它看作是一种基于字符的查找和替换操作。
+换字是一种把字符从一个字母转换为另一个字母的过程。例如，把小写字母转换成大写字母就是
+换字。我们可以通过tr命令来执行这样的转换，如下所示：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "lowercase letters" | tr a-z A-Z
@@ -1469,6 +1751,9 @@ As we can see, tr operates on standard input, and outputs its results on standar
 tr accepts two arguments: a set of characters to convert from and a corresponding set of
 characters to convert to. Character sets may be expressed in one of three ways:
 
+正如我们所见，tr命令操作标准输入，并把结果输出到标准输出。tr命令接受两个参数：要被转换的字符集以及
+相对应的转换后的字符集。字符集可以用三种方式来表示：
+
 1. An enumerated list. For example, ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 2. A character range. For example, A-Z. Note that this method is sometimes
@@ -1477,9 +1762,19 @@ and thus should be used with caution.
 
 3. POSIX character classes. For example, [:upper:].
 
+1. 一个枚举列表。例如， ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+2. 一个字符域。例如，A-Z。注意这种方法有时候面临与其它命令相同的问题，归因于
+语系的排序规则，因此应该谨慎使用。
+
+3. POSIX字符类。例如，[:upper:]
+
 In most cases, both character sets should be of equal length; however, it is possible for
 the first set to be larger than the second, particularly if we wish to convert multiple
 characters to a single character:
+
+大多数情况下，两个字符集应该长度相同；然而，有可能第一个集合大于第二个，尤其如果我们
+想要把多个字符转换为单个字符：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "lowercase letters" | tr [:lower:] A
@@ -1491,11 +1786,18 @@ stream. Earlier in this chapter, we discussed the problem of converting MS-DOS t
 files to Unix style text. To perform this conversion, carriage return characters need to be
 removed from the end of each line. This can be performed with tr as follows:
 
+除了换字之外，tr命令能允许字符从输入流中简单地被删除。在之前的章节中，我们讨论了转换
+MS-DOS文本文件为Unix风格文本的问题。为了执行这个转换，每行末尾的回车符需要被删除。
+这个可以通过tr命令来执行，如下所示：
+
 tr -d '\r' < dos\_file > unix\_file
 
 where dos_file is the file to be converted and unix_file is the result. This form of the
 command uses the escape sequence \r to represent the carriage return character. To see
 a complete list of the sequences and character classes tr supports, try:
+
+这里的dos\_file是需要被转换的文件，unix\_file是转换后的结果。这种形式的命令使用转义序列
+\r来代表回车符。查看tr命令所支持地完整的转义序列和字符类别列表，试试下面的命令：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ tr --help</tt>
@@ -1506,6 +1808,9 @@ a complete list of the sequences and character classes tr supports, try:
 <tr>
 <td>
 <h3>ROT13: The Not-So-Secret Decoder Ring</h3>
+
+<h3>ROT13: 不那么秘密的编码环</h3>
+
 <p>One amusing use of tr is to perform ROT13 encoding of text. ROT13 is a trivial
 type of encryption based on a simple substitution cipher. Calling ROT13
 “encryption” is being generous; “text obfuscation” is more accurate. It is used
@@ -1513,20 +1818,38 @@ sometimes on text to obscure potentially offensive content. The method simply
 moves each character thirteen places up the alphabet. Since this is half way up
 the possible twenty-six characters, performing the algorithm a second time on the
 text restores it to its original form. To perform this encoding with tr: </p>
+
+<p>tr命令的一个有趣的用法是执行ROT13文本编码。ROT13是一款微不足道的基于一种简易的替换暗码的
+加密类型。把ROT13称为“加密”是大方的；“文本模糊处理”更准确些。有时候它被用来隐藏文本中潜在的攻击内容。
+这个方法就是简单地把每个字符在字母表中向前移动13位。因为移动的位数是可能的26个字符的一半，
+所以对文本再次执行这个算法，就恢复到了它最初的形式。通过tr命令来执行这种编码：</p>
+
 <p>echo "secret text" | tr a-zA-Z n-za-mN-ZA-M </p>
+
 <p> frperg grkg </p>
+
 <p>Performing the same procedure a second time results in the translation:</p>
+
+<p>再次执行相同的过程，得到翻译结果：</p>
+
 <p>echo "frperg grkg" | tr a-zA-Z n-za-mN-ZA-M</p>
+
 <p>secret text</p>
+
 <p>A number of email programs and USENET news readers support ROT13
 encoding. Wikipedia contains a good article on the subject:</p>
+
+<p>大量的email程序和USENET新闻读者都支持ROT13编码。Wikipedia上面有一篇关于这个主题的好文章：</p>
 <p>http://en.wikipedia.org/wiki/ROT13</p>
+
 </td>
 </tr>
 </table>
 
 tr can perform another trick, too. Using the -s option, tr can “squeeze” (delete)
 repeated instances of a character:
+
+tr也可以完成另一个技巧。使用-s选项，tr命令能“挤压”（删除）重复的字符实例：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "aaabbbccc" | tr -s ab
@@ -1538,6 +1861,10 @@ we eliminate the repeated instances of the letters in the set, while leaving the
 that is missing from the set (“c”) unchanged. Note that the repeating characters must be
 adjoining. If they are not:
 
+这里我们有一个包含重复字符的字符串。通过给tr命令指定字符集“ab”，我们能够消除字符集中
+字母的重复实例，然而会留下不属于字符集的字符（“c”）无更改。注意重复的字符必须是相邻的。
+如果它们不相邻：
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "abcabcabc" | tr -s ab
 abcabcabc</tt>
@@ -1545,16 +1872,25 @@ abcabcabc</tt>
 
 the squeezing will have no effect.
 
-sed
+那么挤压会没有效果。
+
+#### sed
 
 The name sed is short for stream editor. It performs text editing on a stream of text,
 either a set of specified files or standard input. sed is a powerful and somewhat complex
 program (there are entire books about it), so we will not cover it completely here.
 
+名字sed是stream editor（流编辑器）的简称。它对文本流进行编辑，要不是一系列指定的文件，
+要不就是标准输入。sed是一款强大的，并且有些复杂的程序（有整本内容都是关于sed程序的书籍），
+所以在这里我们不会详尽的讨论它。
+
 In general, the way that sed works is that it is given either a single editing command (on
 the command line) or the name of a script file containing multiple commands, and it then
 performs these commands upon each line in the stream of text. Here is a very simple
 example of sed in action:
+
+总之，sed的工作方式是要不给出单个编辑命令（在命令行中）要不就是包含多个命令的脚本文件名，
+然后它就按行来执行这些命令。这里有一个非常简单的sed实例：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "front" | sed 's/front/back/'
@@ -1566,12 +1902,20 @@ sed, in turn, carries out the instruction s/front/back/ upon the text in the str
 and produces the output “back” as a result. We can also recognize this command as
 resembling the “substitution” (search and replace) command in vi.
 
+在这个例子中，我们使用echo命令产生了一个单词的文本流，然后把它管道给sed命令。sed，依次，
+对流文本执行指令s/front/back/，随后输出“back”。我们也能够把这个命令认为是相似于vi中的“替换”
+（查找和替代）命令。
+
 Commands in sed begin with a single letter. In the example above, the substitution
 command is represented by the letter s and is followed by the search and replace strings,
 separated by the slash character as a delimiter. The choice of the delimiter character is
 arbitrary. By convention, the slash character is often used, but sed will accept any
 character that immediately follows the command as the delimiter. We could perform the
 same command this way:
+
+sed中的命令开始于单个字符。在上面的例子中，这个替换命令由字母s来代表，其后跟着查找
+和替代字符串，斜杠字符做为分隔符。分隔符的选择是随意的。按照惯例，经常使用斜杠字符，
+但是sed将会接受紧随命令之后的任意字符做为分隔符。我们可以按照这种方式来执行相同的命令：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "front" | sed 's\_front\_back\_'
@@ -1582,10 +1926,17 @@ By using the underscore character immediately after the command, it becomes the
 delimiter. The ability to set the delimiter can be used to make commands more readable,
 as we shall see.
 
+通过紧跟命令之后使用下划线字符，则它变成界定符。sed可以设置界定符的能力，使命令的可读性更强，
+正如我们将看到的.
+
 Most commands in sed may be preceded by an address, which specifies which line(s) of
 the input stream will be edited. If the address is omitted, then the editing command is
 carried out on every line in the input stream. The simplest form of address is a line
 number. We can add one to our example:
+
+sed中的大多数命令之前都会带有一个地址，其指定了输入流中要被编辑的文本行。如果省略了地址，
+然后会对输入流的每一行执行编辑命令。最简单的地址形式是一个行号。我们能够添加一个地址
+到我们例子中：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "front" | sed '1s/front/back/'
@@ -1595,6 +1946,9 @@ back</tt>
 Adding the address 1 to our command causes our substitution to be performed on the first
 line of our one-line input stream. If we specify another number:
 
+给我们的命令添加地址1，就导致只对仅有一行文本的输入流的第一行执行替换操作。如果我们指定另一
+个数字：
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "front" | sed '2s/front/back/'
 front</tt>
@@ -1602,6 +1956,9 @@ front</tt>
 
 we see that the editing is not carried out, since our input stream does not have a line two.
 Addresses may be expressed in many ways. Here are the most common:
+
+我们看到没有执行这个编辑命令，因为我们的输入流没有第二行。地址可以用许多方式来表达。这里是
+最常用的：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -1631,7 +1988,7 @@ alternate character, by specifying the expression with
 <td valign="top">A range of lines from addr1 to addr2, inclusive. Addresses
 may be any of the single address forms above.</td>
 </tr>
-<tr>
+<tr> a range of line numbers
 <td valign="top">first~step </td>
 <td valign="top">Match the line represented by the number first, then each
 subsequent line at step intervals. For example 1~2 refers to
@@ -1649,8 +2006,53 @@ fifth line thereafter.</td>
 </table>
 </p>
 
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">表21-7: sed 地址表示法</caption>
+<tr>
+<th class="title">地址</th>
+<th class="title">说明</th>
+</tr>
+<tr>
+<td valign="top" width="25%">n</td>
+<td valign="top">行号，n是一个正整数。</td>
+</tr>
+<tr>
+<td valign="top">$</td>
+<td valign="top">最后一行。</td>
+</tr>
+<tr>
+<td valign="top">/regexp/ </td>
+<td valign="top">所有匹配一个POSIX基本正则表达式的文本行。注意正则表达式通过
+斜杠字符界定。选择性地，这个正则表达式可能由一个备用字符界定，通过\cregexpc来
+指定表达式，这里c就是一个备用的字符。</td>
+</tr>
+<tr>
+<td valign="top">addr1,addr2 </td>
+<td valign="top">从addr1到addr2范围内的文本行，包含地址addr2在内。地址可能是上述任意
+单独的地址形式。</td>
+</tr>
+<tr>
+<td valign="top">first~step </td>
+<td
+valign="top">匹配由数字first代表的文本行，然后随后的每个在step间隔处的文本行。例如
+1~2是指每个位于偶数行号的文本行，5~5则指第五行和之后每五行位置的文本行。</td>
+</tr>
+<tr>
+<td valign="top">addr1,+n </td>
+<td valign="top">匹配地址addr1和随后的n个文本行。</td>
+</tr>
+<tr>
+<td valign="top">addr! </td>
+<td valign="top">匹配所有的文本行，除了addr之外，addr可能是上述任意的地址形式。</td>
+</tr>
+</table>
+</p>
+
 We’ll demonstrate different kinds of addresses using the distros.txt file from earlier
 in this chapter. First, a range of line numbers:
+
+通过使用这一章中早前的distros.txt文件，我们将演示不同种类的地址表示法。首先，一系列行号：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sed -n '1,5p' distros.txt
@@ -1666,7 +2068,13 @@ five. To do this, we use the p command, which simply causes a matched line to be
 printed. For this to be effective however, we must include the option -n (the no auto-
 print option) to cause sed not to print every line by default.
 
+在这个例子中，我们打印出一系列的文本行，开始于第一行，直到第五行。为此，我们使用p命令，
+其就是简单地把匹配的文本行打印出来。然而为了高效，我们必须包含选项-n（不自动打印选项），
+让sed不要默认地打印每一行。
+
 Next, we’ll try a regular expression:
+
+下一步，我们将试用一下正则表达式：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sed -n '/SUSE/p' distros.txt
@@ -1679,7 +2087,12 @@ SUSE         10.1     05/11/2006</tt>
 By including the slash-delimited regular expression /SUSE/, we are able to isolate the
 lines containing it in much the same manner as grep.
 
+通过包含由斜杠界定的正则表达式/SUSE/，我们能够孤立出包含它的文本行，和grep程序的功能
+是相同的。
+
 Finally, we’ll try negation by adding an ! to the address:
+
+最后，我们将试着否定上面的操作，通过给这个地址添加一个感叹号：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sed -n '/SUSE/!p' distros.txt
@@ -1700,8 +2113,12 @@ Fedora         5        03/20/2006 </tt>
 Here we see the expected result: all of the lines in the file except the ones matched by the
 regular expression.
 
+这里我们看到期望的结果：输出了文件中所有的文本行，除了那些匹配这个正则表达式的文本行。
+
 So far, we’ve looked at two of the sed editing commands, s and p. Here is a more
 complete list of the basic editing commands:
+
+目前为止，我们已经知道了两个sed的编辑命令，s和p。这里是一个更加全面的基本编辑命令列表：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -1744,15 +2161,15 @@ the -n option is not specified, output the current line.</td>
 </tr>
 <tr>
 <td valign="top">s/regexp/replacement/ </td>
-<td valign="top">Substitute the contents of replacement wherever
-regexp is found. replacement may include the
+<td valign="top">Substitute the contents of _replacement_ wherever
+_regexp_ is found. _replacement_ may include the
 special character &amp;, which is equivalent to the text
-matched by regexp. In addition, replacement may
+matched by _regexp_. In addition, _replacement_ may
 include the sequences \1 through \9, which are
 the contents of the corresponding subexpressions
-in regexp. For more about this, see the discussion
+in _regexp_. For more about this, see the discussion
 of back references below. After the trailing slash
-following replacement, an optional flag may be
+following _replacement_, an optional flag may be
 specified to modify the s command’s behavior.</td>
 </tr>
 <tr>
@@ -1760,6 +2177,60 @@ specified to modify the s command’s behavior.</td>
 <td valign="top">Perform transliteration by converting characters
 from set1 to the corresponding characters in set2.
 Note that unlike tr, sed requires that both sets be of the same length.</td>
+</tr>
+</table>
+</p>
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">表21-8： sed基本编辑命令 </caption>
+<tr>
+<th class="title">命令</th>
+<th class="title">说明</th>
+</tr>
+<tr>
+<td valign="top" width="25%">=</td>
+<td valign="top">输出当前的行号。</td>
+</tr>
+<tr>
+<td valign="top">a</td>
+<td valign="top">在当前行之后追加文本。</td>
+</tr>
+<tr>
+<td valign="top">d</td>
+<td valign="top">删除当前行。</td>
+</tr>
+<tr>
+<td valign="top">i</td>
+<td valign="top">在当前行之前插入文本。</td>
+</tr>
+<tr>
+<td valign="top">p</td>
+<td
+valign="top">打印当前行。默认情况下，sed程序打印每一行，并且只是编辑文件中匹配
+指定地址的文本行。通过指定-n选项，这个默认的行为能够被忽略。</td>
+</tr>
+<tr>
+<td valign="top">q</td>
+<td valign="top">退出sed，不再处理更多的文本行。如果不指定-n选项，输出当前行。</td>
+</tr>
+<tr>
+<td valign="top">Q</td>
+<td valign="top">退出sed，不再处理更多的文本行。</td>
+</tr>
+<tr>
+<td valign="top">s/regexp/replacement/ </td>
+<td valign="top">只要找到一个_regexp_匹配项，就替换为_replacement_的内容。
+ _replacement_ 可能包括特殊字符&amp;，其等价于由_regexp_匹配的文本。另外，
+_replacement_ 可能包含序列\1到\9，其是_regexp_中相对应的子表达式的内容。更多信息，查看
+下面_back references_部分的讨论。在_replacement_末尾的斜杠之后，可以指定一个
+可选的标志，来修改s命令的行为。</td>
+</tr>
+<tr>
+<td valign="top">y/set1/set2 </td>
+<td
+valign="top">执行字符转写操作，通过把_set1_中的字符转变为相对应的_set2_中的字符。
+注意不同于tr程序，sed要求两个字符集合具有相同的长度。</td>
 </tr>
 </table>
 </p>
@@ -1772,9 +2243,13 @@ ease of sorting) if the format were YYYY-MM-DD. To perform this change on the fi
 by hand would be both time-consuming and error prone, but with sed, this change can
 be performed in one step:
 
+到目前为止，这个s命令是最常使用的编辑命令。我们将仅仅演示一些它的功能，通过编辑我们的
+distros.txt文件。我们以前讨论过distros.txt文件中的日期字段不是“友好地计算机”模式。
+文件中的日期格式是MM/DD/YYYY，但如果格式是YYYY-MM-DD会更好一些（利于排序）。手动修改
+日期格式不仅浪费时间而且易出错，但是有了sed，只需一步就能完成修改：
+
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ sed 's/\([0-9]\{2\}\)\/\([0-9]\{2\}\)\/\([0-9]\{4\}\
-)$/\3-\1-\2/' distros.txt
+<tt>[me@linuxbox ~]$ sed 's/\([0-9]\{2\}\)\/\([0-9]\{2\}\)\/\([0-9]\{4\}\)$/\3-\1-\2/' distros.txt
 SUSE           10.2     2006-12-07
 Fedora         10       2008-11-25
 SUSE           11.0     2008-06-19
@@ -1799,6 +2274,10 @@ expressions are sometimes jokingly referred to as a “write-only” medium. We 
 them, but we sometimes cannot read them. Before we are tempted to run away in terror
 from this command, let’s look at how it was constructed. First, we know that the
 command will have this basic structure:
+
+哇！这个命令看起来很丑陋。但是它起作用了。仅用一步，我们就更改了文件中的日期格式。
+
+
 
 <div class="code"><pre>
 <tt>sed 's/regexp/replacement/' distros.txt</tt>
@@ -1982,7 +2461,7 @@ of this book, they are very good skills for the Linux command line user.
 </tr>
 </table>
 
-aspell
+#### aspell
 
 The last tool we will look at is aspell, an interactive spelling checker. The aspell
 program is the successor to an earlier program named ispell, and can be used, for the
