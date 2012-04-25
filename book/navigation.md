@@ -309,7 +309,7 @@ the home directory of user “bob.”
 <td valign="top"> 更改工作目录到先前的工作目录。</td>
 </tr>
 <tr>
-<td width="%18" valign="top">cd ~user_name</td>
+<td width="%18" valign="top">cd ~user\_name</td>
 <td valign="top"> 更改工作目录到用户主目录。例如, cd ~bob 会更改工作目录到用户“bob”的主目录。</td>
 </tr>
 </table>

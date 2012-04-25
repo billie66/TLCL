@@ -31,23 +31,23 @@ This chapter will revisit some old friends and introduce us to some new ones:
 
 * cut – Remove sections from each line of files
 
-* cut – 从每行中删除
+* cut – 从每行中删除文本区域
 
 * paste – Merge lines of files
 
-* paste – 合并文件行 
+* paste – 合并文件文本行 
 
 * join – Join lines of two files on a common field
 
-* join –  
+* join – 基于某个共享字段来联合两个文件的文本行 
 
 * comm – Compare two sorted files line by line
 
-* comm – 按行比较两个有序的文件 
+* comm – 逐行比较两个有序的文件 
 
 * diff – Compare files line by line
 
-* diff – 按行比较文件
+* diff – 逐行比较文件
 
 * patch – Apply a diff file to an original
 
@@ -2161,15 +2161,15 @@ the -n option is not specified, output the current line.</td>
 </tr>
 <tr>
 <td valign="top">s/regexp/replacement/ </td>
-<td valign="top">Substitute the contents of _replacement_ wherever
-_regexp_ is found. _replacement_ may include the
+<td valign="top">Substitute the contents of replacement wherever
+regexp is found. replacement may include the
 special character &amp;, which is equivalent to the text
-matched by _regexp_. In addition, _replacement_ may
+matched by regexp. In addition, replacement may
 include the sequences \1 through \9, which are
 the contents of the corresponding subexpressions
-in _regexp_. For more about this, see the discussion
+in regexp. For more about this, see the discussion
 of back references below. After the trailing slash
-following _replacement_, an optional flag may be
+following replacement, an optional flag may be
 specified to modify the s command’s behavior.</td>
 </tr>
 <tr>
@@ -2220,16 +2220,15 @@ valign="top">打印当前行。默认情况下，sed程序打印每一行，并�
 </tr>
 <tr>
 <td valign="top">s/regexp/replacement/ </td>
-<td valign="top">只要找到一个_regexp_匹配项，就替换为_replacement_的内容。
- _replacement_ 可能包括特殊字符&amp;，其等价于由_regexp_匹配的文本。另外，
-_replacement_ 可能包含序列\1到\9，其是_regexp_中相对应的子表达式的内容。更多信息，查看
-下面_back references_部分的讨论。在_replacement_末尾的斜杠之后，可以指定一个
+<td valign="top">只要找到一个regexp匹配项，就替换为replacement的内容。
+replacement 可能包括特殊字符&amp;，其等价于由regexp匹配的文本。另外，
+replacement 可能包含序列\1到\9，其是regexp中相对应的子表达式的内容。更多信息，查看
+下面back references部分的讨论。在replacement末尾的斜杠之后，可以指定一个
 可选的标志，来修改s命令的行为。</td>
 </tr>
 <tr>
 <td valign="top">y/set1/set2 </td>
-<td
-valign="top">执行字符转写操作，通过把_set1_中的字符转变为相对应的_set2_中的字符。
+<td valign="top">执行字符转写操作，通过把set1中的字符转变为相对应的set2中的字符。
 注意不同于tr程序，sed要求两个字符集合具有相同的长度。</td>
 </tr>
 </table>
@@ -2653,14 +2652,14 @@ markup to our file:
 我们将添加一些HTML标志到文件中：
 
 <div class="code"><pre>
-<tt><html>
+<tt>&lt;html&gt;
        <head>
               <title>Mispelled HTML file</title>
        </head>
        <body>
               <p>The quick brown fox jimped over the laxy dog.</p>
        </body>
-</html></tt>
+ &lt;/html&gt;</tt>
 </pre></div>
 
 Now, if we try to spell check our modified file, we run into a problem. If we do it this
@@ -2684,7 +2683,7 @@ we’ll get this:
        <body>
               <p>The quick brown fox jimped over the laxy dog.</p>
        </body>
-&lt;/html&gt;</tt>
+ &lt;/html&gt;</tt>
 
 <hr style="height:15px;width:100%;background:black" />
 1) HTML                     4) Hamel
@@ -2714,14 +2713,14 @@ which will result in this:
 这会导致这样的结果：
 
 <div class="code"><pre>
-<tt><html>
+<tt>&lt;html&gt;
        <head>
               <title><b>Mispelled</b> HTML file</title>
        </head>
        <body>
               <p>The quick brown fox jimped over the laxy dog.</p>
        </body>
-</html></tt>
+ &lt;/html&gt;</tt>
 
 <hr style="height:15px;width:100%;background:black" />
 1) HTML                     4) Hamel
