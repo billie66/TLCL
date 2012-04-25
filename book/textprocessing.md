@@ -2584,7 +2584,7 @@ As aspell is interactive in the check mode, we will see a screen like this:
 
 <div class="code"><pre>
 <tt>The quick brown fox jimped over the laxy dog.
-<hr style="height:10px;width:100%;background:black" />
+<hr style="height:15px;width:100%;background:black" />
 1)jumped                        6)wimped
 2)gimped                        7)camped
 3)comped                        8)humped
@@ -2594,7 +2594,7 @@ i)Ignore                        I)Ignore all
 r)Replace                       R)Replace all
 a)Add                           l)Add Lower
 b)Abort                         x)Exit
-<hr style="height:10px;width:100%;background:black" />
+<hr style="height:15px;width:100%;background:black" />
 ?  </tt>
 </pre></div>
 
@@ -2686,7 +2686,7 @@ we’ll get this:
        </body>
 &lt;/html&gt;</tt>
 
-<hr style="height:5px;width:70%;background:black" />
+<hr style="height:15px;width:100%;background:black" />
 1) HTML                     4) Hamel
 2) ht ml                    5) Hamil
 3) ht-ml                    6) hotel
@@ -2695,7 +2695,7 @@ i) Ignore                   I) Ignore all
 r) Replace                  R) Replace all
 a) Add                      l) Add Lower
 b) Abort                    x) Exit
-<hr style="height:5px;width:70%;background:black" />
+<hr style="height:15px;width:100%;background:black" />
 ?
 </pre></div>
 
@@ -2723,7 +2723,7 @@ which will result in this:
        </body>
 </html></tt>
 
-<hr style="height:5px;width:70%;background:black" />
+<hr style="height:15px;width:100%;background:black" />
 1) HTML                     4) Hamel
 2) ht ml                    5) Hamil
 3) ht-ml                    6) hotel
@@ -2732,7 +2732,7 @@ i) Ignore                   I) Ignore all
 r) Replace                  R) Replace all
 a) Add                      l) Add Lower
 b) Abort                    x) Exit
-<hr style="height:5px;width:70%;background:black" />
+<hr style="height:15px;width:100%;background:black" />
 ?
 </pre></div>
 
@@ -2749,10 +2749,13 @@ behavior can be overridden with command line options. It is also possible to
 specify which markup tags are checked and skipped. See the aspell man page
 for details.
 
-注意：默认情况下，aspell会忽略文本中URL和电子邮件地址。这种行为
+注意：默认情况下，aspell会忽略文本中URL和电子邮件地址。通过命令行选项，可以重写此行为。
+也有可能指定哪些标志进行检查及跳过。详细内容查看aspell命令手册。
 <hr style="height:5px;width:100%;background:gray" />
 
 ### Summing Up
+
+### 总结归纳 
 
 In this chapter, we have looked at a few of the many command line tools that operate on
 text. In the next chapter, we will look at several more. Admittedly, it may not seem
@@ -2762,12 +2765,19 @@ find in later chapters that these tools form the basis of a tool set that is use
 host of practical problems. This will be particularly true when we get into shell scripting,
 where these tools will really show their worth.
 
-在这一章中，我们已经查看了一些
+在这一章中，我们已经查看了一些操作文本的命令行工具。在下一章中，我们会再看几个命令行工具。
+诚然，看起来不能立即显现出怎样或为什么你可能使用这些工具为日常的基本工具，
+虽然我们已经展示了一些半实际的命令用法的例子。我们将在随后的章节中发现这些工具组成
+了解决实际问题的基本工具箱。这将是确定无疑的，当我们学习shell脚本的时候，
+到时候这些工具将真正体现出它们的价值。
 
 ### Further Reading
 
-The GNU Project website contains many online guides to the tools discussed in this
-chapter.
+### 拓展阅读 
+
+The GNU Project website contains many online guides to the tools discussed in this chapter.
+
+GNU项目网站包含了本章中所讨论工具的许多在线指南。
 
 * From the Coreutils package:
 
@@ -2801,8 +2811,13 @@ chapter.
 
 ### Extra Credit
 
+### 友情提示 
+
 There are a few more interesting text manipulation commands worth investigating.
 Among these are: split (split files into pieces), csplit (split files into pieces based
 on context), and sdiff (side-by-side merge of file differences.)
+
+有一些更有趣的文本操作命令值得。在它们之间有：split（把文件分割成碎片），
+csplit（基于上下文把文件分割成碎片），和sdiff（并排合并文件差异）。
 
 
