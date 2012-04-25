@@ -2485,20 +2485,31 @@ the end of the i command.
 <hr style="height:5px;width:100%;background:gray" />
 Note: A line continuation character is formed by a backslash followed immediately
 by a carriage return. No intermediary spaces are permitted.
+
+注意：一个连行符由一个斜杠字符其后紧跟一个回车符组成。它们之间不允许有空白字符。
 <hr style="height:5px;width:100%;background:gray" />
 
 Line seven is our search and replace command. Since it is not preceded by an address,
 each line in the input stream is subject to its action.
+
+第七行是我们的查找和替代命令。因为命令之前没有添加地址，所以输入流中的每一行文本
+都得服从它的操作。
 
 Line eight performs transliteration of the lowercase letters into uppercase letters. Note
 that unlike tr, the y command in sed does not support character ranges (for example,
 [a-z]), nor does it support POSIX character classes. Again, since the y command is
 not preceded by an address, it applies to every line in the input stream.
 
+第八行执行小写字母到大写字母的字符替换操作。注意不同于tr命令，这个sed中的y命令不
+支持字符区域（例如，[a-z]），也不支持POSIX字符集。再说一次，因为y命令之前不带地址，
+所以它会操作输入流的每一行。
+
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
 <h3>People Who Like sed Also Like...</h3>
+
+<h3>喜欢sed的人们也会喜欢。。。</h3>
 <p>sed is a very capable program, able to perform fairly complex editing tasks to
 streams of text. It is most often used for simple one line tasks rather than long
 scripts. Many users prefer other tools for larger tasks. The most popular of these
@@ -2511,6 +2522,16 @@ manipulate tabular data. It resembles sed in that awk programs normally
 process text files line-by-line, using a scheme similar to the sed concept of an
 address followed by an action. While both awk and perl are outside the scope
 of this book, they are very good skills for the Linux command line user.</p>
+
+<p>sed是一款非常强大的程序，它能够针对文本流完成相当复杂的编辑任务。它最常
+用于简单的行任务，而不是长长的脚本。许多用户喜欢使用其它工具，来执行较大的工作。
+在这些工具中最著名的是awk和perl。它们不仅仅是工具，像这里介绍的程序，且延伸到
+完整的编程语言领域。特别是perl，经常被用来代替shell脚本，来完成许多系统管理任务，
+同时它也是一款非常流行网络开发语言。awk更专用一些。其具体优点是其操作表格数据的能力。
+awk程序通常逐行处理文本文件，这点类似于sed，awk使用了一种方案，其与sed中地址
+之后跟随编辑命令的概念相似。虽然关于awk和perl的内容都超出了本书所讨论的范围，
+但是对于Linux命令行用户来说，它们都是非常好的技能。</p>
+
 </td>
 </tr>
 </table>
@@ -2525,14 +2546,24 @@ stand-alone tool from the command line. It has the ability to intelligently chec
 type of text files, including HTML documents, C/C++ programs, email messages and
 other kinds of specialized texts.
 
+我们要查看的最后一个工具是aspell，一款交互式的拼写检查器。这个aspell程序是早先ispell程序
+的继承者，大多数情况下，它可以被用做一个替代品。虽然aspell程序大多被其它需要拼写检查能力的
+程序使用，但它也可以作为一个独立的命令行工具使用。它能够智能地检查各种类型的文本文件，
+包括HTML文件，C/C++程序，电子邮件和其它种类的专业文本。
+
 To spell check a text file containing simple prose, it could be used like this:
+
+拼写检查一个包含简单的文本文件，可以这样使用aspell:
 
 <div class="code"><pre>
 <tt>aspell check textfile</tt>
 </pre></div>
 
-where textfile is the name of the file to check. As a practical example, let’s create a
+where _textfile_ is the name of the file to check. As a practical example, let’s create a
 simple text file named foo.txt containing some deliberate spelling errors:
+
+这里的textfile是要检查的文件名。作为一个实际例子，让我们创建一个简单的文本文件，叫做foo.txt，
+包含一些故意的拼写错误：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ cat > foo.txt
@@ -2541,15 +2572,19 @@ The quick brown fox jimped over the laxy dog.</tt>
 
 Next we’ll check the file using aspell:
 
+下一步我们将使用aspell来检查文件：
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ aspell check foo.txt</tt>
 </pre></div>
 
 As aspell is interactive in the check mode, we will see a screen like this:
 
+因为aspell在检查模式下是交互的，我们将看到像这样的一个屏幕：
+
 <div class="code"><pre>
 <tt>The quick brown fox jimped over the laxy dog.
-<hr style="height:5px;width:70%;background:black" />
+<hr style="height:10px;width:100%;background:black" />
 1)jumped                        6)wimped
 2)gimped                        7)camped
 3)comped                        8)humped
@@ -2559,7 +2594,7 @@ i)Ignore                        I)Ignore all
 r)Replace                       R)Replace all
 a)Add                           l)Add Lower
 b)Abort                         x)Exit
-<hr style="height:5px;width:70%;background:black" />
+<hr style="height:10px;width:100%;background:black" />
 ?  </tt>
 </pre></div>
 
@@ -2568,10 +2603,18 @@ the middle, we see ten spelling suggestions numbered zero through nine, followed
 list of other possible actions. Finally, at the very bottom, we see a prompt ready to accept
 our choice.
 
+在显示屏的顶部，我们看到我们的文本中有一个拼写可疑且高亮显示的单词。在中间部分，我们看到
+十个拼写建议，序号从0到9，然后是一系列其它可能的操作。最后，在最底部，我们看到一个提示符，
+准备接受我们的选择。
+
 If we press the 1 key, aspell replaces the offending word with the word “jumped” and
 moves on to the next misspelled word which is “laxy.” If we select the replacement
 “lazy,” aspell replaces it and terminates. Once aspell has finished, we can examine
 our file and see that the misspellings have been corrected:
+
+如果我们按下1按键，aspell会用单词“jumped”代替错误单词，然后移动到下一个拼写错的单词，就是
+“laxy”。如果我们选择替代物“lazy”，aspell会替换“laxy”并且终止。一旦aspell结束操作，我们
+可以检查我们的文件，会看到拼写错误的单词已经更正了。
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ cat foo.txt
@@ -2582,8 +2625,13 @@ Unless told otherwise via the command line option --dont-backup, aspell creates
 a backup file containing the original text by appending the extension .bak to the
 filename.
 
+除非由命令行选项--dont-backup告诉aspell，否则通过追加扩展名.bak到文件名中,
+aspell会创建一个包含原始文本的备份文件。
+
 Showing off our sed editing prowess, we’ll put our spelling mistakes back in so we can
 reuse our file:
+
+为了炫耀sed的编辑本领，我们将还原拼写错误，因此我们能够重用我们的文件：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sed -i 's/lazy/laxy/; s/jumped/jimped/' foo.txt</tt>
@@ -2594,9 +2642,15 @@ the edited output to standard output, it will re-write the file with the changes
 also see the ability to place more than one editing command on the line by separating
 them with a semicolon.
 
+这个sed选项-i，告诉sed在适当位置编辑文件，意思是不要把编辑结果发送到标准输出中。sed会把更改应用到文件中，
+以此重新编写文件。我们也看到可以把多个sed编辑命令放在同一行，编辑命令之间由分号分隔开来。
+
 Next, we’ll look at how aspell can handle different kinds of text files. Using a text
 editor such as vim (the adventurous may want to try sed), we will add some HTML
 markup to our file:
+
+下一步，我们将看一下aspell怎样来解决不同种类的文本文件。使用一个文本编辑器，例如vim（胆大的人可能想用sed），
+我们将添加一些HTML标志到文件中：
 
 <div class="code"><pre>
 <tt><html>
@@ -2612,11 +2666,15 @@ markup to our file:
 Now, if we try to spell check our modified file, we run into a problem. If we do it this
 way:
 
+现在，如果我们试图拼写检查我们修改的文件，我们会遇到一个问题。如果我们这样做：
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ aspell check foo.txt</tt>
 </pre></div>
 
 we’ll get this:
+
+我们会得到这些：
 
 <div class="code"><pre>
 <tt>&lt;html&gt;
@@ -2644,12 +2702,16 @@ b) Abort                    x) Exit
 aspell will see the contents of the HTML tags as misspelled. This problem can be
 overcome by including the -H (HTML) checking mode option, like this:
 
+aspell会认为HTML标志的内容是拼写错误。通过包含-H（HTML）检查模式选项，这个问题能够
+解决，像这样：
+
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ aspell -H check foo.txt</tt>
 </pre></div>
 
 which will result in this:
 
+这会导致这样的结果：
 
 <div class="code"><pre>
 <tt><html>
@@ -2678,11 +2740,16 @@ The HTML is ignored and only the non-markup portions of the file are checked. In
 mode, the contents of HTML tags are ignored and not checked for spelling. However, the
 contents of ALT tags, which benefit from checking, are checked in this mode.
 
+这个HTML标志被忽略了，并且只会检查文件中非标志部分的内容。在这种模式下，HTML标志的
+内容被忽略了，不会进行拼写检查。然而，ALT标志的内容，会被检查。
+
 <hr style="height:5px;width:100%;background:gray" />
 Note: By default, aspell will ignore URLs and email addresses in text. This
 behavior can be overridden with command line options. It is also possible to
 specify which markup tags are checked and skipped. See the aspell man page
 for details.
+
+注意：默认情况下，aspell会忽略文本中URL和电子邮件地址。这种行为
 <hr style="height:5px;width:100%;background:gray" />
 
 ### Summing Up
@@ -2694,6 +2761,8 @@ basis, though we have tried to show some semi-practical examples of their use. W
 find in later chapters that these tools form the basis of a tool set that is used to solve a
 host of practical problems. This will be particularly true when we get into shell scripting,
 where these tools will really show their worth.
+
+在这一章中，我们已经查看了一些
 
 ### Further Reading
 
