@@ -59,7 +59,8 @@ div.code {
 }
 
 code {
-  background-color: #E0E0E0;
+  background: #E0E0E0;
+  border: 1px solid #E7E5DC;
   padding: 0.1em;
   font-size: 150%;
 }
@@ -67,3 +68,4 @@ code {
 pre code {
   border: none;
 }
+
