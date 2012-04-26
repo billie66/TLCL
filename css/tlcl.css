@@ -56,7 +56,7 @@ th.title {
 div.code pre{
   background-color: #E0E0E0;
   padding: 0.1em;
-  font-size: 150%;
+  font-size: 120%;
 }
 
 pre {
@@ -68,7 +68,7 @@ pre {
   color: black;
   line-height: 120%;
   font-family: "Consolas","Courier New","Courier","mono";
-  font-size: 150%;
+  font-size: 120%;
   letter-spacing: 0;
 }
 
