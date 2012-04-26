@@ -25,18 +25,31 @@ a {
 }
 
 /*this is very important for me*/
-pre {
+/*pre {
   margin-left: 2%
-  background: #E0E0E0;
+}*/
+
+pre {
+  background: #f8f8f8;
   border: 1px solid #E7E5DC;
   border-width: 1px 0 4px 6px;
   padding: 1em;
   overflow: auto;
   color: black;
   line-height: 120%;
-  font-family: "Consolas","Courier New","Courier","mono";
+  font-family: "Consolas","Courier New",Courier,mono;
   font-size: 12px;
   letter-spacing: 0;
+}
+
+code {
+  background: #f8f8f8;
+  border: 1px solid #E7E5DC;
+  padding: 0.2em;
+}
+
+pre code {
+  border: none;
 }
 
 p.figure {
@@ -68,14 +81,4 @@ div.code {
   font-size: 150%;
 }
 
-code {
-  background: #E0E0E0;
-  border: 1px solid #E7E5DC;
-  padding: 0.1em;
-  font-size: 150%;
-}
-
-pre code {
-  border: none;
-}
 
