@@ -48,29 +48,6 @@ numbering may be reset and/or be assigned a different style. If nl is given mult
 it treats them as a single stream of text. Sections in the text stream are indicated by the
 presence of some rather odd-looking markup added to the text:
 
-<p>
-<table class="multi" cellpadding="10" border="1" width="%100">
-<caption class="cap">Table 22-1: nl Markup</caption>
-<tr>
-<th class="title">Markup</th>
-<th class="title">Meaning</th>
-</tr>
-<tr>
-<td valign="top" width="25%">\:\:\:</td>
-<td valign="top">Start of logical page header</td>
-</tr>
-<tr>
-<td valign="top">\:\:</td>
-<td valign="top">Start of logical page body</td>
-</tr>
-<tr>
-<td valign="top">\:</td>
-<td valign="top">Start of logical page footer</td>
-</tr>
-</table>
-</table>
-</p>
-
 Each of the above markup elements must appear alone on its own line. After processing
 a markup element, nl deletes it from the text stream.
 
@@ -139,15 +116,11 @@ belong to the body section of the logical page.
 We can repeat the command and experiment with different options for nl. Some
 interesting ones are:
 
-<div class="code"><pre>
-<tt>nl -n rz</tt>
-</pre></div>
+    nl -n rz
 
 and
 
-<div class="code"><pre>
-<tt>nl -w 3 -s ' '</tt>
-</pre></div>
+    nl -w 3 -s ' '
 
 fold – Wrap Each Line To A Specified Length
 
@@ -155,14 +128,12 @@ Folding is the process of breaking lines of text at a specified width. Like our 
 commands, fold accepts either one or more text files or standard input. If we send
 fold a simple stream of text, we can see how it works:
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "The quick brown fox jumped over the lazy dog."
-| fold -w 12
-The quick br
-own fox jump
-ed over the
-lazy dog.</tt>
-</pre></div>
+    [me@linuxbox ~]$ echo "The quick brown fox jumped over the lazy dog."
+    | fold -w 12
+    The quick br
+    own fox jump
+    ed over the
+    lazy dog.
 
 Here we see fold in action. The text sent by the echo command is broken into
 segments specified by the -w option. In this example, we specify a line width of twelve
@@ -170,15 +141,13 @@ characters. If no width is specified, the default is eighty characters. Notice h
 are broken regardless of word boundaries. The addition of the -s option will cause
 fold to break the line at the last available space before the line width is reached:
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "The quick brown fox jumped over the lazy dog."
-| fold -w 12 -s
-The quick
-brown fox
-jumped over
-the lazy
-dog.</tt>
-</pre></div>
+    [me@linuxbox ~]$ echo "The quick brown fox jumped over the lazy dog."
+    | fold -w 12 -s
+    The quick
+    brown fox
+    jumped over
+    the lazy
+    dog.
 
 fmt – A Simple Text Formatter
 
@@ -188,25 +157,19 @@ text while preserving blank lines and indentation.
 
 To demonstrate, we’ll need some text. Let’s lift some from the fmt info page:
 
-<div class="code"><pre>
-<tt></tt>
-</pre></div>
-
 We’ll copy this text into our text editor and save the file as fmt-info.txt. Now, let’s
 say we wanted to reformat this text to fit a fifty character wide column. We could do this
 by processing the file with fmt and the -w option:
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ fmt -w 50 fmt-info.txt | head
-'fmt' reads from the specified FILE arguments
-(or standard input if
-none are given), and writes to standard output.
-By default, blank lines, spaces between words,
-and indentation are
-preserved in the output; successive input lines
-with different indentation are not joined; tabs
-are expanded on input and introduced on output.</tt>
-</pre></div>
+    [me@linuxbox ~]$ fmt -w 50 fmt-info.txt | head
+    'fmt' reads from the specified FILE arguments
+    (or standard input if
+    none are given), and writes to standard output.
+    By default, blank lines, spaces between words,
+    and indentation are
+    preserved in the output; successive input lines
+    with different indentation are not joined; tabs
+    are expanded on input and introduced on output.
 
 Well, that’s an awkward result. Perhaps we should actually read this text, since it explains what’s going on:
 
@@ -217,36 +180,15 @@ expanded on input and introduced on output.”
 So, fmt is preserving the indentation of the first line. Fortunately, fmt provides an
 option to correct this:
 
-<div class="code"><pre>
-<tt></tt>
-</pre></div>
 
 Much better. By adding the -c option, we now have the desired result.
 
 fmt has some interesting options:
 
-<p>
-<table class="multi" cellpadding="10" border="1" width="%100">
-<caption class="cap"></caption>
-<tr>
-<th class="title">title</th>
-<th class="title">title</th>
-</tr>
-<tr>
-<td valign="top" width="25%">text</td>
-<td valign="top">text</td>
-</tr>
-<tr>
-<td valign="top"></td>
-<td valign="top"></td>
-</tr>
-</table>
-</p>
-
 The -p option is particularly interesting. With it, we can format selected portions of a
 file, provided that the lines to be formatted all begin with the same sequence of
 characters. Many programming languages use the pound sign (#) to indicate the
-beginning of a comment and thus can be formatted using this option. Let’s create a file
+5eginning of a comment and thus can be formatted using this option. Let’s create a file
 that simulates a program that uses comments:
 
     [me@linuxbox ~]$ cat > fmt-code.txt
