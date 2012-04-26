@@ -63,3 +63,7 @@ code {
   padding: 0.1em;
   font-size: 150%;
 }
+
+pre code {
+  border: none;
+}
