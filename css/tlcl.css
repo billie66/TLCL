@@ -29,7 +29,9 @@ a {
   margin-left: 2%
 }*/
 
-pre {
+pre code {
+  border: 1px solid #E7E5DC;
+  padding: 0.2em;
   background: #f8f8f8;
   border: 1px solid #E7E5DC;
   border-width: 1px 0 4px 6px;
@@ -40,16 +42,6 @@ pre {
   font-family: "Consolas","Courier New",Courier,mono;
   font-size: 150%;
   letter-spacing: 0;
-}
-
-code {
-  background: #f8f8f8;
-  border: 1px solid #E7E5DC;
-  padding: 0.2em;
-}
-
-pre code {
-  border: none;
 }
 
 p.figure {
