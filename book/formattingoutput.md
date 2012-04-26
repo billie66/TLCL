@@ -31,10 +31,7 @@ nl – Number Lines
 The nl program is a rather arcane tool used to perform a simple task. It numbers lines.
 In its simplest use, it resembles cat -n:
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ nl distros.txt | head
-</tt>
-</pre></div>
+    [me@linuxbox ~]$ nl distros.txt | head
 
 Like cat, nl can accept either multiple files as command line arguments, or standard
 input. However, nl has a number of options and supports a primitive form of markup to
