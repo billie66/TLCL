@@ -85,6 +85,14 @@ div.code pre {
   background: none;
   border: none;
   padding: none;
+  border-width: none;
+  padding: none;
+  overflow: auto;
+  color: none;
+  line-height: none;
+  font-family: "Consolas","Courier New","Courier","mono";
+  font-size: none;
+  letter-spacing: 0;
 }
    
 
