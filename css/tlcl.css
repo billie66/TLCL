@@ -81,4 +81,9 @@ div.code {
   font-size: 150%;
 }
 
+div pre {
+  broder: none;
+}
+   
+
 
