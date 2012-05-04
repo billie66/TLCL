@@ -1200,9 +1200,10 @@ name (FNAME) and the customer’s last name (LNAME):
 表格组成，每个表格包含一条记录。第一个表格，叫做CUSTOMERS，有三个数据域：一个客户号（CUSTNUM），
 客户的名字（FNAME）和客户的姓（LNAME）：
 
-<p>CUSTNUM	    FNAME       ME</p>
-<p>========	    =====       ======</p>
-<p>4681934	    John        Smith</p>
+<pre>CUSTNUM	    FNAME       ME
+========	    =====       ======
+4681934	    John        Smith
+</pre>
 
 The second table is called ORDERS and contains four fields: an order number
 (ORDERNUM), the customer number (CUSTNUM), the quantity (QUAN), and the item
@@ -1211,9 +1212,10 @@ ordered (ITEM).
 第二个表格叫做ORDERS，其包含四个数据域：订单号（ORDERNUM），客户号（CUSTNUM），数量（QUAN），
 和订购的货品（ITEM）。
 
-<p>ORDERNUM        CUSTNUM     QUAN ITEM</p>
-<p>========        =======     ==== ====</p>
-<p>3014953305      4681934     1    Blue Widget</p>
+<pre>ORDERNUM        CUSTNUM     QUAN ITEM
+========        =======     ==== ====
+3014953305      4681934     1    Blue Widget
+</pre>
 
 Note that both tables share the field CUSTNUM. This is important, as it allows a
 relationship between the tables.
@@ -1227,9 +1229,10 @@ CUSTNUM fields of both tables, a join operation could produce the following:
 执行一个join操作将允许我们把两个表格中的数据域结合起来，得到一个有用的结果，例如准备
 一张发货单。通过使用两个表格CUSTNUM数字域中匹配的数值，一个join操作会产生以下结果：
 
-<p>FNAME       LNAME       QUAN ITEM</p>
-<p>=====       =====       ==== ====</p>
-<p>John        Smith       1    Blue Widget</p>
+<pre>FNAME       LNAME       QUAN ITEM
+=====       =====       ==== ====
+John        Smith       1    Blue Widget
+</pre>
 
 To demonstrate the join program, we’ll need to make a couple of files with a shared
 key. To do this, we will use our distros-by-date.txt file. From this file, we will
