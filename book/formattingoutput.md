@@ -20,13 +20,13 @@ programs that we will cover in this chapter include:
 
 ● groff – A document formatting system
 
-Simple Formatting Tools
+###Simple Formatting Tools
 
 We’ll look at some of the simple formatting tools first. These are mostly single purpose
 programs, and a bit unsophisticated in what they do, but they can be used for small tasks
 and as parts of pipelines and scripts.
 
-nl – Number Lines
+####nl – Number Lines
 
 The nl program is a rather arcane tool used to perform a simple task. It numbers lines.
 In its simplest use, it resembles cat -n:
@@ -67,8 +67,39 @@ Here are the common options for nl:
 </td>
 </tr>
 <tr>
-<td valign="top"></td>
-<td valign="top"></td>
+<td valign="top">-f style </td>
+<td valign="top">Set footer numbering to style. Default is n (none).</td>
+</tr>
+<tr>
+<td valign="top">-h style </td>
+<td valign="top">Set header numbering to style. Default is n (none).</td>
+</tr>
+<tr>
+<td valign="top">-i number </td>
+<td valign="top">Set page numbering increment to number. Default is one.</td>
+</tr>
+<tr>
+<td valign="top">-n format </td>
+<td valign="top">Sets numbering format to format, where format is:
+ln = left justified, without leading zeros.
+rn = right justified, without leading zeros. This is the default.
+rz = right justified, with leading zeros.</td>
+</tr>
+<tr>
+<td valign="top">-p</td>
+<td valign="top">Do not reset page numbering at the beginning of each logical page.</td>
+</tr>
+<tr>
+<td valign="top">-s string </td>
+<td valign="top">Add string to the end of each line number to create a separator.Default is a single tab character.</td>
+</tr>
+<tr>
+<td valign="top">-v number </td>
+<td valign="top">Set first line number of each logical page to number. Default is one.</td>
+</tr>
+<tr>
+<td valign="top">-w width  </td>
+<td valign="top">Set width of the line number field to width. Default is six.</td>
 </tr>
 </table>
 </p>
@@ -103,6 +134,31 @@ normally interpreted as an escape character by sed.
 
 Next, we’ll produce our enhanced report by combining sort, sed, and nl:
 
+    [me@linuxbox ~]$ sort -k 1,1 -k 2n distros.txt | sed -f distros-nl.sed | nl
+
+
+            Linux Distributions Report
+
+            Name	Ver. 	Released
+            ----	---- 	--------
+
+        1	Fedora	5       2006-03-20
+        2	Fedora	6       2006-10-24
+        3	Fedora	7       2007-05-31
+        4	Fedora	8       2007-11-08
+        5	Fedora	9       2008-05-13
+        6	Fedora	10      2008-11-25
+        7	SUSE	10.1 	2006-05-11
+        8	SUSE	10.2 	2006-12-07
+        9	SUSE	10.3 	2007-10-04
+        10	SUSE	11.0 	2008-06-19
+        11	Ubuntu	6.06 	2006-06-01
+        12	Ubuntu	6.10 	2006-10-26
+        13	Ubuntu	7.04 	2007-04-19
+        14	Ubuntu	7.10 	2007-10-18
+        15	Ubuntu	8.04 	2008-04-24
+
+            End Of Report
 
 Our report is the result of our pipeline of commands. First, we sort the list by distribution
 name and version (fields one and two), then we process the results with sed, adding the
@@ -119,7 +175,7 @@ and
 
     nl -w 3 -s ' '
 
-fold – Wrap Each Line To A Specified Length
+####fold – Wrap Each Line To A Specified Length
 
 Folding is the process of breaking lines of text at a specified width. Like our other
 commands, fold accepts either one or more text files or standard input. If we send
@@ -146,7 +202,7 @@ fold to break the line at the last available space before the line width is reac
     the lazy
     dog.
 
-fmt – A Simple Text Formatter
+####fmt – A Simple Text Formatter
 
 The fmt program also folds text, plus a lot more. It accepts either files or standard input
 and performs paragraph formatting on the text stream. Basically, it fills and joins lines in

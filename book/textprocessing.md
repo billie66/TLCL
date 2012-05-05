@@ -2633,7 +2633,7 @@ aspell会创建一个包含原始文本的备份文件。
 Showing off our sed editing prowess, we’ll put our spelling mistakes back in so we can
 reuse our file:
 
-为了炫耀sed的编辑本领，我们将还原拼写错误，因此我们能够重用我们的文件：
+为了炫耀sed的编辑本领，我们将还原拼写错误，从而能够重用我们的文件：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sed -i 's/lazy/laxy/; s/jumped/jimped/' foo.txt</tt>
@@ -2654,16 +2654,14 @@ markup to our file:
 下一步，我们将看一下aspell怎样来解决不同种类的文本文件。使用一个文本编辑器，例如vim（胆大的人可能想用sed），
 我们将添加一些HTML标志到文件中：
 
-<div class="code"><pre>
-<tt>&lt;html&gt;
-       <head>
-              <title>Mispelled HTML file</title>
-       </head>
-       <body>
-              <p>The quick brown fox jimped over the laxy dog.</p>
-       </body>
- &lt;/html&gt;</tt>
-</pre></div>
+    <html>
+           <head>
+                  <title>Mispelled HTML file</title>
+           </head>
+           <body>
+                  <p>The quick brown fox jimped over the laxy dog.</p>
+           </body>
+    </html>
 
 Now, if we try to spell check our modified file, we run into a problem. If we do it this
 way:
@@ -2678,28 +2676,26 @@ we’ll get this:
 
 我们会得到这些：
 
-<div class="code"><pre>
-<tt>&lt;html&gt;
-       <head>
-              <title>Mispelled HTML file</title>
-       </head>
-       <body>
-              <p>The quick brown fox jimped over the laxy dog.</p>
-       </body>
- &lt;/html&gt;</tt>
+    <html>
+           <head>
+                  <title>Mispelled HTML file</title>
+           </head>
+           <body>
+                  <p>The quick brown fox jimped over the laxy dog.</p>
+           </body>
+    </html>
 
 <hr style="height:15px;width:100%;background:black" />
-1) HTML                     4) Hamel
-2) ht ml                    5) Hamil
-3) ht-ml                    6) hotel
+    1) HTML                     4) Hamel
+    2) ht ml                    5) Hamil
+    3) ht-ml                    6) hotel
 
-i) Ignore                   I) Ignore all
-r) Replace                  R) Replace all
-a) Add                      l) Add Lower
-b) Abort                    x) Exit
+    i) Ignore                   I) Ignore all
+    r) Replace                  R) Replace all
+    a) Add                      l) Add Lower
+    b) Abort                    x) Exit
 <hr style="height:15px;width:100%;background:black" />
-?
-</pre></div>
+    ?
 
 aspell will see the contents of the HTML tags as misspelled. This problem can be
 overcome by including the -H (HTML) checking mode option, like this:
@@ -2715,28 +2711,26 @@ which will result in this:
 
 这会导致这样的结果：
 
-<div class="code"><pre>
-<tt>&lt;html&gt;
-       <head>
-              <title><b>Mispelled</b> HTML file</title>
-       </head>
-       <body>
-              <p>The quick brown fox jimped over the laxy dog.</p>
-       </body>
- &lt;/html&gt;</tt>
+    <html>
+           <head>
+                  <title><b>Mispelled</b> HTML file</title>
+           </head>
+           <body>
+                  <p>The quick brown fox jimped over the laxy dog.</p>
+           </body>
+    </html>
 
 <hr style="height:15px;width:100%;background:black" />
-1) HTML                     4) Hamel
-2) ht ml                    5) Hamil
-3) ht-ml                    6) hotel
+    1) HTML                     4) Hamel
+    2) ht ml                    5) Hamil
+    3) ht-ml                    6) hotel
 
-i) Ignore                   I) Ignore all
-r) Replace                  R) Replace all
-a) Add                      l) Add Lower
-b) Abort                    x) Exit
+    i) Ignore                   I) Ignore all
+    r) Replace                  R) Replace all
+    a) Add                      l) Add Lower
+    b) Abort                    x) Exit
 <hr style="height:15px;width:100%;background:black" />
-?
-</pre></div>
+    ?
 
 The HTML is ignored and only the non-markup portions of the file are checked. In this
 mode, the contents of HTML tags are ignored and not checked for spelling. However, the
