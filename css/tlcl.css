@@ -36,8 +36,8 @@ p.figure {
 }
 
 table.single {
-  border:2px solid #dfd505;
-  background-color: #E0E0E0;
+  border:2px solid #E7E5DC;
+  background-color: #f8f8f8;
 }
 
 table.multi {
@@ -50,11 +50,11 @@ caption.cap {
 }
 
 th.title {
-  background-color:#E0E0E0;
+  background-color:#f8f8f8;
 }
 
 div.code pre{
-  background-color: #E0E0E0;
+  background-color: #f8f8f8;
   padding: 0.1em;
   font-size: 120%;
 }

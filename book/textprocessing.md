@@ -171,21 +171,17 @@ the line with some trailing spaces:
 用于重定向输出的文件），然后输入我们的文本，最后按下Enter键来结束这一行，然后按下组合键Ctrl-d，
 来指示cat程序，我们已经到达文件末尾了。在这个例子中，我们文本行的开头和末尾分别键入了一个tab字符以及一些空格。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat > foo.txt
-    The quick brown fox jumped over the lazy dog.     
-[me@linuxbox ~]$ </tt>
-</pre></div>
+    [me@linuxbox ~]$ cat > foo.txt
+        The quick brown fox jumped over the lazy dog.     
+    [me@linuxbox ~]$ 
 
 Next, we will use cat with the -A option to display the text:
 
 下一步，我们将使用带有-A选项的cat命令来显示这个文本：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat -A foo.txt
-^IThe quick brown fox jumped over the lazy dog.       $
-[me@linuxbox ~]$        </tt>
-</pre></div>
+    [me@linuxbox ~]$ cat -A foo.txt
+    ^IThe quick brown fox jumped over the lazy dog.       $
+    [me@linuxbox ~]$        
 
 As we can see in the results, the tab character in our text is represented by ^I. This is a
 common notation that means “Control-I” which, as it turns out, is the same as a tab
@@ -844,19 +840,19 @@ using the following options:
 <th class="title">Description</th>
 </tr>
 <tr>
-<td valign="top" width="25%">-c char\_list </td>
-<td valign="top">Extract the portion of the line defined by char\_list. The list
+<td valign="top" width="25%">-c char_list </td>
+<td valign="top">Extract the portion of the line defined by char_list. The list
 may consist of one or more comma-separated numerical ranges.</td>
 </tr>
 <tr>
-<td valign="top">-f field\_list</td>
+<td valign="top">-f field_list</td>
 <td valign="top">Extract one or more fields from the line as defined by
-field\_list. The list may contain one or more fields or field
+field_list. The list may contain one or more fields or field
 ranges separated by commas.</td>
 </tr>
 <tr>
-<td valign="top">-d delim\_char </td>
-<td valign="top">When -f is specified, use delim\_char as the field delimiting
+<td valign="top">-d delim_char </td>
+<td valign="top">When -f is specified, use delim_char as the field delimiting
 character. By default, fields must be separated by a single tab
 character.</td>
 </tr>
@@ -876,18 +872,18 @@ specified by -c and/or -f.</td>
 <th class="title">说明</th>
 </tr>
 <tr>
-<td valign="top" width="25%">-c char\_list </td>
-<td valign="top">从文本行中抽取由char\_list定义的文本。这个列表可能由一个或多个逗号
+<td valign="top" width="25%">-c char_list </td>
+<td valign="top">从文本行中抽取由char_list定义的文本。这个列表可能由一个或多个逗号
 分隔开的数值区间组成。</td>
 </tr>
 <tr>
-<td valign="top">-f field\_list</td>
-<td valign="top">从文本行中抽取一个或多个由field\_list定义的字段。这个列表可能
+<td valign="top">-f field_list</td>
+<td valign="top">从文本行中抽取一个或多个由field_list定义的字段。这个列表可能
 包括一个或多个字段，或由逗号分隔开的字段区间。 </td>
 </tr>
 <tr>
-<td valign="top">-d delim\_char </td>
-<td valign="top">当指定-f选项之后，使用delim\_char做为字段分隔符。默认情况下，
+<td valign="top">-d delim_char </td>
+<td valign="top">当指定-f选项之后，使用delim_char做为字段分隔符。默认情况下，
 字段之间必须由单个tab字符分隔开。</td>
 </tr>
 <tr>
@@ -1152,7 +1148,7 @@ name (FNAME) and the customer’s last name (LNAME):
 
 <pre>
 CUSTNUM	    FNAME       ME
-========	=====       ======
+========    =====       ======
 4681934	    John        Smith
 </pre>
 
@@ -1599,9 +1595,9 @@ two significant advantages:
 2. The diff file concisely shows the change being made, allowing reviewers of the patch to quickly evaluate it.
 
 <ol>
-<li> 一个diff文件非常小，与整个源码树的大小相比较而言。</li>
+<li><p>一个diff文件非常小，与整个源码树的大小相比较而言。</p></li>
 
-<li> 一个diff文件简洁地显示了所做的修改，从而允许程序补丁的审阅者能快速地评估它。</li>
+<li><p> 一个diff文件简洁地显示了所做的修改，从而允许程序补丁的审阅者能快速地评估它。</p></li>
 </ol>
 
 Of course, diff/patch will work on any text file, not just source code. It would be
@@ -1697,12 +1693,12 @@ and thus should be used with caution.
 3. POSIX character classes. For example, [:upper:].
 
 <ol>
-<li>一个枚举列表。例如， ABCDEFGHIJKLMNOPQRSTUVWXYZ</li>
+<li><p>一个枚举列表。例如， ABCDEFGHIJKLMNOPQRSTUVWXYZ</p></li>
 
-<li>一个字符域。例如，A-Z。注意这种方法有时候面临与其它命令相同的问题，归因于
-语系的排序规则，因此应该谨慎使用。</li>
+<li><p>一个字符域。例如，A-Z。注意这种方法有时候面临与其它命令相同的问题，归因于
+语系的排序规则，因此应该谨慎使用。</p></li>
 
-<li>POSIX字符类。例如，[:upper:]</li>
+<li><p>POSIX字符类。例如，[:upper:]</p></li>
 </ol>
 
 In most cases, both character sets should be of equal length; however, it is possible for
