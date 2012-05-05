@@ -239,18 +239,16 @@ can demonstrate thusly:
 cat程序也包含用来修改文本的选项。最著名的两个选项是-n，其给文本行添加行号和-s，
 禁止输出多个空白行。我们这样来说明：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat > foo.txt
-The quick brown fox
+    [me@linuxbox ~]$ cat > foo.txt
+    The quick brown fox
 
 
-jumped over the lazy dog.
-[me@linuxbox ~]$ cat -ns foo.txt
-1   The quick brown fox
-2
-3   jumped over the lazy dog.
-[me@linuxbox ~]$ </tt>
-</pre></div>
+    jumped over the lazy dog.
+    [me@linuxbox ~]$ cat -ns foo.txt
+    1   The quick brown fox
+    2
+    3   jumped over the lazy dog.
+    [me@linuxbox ~]$ 
 
 In this example, we create a new version of our foo.txt test file, which contains two
 lines of text separated by two blank lines. After processing by cat with the -ns options,
@@ -271,16 +269,14 @@ the keyboard:
 这个sort程序对标准输入的内容，或命令行中指定的一个或多个文件进行排序，然后把排序
 结果发送到标准输出。使用与cat命令相同的技巧，我们能够演示如何用sort程序来处理标准输入：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sort > foo.txt
-c
-b
-a
-[me@linuxbox ~]$ cat foo.txt
-a
-b
-c </tt>
-</pre></div>
+    [me@linuxbox ~]$ sort > foo.txt
+    c
+    b
+    a
+    [me@linuxbox ~]$ cat foo.txt
+    a
+    b
+    c 
 
 After entering the command, we type the letters “c”, “b”, and “a”, followed once again by
 Ctrl-d to indicate end-of-file. We then view the resulting file and see that the lines
@@ -428,19 +424,17 @@ the results of a summary in pathname order:
 通过这个选项，有可能基于数值进行排序。我们通过对du命令的输出结果排序来说明这个选项，du命令可以
 确定最大的磁盘空间用户。通常，这个du命令列出的输出结果按照路径名来排序：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ du -s /usr/share/\* | head
-252     /usr/share/aclocal
-96      /usr/share/acpi-support
-8       /usr/share/adduser
-196     /usr/share/alacarte
-344     /usr/share/alsa
-8       /usr/share/alsa-base
-12488   /usr/share/anthy
-8       /usr/share/apmd
-21440   /usr/share/app-install
-48      /usr/share/application-registry </tt>
-</pre></div>
+    [me@linuxbox ~]$ du -s /usr/share/\* | head
+    252     /usr/share/aclocal
+    96      /usr/share/acpi-support
+    8       /usr/share/adduser
+    196     /usr/share/alacarte
+    344     /usr/share/alsa
+    8       /usr/share/alsa-base
+    12488   /usr/share/anthy
+    8       /usr/share/apmd
+    21440   /usr/share/app-install
+    48      /usr/share/application-registry 
 
 In this example, we pipe the results into head to limit the results to the first ten lines.
 We can produce a numerically sorted list to show the ten largest consumers of space this
@@ -449,19 +443,17 @@ way:
 在这个例子里面，我们把结果管道到head命令，把输出结果限制为前10行。我们能够产生一个按数值排序的
 列表，来显示10个最大的空间消费者：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ du -s /usr/share/\* | sort -nr | head
-509940         /usr/share/locale-langpack
-242660         /usr/share/doc
-197560         /usr/share/fonts
-179144         /usr/share/gnome
-146764         /usr/share/myspell
-144304         /usr/share/gimp
-135880         /usr/share/dict
-76508          /usr/share/icons
-68072          /usr/share/apps
-62844          /usr/share/foomatic </tt>
-</pre></div>
+    [me@linuxbox ~]$ du -s /usr/share/\* | sort -nr | head
+    509940         /usr/share/locale-langpack
+    242660         /usr/share/doc
+    197560         /usr/share/fonts
+    179144         /usr/share/gnome
+    146764         /usr/share/myspell
+    144304         /usr/share/gimp
+    135880         /usr/share/dict
+    76508          /usr/share/icons
+    68072          /usr/share/apps
+    62844          /usr/share/foomatic 
 
 By using the -nr options, we produce a reverse numerical sort, with the largest values
 appearing first in the results. This sort works because the numerical values occur at the
@@ -472,25 +464,21 @@ within the line? For example, the results of an ls -l:
 因为数值出现在每行的开头。但是如果我们想要基于文件行中的某个数值排序，又会怎样呢？
 例如，命令ls -l的输出结果：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /usr/bin | head
-total 152948
--rwxr-xr-x 1 root   root     34824  2008-04-04  02:42 [
--rwxr-xr-x 1 root   root    101556  2007-11-27  06:08 a2p
-...</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -l /usr/bin | head
+    total 152948
+    -rwxr-xr-x 1 root   root     34824  2008-04-04  02:42 [
+    -rwxr-xr-x 1 root   root    101556  2007-11-27  06:08 a2p
+    ...
 
 Ignoring, for the moment, that ls can sort its results by size, we could use sort to sort
 this list by file size, as well:
 
 此刻，忽略ls程序能按照文件大小对输出结果进行排序，我们也能够使用sort程序来完成此任务：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /usr/bin | sort -nr -k 5 | head
--rwxr-xr-x 1 root   root   8234216  2008-04-0717:42 inkscape
--rwxr-xr-x 1 root   root   8222692  2008-04-07 17:42 inkview
-...</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -l /usr/bin | sort -nr -k 5 | head
+    -rwxr-xr-x 1 root   root   8234216  2008-04-0717:42 inkscape
+    -rwxr-xr-x 1 root   root   8222692  2008-04-07 17:42 inkview
+    ...
 
 Many uses of sort involve the processing of tabular data, such as the results of the ls
 command above. If we apply database terminology to the table above, we would say that
@@ -537,9 +525,7 @@ and that the fifth field is the file size:
 意味着空白字符（空格和制表符）被当作是字段间的界定符，当执行排序时，界定符会被
 包含在字段当中。再看一下ls命令的输出，我们看到每行包含八个字段，并且第五个字段是文件大小：
 
-<div class="code"><pre>
-<tt>-rwxr-xr-x 1 root root 8234216 2008-04-07 17:42 inkscape </tt>
-</pre></div>
+    -rwxr-xr-x 1 root root 8234216 2008-04-07 17:42 inkscape 
 
 For our next series of experiments, let’s consider the following file containing the history
 of three popular Linux distributions released from 2006 to 2008. Each line in the file has
@@ -549,15 +535,13 @@ MM/DD/YYYY format:
 让我们考虑用下面的文件，其包含从2006年到2008年三款流行的Linux发行版的发行历史，来做一系列实验。
 文件中的每一行都有三个字段：发行版的名称，版本号，和MM/DD/YYYY格式的发行日期：
 
-<div class="code"><pre>
-<tt>SUSE        10.2   12/07/2006
-Fedora          10     11/25/2008
-SUSE            11.04  06/19/2008
-Ubuntu          8.04   04/24/2008
-Fedora          8      11/08/2007
-SUSE            10.3   10/04/2007 
-...</tt>
-</pre></div>
+    SUSE        10.2   12/07/2006
+    Fedora          10     11/25/2008
+    SUSE            11.04  06/19/2008
+    Ubuntu          8.04   04/24/2008
+    Fedora          8      11/08/2007
+    SUSE            10.3   10/04/2007 
+    ...
 
 Using a text editor (perhaps vim), we’ll enter this data and name the resulting file
 distros.txt.
@@ -568,15 +552,13 @@ Next, we’ll try sorting the file and observe the results:
 
 下一步，我们将试着对这个文件进行排序，并观察输出结果：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sort distros.txt
-Fedora          10     11/25/2008
-Fedora          5     03/20/2006
-Fedora          6     10/24/2006
-Fedora          7     05/31/2007
-Fedora          8     11/08/2007
-...</tt>
-</pre></div>
+    [me@linuxbox ~]$ sort distros.txt
+    Fedora          10     11/25/2008
+    Fedora          5     03/20/2006
+    Fedora          6     10/24/2006
+    Fedora          7     05/31/2007
+    Fedora          8     11/08/2007
+    ...
 
 Well, it mostly worked. The problem occurs in the sorting of the Fedora version
 numbers. Since a “1” comes before a “5” in the character set, version “10” ends up at the
@@ -597,13 +579,11 @@ the end of the line. Here is the syntax for our multi-key sort:
 一个关键值可能包括一个字段区域。如果没有指定区域（如同之前的例子），sort程序会使用一个键值，
 其始于指定的字段，一直扩展到行尾。下面是多键值排序的语法：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sort --key=1,1 --key=2n distros.txt
-Fedora         5     03/20/2006
-Fedora         6     10/24/2006
-Fedora         7     05/31/2007
-...  </tt>
-</pre></div>
+    [me@linuxbox ~]$ sort --key=1,1 --key=2n distros.txt
+    Fedora         5     03/20/2006
+    Fedora         6     10/24/2006
+    Fedora         7     05/31/2007
+    ...  
 
 Though we used the long form of the option for clarity, -k 1,1 -k 2n would be
 exactly equivalent. In the first instance of the key option, we specified a range of fields
@@ -636,13 +616,11 @@ fields, so we can define keys within fields:
 幸运地是，sort程序提供了一种方式。这个key选项允许在字段中指定偏移量，所以我们能在字段中
 定义键值。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sort -k 3.7nbr -k 3.1nbr -k 3.4nbr distros.txt
-Fedora         10    11/25/2008
-Ubuntu         8.10  10/30/2008
-SUSE           11.0  06/19/2008
-...</tt>
-</pre></div>
+    [me@linuxbox ~]$ sort -k 3.7nbr -k 3.1nbr -k 3.4nbr distros.txt
+    Fedora         10    11/25/2008
+    Ubuntu         8.10  10/30/2008
+    SUSE           11.0  06/19/2008
+    ...
 
 By specifying -k 3.7 we instruct sort to use a sort key that begins at the seventh
 character within the third field, which corresponds to the start of the year. Likewise, we
@@ -661,19 +639,17 @@ file:
 
 一些文件不会使用tabs和空格做为字段界定符；例如，这个/etc/passwd文件：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ head /etc/passwd
-root:x:0:0:root:/root:/bin/bash
-daemon:x:1:1:daemon:/usr/sbin:/bin/sh
-bin:x:2:2:bin:/bin:/bin/sh
-sys:x:3:3:sys:/dev:/bin/sh
-sync:x:4:65534:sync:/bin:/bin/sync
-games:x:5:60:games:/usr/games:/bin/sh
-man:x:6:12:man:/var/cache/man:/bin/sh
-lp:x:7:7:lp:/var/spool/lpd:/bin/sh
-mail:x:8:8:mail:/var/mail:/bin/sh
-news:x:9:9:news:/var/spool/news:/bin/sh</tt>
-</pre></div>
+    [me@linuxbox ~]$ head /etc/passwd
+    root:x:0:0:root:/root:/bin/bash
+    daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+    bin:x:2:2:bin:/bin:/bin/sh
+    sys:x:3:3:sys:/dev:/bin/sh
+    sync:x:4:65534:sync:/bin:/bin/sync
+    games:x:5:60:games:/usr/games:/bin/sh
+    man:x:6:12:man:/var/cache/man:/bin/sh
+    lp:x:7:7:lp:/var/spool/lpd:/bin/sh
+    mail:x:8:8:mail:/var/mail:/bin/sh
+    news:x:9:9:news:/var/spool/news:/bin/sh
 
 The fields in this file are delimited with colons (:), so how would we sort this file using a
 key field? sort provides the -t option to define the field separator character. To sort
@@ -682,18 +658,16 @@ the passwd file on the seventh field (the account’s default shell), we could d
 这个文件的字段之间通过冒号分隔开，所以我们怎样使用一个key字段来排序这个文件？sort程序提供
 了一个-t选项来定义分隔符。按照第七个字段（帐户的默认shell）来排序此passwd文件，我们可以这样做：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sort -t ':' -k 7 /etc/passwd | head
-me:x:1001:1001:Myself,,,:/home/me:/bin/bash
-root:x:0:0:root:/root:/bin/bash
-dhcp:x:101:102::/nonexistent:/bin/false
-gdm:x:106:114:Gnome Display Manager:/var/lib/gdm:/bin/false
-hplip:x:104:7:HPLIP system user,,,:/var/run/hplip:/bin/false
-klog:x:103:104::/home/klog:/bin/false
-messagebus:x:108:119::/var/run/dbus:/bin/false
-polkituser:x:110:122:PolicyKit,,,:/var/run/PolicyKit:/bin/false
-pulse:x:107:116:PulseAudio daemon,,,:/var/run/pulse:/bin/false</tt>
-</pre></div>
+    [me@linuxbox ~]$ sort -t ':' -k 7 /etc/passwd | head
+    me:x:1001:1001:Myself,,,:/home/me:/bin/bash
+    root:x:0:0:root:/root:/bin/bash
+    dhcp:x:101:102::/nonexistent:/bin/false
+    gdm:x:106:114:Gnome Display Manager:/var/lib/gdm:/bin/false
+    hplip:x:104:7:HPLIP system user,,,:/var/run/hplip:/bin/false
+    klog:x:103:104::/home/klog:/bin/false
+    messagebus:x:108:119::/var/run/dbus:/bin/false
+    polkituser:x:110:122:PolicyKit,,,:/var/run/PolicyKit:/bin/false
+    pulse:x:107:116:PulseAudio daemon,,,:/var/run/pulse:/bin/false
 
 By specifying the colon character as the field separator, we can sort on the seventh field.
 
@@ -722,42 +696,36 @@ Let’s make a text file to try this out:
 
 让我们创建一个文本文件，来实验一下：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat > foo.txt
-a
-b
-c
-a
-b
-c</tt>
-</pre></div>
+    [me@linuxbox ~]$ cat > foo.txt
+    a
+    b
+    c
+    a
+    b
+    c
 
 Remember to type Ctrl-d to terminate standard input. Now, if we run uniq on our
 text file:
 
 记住输入Ctrl-d来终止标准输入。现在，如果我们对文本文件执行uniq命令：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ uniq foo.txt
-a
-b
-c
-a
-b
-c</tt>
-</pre></div>
+    [me@linuxbox ~]$ uniq foo.txt
+    a
+    b
+    c
+    a
+    b
+    c
 
 the results are no different from our original file; the duplicates were not removed. For
 uniq to actually do its job, the input must be sorted first:
 
 输出结果与原始文件没有差异；重复行没有被删除。实际上，uniq程序能完成任务，其输入必须是排好序的数据，
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sort foo.txt | uniq
-a
-b
-c</tt>
-</pre></div>
+    [me@linuxbox ~]$ sort foo.txt | uniq
+    a
+    b
+    c
 
 This is because uniq only removes duplicate lines which are adjacent to each other.
 uniq has several options. Here are the common ones:
@@ -841,12 +809,10 @@ the -c option:
 
 这里我们看到uniq被用来报告文本文件中重复行的次数，使用这个-c选项：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sort foo.txt | uniq -c
-        2 a
-        2 b
-        2 c</tt>
-</pre></div>
+    [me@linuxbox ~]$ sort foo.txt | uniq -c
+            2 a
+            2 b
+            2 c
 
 ###Slicing And Dicing
 
@@ -942,25 +908,23 @@ the file meets our requirements of tab separated fields:
 是否它足够“整齐”成为cut实例的一个好样本。如果我们使用带有-A选项的cat命令，我们能查看是否这个
 文件符号由tab字符分离字段的要求。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat -A distros.txt
-SUSE^I10.2^I12/07/2006$
-Fedora^I10^I11/25/2008$
-SUSE^I11.0^I06/19/2008$
-Ubuntu^I8.04^I04/24/2008$
-Fedora^I8^I11/08/2007$
-SUSE^I10.3^I10/04/2007$
-Ubuntu^I6.10^I10/26/2006$
-Fedora^I7^I05/31/2007$
-Ubuntu^I7.10^I10/18/2007$
-Ubuntu^I7.04^I04/19/2007$
-SUSE^I10.1^I05/11/2006$
-Fedora^I6^I10/24/2006$
-Fedora^I9^I05/13/2008$
-Ubuntu^I6.06^I06/01/2006$
-Ubuntu^I8.10^I10/30/2008$
-Fedora^I5^I03/20/2006$</tt>
-</pre></div>
+    [me@linuxbox ~]$ cat -A distros.txt
+    SUSE^I10.2^I12/07/2006$
+    Fedora^I10^I11/25/2008$
+    SUSE^I11.0^I06/19/2008$
+    Ubuntu^I8.04^I04/24/2008$
+    Fedora^I8^I11/08/2007$
+    SUSE^I10.3^I10/04/2007$
+    Ubuntu^I6.10^I10/26/2006$
+    Fedora^I7^I05/31/2007$
+    Ubuntu^I7.10^I10/18/2007$
+    Ubuntu^I7.04^I04/19/2007$
+    SUSE^I10.1^I05/11/2006$
+    Fedora^I6^I10/24/2006$
+    Fedora^I9^I05/13/2008$
+    Ubuntu^I6.06^I06/01/2006$
+    Ubuntu^I8.10^I10/30/2008$
+    Fedora^I5^I03/20/2006$
 
 It looks good. No embedded spaces, just single tab characters between the fields. Since
 the file uses tabs rather than spaces, we’ll use the -f option to extract a field:
@@ -968,25 +932,23 @@ the file uses tabs rather than spaces, we’ll use the -f option to extract a fi
 看起来不错。字段之间仅仅是单个tab字符，没有嵌入空格。因为这个文件使用了tab而不是空格，
 我们将使用-f选项来抽取一个字段：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cut -f 3 distros.txt
-12/07/2006
-11/25/2008
-06/19/2008
-04/24/2008
-11/08/2007
-10/04/2007
-10/26/2006
-05/31/2007
-10/18/2007
-04/19/2007
-05/11/2006
-10/24/2006
-05/13/2008
-06/01/2006
-10/30/2008
-03/20/2006</tt>
-</pre></div>
+    [me@linuxbox ~]$ cut -f 3 distros.txt
+    12/07/2006
+    11/25/2008
+    06/19/2008
+    04/24/2008
+    11/08/2007
+    10/04/2007
+    10/26/2006
+    05/31/2007
+    10/18/2007
+    04/19/2007
+    05/11/2006
+    10/24/2006
+    05/13/2008
+    06/01/2006
+    10/30/2008
+    03/20/2006
 
 Because our distros file is tab-delimited, it is best to use cut to extract fields rather
 than characters. This is because when a file is tab-delimited, it is unlikely that each line
@@ -1000,25 +962,23 @@ character extraction works by extracting the year from each line:
 我们已经抽取了一个字段，幸运地是其包含地日期长度相同，所以通过从每行中抽取年份，我们能展示怎样
 来抽取字符：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cut -f 3 distros.txt | cut -c 7-10
-2006
-2008
-2008
-2008
-2007
-2007
-2006
-2007
-2007
-2007
-2006
-2006
-2008
-2006
-2008
-2006</tt>
-</pre></div>
+    [me@linuxbox ~]$ cut -f 3 distros.txt | cut -c 7-10
+    2006
+    2008
+    2008
+    2008
+    2007
+    2007
+    2006
+    2007
+    2007
+    2007
+    2006
+    2006
+    2008
+    2006
+    2008
+    2006
 
 By running cut a second time on our list, we are able to extract character positions 7
 through 10, which corresponds to the year in our date field. The 7-10 notation is an
@@ -1073,19 +1033,17 @@ the tab character. Here we will extract the first field from the /etc/passwd fil
 当操作字段的时候，有可能指定不同的字段分隔符，而不是tab字符。这里我们将会从/etc/passwd文件中
 抽取第一个字段：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cut -d ':' -f 1 /etc/passwd | head
-root
-daemon
-bin
-sys
-sync
-games
-man
-lp
-mail
-news</tt>
-</pre></div>
+    [me@linuxbox ~]$ cut -d ':' -f 1 /etc/passwd | head
+    root
+    daemon
+    bin
+    sys
+    sync
+    games
+    man
+    lp
+    mail
+    news
 
 Using the -d option, we are able to specify the colon character as the field delimiter.
 
@@ -1111,9 +1069,7 @@ and store the result in a file called distros-by-date.txt:
 从我们之前使用sort的工作中，首先我们将产生一个按照日期排序的发行版列表，并把结果
 存储在一个叫做distros-by-date.txt的文件中：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sort -k 3.7nbr -k 3.1nbr -k 3.4nbr distros.txt > distros-by-date.txt </tt>
-</pre></div>
+    [me@linuxbox ~]$ sort -k 3.7nbr -k 3.1nbr -k 3.4nbr distros.txt > distros-by-date.txt 
 
 Next, we will use cut to extract the first two fields from the file (the distro name and
 version), and store that result in a file named distro-versions.txt:
@@ -1121,40 +1077,36 @@ version), and store that result in a file named distro-versions.txt:
 下一步，我们将会使用cut命令从文件中抽取前两个字段（发行版名字和版本号），并把结果存储到
 一个名为distro-versions.txt的文件中：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cut -f 1,2 distros-by-date.txt > distros-versions.txt
-[me@linuxbox ~]$ head distros-versions.txt
-Fedora     10
-Ubuntu     8.10
-SUSE       11.0
-Fedora     9
-Ubuntu     8.04
-Fedora     8
-Ubuntu     7.10
-SUSE       10.3
-Fedora     7
-Ubuntu     7.04</tt>
-</pre></div>
+    [me@linuxbox ~]$ cut -f 1,2 distros-by-date.txt > distros-versions.txt
+    [me@linuxbox ~]$ head distros-versions.txt
+    Fedora     10
+    Ubuntu     8.10
+    SUSE       11.0
+    Fedora     9
+    Ubuntu     8.04
+    Fedora     8
+    Ubuntu     7.10
+    SUSE       10.3
+    Fedora     7
+    Ubuntu     7.04
 
 The final piece of preparation is to extract the release dates and store them a file named
 distro-dates.txt:
 
 最后的准备步骤是抽取发行日期，并把它们存储到一个名为distro-dates.txt文件中：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cut -f 3 distros-by-date.txt > distros-dates.txt
-[me@linuxbox ~]$ head distros-dates.txt
-11/25/2008
-10/30/2008
-06/19/2008
-05/13/2008
-04/24/2008
-11/08/2007
-10/18/2007
-10/04/2007
-05/31/2007
-04/19/2007</tt>
-</pre></div>
+    [me@linuxbox ~]$ cut -f 3 distros-by-date.txt > distros-dates.txt
+    [me@linuxbox ~]$ head distros-dates.txt
+    11/25/2008
+    10/30/2008
+    06/19/2008
+    05/13/2008
+    04/24/2008
+    11/08/2007
+    10/18/2007
+    10/04/2007
+    05/31/2007
+    04/19/2007
 
 We now have the parts we need. To complete the process, use paste to put the column
 of dates ahead of the distro names and versions, thus creating a chronological list. This is
@@ -1164,19 +1116,17 @@ done simply by using paste and ordering its arguments in the desired arrangement
 和版本号的前面，这样就创建了一个年代列表。通过使用paste命令，然后按照期望的顺序来安排它的
 参数，就能很容易完成这个任务。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ paste distros-dates.txt distros-versions.txt
-11/25/2008	Fedora     10
-10/30/2008	Ubuntu     8.10
-06/19/2008	SUSE       11.0
-05/13/2008	Fedora     9
-04/24/2008	Ubuntu     8.04
-11/08/2007	Fedora     8
-10/18/2007	Ubuntu     7.10
-10/04/2007	SUSE       10.3
-05/31/2007	Fedora     7
-04/19/2007	Ubuntu     7.04 </tt>
-</pre></div>
+    [me@linuxbox ~]$ paste distros-dates.txt distros-versions.txt
+    11/25/2008	Fedora     10
+    10/30/2008	Ubuntu     8.10
+    06/19/2008	SUSE       11.0
+    05/13/2008	Fedora     9
+    04/24/2008	Ubuntu     8.04
+    11/08/2007	Fedora     8
+    10/18/2007	Ubuntu     7.10
+    10/04/2007	SUSE       10.3
+    05/31/2007	Fedora     7
+    04/19/2007	Ubuntu     7.04 
 
 #### join
 
@@ -1200,7 +1150,8 @@ name (FNAME) and the customer’s last name (LNAME):
 表格组成，每个表格包含一条记录。第一个表格，叫做CUSTOMERS，有三个数据域：一个客户号（CUSTNUM），
 客户的名字（FNAME）和客户的姓（LNAME）：
 
-<pre>CUSTNUM	    FNAME       ME
+<pre>
+CUSTNUM	    FNAME       ME
 ========	=====       ======
 4681934	    John        Smith
 </pre>
@@ -1242,41 +1193,37 @@ key for this demonstration) and the release name:
 为了说明join程序，我们需要创建一对包含共享键值的文件。为此，我们将使用我们的distros.txt文件。
 从这个文件中，我们将构建额外两个文件，一个包含发行日期（其会成为共享键值）和发行版名称：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cut -f 1,1 distros-by-date.txt > distros-names.txt
-[me@linuxbox ~]$ paste distros-dates.txt distros-names.txt > distros-key-names.txt
-[me@linuxbox ~]$ head distros-key-names.txt
-11/25/2008 Fedora
-10/30/2008 Ubuntu
-06/19/2008 SUSE
-05/13/2008 Fedora
-04/24/2008 Ubuntu
-11/08/2007 Fedora
-10/18/2007 Ubuntu
-10/04/2007 SUSE
-05/31/2007 Fedora
-04/19/2007 Ubuntu</tt>
-</pre></div>
+    [me@linuxbox ~]$ cut -f 1,1 distros-by-date.txt > distros-names.txt
+    [me@linuxbox ~]$ paste distros-dates.txt distros-names.txt > distros-key-names.txt
+    [me@linuxbox ~]$ head distros-key-names.txt
+    11/25/2008 Fedora
+    10/30/2008 Ubuntu
+    06/19/2008 SUSE
+    05/13/2008 Fedora
+    04/24/2008 Ubuntu
+    11/08/2007 Fedora
+    10/18/2007 Ubuntu
+    10/04/2007 SUSE
+    05/31/2007 Fedora
+    04/19/2007 Ubuntu
 
 and the second file, which contains the release dates and the version numbers:
 
 第二个文件包含发行日期和版本号：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cut -f 2,2 distros-by-date.txt > distros-vernums.txt
-[me@linuxbox ~]$ paste distros-dates.txt distros-vernums.txt > distros-key-vernums.txt
-[me@linuxbox ~]$ head distros-key-vernums.txt
-11/25/2008 10
-10/30/2008 8.10
-06/19/2008 11.0
-05/13/2008 9
-04/24/2008 8.04
-11/08/2007 8
-10/18/2007 7.10
-10/04/2007 10.3
-05/31/2007 7
-04/19/2007 7.04</tt>
-</pre></div>
+    [me@linuxbox ~]$ cut -f 2,2 distros-by-date.txt > distros-vernums.txt
+    [me@linuxbox ~]$ paste distros-dates.txt distros-vernums.txt > distros-key-vernums.txt
+    [me@linuxbox ~]$ head distros-key-vernums.txt
+    11/25/2008 10
+    10/30/2008 8.10
+    06/19/2008 11.0
+    05/13/2008 9
+    04/24/2008 8.04
+    11/08/2007 8
+    10/18/2007 7.10
+    10/04/2007 10.3
+    05/31/2007 7
+    04/19/2007 7.04
 
 We now have two files with a shared key (the “release date” field). It is important to
 point out that the files must be sorted on the key field for join to work properly.
@@ -1284,19 +1231,17 @@ point out that the files must be sorted on the key field for join to work proper
 现在我们有两个具有共享键值（“发行日期”数据域）的文件。有必要指出，为了使join命令
 能正常工作，所有文件必须按照关键数据域排序。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ join distros-key-names.txt distros-key-vernums.txt | head
-11/25/2008 Fedora 10
-10/30/2008 Ubuntu 8.10
-06/19/2008 SUSE 11.0
-05/13/2008 Fedora 9
-04/24/2008 Ubuntu 8.04
-11/08/2007 Fedora 8
-10/18/2007 Ubuntu 7.10
-10/04/2007 SUSE 10.3
-05/31/2007 Fedora 7
-04/19/2007 Ubuntu 7.04</tt>
-</pre></div>
+    [me@linuxbox ~]$ join distros-key-names.txt distros-key-vernums.txt | head
+    11/25/2008 Fedora 10
+    10/30/2008 Ubuntu 8.10
+    06/19/2008 SUSE 11.0
+    05/13/2008 Fedora 9
+    04/24/2008 Ubuntu 8.04
+    11/08/2007 Fedora 8
+    10/18/2007 Ubuntu 7.10
+    10/04/2007 SUSE 10.3
+    05/31/2007 Fedora 7
+    04/19/2007 Ubuntu 7.04
 
 Note also that, by default, join uses whitespace as the input field delimiter and a single
 space as the output field delimiter. This behavior can be modified by specifying options.
@@ -1328,31 +1273,27 @@ identical text files using cat:
 这个comm程序会比较两个文本文件，并且会显示每个文件特有的文本行和共有的文把行。
 为了说明问题，通过使用cat命令，我们将会创建两个内容几乎相同的文本文件：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat > file1.txt
-a
-b
-c
-d
-[me@linuxbox ~]$ cat > file2.txt
-b
-c
-d
-e</tt>
-</pre></div>
+    [me@linuxbox ~]$ cat > file1.txt
+    a
+    b
+    c
+    d
+    [me@linuxbox ~]$ cat > file2.txt
+    b
+    c
+    d
+    e
 
 Next, we will compare the two files using comm:
 
 下一步，我们将使用comm命令来比较这两个文件：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ comm file1.txt file2.txt
-a
-        b
-        c
-        d
-    e</tt>
-</pre></div>
+    [me@linuxbox ~]$ comm file1.txt file2.txt
+    a
+            b
+            c
+            d
+        e
 
 As we can see, comm produces three columns of output. The first column contains lines
 unique to the first file argument; the second column, the lines unique to the second file
@@ -1366,12 +1307,10 @@ by both files, we would suppress the output of columns one and two:
 1，2或3。这些选项使用的时候，指定了要隐藏的列。例如，如果我们只想输出两个文件共享的文本行，
 我们将隐藏第一列和第二列的输出结果：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ comm -12 file1.txt file2.txt
-b
-c
-d</tt>
-</pre></div>
+    [me@linuxbox ~]$ comm -12 file1.txt file2.txt
+    b
+    c
+    d
 
 #### diff
 
@@ -1394,13 +1333,11 @@ If we use diff to look at our previous example files:
 
 如果我们使用diff程序，来查看我们之前的文件实例：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ diff file1.txt file2.txt
-1d0
-&lt; a
-4a4
-&gt; e</tt>
-</pre></div>
+    [me@linuxbox ~]$ diff file1.txt file2.txt
+    1d0
+    < a
+    4a4
+    > e
 
 we see its default style of output: a terse description of the differences between the two
 files. In the default format, each group of changes is preceded by a change command in
@@ -1471,22 +1408,20 @@ When viewed using the context format (the -c option), we will see this:
 
 当使用上下文模式（带上-c选项），我们将看到这些：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ diff -c file1.txt file2.txt
-\*\*\* file1.txt    2008-12-23 06:40:13.000000000 -0500
---- file2.txt   2008-12-23 06:40:34.000000000 -0500
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
-\*\*\* 1,4 \*\*\*\*
-- a
-  b
-  c
-  d
---- 1,4 ----
-  b
-  c
-  d
-  + e </tt>
-</pre></div>
+    [me@linuxbox ~]$ diff -c file1.txt file2.txt
+    *** file1.txt    2008-12-23 06:40:13.000000000 -0500
+    --- file2.txt   2008-12-23 06:40:34.000000000 -0500
+    ***************
+    *** 1,4 ****
+    - a
+      b
+      c
+      d
+    --- 1,4 ----
+      b
+      c
+      d
+      + e 
 
 The output begins with the names of the two files and their timestamps. The first file is
 marked with asterisks and the second file is marked with dashes. Throughout the
@@ -1504,7 +1439,7 @@ which indicates lines one through four in the first file. Later we see:
 
 其表示第一个文件中从第一行到第四行的文本行。随后我们看到：
 
---- 1,4 ---
+-&nbsp;-&nbsp;- 1,4 -&nbsp;-&nbsp;-
 
 which indicates lines one through four in the second file. Within a change group, lines
 begin with one of four indicators:
@@ -1569,17 +1504,15 @@ with the -u option:
 
 这个统一模式相似于上下文模式，但是更加简洁。通过-u选项来指定它：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ diff -u file1.txt file2.txt
---- file1.txt 2008-12-23 06:40:13.000000000 -0500
-+++ file2.txt 2008-12-23 06:40:34.000000000 -0500
-@@ -1,4 +1,4 @@
--a
- b
- c
- d
-+e</tt>
-</pre></div>
+    [me@linuxbox ~]$ diff -u file1.txt file2.txt
+    --- file1.txt 2008-12-23 06:40:13.000000000 -0500
+    +++ file2.txt 2008-12-23 06:40:34.000000000 -0500
+    @@ -1,4 +1,4 @@
+    -a
+     b
+     c
+     d
+    +e
 
 The most notable difference between the context and unified formats is the elimination of
 the duplicated lines of context, making the results of the unified format shorter than the
@@ -1665,9 +1598,11 @@ two significant advantages:
 
 2. The diff file concisely shows the change being made, allowing reviewers of the patch to quickly evaluate it.
 
-1. 一个diff文件非常小，与整个源码树的大小相比较而言。
+<ol>
+<li> 一个diff文件非常小，与整个源码树的大小相比较而言。</li>
 
-2. 一个diff文件简洁地显示了所做的修改，从而允许程序补丁的审阅者能快速地评估它。
+<li> 一个diff文件简洁地显示了所做的修改，从而允许程序补丁的审阅者能快速地评估它。</li>
+</ol>
 
 Of course, diff/patch will work on any text file, not just source code. It would be
 equally applicable to configuration files or any other text.
@@ -1696,16 +1631,14 @@ We’ll demonstrate with our test file:
 
 我们将使用测试文件来说明：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ diff -Naur file1.txt file2.txt &gt; patchfile.txt
-[me@linuxbox ~]$ patch &lt; patchfile.txt
-patching file file1.txt
-[me@linuxbox ~]$ cat file1.txt
-b
-c
-d
-e</tt>
-</pre></div>
+    [me@linuxbox ~]$ diff -Naur file1.txt file2.txt &gt; patchfile.txt
+    [me@linuxbox ~]$ patch &lt; patchfile.txt
+    patching file file1.txt
+    [me@linuxbox ~]$ cat file1.txt
+    b
+    c
+    d
+    e
 
 In this example, we created a diff file named patchfile.txt and then used the
 patch program to apply the patch. Note that we did not have to specify a target file to
@@ -1745,10 +1678,8 @@ follows:
 换字是一种把字符从一个字母转换为另一个字母的过程。例如，把小写字母转换成大写字母就是
 换字。我们可以通过tr命令来执行这样的转换，如下所示：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "lowercase letters" | tr a-z A-Z
-LOWERCASE LETTERS</tt>
-</pre></div>
+[me@linuxbox ~]$ echo "lowercase letters" | tr a-z A-Z
+LOWERCASE LETTERS
 
 As we can see, tr operates on standard input, and outputs its results on standard output.
 tr accepts two arguments: a set of characters to convert from and a corresponding set of
@@ -1765,12 +1696,14 @@ and thus should be used with caution.
 
 3. POSIX character classes. For example, [:upper:].
 
-1. 一个枚举列表。例如， ABCDEFGHIJKLMNOPQRSTUVWXYZ
+<ol>
+<li>一个枚举列表。例如， ABCDEFGHIJKLMNOPQRSTUVWXYZ</li>
 
-2. 一个字符域。例如，A-Z。注意这种方法有时候面临与其它命令相同的问题，归因于
-语系的排序规则，因此应该谨慎使用。
+<li>一个字符域。例如，A-Z。注意这种方法有时候面临与其它命令相同的问题，归因于
+语系的排序规则，因此应该谨慎使用。</li>
 
-3. POSIX字符类。例如，[:upper:]
+<li>POSIX字符类。例如，[:upper:]</li>
+</ol>
 
 In most cases, both character sets should be of equal length; however, it is possible for
 the first set to be larger than the second, particularly if we wish to convert multiple
@@ -1779,10 +1712,8 @@ characters to a single character:
 大多数情况下，两个字符集应该长度相同；然而，有可能第一个集合大于第二个，尤其如果我们
 想要把多个字符转换为单个字符：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "lowercase letters" | tr [:lower:] A
-AAAAAAAAA AAAAAAA</tt>
-</pre></div>
+    [me@linuxbox ~]$ echo "lowercase letters" | tr [:lower:] A
+    AAAAAAAAA AAAAAAA
 
 In addition to transliteration, tr allows characters to simply be deleted from the input
 stream. Earlier in this chapter, we discussed the problem of converting MS-DOS text
@@ -1802,9 +1733,7 @@ a complete list of the sequences and character classes tr supports, try:
 这里的dos\_file是需要被转换的文件，unix\_file是转换后的结果。这种形式的命令使用转义序列
 \r来代表回车符。查看tr命令所支持地完整的转义序列和字符类别列表，试试下面的命令：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ tr --help</tt>
-</pre></div>
+    [me@linuxbox ~]$ tr --help
 
 <br />
 <table class="single" cellpadding="10" width="%100">
@@ -1854,10 +1783,8 @@ repeated instances of a character:
 
 tr也可以完成另一个技巧。使用-s选项，tr命令能“挤压”（删除）重复的字符实例：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "aaabbbccc" | tr -s ab
-abccc</tt>
-</pre></div>
+    [me@linuxbox ~]$ echo "aaabbbccc" | tr -s ab
+    abccc
 
 Here we have a string containing repeated characters. By specifying the set “ab” to tr,
 we eliminate the repeated instances of the letters in the set, while leaving the character
@@ -1868,10 +1795,8 @@ adjoining. If they are not:
 字母的重复实例，然而会留下不属于字符集的字符（“c”）无更改。注意重复的字符必须是相邻的。
 如果它们不相邻：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "abcabcabc" | tr -s ab
-abcabcabc</tt>
-</pre></div>
+    [me@linuxbox ~]$ echo "abcabcabc" | tr -s ab
+    abcabcabc
 
 the squeezing will have no effect.
 
@@ -1895,10 +1820,8 @@ example of sed in action:
 总之，sed的工作方式是要不给出单个编辑命令（在命令行中）要不就是包含多个命令的脚本文件名，
 然后它就按行来执行这些命令。这里有一个非常简单的sed实例：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "front" | sed 's/front/back/'
-back</tt>
-</pre></div>
+    [me@linuxbox ~]$ echo "front" | sed 's/front/back/'
+    back
 
 In this example, we produce a one word stream of text using echo and pipe it into sed.
 sed, in turn, carries out the instruction s/front/back/ upon the text in the stream
@@ -1920,10 +1843,8 @@ sed中的命令开始于单个字符。在上面的例子中，这个替换命�
 和替代字符串，斜杠字符做为分隔符。分隔符的选择是随意的。按照惯例，经常使用斜杠字符，
 但是sed将会接受紧随命令之后的任意字符做为分隔符。我们可以按照这种方式来执行相同的命令：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "front" | sed 's\_front\_back\_'
-back</tt>
-</pre></div>
+    [me@linuxbox ~]$ echo "front" | sed 's\_front\_back\_'
+    back
 
 By using the underscore character immediately after the command, it becomes the
 delimiter. The ability to set the delimiter can be used to make commands more readable,
@@ -1941,10 +1862,8 @@ sed中的大多数命令之前都会带有一个地址，其指定了输入流�
 然后会对输入流的每一行执行编辑命令。最简单的地址形式是一个行号。我们能够添加一个地址
 到我们例子中：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "front" | sed '1s/front/back/'
-back</tt>
-</pre></div>
+    [me@linuxbox ~]$ echo "front" | sed '1s/front/back/'
+    back
 
 Adding the address 1 to our command causes our substitution to be performed on the first
 line of our one-line input stream. If we specify another number:
@@ -1952,10 +1871,8 @@ line of our one-line input stream. If we specify another number:
 给我们的命令添加地址1，就导致只对仅有一行文本的输入流的第一行执行替换操作。如果我们指定另一
 个数字：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "front" | sed '2s/front/back/'
-front</tt>
-</pre></div>
+    [me@linuxbox ~]$ echo "front" | sed '2s/front/back/'
+    front
 
 we see that the editing is not carried out, since our input stream does not have a line two.
 Addresses may be expressed in many ways. Here are the most common:
@@ -2057,14 +1974,12 @@ in this chapter. First, a range of line numbers:
 
 通过使用这一章中早前的distros.txt文件，我们将演示不同种类的地址表示法。首先，一系列行号：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sed -n '1,5p' distros.txt
-SUSE           10.2     12/07/2006
-Fedora         10       11/25/2008
-SUSE           11.0     06/19/2008
-Ubuntu         8.04     04/24/2008
-Fedora         8        11/08/2007 </tt>
-</pre></div>
+    [me@linuxbox ~]$ sed -n '1,5p' distros.txt
+    SUSE           10.2     12/07/2006
+    Fedora         10       11/25/2008
+    SUSE           11.0     06/19/2008
+    Ubuntu         8.04     04/24/2008
+    Fedora         8        11/08/2007 
 
 In this example, we print a range of lines, starting with line one and continuing to line
 five. To do this, we use the p command, which simply causes a matched line to be
@@ -2079,13 +1994,11 @@ Next, we’ll try a regular expression:
 
 下一步，我们将试用一下正则表达式：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sed -n '/SUSE/p' distros.txt
-SUSE         10.2     12/07/2006
-SUSE         11.0     06/19/2008
-SUSE         10.3     10/04/2007
-SUSE         10.1     05/11/2006</tt>
-</pre></div>
+    [me@linuxbox ~]$ sed -n '/SUSE/p' distros.txt
+    SUSE         10.2     12/07/2006
+    SUSE         11.0     06/19/2008
+    SUSE         10.3     10/04/2007
+    SUSE         10.1     05/11/2006
 
 By including the slash-delimited regular expression /SUSE/, we are able to isolate the
 lines containing it in much the same manner as grep.
@@ -2097,21 +2010,19 @@ Finally, we’ll try negation by adding an ! to the address:
 
 最后，我们将试着否定上面的操作，通过给这个地址添加一个感叹号：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sed -n '/SUSE/!p' distros.txt
-Fedora         10       11/25/2008
-Ubuntu         8.04     04/24/2008
-Fedora         8        11/08/2007
-Ubuntu         6.10     10/26/2006
-Fedora         7        05/31/2007
-Ubuntu         7.10     10/18/2007
-Ubuntu         7.04     04/19/2007
-Fedora         6        10/24/2006
-Fedora         9        05/13/2008
-Ubuntu         6.06     06/01/2006
-Ubuntu         8.10     10/30/2008
-Fedora         5        03/20/2006 </tt>
-</pre></div>
+    [me@linuxbox ~]$ sed -n '/SUSE/!p' distros.txt
+    Fedora         10       11/25/2008
+    Ubuntu         8.04     04/24/2008
+    Fedora         8        11/08/2007
+    Ubuntu         6.10     10/26/2006
+    Fedora         7        05/31/2007
+    Ubuntu         7.10     10/18/2007
+    Ubuntu         7.04     04/19/2007
+    Fedora         6        10/24/2006
+    Fedora         9        05/13/2008
+    Ubuntu         6.06     06/01/2006
+    Ubuntu         8.10     10/30/2008
+    Fedora         5        03/20/2006 
 
 Here we see the expected result: all of the lines in the file except the ones matched by the
 regular expression.
@@ -2250,25 +2161,23 @@ distros.txt文件。我们以前讨论过distros.txt文件中的日期字段不�
 文件中的日期格式是MM/DD/YYYY，但如果格式是YYYY-MM-DD会更好一些（利于排序）。手动修改
 日期格式不仅浪费时间而且易出错，但是有了sed，只需一步就能完成修改：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sed 's/\([0-9]\{2\}\)\/\([0-9]\{2\}\)\/\([0-9]\{4\}\)$/\3-\1-\2/' distros.txt
-SUSE           10.2     2006-12-07
-Fedora         10       2008-11-25
-SUSE           11.0     2008-06-19
-Ubuntu         8.04     2008-04-24
-Fedora         8        2007-11-08
-SUSE           10.3     2007-10-04
-Ubuntu         6.10     2006-10-26
-Fedora         7        2007-05-31
-Ubuntu         7.10     2007-10-18
-Ubuntu         7.04     2007-04-19
-SUSE           10.1     2006-05-11
-Fedora         6        2006-10-24
-Fedora         9        2008-05-13
-Ubuntu         6.06     2006-06-01
-Ubuntu         8.10     2008-10-30
-Fedora         5        2006-03-20 </tt>
-</pre></div>
+    [me@linuxbox ~]$ sed 's/\([0-9]\{2\}\)\/\([0-9]\{2\}\)\/\([0-9]\{4\}\)$/\3-\1-\2/' distros.txt
+    SUSE           10.2     2006-12-07
+    Fedora         10       2008-11-25
+    SUSE           11.0     2008-06-19
+    Ubuntu         8.04     2008-04-24
+    Fedora         8        2007-11-08
+    SUSE           10.3     2007-10-04
+    Ubuntu         6.10     2006-10-26
+    Fedora         7        2007-05-31
+    Ubuntu         7.10     2007-10-18
+    Ubuntu         7.04     2007-04-19
+    SUSE           10.1     2006-05-11
+    Fedora         6        2006-10-24
+    Fedora         9        2008-05-13
+    Ubuntu         6.06     2006-06-01
+    Ubuntu         8.10     2008-10-30
+    Fedora         5        2006-03-20 
 
 Wow! Now that is an ugly looking command. But it works. In just one step, we have
 changed the date format in our file. It is also a perfect example of why regular
@@ -2282,9 +2191,7 @@ command will have this basic structure:
 能写正则表达式，但是有时候我们不能读它们。在我们恐惧地忍不住要逃离此命令之前，让我们看一下
 怎样来构建它。首先，我们知道此命令有这样一个基本的结构：
 
-<div class="code"><pre>
-<tt>sed 's/regexp/replacement/' distros.txt</tt>
-</pre></div>
+    sed 's/regexp/replacement/' distros.txt
 
 Our next step is to figure out a regular expression that will isolate the date. Since it is in
 MM/DD/YYYY format and appears at the end of the line, we can use an expression like
@@ -2293,9 +2200,7 @@ this:
 我们下一步是要弄明白一个正则表达式将要孤立出日期。因为日期是MM/DD/YYYY格式，并且
 出现在文本行的末尾，我们可以使用这样的表达式：
 
-<div class="code"><pre>
-<tt>[0-9]{2}/[0-9]{2}/[0-9]{4}$</tt>
-</pre></div>
+    [0-9]{2}/[0-9]{2}/[0-9]{4}$
 
 which matches two digits, a slash, two digits, a slash, four digits, and the end of line. So
 that takes care of _regexp_, but what about _replacement_? To handle that, we must introduce
@@ -2311,9 +2216,7 @@ we simply enclose them in parentheses like so:
 ，这里n是指从1到9的数字，则这个序列指的是在前面正则表达式中相对应的子表达式。为了
 创建这个子表达式，我们简单地把它们用圆括号括起来，像这样：
 
-<div class="code"><pre>
-<tt>([0-9]{2})/([0-9]{2})/([0-9]{4})$</tt>
-</pre></div>
+    ([0-9]{2})/([0-9]{2})/([0-9]{4})$
 
 We now have three subexpressions. The first contains the month, the second contains the
 day of the month, and the third contains the year. Now we can construct replacement as
@@ -2322,9 +2225,7 @@ follows:
 现在我们有了三个子表达式。第一个表达式包含月份，第二个包含某月中的某天，以及第三个包含年份。
 现在我们就可以构建_replacement_，如下所示：
 
-<div class="code"><pre>
-<tt>\3-\1-\2</tt>
-</pre></div>
+    \3-\1-\2
 
 which gives us the year, a dash, the month, a dash, and the day.
 
@@ -2332,9 +2233,7 @@ which gives us the year, a dash, the month, a dash, and the day.
 
 Now, our command looks like this:
 
-<div class="code"><pre>
-<tt>sed 's/([0-9]{2})/([0-9]{2})/([0-9]{4})$/\3-\1-\2/' distros.txt</tt>
-</pre></div>
+    sed 's/([0-9]{2})/([0-9]{2})/([0-9]{4})$/\3-\1-\2/' distros.txt
 
 We have two remaining problems. The first is that the extra slashes in our regular
 expression will confuse sed when it tries to interpret the s command. The second is that
@@ -2348,9 +2247,7 @@ offending characters:
 被当作文字字面值，而不是元字符。我们能够解决这两个问题，通过反斜杠的自由应用来转义
 令人不快的字符：
 
-<div class="code"><pre>
-<tt>sed 's/\([0-9]\{2\}\)\/\([0-9]\{2\}\)\/\([0-9]\{4\}\)$/\3-\1-\2/' distros.txt</tt>
-</pre></div>
+    sed 's/\([0-9]\{2\}\)\/\([0-9]\{2\}\)\/\([0-9]\{4\}\)$/\3-\1-\2/' distros.txt
 
 And there you have it!
 
@@ -2365,10 +2262,8 @@ s命令的另一个功能是使用可选标志，其跟随替代字符串。一�
 指示sed对某个文本行全范围地执行查找和替代操作，不仅仅是对第一个实例，这是默认行为。
 这里有个例子：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "aaabbbccc" | sed 's/b/B/'
-aaaBbbccc</tt>
-</pre></div>
+    [me@linuxbox ~]$ echo "aaabbbccc" | sed 's/b/B/'
+    aaaBbbccc
 
 We see that the replacement was performed, but only to the first instance of the letter “b,”
 while the remaining instances were left unchanged. By adding the g flag, we are able to
@@ -2377,10 +2272,8 @@ change all the instances:
 我们看到虽然执行了替换操作，但是只针对第一个字母“b”实例，然而剩余的实例没有更改。通过添加g标志，
 我们能够更改所有的实例：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "aaabbbccc" | sed 's/b/B/g'
-aaaBBBccc </tt>
-</pre></div>
+    [me@linuxbox ~]$ echo "aaabbbccc" | sed 's/b/B/g'
+    aaaBBBccc 
 
 So far, we have only given sed single commands via the command line. It is also
 possible to construct more complex commands in a script file using the -f option. To
@@ -2393,37 +2286,32 @@ and enter the following:
 为了演示，我们将使用sed和distros.txt文件来生成一个报告。我们的报告以开头标题，修改过的日期，以及
 大写的发行版名称为特征。为此，我们需要编写一个脚本，所以我们将打开文本编辑器，然后输入以下文字：
 
-<div class="code"><pre>
-<tt># sed script to produce Linux distributions report
-1 i\
-\
-Linux Distributions Report\
-s/\([0-9]\{2\}\)\/\([0-9]\{2\}\)\/\([0-9]\{4\}\)$/\3-\1-\2/
-y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/</tt>
-</pre></div>
+    # sed script to produce Linux distributions report
+    1 i\
+    \
+    Linux Distributions Report\
+    s/\([0-9]\{2\}\)\/\([0-9]\{2\}\)\/\([0-9]\{4\}\)$/\3-\1-\2/
+    y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/
 
 We will save our sed script as distros.sed and run it like this:
 
 我们将把sed脚本保存为distros.sed文件，然后像这样运行它：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sed -f distros.sed distros.txt
-Linux Distributions Report
-SUSE	10.2	2006-12-07
-FEDORA	10	    2008-11-25
-SUSE	11.0	2008-06-19
-UBUNTU	8.04	2008-04-24
-FEDORA	8	    2007-11-08
-SUSE	10.3	2007-10-04
-UBUNTU	6.10	2006-10-26
-FEDORA	7	    2007-05-31
-UBUNTU	7.10	2007-10-18
-UBUNTU	7.04	2007-04-19
-SUSE	10.1	2006-05-11
-FEDORA	6	    2006-10-24
-FEDORA	9	    2008-05-13 
-...</tt>
-</pre></div>
+    [me@linuxbox ~]$ sed -f distros.sed distros.txt
+    Linux Distributions Report
+    SUSE	10.2	2006-12-07
+    FEDORA	10	    2008-11-25
+    SUSE	11.0	2008-06-19
+    UBUNTU	8.04	2008-04-24
+    FEDORA	8	    2007-11-08
+    SUSE	10.3	2007-10-04
+    UBUNTU	6.10	2006-10-26
+    FEDORA	7	    2007-05-31
+    UBUNTU	7.10	2007-10-18
+    UBUNTU	7.04	2007-04-19
+    SUSE	10.1	2006-05-11
+    FEDORA	6	    2006-10-24
+    FEDORA	9	    2008-05-13 
 
 As we can see, our script produces the desired results, but how does is do it? Let’s take
 another look at our script. We’ll use cat to number the lines:
@@ -2431,8 +2319,7 @@ another look at our script. We’ll use cat to number the lines:
 正如我们所见，我们的脚本文件产生了期望的结果，但是它是如何做到的呢？让我们再看一下我们的脚本文件。
 我们将使用cat来给每行文本编号：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat -n distros.sed
+    [me@linuxbox ~]$ cat -n distros.sed
     1 # sed script to produce Linux distributions report
     2
     3 1 i\
@@ -2440,8 +2327,7 @@ another look at our script. We’ll use cat to number the lines:
     5 Linux Distributions Report\
     6
     7 s/\([0-9]\{2\}\)\/\([0-9]\{2\}\)\/\([0-9]\{4\}\)$/\3-\1-\2/
-    8 y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/ </tt>
-</pre></div>
+    8 y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/ 
 
 Line one of our script is a comment. Like many configuration files and programming
 languages on Linux systems, comments begin with the # character and are followed by
@@ -2557,9 +2443,7 @@ To spell check a text file containing simple prose, it could be used like this:
 
 拼写检查一个包含简单的文本文件，可以这样使用aspell:
 
-<div class="code"><pre>
-<tt>aspell check textfile</tt>
-</pre></div>
+    aspell check textfile
 
 where _textfile_ is the name of the file to check. As a practical example, let’s create a
 simple text file named foo.txt containing some deliberate spelling errors:
@@ -2567,18 +2451,14 @@ simple text file named foo.txt containing some deliberate spelling errors:
 这里的textfile是要检查的文件名。作为一个实际例子，让我们创建一个简单的文本文件，叫做foo.txt，
 包含一些故意的拼写错误：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat > foo.txt
-The quick brown fox jimped over the laxy dog.</tt>
-</pre></div>
+    [me@linuxbox ~]$ cat > foo.txt
+    The quick brown fox jimped over the laxy dog.
 
 Next we’ll check the file using aspell:
 
 下一步我们将使用aspell来检查文件：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ aspell check foo.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ aspell check foo.txt
 
 As aspell is interactive in the check mode, we will see a screen like this:
 
@@ -2616,10 +2496,8 @@ our file and see that the misspellings have been corrected:
 “laxy”。如果我们选择替代物“lazy”，aspell会替换“laxy”并且终止。一旦aspell结束操作，我们
 可以检查我们的文件，会看到拼写错误的单词已经更正了。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat foo.txt
-The quick brown fox jumped over the lazy dog.</tt>
-</pre></div>
+    [me@linuxbox ~]$ cat foo.txt
+    The quick brown fox jumped over the lazy dog.
 
 Unless told otherwise via the command line option --dont-backup, aspell creates
 a backup file containing the original text by appending the extension .bak to the
@@ -2633,9 +2511,7 @@ reuse our file:
 
 为了炫耀sed的编辑本领，我们将还原拼写错误，从而能够重用我们的文件：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sed -i 's/lazy/laxy/; s/jumped/jimped/' foo.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ sed -i 's/lazy/laxy/; s/jumped/jimped/' foo.txt
 
 The sed option -i tells sed to edit the file “in-place,” meaning that rather than sending
 the edited output to standard output, it will re-write the file with the changes applied. We
@@ -2666,9 +2542,7 @@ way:
 
 现在，如果我们试图拼写检查我们修改的文件，我们会遇到一个问题。如果我们这样做：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ aspell check foo.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ aspell check foo.txt
 
 we’ll get this:
 
@@ -2700,9 +2574,7 @@ overcome by including the -H (HTML) checking mode option, like this:
 aspell会认为HTML标志的内容是拼写错误。通过包含-H（HTML）检查模式选项，这个问题能够
 解决，像这样：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ aspell -H check foo.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ aspell -H check foo.txt
 
 which will result in this:
 
