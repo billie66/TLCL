@@ -81,9 +81,9 @@ Here are the common options for nl:
 <tr>
 <td valign="top">-n format </td>
 <td valign="top">Sets numbering format to format, where format is:
-ln = left justified, without leading zeros.
-rn = right justified, without leading zeros. This is the default.
-rz = right justified, with leading zeros.</td>
+<p>ln = left justified, without leading zeros.</p>
+<p>rn = right justified, without leading zeros. This is the default.</p>
+<p>rz = right justified, with leading zeros.</p></td>
 </tr>
 <tr>
 <td valign="top">-p</td>

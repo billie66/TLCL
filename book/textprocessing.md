@@ -1201,7 +1201,7 @@ name (FNAME) and the customer’s last name (LNAME):
 客户的名字（FNAME）和客户的姓（LNAME）：
 
 <pre>CUSTNUM	    FNAME       ME
-========	    =====       ======
+========	=====       ======
 4681934	    John        Smith
 </pre>
 
@@ -2584,21 +2584,19 @@ As aspell is interactive in the check mode, we will see a screen like this:
 
 因为aspell在检查模式下是交互的，我们将看到像这样的一个屏幕：
 
-<div class="code"><pre>
-<tt>The quick brown fox jimped over the laxy dog.
-<hr style="height:15px;width:100%;background:black" />
-1)jumped                        6)wimped
-2)gimped                        7)camped
-3)comped                        8)humped
-4)limped                        9)impede
-5)pimped                        0)umped
-i)Ignore                        I)Ignore all
-r)Replace                       R)Replace all
-a)Add                           l)Add Lower
-b)Abort                         x)Exit
-<hr style="height:15px;width:100%;background:black" />
-?  </tt>
-</pre></div>
+    The quick brown fox jimped over the laxy dog.
+
+    1)jumped                        6)wimped
+    2)gimped                        7)camped
+    3)comped                        8)humped
+    4)limped                        9)impede
+    5)pimped                        0)umped
+    i)Ignore                        I)Ignore all
+    r)Replace                       R)Replace all
+    a)Add                           l)Add Lower
+    b)Abort                         x)Exit
+
+    ?  
 
 At the top of the display, we see our text with a suspiciously spelled word highlighted. In
 the middle, we see ten spelling suggestions numbered zero through nine, followed by a
@@ -2685,7 +2683,6 @@ we’ll get this:
            </body>
     </html>
 
-<hr style="height:15px;width:100%;background:black" />
     1) HTML                     4) Hamel
     2) ht ml                    5) Hamil
     3) ht-ml                    6) hotel
@@ -2694,7 +2691,7 @@ we’ll get this:
     r) Replace                  R) Replace all
     a) Add                      l) Add Lower
     b) Abort                    x) Exit
-<hr style="height:15px;width:100%;background:black" />
+
     ?
 
 aspell will see the contents of the HTML tags as misspelled. This problem can be
@@ -2720,7 +2717,6 @@ which will result in this:
            </body>
     </html>
 
-<hr style="height:15px;width:100%;background:black" />
     1) HTML                     4) Hamel
     2) ht ml                    5) Hamil
     3) ht-ml                    6) hotel
@@ -2729,7 +2725,7 @@ which will result in this:
     r) Replace                  R) Replace all
     a) Add                      l) Add Lower
     b) Abort                    x) Exit
-<hr style="height:15px;width:100%;background:black" />
+
     ?
 
 The HTML is ignored and only the non-markup portions of the file are checked. In this
