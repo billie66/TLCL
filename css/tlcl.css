@@ -82,3 +82,8 @@ pre code {
   border: none;
 }
 
+hr {
+  height: 5px;
+  width: 100%;
+  background: gray;
+}

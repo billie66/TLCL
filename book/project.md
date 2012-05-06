@@ -97,7 +97,7 @@ this way on the command line, too:
     >         </BODY>
     ></HTML>"
 
-The leading “>” character is the shell prompt contained in the PS2 shell variable. It
+The leading “&gt;” character is the shell prompt contained in the PS2 shell variable. It
 appears whenever we type a multi-line statement into the shell. This feature is a little
 obscure right now, but later, when we cover multi-line programming statements, it will
 turn out to be quite handy.
@@ -224,7 +224,8 @@ convention:
 We also took the opportunity to jazz up our title by adding the value of the shell variable
 HOSTNAME. This is the network name of the machine.
 
-<hr style="height:5px;width:100%;background:gray" />
+---
+
 Note: The shell actually does provide a way to enforce the immutability of
 constants, through the use of the declare builtin command with the -r (read-
 only) option. Had we assigned TITLE this way:
@@ -234,7 +235,7 @@ declare -r TITLE="Page Title"
 the shell would prevent any subsequent assignment to TITLE. This feature is
 rarely used, but it exists for very formal scripts.
 
-<hr style="height:5px;width:100%;background:gray" />
+---
 
 Assigning Values To Variables And Constants
 
@@ -253,9 +254,183 @@ Note that in an assignment, there must be no spaces between the variable name, t
 equals sign, and the value. So what can the value consist of? Anything that we can
 expand into a string:
 
-    
+    a=z	                    # Assign the string "z" to variable a.
+    b="a string"	        # Embedded spaces must be within quotes.
+    c="a string and $b"	    # Other expansions such as variables can be
+                            # expanded into the assignment.
+    	 
+    d=$(ls -l foo.txt)      # Results of a command.
+    e=$((5 * 7))	        # Arithmetic expansion.
+    f="\t\ta string\n"      # Escape sequences such as tabs and newlines.
+	
+Multiple variable assignments may be done on a single line:
 
+    a=5 b="a string"
 
+During expansion, variable names may be surrounded by optional curly braces “{}”.
+This is useful in cases where a variable name becomes ambiguous due to its surrounding
+context. Here, we try to change the name of a file from myfile to myfile1, using a
+variable:
 
+    [me@linuxbox ~]$ filename="myfile"
+    [me@linuxbox ~]$ touch $filename
+    [me@linuxbox ~]$ mv $filename $filename1
+    mv: missing destination file operand after `myfile'
+    Try `mv --help' for more information.
 
+This attempt fails because the shell interprets the second argument of the mv command as
+a new (and empty) variable. The problem can be overcome this way:
 
+    [me@linuxbox ~]$ mv $filename ${filename}1
+
+By adding the surrounding braces, the shell no longer interprets the trailing 1 as part of
+the variable name.
+
+We’ll take this opportunity to add some data to our report, namely the date and time the
+report was created and the user name of the creator:
+
+    #!/bin/bash
+
+    # Program to output a system information page
+
+    TITLE="System Information Report For $HOSTNAME"
+    CURRENT_TIME=$(date +"%x %r %Z")
+    TIME_STAMP="Generated $CURRENT_TIME, by $USER"
+
+    echo "<HTML>
+        <HEAD>
+            <TITLE>$TITLE</TITLE>
+        </HEAD>
+        <BODY>
+            <H1>$TITLE</H1>
+            <P>$TIME_STAMP</P>
+        </BODY>
+    </HTML>"
+
+Here Documents
+
+We’ve looked at two different methods of outputting our text, both using the echo
+command. There is a third way called a here document or here script. A here document
+is an additional form of I/O redirection in which we embed a body of text into our script
+and feed it into the standard input of a command. It works like this:
+
+command &lt;&lt; token
+
+text
+
+token
+
+where command is the name of command that accepts standard input and token is a string
+used to indicate the end of the embedded text. We’ll modify our script to use a here
+document:
+
+    #!/bin/bash
+
+    # Program to output a system information page
+
+    TITLE="System Information Report For $HOSTNAME"
+    CURRENT_TIME=$(date +"%x %r %Z")
+    TIME_STAMP="Generated $CURRENT_TIME, by $USER"
+
+    cat << _EOF_
+    <HTML>
+        <HEAD>
+        </HEAD>
+        <BODY>
+        </BODY>
+        <TITLE>$TITLE</TITLE>
+        <H1>$TITLE</H1>
+        <P>$TIME_STAMP</P>
+    </HTML>
+    _EOF_
+ 
+Instead of using echo, our script now uses cat and a here document. The string _EOF_
+(meaning “End Of File,” a common convention) was selected as the token, and marks the
+end of the embedded text. Note that the token must appear alone and that there must not
+be trailing spaces on the line.
+
+So what’s the advantage of using a here document? It’s mostly the same as echo, except
+that, by default, single and double quotes within here documents lose their special
+meaning to the shell. Here is a command line example:
+ 
+    [me@linuxbox ~]$ foo="some text"
+    [me@linuxbox ~]$ cat << _EOF_
+    > $foo
+    > "$foo"
+    > '$foo'
+    > \$foo
+    > _EOF_
+    some text
+    "some text"
+    'some text'
+    $foo
+
+As we can see, the shell pays no attention to the quotation marks. It treats them as
+ordinary characters. This allows us to embed quotes freely within a here document. This
+could turn out to be handy for our report program.
+
+Here documents can be used with any command that accepts standard input. In this
+example, we use a here document to pass a series of commands to the ftp program in
+order to retrieve a file from a remote FTP server:
+
+    #!/bin/bash
+
+    # Script to retrieve a file via FTP
+
+    FTP_SERVER=ftp.nl.debian.org
+    FTP_PATH=/debian/dists/lenny/main/installer-i386/current/images/cdrom
+    REMOTE_FILE=debian-cd_info.tar.gz
+
+    ftp -n << _EOF_
+        open $FTP_SERVER
+        user anonymous me@linuxbox
+        cd $FTP_PATH
+        hash
+        get $REMOTE_FILE
+        bye
+    _EOF_
+
+    ls -l $REMOTE_FILE
+
+If we change the redirection operator from “&lt;&lt;” to “&lt;&lt;-”, the shell will ignore leading
+tab characters in the here document. This allows a here document to be indented, which
+can improve readability:
+
+    #!/bin/bash
+
+    # Script to retrieve a file via FTP
+
+    FTP_SERVER=ftp.nl.debian.org
+    FTP_PATH=/debian/dists/lenny/main/installer-i386/current/images/cdrom
+    REMOTE_FILE=debian-cd_info.tar.gz
+    ftp -n <<- _EOF_
+        open $FTP_SERVER
+        user anonymous me@linuxbox
+        cd $FTP_PATH
+        hash
+        get $REMOTE_FILE
+        bye
+    _EOF_
+
+    ls -l $REMOTE_FILE
+
+Summing Up
+
+In this chapter, we started a project that will carry us through the process of building a
+successful script. We introduced the concept of variables and constants and how they can
+be employed. They are the first of many applications we will find for parameter
+expansion. We also looked at how to produce output from our script, and various
+methods for embedding blocks of text.
+
+Further Reading
+
+* For more information about HTML, see the following articles and tutorials:
+
+ <http://en.wikipedia.org/wiki/Html>
+
+ <http://en.wikibooks.org/wiki/HTML_Programming>
+
+ <http://html.net/tutorials/html/>
+
+* The bash man page includes a section entitled “HERE DOCUMENTS,” which
+  has a full description of this feature.

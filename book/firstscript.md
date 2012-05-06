@@ -238,7 +238,8 @@ reads a specified file of shell commands and treats it like input from the keybo
 这个点（.）命令是source命令的同义词，一个shell内部命令，用来读取一个指定的shell命令文件，
 并把它看作是从键盘中输入的一样。
 
-<hr style="height:5px;width:100%;background:gray" />
+---
+
 Note: Ubuntu automatically adds the ~/bin directory to the PATH variable if the
 ~/bin directory exists when the user’s .bashrc file is executed. So, on Ubuntu
 systems, if we create the ~/bin directory and then log out and log in again,
@@ -247,7 +248,8 @@ everything works.
 注意：在Ubuntu系统中，如果存在~/bin目录，当执行用户的.bashrc文件时，
 Ubuntu会自动地添加这个~/bin目录到PATH变量中。所以在Ubuntu系统中，如果我们创建
 了这个~/bin目录，随后退出，然后再登录，一切会正常运行。
-<hr style="height:5px;width:100%;background:gray" />
+
+---
 
 #### Good Locations For Scripts
 
@@ -427,13 +429,13 @@ see:
 
 * 查看各种各样编程语言的“Hello World”程序和实例：
 
-  http://en.wikipedia.org/wiki/Hello_world
+  <http://en.wikipedia.org/wiki/Hello_world>
 
 * This Wikipedia article talks more about the shebang mechanism:
 
 * 这篇Wikipedia文章讨论了更多关于shebang机制的内容：
 
-  http://en.wikipedia.org/wiki/Shebang_(Unix)
+  <http://en.wikipedia.org/wiki/Shebang_(Unix)>
 
 
  
