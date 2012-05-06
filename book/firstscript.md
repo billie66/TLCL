@@ -306,7 +306,7 @@ provide improved readability.
 
 #### Indentation And Line Continuation
 
-#### 缩进和行继续
+#### 缩进和行继续符
 
 When employing long commands, readability can be enhanced by spreading the
 command over several lines. In Chapter 18, we looked at a particularly long example of
