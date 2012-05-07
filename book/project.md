@@ -391,13 +391,13 @@ expand into a string:
 注意在赋值过程中，变量名，等号和变量值之间必须没有空格。那么，这些值由什么组成呢？
 可以展开成字符串的任意值：
 
-    a=z	                    # Assign the string "z" to variable a.
-    b="a string"	        # Embedded spaces must be within quotes.
-    c="a string and $b"	    # Other expansions such as variables can be
+    a=z                     # Assign the string "z" to variable a.
+    b="a string"            # Embedded spaces must be within quotes.
+    c="a string and $b"     # Other expansions such as variables can be
                             # expanded into the assignment.
     	 
     d=$(ls -l foo.txt)      # Results of a command.
-    e=$((5 * 7))	        # Arithmetic expansion.
+    e=$((5 * 7))            # Arithmetic expansion.
     f="\t\ta string\n"      # Escape sequences such as tabs and newlines.
 	
 Multiple variable assignments may be done on a single line:
@@ -447,13 +447,13 @@ report was created and the user name of the creator:
     TIME_STAMP="Generated $CURRENT_TIME, by $USER"
 
     echo "<HTML>
-        <HEAD>
-            <TITLE>$TITLE</TITLE>
-        </HEAD>
-        <BODY>
-            <H1>$TITLE</H1>
-            <P>$TIME_STAMP</P>
-        </BODY>
+            <HEAD>
+                    <TITLE>$TITLE</TITLE>
+            </HEAD>
+            <BODY>
+                    <H1>$TITLE</H1>
+                    <P>$TIME_STAMP</P>
+            </BODY>
     </HTML>"
 
 ### Here Documents
@@ -540,8 +540,7 @@ example, we use a here document to pass a series of commands to the ftp program 
 order to retrieve a file from a remote FTP server:
 
 Here documents可以和任意能接受标准输入的命令一块使用。在这个例子中，我们使用了
-一个here
-document将一系列的命令传递到这个ftp程序中，为的是从一个远端FTP服务器中得到一个文件：
+一个here document将一系列的命令传递到这个ftp程序中，为的是从一个远端FTP服务器中得到一个文件：
 
     #!/bin/bash
 
@@ -559,7 +558,6 @@ document将一系列的命令传递到这个ftp程序中，为的是从一个远
     get $REMOTE_FILE
     bye
     _EOF_
-
     ls -l $REMOTE_FILE
 
 If we change the redirection operator from “&lt;&lt;” to “&lt;&lt;-”, the shell will ignore leading
@@ -576,6 +574,7 @@ can improve readability:
     FTP_SERVER=ftp.nl.debian.org
     FTP_PATH=/debian/dists/lenny/main/installer-i386/current/images/cdrom
     REMOTE_FILE=debian-cd_info.tar.gz
+
     ftp -n <<- _EOF_
         open $FTP_SERVER
         user anonymous me@linuxbox
