@@ -73,7 +73,7 @@ For maximum convenience, we will place our scripts in these directories.
    所以我们需要设置脚本文件的权限来允许其可执行。 </p></li>
 
 <li><p> __把脚本放置到shell能够找到的地方。__ 当没有指定可执行文件明确的路径名时，shell会自动地搜索某些目录，
-来查找此可执行文件。为了最大的方便，我们会把脚本放到这些目录当中。</p></li>
+来查找此可执行文件。为了最大程度的方便，我们会把脚本放到这些目录当中。</p></li>
 </ol>
 
 ### Script File Format
