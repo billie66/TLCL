@@ -31,19 +31,21 @@ might describe the overall process as the following series of steps:
 
 * Enter house.
 
-* 上车
+<ul>
+<li><p>上车</p></li>
 
-* 开车到市场
+<li><p>开车到市场</p></li>
 
-* 停车
+<li><p>停车</p></li>
 
-* 买食物
+<li><p>买食物</p></li>
 
-* 回到车中
+<li><p>回到车中</p></li>
 
-* 开车回家
+<li><p>开车回家</p></li>
 
-* 回到家中
+<li><p>回到家中</p></li>
+</ul>
 
 However, a person from Mars is likely to need more detail. We could further break down
 the subtask “Park car” into this series of steps:
@@ -62,17 +64,19 @@ the subtask “Park car” into this series of steps:
 
 * Lock car.
 
-* 找到停车位
+<ul>
+<li><p> 找到停车位</p></li>
 
-* 开车到停车位
+<li><p> 开车到停车位</p></li>
 
-* 关闭引擎
+<li><p> 关闭引擎</p></li>
 
-* 拉紧手刹
+<li><p> 拉紧手刹</p></li>
 
-* 下车
+<li><p> 下车</p></li>
 
-* 锁车
+<li><p> 锁车</p></li>
+</ul>
 
 The “Turn off motor” subtask could further be broken down into steps including “Turn
 off ignition,” “Remove ignition key” and so on, until every step of the entire process of
@@ -119,23 +123,25 @@ Our script currently performs the following steps to generate the HTML document:
   
 * Close page.
 
-* 打开网页 
+<ul>
+<li><p>打开网页 </p></li>
 
-* 打开网页标头
+<li><p>打开网页标头</p></li>
 
-* 设置网页标题
+<li><p>设置网页标题</p></li>
 
-* 关闭网页标头
+<li><p>关闭网页标头</p></li>
 
-* 打开网页主体部分
+<li><p>打开网页主体部分</p></li>
 
-* 输出网页标头
+<li><p>输出网页标头</p></li>
 
-* 输出时间戳
+<li><p>输出时间戳</p></li>
 
-* 关闭网页主体
-  
-* 关闭网页
+<li><p>关闭网页主体</p></li>
+
+<li><p>关闭网页</p></li>
+</ul>
 
 For our next stage of development, we will add some additional tasks between steps 7
 and 8. These will include:
@@ -150,12 +156,14 @@ and 8. These will include:
 
 * Home space. The amount of storage space being used by each user.
 
-* 系统正常运行时间和负载。这是自上次关机或重启之后系统的运行时间，以及在几个时间间隔内当前运行在处理
-  中的平均任务量。
+<ul>
+<li><p>系统正常运行时间和负载。这是自上次关机或重启之后系统的运行时间，以及在几个时间间隔内当前运行在处理
+中的平均任务量。</p></li>
 
-* 磁盘空间。系统中存储设备的总使用量。
+<li><p>磁盘空间。系统中存储设备的总使用量。</p></li>
 
-* 主目录空间。每个用户所使用的存储空间数量。
+<li><p>主目录空间。每个用户所使用的存储空间数量。</p></li>
+</ul>
 
 If we had a command for each of these tasks, we could add them to our script simply
 through command substitution:
@@ -196,22 +204,22 @@ Shell functions have two syntactic forms:
 环境变量PATH所列出的目录下，或者我们也可以把这些脚本作为shell函数嵌入到我们的程序中。
 我们之前已经提到过，shell函数是位于其它脚本中的“微脚本”，作为自主程序。Shell函数有两种语法形式：
 
-function _name_ {
-    _commands_
-    return
-}
+    function name {
+        commands
+        return
+    }
 
-and
+    and
 
-_name_ () {
-    _commands_
-    return
-}
+    name () {
+        commands
+        return
+    }
 
 where _name_ is the name of the function and _commands_ are a series of commands
 contained within the function.
 
-这里的_name_是函数名，_commands_是一系列包含在函数中的命令。
+这里的name是函数名，commands是一系列包含在函数中的命令。
 
 Both forms are equivalent and may be used interchangeably. 
 Below we see a script that demonstrates the use of a shell function:
