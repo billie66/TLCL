@@ -218,20 +218,20 @@ Below we see a script that demonstrates the use of a shell function:
 
 两种形式是等价的，可以交替使用。下面我们将查看一个说明shell函数使用方法的脚本：
 
-   1     #!/bin/bash
-   2
-   3     # Shell function demo
-   4
-   5     function funct {
-   6           echo "Step 2"
-   7           return
-   8     }
-   9
-   10     # Main program starts here
-   11    
-   12     echo "Step 1"
-   13     funct
-   14     echo "Step 3"
+       1     #!/bin/bash
+       2
+       3     # Shell function demo
+       4
+       5     function funct {
+       6           echo "Step 2"
+       7           return
+       8     }
+       9
+       10     # Main program starts here
+       11    
+       12     echo "Step 1"
+       13     funct
+       14     echo "Step 3"
 
 As the shell reads the script, it passes over lines 1 through 11, as those lines consist of
 comments and the function definition. Execution begins at line 12, with an echo
@@ -469,10 +469,10 @@ function code. First, the report_uptime function:
     }
 
 It’s pretty straightforward. We use a here document to output a section header and the
-output of the uptime command, surrounded by <PRE> tags to preserve the formatting
+output of the uptime command, surrounded by &lt;PRE&gt; tags to preserve the formatting
 of the command. The report_disk_space function is similar:
 
-这些代码相当直截了当。我们使用一个here文档来输出标题和uptime命令的输出结果，命令结果被<PRE>标签包围，
+这些代码相当直截了当。我们使用一个here文档来输出标题和uptime命令的输出结果，命令结果被&lt;PRE&gt;标签包围，
 为的是保持命令的输出格式。这个report_disk_space函数类似：
 
     report_disk_space () {
