@@ -102,14 +102,14 @@ parameter that we can use to examine the exit status. Here we see it in action:
 这个值是一个0到255之间的整数，说明命令执行成功或是失败。按照惯例，一个零值说明成功，其它所有值说明失败。
 Shell提供了一个参数，我们可以用它检查退出状态。用具体实例看一下：
 
-[me@linuxbox ~]$ ls -d /usr/bin
-/usr/bin
-[me@linuxbox ~]$ echo $?
-0
-[me@linuxbox ~]$ ls -d /bin/usr
-ls: cannot access /bin/usr: No such file or directory
-[me@linuxbox ~]$ echo $?
-2
+    [me@linuxbox ~]$ ls -d /usr/bin
+    /usr/bin
+    [me@linuxbox ~]$ echo $?
+    0
+    [me@linuxbox ~]$ ls -d /bin/usr
+    ls: cannot access /bin/usr: No such file or directory
+    [me@linuxbox ~]$ echo $?
+    2
 
 In this example, we execute the ls command twice. The first time, the command
 executes successfully. If we display the value of the parameter $?, we see that it is zero.
