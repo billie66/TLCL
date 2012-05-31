@@ -261,6 +261,8 @@ echo命令。注意为了使函数调用被识别出是shell函数，而不是�
 
 We’ll add minimal shell function definitions to our script:
 
+我们将给脚本添加最小的shell函数定义：
+
     #!/bin/bash
 
     # Program to output a system information page
