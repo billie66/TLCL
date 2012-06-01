@@ -68,7 +68,7 @@ pre {
   color: black;
   line-height: 120%;
   font-family: "Consolas","Courier New","Courier","mono";
-  font-size: 120%;
+  font-size: 130%;
   letter-spacing: 0;
 }
 
@@ -76,7 +76,6 @@ code {
   background: #f8f8f8;
   border: 1px solid #E7E5DC;
   padding: 0.1em;
-  font-size: 11px;
 }
 
 pre code {
