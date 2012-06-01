@@ -513,12 +513,12 @@ The following expressions are used to evaluate strings:
 <td valign="top">The length of string is zero.</td>
 </tr>
 <tr>
-<td valign="top"><p>string1 = string2</p><p>string1 == string2</p></td>
+<td valign="top"><p>string1 = string2</p><p>string1 `==` string2</p></td>
 <td valign="top">string1 and string2 are equal. Single or double
 equal signs may be used, but the use of double equal signs is greatly preferred.</td>
 </tr>
 <tr>
-<td valign="top">string1 != string2 </td>
+<td valign="top">string1 `!=` string2 </td>
 <td valign="top">string1 and string2 are not equal.</td>
 </tr>
 <tr>
@@ -552,11 +552,11 @@ equal signs may be used, but the use of double equal signs is greatly preferred.
 <td valign="top">字符串string的长度为零。</td>
 </tr
 <tr>
-<td valign="top"><p>string1 = string2</p><p>string1 == string2</p></td>
+<td valign="top"><p>string1 = string2</p><p>string1 `==` string2</p></td>
 <td valign="top">string1和string2相同. 单或双等号都可以，不过双等号更受欢迎。 </td>
 </tr>
 <tr>
-<td valign="top">string1 != string2 </td>
+<td valign="top">string1 `!=` string2 </td>
 <td valign="top">string1和string2不相同。</td>
 </tr>
 <tr>
@@ -896,22 +896,22 @@ represent these operations :
 <tr>
 <th class="title">Operation</th>
 <th class="title">test</th>
-<th class="title">[[ ]] and (( ))</th>
+<th class="title">`[[ ]]` and `(( ))`</th>
 </tr>
 <tr>
 <td valign="top">AND</td>
 <td valign="top">-a</td>
-<td valign="top">&&</td>
+<td valign="top">`&&`</td>
 </tr>
 <tr>
 <td valign="top">OR</td>
 <td valign="top">-o</td>
-<td valign="top">||</td>
+<td valign="top">`||`</td>
 </tr>
 <tr>
 <td valign="top">NOT</td>
-<td valign="top">!</td>
-<td valign="top">!</td>
+<td valign="top">`!`</td>
+<td valign="top">`!`</td>
 </tr>
 </table>
 </p>
