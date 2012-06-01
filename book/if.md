@@ -194,7 +194,7 @@ The following expressions are used to evaluate the status of files:
 以下表达式被用来计算文件状态：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi" cellpadding="10" border="1" width="100%">
 <caption class="cap">Table 28-1: test File Expressions</caption>
 <tr>
 <th class="title">Expression</th>
@@ -296,7 +296,7 @@ permission for the effective user).</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi" cellpadding="10" border="1" width="100%">
 <caption class="cap">表28-1: 测试文件表达式</caption>
 <tr>
 <th class="title">表达式</th>
@@ -494,7 +494,7 @@ The following expressions are used to evaluate strings:
 以下表达式用来计算字符串：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi" cellpadding="10" border="1" width="100%">
 <caption class="cap">Table 28-2: test String Expressions</caption>
 <tr>
 <th class="title">Expression</th>
@@ -513,12 +513,12 @@ The following expressions are used to evaluate strings:
 <td valign="top">The length of string is zero.</td>
 </tr>
 <tr>
-<td valign="top"><p>string1 = string2</p><p>string1 `==` string2</p></td>
+<td valign="top"><p>string1 = string2</p><p>string1 == string2</p></td>
 <td valign="top">string1 and string2 are equal. Single or double
 equal signs may be used, but the use of double equal signs is greatly preferred.</td>
 </tr>
 <tr>
-<td valign="top">string1 `!=` string2 </td>
+<td valign="top">string1 != string2 </td>
 <td valign="top">string1 and string2 are not equal.</td>
 </tr>
 <tr>
@@ -533,7 +533,7 @@ equal signs may be used, but the use of double equal signs is greatly preferred.
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi" cellpadding="10" border="1" width="100%">
 <caption class="cap">表28-2: 测试字符串表达式</caption>
 <tr>
 <th class="title">表达式</th>
@@ -550,13 +550,13 @@ equal signs may be used, but the use of double equal signs is greatly preferred.
 <tr>
 <td valign="top">-z string</td>
 <td valign="top">字符串string的长度为零。</td>
-</tr
+</tr>
 <tr>
-<td valign="top"><p>string1 = string2</p><p>string1 `==` string2</p></td>
+<td valign="top"><p>string1 = string2</p><p>string1 == string2</p></td>
 <td valign="top">string1和string2相同. 单或双等号都可以，不过双等号更受欢迎。 </td>
 </tr>
 <tr>
-<td valign="top">string1 `!=` string2 </td>
+<td valign="top">string1 != string2 </td>
 <td valign="top">string1和string2不相同。</td>
 </tr>
 <tr>
@@ -634,7 +634,7 @@ The following expressions are used with integers:
 下面的表达式用于整数：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi" cellpadding="10" border="1" width="100%">
 <caption class="cap">Table 28-3: test Integer Expressions</caption>
 <tr>
 <th class="title">Expression </th>
@@ -668,7 +668,7 @@ The following expressions are used with integers:
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi" cellpadding="10" border="1" width="100%">
 <caption class="cap">表28-3: 测试整数表达式</caption>
 <tr>
 <th class="title">表达式</th>
@@ -891,27 +891,27 @@ represent these operations :
 它们是AND，OR，和NOT。test和`[[ ]]`使用不同的操作符来表示这些操作：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi" cellpadding="10" border="1" width="100%">
 <caption class="cap">Table 28-4: Logical Operators</caption>
 <tr>
 <th class="title">Operation</th>
 <th class="title">test</th>
-<th class="title">`[[ ]]` and `(( ))`</th>
+<th class="title">[[ ]] and (( ))</th>
 </tr>
 <tr>
 <td valign="top">AND</td>
 <td valign="top">-a</td>
-<td valign="top">`&&`</td>
+<td valign="top">&amp;&amp;</td>
 </tr>
 <tr>
 <td valign="top">OR</td>
 <td valign="top">-o</td>
-<td valign="top">`||`</td>
+<td valign="top">||</td>
 </tr>
 <tr>
 <td valign="top">NOT</td>
-<td valign="top">`!`</td>
-<td valign="top">`!`</td>
+<td valign="top">!</td>
+<td valign="top">!</td>
 </tr>
 </table>
 </p>
@@ -971,7 +971,7 @@ and is easier to code.
 然而`[[ ]]`特定于bash。知道怎样使用test很重要，因为它被非常广泛地应用，但是显然`[[ ]]`更
 有助于，并更易于编码。
 
-<table class="single" cellpadding="10" width="%100">
+<table class="single" cellpadding="10" width="100%">
 <tr>
 <td>
 <h3>Portability Is The Hobgoblin Of Little Minds</h3>
