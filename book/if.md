@@ -522,11 +522,11 @@ equal signs may be used, but the use of double equal signs is greatly preferred.
 <td valign="top">string1 and string2 are not equal.</td>
 </tr>
 <tr>
-<td valign="top">string1 > string2</td>
+<td valign="top">string1 &gt; string2</td>
 <td valign="top">sting1 sorts after string2.</td>
 </tr>
 <tr>
-<td valign="top">string1 < string2</td>
+<td valign="top">string1 &lt; string2</td>
 <td valign="top">string1 sorts before string2.</td>
 </tr>
 </table>
@@ -560,11 +560,11 @@ equal signs may be used, but the use of double equal signs is greatly preferred.
 <td valign="top">string1和string2不相同。</td>
 </tr>
 <tr>
-<td valign="top">string1 > string2</td>
+<td valign="top">string1 &gt; string2</td>
 <td valign="top">sting1排列在string2之后。</td>
 </tr>
 <tr>
-<td valign="top">string1 < string2</td>
+<td valign="top">string1 &lt; string2</td>
 <td valign="top">string1排列在string2之前。</td>
 </tr>
 </table>
