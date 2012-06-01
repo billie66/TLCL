@@ -44,7 +44,7 @@ The read builtin command is used to read a single line of standard input. This
 command can be used to read keyboard input or, when redirection is employed, a line of
 data from a file. The command has the following syntax:
 
-read [-options] [variable...]
+    read [-options] [variable...]
 
 where options is one or more of the available options listed below and variable is the
 name of one or more variables used to hold the input value. If no variable name is
