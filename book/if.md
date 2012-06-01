@@ -107,20 +107,7 @@ Shell提供了一个参数，我们可以用它检查退出状态。用具体实
     [me@linuxbox ~]$ echo $?
     2
 
-In this example, we execute the ls command twice. The first time, the command
-executes successfully. If we display the value of the parameter $?, we see that it is zero.
-We execute the ls command a second time, producing an error and examine the
-parameter $? again. This time it contains a 2, indicating that the command encountered
-an error. Some commands use different exit status values to provide diagnostics for
-errors, while many commands simply exit with a value of one when they fail. Man pages
-often include a section entitled “Exit Status,” describing what codes are used. However,
-a zero always indicates success.
 
-在这个例子中，我们执行了两次ls命令。第一次，命令执行成功。如果我们显示参数$?的值，我们
-看到它是零。我们第二次执行ls命令的时候，产生了一个错误，并再次查看参数$?。这次它包含一个
-数字2，表明这个命令遇到了一个错误。有些命令使用不同的退出值，来诊断错误，而许多命令当
-它们执行失败的时候，会简单地退出并发送一个数字1。手册页中经常会包含一章标题为“退出状态”的内容，
-描述了使用的代码。然而，一个零总是表明成功。
 
 The shell provides two extremely simple builtin commands that do nothing except
 terminate with either a zero or one exit status. The true command always executes

@@ -89,3 +89,87 @@ script results in this:
     5 is positive.
     5 is odd.
 
+read can assign input to multiple variables, as shown in this script:
+
+    #!/bin/bash
+
+    # read-multiple: read multiple values from keyboard
+
+    echo -n "Enter one or more values > "
+    read var1 var2 var3 var4 var5
+
+    echo "var1 = '$var1'"
+    echo "var2 = '$var2'"
+    echo "var3 = '$var3'"
+    echo "var4 = '$var4'"
+    echo "var5 = '$var5'"
+
+In this script, we assign and display up to five values. Notice how read behaves when
+given different numbers of values:
+
+    [me@linuxbox ~]$ read-multiple
+    Enter one or more values > a b c d e
+    var1 = 'a'
+    var2 = 'b'
+    var3 = 'c'
+    var4 = 'd'
+    var5 = 'e'
+    [me@linuxbox ~]$ read-multiple
+    Enter one or more values > a
+    var1 = 'a'
+    var2 = ''
+    var3 = ''
+    var4 = ''
+    var5 = ''
+    [me@linuxbox ~]$ read-multiple
+    Enter one or more values > a b c d e f g
+    var1 = 'a'
+    var2 = 'b'
+    var3 = 'c'
+    var4 = 'd'
+    var5 = 'e f g'
+
+If read receives fewer than the expected number, the extra variables are empty, while an
+excessive amount of input results in the final variable containing all of the extra input.
+If no variables are listed after the read command, a shell variable, REPLY, will be
+assigned all the input:
+
+    #!/bin/bash
+
+    # read-single: read multiple values into default variable
+    
+    echo -n "Enter one or more values > "
+    read
+
+    echo "REPLY = '$REPLY'"
+
+Running this script results in this:
+
+    [me@linuxbox ~]$ read-single
+    Enter one or more values > a b c d
+    REPLY = 'a b c d'
+
+Options
+
+read supports the following options:
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="%100">
+<caption class="cap">Table 29-1: read Options</caption>
+<tr>
+<th class="title">title</th>
+<th class="title">title</th>
+</tr>
+<tr>
+<td valign="top" width="25%">text</td>
+<td valign="top">text</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top"></td>
+</tr>
+</table>
+</p>
+
+
+
