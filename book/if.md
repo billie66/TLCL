@@ -84,3 +84,26 @@ failure of a command.
 这里的commands是指一系列命令。第一眼看到会有点儿困惑。但是在我们弄清楚这些语句之前，我们
 必须看一下shell是如何评判一个命令的成功与失败的。
 
+### Exit Status
+
+### 退出状态
+
+Commands (including the scripts and shell functions we write) issue a value to the system
+when they terminate, called an exit status. This value, which is an integer in the range of
+0 to 255, indicates the success or failure of the command’s execution. By convention, a
+value of zero indicates success and any other value indicates failure. The shell provides a
+parameter that we can use to examine the exit status. Here we see it in action:
+
+当命令执行完毕后，命令（包括我们编写的脚本和shell函数）会给系统发送一个值，叫做退出状态。
+这个值是一个0到255之间的整数，说明命令执行成功或是失败。按照惯例，一个零值说明成功，其它所有值说明失败。
+Shell提供了一个参数，我们可以用它检查退出状态。用具体实例看一下：
+
+    [me@linuxbox ~]$ ls -d /usr/bin
+    /usr/bin
+    [me@linuxbox ~]$ echo $?
+    0
+    [me@linuxbox ~]$ ls -d /bin/usr
+    ls: cannot access /bin/usr: No such file or directory
+    [me@linuxbox ~]$ echo $?
+    2
+
