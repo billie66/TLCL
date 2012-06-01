@@ -8,6 +8,7 @@ interactivity. That is, the ability of the program to interact with the user. Wh
 programs don’t need to be interactive, some programs benefit from being able to accept
 input directly from the user. Take, for example, this script from the previous chapter:
 
+
     #!/bin/bash
 
     # test-integer2: evaluate the value of an integer.
@@ -152,6 +153,140 @@ Running this script results in this:
 #### Options
 
 read supports the following options:
+
+<p>
+<table class="multi" cellpadding="10" border="1" width="100%">
+<caption class="cap">Table 29-1: read Options</caption>
+<tr>
+<th class="title">Option</th>
+<th class="title">Description</th>
+</tr>
+<tr>
+<td valign="top" width="25%">-a array </td>
+<td valign="top">Assign the input to array, starting with index zero. We
+will cover arrays in Chapter 36.</td>
+</tr>
+<tr>
+<td valign="top">-d delimiter </td>
+<td valign="top">The first character in the string delimiter is used to
+indicate end of input, rather than a newline character.</td>
+</tr>
+<tr>
+<td valign="top">-e</td>
+<td valign="top">Use Readline to handle input. This permits input editing
+in the same manner as the command line.</td>
+</tr>
+<tr>
+<td valign="top">-n num</td>
+<td valign="top">Read num characters of input, rather than an entire line.</td>
+</tr>
+<tr>
+<td valign="top">-p prompt </td>
+<td valign="top">Display a prompt for input using the string prompt.</td>
+</tr>
+<tr>
+<td valign="top">-r</td>
+<td valign="top">Raw mode. Do not interpret backslash characters as
+escapes.</td>
+</tr>
+<tr>
+<td valign="top">-s</td>
+<td valign="top">Silent mode. Do not echo characters to the display as
+they are typed. This is useful when inputting passwords and other confidential information.</td>
+</tr>
+<tr>
+<td valign="top">-t seconds</td>
+<td valign="top">Timeout. Terminate input after seconds. read returns a
+non-zero exit status if an input times out.</td>
+</tr>
+<tr>
+<td valign="top">-u fd</td>
+<td valign="top">Use input from file descriptor fd, rather than standard
+input.</td>
+</tr>
+</table>
+</p>
+
+Using the various options, we can do interesting things with read. For example, with
+the -p option, we can provide a prompt string:
+
+    #!/bin/bash
+
+    # read-single: read multiple values into default variable
+
+    read -p "Enter one or more values > "
+
+    echo "REPLY = '$REPLY'"
+
+With the -t and -s options we can write a script that reads “secret” input and times out
+if the input is not completed in a specified time:
+
+    #!/bin/bash
+
+    # read-secret: input a secret pass phrase
+
+    if read -t 10 -sp "Enter secret pass phrase > " secret_pass; then
+
+        echo -e "\nSecret pass phrase = '$secret_pass'"
+    else
+        echo -e "\nInput timed out" >&2
+        exit 1
+    if
+
+The script prompts the user for a secret pass phrase and waits ten seconds for input. If
+the entry is not completed within the specified time, the script exits with an error. Since
+the -s option is included, the characters of the pass phrase are not echoed to the display
+as they are typed.
+
+### IFS
+
+Normally, the shell performs word splitting on the input provided to read. As we have
+seen, this means that multiple words separated by one or more spaces become separate
+items on the input line, and are assigned to separate variables by read. This behavior is
+configured by a shell variable named IFS (for Internal Field Separator). The default
+value of IFS contains a space, a tab, and a newline character, each of which will separate
+items from one another.
+
+We can adjust the value of IFS to control the separation of fields input to read. For
+example, the /etc/passwd file contains lines of data that use the colon character as a
+field separator. By changing the value of IFS to a single colon, we can use read to
+input the contents of /etc/passwd and successfully separate fields into different
+variables. Here we have a script that does just that:
+
+    #!/bin/bash
+
+    # read-ifs: read fields from a file
+
+    FILE=/etc/passwd
+
+    read -p "Enter a user name > " user_name
+
+    file_info=$(grep "^$user_name:" $FILE)
+
+    if [ -n "$file_info" ]; then
+        IFS=":" read user pw uid gid name home shell <<< "$file_info"
+        echo "User = '$user'"
+        echo "UID = '$uid'"
+        echo "GID = '$gid'"
+        echo "Full Name = '$name'"
+        echo "Home Dir. = '$home'"
+        echo "Shell = '$shell'"
+    else
+        echo "No such user '$user_name'" >&2
+        exit 1
+    fi
+This script prompts the user to enter the user name of an account on the system, then
+displays the different fields found in the user’s record in the /etc/passwd file. The
+script contains two interesting lines. The first is:
+
+    file_info=$(grep "^$user_name:" $FILE)
+
+This line assigns the results of a grep command to the variable __file_info__. The
+regular expression used by grep assures that the user name will only match a single line
+in the __/etc/passwd__ file.
+
+
+
 
 
 

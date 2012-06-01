@@ -894,9 +894,9 @@ represent these operations :
 <table class="multi" cellpadding="10" border="1" width="100%">
 <caption class="cap">Table 28-4: Logical Operators</caption>
 <tr>
-<th class="title" width="33%">Operation</th>
+<th class="title" width="34%">Operation</th>
 <th class="title">test</th>
-<th class="title">[[&nbsp;]] and ((&nbsp;))</th>
+<th class="title" width="34%">[[&nbsp;]] and ((&nbsp;))</th>
 </tr>
 <tr>
 <td valign="top">AND</td>
