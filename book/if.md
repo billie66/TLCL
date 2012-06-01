@@ -15,3 +15,38 @@ computer language intended for human consumption:
 用编程术语表达，就是我们需要程序可以分支。让我们考虑一个简单的用伪码表示的逻辑实例，
 伪码是一种模拟的计算机语言，为的是便于人们理解：
 
+X=5
+
+If X = 5, then:
+
+Say “X equals 5.”
+
+Otherwise:
+
+Say “X is not equal to 5.”
+
+This is an example of a branch. Based on the condition, “Does X = 5?” do one thing,
+“Say X equals 5,” otherwise do another thing, “Say X is not equal to 5.”
+
+这就是一个分支的例子。根据条件，“Does X = 5?” 做一件事情，“Say X equals 5,”
+否则，做另一件事情，“Say X is not equal to 5.”
+
+### if
+
+Using the shell, we can code the logic above as follows:
+
+使用shell，我们可以编码上面的逻辑，如下所示：
+
+    x=5
+
+    if [ $x = 5 ]; then
+
+    echo "x equals 5."
+    
+    else
+        
+    echo "x does not equal 5."
+
+    fi
+
+or we can enter it directly at the command line (slightly shortened):
