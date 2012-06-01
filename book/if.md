@@ -641,7 +641,7 @@ The following expressions are used with integers:
 <th class="title">Is True If...</th>
 </tr>
 <tr>
-<td valign="top" width="25%">integer1 -eq integer2 </td>
+<td valign="top" width="50%">integer1 -eq integer2 </td>
 <td valign="top">integer1 is equal to integer2.</td>
 </tr>
 <tr>
@@ -675,7 +675,7 @@ The following expressions are used with integers:
 <th class="title">如果为真...</th>
 </tr>
 <tr>
-<td valign="top" width="25%">integer1 -eq integer2 </td>
+<td valign="top" width="50%">integer1 -eq integer2 </td>
 <td valign="top">integer1等于integer2.</td>
 </tr>
 <tr>
@@ -813,11 +813,11 @@ This makes `[[ ]]` useful for evaluating file and path names.
 
 这就使`[[ ]]`有助于计算文件和路径名。
 
-### (( )) - Designed For Integers
+### ((&nbsp;)) - Designed For Integers
 
-### (( )) - 为整数设计 
+### ((&nbsp;)) - 为整数设计 
 
-In addition to the `[[ ]]` compound command, bash also provides the (( ))
+In addition to the `[[ ]]` compound command, bash also provides the `(( ))`
 compound command, which is useful for operating on integers. It supports a full set of
 arithmetic evaluations, a subject we will cover fully in Chapter 35.
 
@@ -894,9 +894,9 @@ represent these operations :
 <table class="multi" cellpadding="10" border="1" width="100%">
 <caption class="cap">Table 28-4: Logical Operators</caption>
 <tr>
-<th class="title">Operation</th>
+<th class="title" width="33%">Operation</th>
 <th class="title">test</th>
-<th class="title">[[ ]] and (( ))</th>
+<th class="title">[[&nbsp;]] and ((&nbsp;))</th>
 </tr>
 <tr>
 <td valign="top">AND</td>
