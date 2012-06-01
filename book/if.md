@@ -107,3 +107,55 @@ Shell提供了一个参数，我们可以用它检查退出状态。用具体实
     [me@linuxbox ~]$ echo $?
     2
 
+In this example, we execute the ls command twice. The first time, the command
+executes successfully. If we display the value of the parameter $?, we see that it is zero.
+We execute the ls command a second time, producing an error and examine the
+parameter $? again. This time it contains a 2, indicating that the command encountered
+an error. Some commands use different exit status values to provide diagnostics for
+errors, while many commands simply exit with a value of one when they fail. Man pages
+often include a section entitled “Exit Status,” describing what codes are used. However,
+a zero always indicates success.
+
+在这个例子中，我们执行了两次ls命令。第一次，命令执行成功。如果我们显示参数$?的值，我们
+看到它是零。我们第二次执行ls命令的时候，产生了一个错误，并再次查看参数$?。这次它包含一个
+数字2，表明这个命令遇到了一个错误。有些命令使用不同的退出值，来诊断错误，而许多命令当
+它们执行失败的时候，会简单地退出并发送一个数字1。手册页中经常会包含一章标题为“退出状态”的内容，
+描述了使用的代码。然而，一个零总是表明成功。
+
+The shell provides two extremely simple builtin commands that do nothing except
+terminate with either a zero or one exit status. The true command always executes
+successfully and the false command always executes unsuccessfully:
+
+这个shell提供了两个极其简单的内部命令，它们不做任何事情，除了以一个零或1退出状态来终止执行。
+True命令总是执行成功，而false命令总是执行失败：
+
+    [me@linuxbox~]$ true
+    [me@linuxbox~]$ echo $?
+    0           
+    [me@linuxbox~]$ false
+    [me@linuxbox~]$ echo $?
+    1
+
+We can use these commands to see how the if statement works. What the if statement
+really does is evaluate the success or failure of commands:
+
+我们能够使用这些命令，来看一下if语句是怎样工作的。If语句真正做的事情是计算命令执行成功或失败：
+
+    [me@linuxbox ~]$ if true; then echo "It's true."; fi
+    It's true.
+    [me@linuxbox ~]$ if false; then echo "It's true."; fi
+    [me@linuxbox ~]$
+
+The command echo "It's true." is executed when the command following if
+executes successfully, and is not executed when the command following if does not
+execute successfully. If a list of commands follows if, the last command in the list is
+evaluated:
+
+当if之后的命令执行成功的时候，命令echo "It's true."将会执行，否则此命令不执行。
+如果if之后跟随一系列命令，则将计算列表中的最后一个命令：
+
+    [me@linuxbox ~]$ if false; true; then echo "It's true."; fi
+    It's true.
+    [me@linuxbox ~]$ if true; false; then echo "It's true."; fi
+    [me@linuxbox ~]$
+    3
