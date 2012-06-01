@@ -149,27 +149,9 @@ Running this script results in this:
     Enter one or more values > a b c d
     REPLY = 'a b c d'
 
-Options
+#### Options
 
 read supports the following options:
-
-<p>
-<table class="multi" cellpadding="10" border="1" width="%100">
-<caption class="cap">Table 29-1: read Options</caption>
-<tr>
-<th class="title">title</th>
-<th class="title">title</th>
-</tr>
-<tr>
-<td valign="top" width="25%">text</td>
-<td valign="top">text</td>
-</tr>
-<tr>
-<td valign="top"></td>
-<td valign="top"></td>
-</tr>
-</table>
-</p>
 
 
 
