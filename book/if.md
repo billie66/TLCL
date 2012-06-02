@@ -501,7 +501,7 @@ The following expressions are used to evaluate strings:
 <th class="title">Is Ture If...</th>
 </tr>
 <tr>
-<td valign="top" width="25%">string</td>
+<td valign="top" width="35%">string</td>
 <td valign="top">string is not null.</td>
 </tr>
 <tr>
@@ -540,7 +540,7 @@ equal signs may be used, but the use of double equal signs is greatly preferred.
 <th class="title">如果为真...</th>
 </tr>
 <tr>
-<td valign="top" width="25%">string</td>
+<td valign="top" width="35%">string</td>
 <td valign="top">string不为null。</td>
 </tr>
 <tr>
@@ -570,6 +570,7 @@ equal signs may be used, but the use of double equal signs is greatly preferred.
 </table>
 </p>
 
+<br />
 ---
 
 Warning: the `>` and `<` expression operators must be quoted (or escaped with a
