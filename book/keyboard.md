@@ -388,8 +388,297 @@ in the __/etc/passwd__ file.
 这一行把__grep__命令的输入结果赋值给变量__file_info__。__grep__命令使用的正则表达式
 确保用户名只会在__/etc/passwd__文件中匹配一个文本行。
 
+The second interesting line is this one:
 
+第二个有意思的文本行是：
 
+    IFS=":" read user pw uid gid name home shell <<< "$file_info"
 
+The line consists of three parts: a variable assignment, a `read` command with a list of
+variable names as arguments, and a strange new redirection operator. We’ll look at the
+variable assignment first.
 
+这一行由三部分组成：一个变量赋值，一个带有一串参数的`read`命令，和一个奇怪的新的重定向操作符。
+我们首先看一下变量赋值。
+
+The shell allows one or more variable assignments to take place immediately before a
+command. These assignments alter the environment for the command that follows. The
+effect of the assignment is temporary; only changing the environment for the duration of
+the command. In our case, the value of IFS is changed to a colon character. Alternately,
+we could have coded it this way:
+
+Shell允许在一个命令之前立即发生一个或多个变量赋值。这些赋值为跟随着的命令更改环境变量。
+这个赋值的影响是暂时的；只是在命令存在期间改变环境变量。在这种情况下，IFS的值改为一个冒号。
+另外，我们也可以这样编码：
+
+    OLD_IFS="$IFS"
+    IFS=":"
+    read user pw uid gid name home shell <<< "$file_info"
+    IFS="$OLD_IFS"
+
+where we store the value of IFS, assign a new value, perform the read command, then
+restore IFS to its original value. Clearly, placing the variable assignment in front of the
+command is a more concise way of doing the same thing.  
+
+我们先存储IFS的值，然后赋给一个新值，再执行`read`命令，最后把IFS恢复原值。显然，完成相同的任务，
+在命令之前放置变量名赋值是一种更简明的方式。
+
+The `<<<` operator indicates a here string. A here string is like a here document, only
+shorter, consisting of a single string. In our example, the line of data from the
+/etc/passwd file is fed to the standard input of the read command. We might
+wonder why this rather oblique method was chosen rather than:
+
+这个`<<<`操作符指示一个here字符串。一个here字符串就像一个here文档，只是比较简短，由
+单个字符串组成。在这个例子中，来自__/etc/passwd__文件的数据发送给`read`命令的标准输入。
+我们可能想知道为什么选择这种相当晦涩的方法而不是：
+
+    echo "$file_info" | IFS=":" read user pw uid gid name home shell
+
+<table class="single" cellpadding="10" width="%100">
+<tr>
+<td>
+<h3>You Can’t Pipe read</h3>
+<h3>你不能管道read</h3>
+<p> While the read command normally takes input from standard input, you cannot
+do this: </p>
+<p>虽然通常`read`命令接受标准输入，但是你不能这样做：</p>
+<p>echo "foo" | read  </p>
+
+<p> We would expect this to work, but it does not. The command will appear to
+succeed but the REPLY variable will always be empty. Why is this? </p>
+<p>我们期望这个命令能生效，但是它不能。这个命令将显示成功，但是`REPLY`变量
+总是为空。为什么会这样？</p>
+
+<p>The explanation has to do with the way the shell handles pipelines. In bash (and
+other shells such as sh), pipelines create subshells. These are copies of the shell
+and its environment which are used to execute the command in the pipeline. In
+our example above, read is executed in a subshell.</p>
+
+<p>答案与shell处理管道线的方式有关系。在bash（和其它shells，例如sh）中，管道线
+会创建子shell。它们是shell的副本，且用来执行命令的环境变量在管道线中。
+上面示例中，`read`命令将在子shell中执行。</p>
+
+<p>Subshells in Unix-like systems create copies of the environment for the processes
+to use while they execute. When the processes finishes the copy of the
+environment is destroyed. This means that a subshell can never alter the
+environment of its parent process. read assigns variables, which then become
+part of the environment. In the example above, read assigns the value “foo” to
+the variable REPLY in its subshell’s environment, but when the command exits,
+the subshell and its environment are destroyed, and the effect of the assignment is
+lost.</p>
+
+<p>在类似于Unix的系统中，子shell执行的时候，会为进程创建父环境的副本。当进程结束
+之后，环境副本就会被破坏掉。这意味着一个子shell永远不能改变父进程的环境。`read`赋值变量，
+然后会变为环境的一部分。在上面的例子中，`read`在它的子shell环境中，把“foo”赋值给变量REPLY，
+但是当命令退出后，子shell和它的环境将被破坏掉，这样赋值的影响就会消失。</p>
+
+<p>Using here strings is one way to work around this behavior. Another method is
+discussed in Chapter 37.</p>
+
+<p>使用here字符串是解决此问题的一种方法。另一种方法将在37章中讨论。</p>
+
+</td>
+</tr>
+</table>
+
+### Validating Input
+
+### 校正输入 
+
+With our new ability to have keyboard input comes an additional programming challenge,
+validating input. Very often the difference between a well-written program and a poorly
+written one is in the program’s ability to deal with the unexpected. Frequently, the
+unexpected appears in the form of bad input. We’ve done a little of this with our
+evaluation programs in the previous chapter, where we checked the value of integers and
+screened out empty values and non-numeric characters. It is important to perform these
+kinds of programming checks every time a program receives input, to guard against
+invalid data. This is especially important for programs that are shared by multiple users.
+Omitting these safeguards in the interests of economy might be excused if a program is to
+be used once and only by the author to perform some special task. Even then, if the
+program performs dangerous tasks such as deleting files, it would be wise to include data
+validation, just in case.
+
+从键盘输入这种新技能，带来了额外的编程挑战，校正输入。很多时候，一个良好编写的程序与
+一个拙劣程序之间的区别就是程序处理意外的能力。通常，意外会以错误输入的形式出现。在前面
+章节中的计算程序，我们已经这样做了一点儿，我们检查整数值，甄别空值和非数字字符。每次
+程序接受输入的时候，执行这类的程序检查非常重要，为的是避免无效数据。对于
+由多个用户共享的程序，这个尤为重要。如果一个程序只使用一次且只被作者用来执行一些特殊任务，
+那么为了经济利益而忽略这些保护措施，可能会被原谅。即使这样，如果程序执行危险任务，比如说
+删除文件，所以最好包含数据校正，以防万一。
+
+Here we have an example program that validates various kinds of input:
+
+这里我们有一个校正各种输入的示例程序：
+
+    #!/bin/bash
+
+    # read-validate: validate input
+
+    invalid_input () {
+        echo "Invalid input '$REPLY'" >&2
+        exit 1
+    }
+
+    read -p "Enter a single item > "
+
+    # input is empty (invalid)
+    [[ -z $REPLY ]] && invalid_input
+
+    # input is multiple items (invalid)
+    (( $(echo $REPLY | wc -w) > 1 )) && invalid_input
+
+    # is input a valid filename?
+    if [[ $REPLY =~ ^[-[:alnum:]\._]+$ ]]; then
+        echo "'$REPLY' is a valid filename."
+        if [[ -e $REPLY ]]; then
+            echo "And file '$REPLY' exists."
+        else
+            echo "However, file '$REPLY' does not exist."
+        fi
+
+        # is input a floating point number?
+        if [[ $REPLY =~ ^-?[[:digit:]]*\.[[:digit:]]+$ ]]; then
+            echo "'$REPLY' is a floating point number."
+        else
+            echo "'$REPLY' is not a floating point number."
+        fi
+
+        # is input an integer?
+        if [[ $REPLY =~ ^-?[[:digit:]]+$ ]]; then
+            echo "'$REPLY' is an integer."
+        else
+            echo "'$REPLY' is not an integer."
+        fi
+    else
+        echo "The string '$REPLY' is not a valid filename."
+    fi
+
+This script prompts the user to enter an item. The item is subsequently analyzed to
+determine its contents. As we can see, the script makes use of many of the concepts that
+we have covered thus far, including shell functions, `[[ ]]`, `(( ))`, the control operator
+`&&`, and if, as well as a healthy dose of regular expressions.
+
+这个脚本提示用户输入一个数字。随后，分析这个数字来决定它的内容。正如我们所看到的，这个脚本
+使用了许多我们已经讨论过的概念，包括shell函数，`[[ ]]`，`(( ))`，控制操作符`&&`，以及`if`和
+一些正则表达式。
+
+### Menus
+
+### 菜单
+
+A common type of interactivity is called menu-driven. In menu-driven programs, the
+user is presented with a list of choices and is asked to choose one. For example, we could
+imagine a program that presented the following:
+
+一种常见的交互类型称为菜单驱动。在菜单驱动程序中，呈现给用户一系列选择，并要求用户选择一项。
+例如，我们可以想象一个展示以下信息的程序：
+
+        Please Select:
+
+        1.Display System Information
+        2.Display Disk Space
+        3.Display Home Space Utilization
+        0.Quit
+
+        Enter selection [0-3] >
+
+Using what we learned from writing our sys_info_page program, we can construct a
+menu-driven program to perform the tasks on the above menu:
+
+使用我们从编写sys_info_page程序中所学到的知识，我们能够构建一个菜单驱动程序来执行
+上述菜单中的任务：
+
+    #!/bin/bash
+
+    # read-menu: a menu driven system information program
+
+    clear
+    echo "
+    Please Select:
+
+        1. Display System Information
+        2. Display Disk Space
+        3. Display Home Space Utilization
+        0. Quit
+    "
+    read -p "Enter selection [0-3] > "
+
+    if [[ $REPLY =~ ^[0-3]$ ]]; then
+        if [[ $REPLY == 0 ]]; then
+            echo "Program terminated."
+            exit
+        fi
+        if [[ $REPLY == 1 ]]; then
+            echo "Hostname: $HOSTNAME"
+            uptime
+            exit
+        fi
+        if [[ $REPLY == 2 ]]; then
+            df -h
+            exit
+        fi
+        if [[ $REPLY == 3 ]]; then
+            if [[ $(id -u) -eq 0 ]]; then
+                echo "Home Space Utilization (All Users)"
+                du -sh /home/*
+            else
+                echo "Home Space Utilization ($USER)"
+                du -sh $HOME
+            fi
+            exit
+        fi
+    else
+        echo "Invalid entry." >&2
+        exit 1
+    fi
+
+This script is logically divided into two parts. The first part displays the menu and inputs
+the response from the user. The second part identifies the response and carries out the
+selected action. Notice the use of the `exit` command in this script. It is used here to
+prevent the script from executing unnecessary code after an action has been carried out.
+The presence of multiple ｀exit｀ points in a program is generally a bad idea (it makes
+program logic harder to understand), but it works in this script.
+
+从逻辑上讲，这个脚本被分为两部分。第一部分显示菜单和用户输入。第二部分确认用户反馈，并执行
+选择的行动。注意脚本中使用的exit命令。在这里，在一个行动执行之后，`exit`被用来阻止脚本执行不必要的代码。
+通常在程序中出现多个`exit`代码是一个坏想法（它使程序逻辑较难理解），但是它在这个脚本中起作用。
+
+### Summing Up
+
+### 总结归纳 
+
+In this chapter, we took our first steps toward interactivity; allowing users to input data
+into our programs via the keyboard. Using the techniques presented thus far, it is
+possible to write many useful programs, such as specialized calculation programs and
+easy-to-use front ends for arcane command line tools. In the next chapter, we will build
+on the menu-driven program concept to make it even better.
+
+在这一章中，我们向着程序交互性迈出了第一步；允许用户通过键盘向程序输入数据。使用目前
+已经学过的技巧，有可能编写许多有用的程序，比如说特定的计算程序和容易使用的命令行工具
+前端。在下一章中，我们将继续建立菜单驱动程序概念，让它更完善。
+
+#### Extra Credit
+
+#### 友情提示 
+
+It is important to study the programs in this chapter carefully and have a complete
+understanding of the way they are logically structured, as the programs to come will be
+increasingly complex. As an exercise, rewrite the programs in this chapter using the
+test command rather than the `[[ ]]` compound command. Hint: use `grep` to
+evaluate the regular expressions and evaluate its exit status. This will be good practice.
+
+仔细研究本章中的程序，并对程序的逻辑结构有一个完整的理解，这是非常重要的，因为即将到来的
+程序会日益复杂。作为练习，用`test`命令而不是`[[ ]]`复合命令来重新编写本章中的程序。
+提示：使用`grep`命令来计算正则表达式及其退出状态。这会是一个不错的实践。
+
+### Further Reading
+
+### 拓展阅读 
+
+* The Bash Reference Manual contains a chapter on builtins, which includes the
+read command:
+
+* Bash参考手册有一章关于内部命令的内容，其包括了`read`命令：
+
+  <http://www.gnu.org/software/bash/manual/bashref.html#Bash-Builtins>
 
