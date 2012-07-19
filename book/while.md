@@ -128,13 +128,13 @@ We can use a `while` loop to improve the read-menu program from the previous cha
 
     while [[ $REPLY != 0 ]]; do
         clear
-    cat <<- _EOF_
-        Please Select:
+        cat <<- _EOF_
+            Please Select:
 
-        1. Display System Information
-        2. Display Disk Space
-        3. Display Home Space Utilization
-        0. Quit
+            1. Display System Information
+            2. Display Disk Space
+            3. Display Home Space Utilization
+            0. Quit
 
         _EOF_
         read -p "Enter selection [0-3] > "
@@ -202,13 +202,13 @@ bash提供了两个内部命令，它们可以用来在循环内部控制程序�
 
     while true; do
         clear
-    cat <<- _EOF_
-        Please Select:
+        cat <<- _EOF_
+            Please Select:
 
-        1. Display System Information
-        2. Display Disk Space
-        3. Display Home Space Utilization
-        0. Quit
+            1. Display System Information
+            2. Display Disk Space
+            3. Display Home Space Utilization
+            0. Quit
 
         _EOF_
         read -p "Enter selection [0-3] > "
@@ -374,9 +374,4 @@ control:
 * Wikipedia中有一篇关于循环的文章，其是一篇比较长的关于流程控制的文章中的一部分：
 
   <http://en.wikipedia.org/wiki/Control_flow#Loops>
-
-
-
-
-
 
