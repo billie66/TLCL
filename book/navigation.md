@@ -317,6 +317,67 @@ the home directory of user “bob.”
 
 <p><br/></p>
 
+<table summary="TYPO.CSS 的测试平台列表">
+    <thead>
+        <tr>
+            <th>OS/浏览器</th>
+            <th>Firefox</th>
+            <th>Chrome</th>
+            <th>Safari</th>
+            <th>Opera</th>
+            <th>IE9</th>
+            <th>IE8</th>
+            <th>IE7</th>
+            <th>IE6</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Mac OS X</td>
+            <td>√</td>
+            <td>√</td>
+            <td>√</td>
+            <td>√</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>Windows 7</td>
+            <td>√</td>
+            <td>√</td>
+            <td>√</td>
+            <td>√</td>
+            <td>√</td>
+            <td>√</td>
+            <td>√</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>Windows XP</td>
+            <td>√</td>
+            <td>√</td>
+            <td>√</td>
+            <td>√</td>
+            <td>-</td>
+            <td>√</td>
+            <td>√</td>
+            <td>√</td>
+        </tr>
+        <tr>
+            <td>hello cd Ubuntu Linux</td>
+            <td>√</td>
+            <td>√</td>
+            <td>-</td>
+            <td>√</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+    </tbody>
+</table>
 <p>
 <table class="single" cellpadding="10" width="%100">
 <tr>

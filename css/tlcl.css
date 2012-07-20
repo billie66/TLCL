@@ -4,27 +4,9 @@
 	http://www.nodethirtythree.com
         
 */
-body {
-  margin-left: 160px;
-  margin-right: 160px;
-  font: 500 16px/1.8 'Hiragino Sans GB', sans-serif;
-}
-
-h1 { 
-  font-size: 30px;
-  font-weight: 300;
-  color: #333;
-  margin: 10px;
-}
-
-h2 { 
-  font-size: 140%;
-  margin: 6px;
-}
-
-/*Remove the line under links*/
-a {
-  text-decoration:none;
+#wrapper {
+  padding: 5%;
+  min-width: 480px;
 }
 
 p.figure {

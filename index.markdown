@@ -15,6 +15,3 @@ billiecoder at gmail.com
 </p>
 </blockquote>
 
-
-
-
