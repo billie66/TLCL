@@ -33,10 +33,6 @@ p.figure {
   text-align:center;
 }
 
-caption.cap {
-  font-style: italic;
-  text-align: left;
-}
 
 div.code pre{
   background-color: #f8f8f8;
@@ -72,3 +68,22 @@ hr {
   width: 100%;
   background: gray;
 }
+table.single {
+  border:2px solid #E7E5DC;
+  background-color: #f8f8f8;
+}
+
+table.multi {
+  text-align: left;
+}
+
+caption.cap {
+  font-style: italic;
+  text-align: left;
+}
+
+th.title {
+  background-color:#f8f8f8;
+}
+
+
