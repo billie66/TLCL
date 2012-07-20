@@ -743,7 +743,7 @@ and returns the remainder, it can tell if the number is odd or even.
 Recent versions of bash include a compound command that acts as an enhanced
 replacement for test. It uses the following syntax:
 
-目前的bash版本包括一个复合命令，作为增强的test命令的替代物。它使用以下语法：
+目前的bash版本包括一个复合命令，作为加强的test命令替代物。它使用以下语法：
 
     [[ expression ]]
 

@@ -15,7 +15,7 @@ have that one, as well.
 
 故事内容不是Linus Torvalds在1991年怎样写了linux内核的第一个版本，
 因为这些内容你可以在许多Linux书籍中读到。我也不想告诉你，更早之前，Richard Stallman
-是如何开始GNU项目，来设计一个免费的类似unix的操作系统。这也是一个很有意义的故事，
+是如何开始GNU项目，来设计一个免费的类似unix的操作系统。那也是一个很有意义的故事，
 但大多数Linux书籍也讲到了它。
 
 No, I want to tell you the story of how you can take back control of your computer.

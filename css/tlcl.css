@@ -7,10 +7,13 @@
 body {
   margin-left: 160px;
   margin-right: 160px;
+  font: 500 16px/1.8 'Hiragino Sans GB', sans-serif;
 }
 
 h1 { 
-  font-size: 150%;
+  font-size: 30px;
+  font-weight: 300;
+  color: #333;
 }
 
 h2 { 
@@ -21,12 +24,6 @@ h2 {
 a {
   text-decoration:none;
 }
-
-/*this is very important for me*/
-/*pre {
-  margin-left: 2%
-}*/
-
 
 p.figure {
   font-style:italic;
