@@ -5,8 +5,6 @@
         
 */
 body {
-  font-family: Helvetica, Arial, FreeSans, san-serif;
-  line-height: 1.4em;
   margin-left: 160px;
   margin-right: 160px;
 }
@@ -35,22 +33,9 @@ p.figure {
   text-align:center;
 }
 
-table.single {
-  border:2px solid #E7E5DC;
-  background-color: #f8f8f8;
-}
-
-table.multi {
-  text-align: left;
-}
-
 caption.cap {
   font-style: italic;
   text-align: left;
-}
-
-th.title {
-  background-color:#f8f8f8;
 }
 
 div.code pre{
