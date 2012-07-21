@@ -14,7 +14,6 @@ p.figure {
   text-align:center;
 }
 
-
 div.code pre{
   background-color: #f8f8f8;
 }
@@ -25,7 +24,6 @@ pre {
 }
 
 code {
-  background: #f1f1f1;
   border: 1px solid #E7E5DC;
   padding: 0.1em;
 }
@@ -39,6 +37,7 @@ hr {
   width: 100%;
   background: gray;
 }
+
 table.single {
   border:2px solid #E7E5DC;
   background-color: #f8f8f8;
@@ -56,5 +55,4 @@ caption.cap {
 th.title {
   background-color:#f1f1f1;
 }
-
 
