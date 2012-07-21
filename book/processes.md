@@ -8,9 +8,9 @@ of doing more than one thing at once by rapidly switching from one executing pro
 another. The Linux kernel manages this through the use of processes. Processes are how
 Linux organizes the different programs waiting for their turn at the CPU.
 
-通常，现在的操作系统都支持多任务，意味着操作系统（给用户）造成了一种假象，（让用户觉得）
-它同时能够做多件事情，事实上，它是快速地轮换执行这些任务的。Linux内核通过使用进程，来
-管理多任务。通过进程，Linux安排不同的程序等待使用CPU。
+通常，现在的操作系统都支持多任务，意味着操作系统（给用户）造成了一种假象，(让用户觉得)
+它同时能够做多件事情，事实上，它是快速地轮换执行这些任务的。Linux 内核通过使用进程，来
+管理多任务。通过进程，Linux 安排不同的程序等待使用 CPU。
 
 Sometimes a computer will become sluggish or an application will stop responding. In
 this chapter, we will look at some of the tools available at the command line that let us
@@ -96,12 +96,10 @@ program has a lot of options, but in it simplest form it is used like this:
 
 查看进程，最常使用地命令（有几个命令）是ps。ps程序有许多选项，它最简单地使用形式是这样的：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ps
-PID TTY           TIME CMD
-5198 pts/1    00:00:00 bash
-10129 pts/1   00:00:00 ps</tt>
-</pre></div>
+    [me@linuxbox ~]$ ps
+    PID TTY           TIME CMD
+    5198 pts/1    00:00:00 bash
+    10129 pts/1   00:00:00 ps
 
 The result in this example lists two processes, process 5198 and process 10129, which are
 bash and ps respectively. As we can see, by default, ps doesn't show us very much,
@@ -111,11 +109,11 @@ TTY is short for “Teletype,” and refers to the controlling terminal for the 
 is showing its age here. The TIME field is the amount of CPU time consumed by the
 process. As we can see, neither process makes the computer work very hard.
 
-上例中，列出了两个进程，进程5198和进程10129，各自代表命令bash和ps。正如我们所看到的，
-默认情况下，ps不会显示很多进程信息，只是列出与当前终端会话相关的进程。为了得到更多信息，
-我们需要加上一些选项，但是在这样做之前，我们先看一下ps命令运行结果的其它字段。
-TTY是"Teletype"的简写，是指进程的控制终端。这里，Unix展示它的年龄。TIME字段表示
-进程所消耗的CPU时间数量。正如我们所看到的，这两个进程使计算机工作起来很轻松。
+上例中，列出了两个进程，进程 5198 和进程 10129，各自代表命令 bash 和 ps。正如我们所看到的，
+默认情况下，ps 不会显示很多进程信息，只是列出与当前终端会话相关的进程。为了得到更多信息，
+我们需要加上一些选项，但是在这样做之前，我们先看一下 ps 命令运行结果的其它字段。
+TTY 是 "Teletype" 的简写，是指进程的控制终端。这里，Unix 展示它的年龄。TIME 字段表示
+进程所消耗的 CPU 时间数量。正如我们所看到的，这两个进程使计算机工作起来很轻松。
 
 If we add an option, we can get a bigger picture of what the system is doing:
 
@@ -135,8 +133,8 @@ processes regardless of what terminal (if any) they are controlled by. The prese
 “?” in the TTY column indicates no controlling terminal. Using this option, we see a list
 of every process that we own.
 
-加上"x"选项（注意没有开头的"-"字符），告诉ps命令，展示所有进程，不管它们由什么
-终端（如果有的话）控制。在TTY一栏中出现的"?"，表示没有控制终端。使用这个"x"选项，可以
+加上 "x" 选项（注意没有开头的 "-" 字符），告诉 ps 命令，展示所有进程，不管它们由什么
+终端（如果有的话）控制。在 TTY 一栏中出现的 "?" ，表示没有控制终端。使用这个 "x" 选项，可以
 看到我们所拥有的每个进程的信息。
 
 Since the system is running a lot of processes, ps produces a long list. It is often helpful
@@ -144,22 +142,25 @@ to pipe the output from ps into less for easier viewing. Some option combination
 produce long lines of output, so maximizing the terminal emulator window may be a
 good idea, too.
 
-因为系统中正运行着许多进程，所以ps命令的输出结果很长。这经常很有帮助，要是把ps的输出结果
-管道到less命令，借助less工具，更容易浏览。一些选项组合也会产生很长的输出结果，所以最大化
+因为系统中正运行着许多进程，所以 ps 命令的输出结果很长。这经常很有帮助，要是把 ps 的输出结果
+管道到 less 命令，借助 less 工具，更容易浏览。一些选项组合也会产生很长的输出结果，所以最大化
 终端仿真器窗口，也是一个好主意。
 
 A new column titled STAT has been added to the output. STAT is short for “state” and
 reveals the current status of the process:
 
-输出结果中，新添加了一栏，标题为STAT。STAT是"state"的简写，它揭示了进程当前状态：
+输出结果中，新添加了一栏，标题为 STAT 。STAT 是 "state" 的简写，它揭示了进程当前状态：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">Table 11-1: Process States</caption>
+<thead>
 <tr>
 <th class="title">State</th>
 <th class="title">Meaning</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td valign="top" width="15%">R</td>
 <td valign="top">Running. This means that the process is running or ready to run.
@@ -198,16 +199,20 @@ for everybody else.</td>
 process) will only get processor time after other processes with
 higher priority have been serviced.</td>
 </tr>
+</tbody>
 </table>
 </p>
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">表11-1: 进程状态</caption>
+<thead>
 <tr>
 <th class="title">状态</th>
 <th class="title">意义</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td valign="top" width="15%">R</td>
 <td valign="top">运行。这意味着，进程正在运行或准备运行。
@@ -247,6 +252,7 @@ valign="top">一个高优先级进程。这可能会授予一个进程更多重�
 一个低优先级进程（一个“好”进程）只有当其它高优先级进程执行之后，才会得到处理器时间。
 </td>
 </tr>
+</tbody>
 </table>
 </p>
 
@@ -258,34 +264,35 @@ process characteristics. See the ps man page for more detail.
 Another popular set of options is “aux” (without a leading dash). This gives us even
 more information:
 
-另一个流行的选项组合是"aux"（不带开头的"-"字符）。这会给我们更多信息：
+另一个流行的选项组合是 "aux"（不带开头的"-"字符）。这会给我们更多信息：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ps aux
-USER   PID  %CPU  %MEM     VSZ    RSS  TTY   STAT   START   TIME  COMMAND
-root     1   0.0   0.0    2136    644  ?     Ss     Mar05   0:31  init
-root     2   0.0   0.0       0      0  ?     S&lt;     Mar05   0:00  [kt]
+    [me@linuxbox ~]$ ps aux
+    USER   PID  %CPU  %MEM     VSZ    RSS  TTY   STAT   START   TIME  COMMAND
+    root     1   0.0   0.0    2136    644  ?     Ss     Mar05   0:31  init
+    root     2   0.0   0.0       0      0  ?     S&lt;     Mar05   0:00  [kt]
 
-and many more...</tt>
-</pre></div>
+    and many more...
 
 This set of options displays the processes belonging to every user. Using the options
 without the leading dash invokes the command with “BSD style” behavior. The Linux
 version of ps can emulate the behavior of the ps program found in several different
 Unix implementations. With these options, we get these additional columns:
 
-这个选项组合，能够显示属于每个用户的进程信息。使用这个选项，可以唤醒“BSD风格”的输出结果。
-Linux版本的ps命令，可以模拟几个不同Unix版本中的ps程序的行为。通过这些选项，我们得到
+这个选项组合，能够显示属于每个用户的进程信息。使用这个选项，可以唤醒 “BSD风格” 的输出结果。
+Linux 版本的 ps 命令，可以模拟几个不同 Unix 版本中的 ps 程序的行为。通过这些选项，我们得到
 这些额外的列。
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">Table 11-2: BSD Style ps Column Headers
 </caption>
+<thead>
 <tr>
 <th class="title">Header</th>
 <th class="title">Meaning</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td valign="top" width="15%">USER</td>
 <td valign="top">User ID. This is the owner of the process.
@@ -313,6 +320,7 @@ process is using in kilobytes.</td>
 <td valign="top">Time when the process started. For values over twenty four hours,
 a date is used.</td>
 </tr>
+</tbody>
 </table>
 </p>
 
@@ -320,10 +328,13 @@ a date is used.</td>
 <table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">表11-2: BSD风格的ps命令列标题
 </caption>
+<thead>
 <tr>
 <th class="title">标题</th>
 <th class="title">意思</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td valign="top" width="15%">USER</td>
 <td valign="top">用户ID. 进程的所有者。
@@ -349,6 +360,7 @@ a date is used.</td>
 <td valign="top">START</td>
 <td valign="top">进程运行的起始时间。若超过24小时，则用天表示。</td>
 </tr>
+</tbody>
 </table>
 </p>
 
@@ -363,9 +375,7 @@ more dynamic view of the machine's activity, we use the top command:
 虽然ps命令能够展示许多计算机运行状态的信息，但是它只是提供，ps命令执行时刻的机器状态快照。
 为了看到更多动态的信息，我们使用top命令：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ top</tt>
-</pre></div>
+    [me@linuxbox ~]$ top
 
 The top program displays a continuously updating (by default, every 3 seconds) display
 of the system processes listed in order of process activity. The name “top” comes from
@@ -377,17 +387,15 @@ top程序连续显示系统进程更新的信息（默认情况下，每三分�
 来源于这个事实，top程序是用来查看系统中“顶端”进程的。top显示结果由两部分组成：
 最上面是系统概要，下面是进程列表，以CPU的使用率排序。
 
-<div class="code"><pre>
-<tt>top - 14:59:20 up 6:30, 2 users, load average: 0.07, 0.02, 0.00
-Tasks: 109 total,   1 running,  106 sleeping,    0 stopped,    2 zombie
-Cpu(s): 0.7%us, 1.0%sy, 0.0%ni, 98.3%id, 0.0%wa, 0.0%hi, 0.0%si
-Mem:   319496k total,   314860k used,   4636k free,   19392k buff
-Swap:  875500k total,   149128k used,   726372k free,  114676k cach
+    top - 14:59:20 up 6:30, 2 users, load average: 0.07, 0.02, 0.00
+    Tasks: 109 total,   1 running,  106 sleeping,    0 stopped,    2 zombie
+    Cpu(s): 0.7%us, 1.0%sy, 0.0%ni, 98.3%id, 0.0%wa, 0.0%hi, 0.0%si
+    Mem:   319496k total,   314860k used,   4636k free,   19392k buff
+    Swap:  875500k total,   149128k used,   726372k free,  114676k cach
 
- PID  USER       PR   NI   VIRT   RES   SHR  S %CPU  %MEM   TIME+    COMMAND
-6244  me         39   19  31752  3124  2188  S  6.3   1.0   16:24.42 trackerd
-....</tt>
-</pre></div>
+     PID  USER       PR   NI   VIRT   RES   SHR  S %CPU  %MEM   TIME+    COMMAND
+    6244  me         39   19  31752  3124  2188  S  6.3   1.0   16:24.42 trackerd
+    ....
 
 The system summary contains a lot of good stuff. Here's a rundown:
 
@@ -396,11 +404,14 @@ The system summary contains a lot of good stuff. Here's a rundown:
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">Table 11-3: top Information Fields</caption>
+<thead>
 <tr>
 <th class="title">Row</th>
 <th class="title">Field</th>
 <th class="title">Meaning</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td valign="top" width="10%">1</td>
 <td valign="top" width="15%">top</td>
@@ -496,17 +507,21 @@ kernel itself.</td>
 <td valign="top">Shows how swap space (virtual memory) is
 being used.</td>
 </tr>
+</tbody>
 </table>
 </p>
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">表11-3: top命令信息字段</caption>
+<thead>
 <tr>
 <th class="title">行号</th>
 <th class="title">字段</th>
 <th class="title">意义</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td valign="top" width="10%">1</td>
 <td valign="top" width="15%">top</td>
@@ -587,6 +602,7 @@ processes. 这意味着进程在内核之外。</td>
 <td valign="top">展示交换分区（虚拟内存）的使用情况。
 </td>
 </tr>
+</tbody>
 </table>
 </p>
 
@@ -622,9 +638,7 @@ sizable window containing the X logo. First, we'll get to know our test subject:
 （底层引擎使图形界面显示在屏幕上）提供的实例程序，这个实例简单地显示一个大小可调的
 包含X标志的窗口。首先，我们需要知道测试的主题：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ xlogo</tt>
-</pre></div>
+    [me@linuxbox ~]$ xlogo
 
 After entering the command, a small window containing the logo should appear
 somewhere on the screen. On some systems, xlogo may print a warning message, but it
@@ -662,10 +676,8 @@ and type Ctrl-c.
 我们再运行xlogo程序一次，观察一下发生了什么事。首先，执行xlogo命令，并且
 证实这个程序正在运行。下一步，回到终端窗口，按下Ctrl-c。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ xlogo
-[me@linuxbox ~]$</tt>
-</pre></div>
+    [me@linuxbox ~]$ xlogo
+    [me@linuxbox ~]$
 
 In a terminal, typing Ctrl-c, interrupts a program. This means that we politely asked
 the program to terminate. After typing Ctrl-c, the xlogo window closed and the shell
@@ -693,11 +705,9 @@ immediately placed in the background, we follow the command with an- “&” cha
 和后台（表层之下放置隐藏的事物）（的设备）。启动一个程序，让它立即在后台
 运行，我们在程序命令之后，加上"&"字符：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ xlogo &amp;
-[1] 28236
-[me@linuxbox ~]$</tt>
-</pre></div>
+    [me@linuxbox ~]$ xlogo &amp;
+    [1] 28236
+    [me@linuxbox ~]$
 
 After entering the command, the xlogo window appeared and the shell prompt returned,
 but some funny numbers were printed too. This message is part of a shell feature called
@@ -708,23 +718,19 @@ job control. With this message, the shell is telling us that we have started job
 这条信息是shell特性的一部分，叫做工作控制。通过这条信息，shell告诉我们，已经启动了
 工作号为1（“［1］”），PID为28236的程序。如果我们运行ps命令，可以看到我们的进程：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ps
-  PID TTY         TIME   CMD
-10603 pts/1   00:00:00   bash
-28236 pts/1   00:00:00   xlogo
-28239 pts/1   00:00:00   ps</tt>
-</pre></div>
+    [me@linuxbox ~]$ ps
+      PID TTY         TIME   CMD
+    10603 pts/1   00:00:00   bash
+    28236 pts/1   00:00:00   xlogo
+    28239 pts/1   00:00:00   ps
 
 The shell's job control facility also gives us a way to list the jobs that are have been
 launched from our terminal. Using the jobs command, we can see this list:
 
 工作控制，这个shell功能可以列出从终端中启动的任务。执行jobs命令，我们可以看到这个输出列表：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ jobs
-[1]+ Running            xlogo &amp;</tt>
-</pre></div>
+    [me@linuxbox ~]$ jobs
+    [1]+ Running            xlogo &
 
 The results show that we have one job, numbered “1”, that it is running, and that the
 command was xlogo &.
@@ -742,12 +748,10 @@ this way:
 一个在后台运行的进程对一切来自键盘的输入都免疫，也不能用Ctrl-c来中断它。使用
 fg命令，让一个进程返回前台执行：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ jobs
-[1]+ Running        xlogo &amp;
-[me@linuxbox ~]$ fg %1 
-xlogo</tt>
-</pre></div>
+    [me@linuxbox ~]$ jobs
+    [1]+ Running        xlogo &amp;
+    [me@linuxbox ~]$ fg %1 
+    xlogo
 
 The command fg followed by a percent sign and the job number (called a jobspec) does
 the trick. If we only have one background job, the jobspec is optional. To terminate
@@ -769,11 +773,9 @@ key, then Ctrl-z:
 输入Ctrl-z，可以停止一个前台进程。让我们试一下。在命令提示符下，执行xlogo命令，
 然后输入Ctrl-z:
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ xlogo
-[1]+ Stopped                 xlogo
-[me@linuxbox ~]$</tt>
-</pre></div>
+    [me@linuxbox ~]$ xlogo
+    [1]+ Stopped                 xlogo
+    [me@linuxbox ~]$
 
 After stopping xlogo, we can verify that the program has stopped by attempting to
 resize the xlogo window. We will see that it appears quite dead. We can either restore

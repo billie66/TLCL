@@ -52,6 +52,8 @@ table.single {
 
 table.multi {
   text-align: left;
+  width: 0; 
+  border: 1px;
 }
 
 caption.cap {
