@@ -5,7 +5,7 @@
         
 */
 #wrapper {
-  padding: 5%;
+  padding: 10%;
   min-width: 480px;
 }
 
@@ -17,25 +17,15 @@ p.figure {
 
 div.code pre{
   background-color: #f8f8f8;
-  padding: 0.2em;
-  font-size: 120%;
 }
 
 pre {
-  background: #f8f8f8;
   border: 1px solid #E7E5DC;
   border-width: 1px 0 4px 6px;
-  padding: 1ex;
-  overflow: auto;
-  color: black;
-  line-height: 120%;
-  font-family: "Consolas","Courier New","Courier","mono";
-  font-size: 130%;
-  letter-spacing: 0;
 }
 
 code {
-  background: #f8f8f8;
+  background: #f1f1f1;
   border: 1px solid #E7E5DC;
   padding: 0.1em;
 }
@@ -64,7 +54,7 @@ caption.cap {
 }
 
 th.title {
-  background-color:#f8f8f8;
+  background-color:#f1f1f1;
 }
 
 
