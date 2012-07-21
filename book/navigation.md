@@ -251,10 +251,13 @@ quickly changed.
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">Table 3-1: cd Shortcuts</caption>
+<thead>
 <tr>
 <th class="title">Shortcut</th>
 <th class="title"> Result </th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td valign="top"> cd</td>
 <td valign="top"> Changes the working directory to your home directory.</td>
@@ -270,16 +273,20 @@ user_name. For example, cd ~bob will change the directory to
 the home directory of user “bob.”
 </td>
 </tr>
+</tbody>
 </table>
 </p><br>
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">表3-1: cd 快捷键</caption>
+<thead>
 <tr>
 <th class="title">快捷键</th>
 <th class="title">运行结果</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td valign="top">cd</td>
 <td valign="top">更改工作目录到主目录。</td>
@@ -292,71 +299,11 @@ the home directory of user “bob.”
 <td width="%18" valign="top">cd ~user\_name</td>
 <td valign="top"> 更改工作目录到用户主目录。例如, cd ~bob 会更改工作目录到用户“bob”的主目录。</td>
 </tr>
+</tbody>
 </table>
 </p><br>
 
 
-<table summary="TYPO.CSS 的测试平台列表">
-    <thead>
-        <tr>
-            <th>OS/浏览器</th>
-            <th>Firefox</th>
-            <th>Chrome</th>
-            <th>Safari</th>
-            <th>Opera</th>
-            <th>IE9</th>
-            <th>IE8</th>
-            <th>IE7</th>
-            <th>IE6</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Mac OS X</td>
-            <td>√</td>
-            <td>√</td>
-            <td>√</td>
-            <td>√</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>Windows 7</td>
-            <td>√</td>
-            <td>√</td>
-            <td>√</td>
-            <td>√</td>
-            <td>√</td>
-            <td>√</td>
-            <td>√</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>Windows XP</td>
-            <td>√</td>
-            <td>√</td>
-            <td>√</td>
-            <td>√</td>
-            <td>-</td>
-            <td>√</td>
-            <td>√</td>
-            <td>√</td>
-        </tr>
-        <tr>
-            <td>hello cd Ubuntu Linux</td>
-            <td>√</td>
-            <td>√</td>
-            <td>-</td>
-            <td>√</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-    </tbody>
-</table>
 <p>
 <table class="single" cellpadding="10" width="%100">
 <tr>

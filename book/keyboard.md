@@ -189,10 +189,13 @@ Running this script results in this:
 <p>
 <table class="multi" cellpadding="10" border="1" width="100%">
 <caption class="cap">Table 29-1: read Options</caption>
+<thead>
 <tr>
 <th class="title">Option</th>
 <th class="title">Description</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td valign="top" width="25%">-a array </td>
 <td valign="top">Assign the input to array, starting with index zero. We
@@ -236,16 +239,20 @@ non-zero exit status if an input times out.</td>
 <td valign="top">Use input from file descriptor fd, rather than standard
 input.</td>
 </tr>
+</tbody>
 </table>
 </p>
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="100%">
 <caption class="cap">表29-1: read 选项</caption>
+<thead>
 <tr>
 <th class="title">选项</th>
 <th class="title">说明</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td valign="top" width="25%">-a array </td>
 <td valign="top">把输入赋值到数组array中，从索引号零开始。我们
@@ -284,6 +291,7 @@ input.</td>
 <td valign="top">-u fd</td>
 <td valign="top">使用文件描述符fd中的输入，而不是标准输入。</td>
 </tr>
+</tbody>
 </table>
 </p>
 
