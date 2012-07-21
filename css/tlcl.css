@@ -4,9 +4,15 @@
 	http://www.nodethirtythree.com
         
 */
+html {
+    background-color: #F5DEB3;
+}
+
 #wrapper {
-  padding: 10%;
+  margin: 5% 10%;
+  padding: 5%;
   min-width: 480px;
+  background-color: white;
 }
 
 p.figure {
