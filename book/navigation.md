@@ -2,13 +2,12 @@
 layout: book
 title: 文件系统中跳转 
 ---
-3 – Navigation
 
 The first thing we need to learn to do (besides just typing) is how to
 navigate the file system on our Linux system. In this chapter we will
 introduce the following commands:
 
-我们需要学习的第一件事（除了打字之外），是如何在Linux文件系统中跳转。
+我们需要学习的第一件事（除了打字之外），是如何在 Linux 文件系统中跳转。
 在这一章节中，我们将介绍以下命令：
 
 * pwd - Print name of current working directory
@@ -23,7 +22,8 @@ introduce the following commands:
 
 * ls — 列出目录内容
 
-Understanding The File System Tree
+
+### Understanding The File System Tree
 
 ### 理解文件系统树
 
@@ -35,7 +35,7 @@ directory in the file system is called the root directory. The root directory
 contains files and subdirectories, which contain more files and subdirectories
 and so on and so on.
 
-正如Windows，一个类似于Unix的操作系统，比如说Linux，以分层目录结构来组织所有文件。
+正如 Windows，一个类似于 Unix 的操作系统，比如说 Linux，以分层目录结构来组织所有文件。
 这就意味着所有文件组成了一棵树型目录（有时候在其它系统中叫做文件夹），
 这个目录树可能包含文件和其它的目录。文件系统中的第一级目录称为根目录。
 根目录包含文件和子目录，子目录包含更多的文件和子目录，依此类推。
@@ -47,12 +47,12 @@ the computer. Storage devices are attached (or more correctly, mounted) at
 various points on the tree according to the whims of the system administrator,
 the person (or persons) responsible for the maintenance of the system.
 
-注意不同于Windows，Windows每个存储设备都有一个独自的文件系统，类似于Unix的操作系统，
-比如说Linux，总是有一个单一的文件系统树，不管有多少个磁盘或者存储设备连接到计算机上。
+注意不同于 Windows，Windows 每个存储设备都有一个独自的文件系统，类似于 Unix 的操作系统，
+比如说 Linux，总是有一个单一的文件系统树，不管有多少个磁盘或者存储设备连接到计算机上。
 根据系统管理员的兴致，存储设备连接到（或着更精确些，是挂载到）目录树的各个节点上。
 系统管理员负责维护系统安全。
 
-The Current Working Directory
+### The Current Working Directory
 
 ### 当前工作目录
 
@@ -83,12 +83,10 @@ the pwd (print working directory) command.
 把文件系统想象成一个迷宫形状，就像一棵倒立的大树，我们站在迷宫的中间位置。
 在任意时刻，我们处于一个目录里面，我们能看到这个目录包含的所有文件，
 以及通往上面目录（父目录）的路径，和下面的各个子目录。我们所在的目录则称为
-当前工作目录。我们使用pwd（打印工作目录）命令，来显示当前工作目录。
+当前工作目录。我们使用 pwd（打印工作目录）命令，来显示当前工作目录。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ pwd
-/home/me</tt>
-</pre></div>
+    [me@linuxbox ~]$ pwd
+    /home/me
 
 When we first log in to our system (or start a terminal emulator session) our
 current working directory is set to our home directory. Each user account is
@@ -99,7 +97,7 @@ directory is the only place the user is allowed to write files.
 每个用户都有他自己的主目录，当用户以普通用户的身份操控系统时，主目录是唯一
 允许用户编写文件的地方。
 
-Listing The Contents Of A Directory
+### Listing The Contents Of A Directory
 
 ### 列出目录内容
 
@@ -108,19 +106,17 @@ ls command.
 
 列出一个目录包含的文件及子目录，使用ls命令。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls
-Desktop Documents Music Pictures Public Templates Videos</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls
+    Desktop Documents Music Pictures Public Templates Videos
 
 Actually, we can use the ls command to list the contents of any directory, not
 just the current working directory, and there are many other fun things it can
 do as well. We'll spend more time with ls in the next chapter.
 
-实际上，用ls命令可以列出任一个目录的内容，而不只是当前工作目录的内容。
-ls命令还能完成许多有趣的事情。在下一章节，我们将介绍更多关于ls的知识。
+实际上，用 ls 命令可以列出任一个目录的内容，而不只是当前工作目录的内容。
+ls 命令还能完成许多有趣的事情。在下一章节，我们将介绍更多关于 ls 的知识。
 
-Changing The Current Working Directory
+### Changing The Current Working Directory
 
 ### 更改当前工作目录
 
@@ -131,12 +127,12 @@ branches of the tree to get to the directory we want. Pathnames can be
 specified in one of two different ways; as absolute pathnames or as relative
 pathnames. Let's deal with absolute pathnames first.
 
-要更改工作目录（此刻，我们站在树形迷宫里面），我们用cd命令。输入cd, 
+要更改工作目录（此刻，我们站在树形迷宫里面），我们用 cd 命令。输入 cd, 
 然后输入你想要的工作目录的路径名，就能实现愿望。路径名就是沿着目录树的分支
 到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，
 另一个是相对路径。首先处理绝对路径。
 
-Absolute Pathnames
+### Absolute Pathnames
 
 ### 绝对路径
 
@@ -150,16 +146,14 @@ pathname) there is a directory called "usr" which contains a directory called
 
 绝对路径开始于根目录，紧跟着目录树的一个个分支，一直到达期望的目录或文件。
 例如，你的系统中有一个目录，大多数系统程序都安装在这个目录下。这个目录的
-路径名是/usr/bin。它意味着从根目录（用开头的“/"表示）开始，有一个叫"usr"的
-目录包含了目录"bin"。
+路径名是 /usr/bin。它意味着从根目录（用开头的“/"表示）开始，有一个叫 "usr" 的
+目录包含了目录 "bin"。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cd /usr/bin
-[me@linuxbox bin]$ pwd
-/usr/bin
-[me@linuxbox bin]$ ls
-...Listing of many, many files ...</tt>
-</pre></div>
+    [me@linuxbox ~]$ cd /usr/bin
+    [me@linuxbox bin]$ pwd
+    /usr/bin
+    [me@linuxbox bin]$ ls
+    ...Listing of many, many files ...
 
 
 Now we can see that we have changed the current working directory to /usr/bin
@@ -167,10 +161,10 @@ and that it is full of files. Notice how the shell prompt has changed? As a
 convenience, it is usually set up to automatically display the name of the
 working directory.
 
-我们把工作目录转到/usr/bin目录下，里面装满了文件。注意shell提示符是怎样改变的。
+我们把工作目录转到 /usr/bin 目录下，里面装满了文件。注意 shell 提示符是怎样改变的。
 为了方便，通常设置提示符自动显示工作目录名。
 
-Relative Pathnames
+### Relative Pathnames
 
 ### 相对路径
 
@@ -180,42 +174,36 @@ this, it uses a couple of special symbols to represent relative positions in
 the file system tree. These special symbols are "." (dot) and ".." (dot dot).
 
 绝对路径从根目录开始，直到它的目的地，而相对路径开始于工作目录。
-一对特殊符号来表示相对位置，在文件系统树中。这对特殊符号是"." (点) 和".." (点点)。
+一对特殊符号来表示相对位置，在文件系统树中。这对特殊符号是 "." (点) 和 ".." (点点)。
 
 The "." symbol refers to the working directory and the ".." symbol refers to
 the working directory's parent directory. Here is how it works. Let's change
 the working directory to /usr/bin again:
 
-符号"."指的是工作目录，".."指的是工作目录的父目录。下面的例子说明怎样使用它。
-再次更改工作目录到/usr/bin：
+符号 "." 指的是工作目录，".." 指的是工作目录的父目录。下面的例子说明怎样使用它。
+再次更改工作目录到 /usr/bin：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cd /usr/bin
-[me@linuxbox bin]$ pwd
-/usr/bin</tt>
-</pre></div>
+    [me@linuxbox ~]$ cd /usr/bin
+    [me@linuxbox bin]$ pwd
+    /usr/bin
 
 Okay, now let's say that we wanted to change the working directory to the
 parent of /usr/bin which is /usr. We could do that two different ways. 
 Either with an absolute pathname:
 
-好的，比方说更改工作目录到/usr/bin的父目录/usr。可以通过两种方法来实现。或者使用绝对路径名：
+好的，比方说更改工作目录到 /usr/bin 的父目录 /usr。可以通过两种方法来实现。或者使用绝对路径名：
 
-<div class="code"><pre>
-<tt>[me@linuxbox bin]$ cd /usr
-[me@linuxbox usr]$ pwd
-/usr</tt>
-</pre></div>
+    [me@linuxbox bin]$ cd /usr
+    [me@linuxbox usr]$ pwd
+    /usr
 
 Or, with a relative pathname:
 
 或者， 使用相对路径：
 
-<div class="code"><pre>
-<tt>[me@linuxbox bin]$ cd ..
-[me@linuxbox usr]$ pwd
-/usr</tt>
-</pre></div>
+    [me@linuxbox bin]$ cd ..
+    [me@linuxbox usr]$ pwd
+    /usr
 
 Two different methods with identical results. Which one should we use? The one
 that requires the least typing!
@@ -227,39 +215,33 @@ different ways. Either using an absolute pathname:
 
 同样地，从目录/usr/到/usr/bin也有两种途径。或者使用绝对路径：
 
-<div class="code"><pre>
-<tt>[me@linuxbox usr]$ cd /usr/bin
-[me@linuxbox bin]$ pwd
-/usr/bin</tt>
-</pre></div>
+    [me@linuxbox usr]$ cd /usr/bin
+    [me@linuxbox bin]$ pwd
+    /usr/bin
 
 Or, with a relative pathname:
 
 或者，用相对路径：
 
-<div class="code"><pre>
-<tt>[me@linuxbox usr]$ cd ./bin
-[me@linuxbox bin]$ pwd
-/usr/bin</tt>
-</pre></div>
+    [me@linuxbox usr]$ cd ./bin
+    [me@linuxbox bin]$ pwd
+    /usr/bin
 
 Now, there is something important that I must point out here. In almost all
 cases, you can omit the "./". It is implied. Typing:
 
 有一件很重要的事，我必须指出来。在几乎所有的情况下，你可以省略"./"。它是隐含地。输入：
 
-<div class="code"><pre>
-<tt>[me@linuxbox usr]$ cd bin</tt>
-</pre></div>
+    [me@linuxbox usr]$ cd bin
 
 does the same thing. In general, if you do not specify a pathname to
 something, the working directory will be assumed.
 
 实现相同的效果，如果不指定一个文件的目录，那它的工作目录会被假定为当前工作目录。
 
-Some Helpful Shortcuts
+### Some Helpful Shortcuts
 
-###有用的快捷键
+### 有用的快捷键
 
 In table 3-1 we see some useful ways the current working directory can be
 quickly changed.
@@ -289,9 +271,7 @@ the home directory of user “bob.”
 </td>
 </tr>
 </table>
-</p>
-
-<p><br/></p> 
+</p><br>
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -313,9 +293,8 @@ the home directory of user “bob.”
 <td valign="top"> 更改工作目录到用户主目录。例如, cd ~bob 会更改工作目录到用户“bob”的主目录。</td>
 </tr>
 </table>
-</p>
+</p><br>
 
-<p><br/></p>
 
 <table summary="TYPO.CSS 的测试平台列表">
     <thead>
@@ -415,19 +394,19 @@ later.</p></li>
 
 <ol>
 <li><p>
-以"."字符开头的文件名是隐藏文件。这仅表示，ls命令不能列出它们，
-除非使用ls -a 命令。当你创建帐号后，几个配置帐号的隐藏文件被放置在
+以 "." 字符开头的文件名是隐藏文件。这仅表示，ls 命令不能列出它们，
+除非使用 ls -a 命令。当你创建帐号后，几个配置帐号的隐藏文件被放置在
 你的主目录下。稍后，我们会仔细研究一些隐藏文件，来定制你的系统环境。
 另外，一些应用程序也会把它们的配置文件以隐藏文件的形式放在你的主目录下面。</p></li>
 
-<li><p>文件名和命令名是大小写敏感的。文件名“File1” 和 “file1”是指两个不同的文件名。</p></li>
+<li><p>文件名和命令名是大小写敏感的。文件名 “File1” 和 “file1” 是指两个不同的文件名。</p></li>
 
-<li><p>Linux没有“文件扩展名”的概念，不像其它一些系统。可以用你喜欢的任何名字
-来给文件起名。文件内容或用途由其它方法来决定。虽然类似Unix的操作系统，
+<li><p>Linux 没有“文件扩展名”的概念，不像其它一些系统。可以用你喜欢的任何名字
+来给文件起名。文件内容或用途由其它方法来决定。虽然类似 Unix 的操作系统，
 不用文件扩展名来决定文件的内容或用途，但是应用程序会。</p></li>
 
-<li><p>虽然Linux支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限
-使用“.”，“－”，下划线。最重要的是，不要在文件名中使用空格。如果你想表示词与
+<li><p>虽然 Linux 支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限
+使用 “.”，“－”，下划线。最重要的是，不要在文件名中使用空格。如果你想表示词与
 词间的空格，用下划线字符来代替。过些时候，你会感激自己这样做。</p></li>
 </ol>
 

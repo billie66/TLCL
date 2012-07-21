@@ -189,16 +189,16 @@ h1, h2, h3, h4, h5, h6{
 	line-height: 1.5;
 }
 .typo h1, .typo-h1 {
-	font-size: 1.8em;
-}
-.typo h2, .typo-h2 {
 	font-size: 1.6em;
 }
-.typo h3, .typo-h3 {
+.typo h2, .typo-h2 {
 	font-size: 1.4em;
 }
-.typo h4, .typo-h4 {
+.typo h3, .typo-h3 {
 	font-size: 1.2em;
+}
+.typo h4, .typo-h4 {
+	font-size: 1em;
 }
 .typo h5, .typo h6, .typo-h5, .typo-h6 {
 	font-size: 1em;

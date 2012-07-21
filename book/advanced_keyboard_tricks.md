@@ -254,27 +254,21 @@ shell能帮助你的另一种方式是通过一种叫做自动补全的机制。
 按下tab键，自动补全就会发生。让我们看一下这是怎样工作的。给出一个看起来
 像这样的主目录：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls
-Desktop   ls-output.txt   Pictures   Templates   Videos
-....</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls
+    Desktop   ls-output.txt   Pictures   Templates   Videos
+    ....
 
 Try typing the following but don't press the Enter key:
 
 试着输入下面的命令，但不要按下Enter键：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls l</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls l
 
 Now press the tab key:
 
 现在按下tab键：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls ls-output.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls ls-output.txt
 
 See how the shell completed the line for you? Let's try another one. Again, don't press
 Enter:
@@ -282,17 +276,13 @@ Enter:
 看一下shell是怎样补全这一行的？让我们再试试另一个例子。这回，也
 不要按下Enter:
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls D</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls D
 
 Press tab:
 
 按下tab:
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls D</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls D
 
 No completion, just a beep. This happened because “D” matches more than one entry in
 the directory. For completion to be successful, the “clue” you give it has to be
@@ -301,17 +291,13 @@ unambiguous. If we go further:
 没有补全，只是嘟嘟响。因为"D"不止匹配目录中的一个条目。为了自动补全执行成功，
 你给它的"线索"必须不模棱两可。如果我们继续输入：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls Do</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls Do
 
 Then press tab:
 
 然后按下tab：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls Documents</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls Documents
 
 The completion is successful.
 
@@ -392,8 +378,8 @@ entered. This list of commands is kept in your home directory in a file called
 .bash_history. The history facility is a useful resource for reducing the amount of
 typing you have to do, especially when combined with command line editing.
 
-正如我们在第二章中讨论到的，bash维护着一个已经执行过的命令的历史列表。这个命令列表
-被保存在你主目录下，一个叫做.bash_history的文件里。这个history工具是个有用资源，
+正如我们在第二章中讨论到的，bash 维护着一个已经执行过的命令的历史列表。这个命令列表
+被保存在你主目录下，一个叫做 .bash_history 的文件里。这个 history 工具是个有用资源，
 因为它可以减少你敲键盘的次数，尤其当和命令行编辑联系起来时。
 
 ### Searching History
@@ -404,20 +390,16 @@ At any time, we can view the contents of the history list by:
 
 在任何时候，我们都可以浏览历史列表的内容，通过：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ history | less</tt>
-</pre></div>
+    [me@linuxbox ~]$ history | less
 
 By default, bash stores the last five hundred commands you have entered. We will see
 how to adjust this value in a later chapter. Let's say we want to find the commands we
 used to list /usr/bin. One way we could do this:
 
-在默认情况下，bash会存储你所输入的最后500个命令。在随后的章节里，我们会知道
-怎样调整这个数值。比方说我们想要找到列出目录/usr/bin内容的命令。一种方法，我们可以这样做：
+在默认情况下，bash 会存储你所输入的最后 500 个命令。在随后的章节里，我们会知道
+怎样调整这个数值。比方说我们想要找到列出目录 /usr/bin 内容的命令。一种方法，我们可以这样做：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ history | grep /usr/bin</tt>
-</pre></div>
+    [me@linuxbox ~]$ history | grep /usr/bin
 
 And let's say that among our results we got a line containing an interesting command like
 this:
@@ -430,12 +412,10 @@ The number “88” is the line number of the command in the history list. We co
 immediately using another type of expansion called history expansion. To use our
 discovered line we could do this:
 
-数字"88"是这个命令在历史列表中的行号。随后在使用另一种展开类型时，叫做
+数字 "88" 是这个命令在历史列表中的行号。随后在使用另一种展开类型时，叫做
 历史命令展开，我们会用到这个数字。我们可以这样做，来使用我们所发现的行：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ !88</tt>
-</pre></div>
+    [me@linuxbox ~]$ !88
 
 bash will expand “!88” into the contents of the eighty-eighth line in the
 history list. There are other forms of history expansion that we will cover a
@@ -449,51 +429,43 @@ command line. To find the next occurrence of the text (moving “up” the histo
 list), type Ctrl-r again. To quit searching, type either Ctrl-g or Ctrl-c.
 Here we see it in action:
 
-bash会把"!88"展开成为历史列表中88行的内容。还有其它的历史命令展开形式，我们一会儿
-讨论它们。bash也具有按递增顺序来搜索历史列表的能力。这意味着随着字符的输入，我们
-可以告诉bash去搜索历史列表，每一个附加字符都进一步提炼我们的搜索。启动递增搜索，
-输入Ctrl-r，其后输入你要寻找的文本。当你找到它以后，你可以敲入Enter来执行命令，
-或者输入Ctrl-j，从历史列表中复制这一行到当前命令行。再次输入Ctrl-r，来找到下一个
-匹配项（向上移动历史列表）。输入Ctrl-g或者Ctrl-c，退出搜索。实际来体验一下：
+bash 会把 "!88" 展开成为历史列表中88行的内容。还有其它的历史命令展开形式，我们一会儿
+讨论它们。bash 也具有按递增顺序来搜索历史列表的能力。这意味着随着字符的输入，我们
+可以告诉 bash去搜索历史列表，每一个附加字符都进一步提炼我们的搜索。启动递增搜索，
+输入 Ctrl-r，其后输入你要寻找的文本。当你找到它以后，你可以敲入 Enter来执行命令，
+或者输入 Ctrl-j，从历史列表中复制这一行到当前命令行。再次输入 Ctrl-r，来找到下一个
+匹配项（向上移动历史列表）。输入 Ctrl-g 或者 Ctrl-c，退出搜索。实际来体验一下：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$</tt>
-</pre></div>
+    [me@linuxbox ~]$
 
 First type Ctrl-r:
 
 首先输入Ctrl-r:
 
-<div class="code"><pre>
-<tt>(reverse-i-search)`':</tt>
-</pre></div>
+    (reverse-i-search)`':
 
 The prompt changes to indicate that we are performing a reverse incremental search. It is
 “reverse” because we are searching from “now” to some time in the past. Next, we start
 typing our search text. In this example “/usr/bin”:
 
 提示符改变，显示我们正在执行反向递增搜索。搜索过程是"反向的"，因为我们按照从"现在"到过去
-某个时间段的顺序来搜寻。下一步，我们开始输入要查找的文本。在这个例子里是"/usr/bin"：
+某个时间段的顺序来搜寻。下一步，我们开始输入要查找的文本。在这个例子里是 "/usr/bin"：
 
-<div class="code"><pre>
-<tt>(reverse-i-search)`/usr/bin': ls -l /usr/bin > ls-output.txt</tt>
-</pre></div>
+    (reverse-i-search)`/usr/bin': ls -l /usr/bin > ls-output.txt
 
 Immediately, the search returns our result. With our result, we can execute the command
 by pressing Enter, or we can copy the command to our current command line for
 further editing by typing Ctrl-j. Let's copy it. Type Ctrl-j:
 
-即刻，搜索返回我们需要的结果。我们可以执行这个命令，按下Enter键，或者我们可以复制
-这个命令到我们当前的命令行，来进一步编辑它，输入Ctrl-j。复制它，输入Ctrl-j：
+即刻，搜索返回我们需要的结果。我们可以执行这个命令，按下 Enter键，或者我们可以复制
+这个命令到我们当前的命令行，来进一步编辑它，输入 Ctrl-j。复制它，输入 Ctrl-j：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /usr/bin > ls-output.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -l /usr/bin > ls-output.txt
 
 Our shell prompt returns and our command line is loaded and ready for action!
 The table below lists some of the keystrokes used to manipulate the history list:
 
-我们的shell提示符重新出现，命令行加载完毕，正准备行动！下表列出了一些按键组合，
+我们的 shell提示符重新出现，命令行加载完毕，正准备行动！下表列出了一些按键组合，
 这些按键用来操作历史列表：
 
 <p>
@@ -558,7 +530,7 @@ The shell offers a specialized type of expansion for items in the history list b
 number to insert an entry from the history list. There are a number of other expansion
 features:
 
-通过使用"!"字符，shell为历史列表中的命令，提供了一个特殊的展开类型。我们已经知道一个感叹号
+通过使用 "!" 字符，shell 为历史列表中的命令，提供了一个特殊的展开类型。我们已经知道一个感叹号
 ，其后再加上一个数字，可以把来自历史列表中的命令插入到命令行中。还有一些其它的展开特性：
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -602,7 +574,7 @@ and enter. &nbsp;
 I would caution against using the “!string” and “!?string” forms unless you are absolutely
 sure of the contents of the history list items.
 
-应该小心谨慎地使用"!string"和"!?string"格式，除非你完全确信历史列表条目的内容。
+应该小心谨慎地使用 "!string" 和 "!?string" 格式，除非你完全确信历史列表条目的内容。
 
 There are many more elements available in the history expansion mechanism, but this
 subject is already too arcane and our heads may explode if we continue. The HISTORY
@@ -610,7 +582,7 @@ EXPANSION section of the bash man page goes into all the gory details. Feel free
 explore!
 
 在历史展开机制中，还有许多可利用的特点，但是这个题目已经太晦涩难懂了，
-如果我们再继续讨论的话，我们的头可能要爆炸了。bash手册页的HISTORY EXPANSION
+如果我们再继续讨论的话，我们的头可能要爆炸了。bash 手册页的 HISTORY EXPANSION
 部分详尽地讲述了所有要素。
 
 <table class="single" cellpadding="10" width="%100">
