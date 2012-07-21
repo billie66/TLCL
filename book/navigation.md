@@ -249,7 +249,7 @@ quickly changed.
 在表3-1中，列举出了一些快速改变当前工作目录的有效方法。
 
 <p>
-<table class="multi" cellpadding="10" width="%100">
+<table class="multi">
 <caption class="cap">Table 3-1: cd Shortcuts</caption>
 <thead>
 <tr>
@@ -259,15 +259,15 @@ quickly changed.
 </thead>
 <tbody>
 <tr>
-<td valign="top"> cd</td>
-<td valign="top"> Changes the working directory to your home directory.</td>
+<td> cd</td>
+<td> Changes the working directory to your home directory.</td>
 </tr>
 <tr>
-<td valign="top"> cd -</td>
-<td valign="top"> Changes the working directory to the previous working directory.</td>
+<td> cd -</td>
+<td> Changes the working directory to the previous working directory.</td>
 </tr>
 <tr>
-<td valign="top">cd ~user_name</td>
+<td>cd ~user_name</td>
 <td valign="top"> Changes the working directory to the home directory of
 user_name. For example, cd ~bob will change the directory to
 the home directory of user “bob.”
