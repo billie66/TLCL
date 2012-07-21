@@ -28,7 +28,7 @@ audio, canvas, video {
 
 /* 要注意表单元素并不继承父级 font 的问题 */
 body, button, input, select, textarea {
-	font: 500 14px/1.8 'Hiragino Sans GB', sans-serif;
+	font: 600 14px/1.8 'Hiragino Sans GB', sans-serif;
 }
 
 /* 去掉各Table  cell 的边距并让其边重合 */
@@ -178,8 +178,7 @@ small {
 }
 
 h1, h2, h3, h4, h5, h6{
-	font-weight: 500;
-	font-weight: 800\9;
+	font-weight: bold;
 	color:#333;
 }
 

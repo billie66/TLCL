@@ -10,7 +10,7 @@ html {
 
 #wrapper {
   margin: 5% 10%;
-  padding: 5%;
+  padding: 3% 5%;
   min-width: 480px;
   background-color: white;
 }
@@ -27,6 +27,7 @@ div.code pre{
 pre {
   border: 1px solid #E7E5DC;
   border-width: 1px 0 4px 6px;
+  font-size: 13px;
 }
 
 code {
