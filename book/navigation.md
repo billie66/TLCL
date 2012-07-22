@@ -276,7 +276,6 @@ the home directory of user “bob.”
 </tbody>
 </table>
 </p>
-<br />
 
 <p>
 <table class="multi">
@@ -304,7 +303,6 @@ the home directory of user “bob.”
 </table>
 </p>
 
-<br />
 
 <p>
 <table class="single" cellpadding="10" width="%100">

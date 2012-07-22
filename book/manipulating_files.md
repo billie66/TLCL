@@ -103,7 +103,6 @@ characters</td>
 </tr>
 </table>
 </p>
-<br />
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">表5－1：通配符</caption>
@@ -168,7 +167,6 @@ Table 5-2 lists the most commonly used character classes:
 </table>
 </p>
 
-<br />
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">表5－2：普遍使用的字符类</caption>
@@ -198,7 +196,6 @@ Table 5-2 lists the most commonly used character classes:
 </tr>
 </table>
 </p>
-<br />
 
 Using wildcards makes it possible to construct very sophisticated selection criteria for
 filenames. Here are some examples of patterns and what they match:
@@ -254,7 +251,6 @@ numerals</td>
 </tr>
 </table>
 </p>
-<br />
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
 <caption class="cap">表5－3：通配符范例</caption>
@@ -343,7 +339,7 @@ desktop so powerful.
 </td>
 </tr>
 </table>
-<br />
+
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
@@ -870,7 +866,7 @@ valign="top">同上，除了如果文件file1，或目录dir1不存在的话，r
 </tr>
 </table>
 </p>
-<br />
+
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
