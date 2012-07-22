@@ -89,23 +89,19 @@ execute, given a particular command name. It works like this:
 type命令是shell内部命令，它会显示命令的类别，给出一个特定的命令名（做为参数）。
 它像这样工作：
 
-<div class="code"><pre>
-<tt>type command</tt>
-</pre></div>
+    type command
 
 Where "command" is the name of the command you want to examine. Here are some
 examples:
 
 "command"是你要检测的命令名。这里有些例子：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ type type
-type is a shell builtins
-[me@linuxbox ~]$ type ls
-ls is aliased to `ls --color=tty`
-[me@linuxbox ~]$ type cp
-cp is /bin/cp</tt>
-</pre></div>
+    [me@linuxbox ~]$ type type
+    type is a shell builtins
+    [me@linuxbox ~]$ type ls
+    ls is aliased to `ls --color=tty`
+    [me@linuxbox ~]$ type cp
+    cp is /bin/cp
 
 Here we see the results for three different commands. Notice that the one for ls (taken
 from a Fedora system) and how the ls command is actually an alias for the ls command
@@ -127,10 +123,8 @@ used:
 有时候在一个操作系统中，不只安装了可执行程序的一个版本。然而在桌面系统中，这并不普遍，
 但在大型服务器中，却很平常。为了确定所给定的执行程序的准确位置，使用which命令：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ which is
-/bin/ls</tt>
-</pre></div>
+    [me@linuxbox ~]$ which is
+    /bin/ls
 
 which only works for executable programs, not builtins nor aliases that are substitutes
 for actual executable programs. When we try to use which on a shell builtin, for
@@ -139,13 +133,11 @@ example, cd, we either get no response or an error message:
 这个命令只对可执行程序有效，不包括内部命令和命令别名，别名是真正的可执行程序的替代物。
 当我们试着使用shell内部命令时，例如，cd命令，我们或者得不到回应，或者是个错误信息：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ which cd
-/usr/bin/which: no cd in
-(/opt/jre1.6.0_03/bin:/usr/lib/qt-3.3/bin:/usr/kerberos/bin:/opt/jre1
-.6.0_03/bin:/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/home/me/bin
-)</tt>
-</pre></div>
+    [me@linuxbox ~]$ which cd
+    /usr/bin/which: no cd in
+    (/opt/jre1.6.0_03/bin:/usr/lib/qt-3.3/bin:/usr/kerberos/bin:/opt/jre1
+    .6.0_03/bin:/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/home/me/bin
+    )
 
 which is a fancy way of saying “command not found.”
 
@@ -170,11 +162,9 @@ bash has a built-in help facility available for each of the shell builtins. To u
 bash有一个内建的帮助工具，可供每一个shell内部命令使用。输入"type"，接着是shell
 内部命令名。例如：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ help cd
-cd: cd [-L|-P] [dir]
-Change ...</tt>
-</pre></div>
+    [me@linuxbox ~]$ help cd
+    cd: cd [-L|-P] [dir]
+    Change ...
 
 
 A note on notation: When square brackets appear in the description of a command's
@@ -207,11 +197,9 @@ command's supported syntax and options. For example:
 
 许多可执行程序支持一个"--help"选项，这个选项是显示命令所支持的语法和选项说明。例如：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ mkdir --help
-Usage: mkdir [OPTION] DIRECTORY...
-Create ...</tt>
-</pre></div>
+    [me@linuxbox ~]$ mkdir --help
+    Usage: mkdir [OPTION] DIRECTORY...
+    Create ...
 
 Some programs don't support the “--help” option, but try it anyway. Often it results in an
 error message that will reveal the same usage information.
@@ -230,9 +218,7 @@ used to view them. It is used like this:
 许多希望被命令行使用的可执行程序，提供了一个正式的文档，叫做手册或手册页(man
 page)。一个特殊的叫做man的分页程序，可用来浏览他们。它是这样使用的：
 
-<div class="code"><pre>
-<tt>man program</tt>
-</pre></div>
+    man program
 
 where “program” is the name of the command to view.
 
@@ -248,9 +234,7 @@ the man page for the ls command:
 和命令选项列表，及每个选项的说明。然而，通常手册文档并不包含实例，它打算
 作为一本参考手册，而不是教材。作为一个例子，浏览一下ls命令的手册文档：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ man ls</tt>
-</pre></div>
+    [me@linuxbox ~]$ man ls
 
 On most Linux systems, man uses less to display the manual page, so all of the familiar
 less commands work while displaying the page.
@@ -265,49 +249,51 @@ formats and more. The table below describes the layout of the manual:
 man所显示的参考手册，被分成几个章节，它们不仅仅包括用户命令，也包括系统管理员
 命令，程序接口，文件格式等等。下表描绘了手册的布局：
 
-<p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 6-1: Man Page Organization</caption>
+<thead>
 <tr>
 <th class="title">Section</th>
 <th class="title">Contents</th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td valign="top" width="25%">1</td>
-<td valign="top">User commands  用户命令</td>
+<td>1</td>
+<td>User commands  用户命令</td>
 </tr>
 <tr>
-<td valign="top">2</td>
-<td valign="top">Programming interfaces kernel system calls  程序接口内核系统调用</td>
+<td>2</td>
+<td>Programming interfaces kernel system calls  程序接口内核系统调用</td>
 </tr>
 <tr>
-<td valign="top">3</td>
-<td valign="top">Programming interfaces to the C library  C库函数程序接口</td>
+<td>3</td>
+<td>Programming interfaces to the C library  C库函数程序接口</td>
 </tr>
 <tr>
-<td valign="top">4</td>
-<td valign="top">Special files such as device nodes and drivers
+<td>4</td>
+<td>Special files such as device nodes and drivers
 特殊文件，比如说设备结点和驱动程序</td>
 </tr>
 <tr>
-<td valign="top">5</td>
-<td valign="top">File formats  文件格式</td>
+<td>5</td>
+<td>File formats  文件格式</td>
 </tr>
 <tr>
-<td valign="top">6</td>
-<td valign="top">Games and amusements such as screen savers
+<td>6</td>
+<td>Games and amusements such as screen savers
 游戏娱乐，如屏幕保护程序</td>
 </tr>
 <tr>
-<td valign="top">7</td>
-<td valign="top">Miscellaneous  其他方面</td>
+<td>7</td>
+<td>Miscellaneous  其他方面</td>
 </tr>
 <tr>
-<td valign="top">8</td>
-<td valign="top">System administration commands  系统管理员命令</td>
+<td>8</td>
+<td>System administration commands  系统管理员命令</td>
 </tr>
+</tbody>
 </table>
-</p>
 
 Sometimes we need to look in a specific section of the manual to find what we are
 looking for. This is particularly true if we are looking for a file format that is also the
@@ -320,17 +306,13 @@ this:
 没有指定章节号，我们总是得到第一个匹配项，可能在第一章节。我们这样使用man命令，
 来指定章节号：
 
-<div class="code"><pre>
-<tt>man section search_term</tt>
-</pre></div>
+    man section search_term
 
 For example: 
 
 例如：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ man 5 passwd</tt>
-</pre></div>
+    [me@linuxbox ~]$ man 5 passwd
 
 This will display the man page describing the file format of the /etc/passwd file.
 
@@ -347,11 +329,9 @@ pages using the search term “floppy”:
 也有可能搜索参考手册列表，基于某个关键字的匹配项。虽然很粗糙但有时很有用。
 下面是一个以"floppy"为关键词来搜索参考手册的例子：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ apropos floppy
-create_floppy_devices (8)   - udev callout to create all possible
-...</tt>
-</pre></div>
+    [me@linuxbox ~]$ apropos floppy
+    create_floppy_devices (8)   - udev callout to create all possible
+    ...
 
 The first field in each line of output is the name of the man page, the second field shows
 the section. Note that the man command with the “-k” option performs the exact same
@@ -411,14 +391,12 @@ Info pages are hyperlinked much like web pages. Here is a sample:
 GNU项目提供了一个命令程序手册页的替代物，称为"info"。info内容可通过info阅读器
 程序读取。info页是超级链接形式的，和网页很相似。这有个例子：
 
-<div class="code"><pre>
-<tt>File: coreutils.info,    Node: ls invocation,    Next: dir invocation,
- Up: Directory listing
+    File: coreutils.info,    Node: ls invocation,    Next: dir invocation,
+     Up: Directory listing
 
-10.1 `ls': List directory contents
-==================================
-...</tt>
-</pre></div>
+    10.1 `ls': List directory contents
+    ==================================
+    ...
 
 The info program reads info files, which are tree structured into individual nodes, each
 containing a single topic. Info files contain hyperlinks that can move you from node to
@@ -435,56 +413,60 @@ table of commands used to control the reader while displaying an info page:
 输入"info"，接着输入程序名称，启动info。下表中的命令，当显示一个info页面时，
 用来控制阅读器。
 
-<p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Tbale 6－2：info Commands</caption>
+<thead>
 <tr>
 <th class="title">Command</th>
 <th class="title">Action</th>
 </tr>
+</thead>
+<tbody>
 <tr>
-<td valign="top" width="25%">?</td>
-<td valign="top">Display command help</td>
+<td>?</td>
+<td>Display command help</td>
 </tr>
 <tr>
-<td valign="top">PgUp or Backspace</td>
-<td valign="top">Display privious page </td>
+<td>PgUp or Backspace</td>
+<td>Display privious page </td>
 </tr>
 <tr>
-<td valign="top">PgDn or Space</td>
-<td valign="top">Display next page </td>
+<td>PgDn or Space</td>
+<td>Display next page </td>
 </tr>
 <tr>
-<td valign="top">n</td>
-<td valign="top">Next - Display the next node</td>
+<td>n</td>
+<td>Next - Display the next node</td>
 </tr>
 <tr>
-<td valign="top">p</td>
-<td valign="top">Previous - Display the previous node</td>
+<td>p</td>
+<td>Previous - Display the previous node</td>
 </tr>
 <tr>
-<td valign="top">u</td>
-<td valign="top">Up - Display the parent node of the currently displayed
+<td>u</td>
+<td>Up - Display the parent node of the currently displayed
 node, usually a menu.</td>
 </tr>
 <tr>
-<td valign="top">Enter</td>
-<td valign="top">Follow the hyperlink at the cursor location </td>
+<td>Enter</td>
+<td>Follow the hyperlink at the cursor location </td>
 </tr>
 <tr>
-<td valign="top">q</td>
-<td valign="top">Quit</td>
+<td>q</td>
+<td>Quit</td>
 </tr>
+</tbody>
 </table>
-</p>
 
-<p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表 6－2：info 命令</caption>
+<thead>
 <tr>
 <th class="title">命令</th>
 <th class="title">行为</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td valign="top" width="25%">?</td>
 <td valign="top">显示命令帮助</td>
@@ -517,17 +499,15 @@ node, usually a menu.</td>
 <td valign="top">q</td>
 <td valign="top">退出</td>
 </tr>
+</tbody>
 </table>
-</p>
 
 Most of the command line programs we have discussed so far are part of the GNU
 Project's “coreutils” package, so typing:
 
 到目前为止，我们所讨论的大多数命令行程序，属于GNU项目"coreutils"包，所以输入：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ info coreutils</tt>
-</pre></div>
+    [me@linuxbox ~]$ info coreutils
 
 will display a menu page with hyperlinks to each program contained in the coreutils
 package.
@@ -569,12 +549,10 @@ Here's the example we will use:
 
 我们会用到下面的例子：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cd /usr; ls; cd -
-bin  games    kerberos  lib64    local  share  tmp
-...
-[me@linuxbox ~]$</tt>
-</pre></div>
+    [me@linuxbox ~]$ cd /usr; ls; cd -
+    bin  games    kerberos  lib64    local  share  tmp
+    ...
+    [me@linuxbox ~]$
 
 
 As we can see, we have combined three commands on one line. First we change
@@ -590,35 +568,27 @@ name “test” is already being used. To find out, we can use the type command 
 比方说"test"。在使用"test"之前，查明是否"test"命令名已经存在系统中，是个很不错
 的主意。为了查清此事，可以使用type命令：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ type test
-test is a shell builtin</tt>
-</pre></div>
+    [me@linuxbox ~]$ type test
+    test is a shell builtin
 
 Oops! The name “test” is already taken. Let's try “foo”:
 
 哦！"test"名字已经被使用了。试一下"foo":
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ type foo
-bash: type: foo: not found </tt>
-</pre></div>
+    [me@linuxbox ~]$ type foo
+    bash: type: foo: not found 
 
 Great! “foo” is not taken. So let's create our alias:
 
 太棒了！"foo"还没被占用。创建命令别名：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ alias foo='cd /usr; ls; cd -'</tt>
-</pre></div>
+    [me@linuxbox ~]$ alias foo='cd /usr; ls; cd -'
 
 Notice the structure of this command:
 
 注意命令结构：
 
-<div class="code"><pre>
-<tt><b>alias name='string'</b></tt>
-</pre></div>
+    <b>alias name='string'</b>
 
 After the command “alias” we give alias a name followed immediately (no whitespace
 allowed) by an equals sign, followed immediately by a quoted string containing the
@@ -629,31 +599,25 @@ the shell would expect a command. Let's try it:
 一串用引号引起的字符串，字符串的内容要赋值给name。我们定义了别名之后，
 这个命令别名可以使用在任何地方。试一下：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ foo
-bin   games   kerberos  lib64    local   share  tmp
-...
-[me@linuxbox ~]$</tt>
-</pre></div>
+    [me@linuxbox ~]$ foo
+    bin   games   kerberos  lib64    local   share  tmp
+    ...
+    [me@linuxbox ~]$
 
 We can also use the type command again to see our alias:
 
 我们也可以使用type命令来查看我们的别名：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ type foo
-foo is aliased to `cd /usr; ls ; cd -'</tt>
-</pre></div>
+    [me@linuxbox ~]$ type foo
+    foo is aliased to `cd /usr; ls ; cd -'
 
 To remove an alias, the unalias command is used, like so:
 
 删除别名，使用unalias命令，像这样：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ unalias foo
-[me@linuxbox ~]$ type foo
-bash: type: foo: not found</tt>
-</pre></div>
+    [me@linuxbox ~]$ unalias foo
+    [me@linuxbox ~]$ type foo
+    bash: type: foo: not found
 
 While we purposefully avoided naming our alias with an existing command name, it is
 not uncommon to do so. This is often done to apply a commonly desired option to each
@@ -664,10 +628,8 @@ often aliased to add color support:
 会把一个普遍用到的选项加到一个经常使用的命令后面。例如，之前见到的ls命令，会
 带有色彩支持：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ type ls
-ls is aliased to 'ls --color=tty'</tt>
-</pre></div>
+    [me@linuxbox ~]$ type ls
+    ls is aliased to 'ls --color=tty'
 
 To see all the aliases defined in the environment, use the alias command without
 arguments. Here are some of the aliases defined by default on a Fedora system. Try and
@@ -676,11 +638,9 @@ figure out what they all do:
 要查看所有定义在系统环境中的别名，使用不带参数的alias命令。下面在Fedora系统中
 默认定义的别名。试着弄明白，它们是做什么的：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ alias
-alias l.='ls -d .* --color=tty'
-...</tt>
-</pre></div>
+    [me@linuxbox ~]$ alias
+    alias l.='ls -d .* --color=tty'
+    ...
 
 There is one tiny problem with defining aliases on the command line. They vanish when
 your shell session ends. In a later chapter, we will see how to add our own aliases to the
