@@ -7,7 +7,7 @@ The first thing we need to learn to do (besides just typing) is how to
 navigate the file system on our Linux system. In this chapter we will
 introduce the following commands:
 
-我们需要学习的第一件事（除了打字之外），是如何在 Linux 文件系统中跳转。
+我们需要学习的第一件事（除了打字之外）是如何在 Linux 文件系统中跳转。
 在这一章节中，我们将介绍以下命令：
 
 * pwd - Print name of current working directory
@@ -267,8 +267,8 @@ quickly changed.
 <td> Changes the working directory to the previous working directory.</td>
 </tr>
 <tr>
-<td>cd ~user_name</td>
-<td valign="top"> Changes the working directory to the home directory of
+<td id="tdlist">cd ~user_name</td>
+<td> Changes the working directory to the home directory of
 user_name. For example, cd ~bob will change the directory to
 the home directory of user “bob.”
 </td>

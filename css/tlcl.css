@@ -52,7 +52,6 @@ table.single {
 
 table.multi {
   text-align: left;
-  width: 0; 
   border: 1px;
 }
 
@@ -65,3 +64,6 @@ th.title {
   background-color:#f1f1f1;
 }
 
+#tdlist {
+    display: inline-block;
+}
