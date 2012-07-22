@@ -275,10 +275,11 @@ the home directory of user “bob.”
 </tr>
 </tbody>
 </table>
-</p><br>
+</p>
+<br />
 
 <p>
-<table class="multi" cellpadding="10" width="%100">
+<table class="multi">
 <caption class="cap">表3-1: cd 快捷键</caption>
 <thead>
 <tr>
@@ -288,21 +289,22 @@ the home directory of user “bob.”
 </thead>
 <tbody>
 <tr>
-<td valign="top">cd</td>
-<td valign="top">更改工作目录到主目录。</td>
+<td >cd</td>
+<td >更改工作目录到主目录。</td>
 </tr>
 <tr>
-<td valign="top"> cd -</td>
-<td valign="top"> 更改工作目录到先前的工作目录。</td>
+<td > cd -</td>
+<td > 更改工作目录到先前的工作目录。</td>
 </tr>
 <tr>
-<td valign="top">cd ~user_name</td>
+<td id="tdlist">cd ~user_name</td>
 <td valign="top"> 更改工作目录到用户主目录。例如, cd ~bob 会更改工作目录到用户“bob”的主目录。</td>
 </tr>
 </tbody>
 </table>
-</p><br>
+</p>
 
+<br />
 
 <p>
 <table class="single" cellpadding="10" width="%100">
