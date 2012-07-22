@@ -69,6 +69,7 @@ th.title {
 }
 
 .footer {
-  text-align: right;
+    display: block;
+    text-align: right;
 }
   
