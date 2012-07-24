@@ -9,7 +9,7 @@ you can redirect the input and output of commands to and from files, as well as 
 multiple commands together into powerful command pipelines. To show off this facility,
 we will introduce the following commands:
 
-这堂课，我们来介绍可能是命令行最酷的特性。它叫做I/O重定向。"I/O"代表输入/输出，
+这堂课，我们来介绍可能是命令行最酷的特性。它叫做 I/O 重定向。"I/O"代表输入/输出，
 通过这个工具，你可以重定向命令的输入输出，命令的输入来自文件，而输出也存到文件。
 也可以把多个命令连接起来组成一个强大的命令管道。为了炫耀这个工具，我们将叙述
 以下命令：
@@ -56,7 +56,7 @@ displays its results and its error messages on the screen.
 
 到目前为止，我们用到的许多程序都会产生某种输出。这种输出，经常由两种类型组成。
 第一，程序运行结果；这是说，程序要完成的功能。第二，我们得到状态和错误信息，
-这些告诉我们程序进展。如果我们观察一个命令，像ls，会看到它的运行结果和错误信息
+这些告诉我们程序进展。如果我们观察一个命令，像 ls，会看到它的运行结果和错误信息
 显示在屏幕上。
 
 Keeping with the Unix theme of “everything is a file,” programs such as ls actually send
@@ -66,8 +66,8 @@ output and standard error are linked to the screen and not saved into a disk fil
 In addition, many programs take input from a facility called standard input (stdin) which
 is, by default, attached to the keyboard.
 
-与Unix主题“任何东西都是一个文件”保持一致，程序，比方说ls，实际上把他们的运行结果
-输送到一个叫做标准输出的特殊文件（经常用stdout表示），而它们的状态信息则送到另一个
+与 Unix 主题“任何东西都是一个文件”保持一致，程序，比方说 ls，实际上把他们的运行结果
+输送到一个叫做标准输出的特殊文件（经常用 stdout 表示），而它们的状态信息则送到另一个
 叫做标准错误的文件（stderr）。默认情况下，标准输出和标准错误都连接到屏幕，而不是
 保存到磁盘文件。除此之外，许多程序从一个叫做标准输入（stdin）的设备得到输入，默认情况下，
 标准输入连接到键盘。
@@ -76,8 +76,8 @@ I/O redirection allows us to change where output goes and where input comes from
 Normally, output goes to the screen and input comes from the keyboard, but with I/O
 redirection, we can change that.
 
-I/O重定向允许我们可以更改输出走向和输入来向。一般地，输出送到屏幕，输入来自键盘，
-但是通过I/O重定向，我们可以改变输入输出方向。
+I/O 重定向允许我们可以更改输出走向和输入来向。一般地，输出送到屏幕，输入来自键盘，
+但是通过 I/O 重定向，我们可以改变输入输出方向。
 
 ### Redirecting Standard Output
 
@@ -89,9 +89,9 @@ the name of the file. Why would we want to do this? It's often useful to store t
 of a command in a file. For example, we could tell the shell to send the output of the ls
 command to the file ls-output.txt instead of the screen:
 
-I/O重定向允许我们来重定义标准输出送到哪里。重定向标准输出到另一个文件除了屏幕，我们使用
+I/O 重定向允许我们来重定义标准输出送到哪里。重定向标准输出到另一个文件除了屏幕，我们使用
 "&gt;"重定向符，其后跟着文件名。为什么我们要这样做呢？因为有时候把一个命令的运行结果存储到
-一个文件很有用处。例如，我们可以告诉shell把ls命令的运行结果输送到文件ls-output.txt中去，
+一个文件很有用处。例如，我们可以告诉 shell 把 ls 命令的运行结果输送到文件 ls-output.txt 中去，
 由文件代替屏幕。
 
 <div class="code"><pre>
@@ -101,7 +101,7 @@ I/O重定向允许我们来重定义标准输出送到哪里。重定向标准�
 Here, we created a long listing of the /usr/bin directory and sent the results to the file
 ls-output.txt. Let's examine the redirected output of the command:
 
-这里，我们创建了一个长长的目录/usr/bin列表，并且输送程序运行结果到文件ls-output.txt中。
+这里，我们创建了一个长长的目录/usr/bin 列表，并且输送程序运行结果到文件 ls-output.txt 中。
 我们检查一下重定向的命令输出结果：
 
 <div class="code"><pre>
@@ -113,8 +113,8 @@ ls-output.txt. Let's examine the redirected output of the command:
 Good; a nice, large, text file. If we look at the file with less, we will see that the file
 ls-output.txt does indeed contain the results from our ls command:
 
-好；一个不错的大型文本文件。如果我们用less阅读器来查看这个文件，我们会看到文件
-ls-output.txt的确包含ls命令的执行结果。
+好；一个不错的大型文本文件。如果我们用 less 阅读器来查看这个文件，我们会看到文件
+ls-output.txt 的确包含 ls 命令的执行结果。
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ less ls-output.txt</tt>
@@ -140,8 +140,8 @@ how to redirect standard error in just a minute, but first, let's look at what h
 output file:
 
 我们收到一个错误信息。这很有意义，因为我们指定了一个不存在的目录/bin/usr,
-但是为什么这条错误信息显示在屏幕上而不是被重定向到文件ls-output.txt？答案是，
-ls程序不把它的错误信息输送到标准输出。反而，像许多写得不错的Unix程序，ls把
+但是为什么这条错误信息显示在屏幕上而不是被重定向到文件 ls-output.txt？答案是，
+ls 程序不把它的错误信息输送到标准输出。反而，像许多写得不错的 Unix 程序，ls 把
 错误信息送到标准错误。因为我们只是重定向了标准输出，而没有重定向标准错误，
 所以错误信息被送到屏幕。马上，我们将知道怎样重定向标准错误，但是首先看一下
 我们的输出文件发生了什么事情。
@@ -159,7 +159,7 @@ truncation. In fact, if we ever need to actually truncate a file (or create a ne
 we can use a trick like this:
 
 文件长度成为零！这是因为，当我们使用"&gt;"重定向符来重定向输出结果时，目标文件总是从开头被重写。
-因为我们ls命令没有产生运行结果，只有错误信息，重定向操作开始重写文件，然后
+因为我们 ls 命令没有产生运行结果，只有错误信息，重定向操作开始重写文件，然后
 由于错误而停止，导致文件内容删除。事实上，如果我们需要删除一个文件内容（或者创建一个
 新的空文件），可以使用这样的技巧：
 
@@ -216,7 +216,7 @@ number two, we can redirect standard error with this notation:
 
 重定向标准错误缺乏专用的重定向操作符。重定向标准错误，我们必须参考它的文件描述符。
 一个程序可以在几个编号的文件流中的任一个上产生输出。然而我们必须把这些文件流的前
-三个看作标准输入，输出和错误，shell内部参考它们为文件描述符0，1和2，各自地。shell提供
+三个看作标准输入，输出和错误，shell 内部参考它们为文件描述符0，1和2，各自地。shell 提供
 了一种表示法来重定向文件，使用文件描述符。因为标准错误和文件描述符2一样，我们用这种
 表示法来重定向标准错误：
 
@@ -227,7 +227,7 @@ number two, we can redirect standard error with this notation:
 The file descriptor “2” is placed immediately before the redirection operator to perform
 the redirection of standard error to the file ls-error.txt.
 
-文件描述符"2"，紧挨着放在重定向操作符之前，来执行重定向标准错误到文件ls-error.txt任务。
+文件描述符"2"，紧挨着放在重定向操作符之前，来执行重定向标准错误到文件 ls-error.txt 任务。
 
 ### Redirecting Standard Output And Standard Error To One File
 
@@ -240,7 +240,7 @@ old versions of the shell:
 
 可能有这种情况，我们希望捕捉一个命令的所有输出到一个文件。为了完成这个，我们
 必须同时重定向标准输出和标准错误。有两种方法来完成任务。第一个，传统的方法，
-在旧版本shell中也有效：
+在旧版本 shell 中也有效：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ls -l /bin/usr > ls-output.txt 2&gt;&amp;1</tt>
@@ -250,7 +250,7 @@ Using this method, we perform two redirections. First we redirect standard outpu
 file ls-output.txt and then we redirect file descriptor two (standard error) to file
 descriptor one (standard output) using the notation 2&gt;&amp;1.
 
-使用这种方法，我们完成两个重定向。首先重定向标准输出到文件ls-output.txt，然后
+使用这种方法，我们完成两个重定向。首先重定向标准输出到文件 ls-output.txt，然后
 重定向文件描述符2（标准错误）到文件描述符1（标准输出）使用表示法2&gt;&amp;1。
 
 <hr />
@@ -265,7 +265,7 @@ work. In the example above,
 
 redirects standard error to the file ls-output.txt, but if the order is changed to
 
-重定向标准错误到文件ls-output.txt，但是如果命令顺序改为：
+重定向标准错误到文件 ls-output.txt，但是如果命令顺序改为：
 
 2&gl;&amp;1 &gl;ls-output.txt
 
@@ -277,7 +277,7 @@ standard error is directed to the screen.
 Recent versions of bash provide a second, more streamlined method for performing this
 combined redirection:
 
-现在的bash版本提供了第二种方法，更精简合理的方法来执行这种联合的重定向。
+现在的 bash 版本提供了第二种方法，更精简合理的方法来执行这种联合的重定向。
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ls -l /bin/usr &amp;&lt; ls-output.txt </tt>
@@ -286,7 +286,7 @@ combined redirection:
 In this example, we use the single notation &> to redirect both standard output and
 standard error to the file ls-output.txt.
 
-在这个例子里面，我们使用单单一个表示法&amp;&gt;来重定向标准输出和错误到文件ls-output.txt。
+在这个例子里面，我们使用单单一个表示法&amp;&gt;来重定向标准输出和错误到文件 ls-output.txt。
 
 ### Disposing Of Unwanted Output
 
@@ -314,16 +314,16 @@ To suppress error messages from a command, we do this:
 <td>
 <h3>/dev/null in Unix Culture</h3>
 
-<h3>Unix文化中的/dev/null</h3>
+<h3>Unix 文化中的/dev/null</h3>
 
 <p>The bit bucket is an ancient Unix concept and due to its universality, has appeared
 in many parts of Unix culture. When someone says he/she is sending your
 comments to /dev/null, now you know what it means. For more examples,
 see the Wikipedia article on “/dev/null”.
 </p>
-<p>位存储桶是个古老的Unix概念，由于它的普遍性，它的身影出现在Unix文化的
+<p>位存储桶是个古老的 Unix 概念，由于它的普遍性，它的身影出现在 Unix 文化的
 许多部分。当有人说他/她正在发送你的评论到/dev/null，现在你应该知道那是
-什么意思了。更多的例子，可以阅读Wikipedia关于"/dev/null"的文章。
+什么意思了。更多的例子，可以阅读 Wikipedia 关于"/dev/null"的文章。
  </p>
 </td>
 </tr>
@@ -346,7 +346,7 @@ one.
 
 The cat command reads one or more files and copies them to standard output like so:
 
-cat命令读取一个或多个文件，然后复制它们到标准输出，就像这样:
+cat 命令读取一个或多个文件，然后复制它们到标准输出，就像这样:
 
 <div class="code"><pre>
 <tt><b>cat [file]</b></tt>
@@ -355,7 +355,7 @@ cat命令读取一个或多个文件，然后复制它们到标准输出，就�
 In most cases, you can think of cat as being analogous to the TYPE command in DOS.
 You can use it to display files without paging, for example:
 
-在大多数情况下，你可以认为cat命令相似于DOS中的TYPE命令。你可以使用cat来显示
+在大多数情况下，你可以认为 cat 命令相似于 DOS 中的 TYPE 命令。你可以使用 cat 来显示
 文件而没有分页，例如：
 
 <div class="code"><pre>
@@ -368,9 +368,9 @@ used to join files together. Say we have downloaded a large file that has been s
 multiple parts (multimedia files are often split this way on USENET), and we want to
 join them back together. If the files were named:
 
-将会显示文件ls-output.txt的内容。cat经常被用来显示简短的文本文件。因为cat可以
+将会显示文件 ls-output.txt 的内容。cat 经常被用来显示简短的文本文件。因为 cat 可以
 接受不只一个文件作为参数，所以它也可以用来把文件连接在一起。比方说我们下载了一个
-大型文件，这个文件被分离成多个部分（USENET中的多媒体文件经常以这种方式分离），
+大型文件，这个文件被分离成多个部分（USENET 中的多媒体文件经常以这种方式分离），
 我们想把它们连起来。如果文件命名为：
 
 movie.mpeg.001 movie.mpeg.002 ... movie.mpeg.099
@@ -406,7 +406,7 @@ doing exactly what it's supposed to.
 If cat is not given any arguments, it reads from standard input and since standard input
 is, by default, attached to the keyboard, it's waiting for us to type something! Try this:
 
-如果cat没有给出任何参数，它会从标准输入读入数据，因为标准输入，默认情况下，连接到键盘。
+如果 cat 没有给出任何参数，它会从标准输入读入数据，因为标准输入，默认情况下，连接到键盘。
 它正在等待我们输入数据！试试这个：
 
 <div class="code"><pre>
@@ -417,7 +417,7 @@ The quick brown fox jumped over the lazy dog.</tt>
 Next, type a Ctrl-d (i.e., hold down the Ctrl key and press “d”) to tell cat that it has
 reached end of file (EOF) on standard input:
 
-下一步，输入Ctrl-d（按住Ctrl键同时按下"d"），来告诉cat，在标准输入中，
+下一步，输入 Ctrl-d（按住 Ctrl 键同时按下"d"），来告诉 cat，在标准输入中，
 它已经到达文件末尾（EOF）：
 
 <div class="code"><pre>
@@ -432,7 +432,7 @@ say that we wanted to create a file called “lazy_dog.txt” containing the tex
 example. We would do this:
 
 
-由于文件名参数的缺席，cat复制标准输入到标准输出，所以我们看到文本行重复出现。
+由于文件名参数的缺席，cat 复制标准输入到标准输出，所以我们看到文本行重复出现。
 我们可以使用这种行为来创建简短的文本文件。比方说，我们想创建一个叫做"lazy_dog.txt"
 的文件，这个文件包含例子中的文本。我们这样做：
 
@@ -446,8 +446,8 @@ type Ctrl-d at the end. Using the command line, we have implemented the world's
 dumbest word processor! To see our results, we can use cat to copy the file to stdout
 again:
 
-输入命令，其后输入要放入文件中的文本。记住，最后输入Ctrl-d。通过使用这个命令，我们
-实现了世界上最低能的文字处理器！看一下运行结果，我们使用cat来复制文件内容到
+输入命令，其后输入要放入文件中的文本。记住，最后输入 Ctrl-d。通过使用这个命令，我们
+实现了世界上最低能的文字处理器！看一下运行结果，我们使用 cat 来复制文件内容到
 标准输出：
 
 <div class="code"><pre>
@@ -472,13 +472,13 @@ single filename argument. This is not particularly useful compared to passing a 
 argument, but it serves to demonstrate using a file as a source of standard input. Other
 commands make better use of standard input, as we shall soon see.
 
-使用“<”重定向操作符，我们把标准输入源从键盘改到文件lazy_dog.tx。我们看到结果
+使用“<”重定向操作符，我们把标准输入源从键盘改到文件 lazy_dog.tx。我们看到结果
 和传递单个文件名作为参数的执行结果一样。把这和传递一个文件名参数作比较，尤其没有意义，
 但它是用来说明把一个文件作为标准输入源。
 
 Before we move on, check out the man page for cat, as it has several interesting options.
 
-在我们继续之前，查看cat的手册页，因为它有几个有趣的选项。
+在我们继续之前，查看 cat 的手册页，因为它有几个有趣的选项。
 
 ### Pipelines
 
@@ -489,7 +489,7 @@ utilized by a shell feature called pipelines. Using the pipe operator “|” (v
 standard output of one command can be piped into the standard input of another:
 
 命令可以从标准输入读取数据，然后再把数据输送到标准输出，命令的这种能力被
-一个shell特性所利用，这个特性叫做管道线。使用管道操作符"|"（竖杠），一个命令的
+一个 shell 特性所利用，这个特性叫做管道线。使用管道操作符"|"（竖杠），一个命令的
 标准输出可以管道到另一个命令的标准输入：
 
 <div class="code"><pre>
@@ -502,7 +502,7 @@ less to display, page-by-page, the output of any command that sends its results 
 standard output:
 
 为了全面地说明这个命令，我们需要一些命令。是否记得我们说过，我们已经知道有一个
-命令接受标准输入？它是less命令。我们用less来一页一页地显示任何命令的输出，命令把
+命令接受标准输入？它是 less 命令。我们用 less 来一页一页地显示任何命令的输出，命令把
 它的运行结果输送到标准输出：
 
 <div class="code"><pre>
@@ -526,7 +526,7 @@ executable programs in /bin and /usr/bin, put them in sorted order and view it:
 
 管道线经常用来对数据完成复杂的操作。有可能会把几个命令放在一起组成一个管道线。
 通常，以这种方式使用的命令被称为过滤器。过滤器接受输入，以某种方式改变它，然后
-输出它。第一个我们想试验的过滤器是sort。想象一下，我们想把目录/bin和/usr/bin中
+输出它。第一个我们想试验的过滤器是 sort。想象一下，我们想把目录/bin 和/usr/bin 中
 的可执行程序都联合在一起，再把它们排序，然后浏览执行结果：
 
 <div class="code"><pre>
@@ -537,8 +537,8 @@ Since we specified two directories (/bin and /usr/bin), the output of ls would h
 consisted of two sorted lists, one for each directory. By including sort in our pipeline,
 we changed the data to produce a single, sorted list.
 
-因为我们指定了两个目录（/bin和/usr/bin），ls命令的输出结果由有序列表组成，
-各自针对一个目录。通过在管道线中包含sort，我们改变输出数据，从而产生一个
+因为我们指定了两个目录（/bin 和/usr/bin），ls 命令的输出结果由有序列表组成，
+各自针对一个目录。通过在管道线中包含 sort，我们改变输出数据，从而产生一个
 有序列表。
 
 ### uniq - Report Or Omit Repeated Lines
@@ -551,10 +551,10 @@ for details) and, by default, removes any duplicates from the list. So, to make 
 list has no duplicates (that is, any programs of the same name that appear in both the
 /bin and /usr/bin directories) we will add uniq to our pipeline:
 
-uniq命令经常和sort命令结合在一起使用。uniq从标准输入或单个文件名参数接受数据有序
-列表（详情查看uniq手册页），默认情况下，从数据列表中删除任何重复行。所以，为了确信
-我们的列表中不包含重复句子（这是说，出现在目录/bin和/usr/bin中重名的程序），我们添加
-uniq到我们的管道线中：
+uniq 命令经常和 sort 命令结合在一起使用。uniq 从标准输入或单个文件名参数接受数据有序
+列表（详情查看 uniq 手册页），默认情况下，从数据列表中删除任何重复行。所以，为了确信
+我们的列表中不包含重复句子（这是说，出现在目录/bin 和/usr/bin 中重名的程序），我们添加
+uniq 到我们的管道线中：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq | less</tt>
@@ -564,8 +564,8 @@ In this example, we use uniq to remove any duplicates from the output of the sor
 command. If we want to see the list of duplicates instead, we add the “-d” option to
 uniq like so:
 
-在这个例子中，我们使用uniq从sort命令的输出结果中，来删除任何重复行。如果我们想看到
-重复的数据列表，让uniq命令带上"-d"选项，就像这样：
+在这个例子中，我们使用 uniq 从 sort 命令的输出结果中，来删除任何重复行。如果我们想看到
+重复的数据列表，让 uniq 命令带上"-d"选项，就像这样：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq -d | less</tt>
@@ -591,9 +591,9 @@ arguments, wc accepts standard input. The “-l” option limits its output to o
 lines. Adding it to a pipeline is a handy way to count things. To see the number of
 programs we have in our sorted list, we can do this:
 
-在这个例子中，wc打印出来三个数字：行数，单词数和字节数，包含在文件ls-output.txt中。
-正如我们先前的命令，如果wc不带命令行参数，它接受标准输入。"-l"选项限制命令输出只能
-报道行数。添加wc到管道线来统计数据，是个很便利的方法。查看我们的有序列表中程序个数，
+在这个例子中，wc 打印出来三个数字：行数，单词数和字节数，包含在文件 ls-output.txt 中。
+正如我们先前的命令，如果 wc 不带命令行参数，它接受标准输入。"-l"选项限制命令输出只能
+报道行数。添加 wc 到管道线来统计数据，是个很便利的方法。查看我们的有序列表中程序个数，
 我们可以这样做：
 
 <div class="code"><pre>
@@ -607,7 +607,7 @@ programs we have in our sorted list, we can do this:
 
 grep is a powerful program used to find text patterns within files. It's used like this:
 
-grep是个很强大的程序，用来找到文件中的匹配文本。这样使用grep命令：
+grep 是个很强大的程序，用来找到文件中的匹配文本。这样使用 grep 命令：
 
 <div class="code"><pre>
 <tt>grep pattern [file...]</tt>
@@ -618,7 +618,7 @@ patterns that grep can match can be very complex, but for now we will concentrat
 simple text matches. We'll cover the advanced patterns, called regular expressions in a
 later chapter.
 
-当grep遇到一个文件中的匹配"模式"，它会打印出包含这个类型的行。grep能够匹配的模式可以
+当 grep 遇到一个文件中的匹配"模式"，它会打印出包含这个类型的行。grep 能够匹配的模式可以
 很复杂，但是现在我们把注意力集中在简单文本匹配上面。在后面的章节中，我们将会研究
 高级模式，叫做正则表达式。
 
@@ -641,8 +641,8 @@ There are a couple of handy options for grep: “-i” which causes grep to igno
 when performing the search (normally searches are case sensitive) and “-v” which tells
 grep to only print lines that do not match the pattern.
 
-grep有－对方便的选项："-i"导致grep忽略大小写当执行搜索时（通常，搜索是大小写
-敏感的），"-v"选项会告诉grep只打印不匹配的行。
+grep 有－对方便的选项："-i"导致 grep 忽略大小写当执行搜索时（通常，搜索是大小写
+敏感的），"-v"选项会告诉 grep 只打印不匹配的行。
 
 ### head / tail – Print First / Last Part Of Files
 
@@ -654,7 +654,7 @@ and the tail command prints the last ten lines. By default, both commands print 
 lines of text, but this can be adjusted with the “-n” option:
 
 有时候你不需要一个命令的所有输出。可能你只想要前几行或者后几行的输出内容。
-head命令打印文件的前十行，而tail命令打印文件的后十行。默认情况下，两个命令
+head 命令打印文件的前十行，而 tail 命令打印文件的后十行。默认情况下，两个命令
 都打印十行文本，但是可以通过"-n"选项来调整命令打印的行数。
 
 <div class="code"><pre>
@@ -681,9 +681,9 @@ will look at the messages file in /var/log. Superuser privileges are required to
 this on some Linux distributions, since the /var/log/messages file may contain
 security information:
 
-tail有一个选项允许你实时的浏览文件。当观察日志文件的进展时，这很有用，因为
-它们同时在被写入。在以下的例子里，我们要查看目录/var/log里面的信息文件。在
-一些Linux发行版中，要求有超级用户权限才能阅读这些文件，因为文件/var/log/messages
+tail 有一个选项允许你实时的浏览文件。当观察日志文件的进展时，这很有用，因为
+它们同时在被写入。在以下的例子里，我们要查看目录/var/log 里面的信息文件。在
+一些 Linux 发行版中，要求有超级用户权限才能阅读这些文件，因为文件/var/log/messages
 可能包含安全信息。
 
 <div class="code"><pre>
@@ -695,12 +695,12 @@ Feb 8 13:40:05 twin4 dhclient: DHCPACK from 192.168.1.1
 Using the “-f” option, tail continues to monitor the file and when new lines are
 appended, they immediately appear on the display. This continues until you type Ctrl-c.
 
-使用"-f"选项，tail命令继续监测这个文件，当新的内容添加到文件后，它们会立即
-出现在屏幕上。这会一直继续下去直到你输入Ctrl-c。
+使用"-f"选项，tail 命令继续监测这个文件，当新的内容添加到文件后，它们会立即
+出现在屏幕上。这会一直继续下去直到你输入 Ctrl-c。
 
 ### tee – Read From Stdin And Output To Stdout And Files
 
-### tee － 从Stdin读取数据，并同时输出到Stdout和文件
+### tee － 从 Stdin 读取数据，并同时输出到 Stdout 和文件
 
 In keeping with our plumbing metaphor, Linux provides a command called tee which
 creates a “tee” fitting on our pipe. The tee program reads standard input and copies it to
@@ -710,11 +710,11 @@ processing. Here we repeat one of our earlier examples, this time including tee 
 capture the entire directory listing to the file ls.txt before grep filters the pipeline's
 contents:
 
-为了和我们的管道隐喻保持一致，Linux提供了一个叫做tee的命令，这个命令制造了
-一个"tee"，安装到我们的管道上。tee程序从标准输入读入数据，并且同时复制数据
+为了和我们的管道隐喻保持一致，Linux 提供了一个叫做 tee 的命令，这个命令制造了
+一个"tee"，安装到我们的管道上。tee 程序从标准输入读入数据，并且同时复制数据
 到标准输出（允许数据继续随着管道线流动）和一个或多个文件。当在某个中间处理
 阶段来捕捉一个管道线的内容时，这很有帮助。这里，我们重复执行一个先前的例子，
-这次包含tee命令，在grep过滤管道线的内容之前，来捕捉整个目录列表到文件ls.txt：
+这次包含 tee 命令，在 grep 过滤管道线的内容之前，来捕捉整个目录列表到文件 ls.txt：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ls /usr/bin | tee ls.txt | grep zip
@@ -735,7 +735,7 @@ many commands that make use of standard input and output, and almost all command
 line programs use standard error to display their informative messages.
 
 一如既往，查看这章学到的每一个命令的文档。我们已经知道了他们最基本的用法。
-它们还有很多有趣的选项。随着我们Linux经验的积累，我们会了解命令行重定向特性
+它们还有很多有趣的选项。随着我们 Linux 经验的积累，我们会了解命令行重定向特性
 在解决特殊问题时非常有用处。有许多命令利用标准输入和输出，而几乎所有的命令行
 程序都使用标准错误来显示它们的详细信息。
 
@@ -743,12 +743,12 @@ line programs use standard error to display their informative messages.
 <tr>
 <td>
 <h3>Linux Is About Imagination</h3>
-<h3>Linux是关于想象力的</h3>
+<h3>Linux 是关于想象力的</h3>
 
 <p> When I am asked to explain the difference between Windows and Linux, I often
 use a toy analogy.
 </p>
-<p>当我被要求解释Windows与Linux之间的差异时，我经常拿玩具来作比喻。</p>
+<p>当我被要求解释 Windows 与 Linux 之间的差异时，我经常拿玩具来作比喻。</p>
 
 <p> Windows is like a Game Boy. You go to the store and buy one all shiny new in
 the box. You take it home, turn it on and play with it. Pretty graphics, cute
@@ -761,7 +761,7 @@ thing!” The person behind the counter says you can't change it. The games are
 all sealed up in their cartridges. You discover that your toy is limited to the games
 that others have decided that you need and no more.
 </p>
-<p>Windows就像一个游戏机。你去商店，买了一个包装在盒子里面的全新的游戏机。
+<p>Windows 就像一个游戏机。你去商店，买了一个包装在盒子里面的全新的游戏机。
 你把它带回家，打开盒子，开始玩游戏。精美的画面，动人的声音。玩了一段时间之后，
 你厌倦了它自带的游戏，所以你返回商店，又买了另一个游戏机。这个过程反复重复。
 最后，你玩腻了游戏机自带的游戏，你回到商店，告诉售货员，“我想要一个这样的游戏！”
@@ -779,7 +779,7 @@ the store, as you already have everything you need. The Erector Set takes on the
 shape of your imagination. It does what you want.
 </p>
 
-<p>另一方面，Linux就像一个全世界上最大的建造模型。你打开它，发现它只是一个巨大的
+<p>另一方面，Linux 就像一个全世界上最大的建造模型。你打开它，发现它只是一个巨大的
 部件集合。有许多钢支柱，螺钉，螺母，齿轮，滑轮，发动机，和一些怎样来建造它的说明书。
 然后你开始摆弄它。你建造了一个又一个样板模型。过了一会儿，你发现你要建造自己的模型。
 你不必返回商店，因为你已经拥有了你需要的一切。建造模型以你构想的形状为模板，搭建

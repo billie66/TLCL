@@ -9,8 +9,8 @@ before we can fully appreciate all of the features offered by these tools, we ha
 examine a technology that is frequently associated with the most sophisticated uses of
 these tools — regular expressions.
 
-接下来的几章中，我们将会看一下一些用来操作文本的工具。正如我们所见到的，在类似于Unix的
-操作系统中，比如Linux中，文本数据起着举足轻重的作用。但是在我们能完全理解这些工具提供的
+接下来的几章中，我们将会看一下一些用来操作文本的工具。正如我们所见到的，在类似于 Unix 的
+操作系统中，比如 Linux 中，文本数据起着举足轻重的作用。但是在我们能完全理解这些工具提供的
 所有功能之前，我们不得不先看看，经常与这些工具的高级使用相关联的一门技术——正则表达式。
 
 As we have navigated the many features and facilities offered by the command line, we
@@ -22,8 +22,8 @@ is not worth the effort. Quite the contrary. A good understanding will enable us
 perform amazing feats, though their full value may not be immediately apparent.
 What Are Regular Expressions?
 
-我们已经浏览了许多由命令行提供的功能和工具，我们遇到了一些真正神秘的shell功能和命令，
-比如shell展开和引用，键盘快捷键，和命令历史，更不用说vi编辑器了。正则表达式延续了
+我们已经浏览了许多由命令行提供的功能和工具，我们遇到了一些真正神秘的 shell 功能和命令，
+比如 shell 展开和引用，键盘快捷键，和命令历史，更不用说 vi 编辑器了。正则表达式延续了
 这种“传统”，而且有可能（备受争议地）是其中最神秘的功能。这并不是说花费时间来学习它们
 是不值得的，而是恰恰相反。虽然它们的全部价值可能不能立即显现，但是较强理解这些功能
 使我们能够表演令人惊奇的技艺。什么是正则表达式？
@@ -40,11 +40,11 @@ programming languages (most notably Perl), which use slightly larger and richer 
 notations.
 
 简而言之，正则表达式是一种符号表示法，被用来识别文本模式。在某种程度上，它们与匹配
-文件和路径名的shell通配符比较相似，但其规模更庞大。许多命令行工具和大多数的编程语言
+文件和路径名的 shell 通配符比较相似，但其规模更庞大。许多命令行工具和大多数的编程语言
 都支持正则表达式，以此来帮助解决文本操作问题。然而，并不是所有的正则表达式都是一样的，
 这就进一步混淆了事情；不同工具以及不同语言之间的正则表达式都略有差异。我们将会限定
-POSIX标准中描述的正则表达式（其包括了大多数的命令行工具），供我们讨论，
-与许多编程语言（最著名的Perl语言）相反，它们使用了更多和更丰富的符号集。
+POSIX 标准中描述的正则表达式（其包括了大多数的命令行工具），供我们讨论，
+与许多编程语言（最著名的 Perl 语言）相反，它们使用了更多和更丰富的符号集。
 
 ### grep
 
@@ -54,13 +54,13 @@ we can see that grep has something to do with regular expressions. In essence, g
 searches text files for the occurrence of a specified regular expression and outputs any
 line containing a match to standard output.
 
-我们将使用的主要程序是我们的老朋友，grep程序，它会用到正则表达式。实际上，“grep”这个名字
-来自于短语“global regular expression print”，所以我们能看出grep程序和正则表达式有关联。
-本质上，grep程序会在文本文件中查找一个指定的正则表达式，并把匹配行输出到标准输出。
+我们将使用的主要程序是我们的老朋友，grep 程序，它会用到正则表达式。实际上，“grep”这个名字
+来自于短语“global regular expression print”，所以我们能看出 grep 程序和正则表达式有关联。
+本质上，grep 程序会在文本文件中查找一个指定的正则表达式，并把匹配行输出到标准输出。
 
 So far, we have used grep with fixed strings, like so:
 
-到目前为止，我们已经使用grep程序查找了固定的字符串，就像这样:
+到目前为止，我们已经使用 grep 程序查找了固定的字符串，就像这样:
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ls /usr/bin | grep zip </tt>
@@ -69,21 +69,21 @@ So far, we have used grep with fixed strings, like so:
 This will list all the files in the /usr/bin directory whose names contain the substring
 “zip”.
 
-这个命令会列出，位于目录/usr/bin中，文件名中包含子字符串“zip”的所有文件。
+这个命令会列出，位于目录/usr/bin 中，文件名中包含子字符串“zip”的所有文件。
 
 The grep program accepts options and arguments this way:
 
-这个grep程序以这样的方式来接受选项和参数：
+这个 grep 程序以这样的方式来接受选项和参数：
 
 grep [options] regex [file...]
 
 where regex is a regular expression.
 
-这里的regx是指一个正则表达式。
+这里的 regx 是指一个正则表达式。
 
 Here is a list of the commonly used grep options:
 
-这是一个常用的grep选项列表：
+这是一个常用的 grep 选项列表：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -141,39 +141,39 @@ be specified --no-filename. </td>
 </tr>
 <tr>
 <td valign="top" width="20%">-i</td>
-<td valign="top">忽略大小写。不会区分大小写字符。也可用--ignore-case来指定。 </td>
+<td valign="top">忽略大小写。不会区分大小写字符。也可用--ignore-case 来指定。 </td>
 </tr>
 <tr>
 <td valign="top">-v</td>
-<td valign="top">不匹配。通常，grep程序会打印包含匹配项的文本行。这个选项导致grep程序
-只会不包含匹配项的文本行。也可用--invert-match来指定。 </td>
+<td valign="top">不匹配。通常，grep 程序会打印包含匹配项的文本行。这个选项导致 grep 程序
+只会不包含匹配项的文本行。也可用--invert-match 来指定。 </td>
 </tr>
 <tr>
 <td valign="top">-c</td>
-<td valign="top">打印匹配的数量（或者是不匹配的数目，若指定了-v选项），而不是文本行本身。
-也可用--count选项来指定。 </td></tr>
+<td valign="top">打印匹配的数量（或者是不匹配的数目，若指定了-v 选项），而不是文本行本身。
+也可用--count 选项来指定。 </td></tr>
 <tr>
 <td valign="top">-l</td>
-<td valign="top">打印包含匹配项的文件名，而不是文本行本身，也可用--files-with-matches选项来指定。</td>
+<td valign="top">打印包含匹配项的文件名，而不是文本行本身，也可用--files-with-matches 选项来指定。</td>
 </tr>
 <tr>
 <td valign="top">-L</td>
-<td valign="top">相似于-l选项，但是只是打印不包含匹配项的文件名。也可用--files-without-match来指定。</td>
+<td valign="top">相似于-l 选项，但是只是打印不包含匹配项的文件名。也可用--files-without-match 来指定。</td>
 </tr>
 <tr>
 <td valign="top">-n</td>
-<td valign="top">在每个匹配行之前打印出其位于文件中的相应行号。也可用--line-number选项来指定。</td>
+<td valign="top">在每个匹配行之前打印出其位于文件中的相应行号。也可用--line-number 选项来指定。</td>
 </tr>
 <tr>
 <td valign="top">-h</td>
-<td valign="top">应用于多文件搜索，不输出文件名。也可用--no-filename选项来指定。 </td>
+<td valign="top">应用于多文件搜索，不输出文件名。也可用--no-filename 选项来指定。 </td>
 </tr>
 </table>
 </p>
 
 In order to more fully explore grep, let’s create some text files to search:
 
-为了更好的探究grep程序，让我们创建一些文本文件来搜寻：
+为了更好的探究 grep 程序，让我们创建一些文本文件来搜寻：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ls /bin > dirlist-bin.txt
@@ -200,9 +200,9 @@ matches, both in the file dirlist-bin.txt. If we were only interested in the lis
 files that contained matches rather than the matches themselves, we could specify the -l
 option:
 
-在这个例子里，grep程序在所有列出的文件中搜索字符串bzip，然后找到两个匹配项，其都在
-文件dirlist-bin.txt中。如果我们只是对包含匹配项的文件列表，而不是对匹配项本身感兴趣
-的话，我们可以指定-l选项：
+在这个例子里，grep 程序在所有列出的文件中搜索字符串 bzip，然后找到两个匹配项，其都在
+文件 dirlist-bin.txt 中。如果我们只是对包含匹配项的文件列表，而不是对匹配项本身感兴趣
+的话，我们可以指定-l 选项：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ grep -l bzip dirlist\*.txt
@@ -232,7 +232,7 @@ in that they match themselves. In addition to literals, regular expressions may 
 include metacharacters that are used to specify more complex matches.
 Regular expression metacharacters consist of the following: 
 
-它可能看起来不明显，但是我们的grep程序一直使用了正则表达式，虽然是非常简单的例子。
+它可能看起来不明显，但是我们的 grep 程序一直使用了正则表达式，虽然是非常简单的例子。
 这个正则表达式“bzip”意味着，匹配项所在行至少包含4个字符，并且按照字符 “b”, “z”, “i”, 和 “p”的顺序
 出现在匹配行的某处，字符之间没有其它的字符。字符串“bzip”中的所有字符都是原义字符，因为
 它们匹配本身。除了原义字符之外，正则表达式也可能包含元字符，其被用来指定更复杂的匹配项。
@@ -253,9 +253,9 @@ characters that have meaning to the shell when expansion is performed. When we
 pass regular expressions containing metacharacters on the command line, it is vital
 that they be enclosed in quotes to prevent the shell from attempting to expand them.
 
-<p>注意：正如我们所见到的，当shell执行展开的时候，许多正则表达式元字符，也是对shell有特殊
+<p>注意：正如我们所见到的，当 shell 执行展开的时候，许多正则表达式元字符，也是对 shell 有特殊
 含义的字符。当我们在命令行中传递包含元字符的正则表达式的时候，把元字符用引号引起来至关重要，
-这样可以阻止shell试图展开它们。</p>
+这样可以阻止 shell 试图展开它们。</p>
 <hr style="height:5px;width:100%;background:gray" />
 
 ### The Any Character
@@ -292,8 +292,8 @@ lists that contained the file extension .zip, they would have also been matched 
 because the period character in the file extension is treated as “any character,” too.
 
 我们在文件中查找包含正则表达式“.zip”的文本行。对于搜索结果，有几点需要注意一下。
-注意没有找到这个zip程序。这是因为在我们的正则表达式中包含的圆点字符把所要求的匹配项的长度
-增加到四个字符，并且字符串“zip”只包含三个字符，所以这个zip程序不匹配。另外，如果我们的文件列表
+注意没有找到这个 zip 程序。这是因为在我们的正则表达式中包含的圆点字符把所要求的匹配项的长度
+增加到四个字符，并且字符串“zip”只包含三个字符，所以这个 zip 程序不匹配。另外，如果我们的文件列表
 中有一些文件的扩展名是.zip，则它们也会成为匹配项，因为文件扩展名中的圆点符号也会被看作是
 “任意字符”。
 
@@ -332,7 +332,7 @@ the end of the line, and on a line where it is at both the beginning and the end
 (i.e., by itself on the line.) Note that the regular expression ‘^$’ (a beginning and an end
 with nothing in between) will match blank lines.
 
-这里我们分别在文件列表中搜索行首，行尾以及行首和行尾同时包含字符串“zip”（例如，zip独占一行）的匹配行。
+这里我们分别在文件列表中搜索行首，行尾以及行首和行尾同时包含字符串“zip”（例如，zip 独占一行）的匹配行。
 注意正则表达式‘^$’（行首和行尾之间没有字符）会匹配空行。
 
 <table class="single" cellpadding="10" width="%100">
@@ -359,7 +359,7 @@ dictionary files located there are just long lists of words, one per line, arran
 alphabetical order. On my system, the words file contains just over 98,500
 words. To find possible answers to the crossword puzzle question above, we
 could do this:</p>
-<p>你知道你的Linux系统中带有一本英文字典吗？千真万确。看一下/usr/share/dict目录，你就能找到一本，
+<p>你知道你的 Linux 系统中带有一本英文字典吗？千真万确。看一下/usr/share/dict 目录，你就能找到一本，
 或几本。存储在此目录下的字典文件，其内容仅仅是一个长长的单词列表，每行一个单词，按照字母顺序排列。在我的
 系统中，这个文件仅包含98,000个单词。为了找到可能的上述字谜的答案，我们可以这样做：</p>
 
@@ -439,7 +439,7 @@ set still requires a character at the given position, but the character must not
 of the negated set.
 
 通过激活否定操作，我们得到一个文件列表，它们的文件名都包含字符串“zip”，并且“zip”的前一个字符
-是除了“b”和“g”之外的任意字符。注意文件zip没有被发现。一个否定的字符集仍然在给定位置要求一个字符，
+是除了“b”和“g”之外的任意字符。注意文件 zip 没有被发现。一个否定的字符集仍然在给定位置要求一个字符，
 但是这个字符必须不是否定字符集的成员。
 
 The caret character only invokes negation if it is the first character within a bracket
@@ -519,7 +519,7 @@ will match every filename containing a dash, or a upper case “A” or an upper
 
 ### POSIX Character Classes
 
-### POSIX字符集
+### POSIX 字符集
 
 The traditional character ranges are an easily understood and effective way to handle the
 problem of quickly specifying sets of characters. Unfortunately, they don’t always work.
@@ -527,7 +527,7 @@ While we have not encountered any problems with our use of `grep` so far, we mig
 into problems using other programs.
 
 这个传统的字符区域在处理快速地指定字符集合的问题方面，是一个易于理解的和有效的方式。
-不幸地是，它们不总是工作。到目前为止，虽然我们在使用grep程序的时候没有遇到任何问题，
+不幸地是，它们不总是工作。到目前为止，虽然我们在使用 grep 程序的时候没有遇到任何问题，
 但是我们可能在使用其它程序的时候会遭遇困难。
 
 Back in Chapter 5, we looked at how wildcards are used to perform pathname expansion.
@@ -548,7 +548,7 @@ identical to the way they are used in regular expressions, but here’s the prob
 empty list. This example is from Ubuntu) This command produces the expected result 
 — a list of only the files whose names begin with an uppercase letter, but:
 
-（依赖于不同的Linux发行版，我们将得到不同的文件列表，有可能是一个空列表。这个例子来自于Ubuntu）
+（依赖于不同的 Linux 发行版，我们将得到不同的文件列表，有可能是一个空列表。这个例子来自于 Ubuntu）
 这个命令产生了期望的结果——只有以大写字母开头的文件名，但是：
 
 <div class="code"><pre>
@@ -578,11 +578,11 @@ letters and a few more punctuation symbols. The final thirty-one (numbers 96-127
 contain the lowercase letters and yet more punctuation symbols. Based on this
 arrangement, systems using ASCII used a `collation order` that looked like this:
 
-追溯到Unix刚刚开发的时候，它只知道ASCII字符，并且这个特性反映了事实。在ASCII中，前32个字符
-（数字0－31）都是控制码（如tabs，backspaces，和回车）。随后的32个字符（32－63）包含可打印的字符，
+追溯到 Unix 刚刚开发的时候，它只知道 ASCII 字符，并且这个特性反映了事实。在 ASCII 中，前32个字符
+（数字0－31）都是控制码（如 tabs，backspaces，和回车）。随后的32个字符（32－63）包含可打印的字符，
 包括大多数的标点符号和数字0到9。再随后的32个字符（64－95）包含大写字符和一些更多的标点符号。
 最后的31个字符（96－127）包含小写字母和更多的标点符号。基于这种安排方式，系统使用这种排序规则
-的ASCII：
+的 ASCII：
 
 <b>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</b>
 
@@ -596,15 +596,15 @@ As the popularity of Unix spread beyond the United States, there grew a need to 
 characters not found in U.S. English. The ASCII table was expanded to use a full eight
 bits, adding characters numbers 128-255, which accommodated many more languages.
 
-随着Unix系统的知名度在美国之外的国家传播开来，就需要支持不在U.S.英语范围内的字符。
-于是就扩展了这个ASCII字符表，使用了整个8位，添加了字符（数字128－255），这样就
+随着 Unix 系统的知名度在美国之外的国家传播开来，就需要支持不在 U.S.英语范围内的字符。
+于是就扩展了这个 ASCII 字符表，使用了整个8位，添加了字符（数字128－255），这样就
 容纳了更多的语言。
 
 To support this ability, the POSIX standards introduced a concept called a locale, which
 could be adjusted to select the character set needed for a particular location. We can see
 the language setting of our system using this command:
 
-为了支持这种能力，POSIX标准介绍了一种叫做locale的概念，其可以被调整，来为某个特殊的区域，
+为了支持这种能力，POSIX 标准介绍了一种叫做 locale 的概念，其可以被调整，来为某个特殊的区域，
 选择所需的字符集。通过使用下面这个命令，我们能够查看到我们系统的语言设置：
 
 <div class="code"><pre>
@@ -617,14 +617,14 @@ rather than ASCII order. This explains the behavior of the commands above. A cha
 range of [A-Z] when interpreted in dictionary order includes all of the alphabetic
 characters except the lowercase “a”, hence our results.
 
-通过这个设置，POSIX相容的应用程序将会使用字典排列顺序而不是ASCII顺序。这就解释了上述命令的行为。
+通过这个设置，POSIX 相容的应用程序将会使用字典排列顺序而不是 ASCII 顺序。这就解释了上述命令的行为。
 当[A-Z]字符区域按照字典顺序解释的时候，包含除了小写字母“a”之外的所有字母，因此得到这样的结果。
 
 To partially work around this problem, the POSIX standard includes a number of
 character classes which provide useful ranges of characters. They are described in the
 table below:
 
-为了部分地解决这个问题，POSIX标准包含了大量的字符集，其提供了有用的字符区域。
+为了部分地解决这个问题，POSIX 标准包含了大量的字符集，其提供了有用的字符区域。
 下表中描述了它们：
 
 <p>
@@ -704,7 +704,7 @@ equivalent to: [0-9A-Fa-f] </td>
 </tr>
 <tr>
 <td valign="top" width="25%">[:alnum:] </td>
-<td valign="top">字母数字字符。在ASCII中，等价于：[A-Za-z0-9] </td>
+<td valign="top">字母数字字符。在 ASCII 中，等价于：[A-Za-z0-9] </td>
 </tr>
 <tr>
 <td valign="top">[:word:] </td>
@@ -712,15 +712,15 @@ equivalent to: [0-9A-Fa-f] </td>
 </tr>
 <tr>
 <td valign="top">[:alpha:] </td>
-<td valign="top">字母字符。在ASCII中，等价于：[A-Za-z] </td>
+<td valign="top">字母字符。在 ASCII 中，等价于：[A-Za-z] </td>
 </tr>
 <tr>
 <td valign="top">[:blank:] </td>
-<td valign="top">包含空格和tab字符。</td>
+<td valign="top">包含空格和 tab 字符。</td>
 </tr>
 <tr>
 <td valign="top">[:cntrl:] </td>
-<td valign="top">ASCII的控制码。包含了0到31，和127的ASCII字符。</td>
+<td valign="top">ASCII 的控制码。包含了0到31，和127的 ASCII 字符。</td>
 </tr>
 <tr>
 <td valign="top">[:digit:] </td>
@@ -728,7 +728,7 @@ equivalent to: [0-9A-Fa-f] </td>
 </tr>
 <tr>
 <td valign="top">[:graph:]</td>
-<td valign="top">可视字符。在ASCII中，它包含33到126的字符。 </td>
+<td valign="top">可视字符。在 ASCII 中，它包含33到126的字符。 </td>
 </tr>
 <tr>
 <td valign="top">[:lower:] </td>
@@ -736,7 +736,7 @@ equivalent to: [0-9A-Fa-f] </td>
 </tr>
 <tr>
 <td valign="top">[:punct:] </td>
-<td valign="top">标点符号字符。在ASCII中，等价于：</td>
+<td valign="top">标点符号字符。在 ASCII 中，等价于：</td>
 </tr>
 <tr>
 <td valign="top">[:print:] </td>
@@ -744,7 +744,7 @@ equivalent to: [0-9A-Fa-f] </td>
 </tr>
 <tr>
 <td valign="top">[:space:] </td>
-<td valign="top">空白字符，包括空格，tab，回车，换行，vertical tab, 和 form feed.在ASCII中， 
+<td valign="top">空白字符，包括空格，tab，回车，换行，vertical tab, 和 form feed.在 ASCII 中， 
 等价于：[ \t\r\n\v\f] </td>
 </tr>
 <tr>
@@ -753,7 +753,7 @@ equivalent to: [0-9A-Fa-f] </td>
 </tr>
 <tr>
 <td valign="top">[:xdigit:] </td>
-<td valign="top">用来表示十六进制数字的字符。在ASCII中，等价于：[0-9A-Fa-f] </td>
+<td valign="top">用来表示十六进制数字的字符。在 ASCII 中，等价于：[0-9A-Fa-f] </td>
 </tr>
 </table>
 </p>
@@ -778,8 +778,8 @@ Remember, however, that this is not an example of a regular expression, rather i
 shell performing pathname expansion. We show it here because POSIX character classes
 can be used for both.
 
-记住，然而，这不是一个正则表达式的例子，而是shell正在执行路径名展开操作。我们在这里展示这个例子，
-是因为POSIX规范的字符集适用于二者。
+记住，然而，这不是一个正则表达式的例子，而是 shell 正在执行路径名展开操作。我们在这里展示这个例子，
+是因为 POSIX 规范的字符集适用于二者。
 
 <table class="single" cellpadding="10" width="%100">
 <tr>
@@ -792,11 +792,11 @@ LANG variable contains the name of the language and character set used in your
 locale. This value was originally determined when you selected an installation
 language as your Linux was installed. </p>
 
-<p>通过改变环境变量LANG的值，你可以选择让你的系统使用传统的（ASCII）排列规则。如上所示，这个
-LANG变量包含了语种和字符集。这个值最初由你安装Linux系统时所选择的安装语言决定。</p>
+<p>通过改变环境变量 LANG 的值，你可以选择让你的系统使用传统的（ASCII）排列规则。如上所示，这个
+LANG 变量包含了语种和字符集。这个值最初由你安装 Linux 系统时所选择的安装语言决定。</p>
 
 <p> To see the locale settings, use the locale command: </p>
-<p>使用locale命令，来查看locale的设置。</p>
+<p>使用 locale 命令，来查看 locale 的设置。</p>
 
 <p>[me@linuxbox ~]$ locale</p>
 <p>LANG=en\_US.UTF-8 </p>
@@ -816,7 +816,7 @@ LANG变量包含了语种和字符集。这个值最初由你安装Linux系统�
 
 <p>To change the locale to use the traditional Unix behaviors, set the LANG variable
 to POSIX:</p>
-<p>把这个LANG变量设置为POSIX，来更改locale，使其使用传统的Unix行为。</p>
+<p>把这个 LANG 变量设置为 POSIX，来更改 locale，使其使用传统的 Unix 行为。</p>
 
 <p>[me@linuxbox ~]$ export LANG=POSIX </p>
 
@@ -824,8 +824,8 @@ to POSIX:</p>
 ASCII) for its character set, so be sure if this is really what you want.  </p>
 <p>You can make this change permanent by adding this line to you your .bashrc
 file:</p>
-<p>注意这个改动使系统为它的字符集使用U.S.英语（更准确地说，ASCII），所以要确认一下这
-是否是你真正想要的效果。通过把这条语句添加到你的.bashrc文件中，你可以使这个更改永久有效。</p>
+<p>注意这个改动使系统为它的字符集使用 U.S.英语（更准确地说，ASCII），所以要确认一下这
+是否是你真正想要的效果。通过把这条语句添加到你的.bashrc 文件中，你可以使这个更改永久有效。</p>
 
 <p>export LANG=POSIX </p>
 </td>
@@ -834,7 +834,7 @@ file:</p>
 
 ### POSIX Basic Vs. Extended Regular Expressions
 
-### POSIX基本的Vs.扩展的正则表达式
+### POSIX 基本的 Vs.扩展的正则表达式
 
 Just when we thought this couldn’t get any more confusing, we discover that POSIX also
 splits regular expression implementations into two kinds: basic regular expressions
@@ -842,21 +842,21 @@ splits regular expression implementations into two kinds: basic regular expressi
 supported by any application that is POSIX-compliant and implements BRE. Our grep
 program is one such program.
 
-就在我们认为这已经非常令人困惑了，我们却发现POSIX把正则表达式的实现分成了两类：
-基本正则表达式（BRE）和扩展的正则表达式（ERE）。既服从POSIX规范又实现了
-BRE的任意应用程序，都支持我们目前研究的所有正则表达式特性。我们的grep程序就是其中一个。
+就在我们认为这已经非常令人困惑了，我们却发现 POSIX 把正则表达式的实现分成了两类：
+基本正则表达式（BRE）和扩展的正则表达式（ERE）。既服从 POSIX 规范又实现了
+BRE 的任意应用程序，都支持我们目前研究的所有正则表达式特性。我们的 grep 程序就是其中一个。
 
 What’s the difference between BRE and ERE? It’s a matter of metacharacters. With
 BRE, the following metacharacters are recognized:
 
-BRE和ERE之间有什么区别呢？这是关于元字符的问题。BRE可以辨别以下元字符：
+BRE 和 ERE 之间有什么区别呢？这是关于元字符的问题。BRE 可以辨别以下元字符：
 
 ^ $ . [ ] *
 
 All other characters are considered literals. With ERE, the following metacharacters (and
 their associated functions) are added:
 
-其它的所有字符被认为是文本字符。ERE添加了以下元字符（以及与其相关的功能）:
+其它的所有字符被认为是文本字符。ERE 添加了以下元字符（以及与其相关的功能）:
 
 ( ) { } ? + |
 
@@ -865,8 +865,8 @@ metacharacters in BRE if they are escaped with a backslash, whereas with ERE,
 preceding any metacharacter with a backslash causes it to be treated as a literal. Any
 weirdness that comes along will be covered in the discussions that follow.
 
-然而（这也是有趣的地方），在BRE中，字符“(”，“)”，“{”，和 “}”用反斜杠转义后，被看作是元字符,
-相反在ERE中，在任意元字符之前加上反斜杠会导致其被看作是一个文本字符。在随后的讨论中将会涵盖
+然而（这也是有趣的地方），在 BRE 中，字符“(”，“)”，“{”，和 “}”用反斜杠转义后，被看作是元字符,
+相反在 ERE 中，在任意元字符之前加上反斜杠会导致其被看作是一个文本字符。在随后的讨论中将会涵盖
 很多奇异的特性。
 
 Since the features we are going to discuss next are part of ERE, we are going to need to
@@ -874,8 +874,8 @@ use a different grep. Traditionally, this has been performed by the egrep progra
 the GNU version of grep also supports extended regular expressions when the -E
 option is used.
 
-因为我们将要讨论的下一个特性是ERE的一部分，我们将要使用一个不同的grep程序。照惯例，
-一直由egrep程序来执行这项操作，但是GUN版本的grep程序也支持扩展的正则表达式，当使用了-E选项之后。
+因为我们将要讨论的下一个特性是 ERE 的一部分，我们将要使用一个不同的 grep 程序。照惯例，
+一直由 egrep 程序来执行这项操作，但是 GUN 版本的 grep 程序也支持扩展的正则表达式，当使用了-E 选项之后。
 
 <table class="single" cellpadding="10" width="%100">
 <tr>
@@ -888,8 +888,8 @@ various versions of the operating system with their systems. However, in their
 efforts to create product differentiation, each manufacturer added proprietary
 changes and extensions. This started to limit the compatibility of the software. </p>
 
-<p>在世纪80年代，Unix成为一款非常流行的商业操作系统，但是到了1988年，Unix世界
-一片混乱。许多计算机制造商从Unix的创建者AT&T那里得到了许可的Unix源码，并且
+<p>在世纪80年代，Unix 成为一款非常流行的商业操作系统，但是到了1988年，Unix 世界
+一片混乱。许多计算机制造商从 Unix 的创建者 AT&T 那里得到了许可的 Unix 源码，并且
 供应各种版本的操作系统。然而，在他们努力创造产品差异化的同时，每个制造商都增加了
 专用的更改和扩展。这就开始限制了软件的兼容性。</p>
 
@@ -897,7 +897,7 @@ changes and extensions. This started to limit the compatibility of the software.
 “lock-in” with their customers. This dark time in the history of Unix is known
 today as “the Balkanization.” </p>
 
-<p>专有软件供应商一如既往，每个供应商都试图玩嬴游戏“锁定”他们的客户。这个Unix历史上
+<p>专有软件供应商一如既往，每个供应商都试图玩嬴游戏“锁定”他们的客户。这个 Unix 历史上
 的黑暗时代，就是今天众所周知的“the Balkanization”。</p>
 
 <p> Enter the IEEE (Institute of Electrical and Electronics Engineers). In the
@@ -909,11 +909,11 @@ which stands for Portable Operating System Interface (with the “X” added to 
 end for extra snappiness), was suggested by Richard Stallman (yes, that Richard
 Stallman), and was adopted by the IEEE.  </p>
 
-<p>然后进入IEEE（电气与电子工程师协会）时代。在上世纪80年代中叶，IEEE开始制定一套标准，
-其将会定义Unix系统（以及类似于Unix的系统）如何执行。这些标准，正式成为IEEE
-1003，定义了应用程序编程接口（APIs），shell和一些实用程序，其将会在标准的类似于Unix
+<p>然后进入 IEEE（电气与电子工程师协会）时代。在上世纪80年代中叶，IEEE 开始制定一套标准，
+其将会定义 Unix 系统（以及类似于 Unix 的系统）如何执行。这些标准，正式成为 IEEE
+1003，定义了应用程序编程接口（APIs），shell 和一些实用程序，其将会在标准的类似于 Unix
 操作系统中找到。“POSIX”这个名字，象征着可移植的操作系统接口（为了额外的，添加末尾的“X”），
-是由Richard Stallman建议的（是的，的确是Richard Stallman），后来被IEEE采纳。</p>
+是由 Richard Stallman 建议的（是的，的确是 Richard Stallman），后来被 IEEE 采纳。</p>
 </td>
 </tr>
 </table>
@@ -927,10 +927,10 @@ characters, alternation allows matches from a set of strings or other regular ex
 To demonstrate, we’ll use grep in conjunction with echo. First, let’s try a plain old
 string match:
 
-我们将要讨论的扩展表达式的第一个特性叫做alternation（交替），其是一款允许从一系列表达式
+我们将要讨论的扩展表达式的第一个特性叫做 alternation（交替），其是一款允许从一系列表达式
 之间选择匹配项的实用程序。就像中括号表达式允许从一系列指定的字符之间匹配单个字符那样，
-alternation允许从一系列字符串或者是其它的正则表达式中选择匹配项。为了说明问题，
-我们将会结合echo程序来使用grep命令。首先，让我们试一个普通的字符串匹配：
+alternation 允许从一系列字符串或者是其它的正则表达式中选择匹配项。为了说明问题，
+我们将会结合 echo 程序来使用 grep 命令。首先，让我们试一个普通的字符串匹配：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "AAA" | grep AAA
@@ -943,12 +943,12 @@ A pretty straightforward example, in which we pipe the output of echo into grep 
 see the results. When a match occurs, we see it printed out; when no match occurs, we
 see no results.
 
-一个相当直截了当的例子，我们把echo的输出管道给grep，然后看到输出结果。当出现
+一个相当直截了当的例子，我们把 echo 的输出管道给 grep，然后看到输出结果。当出现
 一个匹配项时，我们看到它会打印出来；当没有匹配项时，我们看到没有输出结果。
 
 Now we’ll add alternation, signified by the vertical bar metacharacter:
 
-现在我们将添加alternation，以竖杠线元字符为标记：
+现在我们将添加 alternation，以竖杠线元字符为标记：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "AAA" | grep -E 'AAA|BBB'
@@ -965,10 +965,10 @@ option to grep (though we could have just used the egrep program instead), and w
 enclosed the regular expression in quotes to prevent the shell from interpreting the
 vertical bar metacharacter as a pipe operator. Alternation is not limited to two choices:
 
-这里我们看到正则表达式'AAA|BBB'，这意味着“匹配字符串AAA或者是字符串BBB”。注意因为这是
-一个扩展的特性，我们给grep命令（虽然我们能以egrep程序来代替）添加了-E选项，并且我们
-把这个正则表达式用单引号引起来，为的是阻止shell把竖杠线元字符解释为一个pipe操作符。
-Alternation并不局限于两种选择：
+这里我们看到正则表达式'AAA|BBB'，这意味着“匹配字符串 AAA 或者是字符串 BBB”。注意因为这是
+一个扩展的特性，我们给 grep 命令（虽然我们能以 egrep 程序来代替）添加了-E 选项，并且我们
+把这个正则表达式用单引号引起来，为的是阻止 shell 把竖杠线元字符解释为一个 pipe 操作符。
+Alternation 并不局限于两种选择：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo "AAA" | grep -E 'AAA|BBB|CCC'
@@ -978,7 +978,7 @@ AAA </tt>
 To combine alternation with other regular expression elements, we can use () to separate
 the alternation:
 
-为了把alternation和其它正则表达式元素结合起来，我们可以使用()来分离alternation。
+为了把 alternation 和其它正则表达式元素结合起来，我们可以使用()来分离 alternation。
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ grep -Eh '^(bz|gz|zip)' dirlist\*.txt </tt>
@@ -1034,7 +1034,7 @@ metacharacters (in ERE), we precede them with backslashes to cause them to be tr
 as literals instead.
 
 在这个表达式中，我们在圆括号之后加上一个问号，来表示它们将被匹配零次或一次。再一次，因为
-通常圆括号都是元字符（在ERE中），所以我们在圆括号之前加上了反斜杠，使它们成为文本字符。
+通常圆括号都是元字符（在 ERE 中），所以我们在圆括号之前加上了反斜杠，使它们成为文本字符。
 
 Let’s try it:
 
@@ -1172,19 +1172,19 @@ more than m times.  </td>
 </tr>
 <tr>
 <td valign="top" width="25%">{n}</td>
-<td valign="top">匹配前面的元素，如果它确切地出现了n次。</td>
+<td valign="top">匹配前面的元素，如果它确切地出现了 n 次。</td>
 </tr>
 <tr>
 <td valign="top">{n,m}</td>
-<td valign="top">匹配前面的元素，如果它至少出现了n次，但是不多于m次。</td>
+<td valign="top">匹配前面的元素，如果它至少出现了 n 次，但是不多于 m 次。</td>
 </tr>
 <tr>
 <td valign="top">{n,}</td>
-<td valign="top">匹配前面的元素，如果它出现了n次或多于n次。</td>
+<td valign="top">匹配前面的元素，如果它出现了 n 次或多于 n 次。</td>
 </tr>
 <tr>
 <td valign="top">{,m}</td>
-<td valign="top">匹配前面的元素，如果它出现的次数不多于m次。</td>
+<td valign="top">匹配前面的元素，如果它出现的次数不多于 m 次。</td>
 </tr>
 </table>
 </p>
@@ -1230,7 +1230,7 @@ regular expressions.
 
 #### Validating A Phone List With grep
 
-#### 通过grep命令来验证一个电话簿
+#### 通过 grep 命令来验证一个电话簿
 
 In our earlier example, we looked at single phone numbers and checked them for proper
 formatting. A more realistic scenario would be checking a list of numbers instead, so
@@ -1254,7 +1254,7 @@ We can also change the value 10 near the beginning of the command to produce mor
 fewer phone numbers. If we examine the contents of the file, however, we see we have a
 problem:
 
-这个命令会创建一个包含10个电话号码的名为phonelist.txt的文件。每次重复这个命令的时候，
+这个命令会创建一个包含10个电话号码的名为 phonelist.txt 的文件。每次重复这个命令的时候，
 另外10个号码会被添加到这个列表中。我们也能够更改命令开头附近的数值10，来生成或多或少的
 电话号码。如果我们查看这个文件的内容，然而我们会发现一个问题：
 
@@ -1275,7 +1275,7 @@ problem:
 Some of the numbers are malformed, which is perfect for our purposes, since we will use
 grep to validate them.
 
-一些号码是残缺的，但它们符号我们的目的，以为我们将使用grep命令来验证它们。
+一些号码是残缺的，但它们符号我们的目的，以为我们将使用 grep 命令来验证它们。
 
 One useful method of validation would be to scan the file for invalid numbers and display
 the resulting list on the display:
@@ -1296,13 +1296,13 @@ the anchor metacharacters at each end to ensure that the number has no extra cha
 either end. This expression also requires that the parentheses be present in a valid
 number, unlike our earlier phone number example.
 
-这里我们使用-v选项来产生相反的匹配，因此我们将只输出不匹配指定表达式的文本行。这个
+这里我们使用-v 选项来产生相反的匹配，因此我们将只输出不匹配指定表达式的文本行。这个
 表达式自身的两端都包含定位点（锚）元字符，是为了确保这个号码的两端没有多余的字符。
 这个表达式也要求圆括号出现在一个有效的号码中，不同于我们先前电话号码的实例。
 
 #### Finding Ugly Filenames With find
 
-#### 用find查找丑陋的文件名 
+#### 用 find 查找丑陋的文件名 
 
 The find command supports a test based on a regular expression. There is an important
 consideration to keep in mind when using regular expressions in find versus grep.
@@ -1311,10 +1311,10 @@ expression, find requires that the pathname exactly match the regular expression
 following example, we will use find with a regular expression to find every pathname
 that contains any character that is not a member of the following set:
 
-这个find命令支持一个基于正则表达式的测试。当在使用正则表达式方面比较find和grep命令的时候，
-还有一个重要问题要牢记在心。当某一行包含的字符串匹配上了一个表达式的时候，grep命令会打印出这一行，
-然而find命令要求路径名精确地匹配这个正则表达式。在下面的例子里面，我们将使用带有一个正则
-表达式的find命令，来查找每个路径名，其包含的任意字符都不是以下字符集中的一员。
+这个 find 命令支持一个基于正则表达式的测试。当在使用正则表达式方面比较 find 和 grep 命令的时候，
+还有一个重要问题要牢记在心。当某一行包含的字符串匹配上了一个表达式的时候，grep 命令会打印出这一行，
+然而 find 命令要求路径名精确地匹配这个正则表达式。在下面的例子里面，我们将使用带有一个正则
+表达式的 find 命令，来查找每个路径名，其包含的任意字符都不是以下字符集中的一员。
 
 <p>[-\_./0-9a-zA-Z]</p>
 
@@ -1337,14 +1337,14 @@ pathname characters.
 
 #### Searching For Files With locate
 
-#### 用locate查找文件 
+#### 用 locate 查找文件 
 
 The locate program supports both basic (the --regexp option) and extended (the --
 regex option) regular expressions. With it, we can perform many of the same
 operations that we performed earlier with our dirlist files:
 
-这个locate程序支持基本的（--regexp选项）和扩展的（--regex选项）正则表达式。通过
-locate命令，我们能够执行许多与先前操作dirlist文件时相同的操作：
+这个 locate 程序支持基本的（--regexp 选项）和扩展的（--regex 选项）正则表达式。通过
+locate 命令，我们能够执行许多与先前操作 dirlist 文件时相同的操作：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ locate --regex 'bin/(bz|gz|zip)'
@@ -1371,18 +1371,18 @@ locate命令，我们能够执行许多与先前操作dirlist文件时相同的�
 
 Using alternation, we perform a search for pathnames that contain either bin/bz, bin/gz, or /bin/zip.
 
-通过使用alternation，我们搜索包含bin/bz，bin/gz，或/bin/zip字符串的路径名。
+通过使用 alternation，我们搜索包含 bin/bz，bin/gz，或/bin/zip 字符串的路径名。
 
 #### Searching For Text In less And vim
 
-#### 在less和vim中查找文本 
+#### 在 less 和 vim 中查找文本 
 
 less and vim both share the same method of searching for text. Pressing the / key
 followed by a regular expression will perform a search. If we use less to view our
 phonelist.txt file:
 
-less和vim两者享有相同的文本查找方法。按下/按键，然后输入正则表达式，来执行搜索任务。
-如果我们使用less程序来浏览我们的phonelist.txt文件：
+less 和 vim 两者享有相同的文本查找方法。按下/按键，然后输入正则表达式，来执行搜索任务。
+如果我们使用 less 程序来浏览我们的 phonelist.txt 文件：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ less phonelist.txt </tt>
@@ -1411,7 +1411,7 @@ Then search for our validation expression:
 
 less will highlight the strings that match, leaving the invalid ones easy to spot:
 
-less将会高亮匹配到的字符串，这样就很容易看到无效的电话号码：
+less 将会高亮匹配到的字符串，这样就很容易看到无效的电话号码：
 
 <div class="code"><pre>
 <tt><b>(232) 298-2265
@@ -1433,7 +1433,7 @@ less将会高亮匹配到的字符串，这样就很容易看到无效的电话�
 vim, on the other hand, supports basic regular expressions, so our search expression
 would look like this:
 
-另一方面，vim支持基本的正则表达式，所以我们用于搜索的表达式看起来像这样：
+另一方面，vim 支持基本的正则表达式，所以我们用于搜索的表达式看起来像这样：
 
 <p>/([0-9]\{3\}) [0-9]\{3\}-[0-9]\{4\}</p>
 
@@ -1447,7 +1447,7 @@ expressions. They are only treated as metacharacters when escaped with a backsla
 Depending on the particular configuration of vim on our system, the matching will be
 highlighted. If not, try this command mode command:
 
-依赖于系统中vim的特殊配置，匹配项将会被高亮。如若不是，试试这个命令模式：
+依赖于系统中 vim 的特殊配置，匹配项将会被高亮。如若不是，试试这个命令模式：
 
 <p>:hlsearch</p>
 
@@ -1461,9 +1461,9 @@ highlighting. Ubuntu, in particular, supplies a very stripped-down version of vi
 by default. On such systems, you may want to use your package manager to install
 a more complete version of vim.
 
-注意：依赖于你的发行版，vim有可能支持或不支持文本搜索高亮功能。尤其是Ubuntu自带了
-一款非常简化的vim版本。在这样的系统中，你可能要使用你的软件包管理器来安装一个功能
-更完备的vim版本。
+注意：依赖于你的发行版，vim 有可能支持或不支持文本搜索高亮功能。尤其是 Ubuntu 自带了
+一款非常简化的 vim 版本。在这样的系统中，你可能要使用你的软件包管理器来安装一个功能
+更完备的 vim 版本。
 <hr style="height:5px;width:100%;background:gray" />
 
 ### Summing Up
@@ -1488,7 +1488,7 @@ usual location. The result of this command is a list of files containing either 
 “regex” or “regular expression”. As we can see, regular expressions show up in a lot of
 programs.
 
-这个zgrep程序是grep的前端，允许grep来读取压缩文件。在我们的例子中，我们在手册文件所在的
+这个 zgrep 程序是 grep 的前端，允许 grep 来读取压缩文件。在我们的例子中，我们在手册文件所在的
 目录中，搜索压缩文件中的内容。这个命令的结果是一个包含字符串“regex”或者“regular
 expression”的文件列表。正如我们所看到的，正则表达式会出现在大量程序中。
 
@@ -1508,7 +1508,7 @@ tutorials and cheat sheets.
 
 In addition, the Wikipedia has good articles on the following background topics:
 
-另外，关于下面的背景话题，Wikipedia有不错的文章。
+另外，关于下面的背景话题，Wikipedia 有不错的文章。
 
 * POSIX: http://en.wikipedia.org/wiki/Posix
 

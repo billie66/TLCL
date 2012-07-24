@@ -30,7 +30,7 @@ the following commands:
 These five commands are among the most frequently used Linux commands. They
 are used for manipulating both files and directories.
 
-这五个命令属于最常使用的Linux命令之列。它们用来操作文件和目录。
+这五个命令属于最常使用的 Linux 命令之列。它们用来操作文件和目录。
 
 Now, to be frank, some of the tasks performed by these commands are more
 easily done with a graphical file manager. With a file manager, we can drag and drop a
@@ -49,8 +49,8 @@ are newer than the versions in the destination directory? Pretty hard with a fil
 manager. Pretty easy with the command line:
 
 答案是命令行程序，功能强大灵活。虽然图形文件管理器能轻松地实现简单的文件操作，但是对于
-复杂的文件操作任务，则使用命令行程序比较容易完成。例如，怎样复制一个目录下的HTML文件
-到另一个目录，但这些HTML文件不存在于目标目录，或者是文件版本新于目标目录里的文件？
+复杂的文件操作任务，则使用命令行程序比较容易完成。例如，怎样复制一个目录下的 HTML 文件
+到另一个目录，但这些 HTML 文件不存在于目标目录，或者是文件版本新于目标目录里的文件？
 要完成这个任务，使用文件管理器相当难，使用命令行相当容易：
 
 <div class="code"><pre>
@@ -68,8 +68,8 @@ characters are called wildcards. Using wildcards (which is also known as globbin
 to select filenames based on patterns of characters. The table below lists the wildcards
 and what they select:
 
-在开始使用命令之前，我们需要介绍一个使命令行如此强大的shell特性。因为shell频繁地使用
-文件名，shell提供了特殊字符来帮助你快速指定一组文件名。这些特殊字符叫做通配符。
+在开始使用命令之前，我们需要介绍一个使命令行如此强大的 shell 特性。因为 shell 频繁地使用
+文件名，shell 提供了特殊字符来帮助你快速指定一组文件名。这些特殊字符叫做通配符。
 使用通配符（也以文件名代换著称）允许你依据字符类型来选择文件名。下表列出这些通配符
 以及它们所选择的对象：
 
@@ -346,25 +346,25 @@ desktop so powerful.
 <h3>字符范围</h3>
 
 <p>
-如果你用过别的类似Unix系统的操作环境，或者是读过这方面的书籍，你可能遇到过[A-Z]或
-[a-z]形式的字符范围表示法。这些都是传统的Unix表示法，并且在早期的Linux版本中仍有效。
+如果你用过别的类似 Unix 系统的操作环境，或者是读过这方面的书籍，你可能遇到过[A-Z]或
+[a-z]形式的字符范围表示法。这些都是传统的 Unix 表示法，并且在早期的 Linux 版本中仍有效。
 虽然它们仍然起作用，但是你必须小心地使用它们，因为它们不会产生你期望的输出结果，除非
 你合理地配置它们。从现在开始，你应该避免使用它们，并且用字符类来代替它们。</p>
 
-<h3>通配符在GUI中也有效</h3>
+<h3>通配符在 GUI 中也有效</h3>
 
 <p>通配符非常重要，不仅因为它们经常用在命令行中，而且一些图形文件管理器也支持它们。</p>
 
 <ul>
-<li>在Nautilus (GNOME文件管理器）中，可以通过Edit/Select模式菜单项来选择文件。
+<li>在 Nautilus (GNOME 文件管理器）中，可以通过 Edit/Select 模式菜单项来选择文件。
 输入一个用通配符表示的文件选择模式后，那么当前所浏览的目录中，所匹配的文件名
 就会高亮显示。</li>
-<li>在Dolphin和Konqueror（KDE文件管理器）中，可以在地址栏中直接输入通配符。例如，如果你
-想查看目录/usr/bin中，所有以小写字母"u"开头的文件，在地址栏中敲入"/usr/bin/u*"，则
+<li>在 Dolphin 和 Konqueror（KDE 文件管理器）中，可以在地址栏中直接输入通配符。例如，如果你
+想查看目录/usr/bin 中，所有以小写字母"u"开头的文件，在地址栏中敲入"/usr/bin/u*"，则
 文件管理器会显示匹配的结果。</li>
 </ul>
 
-<p>最初源于命令行界面中的想法，在图形界面中也适用。这就是使Linux桌面系统
+<p>最初源于命令行界面中的想法，在图形界面中也适用。这就是使 Linux 桌面系统
 如此强大的众多原因中的一个。</p>
 </td>
 </tr>
@@ -374,7 +374,7 @@ desktop so powerful.
 
 The mkdir command is used to create directories. It works like this:
 
-mkdir命令是用来创建目录的。它这样工作：
+mkdir 命令是用来创建目录的。它这样工作：
 
 <div class="code"><pre>
 <tt>mkdir directory...</tt>
@@ -409,7 +409,7 @@ would create three directokries named "dir1", "dir2", "dir3".
 
 The cp command copies files or directories. It can be used two dfferent ways:
 
-cp命令，复制文件或者目录。它有两种使用方法：
+cp 命令，复制文件或者目录。它有两种使用方法：
 
 <div class="code"><pre>
 <tt>cp item1 item2</tt>
@@ -434,7 +434,7 @@ to copy multiple items (either files or directories) into a directory.
 Here are some of the commonly used options (the short option and the equivalent long
 option) for cp:
 
-这里列举了cp命令一些有用的选项（短选项和等效的长选项）：
+这里列举了 cp 命令一些有用的选项（短选项和等效的长选项）：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -479,7 +479,7 @@ performed.</td>
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
-<caption class="cap">表5－4：cp选项</caption>
+<caption class="cap">表5－4：cp 选项</caption>
 <tr>
 <th class="title">选项</th>
 <th class="title">意义</th>
@@ -492,12 +492,12 @@ performed.</td>
 <tr>
 <td valign="top">-i, --interactive</td>
 <td valign="top">在重写已存在文件之前，提示用户确认。如果这个选项不指定，
-cp命令会默认重写文件。</td>
+cp 命令会默认重写文件。</td>
 </tr>
 <tr>
 <td valign="top">-r, --recursive</td>
 <td valign="top">递归地复制目录及目录中的内容。当复制目录时，
-需要这个选项（或者-a选项）。</td>
+需要这个选项（或者-a 选项）。</td>
 </tr>
 <tr>
 <td valign="top">-u, --update </td>
@@ -560,29 +560,29 @@ its contents) will be copied into dir2.
 </tr>
 <tr>
 <td valign="top" width="25%">cp file1 file2</td>
-<td valign="top">复制文件file1内容到文件file2。如果file2已经存在，file2的内容会被file1的
-内容重写。如果file2不存在，则会创建file2。</td>
+<td valign="top">复制文件 file1内容到文件 file2。如果 file2已经存在，file2的内容会被 file1的
+内容重写。如果 file2不存在，则会创建 file2。</td>
 </tr>
 <tr>
 <td valign="top">cp -i file1 file2 </td>
-<td valign="top">这条命令和上面的命令一样，除了如果文件file2存在的话，在文件file2被重写之前，
+<td valign="top">这条命令和上面的命令一样，除了如果文件 file2存在的话，在文件 file2被重写之前，
 会提示用户确认信息。</td>
 </tr>
 <tr>
 <td valign="top">cp file1 file2 dir1 </td>
-<td valign="top">复制文件file1和文件file2到目录dir1。目录dir1必须存在。
+<td valign="top">复制文件 file1和文件 file2到目录 dir1。目录 dir1必须存在。
 </td>
 </tr>
 <tr>
 <td valign="top">cp dir1/* dir2 </td>
-<td valign="top">使用一个通配符，在目录dir1中的所有文件都被复制到目录dir2中。
+<td valign="top">使用一个通配符，在目录 dir1中的所有文件都被复制到目录 dir2中。
 dir2必须已经存在。</td>
 </tr>
 <tr>
 <td valign="top">cp -r dir1 dir2 </td>
-<td valign="top">复制目录dir1中的内容到目录dir2。如果目录dir2不存在，
-创建目录dir2，操作完成后，目录dir2中的内容和dir1中的一样。
-如果目录dir2存在，则目录dir1(和目录中的内容)将会被复制到dir2中。</td>
+<td valign="top">复制目录 dir1中的内容到目录 dir2。如果目录 dir2不存在，
+创建目录 dir2，操作完成后，目录 dir2中的内容和 dir1中的一样。
+如果目录 dir2存在，则目录 dir1(和目录中的内容)将会被复制到 dir2中。</td>
 </tr>
 </table>
 </p>
@@ -595,8 +595,8 @@ The mv command performs both file moving and file renaming, depending on how it 
 used. In either case, the original filename no longer exists after the operation. mv is used
 in much the same way as cp:
 
-mv命令可以执行文件移动和文件命名任务，这依赖于你怎样使用它。任何一种
-情况下，完成操作之后，原来的文件名不再存在。mv使用方法与cp很相像：
+mv 命令可以执行文件移动和文件命名任务，这依赖于你怎样使用它。任何一种
+情况下，完成操作之后，原来的文件名不再存在。mv 使用方法与 cp 很相像：
 
 <div class="code"><pre>
 <tt>mv item1 item2</tt>
@@ -616,7 +616,7 @@ to move one or more items from one directory to another.
 
 mv shares many of the same options as cp:
 
-mv与cp共享了很多一样的选项：
+mv 与 cp 共享了很多一样的选项：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -656,7 +656,7 @@ directory.
 <tr>
 <td valign="top" width="25%">-i --interactive</td>
 <td valign="top">在重写一个已经存在的文件之前，提示用户确认信息。
-<b>如果不指定这个选项，mv命令会默认重写文件内容。</b></td>
+<b>如果不指定这个选项，mv 命令会默认重写文件内容。</b></td>
 </tr>
 <tr>
 <td valign="top">-u --update</td>
@@ -665,7 +665,7 @@ directory.
 </tr>
 <tr>
 <td valign="top">-v --verbose</td>
-<td valign="top">当操作mv命令时，显示翔实的操作信息。</td>
+<td valign="top">当操作 mv 命令时，显示翔实的操作信息。</td>
 </tr>
 </table>
 </p>
@@ -702,28 +702,28 @@ directory dir2.</td>
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
-<caption class="cap">表 5－7 mv实例</caption>
+<caption class="cap">表 5－7 mv 实例</caption>
 <tr>
 <th class="title">mv file1 file2</th>
 <th
-class="title">移动file1到file2。<b>如果file2存在，它的内容会被file1的内容重写。
-</b>如果file2不存在，则创建file2。<b> 每种情况下，file1不再存在。</b></th>
+class="title">移动 file1到 file2。<b>如果 file2存在，它的内容会被 file1的内容重写。
+</b>如果 file2不存在，则创建 file2。<b> 每种情况下，file1不再存在。</b></th>
 </tr>
 <tr>
 <td valign="top" width="25%">mv -i file1 file2</td>
-<td valign="top">除了如果file2存在的话，在file2被重写之前，用户会得到
+<td valign="top">除了如果 file2存在的话，在 file2被重写之前，用户会得到
 提示信息外，这个和上面的选项一样。</td>
 </tr>
 <tr>
 <td valign="top">mv file1 file2 dir1</td>
-<td valign="top">移动file1和file2到目录dir1中。dir1必须已经存在。
+<td valign="top">移动 file1和 file2到目录 dir1中。dir1必须已经存在。
 </td>
 </tr>
 <tr>
 <td valign="top">mv dir1 dir2</td>
-<td valign="top">如果目录dir2不存在，创建目录dir2，并且移动目录dir1的内容到
-目录dir2中，同时删除目录dir1。如果目录dir2存在，移动目录dir1（及它的内容）到
-目录dir2。</td>
+<td valign="top">如果目录 dir2不存在，创建目录 dir2，并且移动目录 dir1的内容到
+目录 dir2中，同时删除目录 dir1。如果目录 dir2存在，移动目录 dir1（及它的内容）到
+目录 dir2。</td>
 </tr>
 </table>
 </p>
@@ -746,7 +746,7 @@ where "item" is one or more files or directories.
 
 Here are some of the common options for rm:
 
-下表是一些普遍使用的rm选项：
+下表是一些普遍使用的 rm 选项：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -792,7 +792,7 @@ performed.</td>
 <td valign="top" width="25%">-i, --interactive </td>
 <td
 valign="top">在删除已存在的文件前，提示用户确认信息。
-<b>如果不指定这个选项，rm会默默地删除文件</b>
+<b>如果不指定这个选项，rm 会默默地删除文件</b>
 </td>
 </tr>
 <tr>
@@ -806,7 +806,7 @@ valign="top">在删除已存在的文件前，提示用户确认信息。
 </tr>
 <tr>
 <td valign="top">-v, --verbose</td>
-<td valign="top">在执行rm命令时，显示翔实的操作信息。</td>
+<td valign="top">在执行 rm 命令时，显示翔实的操作信息。</td>
 </tr>
 </table>
 </p>
@@ -857,12 +857,12 @@ exist, rm will continue silently.</td>
 </tr>
 <tr>
 <td valign="top">rm -r file1 dir1</td>
-<td valign="top">删除文件file1, 目录dir1，及dir1中的内容。</td>
+<td valign="top">删除文件 file1, 目录 dir1，及 dir1中的内容。</td>
 </tr>
 <tr>
 <td valign="top">rm -rf file1 dir1</td>
 <td
-valign="top">同上，除了如果文件file1，或目录dir1不存在的话，rm仍会继续执行。</td>
+valign="top">同上，除了如果文件 file1，或目录 dir1不存在的话，rm 仍会继续执行。</td>
 </tr>
 </table>
 </p>
@@ -872,21 +872,21 @@ valign="top">同上，除了如果文件file1，或目录dir1不存在的话，r
 <td>
 <h3>Be Careful With rm!</h3>
 
-<h3>小心rm!</h3>
+<h3>小心 rm!</h3>
 
 <p>Unix-like operating systems such as Linux do not have an undelete command.
 Once you delete something with rm, it's gone. Linux assumes you're smart and
 you know what you're doing.  </p>
 
-<p>类似于Unix的操作系统，比如说Linux，没有复原命令。一旦你用rm删除了一些东西，
-它就消失了。Linux假定你很聪明，你知道你在做什么。</p>
+<p>类似于 Unix 的操作系统，比如说 Linux，没有复原命令。一旦你用 rm 删除了一些东西，
+它就消失了。Linux 假定你很聪明，你知道你在做什么。</p>
 
 <p>Be particularly careful with wildcards. Consider this classic example. Let's say
 you want to delete just the HTML files in a directory. To do this, you type:  </p>
 
 <p>rm *.html </p>
 
-<p>尤其要小心通配符。思考一下这个经典的例子。假如说，你只想删除一个目录中的HTML
+<p>尤其要小心通配符。思考一下这个经典的例子。假如说，你只想删除一个目录中的 HTML
 文件。输入： rm *.html</p>
 
 <p>which is correct, but if you accidentally place a space between the “*” and the
@@ -898,16 +898,16 @@ you want to delete just the HTML files in a directory. To do this, you type:  </
 <p>the rm command will delete all the files in the directory and then complain that
 there is no file called “.html”.</p>
 
-<p>这个rm命令会删除目录中的所有文件，还会抱怨没有文件叫做".html"。</p>
+<p>这个 rm 命令会删除目录中的所有文件，还会抱怨没有文件叫做".html"。</p>
 
 <p><b>Here is a useful tip.</b> Whenever you use wildcards with rm (besides carefully
 checking your typing!), test the wildcard first with ls. This will let you see the
 files that will be deleted. Then press the up arrow key to recall the command and
 replace the ls with rm.</p>
 
-<p><b>小贴士。</b>无论什么时候，rm命令用到通配符（除了仔细检查输入的内容外！），
-用ls命令来测试通配符。这会让你看到要删除的文件列表。然后按下上箭头按键，重新调用
-刚刚执行的命令，用rm替换ls。</p>
+<p><b>小贴士。</b>无论什么时候，rm 命令用到通配符（除了仔细检查输入的内容外！），
+用 ls 命令来测试通配符。这会让你看到要删除的文件列表。然后按下上箭头按键，重新调用
+刚刚执行的命令，用 rm 替换 ls。</p>
 
 </td>
 </tr>
@@ -920,7 +920,7 @@ replace the ls with rm.</p>
 The ln command is used to create either hard or symbolic links. It is used in one of two
 ways:
 
-ln命令即可创建硬链接，也可以创建符号链接。可以用其中一种方法来使用它： <div class="code"><pre> <tt>ln file link</tt> </pre></div> to create a hard link, and: 
+ln 命令即可创建硬链接，也可以创建符号链接。可以用其中一种方法来使用它： <div class="code"><pre> <tt>ln file link</tt> </pre></div> to create a hard link, and: 
 创建硬链接，和：
 
 <div class="code"><pre>
@@ -940,7 +940,7 @@ are more modern. By default, every file has a single hard link that gives the fi
 When we create a hard link, we create an additional directory entry for a file. Hard links
 have two important limitations:
 
-硬链接和符号链接比起来，硬链接是最初Unix创建链接的方式，而符号链接更加现代。
+硬链接和符号链接比起来，硬链接是最初 Unix 创建链接的方式，而符号链接更加现代。
 在默认情况下，每个文件有一个硬链接，这个硬链接给文件起名字。当我们创建一个
 硬链接以后，就为文件创建了一个额外的目录条目。硬链接有两个重要局限性：
 
@@ -979,7 +979,7 @@ though of course, they predate the Windows feature by many years ;-)
 
 创建符号链接是为了克服硬链接的局限性。符号链接生效，是通过创建一个
 特殊类型的文件，这个文件包含一个关联文件或目录的文本指针。在这一方面，
-它们和Windows的快捷方式差不多，当然，符号链接早于Windows的快捷方式
+它们和 Windows 的快捷方式差不多，当然，符号链接早于 Windows 的快捷方式
 很多年;-)
 
 A file pointed to by a symbolic link, and the symbolic link itself are largely
@@ -994,7 +994,7 @@ distinguishing color, such as red, to reveal their presence.
 例如，如果你往一个符号链接里面写入东西，那么相关联的文件也被写入。然而，
 当你删除一个符号链接时，只有这个链接被删除，而不是文件自身。如果删除这个文件
 早于文件的符号链接，这个链接仍然存在，但是不指向任何东西。在这种情况下，
-这个链接被称为坏链接。在许多实现中，ls命令会以不同的颜色展示坏链接，比如说
+这个链接被称为坏链接。在许多实现中，ls 命令会以不同的颜色展示坏链接，比如说
 红色，来显示它们的存在。
 
 The concept of links can seem very confusing, but hang in there. We're going to try all
@@ -1023,7 +1023,7 @@ The mkdir command is used to create a directory. To create our playground direct
 we will first make sure we are in our home directory and will then create the new
 directory:
 
-mkdir命令被用来创建目录。首先确定我们在我们的主目录下，来创建playground目录，
+mkdir 命令被用来创建目录。首先确定我们在我们的主目录下，来创建 playground 目录，
 然后创建这个新目录：
 
 <div class="code"><pre>
@@ -1035,9 +1035,9 @@ To make our playground a little more interesting, let's create a couple of direc
 it called “dir1” and “dir2”. To do this, we will change our current working directory to
 playground and execute another mkdir:
 
-为了让我们的游戏场更加有趣，在playground目录下创建一对目录
-，分别叫做"dir1"和"dir2"。更改我们的当前工作目录到playground，然后
-执行mkdir命令：
+为了让我们的游戏场更加有趣，在 playground 目录下创建一对目录
+，分别叫做"dir1"和"dir2"。更改我们的当前工作目录到 playground，然后
+执行 mkdir 命令：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ cd playground
@@ -1047,7 +1047,7 @@ playground and execute another mkdir:
 Notice that the mkdir command will accept multiple arguments allowing us to create
 both directories with a single command.
 
-注意到mkdir命令可以接受多个参数，它允许我们用一个命令来创建这两个
+注意到 mkdir 命令可以接受多个参数，它允许我们用一个命令来创建这两个
 目录。
 
 ###　Copying Files
@@ -1059,7 +1059,7 @@ cp command, we'll copy the passwd file from the /etc directory to the current
 working directory:
 
 下一步，让我们得到一些数据到我们的游戏场中。通过复制一个文件来实现目的。
-使用cp命令，我们从/etc目录复制passwd文件到当前工作目录下：
+使用 cp 命令，我们从/etc 目录复制 passwd 文件到当前工作目录下：
 
 <div class="code"><pre>
 <tt>[me@linuxbox playground]$ cp /etc/passwd .</tt>
@@ -1068,7 +1068,7 @@ working directory:
 Notice how we used the shorthand for the current working directory, the single trailing
 period. So now if we perform an ls, we will see our file:
 
-注意：我们怎样使用当前工作目录的快捷方式，命令末尾的单个圆点。如果我们执行ls命令，
+注意：我们怎样使用当前工作目录的快捷方式，命令末尾的单个圆点。如果我们执行 ls 命令，
 可以看到我们的文件：
 
 <div class="code"><pre>
@@ -1093,9 +1093,9 @@ indicating what operation it was performing. Notice that cp overwrote the first 
 without any warning. Again this is a case of cp assuming that you know what you’re are
 doing. To get a warning, we'll include the “-i” (interactive) option:
 
-cp命令再一次执行了复制操作，但是这次显示了一条简洁的信息，指明它
-进行了什么操作。注意，cp没有警告，就重写了第一次复制的文件。这是一个案例，
-cp假定你知道你的所作所为。为了得到警示信息，在命令中包含"-i"选项：
+cp 命令再一次执行了复制操作，但是这次显示了一条简洁的信息，指明它
+进行了什么操作。注意，cp 没有警告，就重写了第一次复制的文件。这是一个案例，
+cp 假定你知道你的所作所为。为了得到警示信息，在命令中包含"-i"选项：
 
 <div class="code"><pre>
 <tt>[me@linuxbox playground]$ cp -i /etc/passwd .
@@ -1106,7 +1106,7 @@ Responding to the prompt by entering a “y” will cause the file to be overwri
 other character (for example, “n”) will cause cp to leave the file alone.
 
 响应命令提示信息，输入"y"，文件就会被重写，其它的字符（例如，"n"）
-会导致cp命令不理会文件。
+会导致 cp 命令不理会文件。
 
 ### Moving And Renaming Files
 
@@ -1124,7 +1124,7 @@ change it to something else:
 Let's pass the fun around a little by moving our renamed file to each of the directories and
 back again:
 
-让我们来传送fun文件，通过移动重命名的文件到各个子目录，
+让我们来传送 fun 文件，通过移动重命名的文件到各个子目录，
 然后再把它移回到当前目录：
 
 <div class="code"><pre>
@@ -1133,7 +1133,7 @@ back again:
 
 to move it first to directory dir1, then:
 
-首先，把fun文件移动目录dir1中，然后：
+首先，把 fun 文件移动目录 dir1中，然后：
 
 <div class="code"><pre>
 <tt>[me@linuxbox playground]$ mv dir1/fun dir2</tt>
@@ -1141,7 +1141,7 @@ to move it first to directory dir1, then:
 
 to move it from dir1 to dir2, then:
 
-再把fun文件从dir1移到目录dir2, 然后：
+再把 fun 文件从 dir1移到目录 dir2, 然后：
 
 <div class="code"><pre>
 <tt>[me@linuxbox playground]$ mv dir2/fun .</tt>
@@ -1150,8 +1150,8 @@ to move it from dir1 to dir2, then:
 to finally bringing it back to the current working directory. Next, let's see the effect of mv
 on directories. First we will move our data file into dir1 again:
 
-最后，再把fun文件带回到当前工作目录。下一步，来看看移动目录的效果。
-首先，我们先移动我们的数据文件到dir1目录：
+最后，再把 fun 文件带回到当前工作目录。下一步，来看看移动目录的效果。
+首先，我们先移动我们的数据文件到 dir1目录：
 
 <div class="code"><pre>
 <tt>[me@linuxbox playground]$ mv fun dir1</tt>
@@ -1159,7 +1159,7 @@ on directories. First we will move our data file into dir1 again:
 
 then move dir1 into dir2 and confirm it with ls:
 
-然后移动dir1到dir2目录，用ls来确认执行结果:
+然后移动 dir1到 dir2目录，用 ls 来确认执行结果:
 
 <div class="code"><pre>
 <tt>[me@linuxbox playground]$ mv dir1 dir2
@@ -1174,8 +1174,8 @@ total 4
 Note that since dir2 already existed, mv moved dir1 into dir2. If dir2 had not
 existed, mv would have renamed dir1 to dir2. Lastly, let's put everything back:
 
-注意：因为目录dir2已经存在，mv命令移动dir1到dir2目录。如果dir2不存在，
-mv会重新命名dir1为dir2。最后，把所有的东西放回原处。
+注意：因为目录 dir2已经存在，mv 命令移动 dir1到 dir2目录。如果 dir2不存在，
+mv 会重新命名 dir1为 dir2。最后，把所有的东西放回原处。
 
 <div class="code"><pre>
 <tt>[me@linuxbox playground]$ mv dir2/dir1 .
@@ -1201,7 +1201,7 @@ like so:
 So now we have four instances of the file “fun”. Let's take a look our playground
 directory:
 
-所以现在，我们有四个文件"fun"的实例。看一下目录playground中的内容：
+所以现在，我们有四个文件"fun"的实例。看一下目录 playground 中的内容：
 
 <div class="code"><pre>
 <tt>[me@linuxbox playground]$ ls -l
@@ -1220,10 +1220,10 @@ case, ls is not very helpful. While we can see that fun and fun-hard are both th
 same size (field 5), our listing provides no way to be sure. To solve this problem, we're
 going to have to dig a little deeper.
 
-注意到一件事，列表中，文件fun和fun-hard的第二个字段是"4"，这个数字
+注意到一件事，列表中，文件 fun 和 fun-hard 的第二个字段是"4"，这个数字
 是文件"fun"的硬链接数目。你要记得一个文件至少有一个硬链接，因为文件
-名就是由链接创建的。所以，我们怎样知道实际上fun和fun-hard是一样的文件呢？
-在这个例子里，ls不是很有用。虽然我们能够看到fun和fun-hard文件大小一样
+名就是由链接创建的。所以，我们怎样知道实际上 fun 和 fun-hard 是一样的文件呢？
+在这个例子里，ls 不是很有用。虽然我们能够看到 fun 和 fun-hard 文件大小一样
 （第五字段），但我们的列表没有提供可靠的信息来确定（这两个文件一样）。
 为了解决这个问题，我们更深入的研究一下。
 
@@ -1242,7 +1242,7 @@ specific inode containing the file's contents.
 
 The ls command has a way to reveal this information. It is invoked with the “-i” option:
 
-ls命令有一种方法，来展示（文件索引节点）的信息。在命令中加上"-l"选项：
+ls 命令有一种方法，来展示（文件索引节点）的信息。在命令中加上"-l"选项：
 
 <div class="code"><pre>
 <tt>[me@linuxbox playground]$ ls -li
@@ -1258,7 +1258,7 @@ fun and fun-hard share the same inode number, which confirms they are the same
 file.
 
 在这个版本的列表中，第一字段表示文件索引节点号，正如我们所见到的，
-fun和fun-hard共享一样的索引节点号，这就证实这两个文件是一样的文件。
+fun 和 fun-hard 共享一样的索引节点号，这就证实这两个文件是一样的文件。
 
 ### Creating Symbolic Links
 
@@ -1288,10 +1288,10 @@ symbolic link rather than a hard link. But what about the next two? Remember, wh
 create a symbolic link, we are creating a text description of where the target file is
 relative to the symbolic link. It's easier to see if we look at the ls output:
 
-第一个实例相当直接，在ln命令中，简单地加上"-s"选项就可以创建一个符号链接，
+第一个实例相当直接，在 ln 命令中，简单地加上"-s"选项就可以创建一个符号链接，
 而不是一个硬链接。下面两个例子又是怎样呢？ 记住，当我们创建一个符号链接
 的时候，会建立一个目标文件在哪里和符号链接有关联的文本描述。如果我们看看
-ls命令的输出结果，比较容易理解。
+ls 命令的输出结果，比较容易理解。
 
 <div class="code"><pre>
 <tt>[me@linuxbox playground]$ ls -l dir1
@@ -1306,8 +1306,8 @@ fun-sym, fun is in the directory above it. Notice too, that the length of the sy
 link file is 6, the number of characters in the string “../fun” rather than the length of the
 file to which it is pointing.
 
-目录dir1中，fun-sym的列表说明了它是一个符号链接，通过在第一字段中的首字符"l"
-可知，并且它还指向"../fun"，也是正确的。相对于fun-sym的存储位置，fun在它的
+目录 dir1中，fun-sym 的列表说明了它是一个符号链接，通过在第一字段中的首字符"l"
+可知，并且它还指向"../fun"，也是正确的。相对于 fun-sym 的存储位置，fun 在它的
 上一个目录。同时注意，符号链接文件的长度是6，这是字符串"../fun"所包含的字符数，
 而不是符号链接所指向的文件长度。
 
@@ -1345,7 +1345,7 @@ As we covered earlier, the rm command is used to delete files and directories. W
 going to use it to clean up our playground a little bit. First, let's delete one of our hard
 links:
 
-正如我们之前讨论的，rm命令被用来删除文件和目录。我们将要使用它
+正如我们之前讨论的，rm 命令被用来删除文件和目录。我们将要使用它
 来清理一下我们的游戏场。首先，删除一个硬链接：
 
 <div class="code"><pre>
@@ -1360,8 +1360,8 @@ is reduced from four to three, as indicated in the second field of the directory
 Next, we'll delete the file fun, and just for enjoyment, we'll include the “-i” option to
 show what that does:
 
-结果不出所料。文件fun-hard消失了，文件fun的链接数从4减到3，正如
-目录列表第二字段所示。下一步，我们会删除文件fun，仅为了娱乐，我们会包含"-i"
+结果不出所料。文件 fun-hard 消失了，文件 fun 的链接数从4减到3，正如
+目录列表第二字段所示。下一步，我们会删除文件 fun，仅为了娱乐，我们会包含"-i"
 选项，看一个它的作用：
 
 <div class="code"><pre>
@@ -1373,7 +1373,7 @@ Enter “y” at the prompt and the file is deleted. But let's look at the outpu
 Noticed what happened to fun-sym? Since it's a symbolic link pointing to a now-
 nonexistent file, the link is broken:
 
-在提示符下输入"y"，删除文件。让我们看一下ls的输出结果。注意，fun-sym发生了
+在提示符下输入"y"，删除文件。让我们看一下 ls 的输出结果。注意，fun-sym 发生了
 什么事? 因为它是一个符号链接，指向已经不存在的文件，链接已经坏了：
 
 <div class="code"><pre>
@@ -1389,7 +1389,7 @@ Most Linux distributions configure ls to display broken links. On a Fedora box, 
 links are displayed in blinking red text! The presence of a broken link is not, in and of
 itself dangerous but it is rather messy. If we try to use a broken link we will see this:
 
-大多数Linux的发行版本配置ls显示损坏的链接。在Fedora系统中，坏的链接以闪烁的
+大多数 Linux 的发行版本配置 ls 显示损坏的链接。在 Fedora 系统中，坏的链接以闪烁的
 红色文本显示！损坏链接的出现，并不危险，但是相当混乱。如果我们试着使用
 损坏的链接，会看到以下情况：
 
@@ -1415,14 +1415,14 @@ on the link's target, not the link itself. rm is an exception. When you delete a
 the link that is deleted, not the target.
 
 对于符号链接，有一点值得记住，执行的大多数文件操作是针对链接的对象，而不是链接本身。
-而rm命令是个特例。当你删除链接的时候，删除链接本身，而不是链接的对象。
+而 rm 命令是个特例。当你删除链接的时候，删除链接本身，而不是链接的对象。
 
 Finally, we will remove our playground. To do this, we will return to our home directory
 and use rm with the recursive option (-r) to delete playground and all of its contents,
 including its subdirectories:
 
 最后，我们将删除我们的游戏场。为了完成这个工作，我们将返回到
-我们的主目录，然后用rm命令加上选项(-r)，来删除目录playground，
+我们的主目录，然后用 rm 命令加上选项(-r)，来删除目录 playground，
 和目录下的所有内容，包括子目录：
 
 <div class="code"><pre>
@@ -1434,7 +1434,7 @@ including its subdirectories:
 <tr>
 <td>
 <h3>Creating Symlinks With The GUI</h3>
-<h3>用GUI来创建符号链接</h3>
+<h3>用 GUI 来创建符号链接</h3>
 
 <p>The file managers in both GNOME and KDE provide an easy and automatic
 method of creating symbolic links. With GNOME, holding the Ctrl+Shift keys
@@ -1442,9 +1442,9 @@ while dragging a file will create a link rather than copying (or moving) the fil
 In KDE, a small menu appears whenever a file is dropped, offering a choice of
 copying, moving, or linking the file.
 </p>
-<p>文件管理器GNOME和KDE都提供了一个简单而且自动化的方法来创建符号链接。
-在GNOME里面，当拖动文件时，同时按下Ctrl+Shift按键会创建一个链接，而不是
-复制（或移动）文件。在KDE中，无论什么时候放下一个文件，会弹出一个小菜单，
+<p>文件管理器 GNOME 和 KDE 都提供了一个简单而且自动化的方法来创建符号链接。
+在 GNOME 里面，当拖动文件时，同时按下 Ctrl+Shift 按键会创建一个链接，而不是
+复制（或移动）文件。在 KDE 中，无论什么时候放下一个文件，会弹出一个小菜单，
 这个菜单会提供复制，移动，或创建链接文件选项。</p>
 
 </td>
@@ -1464,8 +1464,8 @@ specify files for various operations. The concept of links is a little confusing
 take the time to learn how they work. They can be a real lifesaver.
 
 在这一章中，我们已经研究了许多基础知识。我们得花费一些时间来全面的理解。
-反复练习playground例题，直到你觉得它有意义。能够良好的理解基本文件操作
-命令和通配符，非常重要。空闲时，通过添加文件和目录来拓展playground练习，
+反复练习 playground 例题，直到你觉得它有意义。能够良好的理解基本文件操作
+命令和通配符，非常重要。空闲时，通过添加文件和目录来拓展 playground 练习，
 使用通配符来为各种各样的操作命令指定文件。关于链接的概念，在刚开始接触
 时会觉得有点迷惑，花些时间来学习它们是怎样工作的。它们能成为真正的救星。
 

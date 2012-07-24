@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 什么是shell 
+title: 什么是 shell 
 ---
 
 When we speak of the command line, we are really referring to the shell. The
@@ -10,10 +10,10 @@ program from the GNU Project called bash. The name “bash” is an acronym for
 “Bourne Again SHell”, a reference to the fact bash is an enhanced replacement
 for sh, the original Unix shell program written by Steve Bourne.
 
-一说到命令行，我们真正指的是shell。shell就是一个程序，它接受从键盘输入的命令，
-然后把命令传递给操作系统去执行。几乎所有的Linux发行版都提供一个名为bash的程序，
-bash是shell的一种，来自于GNU项目。“bash”是“Bourne Again SHell”的首字母缩写，
-所指的是这样一个事实，bash是sh的增强版，sh是最初Unix的shell程序，由Steve Bourne写成。
+一说到命令行，我们真正指的是 shell。shell 就是一个程序，它接受从键盘输入的命令，
+然后把命令传递给操作系统去执行。几乎所有的 Linux 发行版都提供一个名为 bash 的程序，
+bash 是 shell 的一种，来自于 GNU 项目。“bash”是“Bourne Again SHell”的首字母缩写，
+所指的是这样一个事实，bash 是 sh 的增强版，sh 是最初 Unix 的 shell 程序，由 Steve Bourne 写成。
 
 Terminal Emulators
 
@@ -28,11 +28,11 @@ basically do the same thing; give us access to the shell. You will probably
 develop a preference for one or another based on the number of bells and
 whistles it has.
 
-当使用图形用户界面时，我们需要另一个叫做终端仿真器的程序，去和shell交互。
+当使用图形用户界面时，我们需要另一个叫做终端仿真器的程序，去和 shell 交互。
 浏览一下我们的桌面菜单，我们可能会找到一个。虽然在菜单里它可能都
-被简单地称为“terminal”，但是KDE用的是konsole程序, 而GNOME则使用gnome-terminal。
-还有其他一些终端仿真器可供Linux使用，但基本上，它们都是为了完成同样的事情，
-让我们能访问shell。也许，你会喜欢上这个或那个终端，由于它所附加的一系列花俏功能。
+被简单地称为“terminal”，但是 KDE 用的是 konsole 程序, 而 GNOME 则使用 gnome-terminal。
+还有其他一些终端仿真器可供 Linux 使用，但基本上，它们都是为了完成同样的事情，
+让我们能访问 shell。也许，你会喜欢上这个或那个终端，由于它所附加的一系列花俏功能。
 
 Your First Keystrokes
 
@@ -54,8 +54,8 @@ distribution, it will usually include your username@machinename, followed by
 the current working directory (more about that in a little bit) and a dollar
 sign.
 
-这叫做shell提示符，当shell准备好了去接受输入时，它就会出现。然而，
-它可能会以各种各样的面孔显示，这则取决于不同的Linux发行版，
+这叫做 shell 提示符，当 shell 准备好了去接受输入时，它就会出现。然而，
+它可能会以各种各样的面孔显示，这则取决于不同的 Linux 发行版，
 它通常包括你的用户名@主机名，紧接着当前工作目录（关于它的知识有点多）和一个美元符号。
 
 If the last character of the prompt is a pound sign (“#”) rather than a dollar
@@ -79,7 +79,7 @@ gibberish at the prompt like so:
 Since this command makes no sense, the shell will tell us so and give us
 another chance:
 
-因为这个命令没有任何意义，所以shell会提示错误信息，并让我们再试一下：
+因为这个命令没有任何意义，所以 shell 会提示错误信息，并让我们再试一下：
 
 <div class="code"><pre>
 <tt>bash: kaekfjaeifj: command not found
@@ -96,7 +96,7 @@ remember the last five hundred commands by default. Press the down-arrow key and
 previous command disappears.
 
 如果按下上箭头按键，我们会看到刚才输入的命令“kaekfjaeifj”重新出现在提示符之后。
-这就叫做命令历史。许多Linux发行版默认保存最后输入的500个命令。
+这就叫做命令历史。许多 Linux 发行版默认保存最后输入的500个命令。
 按下下箭头按键，先前输入的命令就消失了。
 
 Cursor Movement
@@ -121,18 +121,18 @@ dragging the mouse over it (or double clicking on a word), it is copied into a
 buffer maintained by X. Pressing the middle mouse button will cause the text to
 be pasted at the cursor location. Try it.
 
-虽然，shell是和键盘打交道的，但你也可以在终端仿真器里使用鼠标。X窗口系统
-（使GUI工作的底层引擎）内建了一种机制，支持快速拷贝和粘贴技巧。
+虽然，shell 是和键盘打交道的，但你也可以在终端仿真器里使用鼠标。X 窗口系统
+（使 GUI 工作的底层引擎）内建了一种机制，支持快速拷贝和粘贴技巧。
 如果你想高亮一些文本，可以按下鼠标左键，沿着文本拖动鼠标（或者双击一个单词），
-那么这些高亮的文本就被拷贝到了一个由X管理的缓冲区里面。然后按下鼠标中键，
+那么这些高亮的文本就被拷贝到了一个由 X 管理的缓冲区里面。然后按下鼠标中键，
 这些文本就被粘贴到光标所在的位置。试试看。
 
 Note: Don't be tempted to use Ctrl-c and Ctrl-v to perform copy and paste
 inside a terminal window. They don't work. These control codes have different
 meanings to the shell and were assigned many years before Microsoft Windows.
 
-注意： 不要受诱惑在一个终端窗口里，使用Ctrl-c和Ctrl-v快捷键，来执行拷贝和粘贴操作。
-它们不起作用。对于shell来说，这些控制代码有着不同的含义，它们被赋值，早于Microsoft Windows许多年。
+注意： 不要受诱惑在一个终端窗口里，使用 Ctrl-c 和 Ctrl-v 快捷键，来执行拷贝和粘贴操作。
+它们不起作用。对于 shell 来说，这些控制代码有着不同的含义，它们被赋值，早于 Microsoft Windows 许多年。
 
 Your graphical desktop environment (most likely KDE or GNOME), in an effort
 to behave like Windows, probably has its focus policy set to “click to focus.”
@@ -145,9 +145,9 @@ paste technique even more useful. Give it a try. I think if you give it a chance
 you will prefer it. You will find this setting in the configuration program for your
 window manager.
 
-你的图形桌面环境（像KDE或GNOME），努力想和Windows一样，可能会把它的聚焦策略
+你的图形桌面环境（像 KDE 或 GNOME），努力想和 Windows 一样，可能会把它的聚焦策略
 设置成“单击聚焦”。这意味着，为了让窗口聚焦（变得活跃）你需要单击它。
-这与“聚焦跟随着鼠标”的传统X行为相反，传统X行为是指只要把鼠标移动到一个窗口的上方，
+这与“聚焦跟随着鼠标”的传统 X 行为相反，传统 X 行为是指只要把鼠标移动到一个窗口的上方，
 这个窗口就成为活动窗口。这个窗口不会成为前端窗口，直到你单击它，但它能接受输入。
 设置聚焦策略为“聚焦跟随着鼠标”，可以使拷贝和粘贴技巧更有益。尝试一下。
 给它一个机会，我想你会喜欢上它的。在窗口管理器的配置程序中，你会找到这个设置。
@@ -159,7 +159,7 @@ Try Some Simple Commands
 Now that we have learned to type, let's try a few simple commands. The first one is
 date. This command displays the current time and date.
 
-现在，我们学习了怎样输入命令，那我们执行一些简单的命令吧。第一个命令是date。
+现在，我们学习了怎样输入命令，那我们执行一些简单的命令吧。第一个命令是 date。
 这个命令显示系统当前时间和日期。
 
 <div class="code"><pre>
@@ -184,7 +184,7 @@ Su Mo Tu We Th Fr Sa
 
 To see the current amount of free space on your disk drives, type df:
 
-查看磁盘剩余空间的数量，输入df:
+查看磁盘剩余空间的数量，输入 df:
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ df
@@ -197,7 +197,7 @@ tmpfs                   256856         0   256856    0% /dev/shm</tt>
 
 Likewise, to display the amount of free memory, type the free command.
 
-同样地，显示空闲内存的数量，输入命令free。
+同样地，显示空闲内存的数量，输入命令 free。
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ free
@@ -215,7 +215,7 @@ Ending A Terminal Session
 We can end a terminal session by either closing the terminal emulator window, or by
 entering the exit command at the shell prompt:
 
-我们可以终止一个终端会话，通过关闭终端仿真器窗口，或者是在shell提示符下输入exit命令：
+我们可以终止一个终端会话，通过关闭终端仿真器窗口，或者是在 shell 提示符下输入 exit 命令：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ exit</tt>
@@ -234,10 +234,10 @@ and password.  To switch from one virtual console to another, press Alt and
 F1-F6. To return to the graphical desktop, press Alt-F7.
 
 即使，终端仿真器没有运行，几个终端会话仍然在后台运行着。它们叫做虚拟终端
-或者是虚拟控制台。在大多数Linux 发行版中，这些终端会话都可以访问，
-按下Ctrl-Alt-F1到Ctrl-Alt-F6访问不同的虚拟终端。当一个会话被访问的时候，
+或者是虚拟控制台。在大多数 Linux 发行版中，这些终端会话都可以访问，
+按下 Ctrl-Alt-F1到 Ctrl-Alt-F6访问不同的虚拟终端。当一个会话被访问的时候，
 它会显示登录提示框，我们需要输入用户名和密码。从一个虚拟控制台转换到另一个，
-按下 Alt 和 F1-F6。返回图形桌面，按下Alt-F7。
+按下 Alt 和 F1-F6。返回图形桌面，按下 Alt-F7。
 
 Further Reading
 
@@ -246,13 +246,13 @@ Further Reading
 To learn more about Steve Bourne, father of the Bourne Shell, see this
 Wikipedia article:
 
-*  想了解更多关于Steve Bourne的故事，Bourne Shell之父，读一下这篇文章：
+*  想了解更多关于 Steve Bourne 的故事，Bourne Shell 之父，读一下这篇文章：
 
    <http://en.wikipedia.org/wiki/Steve_Bourne>
 
 Here is an article about the concept of shells in computing:
 
-*  这是一篇关于在计算机领域里，shells概念的文章：
+*  这是一篇关于在计算机领域里，shells 概念的文章：
 
    <http://en.wikipedia.org/wiki/Shell_(computing)>
 

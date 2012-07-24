@@ -1,14 +1,14 @@
 ---
 layout: book
-title: 从shell眼中看世界 
+title: 从 shell 眼中看世界 
 ---
 
 In this chapter we are going to look at some of the "magic" that occurs on the command
 line when you press the enter key. While we will examine several interesting and
 complex features of the shell, we will do it with just one new command:
 
-在这一章我们将看一下，当你按下enter键后，发生在命令行中的一些“魔法”。虽然我们会
-仔细查看几个复杂有趣的shell特点，但我们只使用一个新命令来处理这些特性。
+在这一章我们将看一下，当你按下 enter 键后，发生在命令行中的一些“魔法”。虽然我们会
+仔细查看几个复杂有趣的 shell 特点，但我们只使用一个新命令来处理这些特性。
 
 ### echo – Display a line of text
 
@@ -27,11 +27,11 @@ demonstrate what we mean by this, let's take a look at the echo command. echo is
 shell builtin that performs a very simple task. It prints out its text arguments on standard
 output:
 
-每一次你输入一个命令，然后按下enter键，在bash执行你的命令之前，bash会对输入
+每一次你输入一个命令，然后按下 enter 键，在 bash 执行你的命令之前，bash 会对输入
 的字符完成几个步骤处理。我们已经知道两三个案例，怎样一个简单的字符序列，例如"\*",
-对shell来说，有很多的涵义。使这个发生的过程叫做（字符）展开。通过展开，
-你输入的字符，在shell对它起作用之前，会展开成为别的字符。为了说明我们所要
-表达的意思，让我们看一看echo命令。echo是一个shell内部命令，来完成非常简单的认为。
+对 shell 来说，有很多的涵义。使这个发生的过程叫做（字符）展开。通过展开，
+你输入的字符，在 shell 对它起作用之前，会展开成为别的字符。为了说明我们所要
+表达的意思，让我们看一看 echo 命令。echo 是一个 shell 内部命令，来完成非常简单的认为。
 它在标准输出中打印出它的文本参数。
 
     [me@linuxbox ~]$ echo this is a test
@@ -40,7 +40,7 @@ output:
 That's pretty straightforward. Any argument passed to echo gets displayed. Let's try
 another example:
 
-这个命令的作用相当简单明了。传递到echo命令的任一个参数都会在（屏幕上）显示出来。
+这个命令的作用相当简单明了。传递到 echo 命令的任一个参数都会在（屏幕上）显示出来。
 让我们试试另一个例子：
 
     [me@linuxbox ~]$ echo *
@@ -56,9 +56,9 @@ automatically expands any qualifying characters on the command line before the
 command is carried out, so the echo command never saw the "\*", only its
 expanded result. Knowing this, we can see that echo behaved as expected.
 
-那么刚才发生了什么事情呢？ 为什么echo不打印"\*"呢？随着你回想起我们所学过的
+那么刚才发生了什么事情呢？ 为什么 echo 不打印"\*"呢？随着你回想起我们所学过的
 关于通配符的内容，这个"\*"字符意味着匹配文件名中的任意字符，但是在原先的讨论
-中我们却不知道shell是怎样实现这个功能的。
+中我们却不知道 shell 是怎样实现这个功能的。
 
 ### Pathname Expansion
 
@@ -164,7 +164,7 @@ a special meaning. When used at the beginning of a word, it expands into the nam
 home directory of the named user, or if no user is named, the home directory of the
 current user:
 
-可能你从我们对cd命令的介绍中回想起来，波浪线字符("~")有特殊的意思。当它用在一个
+可能你从我们对 cd 命令的介绍中回想起来，波浪线字符("~")有特殊的意思。当它用在一个
 单词的开头时，它会展开成指定用户的主目录名，如果没有指定用户名，则是当前用户的主目录：
 
     [me@linuxbox ~]$ echo ~
@@ -184,7 +184,7 @@ If user “foo” has an account, then:
 The shell allows arithmetic to be performed by expansion. This allow us to use the shell
 prompt as a calculator:
 
-shell允许算术表达式通过展开来执行。这允许我们把shell提示当作计算器来使用：
+shell 允许算术表达式通过展开来执行。这允许我们把 shell 提示当作计算器来使用：
 
     [me@linuxbox ~]$ echo $((2 + 2))
     4
@@ -356,10 +356,10 @@ named “USER” contains your user name. To invoke parameter expansion and reve
 contents of USER you would do this:
 
 在这一章我们将会简单地介绍参数展开，只是皮毛而已。后续章节我们会广泛地
-讨论参数展开。这个特性在shell脚本中比直接在命令行中更有用。它的许多性能
+讨论参数展开。这个特性在 shell 脚本中比直接在命令行中更有用。它的许多性能
 和系统存储小块数据，并给每块数据命名的能力有关系。许多像这样的小块数据，
 更适当些应叫做变量，可以方便地检查它们。例如，叫做"USER"的变量包含你的
-用户名。唤醒参数展开，揭示USER中的内容，可以这样做：
+用户名。唤醒参数展开，揭示 USER 中的内容，可以这样做：
 
     [me@linuxbox ~]$ echo $USER
     me
@@ -376,7 +376,7 @@ pattern. With parameter expansion, if you misspell the name of a variable, the e
 will still take place, but will result in an empty string:
 
 你可能注意到其它展开类型，如果你误输入一个模式，展开就不会发生。这时
-echo命令只简单地显示误键入的模式。通过参数展开，如果你拼写错了一个变量名，
+echo 命令只简单地显示误键入的模式。通过参数展开，如果你拼写错了一个变量名，
 展开仍然会进行，只是展成一个空字符串：
 
     [me@linuxbox ~]$ echo $SUER
@@ -405,7 +405,7 @@ getting the listing of of the cp program without having to know its full pathnam
 not limited to just simple commands. Entire pipelines can be used (only partial output
 shown):
 
-这里我们把which cp的执行结果作为一个参数传递给ls命令，因此要想得到cp程序的
+这里我们把 which cp 的执行结果作为一个参数传递给 ls 命令，因此要想得到 cp 程序的
 输出列表，不必知道它完整的路径名。我们不只限制于简单命令。也可以使用整个管道线
 （只展示部分输出）：
 
@@ -416,13 +416,13 @@ shown):
 In this example, the results of the pipeline became the argument list of the file
 command.
 
-在这个例子中，管道线的输出结果成为file命令的参数列表。
+在这个例子中，管道线的输出结果成为 file 命令的参数列表。
 
 There is an alternate syntax for command substitution in older shell programs which is
 also supported in bash. It uses back-quotes instead of the dollar sign and parentheses:
 
-在旧版shell程序中，有另一种语法也支持命令替换，可与刚提到的语法轮换使用。
-bash也支持这种语法。它使用倒引号来代替美元符号和括号：
+在旧版 shell 程序中，有另一种语法也支持命令替换，可与刚提到的语法轮换使用。
+bash 也支持这种语法。它使用倒引号来代替美元符号和括号：
 
     [me@linuxbox ~]$ ls -l `which cp`
     -rwxr-xr-x 1 root root 71516 2007-12-05 08:58 /bin/cp
@@ -434,7 +434,7 @@ bash也支持这种语法。它使用倒引号来代替美元符号和括号：
 Now that we've seen how many ways the shell can perform expansions, it's time to learn
 how we can control it. Take for example:
 
-我们已经知道shell有许多方式可以完成展开，现在是时候学习怎样来控制展开了。
+我们已经知道 shell 有许多方式可以完成展开，现在是时候学习怎样来控制展开了。
 以下面例子来说明：
 
     [me@linuxbox ~]$ echo this is a    test
@@ -473,7 +473,7 @@ cause this to be treated as two separate arguments rather than the desired
 single argument:
 
 我们将要看一下引用的第一种类型，双引号。如果你把文本放在双引号中，
-shell使用的特殊字符，除了 `$`, `\` (反斜杠），和 ```（倒引号）之外，
+shell 使用的特殊字符，除了 `$`, `\` (反斜杠），和 ```（倒引号）之外，
 则失去它们的特殊含义，被当作普通字符来看待。这意味着单词分割，路径名展开，
 波浪线展开，和花括号展开都被禁止，然而参数展开，算术展开，和命令替换
 仍然执行。使用双引号，我们可以处理包含空格的文件名。比方说我们是不幸的
@@ -601,7 +601,7 @@ special meaning to the shell. These would include “$”, “!”, “&”, “
 include a special character in a filename you can to this:
 
 使用转义字符来消除文件名中一个字符的特殊含义，是很普遍的。例如，在文件名中可能使用
-一些对于shell来说，有特殊含义的字符。这些字符包括"$", "!", " "等字符。在文件名
+一些对于 shell 来说，有特殊含义的字符。这些字符包括"$", "!", " "等字符。在文件名
 中包含特殊字符，你可以这样做：
 
     [me@linuxbox ~]$ mv bad\&filename good_filename
@@ -625,7 +625,7 @@ to teletype-like devices. Some of these codes are familiar (tab, backspace,
 linefeed, and carriage return), while others are not (null, end-of-transmission, and
 acknowledge).</p>
 <p>反斜杠除了作为转义字符外，反斜杠也是一种表示法的一部分，这种表示法代表某种
-特殊字符，叫做控制码。ASCII编码表中前32个字符被用来把命令转输到像电报机
+特殊字符，叫做控制码。ASCII 编码表中前32个字符被用来把命令转输到像电报机
 一样的设备。一些编码是众所周知的（制表符，退格符，换行符，和回车符），其它
 一些编码就不熟悉了（空值，传输结束码，和确认）。</p>
 
@@ -646,7 +646,7 @@ acknowledge).</p>
 <tr>
 <td valign="top">\n</td>
 <td valign="top">Newline. On Unix-like systems, this produces a linefeed.
-&nbsp; 新的一行。在类似Unix系统中，产生换行。</td>
+&nbsp; 新的一行。在类似 Unix 系统中，产生换行。</td>
 </tr>
 <tr>
 <td valign="top">\r</td>
@@ -664,16 +664,16 @@ behind this representation using the backslash originated in the C programming
 language and has been adopted by many others, including the shell.
 </p>
 
-<p>上表列出了一些常见的反斜杠转义字符。反斜杠表示法背后的思想来源于C编程语言，
-许多其它语言也采用了这种表示方法，包括shell。</p>
+<p>上表列出了一些常见的反斜杠转义字符。反斜杠表示法背后的思想来源于 C 编程语言，
+许多其它语言也采用了这种表示方法，包括 shell。</p>
 
 <p>Adding the “-e” option to echo will enable interpretation of escape sequences.
 You may also place them inside $' '. Here, using the sleep command, a
 simple program that just waits for the specified number of seconds and then exits,
 we can create a primitive countdown timer:
 </p>
-<p>echo命令带上"-e"选项，能够解释转义序列。你可以把转义序列放在$' '里面。
-以下例子，使用sleep命令，一个简单的程序，它会等待指定的秒数，然后退出。
+<p>echo 命令带上"-e"选项，能够解释转义序列。你可以把转义序列放在$' '里面。
+以下例子，使用 sleep 命令，一个简单的程序，它会等待指定的秒数，然后退出。
 我们可以创建一个简单的倒数计数器：</p>
 
 <p><b>sleep 10; echo -e  "Time's up\a"</b></p>
@@ -697,9 +697,9 @@ way they works. In fact, it could be argued that they are the most important sub
 learn about the shell. Without a proper understanding of expansion, the shell will always
 be a source of mystery and confusion, and much of it potential power wasted.
 
-随着我们继续学习shell，你会发现使用展开和引用的频率逐渐多起来，所以能够很好的
-理解他们的工作方式很有意义。事实上，可以这样说，他们是学习shell的最重要的主题。
-如果没有准确地理解展开模式，shell总是神秘和混乱的源泉，并且shell潜在的能力也
+随着我们继续学习 shell，你会发现使用展开和引用的频率逐渐多起来，所以能够很好的
+理解他们的工作方式很有意义。事实上，可以这样说，他们是学习 shell 的最重要的主题。
+如果没有准确地理解展开模式，shell 总是神秘和混乱的源泉，并且 shell 潜在的能力也
 浪费掉了。
 
 ### Further Reading
@@ -709,11 +709,11 @@ be a source of mystery and confusion, and much of it potential power wasted.
 * The bash man page has major sections on both expansion and quoting which
   cover these topics in a more formal manner.
 
-* Bash手册页有主要段落是关于展开和引用的，它们以更正式的方式介绍了这些题目。
+* Bash 手册页有主要段落是关于展开和引用的，它们以更正式的方式介绍了这些题目。
 
 * The Bash Reference Manual also contains chapters on expansion and quoting:
 
-* Bash参考手册也包含章节，介绍展开和引用：
+* Bash 参考手册也包含章节，介绍展开和引用：
 
   <http://www.gnu.org/software/bash/manual/bashref.html>
 

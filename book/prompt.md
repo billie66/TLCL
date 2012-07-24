@@ -1,21 +1,21 @@
 ---
 layout: book
-title: 自定制shell提示符 
+title: 自定制 shell 提示符 
 ---
 
 In this chapter we will look at a seemingly trivial detail — our shell prompt. This
 examination will reveal some of the inner workings of the shell and the terminal emulator
 program itself.
 
-在这一章中，我们将会看一下表面上看来很琐碎的细节－shell提示符。但这会揭示一些内部shell和
+在这一章中，我们将会看一下表面上看来很琐碎的细节－shell 提示符。但这会揭示一些内部 shell 和
 终端仿真器的工作方式。
 
 Like so many things in Linux, the shell prompt is highly configurable, and while we have
 pretty much taken it for granted, the prompt is a really useful device once we learn how
 to control it.
 
-和Linux内的许多程序一样，shell提示符是可高度配置的，虽然我们把它相当多地看作是理所当然的，
-但是我们一旦学会了怎样控制它，shell提示符是一个真正有用的设备。
+和 Linux 内的许多程序一样，shell 提示符是可高度配置的，虽然我们把它相当多地看作是理所当然的，
+但是我们一旦学会了怎样控制它，shell 提示符是一个真正有用的设备。
 
 Anatomy Of A Prompt
 
@@ -35,8 +35,8 @@ environment variable named PS1 (short for “prompt string one”). We can view 
 contents of PS1 with the echo command:
 
 注意它包含我们的用户名，主机名和当前工作目录，但是它又是怎样得到这些东西的呢？
-结果证明非常简单。提示符是由一个环境变量定义的，叫做PS1（是“prompt string one”
-的简写）。我们可以通过echo命令来查看PS1的内容。
+结果证明非常简单。提示符是由一个环境变量定义的，叫做 PS1（是“prompt string one”
+的简写）。我们可以通过 echo 命令来查看 PS1的内容。
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo $PS1
@@ -49,7 +49,7 @@ Note: Don't worry if your results are not exactly the same as the example above.
 Every Linux distribution defines the prompt string a little differently, some quite
 exotically.
 
-注意：如果你shell提示符的内容和上例不是一模一样，也不必担心。每个Linux发行版
+注意：如果你 shell 提示符的内容和上例不是一模一样，也不必担心。每个 Linux 发行版
 定义的提示符稍微有点不同，其中一些相当异乎寻常。
 <hr />
 
@@ -59,9 +59,9 @@ The astute among us will recognize these as backslash-escaped special characters
 those we saw in Chapter 8. Here is a partial list of the characters that the shell treats
 specially in the prompt string:
 
-从输出结果中，我们看到那个PS1环境变量包含一些这样的字符，比方说中括号，@符号，和美元符号，
+从输出结果中，我们看到那个 PS1环境变量包含一些这样的字符，比方说中括号，@符号，和美元符号，
 但是剩余部分就是个谜。我们中一些机敏的人会把这些看作是由反斜杠转义的特殊字符，就像我们
-在第八章中看到的一样。这里是一部分字符列表，在提示符中shell会特殊对待这些字符：
+在第八章中看到的一样。这里是一部分字符列表，在提示符中 shell 会特殊对待这些字符：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -181,14 +181,14 @@ cursor or changing text colors.
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
-<caption class="cap">表14－1：Shell提示符中用到的转义字符</caption>
+<caption class="cap">表14－1：Shell 提示符中用到的转义字符</caption>
 <tr>
 <th class="title">序列</th>
 <th class="title">显示值</th>
 </tr>
 <tr>
 <td valign="top" width="20%">\a</td>
-<td valign="top">以ASCII格式编码的铃声 . 当遇到这个转义序列时，计算机会发出嗡嗡的响声。</td>
+<td valign="top">以 ASCII 格式编码的铃声 . 当遇到这个转义序列时，计算机会发出嗡嗡的响声。</td>
 </tr>
 <tr>
 <td valign="top">\d</td>
@@ -204,7 +204,7 @@ cursor or changing text colors.
 </tr>
 <tr>
 <td valign="top">\j</td>
-<td valign="top">运行在当前shell会话中的工作数。</td>
+<td valign="top">运行在当前 shell 会话中的工作数。</td>
 </tr>
 <tr>
 <td valign="top">\l</td>
@@ -220,11 +220,11 @@ cursor or changing text colors.
 </tr>
 <tr>
 <td valign="top">\s</td>
-<td valign="top">shell程序名。</td>
+<td valign="top">shell 程序名。</td>
 </tr>
 <tr>
 <td valign="top">\t</td>
-<td valign="top">以24小时制，hours:minutes:seconds的格式表示当前时间.</td>
+<td valign="top">以24小时制，hours:minutes:seconds 的格式表示当前时间.</td>
 </tr>
 <tr>
 <td valign="top">\T</td>
@@ -232,11 +232,11 @@ cursor or changing text colors.
 </tr>
 <tr>
 <td valign="top">\@</td>
-<td valign="top">以12小时制，AM/PM格式来表示当前时间。</td>
+<td valign="top">以12小时制，AM/PM 格式来表示当前时间。</td>
 </tr>
 <tr>
 <td valign="top">\A</td>
-<td valign="top">以24小时制，hours:minutes格式表示当前时间。</td>
+<td valign="top">以24小时制，hours:minutes 格式表示当前时间。</td>
 </tr>
 <tr>
 <td valign="top">\u</td>
@@ -244,7 +244,7 @@ cursor or changing text colors.
 </tr>
 <tr>
 <td valign="top">\v</td>
-<td valign="top">shell程序的版本号。</td>
+<td valign="top">shell 程序的版本号。</td>
 </tr>
 <tr>
 <td valign="top">\V</td>
@@ -265,7 +265,7 @@ cursor or changing text colors.
 </tr>
 <tr>
 <td valign="top">\#</td>
-<td valign="top">当前shell会话中的命令数。
+<td valign="top">当前 shell 会话中的命令数。
 </td>
 </tr>
 <tr>
@@ -296,7 +296,7 @@ existing string into another shell variable that we create ourselves:
 
 参照这个特殊字符列表，我们可以更改提示符来看一下效果。首先，
 我们把原来提示符字符串的内容备份一下，以备之后恢复原貌。为了完成备份，
-我们把已有的字符串复制到另一个shell变量中，这个变量是我们自己创造的。
+我们把已有的字符串复制到另一个 shell 变量中，这个变量是我们自己创造的。
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ps1\_old="$PS1"</tt>
@@ -305,8 +305,8 @@ existing string into another shell variable that we create ourselves:
 We create a new variable called ps1_old and assign the value of PS1 to it. We can
 verify that the string has been copied with the echo command:
 
-我们新创建了一个叫做ps1_old的变量，并把变量PS1的值赋ps1\_old。通过echo命令可以证明
-我们的确复制了PS1的值。
+我们新创建了一个叫做 ps1_old 的变量，并把变量 PS1的值赋 ps1\_old。通过 echo 命令可以证明
+我们的确复制了 PS1的值。
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ echo $ps1\_old
@@ -406,8 +406,8 @@ you look in the deepest recesses of your terminal emulator settings you may find
 a setting for the type of terminal emulation.</p>
 
 <p>回溯到终端连接到远端计算机的时代，有许多竞争的终端品牌，它们各自工作不同。
-它们有着不同的键盘，以不同的方式来解释控制信息。Unix和类似于Unix的系统有两个
-相当复杂的子系统来处理终端控制领域的混乱局面（称为termcap和terminfo）。如果你
+它们有着不同的键盘，以不同的方式来解释控制信息。Unix 和类似于 Unix 的系统有两个
+相当复杂的子系统来处理终端控制领域的混乱局面（称为 termcap 和 terminfo）。如果你
 查看一下终端仿真器最底层的属性设置，可能会找到一个关于终端仿真器类型的设置。</p>
 
 <p> In an effort to make terminals speak some sort of common language, the
@@ -416,7 +416,7 @@ character sequences to control video terminals. Old time DOS users will
 remember the ANSI.SYS file that was used to enable interpretation of these
 codes. </p>
 <p>为了努力使所有的终端都讲某种通用语言，美国国家标准委员会（ANSI）制定了
-一套标准的字符序列集合来控制视频终端。原先DOS用户会记得ANSI.SYS文件，
+一套标准的字符序列集合来控制视频终端。原先 DOS 用户会记得 ANSI.SYS 文件，
 这是一个用来使这些编码解释生效的文件。</p>
 </td>
 </tr>
@@ -430,9 +430,9 @@ An ANSI escape code begins with an octal 033 (the code generated by the escape k
 followed by an optional character attribute followed by an instruction. For example, the
 code to set the text color to normal (attribute = 0), black text is:
 
-字符颜色是由发送到终端仿真器的一个嵌入到了要显示的字符流中的ANSI转义编码来控制的。
+字符颜色是由发送到终端仿真器的一个嵌入到了要显示的字符流中的 ANSI 转义编码来控制的。
 这个控制编码不会“打印”到屏幕上，而是被终端解释为一个指令。正如我们在上表看到的字符序列，
-这个\[和\]序列被用来封装这些非打印字符。一个ANSI转义编码以一个八进制033（这个编码是由
+这个\[和\]序列被用来封装这些非打印字符。一个 ANSI 转义编码以一个八进制033（这个编码是由
 退出按键产生的）开头，其后跟着一个可选的字符属性，在之后是一个指令。例如，把文本颜色
 设为正常（attribute = 0）,黑色文本的编码如下：
 
@@ -658,23 +658,23 @@ position the cursor:
 </tr>
 <tr>
 <td valign="top" width="25%">\033[l;cH </td>
-<td valign="top">把光标移到第l行，第c列。</td>
+<td valign="top">把光标移到第 l 行，第 c 列。</td>
 </tr>
 <tr>
 <td valign="top">\033[nA </td>
-<td valign="top">把光标向上移动n行。</td>
+<td valign="top">把光标向上移动 n 行。</td>
 </tr>
 <tr>
 <td valign="top">\033[nB </td>
-<td valign="top">把光标向下移动n行。</td>
+<td valign="top">把光标向下移动 n 行。</td>
 </tr>
 <tr>
 <td valign="top">\033[nC </td>
-<td valign="top">把光标向前移动n个字符。</td>
+<td valign="top">把光标向前移动 n 个字符。</td>
 </tr>
 <tr>
 <td valign="top">\033[nD </td>
-<td valign="top">把光标向后移动n个字符。</td>
+<td valign="top">把光标向后移动 n 个字符。</td>
 </tr>
 <tr>
 <td valign="top">\033[2J </td>
@@ -788,7 +788,7 @@ true size of the displayed prompt.  </td>
 </tr>
 <tr>
 <td valign="top" width="25%">\[</td>
-<td valign="top">开始一个非打印字符序列。其真正的目的是为了让bash
+<td valign="top">开始一个非打印字符序列。其真正的目的是为了让 bash
 能够正确地计算提示符的大小。如果没有这个转义字符的话，命令行编辑
 功能会弄错光标的位置。</td>
 </tr>
@@ -819,7 +819,7 @@ true size of the displayed prompt.  </td>
 <tr>
 <td valign="top">\t </td>
 <td valign="top">显示当前时间。虽然这是一个可“打印”的元素，但我们仍把它包含在提示符的非打印部分，
-因为我们不想bash在计算可见提示符的真正大小时包括这个时钟在内。</td>
+因为我们不想 bash 在计算可见提示符的真正大小时包括这个时钟在内。</td>
 </tr>
 <tr>
 <td valign="top">\033[0m </td>
@@ -849,7 +849,7 @@ prompt someplace. We can make the prompt permanent by adding it to our .bashrc
 file. To do so, add these two lines to the file:
 
 显然地，我们不想总是敲入那个怪物，所以我们将要把这个提示符存储在某个地方。通过把它
-添加到我们的.bashrc文件，可以使这个提示符永久存在。为了达到目的，把下面这两行添加到.bashrc文件中。
+添加到我们的.bashrc 文件，可以使这个提示符永久存在。为了达到目的，把下面这两行添加到.bashrc 文件中。
 
 <div class="code"><pre>
 <tt><b>PS1=&quot;\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
@@ -868,9 +868,9 @@ will care enough to change the prompt, since the default prompt is usually satis
 But for those of us who like to tinker, the shell provides the opportunity for many hours
 of trivial fun.
 
-不管你信不信，还有许多事情可以由提示符来完成，涉及到我们在这里没有论及的shell函数和脚本，
+不管你信不信，还有许多事情可以由提示符来完成，涉及到我们在这里没有论及的 shell 函数和脚本，
 但这是一个好的开始。并不是每个人都会花心思来更改提示符，因为通常默认的提示符就很让人满意。
-但是对于我们这些喜欢思考的人们来说，shell却提供了许多制造琐碎乐趣的机会。
+但是对于我们这些喜欢思考的人们来说，shell 却提供了许多制造琐碎乐趣的机会。
 
 Further Reading
 
@@ -881,14 +881,14 @@ Further Reading
   pretty complete discussion of what the shell prompt can be made to do. It is
   available at:
 
-* The Bash Prompt HOWTO 来自于Linux文档工程，对shell提示符的用途进行了相当
+* The Bash Prompt HOWTO 来自于 Linux 文档工程，对 shell 提示符的用途进行了相当
   完备的论述。可在以下链接中得到：
 
   <http://tldp.org/HOWTO/Bash-Prompt-HOWTO/>
 
 * Wikipedia has a good article on the ANSI Escape Codes:
 
-* Wikipedia上有一篇关于ANSI Escape Codes的好文章：
+* Wikipedia 上有一篇关于 ANSI Escape Codes 的好文章：
 
   <http://en.wikipedia.org/wiki/ANSI_escape_code>
 
