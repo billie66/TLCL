@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 流程控制：if分支结构 
+title: 流程控制：if 分支结构 
 ---
 
 In the last chapter, we were presented with a problem. How can we make our report
@@ -35,7 +35,7 @@ This is an example of a branch. Based on the condition, “Does X = 5?” do one
 
 Using the shell, we can code the logic above as follows:
 
-使用shell，我们可以编码上面的逻辑，如下所示：
+使用 shell，我们可以编码上面的逻辑，如下所示：
 
     x=5
 
@@ -62,12 +62,12 @@ In this example, we execute the command twice. Once, with the value of x set to 
 which results in the string “equals 5” being output, and the second time with the value of
 x set to 0, which results in the string “does not equal 5” being output.
 
-在这个例子中，我们执行了两次这个命令。第一次是，把x的值设置为5，从而导致输出字符串“equals 5”,
-第二次是，把x的值设置为0，从而导致输出字符串“does not equal 5”。
+在这个例子中，我们执行了两次这个命令。第一次是，把 x 的值设置为5，从而导致输出字符串“equals 5”,
+第二次是，把 x 的值设置为0，从而导致输出字符串“does not equal 5”。
 
 The if statement has the following syntax:
 
-这个if语句语法如下：
+这个 if 语句语法如下：
 
     if commands; then
          commands
@@ -81,8 +81,8 @@ where commands is a list of commands. This is a little confusing at first glance
 before we can clear this up, we have to look at how the shell evaluates the success or
 failure of a command.
 
-这里的commands是指一系列命令。第一眼看到会有点儿困惑。但是在我们弄清楚这些语句之前，我们
-必须看一下shell是如何评判一个命令的成功与失败的。
+这里的 commands 是指一系列命令。第一眼看到会有点儿困惑。但是在我们弄清楚这些语句之前，我们
+必须看一下 shell 是如何评判一个命令的成功与失败的。
 
 ### Exit Status
 
@@ -94,9 +94,9 @@ when they terminate, called an exit status. This value, which is an integer in t
 value of zero indicates success and any other value indicates failure. The shell provides a
 parameter that we can use to examine the exit status. Here we see it in action:
 
-当命令执行完毕后，命令（包括我们编写的脚本和shell函数）会给系统发送一个值，叫做退出状态。
+当命令执行完毕后，命令（包括我们编写的脚本和 shell 函数）会给系统发送一个值，叫做退出状态。
 这个值是一个0到255之间的整数，说明命令执行成功或是失败。按照惯例，一个零值说明成功，其它所有值说明失败。
-Shell提供了一个参数，我们可以用它检查退出状态。用具体实例看一下：
+Shell 提供了一个参数，我们可以用它检查退出状态。用具体实例看一下：
 
     [me@linuxbox ~]$ ls -d /usr/bin
     /usr/bin
@@ -116,8 +116,8 @@ errors, while many commands simply exit with a value of one when they fail. Man 
 often include a section entitled "Exit Status," describing what codes are used. However,
 a zero always indicates success.
 
-在这个例子中，我们执行了两次ls命令。第一次，命令执行成功。如果我们显示参数`$?`的值，我们
-看到它是零。我们第二次执行ls命令的时候，产生了一个错误，并再次查看参数`$?`。这次它包含一个
+在这个例子中，我们执行了两次 ls 命令。第一次，命令执行成功。如果我们显示参数`$?`的值，我们
+看到它是零。我们第二次执行 ls 命令的时候，产生了一个错误，并再次查看参数`$?`。这次它包含一个
 数字2，表明这个命令遇到了一个错误。有些命令使用不同的退出值，来诊断错误，而许多命令当
 它们执行失败的时候，会简单地退出并发送一个数字1。手册页中经常会包含一章标题为“退出状态”的内容，
 描述了使用的代码。然而，一个零总是表明成功。
@@ -126,8 +126,8 @@ The shell provides two extremely simple builtin commands that do nothing except
 terminate with either a zero or one exit status. The true command always executes
 successfully and the false command always executes unsuccessfully:
 
-这个shell提供了两个极其简单的内部命令，它们不做任何事情，除了以一个零或1退出状态来终止执行。
-True命令总是执行成功，而false命令总是执行失败：
+这个 shell 提供了两个极其简单的内部命令，它们不做任何事情，除了以一个零或1退出状态来终止执行。
+True 命令总是执行成功，而 false 命令总是执行失败：
 
     [me@linuxbox~]$ true
     [me@linuxbox~]$ echo $?
@@ -139,7 +139,7 @@ True命令总是执行成功，而false命令总是执行失败：
 We can use these commands to see how the if statement works. What the if statement
 really does is evaluate the success or failure of commands:
 
-我们能够使用这些命令，来看一下if语句是怎样工作的。If语句真正做的事情是计算命令执行成功或失败：
+我们能够使用这些命令，来看一下 if 语句是怎样工作的。If 语句真正做的事情是计算命令执行成功或失败：
 
     [me@linuxbox ~]$ if true; then echo "It's true."; fi
     It's true.
@@ -151,8 +151,8 @@ executes successfully, and is not executed when the command following if does no
 execute successfully. If a list of commands follows if, the last command in the list is
 evaluated:
 
-当if之后的命令执行成功的时候，命令echo "It's true."将会执行，否则此命令不执行。
-如果if之后跟随一系列命令，则将计算列表中的最后一个命令：
+当 if 之后的命令执行成功的时候，命令 echo "It's true."将会执行，否则此命令不执行。
+如果 if 之后跟随一系列命令，则将计算列表中的最后一个命令：
 
     [me@linuxbox ~]$ if false; true; then echo "It's true."; fi
     It's true.
@@ -167,7 +167,7 @@ evaluated:
 By far, the command used most frequently with if is test. The test command
 performs a variety of checks and comparisons. It has two equivalent forms:
 
-到目前为止，经常与if一块使用的命令是test。这个test命令执行各种各样的检查与比较。
+到目前为止，经常与 if 一块使用的命令是 test。这个 test 命令执行各种各样的检查与比较。
 它有两种等价模式：
 
     test expression
@@ -182,8 +182,8 @@ where expression is an expression that is evaluated as either true or false. The
 command returns an exit status of zero when the expression is true and a status of one
 when the expression is false.
 
-这里的expression是一个表达式，其执行结果是true或者是false。当表达式为真时，这个test命令返回一个零
-退出状态，当表达式为假时，test命令退出状态为1。
+这里的 expression 是一个表达式，其执行结果是 true 或者是 false。当表达式为真时，这个 test 命令返回一个零
+退出状态，当表达式为假时，test 命令退出状态为1。
 
 #### File Expressions
 
@@ -308,84 +308,84 @@ permission for the effective user).</td>
 </tr>
 <tr>
 <td valign="top">file1 -nt file2 </td>
-<td valign="top">file1新于file2。</td>
+<td valign="top">file1新于 file2。</td>
 </tr>
 <tr>
 <td valign="top">file1 -ot file2 </td>
-<td valign="top">file1早于file2。</td>
+<td valign="top">file1早于 file2。</td>
 </tr>
 <tr>
 <td valign="top">-b file </td>
-<td valign="top">file存在并且是一个块（设备）文件。</td>
+<td valign="top">file 存在并且是一个块（设备）文件。</td>
 </tr>
 <tr>
 <td valign="top">-c file </td>
-<td valign="top">file存在并且是一个字符（设备）文件。</td>
+<td valign="top">file 存在并且是一个字符（设备）文件。</td>
 </tr>
 <tr>
 <td valign="top">-d file</td>
-<td valign="top">file存在并且是一个目录。</td>
+<td valign="top">file 存在并且是一个目录。</td>
 </tr>
 <tr>
 <td valign="top">-e file</td>
-<td valign="top">file存在。</td>
+<td valign="top">file 存在。</td>
 </tr>
 <tr>
 <td valign="top">-f file</td>
-<td valign="top">file存在并且是一个普通文件。</td>
+<td valign="top">file 存在并且是一个普通文件。</td>
 </tr>
 <tr>
 <td valign="top">-g file</td>
-<td valign="top">file存在并且设置了组ID。</td>
+<td valign="top">file 存在并且设置了组 ID。</td>
 </tr>
 <tr>
 <td valign="top">-G file</td>
-<td valign="top">file存在并且由有效组ID拥有。</td>
+<td valign="top">file 存在并且由有效组 ID 拥有。</td>
 </tr>
 <tr>
 <td valign="top">-k file</td>
-<td valign="top">file存在并且设置了它的“sticky bit”。</td>
+<td valign="top">file 存在并且设置了它的“sticky bit”。</td>
 </tr>
 <tr>
 <td valign="top">-L file</td>
-<td valign="top">file存在并且是一个符号链接。</td>
+<td valign="top">file 存在并且是一个符号链接。</td>
 </tr>
 <tr>
 <td valign="top">-O file</td>
-<td valign="top">file存在并且由有效用户ID拥有。</td>
+<td valign="top">file 存在并且由有效用户 ID 拥有。</td>
 </tr>
 <tr>
 <td valign="top">-p file </td>
-<td valign="top">file存在并且是一个命名管道。</td>
+<td valign="top">file 存在并且是一个命名管道。</td>
 </tr>
 <tr>
 <td valign="top">-r file </td>
-<td valign="top">file存在并且可读（有效用户有可读权限）。 </td>
+<td valign="top">file 存在并且可读（有效用户有可读权限）。 </td>
 </tr>
 <tr>
 <td valign="top">-s file</td>
-<td valign="top">file存在且其长度大于零。</td>
+<td valign="top">file 存在且其长度大于零。</td>
 </tr>
 <tr>
 <td valign="top">-S file</td>
-<td valign="top">file存在且是一个网络socket。</td>
+<td valign="top">file 存在且是一个网络 socket。</td>
 </tr>
 <tr>
 <td valign="top">-t fd</td>
-<td valign="top">fd是一个定向到终端／从终端定向的文件描述符 。
+<td valign="top">fd 是一个定向到终端／从终端定向的文件描述符 。
 这可以被用来决定是否重定向了标准输入／输出错误。</td>
 </tr>
 <tr>
 <td valign="top">-u file </td>
-<td valign="top">file存在并且设置了setuid位。</td>
+<td valign="top">file 存在并且设置了 setuid 位。</td>
 </tr>
 <tr>
 <td valign="top">-w file </td>
-<td valign="top">file存在并且可写（有效用户拥有可写权限）。</td>
+<td valign="top">file 存在并且可写（有效用户拥有可写权限）。</td>
 </tr>
 <tr>
 <td valign="top">-x file </td>
-<td valign="top">file存在并且可执行（有效用户有执行／搜索权限）。</td>
+<td valign="top">file 存在并且可执行（有效用户有执行／搜索权限）。</td>
 </tr>
 </table>
 </p>
@@ -438,12 +438,12 @@ file. The exit command appearing on the last line of the script is there as a fo
 When a script “runs off the end” (reaches end of file), it terminates with an exit status of
 zero by default, anyway.
 
-这个脚本会计算赋值给常量FILE的文件，并显示计算结果。对于此脚本有两点需要注意。第一个，
+这个脚本会计算赋值给常量 FILE 的文件，并显示计算结果。对于此脚本有两点需要注意。第一个，
 在表达式中参数`$FILE`是怎样被引用的。引号并不是必需的，但这是为了防范空参数。如果`$FILE`的参数展开
 是一个空值，就会导致一个错误（操作符将会被解释为非空的字符串而不是操作符）。用引号把参数引起来就
-确保了操作符之后总是跟随着一个字符串，即使字符串为空。第二个，注意脚本末尾的exit命令。
-这个exit命令接受一个单独的，可选的参数，其成为脚本的退出状态。当不传递参数时，退出状态默认为零。
-以这种方式使用exit命令，则允许此脚本提示失败如果$FILE展开成一个不存在的文件名。这个exit命令
+确保了操作符之后总是跟随着一个字符串，即使字符串为空。第二个，注意脚本末尾的 exit 命令。
+这个 exit 命令接受一个单独的，可选的参数，其成为脚本的退出状态。当不传递参数时，退出状态默认为零。
+以这种方式使用 exit 命令，则允许此脚本提示失败如果$FILE 展开成一个不存在的文件名。这个 exit 命令
 出现在脚本中的最后一行，是一个当一个脚本“运行到最后”（到达文件末尾），不管怎样，
 默认情况下它以退出状态零终止。
 
@@ -452,8 +452,8 @@ return command. If we were to convert the script above to a shell function to in
 it in a larger program, we could replace the exit commands with return statements
 and get the desired behavior:
 
-类似地，通过带有一个整数参数的return命令，shell函数可以返回一个退出状态。如果我们打算把
-上面的脚本转变为一个shell函数，为了在更大的程序中包含此函数，我们用return语句来代替exit命令，
+类似地，通过带有一个整数参数的 return 命令，shell 函数可以返回一个退出状态。如果我们打算把
+上面的脚本转变为一个 shell 函数，为了在更大的程序中包含此函数，我们用 return 语句来代替 exit 命令，
 则得到期望的行为：
 
     test_file () {
@@ -541,31 +541,31 @@ equal signs may be used, but the use of double equal signs is greatly preferred.
 </tr>
 <tr>
 <td valign="top" width="35%">string</td>
-<td valign="top">string不为null。</td>
+<td valign="top">string 不为 null。</td>
 </tr>
 <tr>
 <td valign="top">-n string</td>
-<td valign="top">字符串string的长度大于零。</td>
+<td valign="top">字符串 string 的长度大于零。</td>
 </tr>
 <tr>
 <td valign="top">-z string</td>
-<td valign="top">字符串string的长度为零。</td>
+<td valign="top">字符串 string 的长度为零。</td>
 </tr>
 <tr>
 <td valign="top"><p>string1 = string2</p><p>string1 == string2</p></td>
-<td valign="top">string1和string2相同. 单或双等号都可以，不过双等号更受欢迎。 </td>
+<td valign="top">string1和 string2相同. 单或双等号都可以，不过双等号更受欢迎。 </td>
 </tr>
 <tr>
 <td valign="top">string1 != string2 </td>
-<td valign="top">string1和string2不相同。</td>
+<td valign="top">string1和 string2不相同。</td>
 </tr>
 <tr>
 <td valign="top">string1 &gt; string2</td>
-<td valign="top">sting1排列在string2之后。</td>
+<td valign="top">sting1排列在 string2之后。</td>
 </tr>
 <tr>
 <td valign="top">string1 &lt; string2</td>
-<td valign="top">string1排列在string2之前。</td>
+<td valign="top">string1排列在 string2之前。</td>
 </tr>
 </table>
 </p>
@@ -581,9 +581,9 @@ collation order of the current locale, it does not. ASCII (POSIX) order is used 
 versions of bash up to and including 4.0.
 
 警告：这个&lt;和&gt;表达式操作符必须用引号引起来（或者是用反斜杠转义），
-当与test一块使用的时候。如果不这样，它们会被shell解释为重定向操作符，造成潜在地破坏结果。
-同时也要注意虽然bash文档声明排序遵从当前语系的排列规则，但并不这样。将来的bash版本，包含4.0，
-使用ASCII（POSIX）排序规则。
+当与 test 一块使用的时候。如果不这样，它们会被 shell 解释为重定向操作符，造成潜在地破坏结果。
+同时也要注意虽然 bash 文档声明排序遵从当前语系的排列规则，但并不这样。将来的 bash 版本，包含4.0，
+使用 ASCII（POSIX）排序规则。
 
 ---
 
@@ -620,11 +620,11 @@ the string is not empty, we evaluate the value of the string to see if it is equ
 “yes,” “no,” or “maybe.” We do this by using elif, which is short for “else if.” By
 using elif, we are able to construct a more complex logical test.
 
-在这个脚本中，我们计算常量ANSWER。我们首先确定是否此字符串为空。如果为空，我们就终止
-脚本，并把退出状态设为零。注意这个应用于echo命令的重定向操作。其把错误信息“There
+在这个脚本中，我们计算常量 ANSWER。我们首先确定是否此字符串为空。如果为空，我们就终止
+脚本，并把退出状态设为零。注意这个应用于 echo 命令的重定向操作。其把错误信息“There
 is no answer.”重定向到标准错误，这是处理错误信息的“合理”方法。如果字符串不为空，我们就计算
-字符串的值，看看它是否等于“yes,” "no," 或者“maybe”。为此使用了elif，它是“else if”的简写。
-通过使用elif，我们能够构建更复杂的逻辑测试。
+字符串的值，看看它是否等于“yes,” "no," 或者“maybe”。为此使用了 elif，它是“else if”的简写。
+通过使用 elif，我们能够构建更复杂的逻辑测试。
 
 #### Integer Expressions
 
@@ -677,27 +677,27 @@ The following expressions are used with integers:
 </tr>
 <tr>
 <td valign="top" width="50%">integer1 -eq integer2 </td>
-<td valign="top">integer1等于integer2.</td>
+<td valign="top">integer1等于 integer2.</td>
 </tr>
 <tr>
 <td valign="top">integer1 -ne integer2 </td>
-<td valign="top">integer1不等于integer2.</td>
+<td valign="top">integer1不等于 integer2.</td>
 </tr>
 <tr>
 <td valign="top">integer1 -le integer2 </td>
-<td valign="top">integer1小于或等于integer2.</td>
+<td valign="top">integer1小于或等于 integer2.</td>
 </tr>
 <tr>
 <td valign="top">integer1 -lt integer2 </td>
-<td valign="top">integer1小于integer2.</td>
+<td valign="top">integer1小于 integer2.</td>
 </tr>
 <tr>
 <td valign="top">integer1 -ge integer2 </td>
-<td valign="top">integer1大于或等于integer2.</td>
+<td valign="top">integer1大于或等于 integer2.</td>
 </tr>
 <tr>
 <td valign="top">integer1 -gt integer2 </td>
-<td valign="top">integer1大于integer2.</td>
+<td valign="top">integer1大于 integer2.</td>
 </tr>
 </table>
 </p>
@@ -743,7 +743,7 @@ and returns the remainder, it can tell if the number is odd or even.
 Recent versions of bash include a compound command that acts as an enhanced
 replacement for test. It uses the following syntax:
 
-目前的bash版本包括一个复合命令，作为加强的test命令替代物。它使用以下语法：
+目前的 bash 版本包括一个复合命令，作为加强的 test 命令替代物。它使用以下语法：
 
     [[ expression ]]
 
@@ -751,8 +751,8 @@ where, like test, expression is an expression that evaluates to either a true or
 result. The `[[ ]]` command is very similar to test (it supports all of its expressions),
 but adds an important new string expression:
 
-这里，类似于test，expression是一个表达式，其计算结果为真或假。这个`[[ ]]`命令非常
-相似于test命令（它支持所有的表达式），但是增加了一个重要的新的字符串表达式：
+这里，类似于 test，expression 是一个表达式，其计算结果为真或假。这个`[[ ]]`命令非常
+相似于 test 命令（它支持所有的表达式），但是增加了一个重要的新的字符串表达式：
 
     string1 =~ regex
 
@@ -762,8 +762,8 @@ example of the integer expressions, the script would fail if the constant INT co
 anything except an integer. The script needs a way to verify that the constant contains an
 integer. Using `[[ ]]` with the `=~` string expression operator, we could improve the script this way:
 
-其返回值为真，如果string1匹配扩展的正则表达式regex。这就为执行比如数据验证等任务提供了许多可能性。
-在我们前面的整数表达式示例中，如果常量INT包含除了整数之外的任何数据，脚本就会运行失败。这个脚本
+其返回值为真，如果 string1匹配扩展的正则表达式 regex。这就为执行比如数据验证等任务提供了许多可能性。
+在我们前面的整数表达式示例中，如果常量 INT 包含除了整数之外的任何数据，脚本就会运行失败。这个脚本
 需要一种方法来证明此常量包含一个整数。使用`[[ ]]`和 `=~` 字符串表达式操作符，我们能够这样来改进脚本：
 
     #!/bin/bash
@@ -796,7 +796,7 @@ By applying the regular expression, we are able to limit the value of INT to onl
 that begin with an optional minus sign, followed by one or more numerals. This
 expression also eliminates the possibility of empty values.
 
-通过应用正则表达式，我们能够限制INT的值只是字符串，其开始于一个可选的减号，随后是一个或多个数字。
+通过应用正则表达式，我们能够限制 INT 的值只是字符串，其开始于一个可选的减号，随后是一个或多个数字。
 这个表达式也消除了空值的可能性。
 
 Another added feature of `[[ ]]` is that the `==` operator supports pattern matching the
@@ -822,7 +822,7 @@ In addition to the `[[ ]]` compound command, bash also provides the `(( ))`
 compound command, which is useful for operating on integers. It supports a full set of
 arithmetic evaluations, a subject we will cover fully in Chapter 35.
 
-除了`[[ ]]`复合命令之外，bash也提供了`(( ))`复合命名，其有利于操作整数。它支持一套
+除了`[[ ]]`复合命令之外，bash 也提供了`(( ))`复合命名，其有利于操作整数。它支持一套
 完整的算术计算，我们将在第35章中讨论这个主题。
 
 `(( ))` is used to perform arithmetic truth tests. An arithmetic truth test results in true if
@@ -837,7 +837,7 @@ the result of the arithmetic evaluation is non-zero.
 
 Using `(( ))`, we can slightly simplify the test-integer2 script like this:
 
-使用`(( ))`，我们能够略微简化test-integer2脚本，像这样：
+使用`(( ))`，我们能够略微简化 test-integer2脚本，像这样：
 
     #!/bin/bash
 
@@ -873,7 +873,7 @@ name and does not require expansion to be performed. We’ll discuss `(( ))` and
 related arithmetic expansion further in Chapter 35.
 
 注意我们使用小于和大于符号，以及==用来测试是否相等。这是使用整数较为自然的语法了。也要
-注意，因为复合命令`(( ))`是shell语法的一部分，而不是一个普通的命令，而且它只处理整数，
+注意，因为复合命令`(( ))`是 shell 语法的一部分，而不是一个普通的命令，而且它只处理整数，
 所以它能够通过名字识别出变量，而不需要执行展开操作。我们将在第35中进一步讨论`(( ))`命令
 和相关的算术展开操作。
 
@@ -888,8 +888,8 @@ we learned about the find command. There are three logical operations for test a
 represent these operations :
 
 也有可能把表达式结合起来创建更复杂的计算。通过使用逻辑操作符来结合表达式。我们
-在第18章中已经知道了这些，当我们学习find命令的时候。它们是用于test和`[[ ]]`三个逻辑操作。
-它们是AND，OR，和NOT。test和`[[ ]]`使用不同的操作符来表示这些操作：
+在第18章中已经知道了这些，当我们学习 find 命令的时候。它们是用于 test 和`[[ ]]`三个逻辑操作。
+它们是 AND，OR，和 NOT。test 和`[[ ]]`使用不同的操作符来表示这些操作：
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="100%">
@@ -920,7 +920,7 @@ represent these operations :
 Here’s an example of an AND operation. The following script determines if an integer is
 within a range of values:
 
-这里有一个AND操作的示例。下面的脚本决定了一个整数是否属于某个范围内的值：
+这里有一个 AND 操作的示例。下面的脚本决定了一个整数是否属于某个范围内的值：
     
     #!/bin/bash
 
@@ -948,7 +948,7 @@ included, the negation would only apply to the first expression and not the comb
 of the two. Coding this with test would be done this way:
 
 我们也可以对表达式使用圆括号，为的是分组。如果不使用括号，那么否定只应用于第一个
-表达式，而不是两个组合的表达式。用test可以这样来编码：
+表达式，而不是两个组合的表达式。用 test 可以这样来编码：
 
     if [ ! \( $INT -ge $MIN_VAL -a $INT -le $MAX_VAL \) ]; then
         echo "$INT is outside $MIN_VAL to $MAX_VAL."
@@ -960,16 +960,16 @@ Since all expressions and operators used by test are treated as command argument
 the shell (unlike `[[ ]]` and `(( ))` ), characters which have special meaning to bash,
 such as &lt;, &gt;, (, and ), must be quoted or escaped.
 
-因为test使用的所有的表达式和操作符都被shell看作是命令参数（不像`[[ ]]`和`(())` ），
-对于bash有特殊含义的字符，比如说&lt;，&gt;，(，和)，必须引起来或者是转义。
+因为 test 使用的所有的表达式和操作符都被 shell 看作是命令参数（不像`[[ ]]`和`(())` ），
+对于 bash 有特殊含义的字符，比如说&lt;，&gt;，(，和)，必须引起来或者是转义。
 
 Seeing that test and `[[ ]]` do roughly the same thing, which is preferable? test is
 traditional (and part of POSIX), whereas `[[ ]]` is specific to bash. It’s important to
 know how to use test, since it is very widely used, but `[[ ]]` is clearly more useful
 and is easier to code.
 
-知道了test和`[[ ]]`基本上完成相同的事情，哪一个更好呢？test更传统（是POSIX的一部分），
-然而`[[ ]]`特定于bash。知道怎样使用test很重要，因为它被非常广泛地应用，但是显然`[[ ]]`更
+知道了 test 和`[[ ]]`基本上完成相同的事情，哪一个更好呢？test 更传统（是 POSIX 的一部分），
+然而`[[ ]]`特定于 bash。知道怎样使用 test 很重要，因为它被非常广泛地应用，但是显然`[[ ]]`更
 有助于，并更易于编码。
 
 <table class="single" cellpadding="10" width="100%">
@@ -984,16 +984,16 @@ like Linux very much. They regard it as impure and unclean. One tenet of Unix
 followers is that everything should be “portable.” This means that any script you
 write should be able to run, unchanged, on any Unix-like system.</p>
 
-<p>如果你和“真正的”Unix用户交谈，你很快就会发现他们大多数人不是非常喜欢Linux。他们
-认为Linux肮脏且不干净。Unix追随者的一个宗旨是，一切都应“可移植的”。这意味着你编写
-的任意一个脚本都应当无需修改，就能运行在任何一个类似于Unix的系统中。</p>
+<p>如果你和“真正的”Unix 用户交谈，你很快就会发现他们大多数人不是非常喜欢 Linux。他们
+认为 Linux 肮脏且不干净。Unix 追随者的一个宗旨是，一切都应“可移植的”。这意味着你编写
+的任意一个脚本都应当无需修改，就能运行在任何一个类似于 Unix 的系统中。</p>
 
 <p>Unix people have good reason to believe this. Having seen what proprietary
 extensions to commands and shells did to the Unix world before POSIX, they are
 naturally wary of the effect of Linux on their beloved OS.</p>
 
-<p>Unix用户有充分的理由相信这一点。在POSIX之前，Unix用户已经看到了命令的专有扩展以及
-shell对Unix世界的所做所为，他们自然会警惕Linux对他们心爱系统的影响。</p>
+<p>Unix 用户有充分的理由相信这一点。在 POSIX 之前，Unix 用户已经看到了命令的专有扩展以及
+shell 对 Unix 世界的所做所为，他们自然会警惕 Linux 对他们心爱系统的影响。</p>
 
 <p>But portability has a serious downside. It prevents progress. It requires that
 things are always done using “lowest common denominator” techniques. In the
@@ -1001,7 +1001,7 @@ case of shell programming, it means making everything compatible with sh, the
 original Bourne shell.</p>
 
 <p>但是可移植性有一个严重的缺点。它防碍了进步。它要求做事情要遵循“最低常见标准”。
-在shell编程这种情况下，它意味着一切要与sh兼容，最初的Bourne shell。</p>
+在 shell 编程这种情况下，它意味着一切要与 sh 兼容，最初的 Bourne shell。</p>
 
 <p>This downside is the excuse that proprietary vendors use to justify their
 proprietary extensions, only they call them “innovations.” But they are really just
@@ -1016,9 +1016,9 @@ install bash and the other GNU tools on almost any kind of system, even
 Windows, without cost. So feel free to use all the features of bash. It’s really
 portable.</p>
 
-<p>GNU工具，比如说bash，就没有这些限制。他们通过支持标准和普遍地可用性来鼓励可移植性。你几乎可以
-在所有类型的系统中安装bash和其它的GNU工具，甚至是Windows，而没有损失。所以就
-感觉可以自由的使用bash的所有功能。它是真正的可移植。</p>
+<p>GNU 工具，比如说 bash，就没有这些限制。他们通过支持标准和普遍地可用性来鼓励可移植性。你几乎可以
+在所有类型的系统中安装 bash 和其它的 GNU 工具，甚至是 Windows，而没有损失。所以就
+感觉可以自由的使用 bash 的所有功能。它是真正的可移植。</p>
 </td>
 </tr>
 </table>
@@ -1031,7 +1031,7 @@ bash provides two control operators that can perform branching. The `&& (AND)` a
 work like the logical operators in the `[[ ]]` compound command. This
 is the syntax:
 
-bash支持两种可以执行分支任务的控制操作符。这个 `&&（AND）`和`||（OR）`操作符作用如同
+bash 支持两种可以执行分支任务的控制操作符。这个 `&&（AND）`和`||（OR）`操作符作用如同
 复合命令`[[ ]]`中的逻辑操作符。这是语法：
 
     command1 && command2
@@ -1045,9 +1045,9 @@ executed and command2 is executed if, and only if, command1 is successful. With 
 `||` operator, command1 is executed and command2 is executed if, and only if,
 command1 is unsuccessful.
 
-理解这些操作很重要。对于&&操作符，先执行command1，如果并且只有如果command1执行成功后，
-才会执行command2。对于||操作符，先执行command1，如果并且只有如果command1执行失败后，
-才会执行command2。
+理解这些操作很重要。对于&&操作符，先执行 command1，如果并且只有如果 command1执行成功后，
+才会执行 command2。对于||操作符，先执行 command1，如果并且只有如果 command1执行失败后，
+才会执行 command2。
 
 In practical terms, it means that we can do something like this:
 
@@ -1059,8 +1059,8 @@ This will create a directory named temp, and if it succeeds, the current working
 will be changed to temp. The second command is attempted only if the mkdir
 command is successful. Likewise, a command like this:
 
-这会创建一个名为temp的目录，并且若它执行成功后，当前目录会更改为temp。第二个命令会尝试
-执行只有当mkdir命令执行成功之后。同样地，一个像这样的命令：
+这会创建一个名为 temp 的目录，并且若它执行成功后，当前目录会更改为 temp。第二个命令会尝试
+执行只有当 mkdir 命令执行成功之后。同样地，一个像这样的命令：
 
     [me@linuxbox ~]$ [ -d temp ] || mkdir temp
 
@@ -1068,7 +1068,7 @@ will test for the existence of the directory temp, and only if the test fails, w
 directory be created. This type of construct is very handy for handling errors in scripts, a
 subject we will discuss more in later chapters. For example, we could do this in a script:
 
-会测试目录temp是否存在，并且只有测试失败之后，才会创建这个目录。这种构造类型非常有助于在
+会测试目录 temp 是否存在，并且只有测试失败之后，才会创建这个目录。这种构造类型非常有助于在
 脚本中处理错误，这个主题我们将会在随后的章节中讨论更多。例如，我们在脚本中可以这样做：
 
     [ -d temp ] || exit 1
@@ -1076,7 +1076,7 @@ subject we will discuss more in later chapters. For example, we could do this in
 If the script requires the directory temp, and it does not exist, then the script will
 terminate with an exit status of one.
 
-如果这个脚本要求目录temp，且目录不存在，然后脚本会终止，并返回退出状态1。
+如果这个脚本要求目录 temp，且目录不存在，然后脚本会终止，并返回退出状态1。
 
 ### Summing Up
 
@@ -1088,7 +1088,7 @@ knowledge of if, we can solve the problem by adding this code to the
 `report_home_space` function:
 
 这一章开始于一个问题。我们怎样使`sys_info_page`脚本来检测是否用户拥有权限来读取所有的
-主目录？根据我们的if知识，我们可以解决这个问题，通过把这些代码添加到`report_home_space`函数中：
+主目录？根据我们的 if 知识，我们可以解决这个问题，通过把这些代码添加到`report_home_space`函数中：
 
     report_home_space () {
         if [[ $(id -u) -eq 0 ]]; then
@@ -1111,8 +1111,8 @@ is a number greater than zero. Knowing this, we can construct two different here
 documents, one taking advantage of superuser privileges, and the other, restricted to the
 user’s own home directory.
 
-我们计算id命令的输出结果。通过带有-u选项的id命令，输出有效用户的数字用户ID号。
-超级用户总是零，其它每个用户是一个大于零的数字。知道了这点，我们能够构建两种不同的here文档，
+我们计算 id 命令的输出结果。通过带有-u 选项的 id 命令，输出有效用户的数字用户 ID 号。
+超级用户总是零，其它每个用户是一个大于零的数字。知道了这点，我们能够构建两种不同的 here 文档，
 一个利用超级用户权限，另一个限制于用户拥有的主目录。
 
 We are going to take a break from the sys_info_page program, but don’t worry. It
@@ -1129,7 +1129,7 @@ our work.
 There are several sections of the bash man page that provide further detail on the topics
 covered in this chapter:
 
-bash手册页中有几部分对本章中涵盖的主题提供了更详细的内容：
+bash 手册页中有几部分对本章中涵盖的主题提供了更详细的内容：
 
 * Lists (讨论控制操作符 `||` 和 `&&`)
 
@@ -1141,7 +1141,7 @@ bash手册页中有几部分对本章中涵盖的主题提供了更详细的内�
 
 Further, the Wikipedia has a good article on the concept of pseudocode:
 
-进一步，Wikipedia中有一篇关于伪代码概念的好文章：
+进一步，Wikipedia 中有一篇关于伪代码概念的好文章：
 
   <http://en.wikipedia.org/wiki/Pseudocode>
 

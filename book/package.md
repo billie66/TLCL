@@ -8,8 +8,8 @@ many Linux distributions is &quot;best.&quot; Often, these discussions get reall
 such things as the prettiness of the desktop background (some people won't use Ubuntu
 because its default color scheme is brown!) and other trivial matters.
 
-如果我们花些时间在Linux社区里，就会听到许多意见，在众多Linux发行版中哪个是最好的。 通常，
-这些讨论真是很愚蠢，集中于这些事情上，比方说最漂亮的桌面背景（一些人不会使用Ubuntu，因为它
+如果我们花些时间在 Linux 社区里，就会听到许多意见，在众多 Linux 发行版中哪个是最好的。 通常，
+这些讨论真是很愚蠢，集中于这些事情上，比方说最漂亮的桌面背景（一些人不会使用 Ubuntu，因为它
 默认的主题颜色是棕色！）和其它琐碎的东西。
 
 The most important determinant of distribution quality is the packaging system and the
@@ -19,9 +19,9 @@ Most of the top-tier Linux distributions release new versions every six months a
 individual program updates every day. To keep up with this blizzard of software, we
 need good tools for package management.
 
-Linux发行版本质量最重要的决定因素是软件包管理系统和其支持社区的持久性。随着我们
-花更多的时间在Linux上，我们会发现它的软件园地是非常动态的。软件不断变化。大多数一线
-Linux发行版每隔六个月发布一个新版本，并且许多独立的程序每天都会更新。为了能和这些
+Linux 发行版本质量最重要的决定因素是软件包管理系统和其支持社区的持久性。随着我们
+花更多的时间在 Linux 上，我们会发现它的软件园地是非常动态的。软件不断变化。大多数一线
+Linux 发行版每隔六个月发布一个新版本，并且许多独立的程序每天都会更新。为了能和这些
 如暴风雪一般多的软件保持联系，我们需要一些好工具来进行软件包管理。
 
 Package management is a method of installing and maintaining software on the system.
@@ -37,11 +37,11 @@ graphical programs for maintaining the system, it is important to learn about th
 command line programs, too. They can perform many tasks that are difficult (or
 impossible) to do with their graphical counterparts.
 
-软件包管理是指系统中一种安装和维护软件的方法。今天，通过从Linux发行版中安装的软件包，
-已能满足许多人所有需要的软件。这不同于早期的Linux，人们需要下载和编辑源码来安装软件。
-编辑源码没有任何问题，事实上，拥有对源码的访问权限是Linux的伟大奇迹。它赋予我们（
+软件包管理是指系统中一种安装和维护软件的方法。今天，通过从 Linux 发行版中安装的软件包，
+已能满足许多人所有需要的软件。这不同于早期的 Linux，人们需要下载和编辑源码来安装软件。
+编辑源码没有任何问题，事实上，拥有对源码的访问权限是 Linux 的伟大奇迹。它赋予我们（
 其它每个人）才干来检测和提高系统性能。只是若有一个预先编译好的软件包处理起来要相对
-容易快速些。这章中，我们将查看一些用于包管理的命令行工具。虽然所有主流Linux发行版都
+容易快速些。这章中，我们将查看一些用于包管理的命令行工具。虽然所有主流 Linux 发行版都
 提供了强大且精致的图形管理程序来维护系统，但是学习命令行程序也非常重要。因为它们
 可以完成许多让图形化管理程序处理起来困难（或者不可能）的任务。
 
@@ -55,9 +55,9 @@ distributions fall into one of two camps of packaging technologies: the Debian �
 camp and the Red Hat “.rpm” camp. There are some important exceptions such as
 Gentoo, Slackware, and Foresight, but most others use one of these two basic systems.
 
-不同的Linux发行版使用不同的打包系统，一般而言，大多数发行版分别属于两大包管理技术阵营：
-Debian的&quot;.deb&quot;，和红帽的&quot;.rpm&quot;。也有一些重要的例外，比方说Gentoo，
-Slackware，和Foresight，但大多数会使用这两个基本系统中的一个。
+不同的 Linux 发行版使用不同的打包系统，一般而言，大多数发行版分别属于两大包管理技术阵营：
+Debian 的&quot;.deb&quot;，和红帽的&quot;.rpm&quot;。也有一些重要的例外，比方说 Gentoo，
+Slackware，和 Foresight，但大多数会使用这两个基本系统中的一个。
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -95,7 +95,7 @@ package files and the rest will be available in source code form that can be ins
 manually. We'll talk a little about how to install software by compiling source code in a
 later chapter.
 
-Linux不是这样。Linux系统中几乎所有的软件都可以在互联网上找到。其中大多数软件由发行商以
+Linux 不是这样。Linux 系统中几乎所有的软件都可以在互联网上找到。其中大多数软件由发行商以
 包文件的形式提供，剩下的则以源码形式存在，可以手动安装。在后面章节里，我们将会谈谈怎样
 通过编译源码来安装软件。
 
@@ -125,7 +125,7 @@ improve the program's integration with the other parts of the Linux distribution
 
 软件包文件是由软件包维护者创建的，他通常是（但不总是）一名软件发行商的雇员。软件维护者
 从上游提供商（程序作者）那里得到软件源码，然后编辑源码，创建软件包元数据以及所需要的
-安装脚本。通常，软件包维护者要把所做的修改应用到最初的源码当中，来提高此软件与Linux
+安装脚本。通常，软件包维护者要把所做的修改应用到最初的源码当中，来提高此软件与 Linux
 发行版其它部分的融合性。
 
 Repositories
@@ -164,8 +164,8 @@ support and to use them, one must know about them and manually include them in t
 configuration files for the package management system.
 
 一个系统发行版可能也会拥有相关第三方的资源库。这些资源库需要支持一些因法律原因，
-比如说专利或者是DRM反规避问题，而不能被包含到发行版中的软件。可能最著名的案例就是
-那个加密的DVD支持，在美国这是不合法的。第三方资源库在这些软件专利和反规避法案不
+比如说专利或者是 DRM 反规避问题，而不能被包含到发行版中的软件。可能最著名的案例就是
+那个加密的 DVD 支持，在美国这是不合法的。第三方资源库在这些软件专利和反规避法案不
 生效的国家中起作用。这些资源库通常完全地独立于它们所支持的资源库，要想使用它们，
 你必须了解它们，手动地把它们包含到软件包管理系统的配置文件中。
 
@@ -203,11 +203,11 @@ CentOS. Other Red Hat-style distributions provide high-level tools with comparab
 features.
 
 软件包管理系统通常由两种工具类型组成：底层工具用来处理这些任务，比方说安装和删除软件包文件，
-和上层工具，完成元数据搜索和依赖解析。在这一章中，我们将看一下由Debian风格的系统
-（比如说Ubuntu，还有许多其它系统）提供的工具，还有那些由Red
-Hat产品使用的工具。虽然所有基于Red Hat风格的发行版都依赖于相同的底层程序（rpm）,
-但是它们却使用不同的上层工具。我们将研究上层程序yum供我们讨论，Fedora, Red
-Hat企业版，和CentOs都是使用yum。其它基于Red Hat风格的发行版提供了带有可比较特性的上层工具。
+和上层工具，完成元数据搜索和依赖解析。在这一章中，我们将看一下由 Debian 风格的系统
+（比如说 Ubuntu，还有许多其它系统）提供的工具，还有那些由 Red
+Hat 产品使用的工具。虽然所有基于 Red Hat 风格的发行版都依赖于相同的底层程序（rpm）,
+但是它们却使用不同的上层工具。我们将研究上层程序 yum 供我们讨论，Fedora, Red
+Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发行版提供了带有可比较特性的上层工具。
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -282,7 +282,7 @@ on its name or description.
 Example: To search a yum repository for the emacs text editor, this command could be
 used:
 
-例如：搜索一个yum资源库来查找emacs文本编辑器，使用以下命令：
+例如：搜索一个 yum 资源库来查找 emacs 文本编辑器，使用以下命令：
 
 <div class="code"><pre>
 <tt>yum search emacs</tt>
@@ -319,7 +319,7 @@ full dependency resolution.
 
 Example: To install the emacs text editor from an apt repository:
 
-例如：从一个apt资源库来安装emacs文本编辑器：
+例如：从一个 apt 资源库来安装 emacs 文本编辑器：
 
 <div class="code"><pre>
 <tt>apt-get update; apt-get install emacs</tt>
@@ -356,7 +356,7 @@ installed directly (though without dependency resolution) using a low-level tool
 Example: If the emacs-22.1-7.fc7-i386.rpm package file had been downloaded
 from a non-repository site, it would be installed this way:
 
-例如：如果已经从一个并非资源库的网站下载了软件包文件emacs-22.1-7.fc7-i386.rpm，
+例如：如果已经从一个并非资源库的网站下载了软件包文件 emacs-22.1-7.fc7-i386.rpm，
 则可以通过这种方法来安装它：
 
 <div class="code"><pre>
@@ -369,7 +369,7 @@ Note: Since this technique uses the low-level rpm program to perform the
 installation, no dependency resolution is performed. If rpm discovers a missing
 dependency, rpm will exit with an error.
 
-注意：因为这项技术使用底层的rpm程序来执行安装任务，所以没有运行依赖解析。如果rpm
+注意：因为这项技术使用底层的 rpm 程序来执行安装任务，所以没有运行依赖解析。如果 rpm
 程序发现缺少了一个依赖，则会报错并退出。
 <hr />
 
@@ -403,7 +403,7 @@ are shown below.
 
 Example: To uninstall the emacs package from a Debian-style system:
 
-例如：从Debian风格的系统中卸载emacs软件包：
+例如：从 Debian 风格的系统中卸载 emacs 软件包：
 
 <div class="code"><pre>
 <tt>apt-get remove emacs</tt>
@@ -443,7 +443,7 @@ latest packages. The high-level tools can perform this vital task in one single 
 Example: To apply any available updates to the installed packages on a Debian-style
 system:
 
-例如：更新安装在Debian风格系统中的软件包：
+例如：更新安装在 Debian 风格系统中的软件包：
 
 <div class="code"><pre>
 <tt>apt-get update; apt-get upgrade
@@ -484,7 +484,7 @@ can be installed, replacing the previous version:
 Example: Updating an existing installation of emacs to the version contained in the
 package file emacs-22.1-7.fc7-i386.rpm on a Red Hat system:
 
-例如：把Red Hat系统中所安装的emacs的版本更新到软件包文件emacs-22.1-7.fc7-i386.rpmz所包含的emacs版本。
+例如：把 Red Hat 系统中所安装的 emacs 的版本更新到软件包文件 emacs-22.1-7.fc7-i386.rpmz 所包含的 emacs 版本。
 
 <div class="code"><pre>
 <tt>rpm -U emacs-22.1-7.fc7-i386.rpm</tt>
@@ -495,7 +495,7 @@ package file emacs-22.1-7.fc7-i386.rpm on a Red Hat system:
 Note: dpkg does not have a specific option for upgrading a package versus
 installing one as rpm does.
 
-注意：dpkg程序与安装软件相比没有一个特定的选项，如rpm程序那样，来升级一个软件包，。
+注意：dpkg 程序与安装软件相比没有一个特定的选项，如 rpm 程序那样，来升级一个软件包，。
 <hr />
 
 Listing Installed Packages
@@ -557,7 +557,7 @@ These low-level tools can be used to display whether a specified package is inst
 
 Example: To determine if the emacs package is installed on a Debian style system:
 
-例如：确定是否Debian风格的系统中安装了这个emacs软件包：
+例如：确定是否 Debian 风格的系统中安装了这个 emacs 软件包：
 
 <div class="code"><pre>
 <tt>dpkg --status emacs</tt>
@@ -593,7 +593,7 @@ display a description of the package:
 
 Example: To see a description of the emacs package on a Debian-style system:
 
-例如：查看Debian风格的系统中emacs软件包的说明信息：
+例如：查看 Debian 风格的系统中 emacs 软件包的说明信息：
 
 <div class="code"><pre>
 <tt>apt-cache show emacs</tt>
@@ -631,7 +631,7 @@ following commands can be used:
 
 Example: To see what package installed the /usr/bin/vim file on a Red Hat system:
 
-例如：在Red Hat系统中，查看哪个软件包安装了/usr/bin/vim这个文件
+例如：在 Red Hat 系统中，查看哪个软件包安装了/usr/bin/vim 这个文件
 
 <div class="code"><pre>
 <tt>rpm -qf /usr/bin/vim</tt>
@@ -655,7 +655,7 @@ management, we should have no problem installing and managing the programs we ne
 <tr>
 <td>
 <h3>The Linux Software Installation Myth</h3>
-<h3>Linux软件安装谣言</h3>
+<h3>Linux 软件安装谣言</h3>
 
 <p> People migrating from other platforms sometimes fall victim to the myth that
 software is somehow difficult to install under Linux and that the variety of
@@ -663,7 +663,7 @@ packaging schemes used by different distributions is a hindrance. Well, it is a
 hindrance, but only to proprietary software vendors who wish to distribute binary-
 only versions of their secret software.</p>
 
-<p>从其它平台迁移过来的用户有时会成为谣言的受害者，说是在Linux系统中，安装软件有些
+<p>从其它平台迁移过来的用户有时会成为谣言的受害者，说是在 Linux 系统中，安装软件有些
 困难，并且不同系统发行版所使用的各种各样的打包方案是一个障碍。唉，它是一个障碍，
 但只是针对于那些希望把他们的秘密软件只以二进制版本发行的专有软件供应商。</p>
 
@@ -674,7 +674,7 @@ repository. This method ensures that the product is well integrated into the
 distribution and the user is given the convenience of “one-stop shopping” for
 software, rather than having to search for each product's web site. </p>
 
-<p>Linux软件生态系统是基于开放源代码理念。如果一个程序开发人员发布了一款产品的
+<p>Linux 软件生态系统是基于开放源代码理念。如果一个程序开发人员发布了一款产品的
 源码，那么与系统发行版相关联的开发人员可能就会把这款产品打包，并把它包含在
 他们的资源库中。这种方法保证了这款产品能很好地与系统发行版整合在一起，同时为用户
 “一站式采购”软件提供了方便，从而用户不必去搜索每个产品的网站。</p>
@@ -689,8 +689,8 @@ happens, you need to look at the cause. A lack of driver support is usually caus
 by one of three things: </p>
 
 <p>设备驱动差不多也以同样的方式来处理，但它们不是系统发行版资源库中单独的项目，
-它们本身是Linux系统内核的一部分。一般来说，在Linux当中没有一个类似于“驱动盘”的东西。
-要不内核支持一个设备，要不不支持，反正Linux内核支持很多设备，事实上，多于Windows
+它们本身是 Linux 系统内核的一部分。一般来说，在 Linux 当中没有一个类似于“驱动盘”的东西。
+要不内核支持一个设备，要不不支持，反正 Linux 内核支持很多设备，事实上，多于 Windows
 所支持的设备数目。当然，如果你需要的特定设备不被支持，这里也没有安慰。当那种情况
 发生时，你需要查找一下原因。缺少驱动程序支持通常是由以下三种情况之一导致：</p>
 
@@ -718,15 +718,15 @@ items.</p></li>
 </ol>
 
 <ol>
-<li><p><b>设备太新。</b>因为许多硬件供应商没有积极地支持Linux的发展，那么编写内核
-驱动代码的任务就由一些Linux社区来承担，而这需要花费时间。</p></li>
+<li><p><b>设备太新。</b>因为许多硬件供应商没有积极地支持 Linux 的发展，那么编写内核
+驱动代码的任务就由一些 Linux 社区来承担，而这需要花费时间。</p></li>
 
 <li><p><b>设备太奇异。</b>不是所有的发行版都包含每个可能的设备驱动。每个发行版会建立
-它们自己的内核，因为内核是可以配置的（这使得从手表到主机的每台设备上运行Linux成为可能），
+它们自己的内核，因为内核是可以配置的（这使得从手表到主机的每台设备上运行 Linux 成为可能），
 这样它们可能会忽略某个特殊设备。通过定位和下载驱动程序的源码，可能需要你自己（是的，由你）
 来编译和安装驱动。这个过程不是很难，而是参与。我们将在随后的章节里来讨论编译软件。</p></li>
 
-<li><p><b>硬件供应商隐藏信息。</b>他们既不发布应用于Linux系统的驱动程序代码，
+<li><p><b>硬件供应商隐藏信息。</b>他们既不发布应用于 Linux 系统的驱动程序代码，
 也不发布技术文档来让某人创建它。这意味着硬件供应商试图保密此设备的程序接口。因为我们
 不想在计算机中使用保密的设备，所以我建议删除这令人厌恶的软件，
 把它和其它无用的项目都仍到垃圾桶里。</p></li>
@@ -750,25 +750,25 @@ here are some more generic sources:
 * The Debian GNU/Linux FAQ chapter on package management provides an
   overview of package management on Debian systems :
 
-* Debian GNU/Linux FAQ关于软件包管理一章对软件包管理进行了概述：
+* Debian GNU/Linux FAQ 关于软件包管理一章对软件包管理进行了概述：
 
   <http://www.debian.org/doc/FAQ/ch-pkgtools.en.html>
 
 * The home page for the RPM project:
 
-* RPM工程的主页：
+* RPM 工程的主页：
 
   <http://www.rpm.org>
 
 * The home page for the YUM project at Duke University:
 
-* 杜克大学YUM工程的主页：
+* 杜克大学 YUM 工程的主页：
 
   <http://linux.duke.edu/projects/yum/>
 
 * For a little background, the Wikipedia has an article on metadata:
 
-* 了解一点儿背景知识，Wikipedia上有一篇关于metadata的文章：
+* 了解一点儿背景知识，Wikipedia 上有一篇关于 metadata 的文章：
 
   <http://en.wikipedia.org/wiki/Metadata>
 

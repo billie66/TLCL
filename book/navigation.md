@@ -104,7 +104,7 @@ directory is the only place the user is allowed to write files.
 To list the files and directories in the current working directory, we use the
 ls command.
 
-列出一个目录包含的文件及子目录，使用ls命令。
+列出一个目录包含的文件及子目录，使用 ls 命令。
 
     [me@linuxbox ~]$ ls
     Desktop Documents Music Pictures Public Templates Videos
@@ -213,7 +213,7 @@ that requires the least typing!
 Likewise, we can change the working directory from /usr to /usr/bin in two
 different ways. Either using an absolute pathname:
 
-同样地，从目录/usr/到/usr/bin也有两种途径。或者使用绝对路径：
+同样地，从目录/usr/到/usr/bin 也有两种途径。或者使用绝对路径：
 
     [me@linuxbox usr]$ cd /usr/bin
     [me@linuxbox bin]$ pwd

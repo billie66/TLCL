@@ -92,7 +92,7 @@ programs and one that is well suited to shell programming in particular.
 
 这种先确定上层步骤，然后再逐步细化这些步骤的过程被称为自顶向下设计。这种技巧允许我们
 把庞大而复杂的任务分割为许多小而简单的任务。自顶向下设计是一种常见的程序设计方法，
-尤其适合shell编程。
+尤其适合 shell 编程。
 
 In this chapter, we will use top-down design to further develop our report generator
 script.
@@ -103,7 +103,7 @@ script.
 
 Our script currently performs the following steps to generate the HTML document:
 
-目前我们的脚本执行以下步骤来产生这个HTML文档：
+目前我们的脚本执行以下步骤来产生这个 HTML 文档：
 
 * Open page.
 
@@ -201,8 +201,8 @@ within our program as shell functions. As we have mentioned before, shell functi
 Shell functions have two syntactic forms:
 
 我们能够用两种方法来创建这些额外的命令。我们可以分别编写三个脚本，并把它们放置到
-环境变量PATH所列出的目录下，或者我们也可以把这些脚本作为shell函数嵌入到我们的程序中。
-我们之前已经提到过，shell函数是位于其它脚本中的“微脚本”，作为自主程序。Shell函数有两种语法形式：
+环境变量 PATH 所列出的目录下，或者我们也可以把这些脚本作为 shell 函数嵌入到我们的程序中。
+我们之前已经提到过，shell 函数是位于其它脚本中的“微脚本”，作为自主程序。Shell 函数有两种语法形式：
 
     function name {
         commands
@@ -219,12 +219,12 @@ Shell functions have two syntactic forms:
 where _name_ is the name of the function and _commands_ are a series of commands
 contained within the function.
 
-这里的name是函数名，commands是一系列包含在函数中的命令。
+这里的 name 是函数名，commands 是一系列包含在函数中的命令。
 
 Both forms are equivalent and may be used interchangeably. 
 Below we see a script that demonstrates the use of a shell function:
 
-两种形式是等价的，可以交替使用。下面我们将查看一个说明shell函数使用方法的脚本：
+两种形式是等价的，可以交替使用。下面我们将查看一个说明 shell 函数使用方法的脚本：
 
        1     #!/bin/bash
        2
@@ -252,16 +252,16 @@ function calls to be recognized as shell functions and not interpreted as the na
 external programs, shell function definitions must appear in the script before they are
 called.
 
-随着shell读取这个脚本，它会跳过第1行到第11行的代码，因为这些文本行由注释和函数定义组成。
-从第12行代码开始执行，有一个echo命令。第13行会调用shell函数funct，然后shell会执行这个函数，
-就如执行其它命令一样。这样程序控制权会转移到第六行，执行第二个echo命令。然后再执行第7行。
-这个return命令终止这个函数，并把控制权交给函数调用之后的代码（第14行），从而执行最后一个
-echo命令。注意为了使函数调用被识别出是shell函数，而不是被解释为外部程序的名字，所以在脚本中shell
+随着 shell 读取这个脚本，它会跳过第1行到第11行的代码，因为这些文本行由注释和函数定义组成。
+从第12行代码开始执行，有一个 echo 命令。第13行会调用 shell 函数 funct，然后 shell 会执行这个函数，
+就如执行其它命令一样。这样程序控制权会转移到第六行，执行第二个 echo 命令。然后再执行第7行。
+这个 return 命令终止这个函数，并把控制权交给函数调用之后的代码（第14行），从而执行最后一个
+echo 命令。注意为了使函数调用被识别出是 shell 函数，而不是被解释为外部程序的名字，所以在脚本中 shell
 函数定义必须出现在函数调用之前。
 
 We’ll add minimal shell function definitions to our script:
 
-我们将给脚本添加最小的shell函数定义：
+我们将给脚本添加最小的 shell 函数定义：
 
     #!/bin/bash
 
@@ -301,7 +301,7 @@ We’ll add minimal shell function definitions to our script:
 Shell function names follow the same rules as variables. A function must contain at least
 one command. The return command (which is optional) satisfies the requirement.
 
-Shell函数的命名规则和变量一样。一个函数必须至少包含一条命令。这条_return_命令（是可选的）满足要求。
+Shell 函数的命名规则和变量一样。一个函数必须至少包含一条命令。这条_return_命令（是可选的）满足要求。
 
 ### Local Variables
 
@@ -315,15 +315,15 @@ accessible within the shell function in which they are defined and cease to exis
 shell function terminates.
 
 目前我们所写的脚本中，所有的变量（包括常量）都是全局变量。全局变量在整个程序中保持存在。
-对于许多事情来说，这很好，但是有时候它会使shell函数的使用变得复杂。在shell函数中，经常期望
-会有局部变量。局部变量只能在定义它们的shell函数中使用，并且一旦shell函数执行完毕，它们就不存在了。
+对于许多事情来说，这很好，但是有时候它会使 shell 函数的使用变得复杂。在 shell 函数中，经常期望
+会有局部变量。局部变量只能在定义它们的 shell 函数中使用，并且一旦 shell 函数执行完毕，它们就不存在了。
 
 Having local variables allows the programmer to use variables with names that may
 already exist, either in the script globally or in other shell functions, without having to
 worry about potential name conflicts.
 
 拥有局部变量允许程序员使用的局部变量名，可以与已存在的变量名相同，这些变量可以是全局变量，
-或者是其它shell函数中的局部变量，却不必担心潜在的名字冲突。
+或者是其它 shell 函数中的局部变量，却不必担心潜在的名字冲突。
 
 Here is an example script that demonstrates how local variables are defined and used:
 
@@ -365,8 +365,8 @@ local. This creates a variable that is local to the shell function in which it i
 Once outside the shell function, the variable no longer exists. When we run this script,
 we see the results:
 
-正如我们所看到的，通过在变量名之前加上单词local，来定义局部变量。这就创建了一个只对其所在的
-shell函数起作用的变量。在这个shell函数之外，这个变量不再存在。当我们运行这个脚本的时候，
+正如我们所看到的，通过在变量名之前加上单词 local，来定义局部变量。这就创建了一个只对其所在的
+shell 函数起作用的变量。在这个 shell 函数之外，这个变量不再存在。当我们运行这个脚本的时候，
 我们会看到这样的结果：
 
     [me@linuxbox ~]$ local-vars
@@ -379,7 +379,7 @@ shell函数起作用的变量。在这个shell函数之外，这个变量不再�
 We see that the assignment of values to the local variable foo within both shell functions
 has no effect on the value of foo defined outside the functions.
 
-我们看到对两个shell函数中的局部变量foo赋值，不会影响到在函数之外定义的变量foo的值。
+我们看到对两个 shell 函数中的局部变量 foo 赋值，不会影响到在函数之外定义的变量 foo 的值。
 
 This feature allows shell functions to be written so that they remain independent of each
 other and of the script in which they appear. This is very valuable, as it helps prevent one
@@ -387,9 +387,9 @@ part of a program from interfering with another. It also allows shell functions 
 written so that they can be portable. That is, they may be cut and pasted from script to
 script, as needed.
 
-这个功能就允许shell函数能保持各自以及与它们所在脚本之间的独立性。这个非常有价值，因为它帮忙
-阻止了程序各部分之间的相互干涉。这样shell函数也可以移植。也就是说，按照需求，
-shell函数可以在脚本之间进行剪切和粘贴。
+这个功能就允许 shell 函数能保持各自以及与它们所在脚本之间的独立性。这个非常有价值，因为它帮忙
+阻止了程序各部分之间的相互干涉。这样 shell 函数也可以移植。也就是说，按照需求，
+shell 函数可以在脚本之间进行剪切和粘贴。
 
 ### Keep Scripts Running
 
@@ -468,7 +468,7 @@ we now see that, in fact, our three functions are being executed.
 With our function framework in place and working, it’s time to flesh out some of the
 function code. First, the report_uptime function:
 
-我们的函数框架已经各就各位并且能工作，是时候更新一些函数代码了。首先，是report_uptime函数：
+我们的函数框架已经各就各位并且能工作，是时候更新一些函数代码了。首先，是 report_uptime 函数：
 
     report_uptime () {
     cat <<- _EOF_
@@ -482,8 +482,8 @@ It’s pretty straightforward. We use a here document to output a section header
 output of the uptime command, surrounded by &lt;PRE&gt; tags to preserve the formatting
 of the command. The report_disk_space function is similar:
 
-这些代码相当直截了当。我们使用一个here文档来输出标题和uptime命令的输出结果，命令结果被&lt;PRE&gt;标签包围，
-为的是保持命令的输出格式。这个report_disk_space函数类似：
+这些代码相当直截了当。我们使用一个 here 文档来输出标题和 uptime 命令的输出结果，命令结果被&lt;PRE&gt;标签包围，
+为的是保持命令的输出格式。这个 report_disk_space 函数类似：
 
     report_disk_space () {
     cat <<- _EOF_
@@ -496,7 +496,7 @@ of the command. The report_disk_space function is similar:
 This function uses the df -h command to determine the amount of disk space. Lastly,
 we’ll build the report_home_space function:
 
-这个函数使用df -h命令来确定磁盘空间的数量。最后，我们将建造report_home_space函数：
+这个函数使用 df -h 命令来确定磁盘空间的数量。最后，我们将建造 report_home_space 函数：
 
     report_home_space () {
     cat <<- _EOF_
@@ -515,9 +515,9 @@ will only work if our script is run with superuser privileges. A better solution
 have the script could adjust its behavior according to the privileges of the user. We will
 take this up in the next chapter.
 
-我们使用带有-sh选项的du命令来完成这个任务。然而，这并不是此问题的完整解决方案。虽然它会
-在一些系统（例如Ubuntu）中起作用，但是在其它系统中它不工作。这是因为许多系统会设置主目录的
-权限，以此阻止其它用户读取它们，这是一个合理的安全措施。在这些系统中，这个report_home_space函数，
+我们使用带有-sh 选项的 du 命令来完成这个任务。然而，这并不是此问题的完整解决方案。虽然它会
+在一些系统（例如 Ubuntu）中起作用，但是在其它系统中它不工作。这是因为许多系统会设置主目录的
+权限，以此阻止其它用户读取它们，这是一个合理的安全措施。在这些系统中，这个 report_home_space 函数，
 只有用超级用户权限执行我们的脚本时，才会工作。一个更好的解决方案是让脚本能根据用户的使用权限来
 调整自己的行为。我们将在下一章中讨论这个问题。
 
@@ -526,7 +526,7 @@ take this up in the next chapter.
 <td>
 <h3>Shell Functions In Your .bashrc File</h3>
 
-<h3>你的.bashrc文件中的shell函数</h3>
+<h3>你的.bashrc 文件中的 shell 函数</h3>
 
 <p> Shell functions make excellent replacements for aliases, and are actually the
 preferred method of creating small commands for personal use. Aliases are very
@@ -535,10 +535,10 @@ functions allow anything that can be scripted. For example, if we liked the
 report_disk_space shell function that we developed for our script, we
 could create a similar function named ds for our .bashrc file:
  </p>
- <p>Shell函数是更为完美的别名替代物，实际上是创建较小的个人所用命令的首选方法。别名
- 非常局限于命令的种类和它们支持的shell功能，然而shell函数允许任何可以编写脚本的东西。
- 例如，如果我们喜欢 为我们的脚本开发的这个report_disk_space shell函数，我们可以为我们的.bashrc文件
- 创建一个相似的名为ds的函数：</p>
+ <p>Shell 函数是更为完美的别名替代物，实际上是创建较小的个人所用命令的首选方法。别名
+ 非常局限于命令的种类和它们支持的 shell 功能，然而 shell 函数允许任何可以编写脚本的东西。
+ 例如，如果我们喜欢 为我们的脚本开发的这个 report_disk_space shell 函数，我们可以为我们的.bashrc 文件
+ 创建一个相似的名为 ds 的函数：</p>
 <p> ds () {
 echo “Disk Space Utilization For $HOSTNAME”
 df -h
@@ -559,8 +559,8 @@ placed. This makes it possible for shell functions to be written in a portable m
 to be reusable by allowing them to be placed in multiple programs; a great time saver.
 
 这一章中，我们介绍了一种常见的程序设计方法，叫做自顶向下设计，并且我们知道了怎样
-使用shell函数按照要求来完成逐步细化的任务。我们也知道了怎样使用局部变量使shell函数
-独立于其它函数，以及其所在程序的其它部分。这就有可能使shell函数以可移植的方式编写，
+使用 shell 函数按照要求来完成逐步细化的任务。我们也知道了怎样使用局部变量使 shell 函数
+独立于其它函数，以及其所在程序的其它部分。这就有可能使 shell 函数以可移植的方式编写，
 并且能够重复使用，通过把它们放置到多个程序中；节省了大量的时间。
 
 ### Further Reading
@@ -570,7 +570,7 @@ to be reusable by allowing them to be placed in multiple programs; a great time 
 * The Wikipedia has many articles on software design philosophy. Here are a
   couple of good ones:
 
-* Wikipedia上面有许多关于软件设计原理的文章。这里是一些好文章：
+* Wikipedia 上面有许多关于软件设计原理的文章。这里是一些好文章：
 
   <http://en.wikipedia.org/wiki/Top-down_design>
 

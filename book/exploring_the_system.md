@@ -9,8 +9,8 @@ Now that we know how to move around the file system, it's time for a guided tour
 Linux system. Before we start however, we’re going to learn some more commands that
 will be useful along the way:
 
-既然我们已经知道了如何在文件系统中跳转，是时候开始Linux操作系统之旅了。在开始之前，我们先学习一些对研究
-Linux系统有帮助的命令。
+既然我们已经知道了如何在文件系统中跳转，是时候开始 Linux 操作系统之旅了。在开始之前，我们先学习一些对研究
+Linux 系统有帮助的命令。
 
 * ls – List directory contents
 * file – Determine file type
@@ -22,15 +22,15 @@ Linux系统有帮助的命令。
 
 More Fun With ls
 
-### ls乐趣
+### ls 乐趣
 
 The ls command is probably the most used command, and for good reason. With it, we
 can see directory contents and determine a variety of important file and directory
 attributes. As we have seen, we can simply type ls to see a list of files and
 subdirectories contained in the current working directory:
 
-有充分的理由证明，ls可能是用户最常使用的命令。通过它，我们可以知道目录的内容，以及各种各样重要文件和目录的
-属性。正如我们所知道的，只简单的输入ls就能看到在当前目录下所包含的文件和子目录列表。
+有充分的理由证明，ls 可能是用户最常使用的命令。通过它，我们可以知道目录的内容，以及各种各样重要文件和目录的
+属性。正如我们所知道的，只简单的输入 ls 就能看到在当前目录下所包含的文件和子目录列表。
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ls
@@ -50,7 +50,7 @@ etc include lib         local    share  tmp </tt>
 Or even specify multiple directories. In this example we will list both the user's home
 directory (symbolized by the “~” character) and the /usr directory:
 
-甚至可以列出多个指定目录的内容。在这个例子中，将会列出用户主目录（用字符“~”代表）和/usr目录的内容：
+甚至可以列出多个指定目录的内容。在这个例子中，将会列出用户主目录（用字符“~”代表）和/usr 目录的内容：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ ls ~ /usr
@@ -80,7 +80,7 @@ drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Videos</tt>
 
 By adding “-l” to the command, we changed the output to the long format.
 
-使用ls命令的“-l”选项，则结果以长模式输出。
+使用 ls 命令的“-l”选项，则结果以长模式输出。
 
 Options And Arguments
 
@@ -103,8 +103,8 @@ consisting of a word preceded by two dashes. Also, many commands allow multiple 
  to be strung together. In this example, the ls command is given two options, the “l” option 
 to produce long format output, and the “t” option to sort the result by the file's modification time.
 
-大多数命令使用的选项，是由一个中划线加上一个字符组成，例如，“-l”，但是许多命令，包括来自于GNU项目的命令，也支持长选项，
-长选项由两个中划线加上一个字组成。当然，许多命令也允许把多个短选项串在一起使用。下面这个例子，ls命令有两个选项，“l” 
+大多数命令使用的选项，是由一个中划线加上一个字符组成，例如，“-l”，但是许多命令，包括来自于 GNU 项目的命令，也支持长选项，
+长选项由两个中划线加上一个字组成。当然，许多命令也允许把多个短选项串在一起使用。下面这个例子，ls 命令有两个选项，“l” 
 选项产生长格式输出，“t”选项按文件修改时间的先后来排序。
 
 <div class="code"><pre>
@@ -122,7 +122,7 @@ We'll add the long option “--reverse” to reverse the order of the sort:
 The ls command has a large number of possible options. The most common are listed in
 the Table 4-1.
 
-ls命令有大量的选项。表4-1列出了最常使用的选项。
+ls 命令有大量的选项。表4-1列出了最常使用的选项。
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -191,7 +191,7 @@ ls display its results in ascending alphabetical order.
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
-<caption class="cap">表 4-1: ls命令选项 </caption>
+<caption class="cap">表 4-1: ls 命令选项 </caption>
 <tr>
 <th class="title" width="10%">选项</th>
 <th class="title" width="15%" >长选项</th>
@@ -207,8 +207,8 @@ ls display its results in ascending alphabetical order.
 <td valign="top">-d</td>
 <td valign="top">--directory</td>
 <td
-valign="top">通常，如果指定了目录名，ls命令会列出这个目录中的内容，而不是目录本身。
-把这个选项与-l选项结合使用，可以看到所指定目录的详细信息，而不是目录中的内容。</td>
+valign="top">通常，如果指定了目录名，ls 命令会列出这个目录中的内容，而不是目录本身。
+把这个选项与-l 选项结合使用，可以看到所指定目录的详细信息，而不是目录中的内容。</td>
 </tr>
 <tr>
 <td valign="top">-F</td>
@@ -229,7 +229,7 @@ valign="top">通常，如果指定了目录名，ls命令会列出这个目录�
 <tr>
 <td valign="top">-r</td>
 <td valign="top">--reverse</td>
-<td valign="top">以相反的顺序来显示结果。通常，ls命令的输出结果按照字母升序排列。
+<td valign="top">以相反的顺序来显示结果。通常，ls 命令的输出结果按照字母升序排列。
 </td>
 </tr>
 <tr>
@@ -255,8 +255,8 @@ As we saw before, the “-l” option causes ls to display its results in long f
 format contains a great deal of useful information. Here is the Examples directory
 from an Ubuntu system:
 
-正如我们先前知道的，“-l”选项导致ls的输出结果以长格式输出。这种格式包含大量的有用信息。下面的例子目录来自
-于Ubuntu系统：
+正如我们先前知道的，“-l”选项导致 ls 的输出结果以长格式输出。这种格式包含大量的有用信息。下面的例子目录来自
+于 Ubuntu 系统：
 
 <div class="code"><pre><tt>
 -rw-r--r-- 1 root root 3576296 2007-04-03 11:05 Experience ubuntu.ogg
@@ -374,9 +374,9 @@ filenames in Linux are not required to reflect a file's contents. While a filena
 “picture.jpg” would normally be expected to contain a JPEG compressed image, it is not
 required to in Linux. We can invoke the file command this way:
 
-随着探究操作系统的进行，知道文件包含的内容是很有用的。我们将用file命令来确定文件的类型。我们之前讨论过，
-在Linux系统中，并不要求文件名来反映文件的内容。然而，一个类似“picture.jpg”的文件名，我们会期望它包含
-JPEG压缩图像，但Linux却不这样要求它。可以这样调用file命令：
+随着探究操作系统的进行，知道文件包含的内容是很有用的。我们将用 file 命令来确定文件的类型。我们之前讨论过，
+在 Linux 系统中，并不要求文件名来反映文件的内容。然而，一个类似“picture.jpg”的文件名，我们会期望它包含
+JPEG 压缩图像，但 Linux 却不这样要求它。可以这样调用 file 命令：
 
 <div class="code"><pre>
 <tt>file filename</tt>
@@ -385,7 +385,7 @@ JPEG压缩图像，但Linux却不这样要求它。可以这样调用file命令�
 When invoked, the file command will print a brief description of the file's
 contents. For example:
 
-当调用file命令后，file命令会打印出文件内容的简单描述。例如：
+当调用 file 命令后，file 命令会打印出文件内容的简单描述。例如：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ file picture.jpg
@@ -396,23 +396,23 @@ There are many kinds of files. In fact, one of the common ideas in Unix-like ope
 systems such as Linux is that “everything is a file.” As we proceed with our lessons, we
 will see just how true that statement is.
 
-有许多类型的文件。事实上，在类似于Unix操作系统中比如说Linux，有个普遍的观念就是“任何东西都是一个文件”。
+有许多类型的文件。事实上，在类似于 Unix 操作系统中比如说 Linux，有个普遍的观念就是“任何东西都是一个文件”。
 随着课程的进行，我们将会明白这句话的真谛。
 
 While many of the files on your system are familiar, for example MP3 and JPEG, there
 are many kinds that are a little less obvious and a few that are quite strange.
 
-虽然系统中许多文件格式是熟悉的，例如MP3和JPEG文件，但也有一些文件格式比较含蓄，极少数文件相当陌生。
+虽然系统中许多文件格式是熟悉的，例如 MP3和 JPEG 文件，但也有一些文件格式比较含蓄，极少数文件相当陌生。
 
 Viewing File Contents With less
 
-### 用less浏览文件内容
+### 用 less 浏览文件内容
 
 The less command is a program to view text files. Throughout our Linux system, there
 are many files that contain human-readable text. The less program provides a
 convenient way to examine them.
 
-less命令是一个用来浏览文本文件的程序。纵观Linux系统，有许多人类可读的文本文件。less程序为我们检查文本文件
+less 命令是一个用来浏览文本文件的程序。纵观 Linux 系统，有许多人类可读的文本文件。less 程序为我们检查文本文件
 提供了方便。
 
 <table class="single" cellpadding="10" width="%100">
@@ -435,7 +435,7 @@ Code for Information Interchange. This is a simple encoding scheme that was firs
 used on Teletype machines to map keyboard characters to numbers. </p>
 
 <p>有些数值表达法非常复杂（例如压缩的视频文件），而其它的就相当简单。最早也是最简单的一种表达法，叫做
-ASCII文本。ASCII（发音是"As-Key"）是美国信息交换标准码的简称。这是一个简单的编码方法，它首先
+ASCII 文本。ASCII（发音是"As-Key"）是美国信息交换标准码的简称。这是一个简单的编码方法，它首先
 被用在电传打字机上，用来实现键盘字符到数字的映射。</p>
 
 <p>Text is a simple one-to-one mapping of characters to numbers. It is very
@@ -452,11 +452,11 @@ Windows recognizes the importance of this format. The well-known NOTEPAD.EXE
 program is an editor for plain ASCII text files.  </p>
 
 <p>文本是简单的字符与数字之间的一对一映射。它非常紧凑。五十个字符的文本翻译成五十个字节的数据。文本只是包含
-简单的字符到数字的映射，理解这点很重要。它和一些文字处理器文档不一样，比如说由微软和OpenOffice.org文档
-编辑器创建的文件。这些文件，和简单的ASCII文件形成鲜明对比，它们包含许多非文本元素，来描述它的结构和格式。
-普通的ASCII文件，只包含字符本身，和一些基本的控制符，像制表符，回车符及换行符。纵观Linux系统，许多文件
-以文本格式存储，也有许多Linux工具来处理文本文件。甚至Windows也承认这种文件格式的重要性。著名的NOTEPAD.EXE
-程序就是一个ASCII文本文件编辑器。 </p>
+简单的字符到数字的映射，理解这点很重要。它和一些文字处理器文档不一样，比如说由微软和 OpenOffice.org 文档
+编辑器创建的文件。这些文件，和简单的 ASCII 文件形成鲜明对比，它们包含许多非文本元素，来描述它的结构和格式。
+普通的 ASCII 文件，只包含字符本身，和一些基本的控制符，像制表符，回车符及换行符。纵观 Linux 系统，许多文件
+以文本格式存储，也有许多 Linux 工具来处理文本文件。甚至 Windows 也承认这种文件格式的重要性。著名的 NOTEPAD.EXE
+程序就是一个 ASCII 文本文件编辑器。 </p>
 </td>
 </tr>
 </table>
@@ -474,7 +474,7 @@ but for now we will just look at their contents.
 
 The less command is used like this:
 
-less命令是这样使用的：
+less 命令是这样使用的：
 
 <div class="code"><pre>
 <tt>less filename</tt>
@@ -488,16 +488,16 @@ enter the following command:
 <tt>[me@linuxbox ~]$ less /etc/passwd</tt>
 </pre></div>
 
-一旦运行起来，less程序允许你前后滚动文件。例如，要查看一个定义了系统中全部用户身份的文件，输入以下命令：
+一旦运行起来，less 程序允许你前后滚动文件。例如，要查看一个定义了系统中全部用户身份的文件，输入以下命令：
 
 Once the less program starts, we may view the contents of the file. If the file is longer
 than one page, we can scroll up and down. To exit less, press the “q” key.
 The table below lists the most common keyboard commands used by less.
 
-一旦less程序运行起来，我们就能浏览文件内容了。如果文件内容多于一页，那么我们可以上下滚动文件。按下“q”键，
-退出less程序。
+一旦 less 程序运行起来，我们就能浏览文件内容了。如果文件内容多于一页，那么我们可以上下滚动文件。按下“q”键，
+退出 less 程序。
 
-下表列出了less程序最常使用的键盘命令。
+下表列出了 less 程序最常使用的键盘命令。
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
@@ -551,7 +551,7 @@ The table below lists the most common keyboard commands used by less.
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
-<caption class="cap">表 4-3: less命令</caption>
+<caption class="cap">表 4-3: less 命令</caption>
 <tr>
 <th class="title" width="30%">命令</th>
 <th class="title">行为</th>
@@ -594,20 +594,20 @@ The table below lists the most common keyboard commands used by less.
 </tr>
 <tr>
 <td valign="top">q</td>
-<td valign="top">退出less程序</td>
+<td valign="top">退出 less 程序</td>
 </tr>
 </table>
 </p>
 
 Less Is More
 
-### less就是more（禅语：色即是空）
+### less 就是 more（禅语：色即是空）
 
 The less program was designed as an improved replacement of an earlier Unix
 program called more. The name “less” is a play on the phrase “less is more”—a
 motto of modernist architects and designers.
 
-less程序是早期Unix程序more的改进版。“less”这个名字，对习语“less is more”开了个玩笑，
+less 程序是早期 Unix 程序 more 的改进版。“less”这个名字，对习语“less is more”开了个玩笑，
 这个习语是现代主义建筑师和设计者的座右铭。
 
 less falls into the class of programs called “pagers,” programs that allow the
@@ -615,8 +615,8 @@ easy viewing of long text documents in a page by page manner. Whereas the
 more program could only page forward, the less program allows paging both
 forward and backward and has many other features as well.
 
-less属于"页面调度器"程序类，这些程序允许通过页方式，在一页中轻松地浏览长长的文本文档。然而more
-程序只能向前分页浏览，而less程序允许前后分页浏览，它还有很多其它的特性。
+less 属于"页面调度器"程序类，这些程序允许通过页方式，在一页中轻松地浏览长长的文本文档。然而 more
+程序只能向前分页浏览，而 less 程序允许前后分页浏览，它还有很多其它的特性。
 
 A Guided Tour
 
@@ -627,15 +627,15 @@ systems. The design is actually specified in a published standard called the Lin
 Filesystem Hierarchy Standard. Not all Linux distributions conform to the standard
 exactly but most come pretty close.
 
-Linux系统中，文件系统布局与类似Unix系统的文件布局很相似。实际上，一个已经发布的标准，
-叫做Linux文件系统层次标准，详细说明了这种设计模式。
+Linux 系统中，文件系统布局与类似 Unix 系统的文件布局很相似。实际上，一个已经发布的标准，
+叫做 Linux 文件系统层次标准，详细说明了这种设计模式。
 
 Next, we are going to wander around the file system ourselves to see what makes our
 Linux system tick. This will give you a chance to practice your navigation skills. One of
 the things we will discover is that many of the interesting files are in plain human-
 readable text. As we go about our tour, try the following:
 
-下一步，我们将在文件系统中游玩，来了解Linux系统的工作原理。这会给你一个温习跳转命令的机会。
+下一步，我们将在文件系统中游玩，来了解 Linux 系统的工作原理。这会给你一个温习跳转命令的机会。
 我们会发现很多有趣的文件都是普通的可读文本。将开始旅行，做做以下练习：
 
 1. cd into a given directory
@@ -646,8 +646,8 @@ readable text. As we go about our tour, try the following:
 <ol>
 <li>cd 到给定目录</li>
 <li>列出目录内容 ls -l</li>
-<li>如果看到一个有趣的文件，用file命令确定文件内容</li>
-<li>如果文件看起来像文本，试着用less命令浏览它</li>
+<li>如果看到一个有趣的文件，用 file 命令确定文件内容</li>
+<li>如果文件看起来像文本，试着用 less 命令浏览它</li>
 </ol>
 
 <hr />
@@ -665,7 +665,7 @@ around. The system is ours to explore. Remember, in Linux, there are no secrets!
 Table 4-4 lists just a few of the directories we can explore. Feel free to try more!
 
 在系统中游玩时，不要害怕粘花惹草。普通用户是很难把东西弄乱的。那是系统管理员的工作！如果一个命令抱怨一些事情，不要管它，
-尽管去玩别的东西。花一些时间四处走走。系统是我们自己的，尽情地探究吧。记住在Linux中，没有秘密存在！
+尽管去玩别的东西。花一些时间四处走走。系统是我们自己的，尽情地探究吧。记住在 Linux 中，没有秘密存在！
 表4-4仅仅列出了一些我们可以浏览的目录。闲暇时试试看！
 
 <p>
@@ -855,7 +855,7 @@ some systems, you must be the superuser to view log files.</td>
 
 <p>
 <table class="multi" cellpadding="10" border="1" width="%100">
-<caption class="cap">表 4-4: Linux系统中的目录</caption>
+<caption class="cap">表 4-4: Linux 系统中的目录</caption>
 <tr>
 <th class="title">目录</th>
 <th class="title">评论</th>
@@ -872,12 +872,12 @@ some systems, you must be the superuser to view log files.</td>
 
 <tr>
 <td valign="top">/boot</td>
-<td valign="top">包含Linux内核，最初的RMA磁盘映像（系统启动时，由驱动程序所需），和
+<td valign="top">包含 Linux 内核，最初的 RMA 磁盘映像（系统启动时，由驱动程序所需），和
 启动加载程序。
 <p>有趣的文件：</p>
 <ul>
 <li>/boot/grub/grub.conf or menu.lst， 被用来配置启动加载程序。</li>
-<li>/boot/vmlinuz，Linux内核。</li>
+<li>/boot/vmlinuz，Linux 内核。</li>
 </ul>
 </td>
 </tr>
@@ -891,10 +891,10 @@ some systems, you must be the superuser to view log files.</td>
 <tr>
 <td valign="top">/etc</td>
 <td
-valign="top">这个目录包含所有系统层面的配置我文件。它也包含一系列的shell脚本，
+valign="top">这个目录包含所有系统层面的配置我文件。它也包含一系列的 shell 脚本，
 在系统启动时，这些脚本会运行每个系统服务。这个目录中的任何文件应该是可读的文本文件。
 
-<p>有意思的文件：虽然/etc目录中的任何文件都有趣，但这里只列出了一些我一直喜欢的文件：
+<p>有意思的文件：虽然/etc 目录中的任何文件都有趣，但这里只列出了一些我一直喜欢的文件：
 </p>
 
 <ul>
@@ -907,50 +907,50 @@ valign="top">这个目录包含所有系统层面的配置我文件。它也包�
 </tr>
 <tr>
 <td valign="top">/home</td>
-<td valign="top">在通常的配置环境下，系统会在/home下，给每个用户分配一个目录。普通只能
+<td valign="top">在通常的配置环境下，系统会在/home 下，给每个用户分配一个目录。普通只能
 在他们自己的目录下创建文件。这个限制保护系统免受错误的用户活动破坏。
 </td>
 </tr>
 
 <tr>
 <td valign="top">/lib </td>
-<td valign="top">包含核心系统程序所需的库文件。这些文件与Windows中的动态链接库相似。
+<td valign="top">包含核心系统程序所需的库文件。这些文件与 Windows 中的动态链接库相似。
 </td>
 </tr>
 <tr>
 <td valign="top">/lost+found </td>
-<td valign="top">每个使用Linux文件系统的格式化分区或设备，例如ext3文件系统，
+<td valign="top">每个使用 Linux 文件系统的格式化分区或设备，例如 ext3文件系统，
 都会有这个目录。当部分恢复一个损坏的文件系统时，会用到这个目录。除非文件系统
 真正的损坏了，那么这个目录会是个空目录。
 </td>
 </tr>
 <tr>
 <td valign="top">/media </td>
-<td valign="top">在现在的Linux系统中，/media目录会包含可移除媒体设备的挂载点，
-例如USB驱动器，CD-ROMs等等。这些设备连接到计算机之后，会自动地挂载到这个目录结点下。
+<td valign="top">在现在的 Linux 系统中，/media 目录会包含可移除媒体设备的挂载点，
+例如 USB 驱动器，CD-ROMs 等等。这些设备连接到计算机之后，会自动地挂载到这个目录结点下。
 </td>
 </tr>
 <tr>
 <td valign="top">/mnt</td>
-<td valign="top">在早些的Linux系统中，/mnt目录包含可移除设备的挂载点。
+<td valign="top">在早些的 Linux 系统中，/mnt 目录包含可移除设备的挂载点。
 </td>
 </tr>
 <tr>
 <td valign="top">/opt</td>
-<td valign="top">这个/opt目录被用来安装“可选的”软件。这个主要用来存储可能
+<td valign="top">这个/opt 目录被用来安装“可选的”软件。这个主要用来存储可能
 安装在系统中的商业软件产品。
 </td>
 </tr>
 <tr>
 <td valign="top">/proc</td>
-<td valign="top">这个/proc目录很特殊。从存储在硬盘上的文件的意义上说，它不是真正的文件系统。
-反而，它是一个由Linux内核维护的虚拟文件系统。它所包含的文件是内核的窥视孔。这些文件是可读的，
+<td valign="top">这个/proc 目录很特殊。从存储在硬盘上的文件的意义上说，它不是真正的文件系统。
+反而，它是一个由 Linux 内核维护的虚拟文件系统。它所包含的文件是内核的窥视孔。这些文件是可读的，
 它们会告诉你内核是怎样监管计算机的。
 </td>
 </tr>
 <tr>
 <td valign="top">/root</td>
-<td valign="top">root帐户的主目录。
+<td valign="top">root 帐户的主目录。
 </td>
 </tr>
 <tr>
@@ -959,27 +959,27 @@ valign="top">这个目录包含所有系统层面的配置我文件。它也包�
 </tr>
 <tr>
 <td valign="top">/tmp</td>
-<td valign="top">这个/tmp目录，是用来存储由各种程序创建的临时文件的地方。一些配置，导致系统每次
+<td valign="top">这个/tmp 目录，是用来存储由各种程序创建的临时文件的地方。一些配置，导致系统每次
 重新启动时，都会清空这个目录。</td>
 </tr>
 <tr>
 <td valign="top">/usr</td>
 <td
-valign="top">在Linux系统中，/usr目录可能是最大的一个。它包含普通用户所需要的所有程序和文件。</td>
+valign="top">在 Linux 系统中，/usr 目录可能是最大的一个。它包含普通用户所需要的所有程序和文件。</td>
 </tr>
 <tr>
 <td valign="top">/usr/bin</td>
-<td valign="top">/usr/bin目录包含系统安装的可执行程序。通常，这个目录会包含许多程序。</td>
+<td valign="top">/usr/bin 目录包含系统安装的可执行程序。通常，这个目录会包含许多程序。</td>
 </tr>
 <tr>
 <td valign="top">/usr/lib</td>
-<td valign="top">包含由/usr/bin目录中的程序所用的共享库。
+<td valign="top">包含由/usr/bin 目录中的程序所用的共享库。
 </td>
 </tr>
 <tr>
 <td valign="top">/usr/local</td>
-<td valign="top">这个/usr/local目录，是非系统发行版自带，却打算让系统使用的程序的安装目录。
-通常，由源码编译的程序会安装在/usr/local/bin目录下。新安装的Linux系统中，会存在这个目录，
+<td valign="top">这个/usr/local 目录，是非系统发行版自带，却打算让系统使用的程序的安装目录。
+通常，由源码编译的程序会安装在/usr/local/bin 目录下。新安装的 Linux 系统中，会存在这个目录，
 但却是空目录，直到系统管理员放些东西到它里面。</td>
 </tr>
 <tr>
@@ -988,26 +988,26 @@ valign="top">在Linux系统中，/usr目录可能是最大的一个。它包含�
 </tr>
 <tr>
 <td valign="top">/usr/share</td>
-<td valign="top">/usr/share目录包含许多由/usr/bin目录中的程序使用的共享数据。
+<td valign="top">/usr/share 目录包含许多由/usr/bin 目录中的程序使用的共享数据。
 其中包括像默认的配置文件，图标，桌面背景，音频文件等等。</td>
 </tr>
 <tr>
 <td valign="top">/usr/share/doc</td>
 <td
-valign="top">大多数安装在系统中的软件包会包含一些文档。在/usr/share/doc目录下，
+valign="top">大多数安装在系统中的软件包会包含一些文档。在/usr/share/doc 目录下，
 我们可以找到按照软件包分类的文档。</td>
 </tr>
 <tr>
 <td valign="top">/var</td>
 <td
-valign="top">除了/tmp和/home目录之外，相对来说，目前我们看到的目录是静态的，这是说，
-它们的内容不会改变。/var目录是可能需要改动的文件存储的地方。各种数据库，假脱机文件，
+valign="top">除了/tmp 和/home 目录之外，相对来说，目前我们看到的目录是静态的，这是说，
+它们的内容不会改变。/var 目录是可能需要改动的文件存储的地方。各种数据库，假脱机文件，
 用户邮件等等，都驻扎在这里。</td>
 </tr>
 <tr>
 <td valign="top">/var/log</td>
 <td
-valign="top">这个/var/log目录包含日志文件，各种系统活动的记录。这些文件非常重要，并且
+valign="top">这个/var/log 目录包含日志文件，各种系统活动的记录。这些文件非常重要，并且
 应该时时监测它们。其中最重要的一个文件是/var/log/messages。注意，为了系统安全，在一些系统中，
 你必须是超级用户才能查看这些日志文件。</td></tr>
 </table>
@@ -1030,8 +1030,8 @@ This is a special kind of a file called a symbolic link (also known as a soft li
 symlink.) In most Unix-like systems it is possible to have a file referenced by multiple
 names. While the value of this may not be obvious, it is really a useful feature.
 
-注意，这条信息第一个字符是“l”，并且看起来像有两个文件名？ 这是一个特殊文件，叫做符号链接（也称为软链接或者symlink）。
-在大多数类似Unix系统中，有可能一个文件被多个文件名参考。虽然这种特性的意义并不明显，但它真地很有用。
+注意，这条信息第一个字符是“l”，并且看起来像有两个文件名？ 这是一个特殊文件，叫做符号链接（也称为软链接或者 symlink）。
+在大多数类似 Unix 系统中，有可能一个文件被多个文件名参考。虽然这种特性的意义并不明显，但它真地很有用。
 
 Picture this scenario: a program requires the use of a shared resource of some kind
 contained in a file named “foo,” but “foo” has frequent version changes. It would be
@@ -1071,7 +1071,7 @@ symbolic link called “libc.so.6” that points to a shared library file called
 This means that programs looking for “libc.so.6” will actually get the file “libc-2.6.so.”
 We will learn how to create symbolic links in the next chapter.
 
-在上面列出的目录（来自于Fedora的/lib目录）展示了一个叫做“libc.so.6”的符号链接，这个符号链接指向一个
+在上面列出的目录（来自于 Fedora 的/lib 目录）展示了一个叫做“libc.so.6”的符号链接，这个符号链接指向一个
 叫做“libc-2.6.so”的共享库文件。这意味着，寻找文件“libc.so.6”的程序，实际上得到是文件“libc-2.6.so”。
 在下一章节，我们将学习如何建立符号链接。
 
@@ -1093,7 +1093,7 @@ Further Reading
 
 The full version of the Linux Filesystem Hierarchy Standard can be found here:
 
-完整的Linux文件系统层次标准可通过以下链接找到：
+完整的 Linux 文件系统层次标准可通过以下链接找到：
 
 <http://www.pathname.com/fhs/>
 

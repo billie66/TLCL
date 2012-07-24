@@ -63,7 +63,7 @@ name of one or more variables used to hold the input value. If no variable name 
 supplied, the shell variable `REPLY` contains the line of data.
 
 这里的`options`是下面列出的可用选项中的一个或多个，且`variable`是用来存储输入数值的一个或多个变量名。
-如果没有提供变量名，shell变量`REPLY`会包含数据行。
+如果没有提供变量名，shell 变量`REPLY`会包含数据行。
 
 Basically, `read` assigns fields from standard input to the specified variables. If we
 modify our integer evaluation script to use `read`, it might look like this:
@@ -160,7 +160,7 @@ If no variables are listed after the read command, a shell variable, `REPLY`, wi
 assigned all the input:
 
 如果`read`命令接受到变量值数目少于期望的数字，那么额外的变量值为空，而多余的输入数据则会
-被包含到最后一个变量中。如果`read`命令之后没有列出变量名，则一个shell变量，`REPLY`，将会包含
+被包含到最后一个变量中。如果`read`命令之后没有列出变量名，则一个 shell 变量，`REPLY`，将会包含
 所有的输入：
 
     #!/bin/bash
@@ -255,24 +255,24 @@ input.</td>
 <tbody>
 <tr>
 <td valign="top" width="25%">-a array </td>
-<td valign="top">把输入赋值到数组array中，从索引号零开始。我们
+<td valign="top">把输入赋值到数组 array 中，从索引号零开始。我们
 将在第36章中讨论数组问题。</td>
 </tr>
 <tr>
 <td valign="top">-d delimiter </td>
-<td valign="top">用字符串delimiter中的第一个字符指示输入结束，而不是一个换行符。</td>
+<td valign="top">用字符串 delimiter 中的第一个字符指示输入结束，而不是一个换行符。</td>
 </tr>
 <tr>
 <td valign="top">-e</td>
-<td valign="top">使用Readline来处理输入。这使得与命令行相同的方式编辑输入。</td>
+<td valign="top">使用 Readline 来处理输入。这使得与命令行相同的方式编辑输入。</td>
 </tr>
 <tr>
 <td valign="top">-n num</td>
-<td valign="top">读取num个输入字符，而不是整行。</td>
+<td valign="top">读取 num 个输入字符，而不是整行。</td>
 </tr>
 <tr>
 <td valign="top">-p prompt </td>
-<td valign="top">为输入显示提示信息，使用字符串prompt。</td>
+<td valign="top">为输入显示提示信息，使用字符串 prompt。</td>
 </tr>
 <tr>
 <td valign="top">-r</td>
@@ -285,11 +285,11 @@ input.</td>
 </tr>
 <tr>
 <td valign="top">-t seconds</td>
-<td valign="top">超时. 几秒钟后终止输入。read会返回一个非零退出状态，若输入超时。 </td>
+<td valign="top">超时. 几秒钟后终止输入。read 会返回一个非零退出状态，若输入超时。 </td>
 </tr>
 <tr>
 <td valign="top">-u fd</td>
-<td valign="top">使用文件描述符fd中的输入，而不是标准输入。</td>
+<td valign="top">使用文件描述符 fd 中的输入，而不是标准输入。</td>
 </tr>
 </tbody>
 </table>
@@ -298,7 +298,7 @@ input.</td>
 Using the various options, we can do interesting things with `read`. For example, with
 the -p option, we can provide a prompt string:
 
-使用各种各样的选项，我们能用`read`完成有趣的事情。例如，通过-p选项，我们能够提供提示信息：
+使用各种各样的选项，我们能用`read`完成有趣的事情。例如，通过-p 选项，我们能够提供提示信息：
 
     #!/bin/bash
 
@@ -311,7 +311,7 @@ the -p option, we can provide a prompt string:
 With the -t and -s options we can write a script that reads “secret” input and times out
 if the input is not completed in a specified time:
 
-通过-t和-s选项，我们可以编写一个这样的脚本，读取“秘密”输入，并且如果在特定的时间内
+通过-t 和-s 选项，我们可以编写一个这样的脚本，读取“秘密”输入，并且如果在特定的时间内
 输入没有完成，就终止输入。
 
     #!/bin/bash
@@ -332,7 +332,7 @@ the -s option is included, the characters of the pass phrase are not echoed to t
 as they are typed.
 
 这个脚本提示用户输入一个密码，并等待输入10秒钟。如果在特定的时间内没有完成输入，
-则脚本会退出并返回一个错误。因为包含了一个-s选项，所以输入的密码不会出现在屏幕上。
+则脚本会退出并返回一个错误。因为包含了一个-s 选项，所以输入的密码不会出现在屏幕上。
 
 ### IFS
 
@@ -343,9 +343,9 @@ configured by a shell variable named __IFS__ (for Internal Field Separator). The
 value of __IFS__ contains a space, a tab, and a newline character, each of which will separate
 items from one another.
 
-通常，shell对提供给`read`的输入按照单词进行分离。正如我们所见到的，这意味着多个由一个或几个空格
-分离开的单词在输入行中变成独立的个体，并被`read`赋值给单独的变量。这种行为由shell变量__IFS__
-（内部字符分隔符）配置。__IFS__的默认值包含一个空格，一个tab，和一个换行符，每一个都会把
+通常，shell 对提供给`read`的输入按照单词进行分离。正如我们所见到的，这意味着多个由一个或几个空格
+分离开的单词在输入行中变成独立的个体，并被`read`赋值给单独的变量。这种行为由 shell 变量__IFS__
+（内部字符分隔符）配置。__IFS__的默认值包含一个空格，一个 tab，和一个换行符，每一个都会把
 字段分割开。
 
 We can adjust the value of __IFS__ to control the separation of fields input to `read`. For
@@ -415,8 +415,8 @@ effect of the assignment is temporary; only changing the environment for the dur
 the command. In our case, the value of IFS is changed to a colon character. Alternately,
 we could have coded it this way:
 
-Shell允许在一个命令之前立即发生一个或多个变量赋值。这些赋值为跟随着的命令更改环境变量。
-这个赋值的影响是暂时的；只是在命令存在期间改变环境变量。在这种情况下，IFS的值改为一个冒号。
+Shell 允许在一个命令之前立即发生一个或多个变量赋值。这些赋值为跟随着的命令更改环境变量。
+这个赋值的影响是暂时的；只是在命令存在期间改变环境变量。在这种情况下，IFS 的值改为一个冒号。
 另外，我们也可以这样编码：
 
     OLD_IFS="$IFS"
@@ -428,7 +428,7 @@ where we store the value of IFS, assign a new value, perform the read command, t
 restore IFS to its original value. Clearly, placing the variable assignment in front of the
 command is a more concise way of doing the same thing.  
 
-我们先存储IFS的值，然后赋给一个新值，再执行`read`命令，最后把IFS恢复原值。显然，完成相同的任务，
+我们先存储 IFS 的值，然后赋给一个新值，再执行`read`命令，最后把 IFS 恢复原值。显然，完成相同的任务，
 在命令之前放置变量名赋值是一种更简明的方式。
 
 The `<<<` operator indicates a here string. A here string is like a here document, only
@@ -436,7 +436,7 @@ shorter, consisting of a single string. In our example, the line of data from th
 /etc/passwd file is fed to the standard input of the read command. We might
 wonder why this rather oblique method was chosen rather than:
 
-这个`<<<`操作符指示一个here字符串。一个here字符串就像一个here文档，只是比较简短，由
+这个`<<<`操作符指示一个 here 字符串。一个 here 字符串就像一个 here 文档，只是比较简短，由
 单个字符串组成。在这个例子中，来自__/etc/passwd__文件的数据发送给`read`命令的标准输入。
 我们可能想知道为什么选择这种相当晦涩的方法而不是：
 
@@ -446,7 +446,7 @@ wonder why this rather oblique method was chosen rather than:
 <tr>
 <td>
 <h3>You Can’t Pipe read</h3>
-<h3>你不能管道read</h3>
+<h3>你不能管道 read</h3>
 <p> While the read command normally takes input from standard input, you cannot
 do this: </p>
 <p>虽然通常`read`命令接受标准输入，但是你不能这样做：</p>
@@ -462,9 +462,9 @@ other shells such as sh), pipelines create subshells. These are copies of the sh
 and its environment which are used to execute the command in the pipeline. In
 our example above, read is executed in a subshell.</p>
 
-<p>答案与shell处理管道线的方式有关系。在bash（和其它shells，例如sh）中，管道线
-会创建子shell。它们是shell的副本，且用来执行命令的环境变量在管道线中。
-上面示例中，`read`命令将在子shell中执行。</p>
+<p>答案与 shell 处理管道线的方式有关系。在 bash（和其它 shells，例如 sh）中，管道线
+会创建子 shell。它们是 shell 的副本，且用来执行命令的环境变量在管道线中。
+上面示例中，`read`命令将在子 shell 中执行。</p>
 
 <p>Subshells in Unix-like systems create copies of the environment for the processes
 to use while they execute. When the processes finishes the copy of the
@@ -475,15 +475,15 @@ the variable REPLY in its subshell’s environment, but when the command exits,
 the subshell and its environment are destroyed, and the effect of the assignment is
 lost.</p>
 
-<p>在类似于Unix的系统中，子shell执行的时候，会为进程创建父环境的副本。当进程结束
-之后，环境副本就会被破坏掉。这意味着一个子shell永远不能改变父进程的环境。`read`赋值变量，
-然后会变为环境的一部分。在上面的例子中，`read`在它的子shell环境中，把“foo”赋值给变量REPLY，
-但是当命令退出后，子shell和它的环境将被破坏掉，这样赋值的影响就会消失。</p>
+<p>在类似于 Unix 的系统中，子 shell 执行的时候，会为进程创建父环境的副本。当进程结束
+之后，环境副本就会被破坏掉。这意味着一个子 shell 永远不能改变父进程的环境。`read`赋值变量，
+然后会变为环境的一部分。在上面的例子中，`read`在它的子 shell 环境中，把“foo”赋值给变量 REPLY，
+但是当命令退出后，子 shell 和它的环境将被破坏掉，这样赋值的影响就会消失。</p>
 
 <p>Using here strings is one way to work around this behavior. Another method is
 discussed in Chapter 37.</p>
 
-<p>使用here字符串是解决此问题的一种方法。另一种方法将在37章中讨论。</p>
+<p>使用 here 字符串是解决此问题的一种方法。另一种方法将在37章中讨论。</p>
 
 </td>
 </tr>
@@ -567,7 +567,7 @@ we have covered thus far, including shell functions, `[[ ]]`, `(( ))`, the contr
 `&&`, and if, as well as a healthy dose of regular expressions.
 
 这个脚本提示用户输入一个数字。随后，分析这个数字来决定它的内容。正如我们所看到的，这个脚本
-使用了许多我们已经讨论过的概念，包括shell函数，`[[ ]]`，`(( ))`，控制操作符`&&`，以及`if`和
+使用了许多我们已经讨论过的概念，包括 shell 函数，`[[ ]]`，`(( ))`，控制操作符`&&`，以及`if`和
 一些正则表达式。
 
 ### Menus
@@ -593,7 +593,7 @@ imagine a program that presented the following:
 Using what we learned from writing our sys_info_page program, we can construct a
 menu-driven program to perform the tasks on the above menu:
 
-使用我们从编写sys_info_page程序中所学到的知识，我们能够构建一个菜单驱动程序来执行
+使用我们从编写 sys_info_page 程序中所学到的知识，我们能够构建一个菜单驱动程序来执行
 上述菜单中的任务：
 
     #!/bin/bash
@@ -648,7 +648,7 @@ The presence of multiple ｀exit｀ points in a program is generally a bad idea 
 program logic harder to understand), but it works in this script.
 
 从逻辑上讲，这个脚本被分为两部分。第一部分显示菜单和用户输入。第二部分确认用户反馈，并执行
-选择的行动。注意脚本中使用的exit命令。在这里，在一个行动执行之后，`exit`被用来阻止脚本执行不必要的代码。
+选择的行动。注意脚本中使用的 exit 命令。在这里，在一个行动执行之后，`exit`被用来阻止脚本执行不必要的代码。
 通常在程序中出现多个`exit`代码是一个坏想法（它使程序逻辑较难理解），但是它在这个脚本中起作用。
 
 ### Summing Up
@@ -686,7 +686,7 @@ evaluate the regular expressions and evaluate its exit status. This will be good
 * The Bash Reference Manual contains a chapter on builtins, which includes the
 read command:
 
-* Bash参考手册有一章关于内部命令的内容，其包括了`read`命令：
+* Bash 参考手册有一章关于内部命令的内容，其包括了`read`命令：
 
   <http://www.gnu.org/software/bash/manual/bashref.html#Bash-Builtins>
 
