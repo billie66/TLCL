@@ -1,0 +1,75 @@
+/*
+
+	terrafirma1.0 by nodethirtythree design
+	http://www.nodethirtythree.com
+        
+*/
+html {
+    background-color: burlywood;
+}
+
+#wrapper {
+  margin: 5% 10%;
+  padding: 3% 5%;
+  min-width: 480px;
+  background-color: white;
+}
+
+p.figure {
+  font-style:italic;
+  text-align:center;
+}
+
+div.code pre{
+  background-color: #f8f8f8;
+}
+
+pre {
+  border: 1px solid #E7E5DC;
+  border-width: 1px 0 4px 6px;
+  font-size: 13px;
+}
+
+code {
+  border: 1px solid #E7E5DC;
+  padding: 0.1em;
+}
+
+pre code {
+  border: none;
+}
+
+hr {
+  height: 5px;
+  width: 100%;
+  background: gray;
+}
+
+table.single {
+  border:2px solid #E7E5DC;
+  background-color: #f8f8f8;
+}
+
+table.multi {
+  text-align: left;
+  border: 1px;
+}
+
+caption.cap {
+  font-style: italic;
+  text-align: left;
+}
+
+th.title {
+  background-color:#f1f1f1;
+}
+
+#tdlist {
+  width: 20%;
+}
+
+.footer {
+    display: block;
+    text-align: right;
+}
+  
