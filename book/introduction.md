@@ -13,10 +13,10 @@ story of how, some years earlier, Richard Stallman began the GNU Project to crea
 Unix-like operating system. That's an important story too, but most other Linux books
 have that one, as well.
 
-故事内容不是Linus Torvalds在1991年怎样写了Linux内核的第一个版本，
-因为这些内容你可以在许多Linux书籍中读到。我也不想告诉你，更早之前，Richard Stallman
-是如何开始GNU项目，来设计一个免费的类似Unix的操作系统。那也是一个很有意义的故事，
-但大多数Linux书籍也讲到了它。
+故事内容不是 Linus Torvalds 在1991年怎样写了 Linux 内核的第一个版本，
+因为这些内容你可以在许多 Linux 书籍中读到。我也不想告诉你，更早之前，Richard Stallman
+是如何开始 GNU 项目，来设计一个免费的类似 Unix 的操作系统。那也是一个很有意义的故事，
+但大多数 Linux 书籍也讲到了它。
 
 No, I want to tell you the story of how you can take back control of your computer.
 
@@ -48,7 +48,7 @@ They are building Linux.
 个人授权和创作自由的新时代，但是在过去的二三十年里，一些事情一直在发生着。一个大公司不断地把它的
 管理权强加到世界上绝大多数的计算机上，并且决定你对计算机的操作权力。幸运地是，来自世界各地的人们，
 正积极努力地做些事情来改变这种境况。通过编写自己的软件，他们一直在为维护电脑的管理权而战斗着。
-他们建设着Linux。
+他们建设着 Linux。
 
 Many people speak of “freedom” with regard to Linux, but I don't think most people
 know what this freedom really means. Freedom is the power to decide what your
@@ -56,7 +56,7 @@ computer does, and the only way to have this freedom is to know what your comput
 doing. Freedom is a computer that is without secrets, one where everything can be
 known if you care enough to find out.
 
-一提到Linux，许多人都会说到“自由”，但我不认为他们都知道“自由”的真正涵义。“自由”是一种权力，
+一提到 Linux，许多人都会说到“自由”，但我不认为他们都知道“自由”的真正涵义。“自由”是一种权力，
 它决定你的计算机能做什么，同时能够拥有这种“自由”的唯一方式就是知道计算机正在做什么。
 “自由”是指一台没有任何秘密的计算机，你可以从它那里了解一切，只要你用心的去寻找。
 
@@ -95,10 +95,10 @@ line interface instead. In fact, one of the strongest reasons early adopters of 
 over, say, Windows NT was the powerful command line interface which made the
 “difficult tasks possible.”
 
-因为Linux是以Unix家族的操作系统为模型写成的，所以它分享了Unix丰富的命令行工具。
-Unix在20世纪80年代初显赫一时(虽然，开发它在更早之前），结果，在普遍地使用图形界面之前，
-开发了一种广泛的命令行界面。事实上，一个主要的原因，Linux开发者优先采用命令行界面
-而不是其他的系统，比如说Windows NT，是因为其强大的命令行界面，可以使“完成复杂的任务成为可能”。
+因为 Linux 是以 Unix 家族的操作系统为模型写成的，所以它分享了 Unix 丰富的命令行工具。
+Unix 在20世纪80年代初显赫一时(虽然，开发它在更早之前），结果，在普遍地使用图形界面之前，
+开发了一种广泛的命令行界面。事实上，一个主要的原因，Linux 开发者优先采用命令行界面
+而不是其他的系统，比如说 Windows NT，是因为其强大的命令行界面，可以使“完成复杂的任务成为可能”。
 
 What This Book Is About
 
@@ -110,7 +110,7 @@ program, bash, this book will try to convey how to get along with the command
 line interface in a larger sense. How does it all work? What can it do? What's
 the best way to use it?
 
-这本书对Linux命令行进行了综述。不像一些书籍仅仅涉及一个程序，比如像shell程序，bash。
+这本书对 Linux 命令行进行了综述。不像一些书籍仅仅涉及一个程序，比如像 shell 程序，bash。
 从更广泛的意义上来说，这本书将试着向你传授如何与命令行界面友好相处。
 它是怎样工作的？ 它能做什么？ 使用它的最好方法是什么？
 
@@ -121,7 +121,7 @@ however, prepare the reader for additional study by providing a solid
 foundation in the use of the command line, an essential tool for any serious
 system administration task.
 
-__这不是一本关于Linux系统管理的书__。然而任何一个关于命令行的重要讨论，都一定会牵涉到
+__这不是一本关于 Linux 系统管理的书__。然而任何一个关于命令行的重要讨论，都一定会牵涉到
 系统管理方面的内容，这本书仅仅提到一点儿管理方面的问题。这本书为读者准备好了其它的学习内容，
 帮助你为使用命令行打下坚实的基础，这可是完成任一个系统管理任务所必需的至关重要的工具。
 
@@ -132,10 +132,10 @@ the other hand, only covers contemporary Linux distributions. Ninety-five
 percent of the content is useful for users of other Unix-like systems, but
 this book is highly targeted at the modern Linux command line user.
 
-__这本书是围绕Linux而写的__。许多书籍，为了扩大自身的影响力，会包含一些其它平台的知识，
-比如一般的Unix, MacOS X等。这样做，书本中针对普遍话题的内容就减少了。另一方面，
-这本书只研究了当代Linux发行版。虽然，对于使用其它类似于Unix系统的用户来说，
-书中95％的内容是有用的，但这本书主要面向的对象是现代Linux命令行用户。
+__这本书是围绕 Linux 而写的__。许多书籍，为了扩大自身的影响力，会包含一些其它平台的知识，
+比如一般的 Unix, MacOS X 等。这样做，书本中针对普遍话题的内容就减少了。另一方面，
+这本书只研究了当代 Linux 发行版。虽然，对于使用其它类似于 Unix 系统的用户来说，
+书中95％的内容是有用的，但这本书主要面向的对象是现代 Linux 命令行用户。
 
 Who Should Read This Book
 
@@ -147,9 +147,9 @@ your boss has told you to administer a Linux server, or maybe you're just a
 desktop user who is tired of all the security problems and want to give Linux
 a try. That's fine.here.All are welcome
 
-这本书是为已经从其它平台移民到Linux系统的新手而写的。最有可能，你是使用某个Windows版本的高手。
-或许是老板让你去管理一个Linux服务器，或许你只是一个桌面用户，厌倦了系统出现的各种
-安全防御问题，而想要体验一下Linux。很好，这里欢迎你们！
+这本书是为已经从其它平台移民到 Linux 系统的新手而写的。最有可能，你是使用某个 Windows 版本的高手。
+或许是老板让你去管理一个 Linux 服务器，或许你只是一个桌面用户，厌倦了系统出现的各种
+安全防御问题，而想要体验一下 Linux。很好，这里欢迎你们！
 
 That being said, there is no shortcut to Linux enlightenment. Learning the
 command line is challenging and takes real effort. It's not that it's so hard,
@@ -157,8 +157,8 @@ but rather it's so vast. The average Linux system has literally thousands of
 programs you can employ on the command line. Consider yourself warned;
 learning the command line is not a casual endeavor.
 
-不过一般来说，对于Linux的启蒙教育，没有捷径可言。学习命令行富于挑战性，而且很费气力。
-这并不是说Linux命令行很难学，而是它的知识量很大，不容易掌握。Linux操作系统，
+不过一般来说，对于 Linux 的启蒙教育，没有捷径可言。学习命令行富于挑战性，而且很费气力。
+这并不是说 Linux 命令行很难学，而是它的知识量很大，不容易掌握。Linux 操作系统，
 差不多有数以千计的命令可供用户操作。由此可见，要给自己提个醒，命令行可不是轻轻松松就能学好的。
 
 On the other hand, learning the Linux command line is extremely rewarding. If
@@ -167,7 +167,7 @@ is — yet. And, unlike many other computer skills, knowledge of the command
 line is long lasting. The skills learned today will still be useful ten years
 from now. The command line has survived the test of time.
 
-另一方面，学习Linux命令行会让你受益匪浅，给你极大的回报。如果你认为，
+另一方面，学习 Linux 命令行会让你受益匪浅，给你极大的回报。如果你认为，
 现在你已经是一个高手了。别急，其实你还不知道什么才是真正的高手。不像其他一些计算机技能，
 一段时间之后可能就被淘汰了，命令行知识却不会落伍，你今天所学到的，在十年以后，
 都会有用处。命令行通过了时间的检验。
@@ -187,7 +187,7 @@ sitting next to you guiding you along. Many authors treat this material in a
 be very confusing to new users.
 
 这本书的章节顺序是经过精心安排的，就如一位导师，坐在你身旁，耐心地指导你。
-许多作者认为这本书的结构安排得很成体系，对作者而言这很有意义，但对于Linux新手来说，
+许多作者认为这本书的结构安排得很成体系，对作者而言这很有意义，但对于 Linux 新手来说，
 可能会感到困惑。
 
 Another goal is to acquaint you with the Unix way of thinking, which is
@@ -197,9 +197,9 @@ how they got that way. Linux is not just a piece of software, it's also a
 small part of the larger Unix culture, which has its own language and history.
 I might throw in a rant or two, as well.
 
-另一个目的，是想让读者熟悉Unix的思维方式，这种思维方式不同于Windows的。在学习过程中，
+另一个目的，是想让读者熟悉 Unix 的思维方式，这种思维方式不同于 Windows 的。在学习过程中，
 我们会帮助你理解为什么某些命令会按照它们的方式工作，以及它们是怎样实现那样的工作方式的。
-Linux不仅是一款软件，也是Unix文化的一小部分，它有自己的语言和历史渊源。
+Linux 不仅是一款软件，也是 Unix 文化的一小部分，它有自己的语言和历史渊源。
 同时，我也许会说些过激的话。
 
 This book is divided into five parts, each covering some aspect of the command
@@ -214,7 +214,7 @@ the command line including such things as the structure of commands, file
 system navigation, command line editing, and finding help and documentation
 for commands.
 
-* 第二部分 — 学习shell 开始探究命令行基本语言，包括命令组成结构，
+* 第二部分 — 学习 shell 开始探究命令行基本语言，包括命令组成结构，
   文件系统浏览，编写命令行，查找命令帮助文档。
 
 Part 3 – Configuration And The Environment covers editing configuration files
@@ -229,7 +229,7 @@ systems, such as Linux, contain many “classic” command line programs that ar
 used to perform powerful operations on data.
 
 <ul><li><p> 第四部分 — 常见任务及主要工具  探究了许多命令行经常执行的普通任务。类似于
-  Unix的操作系统，例如Linux, 包括许多经典的命令行程序，这些程序可以用来对数据进行
+  Unix 的操作系统，例如 Linux, 包括许多经典的命令行程序，这些程序可以用来对数据进行
   强大的操作。</p></li></ul>
 
 Part 5 – Writing Shell Scripts introduces shell programming, an admittedly
@@ -237,8 +237,8 @@ rudimentary, but easy to learn, technique for automating many common
 computing tasks. By learning shell programming, you will become familiar with
 concepts that can be applied to many other programming languages.
 
-* 第五部分 — 编写Shell脚本  介绍了shell编程，一个无可否认的基本技能，能够自动化许多
-  常见的计算任务，很容易学。通过学习shell编程，你会逐渐熟悉一些关于编程语言方面的概念，
+* 第五部分 — 编写 Shell 脚本  介绍了 shell 编程，一个无可否认的基本技能，能够自动化许多
+  常见的计算任务，很容易学。通过学习 shell 编程，你会逐渐熟悉一些关于编程语言方面的概念，
   这些概念也适用于其他的编程语言。
 
 How To Read This Book
@@ -257,7 +257,7 @@ Prerequisites
 To use this book, all you will need is a working Linux installation. You can get this in
 one of two ways:
 
-为了使用这本书，你需要安装Linux操作系统。你可以通过两种方式，来完成安装。
+为了使用这本书，你需要安装 Linux 操作系统。你可以通过两种方式，来完成安装。
 
 <ol>
 <li><p>Install Linux on a (not so new) computer. It doesn't matter which
@@ -279,26 +279,26 @@ having Linux installed on your hard drive.  Both Ubuntu and Fedora (among
 others) have live CD versions.</p></li>
 </ol>
 
-1. 在一台（不是很新）的电脑上安装Linux。你选择哪个Linux发行版安装，是无关紧要的事。
-   虽然大多数人一开始选择安装Ubuntu, Fedora, 或者OpenSUSE。如果你拿不定主意，那就先试试Ubuntu。
-   由于主机硬件配置不同，安装Linux时，你可能不费吹灰之力就装上了，也可能费了九牛二虎之力还装不上。
-   所以我建议，一台使用了几年的台式机，至少要有256M的内存，6G的硬盘可用空间。尽可能避免使用
-   笔记本电脑和无线网络，在Linux环境下，它们经常不能工作。
+1. 在一台（不是很新）的电脑上安装 Linux。你选择哪个 Linux 发行版安装，是无关紧要的事。
+   虽然大多数人一开始选择安装 Ubuntu, Fedora, 或者 OpenSUSE。如果你拿不定主意，那就先试试 Ubuntu。
+   由于主机硬件配置不同，安装 Linux 时，你可能不费吹灰之力就装上了，也可能费了九牛二虎之力还装不上。
+   所以我建议，一台使用了几年的台式机，至少要有256M 的内存，6G 的硬盘可用空间。尽可能避免使用
+   笔记本电脑和无线网络，在 Linux 环境下，它们经常不能工作。
 
-2. 使用“Live CD.” 许多Linux发行版都自带一个比较酷的功能，你可以直接从系统安装盘CDROM中运行Linux，
-   而不必安装Linux。开机进入BIOS设置界面，更改引导项，设置为“从CDROM启动”。
+2. 使用“Live CD.” 许多 Linux 发行版都自带一个比较酷的功能，你可以直接从系统安装盘 CDROM 中运行 Linux，
+   而不必安装 Linux。开机进入 BIOS 设置界面，更改引导项，设置为“从 CDROM 启动”。
 
 Regardless of how you install Linux, you will need to have occasional
 superuser (i.e., administrative) privileges to carry out the lessons in this
 book.
 
-不管你怎样安装Linux，你需要有超级用户（管理员）权限，才能练习书中的课程。
+不管你怎样安装 Linux，你需要有超级用户（管理员）权限，才能练习书中的课程。
 
 After you have a working installation, start reading and follow along with
 your own computer. Most of the material in this book is “hands on,” so sit
 down and get typing!
 
-当你创建了一个Linux工作环境之后，跟随着你的电脑，开始阅读这本书吧。这本书中大部分内容
+当你创建了一个 Linux 工作环境之后，跟随着你的电脑，开始阅读这本书吧。这本书中大部分内容
 都可以自己动手练习，坐下来，敲入命令，体验一下吧。
 
 <table class="single" cellspacing="0" cellpadding="10" width="100%">
@@ -317,9 +317,9 @@ is the name of the operating system's kernel, nothing more.  The kernel is
 very important of course, since it makes the operating system go, but it's not
 enough to form a complete operating system.</p>
 
-<p>在某些领域，把Linux操作系统称为“GNU/Linux 操作系统.”， 则政治立场正确。但“Linux”的问题是，
+<p>在某些领域，把 Linux 操作系统称为“GNU/Linux 操作系统.”， 则政治立场正确。但“Linux”的问题是，
 没有一个完全正确的方式能命名它，因为它是由许许多多，分布在世界各地的贡献者们，合作开发而成的。
-从技术层面讲，Linux只是操作系统的内核名字，没别的含义。当然内核非常重要，因为有它，
+从技术层面讲，Linux 只是操作系统的内核名字，没别的含义。当然内核非常重要，因为有它，
 操作系统才能运行起来，但它并不能构成一个完备的操作系统。</p>
 
 <p>Enter Richard Stallman, the genius-philosopher who founded the Free Software
@@ -332,11 +332,11 @@ of recognition, placing them in the name is unfair to everyone else who made
 significant contributions. Besides, I think “Linux/GNU” would be more
 technically accurate since the kernel boots first and everything else runs on top ofit.</p>
 
-<p>Richard Stallman是一个天才的哲学家，自由软件运动创始人，自由软件基金会创办者，他创建了GNU工程，
-编写了第一版GNU C 编译器（gcc），创立了GNU通用公共协议（the GPL)等等。
-他坚持把Linux称为“GNU/Linux”，为的是准确地反映GNU工程对Linux操作系统的贡献。
-然而，GNU项目早于Linux内核，而GNU项目的贡献得到了极高的赞誉，再把GNU用在Linux名字里，
-这对其他每个为Linux的发展做出重大贡献的程序员来说，就不公平了。</p>
+<p>Richard Stallman 是一个天才的哲学家，自由软件运动创始人，自由软件基金会创办者，他创建了 GNU 工程，
+编写了第一版 GNU C 编译器（gcc），创立了 GNU 通用公共协议（the GPL)等等。
+他坚持把 Linux 称为“GNU/Linux”，为的是准确地反映 GNU 工程对 Linux 操作系统的贡献。
+然而，GNU 项目早于 Linux 内核，而 GNU 项目的贡献得到了极高的赞誉，再把 GNU 用在 Linux 名字里，
+这对其他每个为 Linux 的发展做出重大贡献的程序员来说，就不公平了。</p>
 
 <p>In popular usage, “Linux” refers to the kernel and all the other free and open
 source software found in the typical Linux distribution; that is, the entire Linux
@@ -345,8 +345,8 @@ seems to prefer one-word names such as DOS, Windows, MacOS, Solaris, Irix,
 AIX. I have chosen to use the popular format. If, however, you prefer to use
 “GNU/Linux” instead, please perform a mental search and replace while reading this book. I won't mind.</p>
 
-<p>在目前流行的用法中，“Linux”指的是内核以及在一个典型的Linux发行版中所包含的所有免费及开源软件；
-也就是说，整个Linux生态系统，不只有GNU项目软件。在操作系统商界，好像喜欢使用单个词的名字，
+<p>在目前流行的用法中，“Linux”指的是内核以及在一个典型的 Linux 发行版中所包含的所有免费及开源软件；
+也就是说，整个 Linux 生态系统，不只有 GNU 项目软件。在操作系统商界，好像喜欢使用单个词的名字，
 比如说 DOS, Windows, MacOS, Solaris, Irix, AIX. 所以我选择用流行的命名规则。然而，
 如果你喜欢用“GNU/Linux”，当你读这本书时，可以搜索并代替“Linux”。我不介意。</p>
 
@@ -360,7 +360,7 @@ AIX. I have chosen to use the popular format. If, however, you prefer to use
 
 Here are some Wikipedia articles on the famous people mentioned in this chapter:
 
-* Wikipedia网站上有些介绍本章提到的名人的文章，以下是链接地址：
+* Wikipedia 网站上有些介绍本章提到的名人的文章，以下是链接地址：
 
     <http://en.wikipedia.org/wiki/Linux_Torvalds>
 
@@ -368,7 +368,7 @@ Here are some Wikipedia articles on the famous people mentioned in this chapter:
 
 The Free Software Foundation and the GNU Project:
 
-* 介绍自由软件基金会及GNU项目的网站和文章：
+* 介绍自由软件基金会及 GNU 项目的网站和文章：
 
     <http://en.wikipedia.org/wiki/Free_Software_Foundation>
 
@@ -378,12 +378,8 @@ The Free Software Foundation and the GNU Project:
 
 Richard Stallman has written extensively on the “GNU/Linux” naming issue:
 
-* Richard Stallman用了大量的文字来叙述“GNU/Linux”的命名问题，可以浏览以下网页：
+* Richard Stallman 用了大量的文字来叙述“GNU/Linux”的命名问题，可以浏览以下网页：
 
     <http://www.gnu.org/gnu/why-gnu-linux.html>
 
     <http://www.gnu.org/gnu/gnu-linux-faq.html#tools>
-
-
-
- 
