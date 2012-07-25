@@ -43,7 +43,7 @@ with them. Fortunately, people from all over the world are doing something about
 They are fighting to maintain control of their computers by writing their own software.
 They are building Linux.
 
-今天，世界已经日新月异。计算机遍布各个领域，从小手表到大型数据中心，及大小介于它们之间的每件东西。
+今天，世界已经截然不同了。计算机遍布各个领域，从小手表到大型数据中心，及大小介于它们之间的每件东西。
 除了随处可见的计算机之外，我们还有一个无处不在的连接所有计算机的网络。这已经开创了一个奇妙的，
 个人授权和创作自由的新时代，但是在过去的二三十年里，一些事情一直在发生着。一个大公司不断地把它的
 管理权强加到世界上绝大多数的计算机上，并且决定你对计算机的操作权力。幸运地是，来自世界各地的人们，
@@ -186,9 +186,9 @@ sitting next to you guiding you along. Many authors treat this material in a
 “systematic” fashion, which makes sense from a writer’s perspective, but can
 be very confusing to new users.
 
-这本书的章节顺序是经过精心安排的，就如一位导师，坐在你身旁，耐心地指导你。
-许多作者认为这本书的结构安排得很成体系，对作者而言这很有意义，但对于 Linux 新手来说，
-可能会感到困惑。
+这些材料是经过精心安排的，很像一位老师坐在你身旁，耐心地指导你。
+许多作者用系统化的方式讲解这些材料，虽然从一个作者的角度考虑很有道理，但对于 Linux 新手来说，
+他们可能会感到非常困惑。
 
 Another goal is to acquaint you with the Unix way of thinking, which is
 different from the Windows way of thinking. Along the way, we'll go on a few
@@ -301,7 +301,7 @@ down and get typing!
 当你创建了一个 Linux 工作环境之后，跟随着你的电脑，开始阅读这本书吧。这本书中大部分内容
 都可以自己动手练习，坐下来，敲入命令，体验一下吧。
 
-<table class="single" cellspacing="0" cellpadding="10" width="100%">
+<table class="single">
 <tr>
 <td>
 
