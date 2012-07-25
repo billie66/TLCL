@@ -25,7 +25,7 @@ this chapter are:
 <li> which – 显示会执行哪个可执行程序</li>
 <li> man – 显示命令手册页</li>
 <li> apropos – 显示一系列适合的命令</li>
-<li> info – 显示命令info</li>
+<li> info – 显示命令 info</li>
 <li> whatis – 显示一个命令的简洁描述</li>
 <li> alias – 创建命令别名</li>
 </ul>
@@ -55,15 +55,15 @@ functions in later chapters, but for now, just be aware that they exist.</li>
 </ol>
 
 <ol>
-<li>是一个可执行程序，就像我们所看到的位于目录/usr/bin中的文件一样。
-属于这一类的程序，可以编译成二进制文件，诸如用C和C++语言写成的程序,
-也可以是由脚本语言写成的程序，比如说shell，perl，python，ruby，等等。</li>
+<li>是一个可执行程序，就像我们所看到的位于目录/usr/bin 中的文件一样。
+属于这一类的程序，可以编译成二进制文件，诸如用 C 和 C++语言写成的程序,
+也可以是由脚本语言写成的程序，比如说 shell，perl，python，ruby，等等。</li>
 
-<li>是一个内建于shell自身的命令。bash支持若干命令，内部叫做shell内部命令
-(builtins)。例如，cd命令，就是一个shell内部命令。</li>
+<li>是一个内建于 shell 自身的命令。bash 支持若干命令，内部叫做 shell 内部命令
+(builtins)。例如，cd 命令，就是一个 shell 内部命令。</li>
 
-<li>是一个shell函数。这些是小规模的shell脚本，它们混合到环境变量中。
-在后续的章节里，我们将讨论配置环境变量以及书写shell函数。但是现在，
+<li>是一个 shell 函数。这些是小规模的 shell 脚本，它们混合到环境变量中。
+在后续的章节里，我们将讨论配置环境变量以及书写 shell 函数。但是现在，
 仅仅意识到它们的存在就可以了。</li>
 
 <li>是一个命令别名。我们可以定义自己的命令，建立在其它命令之上。</li>
@@ -76,7 +76,7 @@ functions in later chapters, but for now, just be aware that they exist.</li>
 It is often useful to know exactly which of the four kinds of commands is being used and
 Linux provides a couple of ways to find out.
 
-这经常很有用，能确切地知道正在使用四类命令中的哪一类。Linux提供了一对方法来
+这经常很有用，能确切地知道正在使用四类命令中的哪一类。Linux 提供了一对方法来
 弄明白命令类型。
 
 ### type – Display A Command's Type
@@ -86,7 +86,7 @@ Linux provides a couple of ways to find out.
 The type command is a shell builtin that displays the kind of command the shell will
 execute, given a particular command name. It works like this:
 
-type命令是shell内部命令，它会显示命令的类别，给出一个特定的命令名（做为参数）。
+type 命令是 shell 内部命令，它会显示命令的类别，给出一个特定的命令名（做为参数）。
 它像这样工作：
 
     type command
@@ -108,8 +108,8 @@ from a Fedora system) and how the ls command is actually an alias for the ls com
 with the “-- color=tty” option added. Now we know why the output from ls is displayed
 in color!
 
-我们看到这三个不同命令的检测结果。注意，ls命令（在Fedora系统中）的检查结果，ls命令实际上
-是ls命令加上选项"--color=tty"的别名。现在我们知道为什么ls的输出结果是有颜色的！
+我们看到这三个不同命令的检测结果。注意，ls 命令（在 Fedora 系统中）的检查结果，ls 命令实际上
+是 ls 命令加上选项"--color=tty"的别名。现在我们知道为什么 ls 的输出结果是有颜色的！
 
 ### which – Display An Executable's Location
 
@@ -121,7 +121,7 @@ servers. To determine the exact location of a given executable, the which comman
 used:
 
 有时候在一个操作系统中，不只安装了可执行程序的一个版本。然而在桌面系统中，这并不普遍，
-但在大型服务器中，却很平常。为了确定所给定的执行程序的准确位置，使用which命令：
+但在大型服务器中，却很平常。为了确定所给定的执行程序的准确位置，使用 which 命令：
 
     [me@linuxbox ~]$ which is
     /bin/ls
@@ -131,7 +131,7 @@ for actual executable programs. When we try to use which on a shell builtin, for
 example, cd, we either get no response or an error message:
 
 这个命令只对可执行程序有效，不包括内部命令和命令别名，别名是真正的可执行程序的替代物。
-当我们试着使用shell内部命令时，例如，cd命令，我们或者得不到回应，或者是个错误信息：
+当我们试着使用 shell 内部命令时，例如，cd 命令，我们或者得不到回应，或者是个错误信息：
 
     [me@linuxbox ~]$ which cd
     /usr/bin/which: no cd in
@@ -154,12 +154,12 @@ available for each kind of command.
 
 ### help – Get Help For Shell Builtins
 
-### help －得到shell内部命令的帮助文档
+### help －得到 shell 内部命令的帮助文档
 
 bash has a built-in help facility available for each of the shell builtins. To use it, type
 “help” followed by the name of the shell builtin. For example:
 
-bash有一个内建的帮助工具，可供每一个shell内部命令使用。输入"type"，接着是shell
+bash 有一个内建的帮助工具，可供每一个 shell 内部命令使用。输入"type"，接着是 shell
 内部命令名。例如：
 
     [me@linuxbox ~]$ help cd
@@ -172,20 +172,20 @@ syntax, they indicate optional items. A vertical bar character indicates mutuall
 items. In the case of the cd command above:
 
 注意表示法：出现在命令语法说明中的方括号，表示可选的项目。一个竖杠字符
-表示互斥选项。在上面cd命令的例子中：
+表示互斥选项。在上面 cd 命令的例子中：
 
 <p><b>cd [-L|-P] [dir]</b></p>
 
 This notation says that the command cd may be followed optionally by either a “-L” or a
 “-P” and further, optionally followed by the argument “dir”.
 
-这种表示法说明，cd命令可能有一个"-L"选项或者"-P"选项，进一步，可能有参数"dir"。
+这种表示法说明，cd 命令可能有一个"-L"选项或者"-P"选项，进一步，可能有参数"dir"。
 
 While the output of help for the cd commands is concise and accurate, it is by no
 means tutorial and as we can see, it also seems to mention a lot of things we haven't
 talked about yet! Don't worry. We'll get there.
 
-虽然cd命令的帮助文档很简洁准确，但它决不是教材。正如我们所看到的，它似乎提到了许多
+虽然 cd 命令的帮助文档很简洁准确，但它决不是教材。正如我们所看到的，它似乎提到了许多
 我们还没有谈论到的东西！不要担心，我们会学到的。
 
 ### --help – Display Usage Information
@@ -216,7 +216,7 @@ documentation called a manual or man page. A special paging program called man i
 used to view them. It is used like this:
 
 许多希望被命令行使用的可执行程序，提供了一个正式的文档，叫做手册或手册页(man
-page)。一个特殊的叫做man的分页程序，可用来浏览他们。它是这样使用的：
+page)。一个特殊的叫做 man 的分页程序，可用来浏览他们。它是这样使用的：
 
     man program
 
@@ -232,21 +232,21 @@ the man page for the ls command:
 
 手册文档的格式有点不同，一般地包含一个标题，命令语法的纲要，命令用途的说明，
 和命令选项列表，及每个选项的说明。然而，通常手册文档并不包含实例，它打算
-作为一本参考手册，而不是教材。作为一个例子，浏览一下ls命令的手册文档：
+作为一本参考手册，而不是教材。作为一个例子，浏览一下 ls 命令的手册文档：
 
     [me@linuxbox ~]$ man ls
 
 On most Linux systems, man uses less to display the manual page, so all of the familiar
 less commands work while displaying the page.
 
-在大多数Linux系统中，man使用less工具来显示参考手册，所以当浏览文档时，你所熟悉的less
+在大多数 Linux 系统中，man 使用 less 工具来显示参考手册，所以当浏览文档时，你所熟悉的 less
 命令都能有效。
 
 The “manual” that man displays is broken into sections and not only covers user
 commands but also system administration commands, programming interfaces, file
 formats and more. The table below describes the layout of the manual:
 
-man所显示的参考手册，被分成几个章节，它们不仅仅包括用户命令，也包括系统管理员
+man 所显示的参考手册，被分成几个章节，它们不仅仅包括用户命令，也包括系统管理员
 命令，程序接口，文件格式等等。下表描绘了手册的布局：
 
 <table class="multi">
@@ -268,7 +268,7 @@ man所显示的参考手册，被分成几个章节，它们不仅仅包括用�
 </tr>
 <tr>
 <td>3</td>
-<td>Programming interfaces to the C library  C库函数程序接口</td>
+<td>Programming interfaces to the C library  C 库函数程序接口</td>
 </tr>
 <tr>
 <td>4</td>
@@ -303,7 +303,7 @@ this:
 
 有时候，我们需要查看参考手册的特定章节，从而找到我们需要的信息。
 如果我们要查找一种文件格式，而同时它也是一个命令名时,这种情况尤其正确。
-没有指定章节号，我们总是得到第一个匹配项，可能在第一章节。我们这样使用man命令，
+没有指定章节号，我们总是得到第一个匹配项，可能在第一章节。我们这样使用 man 命令，
 来指定章节号：
 
     man section search_term
@@ -316,7 +316,7 @@ For example:
 
 This will display the man page describing the file format of the /etc/passwd file.
 
-命令运行结果会显示文件/etc/passwd的文件格式说明手册。
+命令运行结果会显示文件/etc/passwd 的文件格式说明手册。
 
 ### apropos – Display Appropriate Commands
 
@@ -337,8 +337,8 @@ The first field in each line of output is the name of the man page, the second f
 the section. Note that the man command with the “-k” option performs the exact same
 function as apropos.
 
-输出结果每行的第一个字段是手册页的名字，第二个字段展示章节。注意，man命令加上"-k"选项，
-和apropos完成一样的功能。
+输出结果每行的第一个字段是手册页的名字，第二个字段展示章节。注意，man 命令加上"-k"选项，
+和 apropos 完成一样的功能。
 
 ### whatis – Display A Very Brief Description Of A Command
 
@@ -347,7 +347,7 @@ function as apropos.
 The whatis program displays the name and a one line description of a man page
 matching a specified keyword:
 
-whatis程序显示匹配特定关键字的手册页的名字和一行命令说明：
+whatis 程序显示匹配特定关键字的手册页的名字和一行命令说明：
 
 <table class="single" cellpadding="10" width="%100">
 <tr>
@@ -363,17 +363,17 @@ careful review to ensure that I was covering most of its topics. When printed, i
 over eighty pages long and extremely dense, and its structure makes absolutely no
 sense to a new user. </p>
 
-<p>正如我们所见到的，Linux和类似Unix系统所提供的手册页，只是打算作为参考手册使用，
-而不是教材。很多手册页很难阅读，但是我认为因为阅读难度而拿到特等奖的手册页，是bash
-的手册页。因为我正在为这本书做调查，所以我很仔细的浏览了bash手册，以此来确定我包括了
-大多数的bash主题。当我把bash参考手册打印出来，有八十多页，且内容极其紧密，并且文档
+<p>正如我们所见到的，Linux 和类似 Unix 系统所提供的手册页，只是打算作为参考手册使用，
+而不是教材。很多手册页很难阅读，但是我认为因为阅读难度而拿到特等奖的手册页，是 bash
+的手册页。因为我正在为这本书做调查，所以我很仔细的浏览了 bash 手册，以此来确定我包括了
+大多数的 bash 主题。当我把 bash 参考手册打印出来，有八十多页，且内容极其紧密，并且文档
 结构对于初学者来说，完全没有意义。</p>
 
 <p> On the other hand, it is very accurate and concise, as well as being extremely
 complete. So check it out if you dare and look forward to the day when you can
 read it and it all makes sense. </p>
 
-<p>另一方面，bash手册内容很精确简明，也非常完善。所以，如果你有胆量就
+<p>另一方面，bash 手册内容很精确简明，也非常完善。所以，如果你有胆量就
 查看一下，并且期望有一天你能读懂它。</p>
 
 </td>
@@ -382,14 +382,14 @@ read it and it all makes sense. </p>
 
 ### info – Display A Program's Info Entry
 
-### info －显示程序Info条目
+### info －显示程序 Info 条目
 
 The GNU Project provides an alternative to man pages for their programs, called “info.”
 Info pages are displayed with a reader program named, appropriately enough, info.
 Info pages are hyperlinked much like web pages. Here is a sample:
 
-GNU项目提供了一个命令程序手册页的替代物，称为"info"。info内容可通过info阅读器
-程序读取。info页是超级链接形式的，和网页很相似。这有个例子：
+GNU 项目提供了一个命令程序手册页的替代物，称为"info"。info 内容可通过 info 阅读器
+程序读取。info 页是超级链接形式的，和网页很相似。这有个例子：
 
     File: coreutils.info,    Node: ls invocation,    Next: dir invocation,
      Up: Directory listing
@@ -403,14 +403,14 @@ containing a single topic. Info files contain hyperlinks that can move you from 
 node. A hyperlink can be identified by its leading asterisk, and is activated by placing the
 cursor upon it and pressing the enter key.
 
-info程序读取info文件，info文件是树型结构，分化为各个结点，每一个包含一个题目。
-info文件包含超级链接，它可以让你从一个结点跳到另一个结点。一个超级链接可通过
-它开头的星号来辨别出来，把光标放在它上面并按下enter键，就可以激活它。
+info 程序读取 info 文件，info 文件是树型结构，分化为各个结点，每一个包含一个题目。
+info 文件包含超级链接，它可以让你从一个结点跳到另一个结点。一个超级链接可通过
+它开头的星号来辨别出来，把光标放在它上面并按下 enter 键，就可以激活它。
 
 To invoke info, type “info” followed optionally by the name of a program. Below is a
 table of commands used to control the reader while displaying an info page:
 
-输入"info"，接着输入程序名称，启动info。下表中的命令，当显示一个info页面时，
+输入"info"，接着输入程序名称，启动 info。下表中的命令，当显示一个 info 页面时，
 用来控制阅读器。
 
 <table class="multi">
@@ -505,14 +505,14 @@ node, usually a menu.</td>
 Most of the command line programs we have discussed so far are part of the GNU
 Project's “coreutils” package, so typing:
 
-到目前为止，我们所讨论的大多数命令行程序，属于GNU项目"coreutils"包，所以输入：
+到目前为止，我们所讨论的大多数命令行程序，属于 GNU 项目"coreutils"包，所以输入：
 
     [me@linuxbox ~]$ info coreutils
 
 will display a menu page with hyperlinks to each program contained in the coreutils
 package.
 
-将会显示一个包含超级链接的手册页，这些超级链接指向包含在coreutils包中的各个程序。
+将会显示一个包含超级链接的手册页，这些超级链接指向包含在 coreutils 包中的各个程序。
 
 ### README And Other Program Documentation Files
 
@@ -526,11 +526,11 @@ indicates that they have been compressed with the gzip compression program. The 
 package includes a special version of less called zless that will display the contents
 of gzip-compressed text files.
 
-许多安装在你系统中的软件，都有自己的文档文件，这些文件位于/usr/share/doc目录下。
-这些文件大多数是以文本文件的形式存储的，可用less阅读器来浏览。一些文件是HTML格式，
-可用网页浏览器来阅读。我们可能遇到许多以".gz"结尾的文件。这表示gzip压缩程序
-已经压缩了这些程序。gzip软件包包括一个特殊的less版本，叫做zless，zless可以显示由
-gzip压缩的文本文件的内容。
+许多安装在你系统中的软件，都有自己的文档文件，这些文件位于/usr/share/doc 目录下。
+这些文件大多数是以文本文件的形式存储的，可用 less 阅读器来浏览。一些文件是 HTML 格式，
+可用网页浏览器来阅读。我们可能遇到许多以".gz"结尾的文件。这表示 gzip 压缩程序
+已经压缩了这些程序。gzip 软件包包括一个特殊的 less 版本，叫做 zless，zless 可以显示由
+gzip 压缩的文本文件的内容。
 
 ### Creating Your Own Commands With alias
 
@@ -541,7 +541,7 @@ own using the alias command. But before we start, we need to reveal a small
 command line trick. It's possible to put more than one command on a line by separating
 each command with a semicolon character. It works like this:
 
-现在是时候，感受第一次编程经历了！我们将用alias命令创建我们自己的命令。但在
+现在是时候，感受第一次编程经历了！我们将用 alias 命令创建我们自己的命令。但在
 开始之前，我们需要展示一个命令行小技巧。可以把多个命令放在同一行上，命令之间
 用":"分开。它像这样工作：
 
@@ -563,10 +563,10 @@ command. Let's try “test”. Before we do that, it would be a good idea to fin
 name “test” is already being used. To find out, we can use the type command again:
 
 正如我们看到的，我们在一行上联合了三个命令。首先更改目录到/usr，然后列出目录
-内容，最后回到原始目录（用命令"cd ~"）,结束在开始的地方。现在，通过alia命令
+内容，最后回到原始目录（用命令"cd ~"）,结束在开始的地方。现在，通过 alia 命令
 把这一串命令转变为一个命令。我们要做的第一件事就是为我们的新命令构想一个名字。
 比方说"test"。在使用"test"之前，查明是否"test"命令名已经存在系统中，是个很不错
-的主意。为了查清此事，可以使用type命令：
+的主意。为了查清此事，可以使用 type 命令：
 
     [me@linuxbox ~]$ type test
     test is a shell builtin
@@ -596,7 +596,7 @@ meaning to be assigned to the name. After we define our alias, it can be used an
 the shell would expect a command. Let's try it:
 
 在命令"alias"之后，输入“name”，紧接着（没有空格）是一个等号，等号之后是
-一串用引号引起的字符串，字符串的内容要赋值给name。我们定义了别名之后，
+一串用引号引起的字符串，字符串的内容要赋值给 name。我们定义了别名之后，
 这个命令别名可以使用在任何地方。试一下：
 
     [me@linuxbox ~]$ foo
@@ -606,14 +606,14 @@ the shell would expect a command. Let's try it:
 
 We can also use the type command again to see our alias:
 
-我们也可以使用type命令来查看我们的别名：
+我们也可以使用 type 命令来查看我们的别名：
 
     [me@linuxbox ~]$ type foo
     foo is aliased to `cd /usr; ls ; cd -'
 
 To remove an alias, the unalias command is used, like so:
 
-删除别名，使用unalias命令，像这样：
+删除别名，使用 unalias 命令，像这样：
 
     [me@linuxbox ~]$ unalias foo
     [me@linuxbox ~]$ type foo
@@ -625,7 +625,7 @@ invocation of a common command. For instance, we saw earlier how the ls command 
 often aliased to add color support:
 
 虽然我们有意避免使用已经存在的命令名来命名我们的别名，但这是常做的事情。通常，
-会把一个普遍用到的选项加到一个经常使用的命令后面。例如，之前见到的ls命令，会
+会把一个普遍用到的选项加到一个经常使用的命令后面。例如，之前见到的 ls 命令，会
 带有色彩支持：
 
     [me@linuxbox ~]$ type ls
@@ -635,7 +635,7 @@ To see all the aliases defined in the environment, use the alias command without
 arguments. Here are some of the aliases defined by default on a Fedora system. Try and
 figure out what they all do:
 
-要查看所有定义在系统环境中的别名，使用不带参数的alias命令。下面在Fedora系统中
+要查看所有定义在系统环境中的别名，使用不带参数的 alias 命令。下面在 Fedora 系统中
 默认定义的别名。试着弄明白，它们是做什么的：
 
     [me@linuxbox ~]$ alias
@@ -647,9 +647,9 @@ your shell session ends. In a later chapter, we will see how to add our own alia
 files that establish the environment each time we log on, but for now, enjoy the fact that
 we have taken our first, albeit tiny, step into the world of shell programming!
 
-在命令行中定义别名有点儿小问题。当你的shell会话结束时，它们会消失。随后的章节里，
+在命令行中定义别名有点儿小问题。当你的 shell 会话结束时，它们会消失。随后的章节里，
 我们会了解怎样把自己的别名添加到文件中去，每次我们登录系统，这些文件会建立系统环境。
-现在，好好享受我们刚经历过的，步入shell编程世界的第一步吧，虽然微小。
+现在，好好享受我们刚经历过的，步入 shell 编程世界的第一步吧，虽然微小。
 
 ### Revisiting Old Friends
 
@@ -669,14 +669,14 @@ additional options are available and try them out!
 * There are many online sources of documentation for Linux and the command line. Here
   are some of the best:
 
-* 在网上，有许多关于Linux和命令行的文档。以下是一些最好的文档：
+* 在网上，有许多关于 Linux 和命令行的文档。以下是一些最好的文档：
 
 * The Bash Reference Manual is a reference guide to the bash shell. It’s still a
   reference work but contains examples and is easier to read than the bash man
   page. 
 
-* Bash参考手册是一本bash shell的参考指南。它仍然是一本参考书，但是包含了很多
-  实例，而且它比bash手册页容易阅读。
+* Bash 参考手册是一本 bash shell 的参考指南。它仍然是一本参考书，但是包含了很多
+  实例，而且它比 bash 手册页容易阅读。
 
   <http://www.gnu.org/software/bash/manual/bashref.html>
 
@@ -684,7 +684,7 @@ additional options are available and try them out!
   This list is aimed at intermediate to advanced users, but contains a lot of
   good information. 
 
-* Bash FAQ包含关于bash，而经常提到的问题的答案。这个列表面向bash的中高级用户，
+* Bash FAQ 包含关于 bash，而经常提到的问题的答案。这个列表面向 bash 的中高级用户，
   但它包含了许多有帮助的信息。
 
   <http://mywiki.wooledge.org/BashFAQ>
@@ -693,7 +693,7 @@ additional options are available and try them out!
   the core of the Linux command line experience. You can see a complete list
   here:
 
-* GUN项目为它的程序提供了大量的文档，这些文档组成了Linux命令行实验的核心。
+* GUN 项目为它的程序提供了大量的文档，这些文档组成了 Linux 命令行实验的核心。
   这里你可以看到一个完整的列表：
 
   <http://www.gnu.org/manual/manual.html>

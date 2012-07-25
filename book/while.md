@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 流程控制：while/until循环 
+title: 流程控制：while/until 循环 
 ---
 
 In the previous chapter, we developed a menu-driven program to produce various kinds
@@ -20,7 +20,7 @@ In this chapter, we will look at a programming concept called looping, which can
 to make portions of programs repeat. The shell provides three compound commands for
 looping. We will look at two of them in this chapter, and the third in a later one.
 
-在这一章中，我们将看一个叫做循环的程序概念，其可用来使程序的某些部分重复。shell为循环提供了三个复合命令。
+在这一章中，我们将看一个叫做循环的程序概念，其可用来使程序的某些部分重复。shell 为循环提供了三个复合命令。
 本章我们将查看其中的两个命令，随后章节介绍第三个命令。
 
 ### Looping
@@ -69,7 +69,7 @@ condition, “entire carrot sliced,” is reached.
 bash can express a similar idea. Let’s say we wanted to display five numbers in
 sequential order from one to five. a bash script could be constructed as follows:
 
-bash能够表达相似的想法。比方说我们想要按照顺序从1到5显示五个数字。可如下构造一个bash脚本：
+bash 能够表达相似的想法。比方说我们想要按照顺序从1到5显示五个数字。可如下构造一个 bash 脚本：
 
     #!/bin/bash
 
@@ -118,7 +118,7 @@ terminates. The program continues with the next statement following the loop.
 
 We can use a `while` loop to improve the read-menu program from the previous chapter:
 
-我们可以使用一个`while`循环，来提高前面章节的read-menu程序：
+我们可以使用一个`while`循环，来提高前面章节的 read-menu 程序：
 
     #!/bin/bash
 
@@ -190,9 +190,9 @@ the remainder to the loop to be skipped, and program control resumes with the ne
 iteration of the loop. Here we see a version of the while-menu program incorporating
 both `break` and `continue`:
 
-bash提供了两个内部命令，它们可以用来在循环内部控制程序流程。这个`break`命令立即终止一个循环，
+bash 提供了两个内部命令，它们可以用来在循环内部控制程序流程。这个`break`命令立即终止一个循环，
 且程序继续执行循环之后的语句。这个`continue`命令导致程序跳过循环中剩余的语句，且程序继续执行
-下一次循环。这里我们看看采用了`break`和`continue`两个命令的while-menu程序版本：
+下一次循环。这里我们看看采用了`break`和`continue`两个命令的 while-menu 程序版本：
 
     #!/bin/bash
 
@@ -273,7 +273,7 @@ as the value of the `count` variable was less than or equal to five. We could ge
 result by coding the script with `until`:
 
 这个`until`命令与`while`非常相似，除了当遇到一个非零退出状态的时候，`while`退出循环，
-而`until`不退出。一个`until`循环会继续执行直到它接受了一个退出状态零。在我们的while-count脚本中，
+而`until`不退出。一个`until`循环会继续执行直到它接受了一个退出状态零。在我们的 while-count 脚本中，
 我们继续执行循环直到`count`变量的数值小于或等于5。我们可以得到相同的结果，通过在脚本中使用`until`命令：
 
     #!/bin/bash
@@ -304,7 +304,7 @@ matter of choosing the one that allows the clearest `test` to be written.
 distros.txt file used in earlier chapters:
 
 `while`和`until`能够处理标准输入。这就可以使用`while`和`until`处理文件。在下面的例子中，
-我们将显示在前面章节中使用的distros.txt文件的内容：
+我们将显示在前面章节中使用的 distros.txt 文件的内容：
 
     #!/bin/bash
 
@@ -343,7 +343,7 @@ Here we take the output of the `sort` command and display the stream of text. Ho
 it is important to remember that since a pipe will execute the loop in a subshell, any
 variables created or assigned within the loop will be lost when the loop terminates.
 
-这里我们接受`sort`命令的标准输出，然后显示文本流。然而，因为管道将会在子shell中执行
+这里我们接受`sort`命令的标准输出，然后显示文本流。然而，因为管道将会在子 shell 中执行
 循环，当循环终止的时候，循环中创建的任意变量或赋值的变量都会消失，记住这一点很重要。
 
 ### Summing Up
@@ -355,7 +355,7 @@ and sequences, we have covered the major types of flow control used in programs.
 has some more tricks up its sleeve, but they are refinements on these basic concepts.
 
 通过引入循环，和我们之前遇到的分支，子例程和序列，我们已经介绍了程序流程控制的主要类型。
-bash还有一些锦囊妙计，但它们都是关于这些基本概念的完善。
+bash 还有一些锦囊妙计，但它们都是关于这些基本概念的完善。
 
 ### Further Reading
 
@@ -364,14 +364,14 @@ bash还有一些锦囊妙计，但它们都是关于这些基本概念的完善�
 * The Bash Guide for Beginners from the Linux Documentation Project has some
 more examples of while loops:
 
-* Linux文档工程中的Bash初学者指南一书中介绍了更多的while循环实例：
+* Linux 文档工程中的 Bash 初学者指南一书中介绍了更多的 while 循环实例：
 
   <http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_09_02.html>
 
 * The Wikipedia has an article on loops, which is part of a larger article on flow
 control:
 
-* Wikipedia中有一篇关于循环的文章，其是一篇比较长的关于流程控制的文章中的一部分：
+* Wikipedia 中有一篇关于循环的文章，其是一篇比较长的关于流程控制的文章中的一部分：
 
   <http://en.wikipedia.org/wiki/Control_flow#Loops>
 

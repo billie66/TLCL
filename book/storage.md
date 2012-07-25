@@ -10,8 +10,8 @@ virtual storage devices like RAID (Redundant Array of Independent Disks) and LVM
 (Logical Volume Manager).
 
 在前面章节中，我们已经从文件级别看了操作数据。在这章里，我们将从设备级别来考虑数据。
-Linux有着令人惊奇的能力来处理存储设备，不管是物理设备，比如说硬盘，还是网络设备，或者是
-虚拟存储设备，像RAID（独立磁盘冗余阵列)和LVM（逻辑卷管理器）。
+Linux 有着令人惊奇的能力来处理存储设备，不管是物理设备，比如说硬盘，还是网络设备，或者是
+虚拟存储设备，像 RAID（独立磁盘冗余阵列)和 LVM（逻辑卷管理器）。
 
 However, since this is not a book about system administration, we will not try to cover
 this entire topic in depth. What we will try to do is introduce some of the concepts and
@@ -24,7 +24,7 @@ To carry out the exercises in this chapter, we will use a USB flash drive, a CD-
 (for systems equipped with a CD-ROM burner) and a floppy disk (again, if the system is
 so equipped.)
 
-我们将会使用USB闪存，CD-RW光盘（因为系统配备了CD-ROM烧写器）和一张软盘（若系统这样配备），
+我们将会使用 USB 闪存，CD-RW 光盘（因为系统配备了 CD-ROM 烧写器）和一张软盘（若系统这样配备），
 来做这章的练习题。
 
 We will look at the following commands:
@@ -49,7 +49,7 @@ We will look at the following commands:
 
 * genisoimage (mkisofs) – Create an ISO 9660 image file
 
-* genisoimage (mkisofs) – 创建一个ISO 9660的映像文件
+* genisoimage (mkisofs) – 创建一个 ISO 9660的映像文件
 
 * wodim (cdrecord) – Write data to optical storage media
 
@@ -57,7 +57,7 @@ We will look at the following commands:
 
 * md5sum – Calculate an MD5 checksum
 
-* md5sum – 计算MD5检验码
+* md5sum – 计算 MD5检验码
 
 Mounting And Unmounting Storage Devices
 
@@ -69,7 +69,7 @@ works.” Back in the old days (say, 2004), this stuff had to be done manually. 
 desktop systems (i.e., servers) this is still a largely manual procedure since servers often
 have extreme storage needs and complex configuration requirements.
 
-Linux桌面系统的最新进展已经使存储设备管理对于桌面用户来说极其容易。大多数情况下，我们
+Linux 桌面系统的最新进展已经使存储设备管理对于桌面用户来说极其容易。大多数情况下，我们
 只要把设备连接到系统中，它就能工作。在过去（比如说，2004年），这个工作必须手动完成。
 在非桌面系统中（例如，服务器中），这仍然是一个主要地手动过程，因为服务器经常有极端的存储需求
 和复杂的配置要求。
@@ -82,16 +82,16 @@ operating systems such as MS-DOS and Windows that maintain separate trees for ea
 device (for example C:\, D:\, etc.).
 
 管理存储设备的第一步是把设备连接到文件系统树中。这个过程叫做挂载，允许设备参与到操作系统中。
-回想一下第三章，类似于Unix的操作系统，像Linux，维护单一文件系统树，设备连接到各个结点上。
-这与其它操作系统形成对照，比如说MS-DOS和Windows系统中，每个设备（例如C:\，D:\，等）
+回想一下第三章，类似于 Unix 的操作系统，像 Linux，维护单一文件系统树，设备连接到各个结点上。
+这与其它操作系统形成对照，比如说 MS-DOS 和 Windows 系统中，每个设备（例如 C:\，D:\，等）
 保持着单独的文件系统树。
 
 There is a file named /etc/fstab that lists the devices (typically hard disk partitions)
 that are to be mounted at boot time. Here is an example /etc/fstab file from a
 Fedora 7 system:
 
-有一个叫做/etc/fstab的文件可以列出系统启动时要挂载的设备（典型地，硬盘分区）。下面是
-来自于Fedora 7系统的/etc/fstab文件实例：
+有一个叫做/etc/fstab 的文件可以列出系统启动时要挂载的设备（典型地，硬盘分区）。下面是
+来自于 Fedora 7系统的/etc/fstab 文件实例：
 
 <div class="code"><pre><tt>
 LABEL=/12               /               ext3        defaults        1   1
@@ -197,9 +197,9 @@ systems should be checked with the fsck command.</td>
 <td valign="top" width="8%">1</td>
 <td valign="top" width="12%">设备名</td>
 <td valign="top">
-传统上，这个字段包含与物理设备相关联的设备文件的实际名字，比如说/dev/hda1（第一个IDE
-通道上第一个主设备分区）。然而今天的计算机，有很多热插拔设备（像USB驱动设备），许多
-现代的Linux发行版用一个文本标签和设备相关联。当这个设备连接到系统中时，
+传统上，这个字段包含与物理设备相关联的设备文件的实际名字，比如说/dev/hda1（第一个 IDE
+通道上第一个主设备分区）。然而今天的计算机，有很多热插拔设备（像 USB 驱动设备），许多
+现代的 Linux 发行版用一个文本标签和设备相关联。当这个设备连接到系统中时，
 这个标签（当储存媒介格式化时，这个标签会被添加到存储媒介中）会被操作系统读取。
 那样的话，不管赋给实际物理设备哪个设备文件，这个设备仍然能被系统正确地识别。
 </td>
@@ -213,8 +213,8 @@ systems should be checked with the fsck command.</td>
 <tr>
 <td valign="top">3</td>
 <td valign="top">文件系统类型</td>
-<td valign="top">Linux允许挂载许多文件系统类型。大多数本地的Linux文件系统是ext3，
-但是也支持很多其它的，比方说FAT16 (msdos), FAT32
+<td valign="top">Linux 允许挂载许多文件系统类型。大多数本地的 Linux 文件系统是 ext3，
+但是也支持很多其它的，比方说 FAT16 (msdos), FAT32
 (vfat)，NTFS (ntfs)，CD-ROM (iso9660)，等等。
 </td>
 </tr>
@@ -227,12 +227,12 @@ systems should be checked with the fsck command.</td>
 <tr>
 <td valign="top">5</td>
 <td valign="top">频率</td>
-<td valign="top">一位数字，指定是否和在什么时间用dump命令来备份一个文件系统。</td>
+<td valign="top">一位数字，指定是否和在什么时间用 dump 命令来备份一个文件系统。</td>
 </tr>
 <tr>
 <td valign="top">6</td>
 <td valign="top">次序</td>
-<td valign="top">一位数字，指定fsck命令按照什么次序来检查文件系统。</td>
+<td valign="top">一位数字，指定 fsck 命令按照什么次序来检查文件系统。</td>
 </tr>
 </table>
 </p>
@@ -244,7 +244,7 @@ Viewing A List Of Mounted File Systems
 The mount command is used to mount file systems. Entering the command without
 arguments will display a list of the file systems currently mounted:
 
-这个mount命令被用来挂载文件系统。执行这个不带参数的命令，将会显示
+这个 mount 命令被用来挂载文件系统。执行这个不带参数的命令，将会显示
 一系列当前挂载的文件系统：
 
 <div class="code"><pre>
@@ -271,15 +271,15 @@ has two interesting entries at the bottom of the list. The next to last entry sh
 gigabyte SD memory card in a card reader mounted at /media/disk, and the last entry
 is a network drive mounted at /misc/musicbox.
 
-这个列表的格式是：设备on挂载点type文件系统类型（可选的）。例如，第一行所示设备/dev/sda2
-作为根文件系统被挂载，文件系统类型是ext3，并且可读可写（这个“rw”选项）。在这个列表的底部有
-两个有趣的条目。倒数第二行显示了在读卡器中的一张2G的SD内存卡，挂载到了/media/disk上。最后一行
-是一个网络设备，挂载到了/misc/musicbox上。
+这个列表的格式是：设备 on 挂载点 type 文件系统类型（可选的）。例如，第一行所示设备/dev/sda2
+作为根文件系统被挂载，文件系统类型是 ext3，并且可读可写（这个“rw”选项）。在这个列表的底部有
+两个有趣的条目。倒数第二行显示了在读卡器中的一张2G 的 SD 内存卡，挂载到了/media/disk 上。最后一行
+是一个网络设备，挂载到了/misc/musicbox 上。
 
 For our first experiment, we will work with a CD-ROM. First, let's look at a system
 before a CD-ROM is inserted:
 
-第一次实验，我们将使用一张CD-ROM。首先，在插入CD-ROW之前，我们将看一下系统：
+第一次实验，我们将使用一张 CD-ROM。首先，在插入 CD-ROW 之前，我们将看一下系统：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ mount
@@ -298,8 +298,8 @@ to create its root file system. Like many modern Linux distributions, this syste
 attempt to automatically mount the CD-ROM after insertion. After we insert the disk, we
 see the following:
 
-这个列表来自于CentOS 5系统，使用LVM（逻辑卷管理器）来创建它的根文件系统。正如许多现在的Linux发行版一样，这个
-系统试图自动挂载插入的CD-ROM。当我们插入光盘后，我们看看下面的输出：
+这个列表来自于 CentOS 5系统，使用 LVM（逻辑卷管理器）来创建它的根文件系统。正如许多现在的 Linux 发行版一样，这个
+系统试图自动挂载插入的 CD-ROM。当我们插入光盘后，我们看看下面的输出：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ mount
@@ -323,7 +323,7 @@ When you conduct this experiment yourself, the device name will most likely be
 different.
 
 当我们插入光盘后，除了额外的一行之外，我们看到和原来一样的列表。在列表的末尾，我们
-看到CD-ROW已经挂载到了/media/live-1.0.10-8上，它的文件类型是iso9660（CD-ROW）。
+看到 CD-ROW 已经挂载到了/media/live-1.0.10-8上，它的文件类型是 iso9660（CD-ROW）。
 就我们的实验目的而言，我们对这个设备的名字感兴趣。当你自己进行这个实验时，这个
 设备名字是最有可能不同的。
 
@@ -337,14 +337,14 @@ names used in this text!
 Also note that audio CDs are not the same as CD-ROMs. Audio CDs do not
 contain file systems and thus cannot be mounted in the usual sense.
 
-还要注意音频CD和CD-ROW不一样。音频CD不包含文件系统，这样在通常意义上，它就不能被挂载了。
+还要注意音频 CD 和 CD-ROW 不一样。音频 CD 不包含文件系统，这样在通常意义上，它就不能被挂载了。
 
 Now that we have the device name of the CD-ROM drive, let's unmount the disk and
 remount it another location in the file system tree. To do this, we become the superuser
 (using the command appropriate for our system) and unmount the disk with the umount
 (notice the spelling) command:
  
-现在我们拥有CD-ROW光盘的设备名字，让我们卸载这张光盘，并把它重新挂载到文件系统树
+现在我们拥有 CD-ROW 光盘的设备名字，让我们卸载这张光盘，并把它重新挂载到文件系统树
 的另一个位置。我们需要超级用户身份（使用系统相应的命令）来进行操作，并且用
 umount（注意这个命令的拼写）来卸载光盘：
 
@@ -371,7 +371,7 @@ For our purposes, we will create a new directory:
 Finally, we mount the CD-ROM at the new mount point. The -t option is used to
 specify the file system type:
 
-最后，我们把这个CD-ROW挂载到一个新的挂载点上。这个-t选项用来指定文件系统类型：
+最后，我们把这个 CD-ROW 挂载到一个新的挂载点上。这个-t 选项用来指定文件系统类型：
 
 <div class="code"><pre>
 <tt>[root@linuxbox ~]# mount -t iso9660 /dev/hdc /mnt/cdrom</tt>
@@ -379,7 +379,7 @@ specify the file system type:
 
 Afterward, we can examine the contents of the CD-ROM via the new mount point:
 
-之后，我们可以通过这个新挂载点来查看CD-ROW的内容：
+之后，我们可以通过这个新挂载点来查看 CD-ROW 的内容：
 
 <div class="code"><pre>
 <tt>[root@linuxbox ~]# cd /mnt/cdrom
@@ -388,7 +388,7 @@ Afterward, we can examine the contents of the CD-ROM via the new mount point:
 
 Notice what happens when we try to unmount the CD-ROM:
 
-注意当我们试图卸载这个CD-ROW时，发生了什么事情。
+注意当我们试图卸载这个 CD-ROW 时，发生了什么事情。
 
 <div class="code"><pre>
 <tt>[root@linuxbox cdrom]# umount /dev/hdc
@@ -401,7 +401,7 @@ mount point for the CD-ROM, which causes the device to be busy. We can easily re
 the issue by changing the working directory to something other than the mount point:
 
 这是怎么回事呢？原因是我们不能卸载一个设备，如果某个用户或进程正在使用这个设备的话。在这种
-情况下，我们把工作目录更改到了CD-ROW的挂载点，这个挂载点导致设备忙碌。我们可以很容易地修复这个问题
+情况下，我们把工作目录更改到了 CD-ROW 的挂载点，这个挂载点导致设备忙碌。我们可以很容易地修复这个问题
 通过把工作目录改到其它目录而不是这个挂载点。
 
 
@@ -438,16 +438,16 @@ buffer and it would quickly be stored in the fast RAM so the computer could go
 back to work without waiting. Meanwhile, the printer buffer would slowly spool
 the data to the printer from the buffer's memory at the speed at which the printer
 could accept it.</p>
-<p>如果你看一下free命令的输出结果，这个命令用来显示关于内存使用情况的统计信息，你
+<p>如果你看一下 free 命令的输出结果，这个命令用来显示关于内存使用情况的统计信息，你
 会看到一个统计值叫做”buffers“。计算机系统旨在尽可能快地运行。系统运行速度的
 一个阻碍是缓慢的设备。打印机是一个很好的例子。即使最快速的打印机相比于计算机标准也
 极其地缓慢。一台计算机确实会运行地非常慢，如果它要停下来等待一台打印机打印完一页。
 在早期的个人电脑时代（多任务之前），这真是个问题。如果你正在编辑电子表格
 或者是文本文档，每次你要打印文件时，计算机都会停下来而且变得不能使用。
 计算机能以打印机可接受的最快速度把数据发送给打印机，但由于打印机不能快速地打印，
-这个发送速度会非常慢。这个问题被解决了，由于打印机缓存的出现，一个包含一些RAM内存
+这个发送速度会非常慢。这个问题被解决了，由于打印机缓存的出现，一个包含一些 RAM 内存
 的设备，位于计算机和打印机之间。通过打印机缓存，计算机把要打印的结果发送到这个缓存区，
-数据会迅速地存储到这个RAM中，这样计算机就能回去工作，而不用等待。与此同时，打印机缓存将会
+数据会迅速地存储到这个 RAM 中，这样计算机就能回去工作，而不用等待。与此同时，打印机缓存将会
 以打印机可接受的速度把缓存中的数据缓慢地输出给打印机。</p>
 
 <p>This idea of buffering is used extensively in computers to make them faster.
@@ -462,8 +462,8 @@ advantage of all the available memory to do as much buffering as it can.
 
 <p>缓存被广泛地应用于计算机中，使其运行地更快。别让偶尔地需要读取或写入慢设备阻碍了
 系统的运行速度。在实际与慢设备交互之前，操作系统会尽可能多的读取或写入数据到内存中的
-存储设备里。以Linux操作系统为例，你会注意到系统看似填充了多于它所需要的内存。
-这不意味着Linux正在使用所有的内存，它意味着Linux正在利用所有可用的内存，来作为缓存区。</p>
+存储设备里。以 Linux 操作系统为例，你会注意到系统看似填充了多于它所需要的内存。
+这不意味着 Linux 正在使用所有的内存，它意味着 Linux 正在利用所有可用的内存，来作为缓存区。</p>
 
 <p> This buffering allows writing to storage devices to be done very quickly, because
 the writing to the physical device is being deferred to a future time. In the
@@ -504,9 +504,9 @@ if we are managing a server or some other environment where this does not occur?
 can we figure it out?
 
 有时很难来确定设备名称。在以前，这并不是很难。一台设备总是在某个固定的位置，也不会
-挪动它。类似于Unix的系统喜欢设备那样安排。之前在开发Unix系统的时候，“更改一个磁盘驱动器”要用一辆
+挪动它。类似于 Unix 的系统喜欢设备那样安排。之前在开发 Unix 系统的时候，“更改一个磁盘驱动器”要用一辆
 叉车从机房中移除一台如洗衣机大小的设备。最近几年，典型的桌面硬件配置已经变得相当动态，并且
-Linux已经发展地比其祖先更加灵活。在以上事例中，我们利用现代Linux桌面系统的功能来“自动地”挂载
+Linux 已经发展地比其祖先更加灵活。在以上事例中，我们利用现代 Linux 桌面系统的功能来“自动地”挂载
 设备，然后再确定设备名称。但是如果我们正在管理一台服务器或者是其它一些（这种自动挂载功能）不会
 发生的环境，我们又如何能查清设备名呢？
 
@@ -581,12 +581,12 @@ similar to the older /dev/hd* naming scheme described above.</td>
 </tr>
 <tr>
 <td valign="top">/dev/hd* </td>
-<td valign="top">老系统中的IDE(PATA)磁盘。典型的主板包含两个IDE连接器或者是通道，每个连接器
+<td valign="top">老系统中的 IDE(PATA)磁盘。典型的主板包含两个 IDE 连接器或者是通道，每个连接器
 带有一根缆线，每根缆线上有两个硬盘驱动器连接点。缆线上的第一个驱动器叫做主设备，
-第二个叫做从设备。设备名称这样安排，/dev/hdb是指第一通道上的主设备名；/dev/hdb
-是第一通道上的从设备名；/dev/hdc是第二通道上的主设备名，等等。末尾的数字表示
+第二个叫做从设备。设备名称这样安排，/dev/hdb 是指第一通道上的主设备名；/dev/hdb
+是第一通道上的从设备名；/dev/hdc 是第二通道上的主设备名，等等。末尾的数字表示
 硬盘驱动器上的分区。例如，/dev/hda1是指系统中第一硬盘驱动器上的第一个分区，而
-/dev/hda则是指整个硬盘驱动器。</td>
+/dev/hda 则是指整个硬盘驱动器。</td>
 </tr>
 <tr>
 <td valign="top">/dev/lp* </td>
@@ -595,8 +595,8 @@ similar to the older /dev/hd* naming scheme described above.</td>
 <tr>
 <td valign="top">/dev/sd* </td>
 <td valign="top">
-SCSI磁盘。在最近的Linux系统中，内核把所有类似于磁盘的设备（包括PATA/SATA硬盘，
-闪存，和USB存储设备，比如说可移动的音乐播放器和数码相机）看作SCSI磁盘。
+SCSI 磁盘。在最近的 Linux 系统中，内核把所有类似于磁盘的设备（包括 PATA/SATA 硬盘，
+闪存，和 USB 存储设备，比如说可移动的音乐播放器和数码相机）看作 SCSI 磁盘。
 剩下的命名系统类似于上述所描述的旧的/dev/hd*命名方案。</td>
 </tr>
 <tr>
@@ -613,7 +613,7 @@ you can use the following technique to determine how the removable device is nam
 when it is attached. First, start a real-time view of the /var/log/messages file (you
 may require superuser privileges for this):
 
-另外，我们经常看到符号链接比如说/dev/cdrom，/dev/dvd和/dev/floppy，它们指向实际的
+另外，我们经常看到符号链接比如说/dev/cdrom，/dev/dvd 和/dev/floppy，它们指向实际的
 设备文件，提供这些链接是为了方便使用。如果你工作的系统不能自动挂载可移动的设备，你可以使用
 下面的技巧来决定当可移动设备连接后，它是怎样被命名的。首先，启动一个实时查看文件/var/log/messages
 （你可能需要超级用户权限）：
@@ -627,7 +627,7 @@ removable device. In this example, we will use a 16 MB flash drive. Almost
 immediately, the kernel will notice the device and probe it:
 
 这个文件的最后几行会被显示，然后停止。下一步，插入这个可移动的设备。在
-这个例子里，我们将使用一个16MB闪存。瞬间，内核就会发现这个设备，
+这个例子里，我们将使用一个16MB 闪存。瞬间，内核就会发现这个设备，
 并且探测它：
 
 <div class="code"><pre>
@@ -664,8 +664,8 @@ After the display pauses again, type Ctrl-c to get the prompt back. The interest
 of the output are the repeated references to “[sdb]” which matches our expectation of a
 SCSI disk device name. Knowing this, two lines become particularly illuminating:
 
-显示再次停止之后，输入Ctrl-c，重新得到提示符。输出结果的有趣部分是一再提及“[sdb]”，
-这正好符和我们期望的SCSI磁盘设备名称。知道这一点后，有两行输出变得颇具启发性：
+显示再次停止之后，输入 Ctrl-c，重新得到提示符。输出结果的有趣部分是一再提及“[sdb]”，
+这正好符和我们期望的 SCSI 磁盘设备名称。知道这一点后，有两行输出变得颇具启发性：
 
 <div class="code"><pre>
 <tt>Jul 23 10:07:59 linuxbox kernel: sdb: sdb1
@@ -677,13 +677,13 @@ This tells us the device name is /dev/sdb for the entire device and /dev/sdb1 fo
 the first partition on the device. As we have seen, working with Linux is full of
 interesting detective work!
 
-这告诉我们这个设备名称是/dev/sdb指整个设备，/dev/sdb1是这个设备的第一分区。
-正如我们所看到的，使用Linux系统充满了有趣的监测工作。
+这告诉我们这个设备名称是/dev/sdb 指整个设备，/dev/sdb1是这个设备的第一分区。
+正如我们所看到的，使用 Linux 系统充满了有趣的监测工作。
 
 Tip: Using the tail -f /var/log/messages technique is a great way to
 watch what the system is doing in near real-time.
 
-小贴士：使用这个tail -f /var/log/messages技巧是一个很不错的方法，可以实时
+小贴士：使用这个 tail -f /var/log/messages 技巧是一个很不错的方法，可以实时
 观察系统的一举一动。
 
 With our device name in hand, we can now mount the flash drive:
@@ -716,7 +716,7 @@ than the FAT32 system it has now. This involves two steps: 1. (optional) create 
 partition layout if the existing one is not to our liking, and 2. create a new, empty file
 system on the drive.
 
-假若我们想要用Linux本地文件系统来重新格式化这个闪存驱动器，而不是它现用的FAT32系统。
+假若我们想要用 Linux 本地文件系统来重新格式化这个闪存驱动器，而不是它现用的 FAT32系统。
 这涉及到两个步骤：1.（可选的）创建一个新的分区布局若已存在的分区不是我们喜欢的。2.
 在这个闪存上创建一个新的空的文件系统。
 
@@ -732,16 +732,16 @@ formatting (i.e., erasing) the wrong drive!
 
 Manipulating Partitions With fdisk 
 
-### 用fdisk命令操作分区
+### 用 fdisk 命令操作分区
 
 The fdisk program allows us to interact directly with disk-like devices (such as hard
 disk drives and flash drives) at a very low level. With this tool we can edit, delete, and
 create partitions on the device. To work with our flash drive, we must first unmount it (if
 needed) and then invoke the fdisk program as follows:
 
-这个fdisk程序允许我们直接在底层与类似磁盘的设备（比如说硬盘驱动器和闪存驱动器）进行交互。
+这个 fdisk 程序允许我们直接在底层与类似磁盘的设备（比如说硬盘驱动器和闪存驱动器）进行交互。
 使用这个工具可以在设备上编辑，删除，和创建分区。以我们的闪存驱动器为例，
-首先我们必须卸载它（如果需要的话），然后调用fdisk程序，如下所示：
+首先我们必须卸载它（如果需要的话），然后调用 fdisk 程序，如下所示：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sudo umount /dev/sdb1
@@ -794,11 +794,11 @@ see that the ID “b” is used to specify the exiting partition. To see a list 
 partition types, we refer back to the program menu. There we can see the following
 choice:
 
-在此例中，我们看到一个16MB的设备只有一个分区(1)，此分区占用了可用的1008个柱面中的1006个,
+在此例中，我们看到一个16MB 的设备只有一个分区(1)，此分区占用了可用的1008个柱面中的1006个,
 并被标识为 Windows 95 FAT32分区。有些程序会使用这个标志符来限制一些可以对磁盘所做的操作，
 但大多数情况下更改这个标志符没有危害。然而，为了叙述方便，我们将会更改它，
-以此来表明是个Linux分区。在更改之前，首先我们必须找到被用来识别一个Linux分区的ID号码。
-在上面列表中，我们看到ID号码“b”被用来指定这个已存在的分区。要查看可用的分区类型列表，
+以此来表明是个 Linux 分区。在更改之前，首先我们必须找到被用来识别一个 Linux 分区的 ID 号码。
+在上面列表中，我们看到 ID 号码“b”被用来指定这个已存在的分区。要查看可用的分区类型列表，
 参考之前的程序菜单。我们会看到以下选项：
 
 <div class="code"><pre>
@@ -809,11 +809,11 @@ If we enter “l” at the prompt, a large list of possible types is displayed. 
 see “b” for our existing partition type and “83” for Linux.
 
 如果我们在提示符下输入“l”，就会显示一个很长的可能类型列表。在它们之中会看到“b”为已存在分区
-类型的ID号，而“83”是针对Linux系统的ID号。
+类型的 ID 号，而“83”是针对 Linux 系统的 ID 号。
 
 Going back to the menu, we see this choice to change a partition ID:
 
-回到之前的菜单，看到这个选项来更改分区ID号：
+回到之前的菜单，看到这个选项来更改分区 ID 号：
 
 <div class="code"><pre>
 <tt>t   change a partition's system id</tt>
@@ -821,7 +821,7 @@ Going back to the menu, we see this choice to change a partition ID:
 
 We enter “t” at the prompt enter the new ID:
 
-我们先输入“t”，再输入新的ID号：
+我们先输入“t”，再输入新的 ID 号：
 
 <div class="code"><pre>
 <tt>Command (m for help): t
@@ -859,7 +859,7 @@ the ominous sounding warning message.
 
 Creating A New File System With mkfs
 
-### 用mkfs命令创建一个新的文件系统
+### 用 mkfs 命令创建一个新的文件系统
 
 With our partition editing done (lightweight though it might have been) it’s time to create
 a new file system on our flash drive. To do this, we will use mkfs (short for “make file
@@ -868,8 +868,8 @@ system on the device, we use the “-t” option to specify the “ext3” syste
 by the name of device containing the partition we wish to format:
 
 完成了分区编辑工作（它或许是轻量级的），是时候在我们的闪存驱动器上创建一个新的文件系统了。
-为此，我们会使用mkfs（"make file system"的简写），它能创建各种格式的文件系统。
-在此设备上创建一个ext3文件系统，我们使用"-t"
+为此，我们会使用 mkfs（"make file system"的简写），它能创建各种格式的文件系统。
+在此设备上创建一个 ext3文件系统，我们使用"-t"
 选项来指定这个"ext3"系统类型，随后是我们要格式化的设备分区名称：
 
 <div class="code"><pre>
@@ -900,7 +900,7 @@ The program will display a lot of information when ext3 is the chosen file syste
 To re-format the device to its original FAT32 file system, specify “vfat” as the file system
 type:
 
-当ext3被选为文件系统类型时，这个程序会显示许多信息。若把这个设备重新格式化为它最初的FAT32文件
+当 ext3被选为文件系统类型时，这个程序会显示许多信息。若把这个设备重新格式化为它最初的 FAT32文件
 系统，指定"vfat"作为文件系统类型：
 
 <div class="code"><pre>
@@ -914,7 +914,7 @@ USB hard drives.
 
 任何时候添加额外的存储设备到系统中时，都可以使用这个分区和格式化的过程。虽然我们
 只以一个小小的闪存驱动器为例，同样的操作可以被应用到内部硬盘和其它可移动的存储设备上
-像USB硬盘驱动器。
+像 USB 硬盘驱动器。
 
 Testing And Repairing File Systems
 
@@ -928,10 +928,10 @@ checked. In our example above, we see that the root file system is checked first
 by the home and boot file systems. Devices with a zero as the last digit are not
 routinely checked.
 
-在之前讨论文件/etc/fstab时，我们会在每行的末尾看到一些神秘的数字。每次系统启动时，
-在挂载系统之前，都会按照惯例检查文件系统的完整性。这个任务由fsck程序（是"file system
-check"的简写）完成。每个fstab项中的最后一个数字指定了设备的检查顺序。
-在上面的实例中，我们看到首先检查根文件系统，然后是home和boot文件系统。若最后一个数字
+在之前讨论文件/etc/fstab 时，我们会在每行的末尾看到一些神秘的数字。每次系统启动时，
+在挂载系统之前，都会按照惯例检查文件系统的完整性。这个任务由 fsck 程序（是"file system
+check"的简写）完成。每个 fstab 项中的最后一个数字指定了设备的检查顺序。
+在上面的实例中，我们看到首先检查根文件系统，然后是 home 和 boot 文件系统。若最后一个数字
 是零则相应设备不会被检查。
 
 In addition to checking the integrity of file systems, fsck can also repair corrupt file
@@ -939,8 +939,8 @@ systems with varying degrees of success, depending on the amount of damage. On U
 like file systems, recovered portions of files are placed in the lost+found directory,
 located in the root of each file system.
 
-除了检查文件系统的完整性之外，fsck还能修复受损的文件系统，其成功度依赖于损坏的数量。
-在类似于Unix的文件系统中，文件恢复的部分被放置于lost+found目录里面，位于每个文件
+除了检查文件系统的完整性之外，fsck 还能修复受损的文件系统，其成功度依赖于损坏的数量。
+在类似于 Unix 的文件系统中，文件恢复的部分被放置于 lost+found 目录里面，位于每个文件
 系统的根目录下面。
 
 To check our flash drive (which should be unmounted first), we could do the following:
@@ -960,21 +960,21 @@ time will cause the system to stop and direct you to run fsck before continuing.
 
 以我的经验，文件系统损坏情况相当罕见，除非硬件存在问题，如磁盘驱动器故障。
 在大多数系统中，系统启动阶段若探测到文件系统已经损坏了，则会导致系统停止下来，
-在系统继续执行之前，会指导你运行fsck程序。
+在系统继续执行之前，会指导你运行 fsck 程序。
 
 <table class="single" cellpadding="10" width="%100">
 <tr>
 <td>
 <h3>What The fsck?</h3>
-<h3>什么是fsck?</h3>
+<h3>什么是 fsck?</h3>
 <p>In Unix culture, the word “fsck” is often used in place of a popular word with
 which it shares three letters. This is especially appropriate, given that you will
 probably be uttering the aforementioned word if you find yourself in a situation
 where you are forced to run fsck.
 </p>
-<p>在Unix文化中，"fsck"这个单词往往会被用来代替一个流行的词，“fsck”和这个词共享了三个
+<p>在 Unix 文化中，"fsck"这个单词往往会被用来代替一个流行的词，“fsck”和这个词共享了三个
 字母。这个尤其适用，因为你可能会说出上文提到的词，若你发现自己处于这种境况下，
-被强制来运行fsck命令时。</p>
+被强制来运行 fsck 命令时。</p>
 </td>
 </tr>
 </table>
@@ -991,7 +991,7 @@ floppy device (usually /dev/fd0):
 
 对于那些还在使用配备了软盘驱动器的计算机的用户，我们也能管理这些设备。准备一
 张可用的空白软盘要分两个步骤。首先，对这张软盘执行低级格式化，然后创建一个文件系统。
-为了完成格式化，我们使用fdformat程序，同时指定软盘设备名称（通常为/dev/fd0）：
+为了完成格式化，我们使用 fdformat 程序，同时指定软盘设备名称（通常为/dev/fd0）：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sudo fdformat /dev/fd0
@@ -1002,7 +1002,7 @@ Verifying ... done</tt>
 
 Next, we apply a FAT file system to the diskette with mkfs:
 
-接下来，通过mkfs命令，给这个软盘创建一个FAT文件系统：
+接下来，通过 mkfs 命令，给这个软盘创建一个 FAT 文件系统：
 
 <div class="code"><pre>
 <tt>[me@linuxbox ~]$ sudo mkfs -t msdos /dev/fd0</tt>
@@ -1032,7 +1032,7 @@ of data blocks, we could perform useful tasks, such as cloning devices.
 The dd program performs this task. It copies blocks of data from one place to another. It
 uses a unique syntax (for historical reasons) and is usually used this way:
 
-这个dd程序能执行此任务。它可以把数据块从一个地方复制到另一个地方。它使用独特的语法（由于历史原因）
+这个 dd 程序能执行此任务。它可以把数据块从一个地方复制到另一个地方。它使用独特的语法（由于历史原因）
 ，经常它被这样使用：
 
 <div class="code"><pre>
@@ -1044,9 +1044,9 @@ the first drive to the second. If we attached both drives to the computer and th
 assigned to devices /dev/sdb and /dev/sdc respectively, we could copy everything
 on the first drive to the second drive with the following:
 
-比方说我们有两个相同容量的USB闪存驱动器，并且要精确地把第一个驱动器（中的内容）
-复制给第二个。如果连接两个设备到计算机上，它们各自被分配到设备/dev/sdb和
-/dev/sdc上，这样我们就能通过下面的命令把第一个驱动器中的所有数据复制到第二个
+比方说我们有两个相同容量的 USB 闪存驱动器，并且要精确地把第一个驱动器（中的内容）
+复制给第二个。如果连接两个设备到计算机上，它们各自被分配到设备/dev/sdb 和
+/dev/sdc 上，这样我们就能通过下面的命令把第一个驱动器中的所有数据复制到第二个
 驱动器中。
 
 <div class="code"><pre>
@@ -1069,24 +1069,24 @@ definition,” it is sometimes called “destroy disk” because users often mis
 the if or of specifications. <b>Always double check your input and output
 specifications before pressing enter!</b>
 
-警告！这个dd命令非常强大。虽然它的名字来自于“数据定义”，有时候也把它叫做“清除磁盘”
-因为用户经常会误输入if或of的规范。<b>在按下回车键之前，要再三检查输入与输出规范！</b>
+警告！这个 dd 命令非常强大。虽然它的名字来自于“数据定义”，有时候也把它叫做“清除磁盘”
+因为用户经常会误输入 if 或 of 的规范。<b>在按下回车键之前，要再三检查输入与输出规范！</b>
 <hr />
 
 Creating CD-ROM Images
 
-### 创建CD-ROM映像
+### 创建 CD-ROM 映像
 
 Writing a recordable CD-ROM (either a CD-R or CD-RW) consists of two steps; first,
 constructing an iso image file that is the exact file system image of the CD-ROM and
 second, writing the image file onto the CD-ROM media.
 
-写入一个可记录的CD-ROM（一个CD-R或者是CD-RW）由两步组成；首先，构建一个iso映像文件，
-这就是一个CD-ROM的文件系统映像，第二步，把这个映像文件写入到CD-ROM媒介中。
+写入一个可记录的 CD-ROM（一个 CD-R 或者是 CD-RW）由两步组成；首先，构建一个 iso 映像文件，
+这就是一个 CD-ROM 的文件系统映像，第二步，把这个映像文件写入到 CD-ROM 媒介中。
 
 Creating An Image Copy Of A CD-ROM
 
-#### 创建一个CD-ROM的映像拷贝
+#### 创建一个 CD-ROM 的映像拷贝
 
 If we want to make an iso image of an existing CD-ROM, we can use dd to read all the
 data blocks off the CD-ROM and copy them to a local file. Say we had an Ubuntu CD
@@ -1094,10 +1094,10 @@ and we wanted to make an iso file that we could later use to make more copies. A
 inserting the CD and determining its device name (we’ll assume /dev/cdrom), we can
 make the iso file like so:
 
-如果想要制作一张现有CD-ROM的iso映像，我们可以使用dd命令来读取CD-ROW中的所有数据块，
-并把它们复制到本地文件中。比如说我们有一张Ubuntu
-CD，用它来制作一个iso文件，以后我们可以用它来制作更多的拷贝。插入这张CD之后，确定
-它的设备名称（假定是/dev/cdrom），然后像这样来制作iso文件：
+如果想要制作一张现有 CD-ROM 的 iso 映像，我们可以使用 dd 命令来读取 CD-ROW 中的所有数据块，
+并把它们复制到本地文件中。比如说我们有一张 Ubuntu
+CD，用它来制作一个 iso 文件，以后我们可以用它来制作更多的拷贝。插入这张 CD 之后，确定
+它的设备名称（假定是/dev/cdrom），然后像这样来制作 iso 文件：
 
 <div class="code"><pre>
 <tt><b>dd if=/dev/cdrom of=ubuntu.iso</b></tt>
@@ -1106,8 +1106,8 @@ CD，用它来制作一个iso文件，以后我们可以用它来制作更多的
 This technique works for data DVDs as well, but will not work for audio CDs, as they do
 not use a file system for storage. For audio CDs, look at the cdrdao command.
 
-这项技术也适用于DVD光盘，但是不能用于音频CD，因为它们不使用文件系统来存储数据。
-对于音频CD，看一下cdrdao命令。
+这项技术也适用于 DVD 光盘，但是不能用于音频 CD，因为它们不使用文件系统来存储数据。
+对于音频 CD，看一下 cdrdao 命令。
 
 Creating An Image From A Collection Of Files
 
@@ -1120,10 +1120,10 @@ the image file. For example, if we had created a directory called ~/cd-rom-files
 and filled it with files for our CD-ROM, we could create an image file named cd-
 rom.iso with the following command:
 
-创建一个包含目录内容的iso映像文件，我们使用genisoimage程序。为此，我们首先创建
-一个目录，这个目录中包含了要包括到此映像中的所有文件，然后执行这个genisoimage命令
-来创建映像文件。例如，如果我们已经创建一个叫做~/cd-rom-files的目录，然后用文件
-填充此目录，再通过下面的命令来创建一个叫做cd-rom.iso映像文件：
+创建一个包含目录内容的 iso 映像文件，我们使用 genisoimage 程序。为此，我们首先创建
+一个目录，这个目录中包含了要包括到此映像中的所有文件，然后执行这个 genisoimage 命令
+来创建映像文件。例如，如果我们已经创建一个叫做~/cd-rom-files 的目录，然后用文件
+填充此目录，再通过下面的命令来创建一个叫做 cd-rom.iso 映像文件：
 
 <div class="code"><pre>
 <tt><b>genisoimage -o cd-rom.iso -R -J ~/cd-rom-files</b></tt>
@@ -1133,8 +1133,8 @@ The “-R” option adds metadata for the Rock Ridge extensions, which allows th
 long filenames and POSIX style file permissions. Likewise, the “-J” option enables the
 Joliet extensions, which permit long filenames for Windows.
 
-"-R"选项添加元数据为Rock Ridge扩展，这允许使用长文件名和POSIX风格的文件权限。
-同样地，这个"-J"选项使Joliet扩展生效，这样Windows中就支持长文件名了。
+"-R"选项添加元数据为 Rock Ridge 扩展，这允许使用长文件名和 POSIX 风格的文件权限。
+同样地，这个"-J"选项使 Joliet 扩展生效，这样 Windows 中就支持长文件名了。
 
 <table class="single" cellpadding="10" width="%100">
 <tr>
@@ -1150,36 +1150,36 @@ GPL. As a result, a fork of the cdrtools project was started that now includes
 replacement programs for cdrecord and mkisofs named wodim and
 genisoimage, respectively.
 </p>
-<p>如果你看一下关于创建和烧写光介质如CD-ROMs和DVD的在线文档，你会经常碰到两个程序
-叫做mkisofs和cdrecord。这些程序是流行软件包"cdrtools"的一部分，"cdrtools"由Jorg Schilling
-编写成。在2006年春天，Schilling先生更改了部分cdrtools软件包的协议，许多Linux社区的意见是，
-这创建了一个与GNU GPL不相兼容的协议。结果，就fork了这个cdrtools项目，
-目前新项目里面包含cdrecord和mkisofs的替代程序，分别是wodim和genisoimage。</p>
+<p>如果你看一下关于创建和烧写光介质如 CD-ROMs 和 DVD 的在线文档，你会经常碰到两个程序
+叫做 mkisofs 和 cdrecord。这些程序是流行软件包"cdrtools"的一部分，"cdrtools"由 Jorg Schilling
+编写成。在2006年春天，Schilling 先生更改了部分 cdrtools 软件包的协议，许多 Linux 社区的意见是，
+这创建了一个与 GNU GPL 不相兼容的协议。结果，就 fork 了这个 cdrtools 项目，
+目前新项目里面包含 cdrecord 和 mkisofs 的替代程序，分别是 wodim 和 genisoimage。</p>
 </td>
 </tr>
 </table>
 
 Writing CD-ROM Images
 
-### 写入CD-ROM镜像
+### 写入 CD-ROM 镜像
 
 After we have an image file, we can burn it onto our optical media. Most of the
 commands we will discuss below can be applied to both recordable CD-ROM and DVD
 media.
 
 有了一个映像文件之后，我们可以把它烧写到光盘中。下面讨论的大多数命令对可
-记录的CD-ROW和DVD媒介都适用。
+记录的 CD-ROW 和 DVD 媒介都适用。
 
 Mounting An ISO Image Directly
 
-#### 直接挂载一个ISO镜像
+#### 直接挂载一个 ISO 镜像
 
 There is a trick that we can use to mount an iso image while it is still on our hard disk and
 treat it as though it was already on optical media. By adding the “-o loop” option to
 mount (along with the required “-t iso9660” file system type), we can mount the image
 file as though it were a device and attach it to the file system tree:
 
-有一个诀窍，我们可以用它来挂载iso映像文件，虽然此文件仍然在我们的硬盘中，但我们
+有一个诀窍，我们可以用它来挂载 iso 映像文件，虽然此文件仍然在我们的硬盘中，但我们
 当作它已经在光盘中了。添加"-o loop"选项来挂载（同时带有必需的"-t
 iso9660"文件系统类型），挂载这个映像文件就好像它是一台设备，把它连接到文件系统树上：
 
@@ -1194,20 +1194,20 @@ can be treated just as though it were a real CD-ROM or DVD. Remember to unmount 
 image when it is no longer needed.
 
 上面的示例中，我们创建了一个挂载点叫做/mnt/iso_image，然后把此映像文件
-image.iso挂载到挂载点上。映像文件被挂载之后，可以把它当作，就好像它是一张
-真正的CD-ROM或者DVD。当不再需要此映像文件后，记得卸载它。
+image.iso 挂载到挂载点上。映像文件被挂载之后，可以把它当作，就好像它是一张
+真正的 CD-ROM 或者 DVD。当不再需要此映像文件后，记得卸载它。
 
 Blanking A Re-Writable CD-ROM
 
-#### 清除一张可重写入的CD-ROM
+#### 清除一张可重写入的 CD-ROM
 
 Rewritable CD-RW media needs to be erased or blanked before it can be reused. To do
 this, we can use wodim, specifying the device name for the CD writer and the type of
 blanking to be performed. The wodim program offers several types. The most minimal
 (and fastest) is the “fast” type:
 
-可重写入的CD-RW媒介在被重使用之前需要擦除或清空。为此，我们可以用wodim命令，指定
-设备名称和清空的类型。此wodim程序提供了几种清空类型。最小（且最快）的是"fast"类型：
+可重写入的 CD-RW 媒介在被重使用之前需要擦除或清空。为此，我们可以用 wodim 命令，指定
+设备名称和清空的类型。此 wodim 程序提供了几种清空类型。最小（且最快）的是"fast"类型：
 
 <div class="code"><pre>
 <tt><b>wodim dev=/dev/cdrw blank=fast</b></tt>
@@ -1220,7 +1220,7 @@ Writing An Image
 To write an image, we again use wodim, specifying the name of the optical media writer
 device and the name of the image file:
 
-写入一个映像文件，我们再次使用wodim命令，指定光盘设备名称和映像文件名：
+写入一个映像文件，我们再次使用 wodim 命令，指定光盘设备名称和映像文件名：
 
 <div class="code"><pre>
 <tt><b>wodim dev=/dev/cdrw image.iso</b></tt>
@@ -1232,9 +1232,9 @@ in disk-at-once mode. This mode should be used if you are preparing a disk for
 commercial reproduction. The default mode for wodim is track-at-once, which is useful
 for recording music tracks.
 
-除了设备名称和映像文件之外，wodim命令还支持非常多的选项。常见的两个选项是，"-v"可详细输出，
-和"－dao"以disk-at-once模式写入光盘。如果你正在准备一张光盘为的是商业复制，那么应该使用这种模式。
-wodim命令的默认模式是track-at-once，这对于录制音乐很有用。
+除了设备名称和映像文件之外，wodim 命令还支持非常多的选项。常见的两个选项是，"-v"可详细输出，
+和"－dao"以 disk-at-once 模式写入光盘。如果你正在准备一张光盘为的是商业复制，那么应该使用这种模式。
+wodim 命令的默认模式是 track-at-once，这对于录制音乐很有用。
 
 Further Reading
 
@@ -1247,7 +1247,7 @@ for adding hard drives to your Linux system (there are many) and working with op
 media.
 
 我们刚才谈到了很多方法，可以使用命令行管理存储介质。看看我们所讲过命令的手册页。
-一些命令支持大量的选项和操作。此外，寻找一些如何添加硬盘驱动器到Linux系统（有许多）的在线教程，
+一些命令支持大量的选项和操作。此外，寻找一些如何添加硬盘驱动器到 Linux 系统（有许多）的在线教程，
 这些教程也要适用于光介质存储设备。
 
 Extra Credit
@@ -1262,8 +1262,8 @@ checksum will be much different. The most common method of checksum generation
 uses the md5sum program. When you use md5sum, it produces a unique hexadecimal
 number:
 
-通常验证我们下载的iso映像文件的完整性很有用处。在大多数情况下，iso映像文件的贡献者也会提供
-一个checksum文件。一个checksum是
+通常验证我们下载的 iso 映像文件的完整性很有用处。在大多数情况下，iso 映像文件的贡献者也会提供
+一个 checksum 文件。一个 checksum 是
 
 <div class="code"><pre>
 <tt><b>md5sum image.iso</b>
@@ -1273,7 +1273,7 @@ number:
 After you download an image, you should run md5sum against it and compare the results
 with the md5sum value supplied by the publisher.
 
-你下载映像文件之后，应该运行md5sum命令
+你下载映像文件之后，应该运行 md5sum 命令
 
 In addition to checking the integrity of a downloaded file, we can use md5sum to verify
 newly written optical media. To do this, we first calculate the checksum of the image file
@@ -1294,7 +1294,7 @@ blocks. In the example below, we check the integrity of the image file dvd-
 image.iso and the disk in the DVD reader /dev/dvd. Can you figure out how this
 works?
 
-许多媒介类型，如DVD需要
+许多媒介类型，如 DVD 需要
 
 <div class="code"><pre>
 <tt><b>md5sum dvd-image.iso; dd if=/dev/dvd bs=2048 count=$(( $(stat -c "%s" dvd-image.iso) / 2048 )) | md5sum</b></tt>
