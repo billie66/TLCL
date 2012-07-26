@@ -255,16 +255,30 @@ unanticipated expansions, such as a filename that contains embedded spaces that
 expands into multiple command arguments rather than a single filename.
 
 <ol>
-<li><p>不正确的条件表达式。</p></li>
+<li><p>不正确的条件表达式。很容易编写一个错误的 if/then/else 语句，并且执行错误的逻辑。
+有时候逻辑会被颠倒，或者是逻辑结构不完整。</p></li>
+
+<li><p>“超出一个值”错误。当编写带有计数器的循环语句的时候，为了计数在恰当的点结束，循环语句
+可能要求从 0 开始计数，而不是从 1 开始，这有可能会被忽视。这些类型的错误要不导致循环计数太多，而“超出范围”，
+要不就是过早的结束了一次迭代，从而错过了最后一次迭代循环。</p></li>
+
+<li><p>意外情况。大多数逻辑错误来自于程序碰到了程序员没有预见到的数据或者情况。这也
+可以包括出乎意料的展开，比如说一个包含嵌入式空格的文件名展开成多个命令参数而不是单个的文件名。</p></li>
 </ol>
 
 #### Defensive Programming
+
+#### 防错编程 
 
 It is important to verify assumptions when programming. This means a careful
 evaluation of the exit status of programs and commands that are used by a script. Here is
 an example, based on a true story. An unfortunate system administrator wrote a script to
 perform a maintenance task on an important server. The script contained the following
 two lines of code:
+
+当编程的时候，验证假设非常重要。这意味着要仔细得计算脚本所使用的程序和命令的退出状态。
+这里有个实例，基于一个真实的故事。为了在一台重要的服务器中执行维护任务，一位不幸的系统管理员写了一个脚本。
+这个脚本包含下面两行代码：
 
     cd $dir_name
     rm *
@@ -275,8 +289,16 @@ command fails, the script continues to the next line and deletes the files in th
 working directory. Not the desired outcome at all! The hapless administrator destroyed
 an important part of the server because of this design decision.
 
+从本质上来说，这两行代码没有任何问题，只要是变量 dir_name
+中存储的目录名字存在就可以。但是如果不是这样会发生什么事情呢？在那种情况下，cd
+命令会运行失败，脚本会继续执行下一行代码，将会删除当前工作目录中的所有文件。完成不是期望的结果！
+由于这种设计策略，这个倒霉的管理员销毁了服务器中的一个重要部分。
+
 Let’s look at some ways this design could be improved. First, it might be wise to make
 the execution of rm contingent on the success of cd:
+
+让我们看一些能够提高这个设计的方法。首先，在cd 命令执行成功之后，再运行 rm
+命令，可能是明智的选择。
 
     cd $dir_name && rm *
 
@@ -286,10 +308,16 @@ would result in the files in the user’s home directory being deleted. This cou
 avoided by checking to see that dir_name actually contains the name of an existing
 directory:
 
+这样，如果 cd 命令运行失败后，rm 命令将不会执行。这样比较好，但是仍然有可能未设置变量
+dir_name 或其变量值为空，从而导致删除了用户主目录下面的所有文件。这个问题也能够避免，通过检验变量
+dir_name 中包含的目录名是否真正地存在：
+
     [[ -d $dir_name ]] && cd $dir_name && rm *
 
 Often, it is best to terminate the script with an error when an situation such as the one
 above occurs:
+
+通常，当某种情况（比如上述问题）发生的时候，最好是终止脚本执行，并对这种情况提示错误信息：
 
     if [[ -d $dir_name ]]; then
         if cd $dir_name; then
@@ -307,4 +335,6 @@ Here, we check both the name, to see that it is that of an existing directory, a
 success of the cd command. If either fails, a descriptive error message is sent to standard
 error and the script terminates with an exit status of one to indicate a failure.
 
-
+这里，我们检验了两种情况，一个名字，看看它是否为一个真正存在的目录，另一个是 cd
+命令是否执行成功。如果任一种情况失败，就会发送一个错误说明信息到标准错误，然后脚本
+终止执行，并用退出状态 1 表明脚本执行失败。

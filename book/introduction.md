@@ -5,7 +5,7 @@ title: 引言
 
 I want to tell you a story.
 
-我要给大家讲个故事。
+我想给大家讲个故事。
 
 No, not the story of how, in 1991, Linus Torvalds wrote the first version of the Linux
 kernel. You can read that story in lots of Linux books. Nor am I going to tell you the
@@ -15,12 +15,12 @@ have that one, as well.
 
 故事内容不是 Linus Torvalds 在1991年怎样写了 Linux 内核的第一个版本，
 因为这些内容你可以在许多 Linux 书籍中读到。我也不想告诉你，更早之前，Richard Stallman
-是如何开始 GNU 项目，来设计一个免费的类似 Unix 的操作系统。那也是一个很有意义的故事，
+是如何开始 GNU 项目，设计了一个免费的类似 Unix 的操作系统。那也是一个很有意义的故事，
 但大多数 Linux 书籍也讲到了它。
 
 No, I want to tell you the story of how you can take back control of your computer.
 
-我想告诉大家一个如何夺回计算机管理权的故事。
+我想告诉大家一个你如何才能夺回计算机管理权的故事。
 
 When I began working with computers as a college student in the late 1970s, there was a
 revolution going on. The invention of the microprocessor had made it possible for
@@ -28,8 +28,8 @@ ordinary people like you and me to actually own a computer. It's hard for many p
 today to imagine what the world was like when only big business and big government ran
 all the computers. Let's just say, you couldn't get much done.
 
-在20世纪70年代末，我刚开始和计算机打交道时，正进行着一场革命，那时我还是一名大学生。
-微处理器的发明，使普通老百姓，就如你和我一样，能拥有自己的计算机成为可能。今天，
+在20世纪70年代末，我刚开始和计算机打交道时，正进行着一场革命，那时的我还是一名大学生。
+微处理器的发明，使普通老百姓（就如你和我）真正拥有一台计算机成为可能。今天，
 人们难以想象，只有大企业和强大的政府才能够拥有计算机的世界，是怎样的一个世界。
 让我说，你想不出多少来。
 
@@ -70,9 +70,9 @@ the computer, he never touches a mouse? It's because movie makers realize that w
 human beings, instinctively know the only way to really get anything done on a computer
 is by typing on a keyboard.
 
-你是否注意到，电影中，一个“超级黑客”，坐在电脑前，从不摸一下鼠标，
+你是否注意到，在电影中一个“超级黑客”坐在电脑前，从不摸一下鼠标，
 就能够在30秒内侵入到超安全的军事计算机中。这是因为电影制片人意识到，
-作为人类，我们知道让计算机真正地完成任何工作的唯一方法，就是通过操作键盘。
+作为人类，本能地知道让计算机圆满完成工作的唯一途径，是用键盘来操纵计算机。
 
 Most computer users today are only familiar with the graphical user interface (GUI) and
 have been taught by vendors and pundits that the command line interface (CLI) is a
@@ -84,7 +84,7 @@ still very true today.
 
 现在，大多数的计算机用户只是熟悉图形用户界面（GUI），并且产品供应商和此领域的学者会灌输给用户这样的思想，
 命令行界面（CLI）是过去使用的一种很恐怖的东西。这就很不幸，因为一个友好的命令行界面，
-是用来和计算机进行交流沟通的，正如像人类社会使用文字互通信息一样。据说，“图形用户界面让简单的任务更容易完成，
+是用来和计算机进行交流沟通的，正像人类社会使用文字互通信息一样。据说，“图形用户界面让简单的任务更容易完成，
 而命令行界面使完成复杂的任务成为可能”，到现在这句话仍然很正确。
 
 Since Linux is modeled after the Unix family of operating systems, it shares the same
@@ -292,13 +292,13 @@ Regardless of how you install Linux, you will need to have occasional
 superuser (i.e., administrative) privileges to carry out the lessons in this
 book.
 
-不管你怎样安装 Linux，你需要有超级用户（管理员）权限，才能练习书中的课程。
+不管你怎样安装 Linux，为了练习书中介绍的知识，你需要有超级用户（管理员）权限。
 
 After you have a working installation, start reading and follow along with
 your own computer. Most of the material in this book is “hands on,” so sit
 down and get typing!
 
-当你创建了一个 Linux 工作环境之后，跟随着你的电脑，开始阅读这本书吧。这本书中大部分内容
+当你在自己的电脑上安装了 Linux 系统之后，就开始一边阅读本书，一边练习吧。本书大部分内容
 都可以自己动手练习，坐下来，敲入命令，体验一下吧。
 
 <table class="single">
@@ -384,6 +384,3 @@ Richard Stallman has written extensively on the “GNU/Linux” naming issue:
 
     <http://www.gnu.org/gnu/gnu-linux-faq.html#tools>
 
-
-
- 
