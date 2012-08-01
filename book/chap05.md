@@ -288,7 +288,7 @@ numerals</td>
 </tr>
 <tr>
 <td valign="top">[![:digit:]]*</td>
-<td valign="top">以数字开头的文件</td>
+<td valign="top">不以数字开头的文件</td>
 </tr>
 <tr>
 <td valign="top" width="25%">*[[:lower:]123]</td>

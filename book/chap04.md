@@ -269,8 +269,7 @@ from an Ubuntu system:
 -rw-r--r-- 1 root root   27837 2007-04-03 11:05 oo-maxwell.odt
 -rw-r--r-- 1 root root   98816 2007-04-03 11:05 oo-trig.xls
 -rw-r--r-- 1 root root  453764 2007-04-03 11:05 oo-welcome.odt
--rw-r--r-- 1 root root  358374 2007-04-03 11:05 ubuntu Sax.ogg
-</tt>
+-rw-r--r-- 1 root root  358374 2007-04-03 11:05 ubuntu Sax.ogg </tt>
 </pre></div>
 
 Let's look at the different fields from one of the files and examine their meanings:

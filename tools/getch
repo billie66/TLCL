@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+cd ../book
+if [ -d chinese ]; then
+    rm -r chinese
+else 
+    mkdir zh chinese
+fi
+
+flag="0"
+
+# In order to keep the original format of each line, 
+# the value of IFS should be empty.
+
+for file in *.md; do
+  echo "It is processing $file, please wait..."
+  while IFS= read -r line; do 
+    if [ -n "$line" ]; then
+      case "$line" in 
+        "---" | "layout: book" )
+          echo "$line" >>zh/$file
+          continue
+          ;;
+      esac
+      if [[ "$line" =~ ^title:* || "$line" =~ ^\  ]]; then
+        echo "$line" >>zh/$file
+      elif [[ "$line" =~ ^\<div* ]]; then 
+        echo "$line" >>zh/$file
+        flag="1"
+        continue
+      elif [ "$flag" == "1" ]; then
+        if [[ "$line" =~ div\>$ ]]; then 
+          flag="0"
+        fi
+        echo "$line" >>zh/$file
+      else
+        local=$(echo "$line" | sed -e s/[[:punct:]]//g -e s/\ //g)
+        if [[ !( "$local" =~ ^[A-Za-z0-9]*$ ) ]]; then
+          echo "$line" >>zh/$file 
+        fi
+      fi
+    else
+        echo >>zh/$file 
+    fi
+  done < $file 
+  uniq zh/$file > ch/$file
+done
+
+rm -r zh 
+echo "Congrats, it's done!"
