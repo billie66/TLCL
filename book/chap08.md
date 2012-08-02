@@ -103,8 +103,6 @@ and looking beyond our home directory:
     [me@linuxbox ~]$ echo /usr/*/share
     /usr/kerberos/share  /usr/local/share 
 
-<br />
-
 <div class="single">
 <h3>Pathname Expansion Of Hidden Files</h3>
 <h3>隐藏文件路径名展开</h3>
@@ -459,7 +457,7 @@ provides a mechanism called quoting to selectively suppress unwanted expansions.
 The first type of quoting we will look at is double quotes. If you place text
 inside double quotes, all the special characters used by the shell lose their
 special meaning and are treated as ordinary characters. The exceptions are
-`$`, `\` (backslash), and ``` (back- quote). This means that word-splitting,
+__$__, __\__ (backslash), and __`__ (back-quote). This means that word-splitting,
 pathname expansion, tilde expansion, and brace expansion are suppressed, but
 parameter expansion, arithmetic expansion, and command substitution are still
 carried out. Using double quotes, we can cope with filenames containing
@@ -469,7 +467,7 @@ cause this to be treated as two separate arguments rather than the desired
 single argument:
 
 我们将要看一下引用的第一种类型，双引号。如果你把文本放在双引号中，
-shell 使用的特殊字符，除了 `$`, `\` (反斜杠），和 ```（倒引号）之外，
+shell 使用的特殊字符，除了 __$__, __\__ (反斜杠），和 __`__（倒引号）之外，
 则失去它们的特殊含义，被当作普通字符来看待。这意味着单词分割，路径名展开，
 波浪线展开，和花括号展开都被禁止，然而参数展开，算术展开，和命令替换
 仍然执行。使用双引号，我们可以处理包含空格的文件名。比方说我们是不幸的
