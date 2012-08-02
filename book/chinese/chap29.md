@@ -251,6 +251,7 @@ Shell 允许在一个命令之前立即发生一个或多个变量赋值。这�
 
     echo "$file_info" | IFS=":" read user pw uid gid name home shell
 
+<div class="single">
 <h3>你不能管道 read</h3>
 <p>虽然通常`read`命令接受标准输入，但是你不能这样做：</p>
 
@@ -267,6 +268,8 @@ Shell 允许在一个命令之前立即发生一个或多个变量赋值。这�
 但是当命令退出后，子 shell 和它的环境将被破坏掉，这样赋值的影响就会消失。</p>
 
 <p>使用 here 字符串是解决此问题的一种方法。另一种方法将在37章中讨论。</p>
+
+</div>
 
 ### 校正输入 
 

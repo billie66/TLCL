@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
 cd ../book
+
 if [ -d chinese ]; then
-    rm -r chinese
-else 
-    mkdir zh chinese
+    rm -r chinese zh
 fi
 
-flag="0"
+mkdir zh chinese
+
+#flag="0"
+sin="<div class=\"single\">"
 
 # In order to keep the original format of each line, 
 # the value of IFS should be empty.
@@ -17,24 +19,17 @@ for file in *.md; do
   while IFS= read -r line; do 
     if [ -n "$line" ]; then
       case "$line" in 
-        "---" | "layout: book" )
+        "---" | "layout: book" | "$sin" | "</div>" )
           echo "$line" >>zh/$file
           continue
           ;;
       esac
       if [[ "$line" =~ ^title:* || "$line" =~ ^\  ]]; then
         echo "$line" >>zh/$file
-      elif [[ "$line" =~ ^\<div* ]]; then 
-        echo "$line" >>zh/$file
-        flag="1"
-        continue
-      elif [ "$flag" == "1" ]; then
-        if [[ "$line" =~ div\>$ ]]; then 
-          flag="0"
-        fi
+      elif [[ "$line" =~ ^\<p\ style* || "$line" =~ ^\<p\ class* ]]; then
         echo "$line" >>zh/$file
       else
-        local=$(echo "$line" | sed -e s/[[:punct:]]//g -e s/\ //g)
+        local=$(echo "$line" | sed -e 's/[[:punct:]]//g' -e 's/\ //g')
         if [[ !( "$local" =~ ^[A-Za-z0-9]*$ ) ]]; then
           echo "$line" >>zh/$file 
         fi
@@ -43,7 +38,7 @@ for file in *.md; do
         echo >>zh/$file 
     fi
   done < $file 
-  uniq zh/$file > ch/$file
+  uniq zh/$file > chinese/$file
 done
 
 rm -r zh 

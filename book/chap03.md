@@ -248,7 +248,6 @@ quickly changed.
 
 在表3-1中，列举出了一些快速改变当前工作目录的有效方法。
 
-<p>
 <table class="multi">
 <caption class="cap">Table 3-1: cd Shortcuts</caption>
 <thead>
@@ -275,9 +274,7 @@ the home directory of user “bob.”
 </tr>
 </tbody>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表3-1: cd 快捷键</caption>
 <thead>
@@ -301,13 +298,9 @@ the home directory of user “bob.”
 </tr>
 </tbody>
 </table>
-</p>
 
 
-<p>
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 
 <h3>Important Facts About Filenames</h3>
 
@@ -357,8 +350,5 @@ later.</p></li>
 词间的空格，用下划线字符来代替。过些时候，你会感激自己这样做。</p></li>
 </ol>
 
-</td>
-</tr>
-</table>
-</p>
+</div>
 

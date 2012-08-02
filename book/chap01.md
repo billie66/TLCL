@@ -301,9 +301,7 @@ down and get typing!
 当你在自己的电脑上安装了 Linux 系统之后，就开始一边阅读本书，一边练习吧。本书大部分内容
 都可以自己动手练习，坐下来，敲入命令，体验一下吧。
 
-<table class="single">
-<tr>
-<td>
+<div class="single">
 
 <h3>Why I Don't Call It “GNU/Linux”</h3>
 
@@ -350,9 +348,7 @@ AIX. I have chosen to use the popular format. If, however, you prefer to use
 比如说 DOS, Windows, MacOS, Solaris, Irix, AIX. 所以我选择用流行的命名规则。然而，
 如果你喜欢用“GNU/Linux”，当你读这本书时，可以搜索并代替“Linux”。我不介意。</p>
 
-</td>
-</tr>
-</table>
+</div>
 
 ### Further Reading
 

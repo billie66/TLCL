@@ -51,27 +51,25 @@ title: 网络系统
 例如，看看我们能否连接到网站 linuxcommand.org（我喜欢的网站之一），
 我们可以这样使用 ping 命令：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ping linuxcommand.org</tt>
-</pre></div>
+    [me@linuxbox ~]$ ping linuxcommand.org
+    
 
 一旦启动，ping 命令会持续在特定的时间间隔内（默认是一秒）发送数据包，直到它被中断：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ping linuxcommand.org
-PING linuxcommand.org (66.35.250.210) 56(84) bytes of data.
-64 bytes from vhost.sourceforge.net (66.35.250.210): icmp\_seq=1
-ttl=43 time=107 ms
-64 bytes from vhost.sourceforge.net (66.35.250.210): icmp\_seq=2
-ttl=43 time=108 ms
-64 bytes from vhost.sourceforge.net (66.35.250.210): icmp\_seq=3
-ttl=43 time=106 ms
-64 bytes from vhost.sourceforge.net (66.35.250.210): icmp\_seq=4
-ttl=43 time=106 ms
-64 bytes from vhost.sourceforge.net (66.35.250.210): icmp\_seq=5
-ttl=43 time=105 ms
-...</tt>
-</pre></div>
+    [me@linuxbox ~]$ ping linuxcommand.org
+    PING linuxcommand.org (66.35.250.210) 56(84) bytes of data.
+    64 bytes from vhost.sourceforge.net (66.35.250.210): icmp\_seq=1
+    ttl=43 time=107 ms
+    64 bytes from vhost.sourceforge.net (66.35.250.210): icmp\_seq=2
+    ttl=43 time=108 ms
+    64 bytes from vhost.sourceforge.net (66.35.250.210): icmp\_seq=3
+    ttl=43 time=106 ms
+    64 bytes from vhost.sourceforge.net (66.35.250.210): icmp\_seq=4
+    ttl=43 time=106 ms
+    64 bytes from vhost.sourceforge.net (66.35.250.210): icmp\_seq=5
+    ttl=43 time=105 ms
+    ...
+    
 
 按下组合键 Ctrl-c，中断这个命令之后，ping 打印出运行统计信息。一个正常工作的网络会报告
 零个数据包丢失。一个成功执行的“ping”命令会显示网络的各个元素（网卡，电缆，路由，网关）
@@ -81,26 +79,24 @@ ttl=43 time=105 ms
 要经过的所有“跳数”的网络流量列表。例如，看一下到达 slashdot.org 网站，需要经过的路由
 器，我们将这样做：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ traceroute slashdot.org</tt>
-</pre></div>
+    [me@linuxbox ~]$ traceroute slashdot.org
+    
 
 命令输出看起来像这样：
 
-<div class="code"><pre>
-<tt>traceroute to slashdot.org (216.34.181.45), 30 hops max, 40 byte
-packets
-1 ipcop.localdomain (192.168.1.1) 1.066 ms 1.366 ms 1.720 ms
-2 * * *
-3 ge-4-13-ur01.rockville.md.bad.comcast.net (68.87.130.9) 14.622
-ms 14.885 ms 15.169 ms
-4 po-30-ur02.rockville.md.bad.comcast.net (68.87.129.154) 17.634
-ms 17.626 ms 17.899 ms
-5 po-60-ur03.rockville.md.bad.comcast.net (68.87.129.158) 15.992
-ms 15.983 ms 16.256 ms
-6 po-30-ar01.howardcounty.md.bad.comcast.net (68.87.136.5) 22.835
-...</tt>
-</pre></div>
+    traceroute to slashdot.org (216.34.181.45), 30 hops max, 40 byte
+    packets
+    1 ipcop.localdomain (192.168.1.1) 1.066 ms 1.366 ms 1.720 ms
+    2 * * *
+    3 ge-4-13-ur01.rockville.md.bad.comcast.net (68.87.130.9) 14.622
+    ms 14.885 ms 15.169 ms
+    4 po-30-ur02.rockville.md.bad.comcast.net (68.87.129.154) 17.634
+    ms 17.626 ms 17.899 ms
+    5 po-60-ur03.rockville.md.bad.comcast.net (68.87.129.158) 15.992
+    ms 15.983 ms 16.256 ms
+    6 po-30-ar01.howardcounty.md.bad.comcast.net (68.87.136.5) 22.835
+    ...
+    
 
 从输出结果中，我们可以看到连接测试系统到 slashdot.org 网站需要经由16个路由器。对于那些
 提供标识信息的路由器，我们能看到它们的主机名，IP 地址和性能数据，这些数据包括三次从本地到
@@ -110,21 +106,20 @@ ms 15.983 ms 16.256 ms
 这个 netstat 程序被用来检查各种各样的网络设置和统计数据。通过此命令的许多选项，我们
 可以看看网络设置中的各种特性。使用“-ie”选项，我们能够查看系统中的网络接口：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ netstat -ie
-eth0    Link encap:Ethernet HWaddr 00:1d:09:9b:99:67
-        inet addr:192.168.1.2 Bcast:192.168.1.255 Mask:255.255.255.0
-        inet6 addr: fe80::21d:9ff:fe9b:9967/64 Scope:Link
-        UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
-        RX packets:238488 errors:0 dropped:0 overruns:0 frame:0
-        TX packets:403217 errors:0 dropped:0 overruns:0 carrier:0
-        collisions:0 txqueuelen:100 RX bytes:153098921 (146.0 MB) TX
-        bytes:261035246 (248.9 MB) Memory:fdfc0000-fdfe0000
-
-lo      Link encap:Local Loopback
-        inet addr:127.0.0.1 Mask:255.0.0.0
-...</tt>
-</pre></div>
+    [me@linuxbox ~]$ netstat -ie
+    eth0    Link encap:Ethernet HWaddr 00:1d:09:9b:99:67
+            inet addr:192.168.1.2 Bcast:192.168.1.255 Mask:255.255.255.0
+            inet6 addr: fe80::21d:9ff:fe9b:9967/64 Scope:Link
+            UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+            RX packets:238488 errors:0 dropped:0 overruns:0 frame:0
+            TX packets:403217 errors:0 dropped:0 overruns:0 carrier:0
+            collisions:0 txqueuelen:100 RX bytes:153098921 (146.0 MB) TX
+            bytes:261035246 (248.9 MB) Memory:fdfc0000-fdfe0000
+    
+    lo      Link encap:Local Loopback
+            inet addr:127.0.0.1 Mask:255.0.0.0
+    ...
+    
 
 在上述实例中，我们看到我们的测试系统有两个网络接口。第一个，叫做 eth0，是
 因特网接口，和第二个，叫做 lo，是内部循环网络接口，它是一个虚拟接口，系统用它来
@@ -138,14 +133,13 @@ addr 字段出现的有效 IP 地址。对于使用 DHCP（动态主机配置协
 使用这个“-r”选项会显示内核的网络路由表。这展示了如何配置系统网络，使其能够在
 网络之间发送数据包。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ netstat -r
-Kernel IP routing table
-Destination     Gateway     Genmask         Flags    MSS  Window  irtt Iface
-
-192.168.1.0     *           255.255.255.0   U        0    0          0 eth0
-default         192.168.1.1 0.0.0.0         UG       0    0          0 eth0</tt>
-</pre></div>
+    [me@linuxbox ~]$ netstat -r
+    Kernel IP routing table
+    Destination     Gateway     Genmask         Flags    MSS  Window  irtt Iface
+    
+    192.168.1.0     *           255.255.255.0   U        0    0          0 eth0
+    default         192.168.1.1 0.0.0.0         UG       0    0          0 eth0
+    
 
 在这个简单的例子里面，我们看到了，位于防火墙之后的局域网中，一台客户端计算机的典型路由表。
 第一行显示了目的地192.168.1.0。IP 地址以零结尾是指网络，而不是个人主机，
@@ -178,36 +172,34 @@ FTP（它的原始形式）并不是安全的，因为它会以明码形式发�
 在下面的例子中，我们将展示一个典型的会话，从匿名 FTP 服务器，其名字是 fileserver，
 的/pub/\_images/Ubuntu-8.04的目录下，使用 ftp 程序下载一个 Ubuntu 系统映像文件。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ftp fileserver
-Connected to fileserver.localdomain.
-220 (vsFTPd 2.0.1)
-Name (fileserver:me): anonymous
-331 Please specify the password.
-Password:
-230 Login successful.
-Remote system type is UNIX.
-Using binary mode to transfer files.
-ftp> cd pub/cd\_images/Ubuntu-8.04
-250 Directory successfully changed.
-ftp> ls
-200 PORT command successful. Consider using PASV.
-150 Here comes the directory listing.
--rw-rw-r-- 1 500 500 733079552 Apr 25 03:53 ubuntu-8.04- desktop-i386.iso
-226 Directory send OK.
-ftp> lcd Desktop
-Local directory now /home/me/Desktop
-ftp> get ubuntu-8.04-desktop-i386.iso
-local: ubuntu-8.04-desktop-i386.iso remote: ubuntu-8.04-desktop-
-i386.iso
-200 PORT command successful. Consider using PASV.
-150 Opening BINARY mode data connection for ubuntu-8.04-desktop-
-i386.iso (733079552 bytes).
-226 File send OK.
-733079552 bytes received in 68.56 secs (10441.5 kB/s)
-ftp> bye
-</tt>
-</pre></div>
+    [me@linuxbox ~]$ ftp fileserver
+    Connected to fileserver.localdomain.
+    220 (vsFTPd 2.0.1)
+    Name (fileserver:me): anonymous
+    331 Please specify the password.
+    Password:
+    230 Login successful.
+    Remote system type is UNIX.
+    Using binary mode to transfer files.
+    ftp> cd pub/cd\_images/Ubuntu-8.04
+    250 Directory successfully changed.
+    ftp> ls
+    200 PORT command successful. Consider using PASV.
+    150 Here comes the directory listing.
+    -rw-rw-r-- 1 500 500 733079552 Apr 25 03:53 ubuntu-8.04- desktop-i386.iso
+    226 Directory send OK.
+    ftp> lcd Desktop
+    Local directory now /home/me/Desktop
+    ftp> get ubuntu-8.04-desktop-i386.iso
+    local: ubuntu-8.04-desktop-i386.iso remote: ubuntu-8.04-desktop-
+    i386.iso
+    200 PORT command successful. Consider using PASV.
+    150 Opening BINARY mode data connection for ubuntu-8.04-desktop-
+    i386.iso (733079552 bytes).
+    226 File send OK.
+    733079552 bytes received in 68.56 secs (10441.5 kB/s)
+    ftp> bye
+    
 
 这里是对会话期间所输入命令的解释说明：
 
@@ -237,19 +229,18 @@ ftp 并不是唯一的命令行形式的 FTP 客户端。实际上，还有很�
 不只能下载单个文件，多个文件，甚至整个网站都能下载。下载 linuxcommand.org 网站的首页，
 我们可以这样做：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ wget http://linuxcommand.org/index.php
---11:02:51-- http://linuxcommand.org/index.php
-        =&gt; `index.php'
-Resolving linuxcommand.org... 66.35.250.210
-Connecting to linuxcommand.org|66.35.250.210|:80... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: unspecified [text/html]
-
-  [ &lt;                        =&gt; ]        3,120       --.--K/s
-
-11:02:51 (161.75 MB/s) - 'index.php' saved [3120]</tt>
-</pre></div>
+    [me@linuxbox ~]$ wget http://linuxcommand.org/index.php
+    --11:02:51-- http://linuxcommand.org/index.php
+            => `index.php'
+    Resolving linuxcommand.org... 66.35.250.210
+    Connecting to linuxcommand.org|66.35.250.210|:80... connected.
+    HTTP request sent, awaiting response... 200 OK
+    Length: unspecified [text/html]
+    
+      [ <                        => ]        3,120       --.--K/s
+    
+    11:02:51 (161.75 MB/s) - 'index.php' saved [3120]
+    
 
 这个程序的许多选项允许 wget 递归地下载，在后台下载文件（你退出后仍在下载），能完成未下载
 全的文件。这些特性在命令手册，better-than-average 一节中有详尽地说明。
@@ -281,31 +272,28 @@ Hat）,而另一些（比方说 Ubuntu）则只是提供客户端服务。为了
 用来与远端 SSH 服务器相连接的 SSH 客户端程序，顺理成章，叫做 ssh。连接到远端名为 remote-sys
 的主机，我们可以这样使用 ssh 客户端程序：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ssh remote-sys
-The authenticity of host 'remote-sys (192.168.1.4)' can't be
-established.
-RSA key fingerprint is
-41:ed:7a:df:23:19:bf:3c:a5:17:bc:61:b3:7f:d9:bb.
-Are you sure you want to continue connecting (yes/no)?</tt>
-</pre></div>
+    [me@linuxbox ~]$ ssh remote-sys
+    The authenticity of host 'remote-sys (192.168.1.4)' can't be
+    established.
+    RSA key fingerprint is
+    41:ed:7a:df:23:19:bf:3c:a5:17:bc:61:b3:7f:d9:bb.
+    Are you sure you want to continue connecting (yes/no)?
+    
 
 第一次尝试连接，提示信息表明远端主机的真实性不能确立。这是因为客户端程序以前从没有
 看到过这个远端主机。为了接受远端主机的身份验证凭据，输入“yes”。一旦建立了连接，会提示
 用户输入他或她的密码：
 
-<div class="code"><pre>
-<tt>Warning: Permanently added 'remote-sys,192.168.1.4' (RSA) to the list
-of known hosts.
-me@remote-sys's password:</tt>
-</pre></div>
+    Warning: Permanently added 'remote-sys,192.168.1.4' (RSA) to the list
+    of known hosts.
+    me@remote-sys's password:
+    
 
 成功地输入密码之后，我们会接收到远端系统的 shell 提示符：
 
-<div class="code"><pre>
-<tt>Last login: Sat Aug 30 13:00:48 2008
-[me@remote-sys ~]$</tt>
-</pre></div>
+    Last login: Sat Aug 30 13:00:48 2008
+    [me@remote-sys ~]$
+    
 
 远端 shell 会话一直存在，直到用户输入 exit 命令后，则关闭了远程连接。这时候，本地的 shell 会话
 恢复，本地 shell 提示符重新出现。
@@ -313,27 +301,25 @@ me@remote-sys's password:</tt>
 也有可能使用不同的用户名连接到远程系统。例如，如果本地用户“me”，在远端系统中有一个帐号名
 “bob”，则用户 me 能够用 bob 帐号登录到远端系统，如下所示：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ssh bob@remote-sys
-bob@remote-sys's password:
-Last login: Sat Aug 30 13:03:21 2008
-[bob@remote-sys ~]$</tt>
-</pre></div>
+    [me@linuxbox ~]$ ssh bob@remote-sys
+    bob@remote-sys's password:
+    Last login: Sat Aug 30 13:03:21 2008
+    [bob@remote-sys ~]$
+    
 
 正如之前所讲到的，ssh 验证远端主机的真实性。如果远端主机不能成功地通过验证，则会提示以下信息：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ssh remote-sys
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@
-WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!
-@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
-Someone could be eavesdropping on you right now (man-in-the-middle
-attack)!
-...</tt>
-</pre></div>
+    [me@linuxbox ~]$ ssh remote-sys
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @
+    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!
+    @
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+    Someone could be eavesdropping on you right now (man-in-the-middle
+    attack)!
+    ...
+    
 
 有两种可能的情形会提示这些信息。第一，某个攻击者企图制造“中间人”袭击。这很少见，
 因为每个人都知道 ssh 会针对这种状况发出警告。最有可能的罪魁祸首是远端系统已经改变了；
@@ -344,9 +330,8 @@ attack)!
 使用文本编辑器（可能是 vim）从文件~/.ssh/known\_hosts 中删除废弃的钥匙，
 就解决了问题。在上面的例子里，我们看到这样一句话：
 
-<div class="code"><pre>
-<tt>Offending key in /home/me/.ssh/known\_hosts:1</tt>
-</pre></div>
+    Offending key in /home/me/.ssh/known\_hosts:1
+    
 
 这意味着文件 known\_hosts 里面某一行包含攻击型的钥匙。从文件中删除这一行，则 ssh 程序
 就能够从远端系统接受新的身份验证凭据。
@@ -355,36 +340,34 @@ attack)!
 例如，在名为 remote-sys 的远端主机上，执行 free 命令，并把输出结果显示到本地系统
 shell 会话中。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ssh remote-sys free
-me@twin4's password:
-            total   used       free     shared buffers cached 
-
-Mem:        775536  507184   268352          0  110068 154596
-
--/+ buffers/cache: 242520  533016
-Swap: 0 1572856 0 110068 154596
-
-[me@linuxbox ~]$</tt>
-</pre></div>
+    [me@linuxbox ~]$ ssh remote-sys free
+    me@twin4's password:
+                total   used       free     shared buffers cached 
+    
+    Mem:        775536  507184   268352          0  110068 154596
+    
+    -/+ buffers/cache: 242520  533016
+    Swap: 0 1572856 0 110068 154596
+    
+    [me@linuxbox ~]$
+    
 
 有可能以更有趣的方式来利用这项技术，比方说下面的例子，我们在远端系统中执行 ls 命令，
 并把命令输出重定向到本地系统中的一个文件里面。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ssh remote-sys 'ls \*' &gt; dirlist.txt
-me@twin4's password:
-[me@linuxbox ~]$</tt>
-</pre></div>
+    [me@linuxbox ~]$ ssh remote-sys 'ls \*' > dirlist.txt
+    me@twin4's password:
+    [me@linuxbox ~]$
+    
 
 注意，上面的例子中使用了单引号。这样做是因为我们不想路径名展开操作在本地执行 ；而希望
 它在远端系统中被执行。同样地，如果我们想要把输出结果重定向到远端主机的文件中，我们可以
 把重定向操作符和文件名都放到单引号里面。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ssh remote-sys 'ls * > dirlist.txt'</tt>
-</pre></div>
+    [me@linuxbox ~]$ ssh remote-sys 'ls * > dirlist.txt'
+    
 
+<div class="single">
 <h3>SSH 通道</h3>
 
 <p>当你通过 SSH 协议与远端主机建立连接的时候，其中发生的事就是在本地与远端系统之间
@@ -400,6 +383,7 @@ me@twin4's password:
 
 <p>这个 xload 命令在远端执行之后，它的窗口就会出现在本地。在某些系统中，你可能需要
 使用“－Y”选项，而不是“－X”选项来完成这个操作。</p>
+</div>
 
 这个 OpenSSH 软件包也包含两个程序，它们可以利用 SSH 加密通道在网络间复制文件。
 第一个，scp（安全复制）被用来复制文件，与熟悉的 cp 程序非常相似。最显著的区别就是
@@ -407,20 +391,18 @@ me@twin4's password:
 从远端系统，remote-sys，的主目录下复制文档 document.txt，到我们本地系统的当前工作目录下，
 可以这样操作：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ scp remote-sys:document.txt .
-me@remote-sys's password:
-document.txt
-100%        5581        5.5KB/s         00:00
-[me@linuxbox ~]$</tt>
-</pre></div>
+    [me@linuxbox ~]$ scp remote-sys:document.txt .
+    me@remote-sys's password:
+    document.txt
+    100%        5581        5.5KB/s         00:00
+    [me@linuxbox ~]$
+    
 
 和 ssh 命令一样，如果你所期望的远端主机帐户与你本地系统中的不一致，
 则可以把用户名添加到远端主机名的开头。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ scp bob@remote-sys:document.txt .</tt>
-</pre></div>
+    [me@linuxbox ~]$ scp bob@remote-sys:document.txt .
+    
 
 第二个 SSH 文件复制命令是 sftp，正如其名字所示，它是 ftp 程序的安全替代品。sftp 工作起来与我们
 之前使用的 ftp 程序很相似；然而，它不用明码形式来传递数据，它使用加密的 SSH 通道。sftp 有一个
@@ -428,23 +410,24 @@ document.txt
 这意味着任何一台能用 SSH 客户端连接的远端机器，也可当作类似于 FTP 的服务器来使用。
 这里是一个样本会话：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sftp remote-sys
-Connecting to remote-sys...
-me@remote-sys's password:
-sftp> ls
-ubuntu-8.04-desktop-i386.iso
-sftp> lcd Desktop
-sftp> get ubuntu-8.04-desktop-i386.iso
-Fetching /home/me/ubuntu-8.04-desktop-i386.iso to ubuntu-8.04-
-desktop-i386.iso
-/home/me/ubuntu-8.04-desktop-i386.iso 100% 699MB 7.4MB/s 01:35
-sftp> bye</tt>
-</pre></div>
+    [me@linuxbox ~]$ sftp remote-sys
+    Connecting to remote-sys...
+    me@remote-sys's password:
+    sftp> ls
+    ubuntu-8.04-desktop-i386.iso
+    sftp> lcd Desktop
+    sftp> get ubuntu-8.04-desktop-i386.iso
+    Fetching /home/me/ubuntu-8.04-desktop-i386.iso to ubuntu-8.04-
+    desktop-i386.iso
+    /home/me/ubuntu-8.04-desktop-i386.iso 100% 699MB 7.4MB/s 01:35
+    sftp> bye
+    
 
 小贴示：这个 SFTP 协议被许多 Linux 发行版中的图形化文件管理器支持。使用 Nautilus (GNOME),
  或者是 Konqueror (KDE)，我们都能在位置栏中输入以 sftp://开头的 URI，
  来操作存储在运行着 SSH 服务器的远端系统中的文件。
+
+<div class="single">
 
 <h3>Windows 中的 SSH 客户端</h3>
 
@@ -455,6 +438,7 @@ sftp> bye</tt>
 这个程序也提供了 scp 和 sftp 程序的类似物。</p>
 
 <p>PuTTY 可在链接 http://www.chiark.greenend.org.uk/~sgtatham/putty/ 处得到。</p>
+</div>
 
 ### 拓展阅读
 

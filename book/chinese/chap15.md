@@ -93,9 +93,8 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 
 例如：搜索一个 yum 资源库来查找 emacs 文本编辑器，使用以下命令：
 
-<div class="code"><pre>
-<tt>yum search emacs</tt>
-</pre></div>
+    yum search emacs
+    
 
 ### 从资源库中安装一个软件包
 
@@ -103,9 +102,8 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 
 例如：从一个 apt 资源库来安装 emacs 文本编辑器：
 
-<div class="code"><pre>
-<tt>apt-get update; apt-get install emacs</tt>
-</pre></div>
+    apt-get update; apt-get install emacs
+    
 
 ### 通过软件包文件来安装软件
 
@@ -114,12 +112,14 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 例如：如果已经从一个并非资源库的网站下载了软件包文件 emacs-22.1-7.fc7-i386.rpm，
 则可以通过这种方法来安装它：
 
-<div class="code"><pre>
-<tt>rpm -i emacs-22.1-7.fc7-i386.rpm</tt>
-</pre></div>
+    rpm -i emacs-22.1-7.fc7-i386.rpm
+    
+
+---
 
 注意：因为这项技术使用底层的 rpm 程序来执行安装任务，所以没有运行依赖解析。如果 rpm
 程序发现缺少了一个依赖，则会报错并退出。
+---
 
 ### 卸载软件
 
@@ -127,9 +127,8 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 
 例如：从 Debian 风格的系统中卸载 emacs 软件包：
 
-<div class="code"><pre>
-<tt>apt-get remove emacs</tt>
-</pre></div>
+    apt-get remove emacs
+    
 
 ### 经过资源库来更新软件包
 
@@ -138,10 +137,8 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 
 例如：更新安装在 Debian 风格系统中的软件包：
 
-<div class="code"><pre>
-<tt>apt-get update; apt-get upgrade
-</tt>
-</pre></div>
+    apt-get update; apt-get upgrade
+    
 
 ### 经过软件包文件来升级软件
 
@@ -150,11 +147,13 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 
 例如：把 Red Hat 系统中所安装的 emacs 的版本更新到软件包文件 emacs-22.1-7.fc7-i386.rpmz 所包含的 emacs 版本。
 
-<div class="code"><pre>
-<tt>rpm -U emacs-22.1-7.fc7-i386.rpm</tt>
-</pre></div>
+    rpm -U emacs-22.1-7.fc7-i386.rpm
+    
+
+---
 
 注意：dpkg 程序与安装软件相比没有一个特定的选项，如 rpm 程序那样，来升级一个软件包，。
+---
 
 ### 列出所安装的软件包
 
@@ -166,9 +165,8 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 
 例如：确定是否 Debian 风格的系统中安装了这个 emacs 软件包：
 
-<div class="code"><pre>
-<tt>dpkg --status emacs</tt>
-</pre></div>
+    dpkg --status emacs
+    
 
 ### 显示所安装软件包的信息
 
@@ -176,9 +174,8 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 
 例如：查看 Debian 风格的系统中 emacs 软件包的说明信息：
 
-<div class="code"><pre>
-<tt>apt-cache show emacs</tt>
-</pre></div>
+    apt-cache show emacs
+    
 
 ### 查找安装了某个文件的软件包
 
@@ -186,9 +183,8 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 
 例如：在 Red Hat 系统中，查看哪个软件包安装了/usr/bin/vim 这个文件
 
-<div class="code"><pre>
-<tt>rpm -qf /usr/bin/vim</tt>
-</pre></div>
+    rpm -qf /usr/bin/vim
+    
 
 ### 总结归纳
 
@@ -196,6 +192,7 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 大多数程序一般是默认安装的，但是若所需程序没有安装在系统中，那么我们可能需要安装额外的软件包。
 通过我们新学到的（和了解的）软件包管理知识，我们应该没有问题来安装和管理所需的程序。
 
+<div class="single">
 <h3>Linux 软件安装谣言</h3>
 
 <p>从其它平台迁移过来的用户有时会成为谣言的受害者，说是在 Linux 系统中，安装软件有些
@@ -213,7 +210,7 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 所支持的设备数目。当然，如果你需要的特定设备不被支持，这里也没有安慰。当那种情况
 发生时，你需要查找一下原因。缺少驱动程序支持通常是由以下三种情况之一导致：</p>
 
-<li><p><b>设备太新。</b>因为许多硬件供应商没有积极地支持 Linux 的发展，那么编写内核
+<ol><li><p><b>设备太新。</b>因为许多硬件供应商没有积极地支持 Linux 的发展，那么编写内核
 驱动代码的任务就由一些 Linux 社区来承担，而这需要花费时间。</p></li>
 
 <li><p><b>设备太奇异。</b>不是所有的发行版都包含每个可能的设备驱动。每个发行版会建立
@@ -224,7 +221,8 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 <li><p><b>硬件供应商隐藏信息。</b>他们既不发布应用于 Linux 系统的驱动程序代码，
 也不发布技术文档来让某人创建它。这意味着硬件供应商试图保密此设备的程序接口。因为我们
 不想在计算机中使用保密的设备，所以我建议删除这令人厌恶的软件，
-把它和其它无用的项目都仍到垃圾桶里。</p></li>
+把它和其它无用的项目都仍到垃圾桶里。</p></li></ol>
+</div>
 
 ### 拓展阅读
 

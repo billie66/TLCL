@@ -20,9 +20,7 @@ bash 是 shell 的一种，来自于 GNU 项目。“bash”是“Bourne Again S
 
 好，开始吧。启动终端仿真器！一旦它运行起来，我们应该能够看到一行类似下面文字的输出：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$</tt></pre>
-</div>
+    [me@linuxbox ~]$
 
 这叫做 shell 提示符，当 shell 准备好了去接受输入时，它就会出现。然而，
 它可能会以各种各样的面孔显示，这则取决于不同的 Linux 发行版，
@@ -34,16 +32,12 @@ bash 是 shell 的一种，来自于 GNU 项目。“bash”是“Bourne Again S
 假定到目前为止，所有事情都进行顺利，那我们试着打字吧。在提示符下敲入
 一些乱七八糟的无用数据，如下所示：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ kaekfjaeifj</tt></pre>
-</div>
+    [me@linuxbox ~]$ kaekfjaeifj
 
 因为这个命令没有任何意义，所以 shell 会提示错误信息，并让我们再试一下：
 
-<div class="code"><pre>
-<tt>bash: kaekfjaeifj: command not found
-[me@linuxbox ~]$</tt></pre>
-</div>
+    bash: kaekfjaeifj: command not found
+    [me@linuxbox ~]$
 
 ### 命令历史
 
@@ -79,53 +73,48 @@ bash 是 shell 的一种，来自于 GNU 项目。“bash”是“Bourne Again S
 现在，我们学习了怎样输入命令，那我们执行一些简单的命令吧。第一个命令是 date。
 这个命令显示系统当前时间和日期。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ date
-Thu Oct 25 13:51:54 EDT 2007</tt>
-</pre></div>
+    [me@linuxbox ~]$ date
+    Thu Oct 25 13:51:54 EDT 2007
+    
 
 一个相关联的命令，cal，它默认显示当前月份的日历。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cal
-October 2007
-Su Mo Tu We Th Fr Sa
-1 2 3 4 5 6
-7 8 9 10 11 12 13
-14 15 16 17 18 19 20
-21 22 23 24 25 26 27
-28 29 30 31</tt>
-</pre></div>
+    [me@linuxbox ~]$ cal
+    October 2007
+    Su Mo Tu We Th Fr Sa
+    1 2 3 4 5 6
+    7 8 9 10 11 12 13
+    14 15 16 17 18 19 20
+    21 22 23 24 25 26 27
+    28 29 30 31
+    
 
 查看磁盘剩余空间的数量，输入 df:
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ df
-Filesystem           1K-blocks      Used Available Use% Mounted on
-/dev/sda2             15115452   5012392   9949716  34% /
-/dev/sda5             59631908  26545424  30008432  47% /home
-/dev/sda1               147764     17370   122765   13% /boot
-tmpfs                   256856         0   256856    0% /dev/shm</tt>
-</pre></div>
+    [me@linuxbox ~]$ df
+    Filesystem           1K-blocks      Used Available Use% Mounted on
+    /dev/sda2             15115452   5012392   9949716  34% /
+    /dev/sda5             59631908  26545424  30008432  47% /home
+    /dev/sda1               147764     17370   122765   13% /boot
+    tmpfs                   256856         0   256856    0% /dev/shm
+    
 
 同样地，显示空闲内存的数量，输入命令 free。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ free
-total       used       free     shared    buffers     cached
-Mem:       2059676     846456    1213220          0
-44028      360568
--/+ buffers/cache:     441860    1617816
-Swap:      1042428          0    1042428</tt>
-</pre></div>
+    [me@linuxbox ~]$ free
+    total       used       free     shared    buffers     cached
+    Mem:       2059676     846456    1213220          0
+    44028      360568
+    -/+ buffers/cache:     441860    1617816
+    Swap:      1042428          0    1042428
+    
 
 ### 结束终端会话
 
 我们可以终止一个终端会话，通过关闭终端仿真器窗口，或者是在 shell 提示符下输入 exit 命令：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ exit</tt>
-</pre></div>
+    [me@linuxbox ~]$ exit
+    
 
 ### 幕后控制台
 

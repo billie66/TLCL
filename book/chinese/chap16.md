@@ -50,25 +50,23 @@ Linux 桌面系统的最新进展已经使存储设备管理对于桌面用户�
 有一个叫做/etc/fstab 的文件可以列出系统启动时要挂载的设备（典型地，硬盘分区）。下面是
 来自于 Fedora 7系统的/etc/fstab 文件实例：
 
-<div class="code"><pre><tt>
-LABEL=/12               /               ext3        defaults        1   1
-LABEL=/home             /home           ext3        defaults        1   2
-LABEL=/boot             /boot           ext3        defaults        1   2
-tmpfs                   /dev/shm        tmpfs       defaults        0   0
-devpts                  /dev/pts        devpts      gid=5,mode=620  0   0
-sysfs                   /sys            sysfs       defaults        0   0
-proc                    /proc           proc        defaults        0   0
-LABEL=SWAP-sda3         /swap           swap        defaults        0   0        </tt>
-</pre></div>
+    LABEL=/12               /               ext3        defaults        1   1
+    LABEL=/home             /home           ext3        defaults        1   2
+    LABEL=/boot             /boot           ext3        defaults        1   2
+    tmpfs                   /dev/shm        tmpfs       defaults        0   0
+    devpts                  /dev/pts        devpts      gid=5,mode=620  0   0
+    sysfs                   /sys            sysfs       defaults        0   0
+    proc                    /proc           proc        defaults        0   0
+    LABEL=SWAP-sda3         /swap           swap        defaults        0   0        
+    
 
 在这个实例中所列出的大多数文件系统是虚拟的，并不适用于我们的讨论。就我们的目的而言，
 前三个是我们感兴趣的：
 
-<div class="code"><pre><tt>
-LABEL=/12               /               ext3        defaults        1   1
-LABEL=/home             /home           ext3        defaults        1   2
-LABEL=/boot             /boot           ext3        defaults        1   2</tt>
-</pre></div>
+    LABEL=/12               /               ext3        defaults        1   1
+    LABEL=/home             /home           ext3        defaults        1   2
+    LABEL=/boot             /boot           ext3        defaults        1   2
+    
 
 这些是硬盘分区。每行由六个字段组成，如下所示：
 
@@ -101,22 +99,21 @@ LABEL=/boot             /boot           ext3        defaults        1   2</tt>
 这个 mount 命令被用来挂载文件系统。执行这个不带参数的命令，将会显示
 一系列当前挂载的文件系统：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ mount
-/dev/sda2 on / type ext3 (rw)
-proc on /proc type proc (rw)
-sysfs on /sys type sysfs (rw)
-devpts on /dev/pts type devpts (rw,gid=5,mode=620)
-/dev/sda5 on /home type ext3 (rw)
-/dev/sda1 on /boot type ext3 (rw)
-tmpfs on /dev/shm type tmpfs (rw)
-none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)
-sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw)
-fusectl on /sys/fs/fuse/connections type fusectl (rw)
-/dev/sdd1 on /media/disk type vfat (rw,nosuid,nodev,noatime,
-uhelper=hal,uid=500,utf8,shortname=lower)
-twin4:/musicbox on /misc/musicbox type nfs4 (rw,addr=192.168.1.4)</tt>
-</pre></div>
+    [me@linuxbox ~]$ mount
+    /dev/sda2 on / type ext3 (rw)
+    proc on /proc type proc (rw)
+    sysfs on /sys type sysfs (rw)
+    devpts on /dev/pts type devpts (rw,gid=5,mode=620)
+    /dev/sda5 on /home type ext3 (rw)
+    /dev/sda1 on /boot type ext3 (rw)
+    tmpfs on /dev/shm type tmpfs (rw)
+    none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)
+    sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw)
+    fusectl on /sys/fs/fuse/connections type fusectl (rw)
+    /dev/sdd1 on /media/disk type vfat (rw,nosuid,nodev,noatime,
+    uhelper=hal,uid=500,utf8,shortname=lower)
+    twin4:/musicbox on /misc/musicbox type nfs4 (rw,addr=192.168.1.4)
+    
 
 这个列表的格式是：设备 on 挂载点 type 文件系统类型（可选的）。例如，第一行所示设备/dev/sda2
 作为根文件系统被挂载，文件系统类型是 ext3，并且可读可写（这个“rw”选项）。在这个列表的底部有
@@ -125,34 +122,32 @@ twin4:/musicbox on /misc/musicbox type nfs4 (rw,addr=192.168.1.4)</tt>
 
 第一次实验，我们将使用一张 CD-ROM。首先，在插入 CD-ROW 之前，我们将看一下系统：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ mount
-/dev/mapper/VolGroup00-LogVol00 on / type ext3 (rw)
-proc on /proc type proc (rw)
-sysfs on /sys type sysfs (rw)
-devpts on /dev/pts type devpts (rw,gid=5,mode=620)
-/dev/hda1 on /boot type ext3 (rw)
-tmpfs on /dev/shm type tmpfs (rw)
-none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)
-sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw)</tt>
-</pre></div>
+    [me@linuxbox ~]$ mount
+    /dev/mapper/VolGroup00-LogVol00 on / type ext3 (rw)
+    proc on /proc type proc (rw)
+    sysfs on /sys type sysfs (rw)
+    devpts on /dev/pts type devpts (rw,gid=5,mode=620)
+    /dev/hda1 on /boot type ext3 (rw)
+    tmpfs on /dev/shm type tmpfs (rw)
+    none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)
+    sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw)
+    
 
 这个列表来自于 CentOS 5系统，使用 LVM（逻辑卷管理器）来创建它的根文件系统。正如许多现在的 Linux 发行版一样，这个
 系统试图自动挂载插入的 CD-ROM。当我们插入光盘后，我们看看下面的输出：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ mount
-/dev/mapper/VolGroup00-LogVol00 on / type ext3 (rw)
-proc on /proc type proc (rw)
-sysfs on /sys type sysfs (rw)
-devpts on /dev/pts type devpts (rw,gid=5,mode=620)
-/dev/hda1 on /boot type ext3 (rw)
-tmpfs on /dev/shm type tmpfs (rw)
-none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)
-sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw)
-/dev/hdc on /media/live-1.0.10-8 type iso9660 (ro,noexec,nosuid,
-nodev,uid=500)</tt>
-</pre></div>
+    [me@linuxbox ~]$ mount
+    /dev/mapper/VolGroup00-LogVol00 on / type ext3 (rw)
+    proc on /proc type proc (rw)
+    sysfs on /sys type sysfs (rw)
+    devpts on /dev/pts type devpts (rw,gid=5,mode=620)
+    /dev/hda1 on /boot type ext3 (rw)
+    tmpfs on /dev/shm type tmpfs (rw)
+    none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)
+    sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw)
+    /dev/hdc on /media/live-1.0.10-8 type iso9660 (ro,noexec,nosuid,
+    nodev,uid=500)
+    
 
 当我们插入光盘后，除了额外的一行之外，我们看到和原来一样的列表。在列表的末尾，我们
 看到 CD-ROW 已经挂载到了/media/live-1.0.10-8上，它的文件类型是 iso9660（CD-ROW）。
@@ -169,50 +164,46 @@ nodev,uid=500)</tt>
 的另一个位置。我们需要超级用户身份（使用系统相应的命令）来进行操作，并且用
 umount（注意这个命令的拼写）来卸载光盘：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ su -
-Password:
-[root@linuxbox ~]# umount /dev/hdc</tt>
-</pre></div>
+    [me@linuxbox ~]$ su -
+    Password:
+    [root@linuxbox ~]# umount /dev/hdc
+    
 
 下一步是创建一个新的光盘挂载点。简单地说，一个挂载点就是文件系统树中的一个目录。它没有
 什么特殊的。它甚至不必是一个空目录，即使你把设备挂载到了一个非空目录上，你也不能看到
 这个目录中原来的内容，直到你卸载这个设备。就我们的目的而言，我们将创建一个新目录：
 
-<div class="code"><pre>
-<tt>[root@linuxbox ~]# mkdir /mnt/cdrom</tt>
-</pre></div>
+    [root@linuxbox ~]# mkdir /mnt/cdrom
+    
 
 最后，我们把这个 CD-ROW 挂载到一个新的挂载点上。这个-t 选项用来指定文件系统类型：
 
-<div class="code"><pre>
-<tt>[root@linuxbox ~]# mount -t iso9660 /dev/hdc /mnt/cdrom</tt>
-</pre></div>
+    [root@linuxbox ~]# mount -t iso9660 /dev/hdc /mnt/cdrom
+    
 
 之后，我们可以通过这个新挂载点来查看 CD-ROW 的内容：
 
-<div class="code"><pre>
-<tt>[root@linuxbox ~]# cd /mnt/cdrom
-[root@linuxbox cdrom]# ls</tt>
-</pre></div>
+    [root@linuxbox ~]# cd /mnt/cdrom
+    [root@linuxbox cdrom]# ls
+    
 
 注意当我们试图卸载这个 CD-ROW 时，发生了什么事情。
 
-<div class="code"><pre>
-<tt>[root@linuxbox cdrom]# umount /dev/hdc
-umount: /mnt/cdrom: device is busy</tt>
-</pre></div>
+    [root@linuxbox cdrom]# umount /dev/hdc
+    umount: /mnt/cdrom: device is busy
+    
 
 这是怎么回事呢？原因是我们不能卸载一个设备，如果某个用户或进程正在使用这个设备的话。在这种
 情况下，我们把工作目录更改到了 CD-ROW 的挂载点，这个挂载点导致设备忙碌。我们可以很容易地修复这个问题
 通过把工作目录改到其它目录而不是这个挂载点。
 
-<div class="code"><pre>
-<tt>[root@linuxbox cdrom]# cd
-[root@linuxbox ~]# umount /dev/hdc</tt>
-</pre></div>
+    [root@linuxbox cdrom]# cd
+    [root@linuxbox ~]# umount /dev/hdc
+    
 
 现在这个设备成功卸载了。
+
+<div class="single">
 
 <h3>为什么卸载重要</h3>
 
@@ -235,11 +226,12 @@ umount: /mnt/cdrom: device is busy</tt>
 
 <p>这个缓存区允许非常快速地写入存储设备，因为写入物理设备的操作被延迟到后面进行。同时，
 这些注定要传送到设备中的数据正在内存中堆积起来。时不时地，操作系统会把这些数据
-写入物理设备。
+写入物理设备。</p>
 
 <p>卸载一个设备需要把所有剩余的数据写入这个设备，所以设备可以被安全地移除。如果
 没有卸载设备，就移除了它，就有可能没有把注定要发送到设备中的数据输送完毕。在某些情况下，
 这些数据可能包含重要的目录更新信息，这将导致文件系统损坏，这是发生在计算机中的最坏的事情之一。</p>
+</div>
 
 ### 确定设备名称
 
@@ -253,9 +245,8 @@ Linux 已经发展地比其祖先更加灵活。在以上事例中，我们利�
 首先，让我们看一下系统怎样来命名设备。如果我们列出目录/dev（所有设备的住所）的内容，我们
 会看到许许多多的设备：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls /dev</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls /dev
+    
 
 这个列表的内容揭示了一些设备命名的模式。这里有几个：
 
@@ -280,52 +271,49 @@ SCSI 磁盘。在最近的 Linux 系统中，内核把所有类似于磁盘的�
 下面的技巧来决定当可移动设备连接后，它是怎样被命名的。首先，启动一个实时查看文件/var/log/messages
 （你可能需要超级用户权限）：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sudo tail -f /var/log/messages</tt>
-</pre></div>
+    [me@linuxbox ~]$ sudo tail -f /var/log/messages
+    
 
 这个文件的最后几行会被显示，然后停止。下一步，插入这个可移动的设备。在
 这个例子里，我们将使用一个16MB 闪存。瞬间，内核就会发现这个设备，
 并且探测它：
 
-<div class="code"><pre>
-<tt>Jul 23 10:07:53 linuxbox kernel: usb 3-2: new full speed USB device
-using uhci_hcd and address 2
-Jul 23 10:07:53 linuxbox kernel: usb 3-2: configuration #1 chosen
-from 1 choice
-Jul 23 10:07:53 linuxbox kernel: scsi3 : SCSI emulation for USB Mass
-Storage devices
-Jul 23 10:07:58 linuxbox kernel: scsi scan: INQUIRY result too short
-(5), using 36
-Jul 23 10:07:58 linuxbox kernel: scsi 3:0:0:0: Direct-Access Easy 
-Disk 1.00 PQ: 0 ANSI: 2
-Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] 31263 512-byte
-hardware sectors (16 MB)
-Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] Write Protect is
-off
-Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] Assuming drive
-cache: write through
-Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] 31263 512-byte
-hardware sectors (16 MB)
-Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] Write Protect is
-off
-Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] Assuming drive
-cache: write through
-Jul 23 10:07:59 linuxbox kernel: sdb: sdb1
-Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] Attached SCSI
-removable disk
-Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: Attached scsi generic
-sg3 type 0</tt>
-</pre></div>
+    Jul 23 10:07:53 linuxbox kernel: usb 3-2: new full speed USB device
+    using uhci_hcd and address 2
+    Jul 23 10:07:53 linuxbox kernel: usb 3-2: configuration #1 chosen
+    from 1 choice
+    Jul 23 10:07:53 linuxbox kernel: scsi3 : SCSI emulation for USB Mass
+    Storage devices
+    Jul 23 10:07:58 linuxbox kernel: scsi scan: INQUIRY result too short
+    (5), using 36
+    Jul 23 10:07:58 linuxbox kernel: scsi 3:0:0:0: Direct-Access Easy 
+    Disk 1.00 PQ: 0 ANSI: 2
+    Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] 31263 512-byte
+    hardware sectors (16 MB)
+    Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] Write Protect is
+    off
+    Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] Assuming drive
+    cache: write through
+    Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] 31263 512-byte
+    hardware sectors (16 MB)
+    Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] Write Protect is
+    off
+    Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] Assuming drive
+    cache: write through
+    Jul 23 10:07:59 linuxbox kernel: sdb: sdb1
+    Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] Attached SCSI
+    removable disk
+    Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: Attached scsi generic
+    sg3 type 0
+    
 
 显示再次停止之后，输入 Ctrl-c，重新得到提示符。输出结果的有趣部分是一再提及“[sdb]”，
 这正好符和我们期望的 SCSI 磁盘设备名称。知道这一点后，有两行输出变得颇具启发性：
 
-<div class="code"><pre>
-<tt>Jul 23 10:07:59 linuxbox kernel: sdb: sdb1
-Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] Attached SCSI
-removable disk</tt>
-</pre></div>
+    Jul 23 10:07:59 linuxbox kernel: sdb: sdb1
+    Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] Attached SCSI
+    removable disk
+    
 
 这告诉我们这个设备名称是/dev/sdb 指整个设备，/dev/sdb1是这个设备的第一分区。
 正如我们所看到的，使用 Linux 系统充满了有趣的监测工作。
@@ -335,17 +323,16 @@ removable disk</tt>
 
 既然知道了设备名称，我们就可以挂载这个闪存驱动器了：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sudo mkdir /mnt/flash
-[me@linuxbox ~]$ sudo mount /dev/sdb1 /mnt/flash
-[me@linuxbox ~]$ df
-Filesystem      1K-blocks   Used        Available   Use%    Mounted on
-/dev/sda2       15115452    5186944     9775164     35%     /
-/dev/sda5       59631908    31777376    24776480    57%     /home
-/dev/sda1       147764      17277       122858      13%     /boot
-tmpfs           776808      0           776808      0%      /dev/shm
-/dev/sdb1       15560       0           15560       0%      /mnt/flash</tt>
-</pre></div>
+    [me@linuxbox ~]$ sudo mkdir /mnt/flash
+    [me@linuxbox ~]$ sudo mount /dev/sdb1 /mnt/flash
+    [me@linuxbox ~]$ df
+    Filesystem      1K-blocks   Used        Available   Use%    Mounted on
+    /dev/sda2       15115452    5186944     9775164     35%     /
+    /dev/sda5       59631908    31777376    24776480    57%     /home
+    /dev/sda1       147764      17277       122858      13%     /boot
+    tmpfs           776808      0           776808      0%      /dev/shm
+    /dev/sdb1       15560       0           15560       0%      /mnt/flash
+    
 
 这个设备名称会保持不变只要设备与计算机保持连接并且计算机不会重新启动。
 
@@ -365,38 +352,34 @@ tmpfs           776808      0           776808      0%      /dev/shm
 使用这个工具可以在设备上编辑，删除，和创建分区。以我们的闪存驱动器为例，
 首先我们必须卸载它（如果需要的话），然后调用 fdisk 程序，如下所示：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sudo umount /dev/sdb1
-[me@linuxbox ~]$ sudo fdisk /dev/sdb</tt>
-</pre></div>
+    [me@linuxbox ~]$ sudo umount /dev/sdb1
+    [me@linuxbox ~]$ sudo fdisk /dev/sdb
+    
 
 注意我们必须指定设备名称，就整个设备而言，而不是通过分区号。这个程序启动后，我们
 将看到以下提示：
 
-<div class="code"><pre>
-<tt>Command (m for help):</tt>
-</pre></div>
+    Command (m for help):
+    
 
 输入"m"会显示程序菜单：
 
-<div class="code"><pre>
-<tt>Command action
-a       toggle a bootable flag
-....</tt>
-</pre></div>
+    Command action
+    a       toggle a bootable flag
+    ....
+    
 
 我们想要做的第一件事情是检查已存在的分区布局。输入"p"会打印出这个设备的分区表：
 
-<div class="code"><pre>
-<tt>Command (m for help): p
-
-Disk /dev/sdb: 16 MB, 16006656 bytes
-1 heads, 31 sectors/track, 1008 cylinders
-Units = cylinders of 31 * 512 = 15872 bytes
-
-Device Boot     Start        End     Blocks   Id        System
-/dev/sdb1           2       1008      15608+   b       w95 FAT32</tt>
-</pre></div>
+    Command (m for help): p
+    
+    Disk /dev/sdb: 16 MB, 16006656 bytes
+    1 heads, 31 sectors/track, 1008 cylinders
+    Units = cylinders of 31 * 512 = 15872 bytes
+    
+    Device Boot     Start        End     Blocks   Id        System
+    /dev/sdb1           2       1008      15608+   b       w95 FAT32
+    
 
 在此例中，我们看到一个16MB 的设备只有一个分区(1)，此分区占用了可用的1008个柱面中的1006个,
 并被标识为 Windows 95 FAT32分区。有些程序会使用这个标志符来限制一些可以对磁盘所做的操作，
@@ -405,42 +388,38 @@ Device Boot     Start        End     Blocks   Id        System
 在上面列表中，我们看到 ID 号码“b”被用来指定这个已存在的分区。要查看可用的分区类型列表，
 参考之前的程序菜单。我们会看到以下选项：
 
-<div class="code"><pre>
-<tt>l   list known partition types</tt>
-</pre></div>
+    l   list known partition types
+    
 
 如果我们在提示符下输入“l”，就会显示一个很长的可能类型列表。在它们之中会看到“b”为已存在分区
 类型的 ID 号，而“83”是针对 Linux 系统的 ID 号。
 
 回到之前的菜单，看到这个选项来更改分区 ID 号：
 
-<div class="code"><pre>
-<tt>t   change a partition's system id</tt>
-</pre></div>
+    t   change a partition's system id
+    
 
 我们先输入“t”，再输入新的 ID 号：
 
-<div class="code"><pre>
-<tt>Command (m for help): t
-Selected partition 1
-Hex code (type L to list codes): 83
-Changed system type of partition 1 to 83 (Linux)</tt>
-</pre></div>
+    Command (m for help): t
+    Selected partition 1
+    Hex code (type L to list codes): 83
+    Changed system type of partition 1 to 83 (Linux)
+    
 
 这就完成了我们需要做得所有修改。到目前为止，还没有接触这个设备（所有修改都存储在内存中，
 而不是在此物理设备中），所以我们将会把修改过的分区表写入此设备，再退出。为此，我们输入
 在提示符下输入"w":
 
-<div class="code"><pre>
-<tt>Command (m for help): w
-The partition table has been altered!
-Calling ioctl() to re-read partition table.
-WARNING: If you have created or modified any DOS 6.x
-partitions, please see the fdisk manual page for additional
-information.
-Syncing disks.
-[me@linuxbox ~]$</tt>
-</pre></div>
+    Command (m for help): w
+    The partition table has been altered!
+    Calling ioctl() to re-read partition table.
+    WARNING: If you have created or modified any DOS 6.x
+    partitions, please see the fdisk manual page for additional
+    information.
+    Syncing disks.
+    [me@linuxbox ~]$
+    
 
 如果我们已经决定保持设备不变，可在提示符下输入"q"，这将退出程序而没有写更改。我们
 可以安全地忽略这些不祥的警告信息。
@@ -452,36 +431,34 @@ Syncing disks.
 在此设备上创建一个 ext3文件系统，我们使用"-t"
 选项来指定这个"ext3"系统类型，随后是我们要格式化的设备分区名称：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sudo mkfs -t ext3 /dev/sdb1
-mke2fs 1.40.2 (12-Jul-2007)
-Filesystem label=
-OS type: Linux
-Block size=1024 (log=0)
-Fragment size=1024 (log=0)
-3904 inodes, 15608 blocks
-780 blocks (5.00%) reserved for the super user
-First data block=1
-Maximum filesystem blocks=15990784
-2 block groups
-8192 blocks per group, 8192 fragments per group
-1952 inodes per group
-Superblock backups stored on blocks:
-8193
-Writing inode tables: done
-Creating journal (1024 blocks): done
-Writing superblocks and filesystem accounting information: done
-This filesystem will be automatically checked every 34 mounts or
-180 days, whichever comes first. Use tune2fs -c or -i to override.
-[me@linuxbox ~]$</tt>
-</pre></div>
+    [me@linuxbox ~]$ sudo mkfs -t ext3 /dev/sdb1
+    mke2fs 1.40.2 (12-Jul-2007)
+    Filesystem label=
+    OS type: Linux
+    Block size=1024 (log=0)
+    Fragment size=1024 (log=0)
+    3904 inodes, 15608 blocks
+    780 blocks (5.00%) reserved for the super user
+    First data block=1
+    Maximum filesystem blocks=15990784
+    2 block groups
+    8192 blocks per group, 8192 fragments per group
+    1952 inodes per group
+    Superblock backups stored on blocks:
+    8193
+    Writing inode tables: done
+    Creating journal (1024 blocks): done
+    Writing superblocks and filesystem accounting information: done
+    This filesystem will be automatically checked every 34 mounts or
+    180 days, whichever comes first. Use tune2fs -c or -i to override.
+    [me@linuxbox ~]$
+    
 
 当 ext3被选为文件系统类型时，这个程序会显示许多信息。若把这个设备重新格式化为它最初的 FAT32文件
 系统，指定"vfat"作为文件系统类型：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sudo mkfs -t vfat /dev/sdb1</tt>
-</pre></div>
+    [me@linuxbox ~]$ sudo mkfs -t vfat /dev/sdb1
+    
 
 任何时候添加额外的存储设备到系统中时，都可以使用这个分区和格式化的过程。虽然我们
 只以一个小小的闪存驱动器为例，同样的操作可以被应用到内部硬盘和其它可移动的存储设备上
@@ -501,21 +478,23 @@ check"的简写）完成。每个 fstab 项中的最后一个数字指定了设�
 
 检查我们的闪存驱动器（首先应该卸载），我们能执行下面的操作：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sudo fsck /dev/sdb1
-fsck 1.40.8 (13-Mar-2008)
-e2fsck 1.40.8 (13-Mar-2008)
-/dev/sdb1: clean, 11/3904 files, 1661/15608 blocks</tt>
-</pre></div>
+    [me@linuxbox ~]$ sudo fsck /dev/sdb1
+    fsck 1.40.8 (13-Mar-2008)
+    e2fsck 1.40.8 (13-Mar-2008)
+    /dev/sdb1: clean, 11/3904 files, 1661/15608 blocks
+    
 
 以我的经验，文件系统损坏情况相当罕见，除非硬件存在问题，如磁盘驱动器故障。
 在大多数系统中，系统启动阶段若探测到文件系统已经损坏了，则会导致系统停止下来，
 在系统继续执行之前，会指导你运行 fsck 程序。
 
+<div class="single">
 <h3>什么是 fsck?</h3>
+
 <p>在 Unix 文化中，"fsck"这个单词往往会被用来代替一个流行的词，“fsck”和这个词共享了三个
 字母。这个尤其适用，因为你可能会说出上文提到的词，若你发现自己处于这种境况下，
 被强制来运行 fsck 命令时。</p>
+</div>
 
 ### 格式化软盘
 
@@ -523,18 +502,16 @@ e2fsck 1.40.8 (13-Mar-2008)
 张可用的空白软盘要分两个步骤。首先，对这张软盘执行低级格式化，然后创建一个文件系统。
 为了完成格式化，我们使用 fdformat 程序，同时指定软盘设备名称（通常为/dev/fd0）：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sudo fdformat /dev/fd0
-Double-sided, 80 tracks, 18 sec/track. Total capacity 1440 kB.
-Formatting ... done
-Verifying ... done</tt>
-</pre></div>
+    [me@linuxbox ~]$ sudo fdformat /dev/fd0
+    Double-sided, 80 tracks, 18 sec/track. Total capacity 1440 kB.
+    Formatting ... done
+    Verifying ... done
+    
 
 接下来，通过 mkfs 命令，给这个软盘创建一个 FAT 文件系统：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sudo mkfs -t msdos /dev/fd0</tt>
-</pre></div>
+    [me@linuxbox ~]$ sudo mkfs -t msdos /dev/fd0
+    
 
 注意我们使用这个“msdos”文件系统类型来得到旧（小的）风格的文件分配表。当一个软磁盘
 被准备好之后，则可能像其它设备一样挂载它。
@@ -549,28 +526,28 @@ Verifying ... done</tt>
 这个 dd 程序能执行此任务。它可以把数据块从一个地方复制到另一个地方。它使用独特的语法（由于历史原因）
 ，经常它被这样使用：
 
-<div class="code"><pre>
-<tt><b>dd if=input_file of=output_file [bs=block_size [count=blocks]]</b></tt>
-</pre></div>
+    dd if=input_file of=output_file [bs=block_size [count=blocks]]
+    
 
 比方说我们有两个相同容量的 USB 闪存驱动器，并且要精确地把第一个驱动器（中的内容）
 复制给第二个。如果连接两个设备到计算机上，它们各自被分配到设备/dev/sdb 和
 /dev/sdc 上，这样我们就能通过下面的命令把第一个驱动器中的所有数据复制到第二个
 驱动器中。
 
-<div class="code"><pre>
-<tt><b>dd if=/dev/sdb of=/dev/sdc</b></tt>
-</pre></div>
+    dd if=/dev/sdb of=/dev/sdc
+    
 
 或者，如果只有第一个驱动器被连接到计算机上，我们可以把它的内容复制到一个普通文件中供
 以后恢复或复制数据：
 
-<div class="code"><pre>
-<tt><b>dd if=/dev/sdb of=flash_drive.img</b></tt>
-</pre></div>
+    dd if=/dev/sdb of=flash_drive.img
+    
+
+---
 
 警告！这个 dd 命令非常强大。虽然它的名字来自于“数据定义”，有时候也把它叫做“清除磁盘”
 因为用户经常会误输入 if 或 of 的规范。<b>在按下回车键之前，要再三检查输入与输出规范！</b>
+---
 
 ### 创建 CD-ROM 映像
 
@@ -584,9 +561,8 @@ Verifying ... done</tt>
 CD，用它来制作一个 iso 文件，以后我们可以用它来制作更多的拷贝。插入这张 CD 之后，确定
 它的设备名称（假定是/dev/cdrom），然后像这样来制作 iso 文件：
 
-<div class="code"><pre>
-<tt><b>dd if=/dev/cdrom of=ubuntu.iso</b></tt>
-</pre></div>
+    dd if=/dev/cdrom of=ubuntu.iso
+    
 
 这项技术也适用于 DVD 光盘，但是不能用于音频 CD，因为它们不使用文件系统来存储数据。
 对于音频 CD，看一下 cdrdao 命令。
@@ -598,18 +574,20 @@ CD，用它来制作一个 iso 文件，以后我们可以用它来制作更多�
 来创建映像文件。例如，如果我们已经创建一个叫做~/cd-rom-files 的目录，然后用文件
 填充此目录，再通过下面的命令来创建一个叫做 cd-rom.iso 映像文件：
 
-<div class="code"><pre>
-<tt><b>genisoimage -o cd-rom.iso -R -J ~/cd-rom-files</b></tt>
-</pre></div>
+    genisoimage -o cd-rom.iso -R -J ~/cd-rom-files
+    
 
 "-R"选项添加元数据为 Rock Ridge 扩展，这允许使用长文件名和 POSIX 风格的文件权限。
 同样地，这个"-J"选项使 Joliet 扩展生效，这样 Windows 中就支持长文件名了。
+
+<div class="single">
 
 <p>如果你看一下关于创建和烧写光介质如 CD-ROMs 和 DVD 的在线文档，你会经常碰到两个程序
 叫做 mkisofs 和 cdrecord。这些程序是流行软件包"cdrtools"的一部分，"cdrtools"由 Jorg Schilling
 编写成。在2006年春天，Schilling 先生更改了部分 cdrtools 软件包的协议，许多 Linux 社区的意见是，
 这创建了一个与 GNU GPL 不相兼容的协议。结果，就 fork 了这个 cdrtools 项目，
 目前新项目里面包含 cdrecord 和 mkisofs 的替代程序，分别是 wodim 和 genisoimage。</p>
+</div>
 
 ### 写入 CD-ROM 镜像
 
@@ -622,10 +600,9 @@ CD，用它来制作一个 iso 文件，以后我们可以用它来制作更多�
 当作它已经在光盘中了。添加"-o loop"选项来挂载（同时带有必需的"-t
 iso9660"文件系统类型），挂载这个映像文件就好像它是一台设备，把它连接到文件系统树上：
 
-<div class="code"><pre>
-<tt><b>mkdir /mnt/iso_image
-mount -t iso9660 -o loop image.iso /mnt/iso_image</b></tt>
-</pre></div>
+    mkdir /mnt/iso_image
+    mount -t iso9660 -o loop image.iso /mnt/iso_image
+    
 
 上面的示例中，我们创建了一个挂载点叫做/mnt/iso_image，然后把此映像文件
 image.iso 挂载到挂载点上。映像文件被挂载之后，可以把它当作，就好像它是一张
@@ -636,17 +613,15 @@ image.iso 挂载到挂载点上。映像文件被挂载之后，可以把它当�
 可重写入的 CD-RW 媒介在被重使用之前需要擦除或清空。为此，我们可以用 wodim 命令，指定
 设备名称和清空的类型。此 wodim 程序提供了几种清空类型。最小（且最快）的是"fast"类型：
 
-<div class="code"><pre>
-<tt><b>wodim dev=/dev/cdrw blank=fast</b></tt>
-</pre></div>
+    wodim dev=/dev/cdrw blank=fast
+    
 
 #### 写入镜像
 
 写入一个映像文件，我们再次使用 wodim 命令，指定光盘设备名称和映像文件名：
 
-<div class="code"><pre>
-<tt><b>wodim dev=/dev/cdrw image.iso</b></tt>
-</pre></div>
+    wodim dev=/dev/cdrw image.iso
+    
 
 除了设备名称和映像文件之外，wodim 命令还支持非常多的选项。常见的两个选项是，"-v"可详细输出，
 和"－dao"以 disk-at-once 模式写入光盘。如果你正在准备一张光盘为的是商业复制，那么应该使用这种模式。
@@ -663,21 +638,18 @@ wodim 命令的默认模式是 track-at-once，这对于录制音乐很有用。
 通常验证我们下载的 iso 映像文件的完整性很有用处。在大多数情况下，iso 映像文件的贡献者也会提供
 一个 checksum 文件。一个 checksum 是
 
-<div class="code"><pre>
-<tt><b>md5sum image.iso</b>
-34e354760f9bb7fbf85c96f6a3f94ece    image.iso</tt>
-</pre></div>
+    md5sum image.iso
+    34e354760f9bb7fbf85c96f6a3f94ece    image.iso
+    
 
 你下载映像文件之后，应该运行 md5sum 命令
 
-<div class="code"><pre>
-<tt><b>md5sum /dev/cdrom</b>
-34e354760f9bb7fbf85c96f6a3f94ece    /dev/cdrom</tt>
-</pre></div>
+    md5sum /dev/cdrom
+    34e354760f9bb7fbf85c96f6a3f94ece    /dev/cdrom
+    
 
 许多媒介类型，如 DVD 需要
 
-<div class="code"><pre>
-<tt><b>md5sum dvd-image.iso; dd if=/dev/dvd bs=2048 count=$(( $(stat -c "%s" dvd-image.iso) / 2048 )) | md5sum</b></tt>
-</pre></div>
+    md5sum dvd-image.iso; dd if=/dev/dvd bs=2048 count=$(( $(stat -c "%s" dvd-image.iso) / 2048 )) | md5sum
+    
 

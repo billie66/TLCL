@@ -187,7 +187,7 @@ Running this script results in this:
 `read`支持以下选送：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="100%">
+<table class="multi">
 <caption class="cap">Table 29-1: read Options</caption>
 <thead>
 <tr>
@@ -244,7 +244,7 @@ input.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="100%">
+<table class="multi">
 <caption class="cap">表29-1: read 选项</caption>
 <thead>
 <tr>
@@ -442,9 +442,7 @@ wonder why this rather oblique method was chosen rather than:
 
     echo "$file_info" | IFS=":" read user pw uid gid name home shell
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>You Can’t Pipe read</h3>
 <h3>你不能管道 read</h3>
 <p> While the read command normally takes input from standard input, you cannot
@@ -485,9 +483,7 @@ discussed in Chapter 37.</p>
 
 <p>使用 here 字符串是解决此问题的一种方法。另一种方法将在37章中讨论。</p>
 
-</td>
-</tr>
-</table>
+</div>
 
 ### Validating Input
 

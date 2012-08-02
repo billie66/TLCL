@@ -62,9 +62,8 @@ So far, we have used grep with fixed strings, like so:
 
 到目前为止，我们已经使用 grep 程序查找了固定的字符串，就像这样:
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls /usr/bin | grep zip </tt>
-</pre></div>
+    [me@linuxbox ~]$ ls /usr/bin | grep zip 
+    
 
 This will list all the files in the /usr/bin directory whose names contain the substring
 “zip”.
@@ -86,7 +85,7 @@ Here is a list of the commonly used grep options:
 这是一个常用的 grep 选项列表：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table20-1: grep Options </caption>
 <tr>
 <th class="title">Option</th>
@@ -133,7 +132,7 @@ be specified --no-filename. </td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表20-1: grep 选项</caption>
 <tr>
 <th class="title">选项</th>
@@ -175,25 +174,23 @@ In order to more fully explore grep, let’s create some text files to search:
 
 为了更好的探究 grep 程序，让我们创建一些文本文件来搜寻：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls /bin > dirlist-bin.txt
-[me@linuxbox ~]$ ls /usr/bin > dirlist-usr-bin.txt
-[me@linuxbox ~]$ ls /sbin > dirlist-sbin.txt
-[me@linuxbox ~]$ ls /usr/sbin > dirlist-usr-sbin.txt
-[me@linuxbox ~]$ ls dirlist\*.txt
-dirlist-bin.txt     dirlist-sbin.txt    dirlist-usr-sbin.txt
-dirlist-usr-bin.txt </tt>
-</pre></div>
+    [me@linuxbox ~]$ ls /bin > dirlist-bin.txt
+    [me@linuxbox ~]$ ls /usr/bin > dirlist-usr-bin.txt
+    [me@linuxbox ~]$ ls /sbin > dirlist-sbin.txt
+    [me@linuxbox ~]$ ls /usr/sbin > dirlist-usr-sbin.txt
+    [me@linuxbox ~]$ ls dirlist\*.txt
+    dirlist-bin.txt     dirlist-sbin.txt    dirlist-usr-sbin.txt
+    dirlist-usr-bin.txt 
+    
 
 We can perform a simple search of our list of files like this:
 
 我们能够对我们的文件列表执行简单的搜索，像这样：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ grep bzip dirlist\*.txt
-dirlist-bin.txt:bzip2
-dirlist-bin.txt:bzip2recover </tt>
-</pre></div>
+    [me@linuxbox ~]$ grep bzip dirlist\*.txt
+    dirlist-bin.txt:bzip2
+    dirlist-bin.txt:bzip2recover 
+    
 
 In this example, grep searches all of the listed files for the string bzip and finds two
 matches, both in the file dirlist-bin.txt. If we were only interested in the list of
@@ -204,22 +201,20 @@ option:
 文件 dirlist-bin.txt 中。如果我们只是对包含匹配项的文件列表，而不是对匹配项本身感兴趣
 的话，我们可以指定-l 选项：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ grep -l bzip dirlist\*.txt
-dirlist-bin.txt </tt>
-</pre></div>
+    [me@linuxbox ~]$ grep -l bzip dirlist\*.txt
+    dirlist-bin.txt 
+    
 
 Conversely, if we wanted only to see a list of the files that did not contain a match, we
 could do this:
 
 相反地，如果我们只想查看不包含匹配项的文件列表，我们可以这样操作：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ grep -L bzip dirlist\*.txt
-dirlist-sbin.txt
-dirlist-usr-bin.txt
-dirlist-usr-sbin.txt </tt>
-</pre></div>
+    [me@linuxbox ~]$ grep -L bzip dirlist\*.txt
+    dirlist-sbin.txt
+    dirlist-usr-bin.txt
+    dirlist-usr-sbin.txt 
+    
 
 ### Metacharacters And Literals
 
@@ -267,21 +262,20 @@ in that character position. Here’s an example:
 我们将要查看的第一个院字符是圆点字符，其被用来匹配任意字符。如果我们在正则表达式中包含它，
 它将会匹配在此位置的任意一个字符。这里有个例子：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ grep -h '.zip' dirlist\*.txt
-bunzip2
-bzip2
-bzip2recover
-gunzip
-gzip
-funzip
-gpg-zip
-preunzip
-prezip
-prezip-bin
-unzip
-unzipsfx </tt>
-</pre></div>
+    [me@linuxbox ~]$ grep -h '.zip' dirlist\*.txt
+    bunzip2
+    bzip2
+    bzip2recover
+    gunzip
+    gzip
+    funzip
+    gpg-zip
+    preunzip
+    prezip
+    prezip-bin
+    unzip
+    unzipsfx 
+    
 
 We searched for any line in our files that matches the regular expression “.zip”. There are
 a couple of interesting things to note about the results. Notice that the zip program was
@@ -306,26 +300,25 @@ the beginning of the line or at the end of the line:
 在正则表达式中，插入符号和美元符号被看作是锚（定位点）。这意味着正则表达式
 只有在文本行的开头或末尾被找到时，才算发生一次匹配。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ grep -h '^zip' dirlist\*.txt
-zip
-zipcloak
-zipgrep
-zipinfo
-zipnote
-zipsplit
-[me@linuxbox ~]$ grep -h 'zip$' dirlist\*.txt
-gunzip
-gzip
-funzip
-gpg-zip
-preunzip
-prezip
-unzip
-zip
-[me@linuxbox ~]$ grep -h '^zip$' dirlist\*.txt
-zip </tt>
-</pre></div>
+    [me@linuxbox ~]$ grep -h '^zip' dirlist\*.txt
+    zip
+    zipcloak
+    zipgrep
+    zipinfo
+    zipnote
+    zipsplit
+    [me@linuxbox ~]$ grep -h 'zip$' dirlist\*.txt
+    gunzip
+    gzip
+    funzip
+    gpg-zip
+    preunzip
+    prezip
+    unzip
+    zip
+    [me@linuxbox ~]$ grep -h '^zip$' dirlist\*.txt
+    zip 
+    
 
 Here we searched the list of files for the string “zip” located at the beginning of the line,
 the end of the line, and on a line where it is at both the beginning and the end of the line
@@ -335,9 +328,7 @@ with nothing in between) will match blank lines.
 这里我们分别在文件列表中搜索行首，行尾以及行首和行尾同时包含字符串“zip”（例如，zip 独占一行）的匹配行。
 注意正则表达式‘^$’（行首和行尾之间没有字符）会匹配空行。
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>A Crossword Puzzle Helper </h3>
 
 <h3>字谜助手 </h3>
@@ -372,9 +363,7 @@ are five letters long and have a “j” in the third position and an “r” in
 position.</p>
 <p>使用这个正则表达式，我们能在我们的字典文件中查找到包含五个字母，且第三个字母
 是“j”，最后一个字母是“r”的所有单词。</p>
-</td>
-</tr>
-</table>
+</div>
 
 ### Bracket Expressions And Character Classes
 
@@ -390,12 +379,11 @@ example, using a two character set:
 我们也能够从一个指定的字符集合中匹配一个单个的字符。通过中括号表达式，我们能够指定
 一个字符集合（包含在不加中括号的情况下会被解释为元字符的字符）来被匹配。在这个例子里，使用了一个两个字符的集合：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ grep -h '[bg]zip' dirlist\*.txt
-bzip2
-bzip2recover
-gzip </tt>
-</pre></div>
+    [me@linuxbox ~]$ grep -h '[bg]zip' dirlist\*.txt
+    bzip2
+    bzip2recover
+    gzip 
+    
 
 we match any line that contains the string “bzip” or “gzip”.
 
@@ -420,18 +408,17 @@ do this by modifying our previous example:
 如果在正则表示式中的第一个字符是一个插入字符，则剩余的字符被看作是不会在给定的字符位置出现的
 字符集合。通过修改之前的例子，我们试验一下：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ grep -h '[^bg]zip' dirlist\*.txt
-bunzip2
-gunzip
-funzip
-gpg-zip
-preunzip
-prezip
-prezip-bin
-unzip
-unzipsfx </tt>
-</pre></div>
+    [me@linuxbox ~]$ grep -h '[^bg]zip' dirlist\*.txt
+    bunzip2
+    gunzip
+    funzip
+    gpg-zip
+    preunzip
+    prezip
+    prezip-bin
+    unzip
+    unzipsfx 
+    
 
 With negation activated, we get a list of files that contain the string “zip” preceded by any
 character except “b” or “g”. Notice that the file zip was not found. A negated character
@@ -459,29 +446,27 @@ beginning with an upper case letter, we could do this:
 如果我们想要构建一个正则表达式，它可以在我们的列表中找到每个以大写字母开头的文件，我们
 可以这样做：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ grep -h '^[ABCDEFGHIJKLMNOPQRSTUVWXZY]' dirlist\*.txt </tt>
-</pre></div>
+    [me@linuxbox ~]$ grep -h '^[ABCDEFGHIJKLMNOPQRSTUVWXZY]' dirlist\*.txt 
+    
 
 It’s just a matter of putting all twenty-six upper case letters in a bracket expression. But
 the idea of all that typing is deeply troubling, so there is another way:
 
 这只是一个在正则表达式中输入26个大写字母的问题。但是输入所有字母非常令人烦恼，所以有另外一种方式：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ grep -h '^[A-Z]' dirlist\*.txt
-MAKEDEV
-ControlPanel
-GET
-HEAD
-POST
-X
-X11
-Xorg
-MAKEFLOPPIES
-NetworkManager
-NetworkManagerDispatcher </tt>
-</pre></div>
+    [me@linuxbox ~]$ grep -h '^[A-Z]' dirlist\*.txt
+    MAKEDEV
+    ControlPanel
+    GET
+    HEAD
+    POST
+    X
+    X11
+    Xorg
+    MAKEFLOPPIES
+    NetworkManager
+    NetworkManagerDispatcher 
+    
 
 By using a three character range, we can abbreviate the twenty-six letters. Any range of
 characters can be expressed this way including multiple ranges, such as this expression
@@ -490,9 +475,8 @@ that matches all filenames starting with letters and numbers:
 通过使用一个三字符区域，我们能够缩写26个字母。任意字符的区域都能按照这种方式表达，包括多个区域，
 比如下面这个表达式就匹配了所有以字母和数字开头的文件名：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ grep -h '^[A-Za-z0-9]' dirlist\*.txt </tt>
-</pre></div>
+    [me@linuxbox ~]$ grep -h '^[A-Za-z0-9]' dirlist\*.txt 
+    
 
 In character ranges, we see that the dash character is treated specially, so how do we
 actually include a dash character in a bracket expression? By making it the first character
@@ -501,17 +485,15 @@ in the expression. Consider these two examples:
 在字符区域中，我们看到这个连字符被特殊对待，所以我们怎样在一个正则表达式中包含一个连字符呢？
 方法就是使连字符成为表达式中的第一个字符。考虑一下这两个例子：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ grep -h '[A-Z]' dirlist\*.txt </tt>
-</pre></div>
+    [me@linuxbox ~]$ grep -h '[A-Z]' dirlist\*.txt 
+    
 
 This will match every filename containing an upper case letter. While:
 
 这会匹配包含一个大写字母的文件名。然而：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ grep -h '[-AZ]' dirlist\*.txt </tt>
-</pre></div>
+    [me@linuxbox ~]$ grep -h '[-AZ]' dirlist\*.txt 
+    
 
 will match every filename containing a dash, or a upper case “A” or an uppercase “Z”.
 
@@ -537,12 +519,11 @@ identical to the way they are used in regular expressions, but here’s the prob
 回到第5章，我们看看通配符怎样被用来完成路径名展开操作。在那次讨论中，我们说过在
 某种程度上，那个字符区域被使用的方式几乎与在正则表达式中的用法一样，但是有一个问题：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls /usr/sbin/[ABCDEFGHIJKLMNOPQRSTUVWXYZ]\*
-/usr/sbin/MAKEFLOPPIES
-/usr/sbin/NetworkManagerDispatcher
-/usr/sbin/NetworkManager</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls /usr/sbin/[ABCDEFGHIJKLMNOPQRSTUVWXYZ]\*
+    /usr/sbin/MAKEFLOPPIES
+    /usr/sbin/NetworkManagerDispatcher
+    /usr/sbin/NetworkManager
+    
 
 (Depending on the Linux distribution, we will get a different list of files, possibly an
 empty list. This example is from Ubuntu) This command produces the expected result 
@@ -551,17 +532,16 @@ empty list. This example is from Ubuntu) This command produces the expected resu
 （依赖于不同的 Linux 发行版，我们将得到不同的文件列表，有可能是一个空列表。这个例子来自于 Ubuntu）
 这个命令产生了期望的结果——只有以大写字母开头的文件名，但是：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls /usr/sbin/[A-Z]\*
-/usr/sbin/biosdecode
-/usr/sbin/chat
-/usr/sbin/chgpasswd
-/usr/sbin/chpasswd
-/usr/sbin/chroot
-/usr/sbin/cleanup-info
-/usr/sbin/complain
-/usr/sbin/console-kit-daemon</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls /usr/sbin/[A-Z]\*
+    /usr/sbin/biosdecode
+    /usr/sbin/chat
+    /usr/sbin/chgpasswd
+    /usr/sbin/chpasswd
+    /usr/sbin/chroot
+    /usr/sbin/cleanup-info
+    /usr/sbin/complain
+    /usr/sbin/console-kit-daemon
+    
 
 with this command we get an entirely different result (only a partial listing of the results
 is shown). Why is that? It’s a long story, but here’s the short version:
@@ -607,10 +587,9 @@ the language setting of our system using this command:
 为了支持这种能力，POSIX 标准介绍了一种叫做 locale 的概念，其可以被调整，来为某个特殊的区域，
 选择所需的字符集。通过使用下面这个命令，我们能够查看到我们系统的语言设置：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo $LANG
-en\_US.UTF-8 </tt>
-</pre></div>
+    [me@linuxbox ~]$ echo $LANG
+    en\_US.UTF-8 
+    
 
 With this setting, POSIX compliant applications will use a dictionary collation order
 rather than ASCII order. This explains the behavior of the commands above. A character
@@ -628,7 +607,7 @@ table below:
 下表中描述了它们：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 20-2: POSIX Character Classes </caption>
 <tr>
 <th class="title">Character Class </th>
@@ -696,7 +675,7 @@ equivalent to: [0-9A-Fa-f] </td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表20-2: POSIX 字符集 </caption>
 <tr>
 <th class="title">字符集</th>
@@ -767,12 +746,11 @@ Using character classes, we can repeat our directory listing and see an improved
 
 通过使用字符集，我们重做上述的例题，看到一个改进的结果：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls /usr/sbin/[[:upper:]]\*
-/usr/sbin/MAKEFLOPPIES
-/usr/sbin/NetworkManagerDispatcher
-/usr/sbin/NetworkManager </tt>
-</pre></div>
+    [me@linuxbox ~]$ ls /usr/sbin/[[:upper:]]\*
+    /usr/sbin/MAKEFLOPPIES
+    /usr/sbin/NetworkManagerDispatcher
+    /usr/sbin/NetworkManager 
+    
 
 Remember, however, that this is not an example of a regular expression, rather it is the
 shell performing pathname expansion. We show it here because POSIX character classes
@@ -781,9 +759,7 @@ can be used for both.
 记住，然而，这不是一个正则表达式的例子，而是 shell 正在执行路径名展开操作。我们在这里展示这个例子，
 是因为 POSIX 规范的字符集适用于二者。
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>Reverting To Traditional Collation Order </h3>
 <h3>恢复到传统的排列顺序</h3>
 <p>You can opt to have your system use the traditional (ASCII) collation order by
@@ -828,9 +804,7 @@ file:</p>
 是否是你真正想要的效果。通过把这条语句添加到你的.bashrc 文件中，你可以使这个更改永久有效。</p>
 
 <p>export LANG=POSIX </p>
-</td>
-</tr>
-</table>
+</div>
 
 ### POSIX Basic Vs. Extended Regular Expressions
 
@@ -877,9 +851,7 @@ option is used.
 因为我们将要讨论的下一个特性是 ERE 的一部分，我们将要使用一个不同的 grep 程序。照惯例，
 一直由 egrep 程序来执行这项操作，但是 GUN 版本的 grep 程序也支持扩展的正则表达式，当使用了-E 选项之后。
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>POSIX </h3>
 <p> During the 1980’s, Unix became a very popular commercial operating system, but
 by 1988, the Unix world was in turmoil. Many computer manufacturers had
@@ -914,9 +886,7 @@ Stallman), and was adopted by the IEEE.  </p>
 1003，定义了应用程序编程接口（APIs），shell 和一些实用程序，其将会在标准的类似于 Unix
 操作系统中找到。“POSIX”这个名字，象征着可移植的操作系统接口（为了额外的，添加末尾的“X”），
 是由 Richard Stallman 建议的（是的，的确是 Richard Stallman），后来被 IEEE 采纳。</p>
-</td>
-</tr>
-</table>
+</div>
 
 ### Alternation
 
@@ -932,12 +902,11 @@ string match:
 alternation 允许从一系列字符串或者是其它的正则表达式中选择匹配项。为了说明问题，
 我们将会结合 echo 程序来使用 grep 命令。首先，让我们试一个普通的字符串匹配：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "AAA" | grep AAA
-AAA
-[me@linuxbox ~]$ echo "BBB" | grep AAA
-[me@linuxbox ~]$ </tt>
-</pre></div>
+    [me@linuxbox ~]$ echo "AAA" | grep AAA
+    AAA
+    [me@linuxbox ~]$ echo "BBB" | grep AAA
+    [me@linuxbox ~]$ 
+    
 
 A pretty straightforward example, in which we pipe the output of echo into grep and
 see the results. When a match occurs, we see it printed out; when no match occurs, we
@@ -950,14 +919,13 @@ Now we’ll add alternation, signified by the vertical bar metacharacter:
 
 现在我们将添加 alternation，以竖杠线元字符为标记：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "AAA" | grep -E 'AAA|BBB'
-AAA
-[me@linuxbox ~]$ echo "BBB" | grep -E 'AAA|BBB'
-BBB
-[me@linuxbox ~]$ echo "CCC" | grep -E 'AAA|BBB'
-[me@linuxbox ~]$</tt>
-</pre></div>
+    [me@linuxbox ~]$ echo "AAA" | grep -E 'AAA|BBB'
+    AAA
+    [me@linuxbox ~]$ echo "BBB" | grep -E 'AAA|BBB'
+    BBB
+    [me@linuxbox ~]$ echo "CCC" | grep -E 'AAA|BBB'
+    [me@linuxbox ~]$
+    
 
 Here we see the regular expression 'AAA|BBB' which means “match either the string
 AAA or the string BBB.” Notice that since this is an extended feature, we added the -E
@@ -970,19 +938,17 @@ vertical bar metacharacter as a pipe operator. Alternation is not limited to two
 把这个正则表达式用单引号引起来，为的是阻止 shell 把竖杠线元字符解释为一个 pipe 操作符。
 Alternation 并不局限于两种选择：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "AAA" | grep -E 'AAA|BBB|CCC'
-AAA </tt>
-</pre></div>
+    [me@linuxbox ~]$ echo "AAA" | grep -E 'AAA|BBB|CCC'
+    AAA 
+    
 
 To combine alternation with other regular expression elements, we can use () to separate
 the alternation:
 
 为了把 alternation 和其它正则表达式元素结合起来，我们可以使用()来分离 alternation。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ grep -Eh '^(bz|gz|zip)' dirlist\*.txt </tt>
-</pre></div>
+    [me@linuxbox ~]$ grep -Eh '^(bz|gz|zip)' dirlist\*.txt 
+    
 
 This expression will match the filenames in our lists that start with either “bz”, “gz”, or
 “zip”. Had we left off the parentheses, the meaning of this regular expression :
@@ -990,9 +956,8 @@ This expression will match the filenames in our lists that start with either “
 这个表达式将会在我们的列表中匹配以“bz”，或“gz”，或“zip”开头的文件名。如果我们删除了圆括号，
 这个表达式的意思：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ grep -Eh '^bz|gz|zip' dirlist\*.txt </tt>
-</pre></div>
+    [me@linuxbox ~]$ grep -Eh '^bz|gz|zip' dirlist\*.txt 
+    
 
 changes to match any filename that begins with “bz” or contains “gz” or contains “zip”.
 
@@ -1040,17 +1005,16 @@ Let’s try it:
 
 让我们试一下：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "(555) 123-4567" | grep -E '^\(?[0-9][0-9][0-9]
-\)? [0-9][0-9][0-9]$'
-(555) 123-4567
-[me@linuxbox ~]$ echo "555 123-4567" | grep -E '^\(?[0-9][0-9][0-9]\)
-? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'
-555 123-4567
-[me@linuxbox ~]$ echo "AAA 123-4567" | grep -E '^\(?[0-9][0-9][0-9]\)
-? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'
-[me@linuxbox ~]$ </tt>
-</pre></div>
+    [me@linuxbox ~]$ echo "(555) 123-4567" | grep -E '^\(?[0-9][0-9][0-9]
+    \)? [0-9][0-9][0-9]$'
+    (555) 123-4567
+    [me@linuxbox ~]$ echo "555 123-4567" | grep -E '^\(?[0-9][0-9][0-9]\)
+    ? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'
+    555 123-4567
+    [me@linuxbox ~]$ echo "AAA 123-4567" | grep -E '^\(?[0-9][0-9][0-9]\)
+    ? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'
+    [me@linuxbox ~]$ 
+    
 
 Here we see that the expression matches both forms of the phone number, but does not
 match one containing non-numeric characters.
@@ -1083,14 +1047,13 @@ match:
 两个字符集以及一个空格的中括号表达式，和一个被反斜杠字符转义过的圆点。第二个元素末尾带有一个
 \*元字符，所以在开头的大写字母之后，可能会跟随着任意数目的大写和小写字母和空格，并且匹配：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "This works." | grep -E '[[:upper:]][[:upper:][ :lower:] ]\*\.'
-This works.
-[me@linuxbox ~]$ echo "This Works." | grep -E '[[:upper:]][[:upper:][ :lower:] ]\*\.'
-This Works.
-[me@linuxbox ~]$ echo "this does not" | grep -E '[[:upper:]][[:upper: ][:lower:] ]\*\.'
-[me@linuxbox ~]$ </tt>
-</pre></div>
+    [me@linuxbox ~]$ echo "This works." | grep -E '[[:upper:]][[:upper:][ :lower:] ]\*\.'
+    This works.
+    [me@linuxbox ~]$ echo "This Works." | grep -E '[[:upper:]][[:upper:][ :lower:] ]\*\.'
+    This Works.
+    [me@linuxbox ~]$ echo "this does not" | grep -E '[[:upper:]][[:upper: ][:lower:] ]\*\.'
+    [me@linuxbox ~]$ 
+    
 
 The expression matches the first two tests, but not the third, since it lacks the required
 leading uppercase character and trailing period.
@@ -1110,15 +1073,14 @@ lines consisting of groups of one or more alphabetic characters separated by sin
 
 <p>^([[:alpha:]]+ ?)+$</p>
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "This that" | grep -E '^([[:alpha:]]+ ?)+$'
-This that
-[me@linuxbox ~]$ echo "a b c" | grep -E '^([[:alpha:]]+ ?)+$'
-a b c
-[me@linuxbox ~]$ echo "a b 9" | grep -E '^([[:alpha:]]+ ?)+$'
-[me@linuxbox ~]$ echo "abc  d" | grep -E '^([[:alpha:]]+ ?)+$'
-[me@linuxbox ~]$ </tt>
-</pre></div>
+    [me@linuxbox ~]$ echo "This that" | grep -E '^([[:alpha:]]+ ?)+$'
+    This that
+    [me@linuxbox ~]$ echo "a b c" | grep -E '^([[:alpha:]]+ ?)+$'
+    a b c
+    [me@linuxbox ~]$ echo "a b 9" | grep -E '^([[:alpha:]]+ ?)+$'
+    [me@linuxbox ~]$ echo "abc  d" | grep -E '^([[:alpha:]]+ ?)+$'
+    [me@linuxbox ~]$ 
+    
 
 We see that this expression does not match the line “a b 9” because it contains a non-
 alphabetic character; nor does it match “abc  d” because more than one space character
@@ -1137,7 +1099,7 @@ required matches. They may be specified in four possible ways:
 {和}元字符都被用来表达要求匹配的最小和最大数目。它们可以通过四种方法来指定：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 20-3: Specifying The Number Of Matches </caption>
 <tr>
 <th class="title">Specifier </th>
@@ -1164,7 +1126,7 @@ more than m times.  </td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表20-3: 指定匹配的数目 </caption>
 <tr>
 <th class="title">限定符</th>
@@ -1204,14 +1166,13 @@ Let’s try it:
 
 让我们试一下：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo "(555) 123-4567" | grep -E '^\(?[0-9]{3}\)? [0- 9]{3}-[0-9]{4}$'
-(555) 123-4567
-[me@linuxbox ~]$ echo "555 123-4567" | grep -E '^\(?[0-9]{3}\)? [0-9] {3}-[0-9]{4}$'
-555 123-4567
-[me@linuxbox ~]$ echo "5555 123-4567" | grep -E '^\(?[0-9]{3}\)? [0-9 ]{3}-[0-9]{4}$'
-[me@linuxbox ~]$ </tt>
-</pre></div>
+    [me@linuxbox ~]$ echo "(555) 123-4567" | grep -E '^\(?[0-9]{3}\)? [0- 9]{3}-[0-9]{4}$'
+    (555) 123-4567
+    [me@linuxbox ~]$ echo "555 123-4567" | grep -E '^\(?[0-9]{3}\)? [0-9] {3}-[0-9]{4}$'
+    555 123-4567
+    [me@linuxbox ~]$ echo "5555 123-4567" | grep -E '^\(?[0-9]{3}\)? [0-9 ]{3}-[0-9]{4}$'
+    [me@linuxbox ~]$ 
+    
 
 As we can see, our revised expression can successfully validate numbers both with and
 without the parentheses, while rejecting those numbers that are not properly formatted.
@@ -1243,10 +1204,9 @@ not. We will get there in future chapters. Here is the incantation:
 它会很神奇，因为我们还没有涵盖所涉及的大部分命令，但是不要担心。我们将在后面的章节里面
 讨论那些命令。这是咒语：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ for i in {1..10}; do echo "(${RANDOM:0:3}) ${RANDO
-M:0:3}-${RANDOM:0:4}" &gt;&gt; phonelist.txt; done </tt>
-</pre></div>
+    [me@linuxbox ~]$ for i in {1..10}; do echo "(${RANDOM:0:3}) ${RANDO
+    M:0:3}-${RANDOM:0:4}" >> phonelist.txt; done 
+    
 
 This command will produce a file named phonelist.txt containing ten phone
 numbers. Each time the command is repeated, another ten numbers are added to the list.
@@ -1258,19 +1218,18 @@ problem:
 另外10个号码会被添加到这个列表中。我们也能够更改命令开头附近的数值10，来生成或多或少的
 电话号码。如果我们查看这个文件的内容，然而我们会发现一个问题：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat phonelist.txt
-(232) 298-2265
-(624) 381-1078
-(540) 126-1980
-(874) 163-2885
-(286) 254-2860
-(292) 108-518
-(129) 44-1379
-(458) 273-1642
-(686) 299-8268
-(198) 307-2440 </tt>
-</pre></div>
+    [me@linuxbox ~]$ cat phonelist.txt
+    (232) 298-2265
+    (624) 381-1078
+    (540) 126-1980
+    (874) 163-2885
+    (286) 254-2860
+    (292) 108-518
+    (129) 44-1379
+    (458) 273-1642
+    (686) 299-8268
+    (198) 307-2440 
+    
 
 Some of the numbers are malformed, which is perfect for our purposes, since we will use
 grep to validate them.
@@ -1282,13 +1241,12 @@ the resulting list on the display:
 
 一个有用的验证方法是扫描这个文件，查找无效的号码，并把搜索结果显示到屏幕上：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ grep -Ev '^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$'
-phonelist.txt
-(292) 108-518
-(129) 44-1379
-[me@linuxbox ~]$ </tt>
-</pre></div>
+    [me@linuxbox ~]$ grep -Ev '^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$'
+    phonelist.txt
+    (292) 108-518
+    (129) 44-1379
+    [me@linuxbox ~]$ 
+    
 
 Here we use the -v option to produce an inverse match so that we will only output the
 lines in the list that do not match the specified expression. The expression itself includes
@@ -1323,9 +1281,8 @@ offensive characters:
 
 这样一种扫描会发现包含空格和其它潜在不规范字符的路径名：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ find . -regex \'.\*[^-\_./0-9a-zA-Z].\*\'</tt>
-</pre></div>
+    [me@linuxbox ~]$ find . -regex \'.\*[^-\_./0-9a-zA-Z].\*\'
+    
 
 Due to the requirement for an exact match of the entire pathname, we use .\* at both ends
 of the expression to match zero or more instances of any character. In the middle of the
@@ -1346,28 +1303,27 @@ operations that we performed earlier with our dirlist files:
 这个 locate 程序支持基本的（--regexp 选项）和扩展的（--regex 选项）正则表达式。通过
 locate 命令，我们能够执行许多与先前操作 dirlist 文件时相同的操作：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ locate --regex 'bin/(bz|gz|zip)'
-/bin/bzcat
-/bin/bzcmp
-/bin/bzdiff
-/bin/bzegrep
-/bin/bzexe
-/bin/bzfgrep
-/bin/bzgrep
-/bin/bzip2
-/bin/bzip2recover
-/bin/bzless
-/bin/bzmore
-/bin/gzexe
-/bin/gzip
-/usr/bin/zip
-/usr/bin/zipcloak
-/usr/bin/zipgrep
-/usr/bin/zipinfo
-/usr/bin/zipnote
-/usr/bin/zipsplit </tt>
-</pre></div>
+    [me@linuxbox ~]$ locate --regex 'bin/(bz|gz|zip)'
+    /bin/bzcat
+    /bin/bzcmp
+    /bin/bzdiff
+    /bin/bzegrep
+    /bin/bzexe
+    /bin/bzfgrep
+    /bin/bzgrep
+    /bin/bzip2
+    /bin/bzip2recover
+    /bin/bzless
+    /bin/bzmore
+    /bin/gzexe
+    /bin/gzip
+    /usr/bin/zip
+    /usr/bin/zipcloak
+    /usr/bin/zipgrep
+    /usr/bin/zipinfo
+    /usr/bin/zipnote
+    /usr/bin/zipsplit 
+    
 
 Using alternation, we perform a search for pathnames that contain either bin/bz, bin/gz, or /bin/zip.
 
@@ -1384,51 +1340,48 @@ phonelist.txt file:
 less 和 vim 两者享有相同的文本查找方法。按下/按键，然后输入正则表达式，来执行搜索任务。
 如果我们使用 less 程序来浏览我们的 phonelist.txt 文件：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ less phonelist.txt </tt>
-</pre></div>
+    [me@linuxbox ~]$ less phonelist.txt 
+    
 
 Then search for our validation expression:
 
 然后查找我们有效的表达式：
 
-<div class="code"><pre>
-<tt>(232) 298-2265
-(624) 381-1078
-(540) 126-1980
-(874) 163-2885
-(286) 254-2860
-(292) 108-518
-(129) 44-1379
-(458) 273-1642
-(686) 299-8268
-(198) 307-2440
-~
-~
-~
-/^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$ </tt>
-</pre></div>
+    (232) 298-2265
+    (624) 381-1078
+    (540) 126-1980
+    (874) 163-2885
+    (286) 254-2860
+    (292) 108-518
+    (129) 44-1379
+    (458) 273-1642
+    (686) 299-8268
+    (198) 307-2440
+    ~
+    ~
+    ~
+    /^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$ 
+    
 
 less will highlight the strings that match, leaving the invalid ones easy to spot:
 
 less 将会高亮匹配到的字符串，这样就很容易看到无效的电话号码：
 
-<div class="code"><pre>
-<tt><b>(232) 298-2265
-(624) 381-1078
-(540) 126-1980
-(874) 163-2885
-(286) 254-2860</b>
-(292) 108-518
-(129) 44-1379
-<b>(458) 273-1642
-(686) 299-8268
-(198) 307-2440</b>
-~
-~
-~
-<b>(END)</b> </tt>
-</pre></div>
+    (232) 298-2265
+    (624) 381-1078
+    (540) 126-1980
+    (874) 163-2885
+    (286) 254-2860
+    (292) 108-518
+    (129) 44-1379
+    (458) 273-1642
+    (686) 299-8268
+    (198) 307-2440
+    ~
+    ~
+    ~
+    (END) 
+    
 
 vim, on the other hand, supports basic regular expressions, so our search expression
 would look like this:
@@ -1477,10 +1430,9 @@ them. We can do that by searching the man pages:
 在这章中，我们已经看到几个使用正则表达式例子。如果我们使用正则表达式来搜索那些使用正则表达式的应用程序，
 我们可以找到更多的使用实例。通过查找手册页，我们就能找到：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cd /usr/share/man/man1
-[me@linuxbox man1]$ zgrep -El 'regex|regular expression' \*.gz </tt>
-</pre></div>
+    [me@linuxbox ~]$ cd /usr/share/man/man1
+    [me@linuxbox man1]$ zgrep -El 'regex|regular expression' \*.gz 
+    
 
 The zgrep program provides a front end for grep, allowing it to read compressed files.
 In our example, we search the compressed section one man page files located in their

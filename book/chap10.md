@@ -71,12 +71,11 @@ problem when trying to examine a file such as /etc/shadow:
 
 在第四章探究文件系统时，当我们试图查看一个像/etc/shadow 那样的文件的时候，我们会遇到一个问题。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ file /etc/shadow
-/etc/shadow:  regular file, no read permission
-[me@linuxbox ~]$ less /etc/shadow
-/etc/shadow:  Permission denied</tt>
-</pre></div>
+    [me@linuxbox ~]$ file /etc/shadow
+    /etc/shadow:  regular file, no read permission
+    [me@linuxbox ~]$ less /etc/shadow
+    /etc/shadow:  Permission denied
+    
 
 The reason for this error message is that, as regular users, we do not have permission to
 read this file.
@@ -96,10 +95,9 @@ information about your identity, use the id command:
 对一个用户组授予权限之外，文件所有者可能会给每个人一些权限，在 Unix 术语中，每个人
 是指整个世界。可以用 id 命令，来找到关于你自己身份的信息：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ id
-uid=500(me) gid=500(me) groups=500(me)</tt>
-</pre></div>
+    [me@linuxbox ~]$ id
+    uid=500(me) gid=500(me) groups=500(me)
+    
 
 Let's look at the output. When user accounts are created, users are assigned a number
 called a user ID or uid which is then, for the sake of the humans, mapped to a user name.
@@ -112,12 +110,11 @@ may look a little different:
 分配一个原始的组 ID 或者是 gid，这个 gid 可能属于另外的组。上面的例子来自于 Fedora 系统，
 比方说 Ubuntu 的输出结果可能看起来有点儿不同：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ id
-uid=1000(me) gid=1000(me)
-groups=4(adm),20(dialout),24(cdrom),25(floppy),29(audio),30(dip),44(v
-ideo),46(plugdev),108(lpadmin),114(admin),1000(me)</tt>
-</pre></div>
+    [me@linuxbox ~]$ id
+    uid=1000(me) gid=1000(me)
+    groups=4(adm),20(dialout),24(cdrom),25(floppy),29(audio),30(dip),44(v
+    ideo),46(plugdev),108(lpadmin),114(admin),1000(me)
+    
 
 As we can see, the uid and gid numbers are different. This is simply because Fedora
 starts its numbering of regular user accounts at 500, while Ubuntu starts at 1000. We can
@@ -168,11 +165,10 @@ to how this is implemented:
 对于文件和目录的访问权力是根据读访问，写访问，和执行访问来定义的。如果我们看一下 ls
 命令的输出结果，我们能得到一些线索，这是怎样实现的：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ > foo.txt
-[me@linuxbox ~]$ ls -l foo.txt
--rw-rw-r-- 1 me   me   0 2008-03-06 14:52 foo.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ > foo.txt
+    [me@linuxbox ~]$ ls -l foo.txt
+    -rw-rw-r-- 1 me   me   0 2008-03-06 14:52 foo.txt
+    
 
 The first ten characters of the listing are the file attributes. The first of these characters is
 the file type. Here are the file types you are most likely to see (there are other, less
@@ -182,7 +178,7 @@ common types too):
 的文件类型（还有其它的，不常见类型）：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 10-1: File Types &nbsp; 文件类型</caption>
 <tr>
 <th class="title" width="15%">Attribute &nbsp; 属性</th>
@@ -247,9 +243,7 @@ first.
 能更改文件或目录的模式。chmod 命令支持两种不同的方法来改变文件模式：八进制数字表示法，或
 符号表示法。首先我们讨论一下八进制数字表示法。
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 
 <h3>What The Heck Is Octal?</h3>
 
@@ -320,9 +314,7 @@ octal, but as we shall soon see, octal's ability to express three bits of binary
 be very useful...</p>
 <p>现在，十六进制表示法（经常叫做“hex”）比八进制更普遍，但是我们很快会看到，用八进制
 来表示3个二进制数非常有用处...</p>
-</td>
-</tr>
-</table>
+</div>
 
 With octal notation we use octal numbers to set the pattern of desired permissions. Since
 each digit in an octal number represents three binary digits, this maps nicely to the
@@ -333,7 +325,7 @@ scheme used to store the file mode. This table shows what we mean:
 我们所要表达的意思：
 
 <center>
-<table class="multi" cellpadding="10" border="1" width="%60">
+<table class="multi">
 <tr>
 <th class="title">Octal</th>
 <th class="title">Binary</th>
@@ -387,14 +379,13 @@ world:
 
 通过使用3个八进制数字，我们能够设置文件所有者，用户组，和其他人的权限：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ > foo.txt
-[me@linuxbox ~]$ ls -l foo.txt
--rw-rw-r-- 1 me    me    0  2008-03-06 14:52 foo.txt
-[me@linuxbox ~]$ chmod 600 foo.txt
-[me@linuxbox ~]$ ls -l foo.txt
--rw------- 1 me    me    0  2008-03-06 14:52 foo.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ > foo.txt
+    [me@linuxbox ~]$ ls -l foo.txt
+    -rw-rw-r-- 1 me    me    0  2008-03-06 14:52 foo.txt
+    [me@linuxbox ~]$ chmod 600 foo.txt
+    [me@linuxbox ~]$ ls -l foo.txt
+    -rw------- 1 me    me    0  2008-03-06 14:52 foo.txt
+    
 
 By passing the argument “600”, we were able to set the permissions of the owner to read
 and write while removing all permissions from the group owner and world. Though
@@ -415,7 +406,7 @@ chmod 命令支持一种符号表示法，来指定文件模式。符号表示�
 要影响的对象，如下所示：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 10-4: chmod Symbolic Notation &nbsp;
 chmod 命令符号表示法
 </caption>
@@ -455,7 +446,7 @@ of symbolic notation:
 权限由“r”, “w”, and “x”来指定。这里是一些符号表示法的实例：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 10-5: chmod Symbolic Notation Examples &nbsp;
 chmod 符号表示法实例
 </caption>
@@ -547,14 +538,13 @@ attributes. Let's take a look:
 当创建一个文件时，umask 命令控制着文件的默认权限。umask 命令使用八进制表示法来表达
 从文件模式属性中删除一个位掩码。大家看下面的例子：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ rm -f foo.txt
-[me@linuxbox ~]$ umask
-0002
-[me@linuxbox ~]$ > foo.txt
-[me@linuxbox ~]$ ls -l foo.txt
--rw-rw-r-- 1 me   me   0 2008-03-06 14:53 foo.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ rm -f foo.txt
+    [me@linuxbox ~]$ umask
+    0002
+    [me@linuxbox ~]$ > foo.txt
+    [me@linuxbox ~]$ ls -l foo.txt
+    -rw-rw-r-- 1 me   me   0 2008-03-06 14:53 foo.txt
+    
 
 We first removed any old copy of foo.txt to make sure we were starting fresh. Next,
 we ran the umask command without an argument to see the current value. It responded
@@ -574,13 +564,12 @@ setting the mask ourselves:
 我们可以看到文件所有者和用户组都得到读权限和写权限，而其他人只是得到读权限。
 其他人没有得到写权限的原因是由掩码值决定的。重复我们的实验，这次自己设置掩码值：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ rm foo.txt
-[me@linuxbox ~]$ umask 0000
-[me@linuxbox ~]$ > foo.txt
-[me@linuxbox ~]$ ls -l foo.txt
--rw-rw-rw- 1 me   me    0 2008-03-06 14:58 foo.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ rm foo.txt
+    [me@linuxbox ~]$ umask 0000
+    [me@linuxbox ~]$ > foo.txt
+    [me@linuxbox ~]$ ls -l foo.txt
+    -rw-rw-rw- 1 me   me    0 2008-03-06 14:58 foo.txt
+    
 
 When we set the mask to 0000 (effectively turning it off), we see that the file is now
 world writable. To understand how this works, we have to look at octal numbers again.
@@ -592,7 +581,7 @@ what happens:
 相比较，看看有什么区别：
 
 <center>
-<table class="multi" cellpadding="10" border="1" width="%60">
+<table class="multi">
 <tr>
 <td valign="top">Original file mode </td>
 <td valign="top">--- rw- rw- rw-</td>
@@ -620,7 +609,7 @@ does:
 掩码0022的作用：
 
 <center>
-<table class="multi" cellpadding="10" border="1" width="%60">
+<table class="multi">
 <tr>
 <td valign="top">Original file mode </td>
 <td valign="top">--- rw- rw- rw-</td>
@@ -643,9 +632,8 @@ remember to clean up:
 又一次，二进制中数字1出现的位置，相对应的属性被删除。再试一下其它的掩码值（一些带数字7的）
 ，习惯于掩码的工作原理。当你实验完成之后，要记得清理现场：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ rm foo.txt; umask 0002</tt>
-</pre></div>
+    [me@linuxbox ~]$ rm foo.txt; umask 0002
+    
 
 Most of the time you won't have to change the mask; the default provided by your
 distribution will be fine. In some high-security situations, however, you will want to
@@ -654,9 +642,8 @@ control it.
 大多数情况下，你不必修改掩码值，系统提供的默认掩码值就很好了。然而，在一些高
 安全级别下，你要能控制掩码值。
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
+
 <h3>Some Special Permissions</h3>
 <h3>一些特殊权限</h3>
 
@@ -744,9 +731,7 @@ Here are some examples. First, a program that is setuid:</p>
 
 <p>drwxrwxrwt</p>
 
-</td>
-</tr>
-</table>
+</div>
 
 ### Changing Identities
 
@@ -793,9 +778,8 @@ this:
 
 su 命令用来以另一个用户的身份来启动 shell。这个命令语法看起来像这样：
 
-<div class="code"><pre>
-<tt>su [-[l]] [user]</tt>
-</pre></div>
+    su [-[l]] [user]
+    
 
 If the “-l” option is included, the resulting shell session is a login shell for the specified
 user. This means that the user's environment is loaded and the working directory is
@@ -809,11 +793,10 @@ this:
 超级用户。注意（不可思议地），选项"-l"可以缩写为"-"，这是经常用到的形式。启动超级用户的 shell，
 我们可以这样做：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ su -
-Password:
-[root@linuxbox ~]#</tt>
-</pre></div>
+    [me@linuxbox ~]$ su -
+    Password:
+    [root@linuxbox ~]#
+    
 
 After entering the command, we are prompted for the superuser's password. If it is
 successfully entered, a new shell prompt appears indicating that this shell has superuser
@@ -827,19 +810,17 @@ shell:
 （通常是/root）。一旦进入一个新的 shell，我们能执行超级用户所使用的命令。当工作完成后，
 输入"exit"，则返回到原来的 shell:
 
-<div class="code"><pre>
-<tt>[root@linuxbox ~]# exit
-[me@linuxbox ~]$</tt>
-</pre></div>
+    [root@linuxbox ~]# exit
+    [me@linuxbox ~]$
+    
 
 It is also possible to execute a single command rather than starting a new interactive
 command by using su this way:
 
 以这样的方式使用 su 命令，也可以只执行单个命令，而不是启动一个新的可交互的 shell：
 
-<div class="code"><pre>
-<tt>su -c 'command'</tt>
-</pre></div>
+    su -c 'command'
+    
 
 Using this form, a single command line is passed to the new shell for execution. It is
 important to enclose the command in quotes, as we do not want expansion to occur in our
@@ -848,15 +829,14 @@ shell, but rather in the new shell:
 使用这种模式，命令传递到一个新 shell 中执行。把命令用单引号引起来很重要，因为我们不想
 命令在我们的 shell 中展开，但需要在新 shell 中展开。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ su -c 'ls -l /root/*'
-Password:
--rw------- 1 root root    754 2007-08-11 03:19 /root/anaconda-ks.cfg
-
-/root/Mail:
-total 0
-[me@linuxbox ~]$</tt>
-</pre></div>
+    [me@linuxbox ~]$ su -c 'ls -l /root/*'
+    Password:
+    -rw------- 1 root root    754 2007-08-11 03:19 /root/anaconda-ks.cfg
+    
+    /root/Mail:
+    total 0
+    [me@linuxbox ~]$
+    
 
 ### sudo – Execute A Command As Another User
 
@@ -879,11 +859,10 @@ sudo 命令，从而允许一个普通用户以不同的身份（通常是超级
 来认证。比如说，例如，sudo 命令经过配置，允许我们运行一个虚构的备份程序，叫做"backup_script"，
 这个程序要求超级用户权限。通过 sudo 命令，这个程序会像这样运行：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sudo backup_script
-Password:
-System Backup Starting...</tt>
-</pre></div>
+    [me@linuxbox ~]$ sudo backup_script
+    Password:
+    System Backup Starting...
+    
 
 After entering the command, we are prompted for our password (not the superuser's) and
 once the authentication is complete, the specified command is carried out. One important
@@ -901,17 +880,15 @@ To see what privileges are granted by sudo, use the “-l” option to list them
 
 想知道 sudo 命令可以授予哪些权限，使用"-l"选项，列出所有权限：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ sudo -l
-User me may run the following commands on this host:
-(ALL) ALL</tt>
-</pre></div>
+    [me@linuxbox ~]$ sudo -l
+    User me may run the following commands on this host:
+    (ALL) ALL
+    
 
 <br />
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
+
 <h3>Ubuntu And sudo</h3>
 <h3>Ubuntu 与 sudo</h3>
 
@@ -963,9 +940,7 @@ similar powers to subsequent user accounts.</p>
 到 root 帐号（因为不能为 root 帐号设置密码），而是使用 sudo 命令授予普通用户超级用户权限。
 通过 sudo 命令，最初的用户可以拥有超级用户权限，也可以授予随后的用户帐号相似的权力。</p>
 
-</td>
-</tr>
-</table>
+</div>
 
 ### chown – Change File Owner And Group
 
@@ -978,9 +953,8 @@ this:
 chown 命令被用来更改文件或目录的所有者和用户组。使用这个命令需要超级用户权限。chown 命令
 的语法看起来像这样：
 
-<div class="code"><pre>
-<tt>chown [owner][:[group]] file...</tt>
-</pre></div>
+    chown [owner][:[group]] file...
+    
 
 chown can change the file owner and/or the file group owner depending on the first
 argument of the command. Here are some examples:
@@ -989,7 +963,7 @@ chown 命令可以更改文件所有者和/或文件用户组，依据于这个�
 一些例子：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 10-6: chown Argument Examples &nbsp; chown 参数实例</caption>
 <tr>
 <th class="title">Argument </th>
@@ -1029,15 +1003,14 @@ janet changes the ownership of the copied file from janet to tony:
 她的主目录复制一个文件到用户 tony 的主目录。因为用户 jant 想要 tony 能够编辑这个文件，
 janet 把这个文件的所有者更改为 tony:
 
-<div class="code"><pre>
-<tt>[janet@linuxbox ~]$ sudo cp myfile.txt ~tony
-Password:
-[janet@linuxbox ~]$ sudo ls -l ~tony/myfile.txt
--rw-r--r-- 1 root  root 8031 2008-03-20 14:30 /home/tony/myfile.txt
-[janet@linuxbox ~]$ sudo chown tony: ~tony/myfile.txt
-[janet@linuxbox ~]$ sudo ls -l ~tony/myfile.txt
--rw-r--r-- 1 tony  tony 8031 2008-03-20 14:30 /home/tony/myfile.txt</tt>
-</pre></div>
+    [janet@linuxbox ~]$ sudo cp myfile.txt ~tony
+    Password:
+    [janet@linuxbox ~]$ sudo ls -l ~tony/myfile.txt
+    -rw-r--r-- 1 root  root 8031 2008-03-20 14:30 /home/tony/myfile.txt
+    [janet@linuxbox ~]$ sudo chown tony: ~tony/myfile.txt
+    [janet@linuxbox ~]$ sudo ls -l ~tony/myfile.txt
+    -rw-r--r-- 1 tony  tony 8031 2008-03-20 14:30 /home/tony/myfile.txt
+    
 
 Here we see user janet copy the file from her directory to the home directory of user
 tony. Next, janet changes the ownership of the file from root (a result of using
@@ -1098,10 +1071,9 @@ Next, bill creates the directory for the music files:
 
 下一步，bill 创建了存储音乐文件的目录：
 
-<div class="code"><pre>
-<tt>[bill@linuxbox ~]$ sudo mkdir /usr/local/share/Music
-password:</tt>
-</pre></div>
+    [bill@linuxbox ~]$ sudo mkdir /usr/local/share/Music
+    password:
+    
 
 Since bill is manipulating files outside his home directory, superuser privileges are
 required. After the directory is created, it has the following ownerships and permissions:
@@ -1109,10 +1081,9 @@ required. After the directory is created, it has the following ownerships and pe
 因为 bill 正在他的主目录之外操作文件，所以需要超级用户权限。这个目录创建之后，它具有
 以下所有权和权限：
 
-<div class="code"><pre>
-<tt>[bill@linuxbox ~]$ ls -ld /usr/local/share/Music
-drwxr-xr-x 2 root root 4096 2008-03-21 18:05 /usr/local/share/Music</tt>
-</pre></div>
+    [bill@linuxbox ~]$ ls -ld /usr/local/share/Music
+    drwxr-xr-x 2 root root 4096 2008-03-21 18:05 /usr/local/share/Music
+    
 
 As we can see, the directory is owned by root and has 755 permissions. To make this
 directory sharable, bill needs to change the group ownership and the group permissions
@@ -1121,12 +1092,11 @@ to allow writing:
 正如我们所见到的，这个目录由 root 用户拥有，并且具有权限755。为了使这个目录共享，允许（用户
 karen）写入，bill 需要更改目录用户组所有权和权限：
 
-<div class="code"><pre>
-<tt>[bill@linuxbox ~]$ sudo chown :music /usr/local/share/Music
-[bill@linuxbox ~]$ sudo chmod 775 /usr/local/share/Music
-[bill@linuxbox ~]$ ls -ld /usr/local/share/Music
-drwxrwxr-x 2 root music 4096 2008-03-21 18:05 /usr/local/share/Music</tt>
-</pre></div>
+    [bill@linuxbox ~]$ sudo chown :music /usr/local/share/Music
+    [bill@linuxbox ~]$ sudo chmod 775 /usr/local/share/Music
+    [bill@linuxbox ~]$ ls -ld /usr/local/share/Music
+    drwxrwxr-x 2 root music 4096 2008-03-21 18:05 /usr/local/share/Music
+    
 
 So what does this all mean? It means that we now have a directory,
 /usr/local/share/Music that is owned by root and allows read and write
@@ -1146,11 +1116,10 @@ karen:
 但是我们仍然会遇到问题。通过我们目前所拥有的权限，在 Music 目录中创建的文件，只具有用户 bill
 和 karen 的普通权限：
 
-<div class="code"><pre>
-<tt>[bill@linuxbox ~]$ &gt; /usr/local/share/Music/test_file
-[bill@linuxbox ~]$ ls -l /usr/local/share/Music
--rw-r--r-- 1 bill    bill    0 2008-03-24 20:03 test_file</tt>
-</pre></div>
+    [bill@linuxbox ~]$ > /usr/local/share/Music/test_file
+    [bill@linuxbox ~]$ ls -l /usr/local/share/Music
+    -rw-r--r-- 1 bill    bill    0 2008-03-24 20:03 test_file
+    
 
 Actually there are two problems. First, the default umask on this system is 0022 which
 prevents group members from writing files belonging to other members of the group.
@@ -1172,11 +1141,10 @@ directory:
 第二个问题是，用户组成员创建的文件和目录的用户组，将会设置为用户的主要组，而不是用户组 music。
 通过设置此目录的 setgid 位来解决这个问题：
 
-<div class="code"><pre>
-<tt>[bill@linuxbox ~]$ sudo chmod g+s /usr/local/share/Music
-[bill@linuxbox ~]$ ls -ld /usr/local/share/Music
-drwxrwsr-x 2 root music 4096 2008-03-24 20:03 /usr/local/share/Music</tt>
-</pre></div>
+    [bill@linuxbox ~]$ sudo chmod g+s /usr/local/share/Music
+    [bill@linuxbox ~]$ ls -ld /usr/local/share/Music
+    drwxrwsr-x 2 root music 4096 2008-03-24 20:03 /usr/local/share/Music
+    
 
 Now we test to see if the new permissions fix the problem. bill sets his umask to
 0002, removes the previous test file, creates a new test file and directory:
@@ -1184,18 +1152,17 @@ Now we test to see if the new permissions fix the problem. bill sets his umask t
 现在测试一下，看看是否新的权限解决了这个问题。bill 把他的掩码值设为0002，删除
 先前的测试文件，并创建了一个新的测试文件和目录：
 
-<div class="code"><pre>
-<tt>[bill@linuxbox ~]$ umask 0002
-
-[bill@linuxbox ~]$ rm /usr/local/share/Music/test_file
-
-[bill@linuxbox ~]$ &gt; /usr/local/share/Music/test_file
-[bill@linuxbox ~]$ mkdir /usr/local/share/Music/test_dir
-[bill@linuxbox ~]$ ls -l /usr/local/share/Music
-drwxrwsr-x 2 bill   music 4096 2008-03-24 20:24 test_dir
--rw-rw-r-- 1 bill   music 0 2008-03-24 20:22 test_file
-[bill@linuxbox ~]$</tt>
-</pre></div>
+    [bill@linuxbox ~]$ umask 0002
+    
+    [bill@linuxbox ~]$ rm /usr/local/share/Music/test_file
+    
+    [bill@linuxbox ~]$ > /usr/local/share/Music/test_file
+    [bill@linuxbox ~]$ mkdir /usr/local/share/Music/test_dir
+    [bill@linuxbox ~]$ ls -l /usr/local/share/Music
+    drwxrwsr-x 2 bill   music 4096 2008-03-24 20:24 test_dir
+    -rw-rw-r-- 1 bill   music 0 2008-03-24 20:22 test_file
+    [bill@linuxbox ~]$
+    
 
 Both files and directories are now created with the correct permissions to allow all
 members of the group music to create files and directories inside the Music directory.
@@ -1221,20 +1188,18 @@ passwd command is used. The command syntax looks like this:
 这一章最后一个话题，我们将讨论自己帐号的密码（和其他人的密码，如果你具有超级用户权限）。
 使用 passwd 命令，来设置或更改用户密码。命令语法如下所示：
 
-<div class="code"><pre>
-<tt><b>passwd [user]</b></tt>
-</pre></div>
+    passwd [user]
+    
 
 To change your password, just enter the passwd command. You will be prompted for
 your old password and your new password:
 
 只要输入 passwd 命令，就能更改你的密码。shell 会提示你输入你的旧密码和你的新密码：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ passwd
-(current) UNIX password:
-New UNIX password:</tt>
-</pre></div>
+    [me@linuxbox ~]$ passwd
+    (current) UNIX password:
+    New UNIX password:
+    
 
 The passwd command will try to enforce use of “strong” passwords. This means the it
 will refuse to accept passwords that are too short, too similar to previous passwords, are
@@ -1243,16 +1208,15 @@ dictionary words, or too easily guessed:
 passwd 命令将会试着强迫你使用“强”密码。这意味着，它会拒绝接受太短的密码，与先前相似的密码，
 字典中的单词作为密码，或者是太容易猜到的密码：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ passwd
-(current) UNIX password:
-New UNIX password:
-BAD PASSWORD: is too similar to the old one
-New UNIX password:
-BAD PASSWORD: it is WAY too short
-New UNIX password:
-BAD PASSWORD: it is based on a dictionary word</tt>
-</pre></div>
+    [me@linuxbox ~]$ passwd
+    (current) UNIX password:
+    New UNIX password:
+    BAD PASSWORD: is too similar to the old one
+    New UNIX password:
+    BAD PASSWORD: it is WAY too short
+    New UNIX password:
+    BAD PASSWORD: it is based on a dictionary word
+    
 
 If you have superuser privileges, you can specify a user name as an argument to the
 passwd command to set the password for another user. There are other options

@@ -59,22 +59,20 @@ try to use locate this way to find our files:
 例如，我们想要找到所有名字以“zip”开头的程序。因为我们正在查找程序，可以假定包含
 匹配程序的目录以"bin/"结尾。因此，我们试着以这种方式使用 locate 命令，来找到我们的文件：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ locate bin/zip</tt>
-</pre></div>
+    [me@linuxbox ~]$ locate bin/zip
+    
 
 locate will search its database of pathnames and output any that contain the string “bin/zip”:
 
 locate 命令将会搜索它的路径名数据库，输出任一个包含字符串“bin/zip”的路径名：
 
-<div class="code"><pre>
-<tt>/usr/bin/zip
-/usr/bin/zipcloak
-/usr/bin/zipgrep
-/usr/bin/zipinfo
-/usr/bin/zipnote
-/usr/bin/zipsplit</tt>
-</pre></div>
+    /usr/bin/zip
+    /usr/bin/zipcloak
+    /usr/bin/zipgrep
+    /usr/bin/zipinfo
+    /usr/bin/zipnote
+    /usr/bin/zipsplit
+    
 
 If the search requirement is not so simple, locate can be combined with other tools
 such as grep to design more interesting searches:
@@ -82,27 +80,26 @@ such as grep to design more interesting searches:
 如果搜索要求没有这么简单，locate 可以结合其它工具，比如说 grep 命令，来设计更加
 有趣的搜索：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ locate zip | grep bin
-/bin/bunzip2
-/bin/bzip2
-/bin/bzip2recover
-/bin/gunzip
-/bin/gzip
-/usr/bin/funzip
-/usr/bin/gpg-zip
-/usr/bin/preunzip
-/usr/bin/prezip
-/usr/bin/prezip-bin
-/usr/bin/unzip
-/usr/bin/unzipsfx
-/usr/bin/zip
-/usr/bin/zipcloak
-/usr/bin/zipgrep
-/usr/bin/zipinfo
-/usr/bin/zipnote
-/usr/bin/zipsplit</tt>
-</pre></div>
+    [me@linuxbox ~]$ locate zip | grep bin
+    /bin/bunzip2
+    /bin/bzip2
+    /bin/bzip2recover
+    /bin/gunzip
+    /bin/gzip
+    /usr/bin/funzip
+    /usr/bin/gpg-zip
+    /usr/bin/preunzip
+    /usr/bin/prezip
+    /usr/bin/prezip-bin
+    /usr/bin/unzip
+    /usr/bin/unzipsfx
+    /usr/bin/zip
+    /usr/bin/zipcloak
+    /usr/bin/zipgrep
+    /usr/bin/zipinfo
+    /usr/bin/zipnote
+    /usr/bin/zipsplit
+    
 
 The locate program has been around for a number of years, and there are several
 different variants in common use. The two most common ones found in modern Linux
@@ -118,9 +115,7 @@ determine which version of locate is installed.
 匹配（我们会在下一章中讨论）和通配符支持。查看 locate 命令的手册，从而确定安装了
 哪个版本的 locate 程序。
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>Where Does The locate Database Come From?</h3>
 
 <h3>locate 数据库来自何方？</h3>
@@ -143,8 +138,7 @@ updatedb 程序。因为数据库不能被持续地更新，所以当使用 loca
 目前最新的文件不会出现。为了克服这个问题，有可能手动运行 updatedb 程序，
 更改为超级用户身份，在提示符下运行 updatedb 命令。</p>
 
-</td>
-</tr> </table>
+</div>
 
 ### find – Find Files The Hard Way
 
@@ -165,9 +159,8 @@ example, to produce a list of our home directory:
 
 find 命令的最简单使用是，搜索一个或多个目录。例如，输出我们的主目录列表。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ find ~</tt>
-</pre></div>
+    [me@linuxbox ~]$ find ~
+    
 
 On most active user accounts, this will produce a large list. Since the list is sent to
 standard output, we can pipe the list into other programs. Let’s use wc to count the
@@ -176,10 +169,9 @@ number of files:
 对于最活跃的用户帐号，这将产生一张很大的列表。因为这张列表被发送到标准输出，
 我们可以把这个列表管道到其它的程序中。让我们使用 wc 程序来计算出文件的数量：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ find ~ | wc -l
-47068</tt>
-</pre></div>
+    [me@linuxbox ~]$ find ~ | wc -l
+    47068
+    
 
 Wow, we’ve been busy! The beauty of find is that it can be used to identify files that
 meet specific criteria. It does this through the (slightly strange) application of options,
@@ -195,27 +187,25 @@ following test:
 
 比如说我们想要目录列表。我们可以添加以下测试条件：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ find ~ -type d | wc -l
-1695</tt>
-</pre></div>
+    [me@linuxbox ~]$ find ~ -type d | wc -l
+    1695
+    
 
 Adding the test -type d limited the search to directories. Conversely, we could have
 limited the search to regular files with this test:
 
 添加测试条件-type d 限制了只搜索目录。相反地，我们使用这个测试条件来限定搜索普通文件：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ find ~ -type f | wc -l
-38737</tt>
-</pre></div>
+    [me@linuxbox ~]$ find ~ -type f | wc -l
+    38737
+    
 
 Here are the common file type tests supported by find:
 
 这里是 find 命令支持的普通文件类型测试条件：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 18-1: find File Types</caption>
 <tr>
 <th class="title">File Type </th>
@@ -246,7 +236,7 @@ Here are the common file type tests supported by find:
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表18-1: find 文件类型</caption>
 <tr>
 <th class="title">文件类型</th>
@@ -282,10 +272,9 @@ megabyte:
 我们也可以通过加入一些额外的测试条件，根据文件大小和文件名来搜索：让我们查找所有文件名匹配
 通配符模式“\*.JPG”和文件大小大于1M 的文件：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ find ~ -type f -name "\*.JPG" -size +1M | wc -l
-840</tt>
-</pre></div>
+    [me@linuxbox ~]$ find ~ -type f -name "\*.JPG" -size +1M | wc -l
+    840
+    
 
 In this example, we add the -name test followed by the wild card pattern. Notice how
 we enclose it in quotes to prevent pathname expansion by the shell. Next, we add the
@@ -302,7 +291,7 @@ is megabytes. The following characters may be used to specify units:
 被用来指定测量单位：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 18-2: find Size Units</caption>
 <tr>
 <th class="title">Character</th>
@@ -343,7 +332,7 @@ find 命令支持大量不同的测试条件。下表是列出了一些常见的
 情况下，可以应用以上讨论的“+”和"-"符号表示法：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 18-3: find Tests</caption>
 <tr>
 <th class="title">Test</th>
@@ -448,7 +437,7 @@ ID.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表18-3: find 测试条件</caption>
 <tr>
 <th class="title">测试条件</th>
@@ -557,9 +546,8 @@ could do this:
 一种方法来结合测试条件，通过使用逻辑操作符来创建更复杂的逻辑关系。
 为了表达上述的测试条件，我们可以这样做：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ find ~ \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)</tt>
-</pre></div>
+    [me@linuxbox ~]$ find ~ \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)
+    
 
 Yikes! That sure looks weird. What is all this stuff? Actually, the operators are not that
 complicated once you get to know them. Here is the list:
@@ -568,7 +556,7 @@ complicated once you get to know them. Here is the list:
 这里是操作符列表：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表18-4: find 命令的逻辑操作符</caption>
 <tr>
 <th class="title">操作符</th>
@@ -605,9 +593,8 @@ by an -or operator:
 通过这张操作符列表，我们重建 find 命令。从最外层看，我们看到测试条件被分为两组，由一个
 -or 操作符分开：
 
-<div class="code"><pre>
-<tt>( expression 1 ) -or ( expression 2 )</tt>
-</pre></div>
+    ( expression 1 ) -or ( expression 2 )
+    
 
 This makes sense, since we are searching for files with a certain set of permissions and
 for directories with a different set. If we are looking for both files and directories, why
@@ -670,7 +657,7 @@ expr2 is performed. Here’s how it works:
 列出了它是怎样工作的：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 18-5: find AND/OR Logic</caption>
 <tr>
 <th class="title" width="%30">Results of expr1</th>
@@ -701,7 +688,7 @@ expr2 is performed. Here’s how it works:
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表18-5: find AND/OR 逻辑</caption>
 <tr>
 <th class="title" width="%30">expr1的结果</th>
@@ -760,7 +747,7 @@ actions:
 应用用户定义的操作。首先，让我们看一下几个预定义的操作：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 18-6: Predefined find Actions</caption>
 <tr>
 <th class="title">Action </th>
@@ -788,7 +775,7 @@ output. This is the default action if no other action is specified.</td>
 </table>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表18-6: 几个预定义的 find 命令操作</caption>
 <tr>
 <th class="title">操作</th>
@@ -822,9 +809,8 @@ In our very first example, we did this:
 和测试条件一样，还有更多的操作。查看 find 命令手册得到更多细节。在第一个例子里，
 我们这样做：
 
-<div class="code"><pre>
-<tt>find ~</tt>
-</pre></div>
+    find ~
+    
 
 which produced a list of every file and subdirectory contained within our home directory.
 It produced a list because the -print action is implied if no other action is specified.
@@ -833,9 +819,8 @@ Thus our command could also be expressed as:
 这个命令输出了我们主目录中包含的每个文件和子目录。它会输出一个列表，因为会默认使用-print 操作
 ，如果没有指定其它操作的话。因此我们的命令也可以这样表述：
 
-<div class="code"><pre>
-<tt>find ~ -print</tt>
-</pre></div>
+    find ~ -print
+    
 
 We can use find to delete files that meet certain criteria. For example, to delete files
 that have the file extension “.BAK” (which is often used to designate backup files), we
@@ -844,9 +829,8 @@ could use this command:
 我们可以使用 find 命令来删除符合一定条件的文件。例如，来删除扩展名为“.BAK”（这通常用来指定备份文件）
 的文件，我们可以使用这个命令：
 
-<div class="code"><pre>
-<tt>find ~ -type f -name '\*.BAK' -delete</tt>
-</pre></div>
+    find ~ -type f -name '\*.BAK' -delete
+    
 
 In this example, every file in the user’s home directory (and its subdirectories) is searched
 for filenames ending in .BAK. When they are found, they are deleted.
@@ -868,9 +852,8 @@ Consider the following command:
 
 在我们继续之前，让我们看一下逻辑运算符是怎样影响操作的。考虑以下命令：
 
-<div class="code"><pre>
-<tt>find ~ -type f -name '\*.BAK' -print</tt>
-</pre></div>
+    find ~ -type f -name '\*.BAK' -print
+    
 
 As we have seen, this command will look for every regular file (-type f) whose name
 ends with .BAK (-name '\*.BAK') and will output the relative pathname of each
@@ -885,9 +868,8 @@ relationships easier to see:
 由每个测试和操作之间的逻辑关系决定的。记住，在每个测试和操作之间会默认应用-and 逻辑运算符。
 我们也可以这样表达这个命令，使逻辑关系更容易看出：
 
-<div class="code"><pre>
-<tt>find ~ -type f -and -name '\*.BAK' -and -print</tt>
-</pre></div>
+    find ~ -type f -and -name '\*.BAK' -and -print
+    
 
 With our command fully expressed, let’s look at how the logical operators affect its
 execution:
@@ -895,7 +877,7 @@ execution:
 当命令被充分表达之后，让我们看看逻辑运算符是如何影响其执行的：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <tr>
 <th class="title">Test/Action 
 </th>
@@ -918,7 +900,7 @@ execution:
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <tr>
 <th class="title">测试／行为 
 </th>
@@ -947,9 +929,8 @@ command would behave much differently:
 因为测试和行为之间的逻辑关系决定了哪一个会被执行，我们知道测试和行为的顺序很重要。例如，
 如果我们重新安排测试和行为之间的顺序，让-print 行为是第一个，那么这个命令执行起来会截然不同：
 
-<div class="code"><pre>
-<tt>find ~ -print -and -type f -and -name '\*.BAK'</tt>
-</pre></div>
+    find ~ -print -and -type f -and -name '\*.BAK'
+    
 
 This version of the command will print each file (the -print action always evaluates to
 true) and then test for file type and the specified file extension.
@@ -975,9 +956,8 @@ Here’s an example of using -exec to act like the -delete action discussed earl
 这里的 command 就是指一个命令的名字，{}是当前路径名的符号表示，分号是要求的界定符
 表明命令结束。这里是一个使用-exec 行为的例子，其作用如之前讨论的-delete 行为：
 
-<div class="code"><pre>
-<tt>-exec rm '{}' ';'</tt>
-</pre></div>
+    -exec rm '{}' ';'
+    
 
 Again, since the brace and semicolon characters have special meaning to the shell, they
 must be quoted or escaped.
@@ -990,13 +970,12 @@ in place of -exec, the user is prompted before execution of each specified comma
 也有可能交互式地执行一个用户定义的行为。通过使用-ok 行为来代替-exec，在执行每个指定的命令之前，
 会提示用户：
 
-<div class="code"><pre>
-<tt>find ~ -type f -name 'foo\*' -ok ls -l '{}' ';'
-&lt; ls ... /home/me/bin/foo &gt; ? y
--rwxr-xr-x 1 me    me 224 2007-10-29 18:44 /home/me/bin/foo
-&lt; ls ... /home/me/foo.txt &gt; ? y
--rw-r--r-- 1 me    me 0 2008-09-19 12:53 /home/me/foo.txt </tt></pre>
-</div>
+    find ~ -type f -name 'foo\*' -ok ls -l '{}' ';'
+    < ls ... /home/me/bin/foo > ? y
+    -rwxr-xr-x 1 me    me 224 2007-10-29 18:44 /home/me/bin/foo
+    < ls ... /home/me/foo.txt > ? y
+    -rw-r--r-- 1 me    me 0 2008-09-19 12:53 /home/me/foo.txt 
+    
 
 In this example, we search for files with names starting with the string “foo” and execute
 the command ls -l each time one is found. Using the -ok action prompts the user
@@ -1041,21 +1020,19 @@ the desired command. Going back to our example, this:
 通过把末尾的分号改为加号，就激活了 find 命令的一个功能，把搜索结果结合为一个参数列表，
 然后执行一次所期望的命令。再看一下之前的例子，这个：
 
-<div class="code"><pre>
-<tt>find ~ -type f -name 'foo\*' -exec ls -l '{}' ';'
--rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
--rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt </tt>
-</pre></div>
+    find ~ -type f -name 'foo\*' -exec ls -l '{}' ';'
+    -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
+    -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt 
+    
 
 will execute ls each time a matching file is found. By changing the command to:
 
 会执行 ls 命令，每次找到一个匹配的文件。把命令改为：
 
-<div class="code"><pre>
-<tt>find ~ -type f -name 'foo\*' -exec ls -l '{}' +
--rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
--rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt </tt>
-</pre></div>
+    find ~ -type f -name 'foo\*' -exec ls -l '{}' +
+    -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
+    -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt 
+    
 
 we get the same results, but the system only has to execute the ls command once.
 
@@ -1070,11 +1047,10 @@ we would use it like this:
 这个 xargs 命令会执行一个有趣的函数。它从标准输入接受输入，并把输入转换为一个特定命令的
 参数列表。对于我们的例子，我们可以这样使用它：
 
-<div class="code"><pre>
-<tt>find ~ -type f -name 'foo\*' -print | xargs ls -l
--rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
--rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt </tt>
-</pre></div>
+    find ~ -type f -name 'foo\*' -print | xargs ls -l
+    -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
+    -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt 
+    
 
 Here we see the output of the find command piped into xargs which, in turn,
 constructs an argument list for ls command and then executes it.
@@ -1098,9 +1074,7 @@ execute xargs with the --show-limits option.
 <hr style="height:5px;width:100%;background:gray" />
 <br />
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>Dealing With Funny Filenames</h3>
 
 <h3>处理有趣的文件名</h3>
@@ -1131,9 +1105,7 @@ accepts null separated input. Here’s an example:</p>
 spaces in their names, are handled correctly. </p>
 
 <p>使用这项技术，我们可以保证所有文件，甚至那些文件名中包含空格的文件，都能被正确地处理。</p>
-</td>
-</tr>
-</table>
+</div>
 
 A Return To The Playground
 
@@ -1148,10 +1120,9 @@ First, let’s create a playground with lots of subdirectories and files:
 
 首先，让我们创建一个包含许多子目录和文件的操练场：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ mkdir -p playground/dir-{00{1..9},0{10..99},100}
-[me@linuxbox ~]$ touch playground/dir-{00{1..9},0{10..99},100}/file-{A..Z}</tt>
-</pre></div>
+    [me@linuxbox ~]$ mkdir -p playground/dir-{00{1..9},0{10..99},100}
+    [me@linuxbox ~]$ touch playground/dir-{00{1..9},0{10..99},100}/file-{A..Z}
+    
 
 Marvel in the power of the command line! With these two lines, we created a playground
 directory containing one hundred subdirectories each containing twenty-six empty files.
@@ -1182,9 +1153,8 @@ them:
 
 在我们的操练场中，我们创建了一百个名为 file-A 的文件实例。让我们找到它们：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ find playground -type f -name 'file-A'</tt>
-</pre></div>
+    [me@linuxbox ~]$ find playground -type f -name 'file-A'
+    
 
 Note that unlike ls, find does not produce results in sorted order. Its order is
 determined by the layout of the storage device. To confirm that we actually have one
@@ -1193,9 +1163,8 @@ hundred instances of the file we can confirm it this way:
 注意不同于 ls 命令，find 命令的输出结果是无序的。其顺序由存储设备的布局决定。为了确定实际上
 我们拥有一百个此文件的实例，我们可以用这种方式来确认：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ find playground -type f -name 'file-A' | wc -l </tt>
-</pre></div>
+    [me@linuxbox ~]$ find playground -type f -name 'file-A' | wc -l 
+    
 
 Next, let’s look at finding files based on their modification times. This will be helpful
 when creating backups or organizing files in chronological order. To do this, we will first
@@ -1204,9 +1173,8 @@ create a reference file against which we will compare modification time:
 下一步，让我们看一下基于文件的修改时间来查找文件。当创建备份文件或者以年代顺序来
 组织文件的时候，这会很有帮助。为此，首先我们将创建一个参考文件，我们将与其比较修改时间：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ touch playground/timestamp</tt>
-</pre></div>
+    [me@linuxbox ~]$ touch playground/timestamp
+    
 
 This creates an empty file named timestamp and sets its modification time to the
 current time. We can verify this by using another handy command, stat, which is a
@@ -1217,41 +1185,38 @@ understands about a file and its attributes:
 它通过使用另一个方便的命令，stat，是一款加大马力的 ls 命令版本。这个 stat 命令会展示系统对
 某个文件及其属性所知道的所有信息：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ stat playground/timestamp
-File: 'playground/timestamp'
-Size: 0 Blocks: 0 IO Block: 4096 regular empty file
-Device: 803h/2051d Inode: 14265061 Links: 1
-Access: (0644/-rw-r--r--) Uid: ( 1001/ me) Gid: ( 1001/ me)
-Access: 2008-10-08 15:15:39.000000000 -0400
-Modify: 2008-10-08 15:15:39.000000000 -0400
-Change: 2008-10-08 15:15:39.000000000 -0400</tt>
-</pre></div>
+    [me@linuxbox ~]$ stat playground/timestamp
+    File: 'playground/timestamp'
+    Size: 0 Blocks: 0 IO Block: 4096 regular empty file
+    Device: 803h/2051d Inode: 14265061 Links: 1
+    Access: (0644/-rw-r--r--) Uid: ( 1001/ me) Gid: ( 1001/ me)
+    Access: 2008-10-08 15:15:39.000000000 -0400
+    Modify: 2008-10-08 15:15:39.000000000 -0400
+    Change: 2008-10-08 15:15:39.000000000 -0400
+    
 
 If we touch the file again and then examine it with stat, we will see that the file’s
 times have been updated.
 
 如果我们再次 touch 这个文件，然后用 stat 命令检测它，我们会发现所有文件的时间已经更新了。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ touch playground/timestamp
-[me@linuxbox ~]$ stat playground/timestamp
-File: 'playground/timestamp'
-Size: 0 Blocks: 0 IO Block: 4096 regular empty file
-Device: 803h/2051d Inode: 14265061 Links: 1
-Access: (0644/-rw-r--r--) Uid: ( 1001/ me) Gid: ( 1001/ me)
-Access: 2008-10-08 15:23:33.000000000 -0400
-Modify: 2008-10-08 15:23:33.000000000 -0400
-Change: 2008-10-08 15:23:33.000000000 -0400 </tt>
-</pre></div>
+    [me@linuxbox ~]$ touch playground/timestamp
+    [me@linuxbox ~]$ stat playground/timestamp
+    File: 'playground/timestamp'
+    Size: 0 Blocks: 0 IO Block: 4096 regular empty file
+    Device: 803h/2051d Inode: 14265061 Links: 1
+    Access: (0644/-rw-r--r--) Uid: ( 1001/ me) Gid: ( 1001/ me)
+    Access: 2008-10-08 15:23:33.000000000 -0400
+    Modify: 2008-10-08 15:23:33.000000000 -0400
+    Change: 2008-10-08 15:23:33.000000000 -0400 
+    
 
 Next, let’s use find to update some of our playground files:
 
 下一步，让我们使用 find 命令来更新一些操练场中的文件：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ find playground -type f -name 'file-B' -exec touch '{}' ';' </tt>
-</pre></div>
+    [me@linuxbox ~]$ find playground -type f -name 'file-B' -exec touch '{}' ';' 
+    
 
 This updates all files in the playground named file-B. Next we’ll use find to identify
 the updated files by comparing all the files to the reference file timestamp:
@@ -1259,9 +1224,8 @@ the updated files by comparing all the files to the reference file timestamp:
 这会更新操练场中所有名为 file-B 的文件。接下来我们会使用 find 命令来识别已更新的文件，
 通过把所有文件与参考文件 timestamp 做比较：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ find playground -type f -newer playground/timestamp</tt>
-</pre></div>
+    [me@linuxbox ~]$ find playground -type f -newer playground/timestamp
+    
 
 The results contain all one hundred instances of file-B. Since we performed a touch
 on all the files in the playground named file-B after we updated timestamp, they
@@ -1276,9 +1240,8 @@ playground:
 
 最后，让我们回到之前那个错误权限的例子中，把它应用于操练场里：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ find playground \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)</tt>
-</pre></div>
+    [me@linuxbox ~]$ find playground \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)
+    
 
 This command lists all one hundred directories and twenty-six hundred files in
 playground (as well as timestamp and playground itself, for a total of 2702)
@@ -1290,10 +1253,9 @@ to the files and directories in our playground:
 ，因为没有一个符合我们“正确权限”的定义。通过对运算符和行为知识的了解，我们可以给这个命令
 添加行为，对实战场中的文件和目录应用新的权限。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ find playground \( -type f -not -perm 0600 -exec chmod 0600 '{}' ';' \) 
-   -or \( -type d -not -perm 0711 -exec chmod 0700 '{}' ';' \)</tt>
-</pre></div>
+    [me@linuxbox ~]$ find playground \( -type f -not -perm 0600 -exec chmod 0600 '{}' ';' \) 
+       -or \( -type d -not -perm 0711 -exec chmod 0700 '{}' ';' \)
+    
 
 On a day-to-day basis, we might find it easier to issue two commands, one for the
 directories and one for the files, rather than this one large compound command, but it’s
@@ -1316,7 +1278,7 @@ Here is a list of the most commonly used ones:
 它们可能被其它的测试条件和行为包含：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 18-7: find Options</caption>
 <tr>
 <th class="title">Option</th>
@@ -1354,7 +1316,7 @@ systems and CD-ROMs.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表 18-7: find 命令选项</caption>
 <tr>
 <th class="title">选项</th>

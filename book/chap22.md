@@ -51,7 +51,7 @@ a markup element, nl deletes it from the text stream.
 Here are the common options for nl:
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 22-2: Common nl Options</caption>
 <tr>
 <th class="title">Option</th>

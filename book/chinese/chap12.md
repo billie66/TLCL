@@ -32,33 +32,29 @@ shell 在环境中存储了两种基本类型的数据，虽然对于 bash 来�
 显示 shell 和环境变量两者，而 printenv 只是显示环境变量。因为环境变量内容列表相当长，所以最好
 把每个命令的输出结果管道到 less 命令：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ printenv | less</tt>
-</pre></div>
+    [me@linuxbox ~]$ printenv | less
+    
 
 执行以上命令之后，我们应该能得到类似以下内容：
 
 我们所看到的是环境变量及其数值的列表。例如，我们看到一个叫做 USER 的变量，这个变量值是
 “me”。printenv 命令也能够列出特定变量的数值：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ printenv USER
-me</tt>
-</pre></div>
+    [me@linuxbox ~]$ printenv USER
+    me
+    
 
 当使用没有带选项和参数的 set 命令时，shell 和环境变量二者都会显示，同时也会显示定义的
 shell 函数。不同于 printenv 命令，set 命令的输出结果很礼貌地按照字母顺序排列：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ set | less</tt>
-</pre></div>
+    [me@linuxbox ~]$ set | less
+    
 
 也可以通过 echo 命令来查看一个变量的内容，像这样：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo $HOME
-/home/me</tt>
-</pre></div>
+    [me@linuxbox ~]$ echo $HOME
+    /home/me
+    
 
 如果 shell 环境中的一个成员既不可用 set 命令也不可用 printenv 命令显示，则这个变量是别名。
 输入不带参数的 alias 命令来查看它们:
@@ -68,65 +64,60 @@ shell 函数。不同于 printenv 命令，set 命令的输出结果很礼貌地
 shell 环境中包含相当多的变量，虽然你的 shell 环境可能不同于这里展示的，但是你可能会看到
 以下变量在你的 shell 环境中：
 
-<div class="code"><pre>
-<tt>KDE_MULTIHEAD=false
-SSH_AGENT_PID=6666
-HOSTNAME=linuxbox
-GPG_AGENT_INFO=/tmp/gpg-PdOt7g/S.gpg-agent:6689:1
-SHELL=/bin/bash
-TERM=xterm
-XDG_MENU_PREFIX=kde-
-HISTSIZE=1000
-XDG_SESSION_COOKIE=6d7b05c65846c3eaf3101b0046bd2b00-1208521990.996705
--1177056199
-GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/me/.gtkrc-2.0:/home/me/.kde/sh
-are/config/gtkrc-2.0
-GTK_RC_FILES=/etc/gtk/gtkrc:/home/me/.gtkrc:/home/me/.kde/share/confi
-g/gtkrc
-GS_LIB=/home/me/.fonts
-WINDOWID=29360136
-QTDIR=/usr/lib/qt-3.3
-QTINC=/usr/lib/qt-3.3/include
-KDE_FULL_SESSION=true
-USER=me
-LS_COLORS=no=00:fi=00:di=00;34:ln=00;36:pi=40;33:so=00;35:bd=40;33;01
-:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=00;32:\*.cmd=00;32:\*.exe:</tt>
-</pre></div>
+    KDE_MULTIHEAD=false
+    SSH_AGENT_PID=6666
+    HOSTNAME=linuxbox
+    GPG_AGENT_INFO=/tmp/gpg-PdOt7g/S.gpg-agent:6689:1
+    SHELL=/bin/bash
+    TERM=xterm
+    XDG_MENU_PREFIX=kde-
+    HISTSIZE=1000
+    XDG_SESSION_COOKIE=6d7b05c65846c3eaf3101b0046bd2b00-1208521990.996705
+    -1177056199
+    GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/me/.gtkrc-2.0:/home/me/.kde/sh
+    are/config/gtkrc-2.0
+    GTK_RC_FILES=/etc/gtk/gtkrc:/home/me/.gtkrc:/home/me/.kde/share/confi
+    g/gtkrc
+    GS_LIB=/home/me/.fonts
+    WINDOWID=29360136
+    QTDIR=/usr/lib/qt-3.3
+    QTINC=/usr/lib/qt-3.3/include
+    KDE_FULL_SESSION=true
+    USER=me
+    LS_COLORS=no=00:fi=00:di=00;34:ln=00;36:pi=40;33:so=00;35:bd=40;33;01
+    :cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=00;32:\*.cmd=00;32:\*.exe:
+    
 
 我们所看到的是环境变量及其数值的列表。例如，我们看到一个叫做 USER 的变量，这个变量值是
 &quot;me&quot;。printenv 命令也能够列出特定变量的数值：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ printenv USER
-me</tt>
-</pre></div>
+    [me@linuxbox ~]$ printenv USER
+    me
+    
 
 当使用没有带选项和参数的 set 命令时，shell 和环境变量二者都会显示，同时也会显示定义的
 shell 函数。不同于 printenv 命令，set 命令的输出结果很礼貌地按照字母顺序排列：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ set | less</tt>
-</pre></div>
+    [me@linuxbox ~]$ set | less
+    
 
 也可以通过 echo 命令来查看一个变量的内容，像这样：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo $HOME
-/home/me</tt>
-</pre></div>
+    [me@linuxbox ~]$ echo $HOME
+    /home/me
+    
 
 如果 shell 环境中的一个成员既不可用 set 命令也不可用 printenv 命令显示，则这个变量是别名。
 输入不带参数的 alias 命令来查看它们:
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ alias
-alias l.=&apos;ls -d .\* --color=tty&apos;
-alias ll=&apos;ls -l --color=tty&apos;
-alias ls=&apos;ls --color=tty&apos;
-alias vi=&apos;vim&apos;
-alias which=&apos;alias | /usr/bin/which --tty-only --read-alias --show-
-dot --show-tilde&apos;</tt>
-</pre></div>
+    [me@linuxbox ~]$ alias
+    alias l.=&apos;ls -d .\* --color=tty&apos;
+    alias ll=&apos;ls -l --color=tty&apos;
+    alias ls=&apos;ls --color=tty&apos;
+    alias vi=&apos;vim&apos;
+    alias which=&apos;alias | /usr/bin/which --tty-only --read-alias --show-
+    dot --show-tilde&apos;
+    
 
 ### 一些有趣的变量
 
@@ -197,31 +188,28 @@ valign="top">如果文件~/.bash_profile 或文件~/.bash_login 都没有找到�
 
 如果我们看一下典型的.bash_profile 文件（来自于 CentOS 4系统），它看起来像这样：
 
-<div class="code"><pre>
-<tt># .bash\_profile
- # Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-. ~/.bashrc
-fi
- # User specific environment and startup programs
-PATH=$PATH:$HOME/bin
-export PATH</tt>
-</pre></div>
+    # .bash\_profile
+     # Get the aliases and functions
+    if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+    fi
+     # User specific environment and startup programs
+    PATH=$PATH:$HOME/bin
+    export PATH
+    
 
 以&quot;#&quot;开头的行是注释，shell 不会读取它们。它们在那里是为了方便人们阅读。第一件有趣的事情
 发生在第四行，伴随着以下代码：
 
-<div class="code"><pre>
-<tt>if [ -f ~/.bashrc ]; then
-. ~/.bashrc
-fi</tt></pre></div>
+    if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+    fi
 
 这叫做一个 if 复合命令，我们将会在第五部分详细地介绍它，现在我们对它翻译一下：
 
-<div class="code"><pre>
-<tt>If the file &quot;~/.bashrc&quot; exists, then
-        read the &quot;~/.bashrc&quot; file. </tt>
-</pre></div>
+    If the file &quot;~/.bashrc&quot; exists, then
+            read the &quot;~/.bashrc&quot; file. 
+    
 
 我们可以看到这一小段代码就是一个登录 shell 得到.bashrc 文件内容的方式。在我们启动文件中，
 下一件有趣的事与 PATH 变量有关系。
@@ -232,21 +220,19 @@ shell 不会查找整个计算机系统，来找到/bin/ls（ls 命令的绝对�
 
 PATH 变量经常（但不总是，依赖于发行版）在/etc/profile 启动文件中设置，通过这些代码：
 
-<div class="code"><pre>
-<tt>PATH=$PATH:$HOME/bin</tt>
-</pre></div>
+    PATH=$PATH:$HOME/bin
+    
 
 修改 PATH 变量，添加目录$HOME/bin 到目录列表的末尾。这是一个参数展开的实例，
 参数展开我们在第八章中提到过。为了说明这是怎样工作的，试试下面的例子：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ foo=&quot;This is some &quot;
-[me@linuxbox ~]$ echo $foo
-This is some
-[me@linuxbox ~]$ foo=$foo&quot;text.&quot;
-[me@linuxbox ~]$ echo $foo
-This is some text.</tt>
-</pre></div>
+    [me@linuxbox ~]$ foo=&quot;This is some &quot;
+    [me@linuxbox ~]$ echo $foo
+    This is some
+    [me@linuxbox ~]$ foo=$foo&quot;text.&quot;
+    [me@linuxbox ~]$ echo $foo
+    This is some text.
+    
 
 使用这种技巧，我们可以把文本附加到一个变量值的末尾。通过添加字符串$HOME/bin 到 PATH 变量值
 的末尾，则目录$HOME/bin 就添加到了命令搜索目录列表中。这意味着当我们想要在自己的主目录下，
@@ -258,9 +244,8 @@ This is some text.</tt>
 
 最后，有下面一行代码：
 
-<div class="code"><pre>
-<tt>export PATH</tt>
-</pre></div>
+    export PATH
+    
 
 这个 export 命令告诉 shell 让这个 shell 的子进程可以使用 PATH 变量的内容。
 
@@ -304,9 +289,8 @@ vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stal
 所有的文本编辑器都可以通过在命令行中输入编辑器的名字，加上你所想要编辑的文件来唤醒。如果所
 输入的文件名不存在，编辑器则会假定你想要创建一个新文件。下面是一个使用 gedit 的例子：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ gedit some_file</tt>
-</pre></div>
+    [me@linuxbox ~]$ gedit some_file
+    
 
 这条命令将会启动 gedit 文本编辑器，同时加载名为&quot;some_file&quot;的文件，如果这个文件存在的话。
 
@@ -315,25 +299,22 @@ vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stal
 做之前，先练习一些&quot;安全计算&quot;。当我们编辑一个重要的配置文件时，首先创建一个这个文件的备份
 总是一个不错的主意。这样能避免我们在编辑文件时弄乱文件。创建文件.bashrc 的备份文件，这样做：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cp .bashrc .bashrc.bak</tt>
-</pre></div>
+    [me@linuxbox ~]$ cp .bashrc .bashrc.bak
+    
 
 备份文件的名字无关紧要，只要选择一个容易理解的文件名。扩展名&quot;.bak&quot;，&quot;.sav&quot;，&quot;.old&quot;，和&quot;.orig&quot;都是用来
 指示备份文件的流行方法。哦，记住 cp 命令会默默地重写存在的文件。
 
 现在我们有了一个备份文件，我们启动 nano 编辑器吧：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ nano .bashrc</tt>
-</pre></div>
+    [me@linuxbox ~]$ nano .bashrc
+    
 
 一旦 nano 编辑器启动后，我们将会得到一个像下面一样的屏幕：
 
-<div class="code"><pre>
-<tt>GNU nano 2.0.3
-....</tt>
-</pre></div>
+    GNU nano 2.0.3
+    ....
+    
 
 注意：如果你的系统中没有安装 nano 编辑器，你可以用一个图形化的编辑器代替。
 
@@ -346,13 +327,12 @@ vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stal
 已经获得了这些知识，接下来我们准备做些编辑工作。使用下箭头按键和／或下翻页按键，移动
 鼠标到文件的最后一行，然后添加以下几行到文件.bashrc 中：
 
-<div class="code"><pre>
-<tt>umask 0002
-export HISTCONTROL=ignoredups
-export HISTSIZE=1000
-alias l.=&apos;ls -d .\* --color=auto&apos;
-alias ll=&apos;ls -l --color=auto&apos;</tt>
-</pre></div>
+    umask 0002
+    export HISTCONTROL=ignoredups
+    export HISTSIZE=1000
+    alias l.=&apos;ls -d .\* --color=auto&apos;
+    alias ll=&apos;ls -l --color=auto&apos;
+    
 
 注意：你的发行版可能已经包含其中的一些行，但是复制没有任何伤害。
 
@@ -367,20 +347,20 @@ valign="top">创建一个新命令，叫做&apos;l.&apos;，这个命令会显�
 正如我们所看到的，我们的许多附加物意思直觉上并不是明显的，所以添加注释到我们的文件.bashrc 中是
 一个好主意，可以帮助人们理解。使用编辑器，更改我们的附加物，让它们看起来像这样：
 
-<div class="code"><pre>
-<tt># Change umask to make directory sharing easier
-umask 0002
- # Ignore duplicates in command history and increase
- # history size to 1000 lines
-export HISTCONTROL=ignoredups
-export HISTSIZE=1000
- # Add some helpful aliases
-alias l.=&apos;ls -d .\* --color=auto&apos;
-alias ll=&apos;ls -l --color=auto&apos;
-</tt>
-</pre></div>
+    # Change umask to make directory sharing easier
+    umask 0002
+     # Ignore duplicates in command history and increase
+     # history size to 1000 lines
+    export HISTCONTROL=ignoredups
+    export HISTSIZE=1000
+     # Add some helpful aliases
+    alias l.=&apos;ls -d .\* --color=auto&apos;
+    alias ll=&apos;ls -l --color=auto&apos;
+    
 
 啊，看起来好多了! 当我们完成修改后，输入 Ctrl-o 来保存我们修改的.bashrc 文件，输入 Ctrl-x 退出 nano。
+
+<div class="single">
 
 <h3>为什么注释很重要？</h3>
 
@@ -398,6 +378,7 @@ alias ll=&apos;ls -l --color=auto&apos;
 <p>最后三行是有效的被注释掉的别名定义。如果你删除这三行开头的&quot;#&quot;符号，此技术程称为
 (不注释)，这样你就会激活这些别名。相反地，如果你在一行的开头加上&quot;#&quot;符号，你可以
 注销掉这一行，但会保留它所包含的信息。</p>
+</div>
 
 ### 激活我们的修改
 
@@ -405,15 +386,13 @@ alias ll=&apos;ls -l --color=auto&apos;
 因为.bashrc 文件只是在刚开始启动终端会话时读取。然而，我们可以强迫 bash 重新读取修改过的
 .bashrc 文件，使用下面的命令：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ source .bashrc</tt>
-</pre></div>
+    [me@linuxbox ~]$ source .bashrc
+    
 
 运行上面命令之后，我们就应该能够看到所做修改的效果了。试试其中一个新的别名：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ll</tt>
-</pre></div>
+    [me@linuxbox ~]$ ll
+    
 
 ### 总结
 

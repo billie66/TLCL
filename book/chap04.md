@@ -32,51 +32,47 @@ subdirectories contained in the current working directory:
 有充分的理由证明，ls 可能是用户最常使用的命令。通过它，我们可以知道目录的内容，以及各种各样重要文件和目录的
 属性。正如我们所知道的，只简单的输入 ls 就能看到在当前目录下所包含的文件和子目录列表。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls
-Desktop Documents Music Pictures Publica Templates Videos </tt>
-</pre></div>
+    [me@linuxbox ~]$ ls
+    Desktop Documents Music Pictures Publica Templates Videos 
+    
 
 Besides the current working directory, we can specify the directory to list, like so:
 
 除了当前工作目录以外，也可以列出指定目录的内容，就像这样：
 
-<div class="code"><pre>
-<tt>me@linuxbox ~]$ ls /usr
-bin games   kerberos    libexec  sbin   src
-etc include lib         local    share  tmp </tt>
-</pre></div>
+    me@linuxbox ~]$ ls /usr
+    bin games   kerberos    libexec  sbin   src
+    etc include lib         local    share  tmp 
+    
 
 Or even specify multiple directories. In this example we will list both the user's home
 directory (symbolized by the “~” character) and the /usr directory:
 
 甚至可以列出多个指定目录的内容。在这个例子中，将会列出用户主目录（用字符“~”代表）和/usr 目录的内容：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls ~ /usr
-/home/me:
-Desktop  Documents  Music  Pictures  Public  Templates  Videos
-
-/usr:
-bin  games      kerberos  libexec  sbin   src
-etc  include    lib       local    share  tmp </tt>
-</pre></div>
+    [me@linuxbox ~]$ ls ~ /usr
+    /home/me:
+    Desktop  Documents  Music  Pictures  Public  Templates  Videos
+    
+    /usr:
+    bin  games      kerberos  libexec  sbin   src
+    etc  include    lib       local    share  tmp 
+    
 
 We can also change the format of the output to reveal more detail:
 
 我们也可以改变输出格式，来得到更多的细节：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l
-total 56
-drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Desktop
-drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Documents
-drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Music
-drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Pictures
-drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Public
-drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Templates
-drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Videos</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -l
+    total 56
+    drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Desktop
+    drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Documents
+    drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Music
+    drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Pictures
+    drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Public
+    drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Templates
+    drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Videos
+    
 
 By adding “-l” to the command, we changed the output to the long format.
 
@@ -93,9 +89,8 @@ the items upon which the command acts. So most commands look kind of like this:
 我们将学习一个非常重要的知识点，大多数命令是如何工作的。命令名经常会带有一个或多个用来更正命令行为的选项，
 更进一步，选项后面会带有一个或多个参数，这些参数是命令作用的对象。所以大多数命令看起来像这样：
 
-<div class="code"><pre>
-<tt><b>command -options arguments</b></tt>
-</pre></div>
+    command -options arguments
+    
 
 Most commands use options consisting of a single character preceded by a dash, 
 for example, “-l”, but many commands, including those from the GNU Project, also support long options, 
@@ -107,17 +102,15 @@ to produce long format output, and the “t” option to sort the result by the 
 长选项由两个中划线加上一个字组成。当然，许多命令也允许把多个短选项串在一起使用。下面这个例子，ls 命令有两个选项，“l” 
 选项产生长格式输出，“t”选项按文件修改时间的先后来排序。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -lt</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -lt
+    
 
 We'll add the long option “--reverse” to reverse the order of the sort:
 
 加上长选项“--reverse”，则结果会以相反的顺序输出：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -lt --reverse</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -lt --reverse
+    
 
 The ls command has a large number of possible options. The most common are listed in
 the Table 4-1.
@@ -125,7 +118,7 @@ the Table 4-1.
 ls 命令有大量的选项。表4-1列出了最常使用的选项。
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 4-1: Common ls Options
 </caption>
 <tr>
@@ -190,7 +183,7 @@ ls display its results in ascending alphabetical order.
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表 4-1: ls 命令选项 </caption>
 <tr>
 <th class="title" width="10%">选项</th>
@@ -258,26 +251,25 @@ from an Ubuntu system:
 正如我们先前知道的，“-l”选项导致 ls 的输出结果以长格式输出。这种格式包含大量的有用信息。下面的例子目录来自
 于 Ubuntu 系统：
 
-<div class="code"><pre><tt>
--rw-r--r-- 1 root root 3576296 2007-04-03 11:05 Experience ubuntu.ogg
--rw-r--r-- 1 root root 1186219 2007-04-03 11:05 kubuntu-leaflet.png 
--rw-r--r-- 1 root root   47584 2007-04-03 11:05 logo-Edubuntu.png 
--rw-r--r-- 1 root root   44355 2007-04-03 11:05 logo-Kubuntu.png
--rw-r--r-- 1 root root   34391 2007-04-03 11:05 logo-Ubuntu.png
--rw-r--r-- 1 root root   32059 2007-04-03 11:05 oo-cd-cover.odf
--rw-r--r-- 1 root root  159744 2007-04-03 11:05 oo-derivatives.doc
--rw-r--r-- 1 root root   27837 2007-04-03 11:05 oo-maxwell.odt
--rw-r--r-- 1 root root   98816 2007-04-03 11:05 oo-trig.xls
--rw-r--r-- 1 root root  453764 2007-04-03 11:05 oo-welcome.odt
--rw-r--r-- 1 root root  358374 2007-04-03 11:05 ubuntu Sax.ogg </tt>
-</pre></div>
+    -rw-r--r-- 1 root root 3576296 2007-04-03 11:05 Experience ubuntu.ogg
+    -rw-r--r-- 1 root root 1186219 2007-04-03 11:05 kubuntu-leaflet.png 
+    -rw-r--r-- 1 root root   47584 2007-04-03 11:05 logo-Edubuntu.png 
+    -rw-r--r-- 1 root root   44355 2007-04-03 11:05 logo-Kubuntu.png
+    -rw-r--r-- 1 root root   34391 2007-04-03 11:05 logo-Ubuntu.png
+    -rw-r--r-- 1 root root   32059 2007-04-03 11:05 oo-cd-cover.odf
+    -rw-r--r-- 1 root root  159744 2007-04-03 11:05 oo-derivatives.doc
+    -rw-r--r-- 1 root root   27837 2007-04-03 11:05 oo-maxwell.odt
+    -rw-r--r-- 1 root root   98816 2007-04-03 11:05 oo-trig.xls
+    -rw-r--r-- 1 root root  453764 2007-04-03 11:05 oo-welcome.odt
+    -rw-r--r-- 1 root root  358374 2007-04-03 11:05 ubuntu Sax.ogg 
+    
 
 Let's look at the different fields from one of the files and examine their meanings:
 
 选一个文件，来看一下各个输出字段的含义：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 4-2:ls Long Listing Fields</caption>
 <tr>
 <th class="title">Field</th>
@@ -321,7 +313,7 @@ later in this chapter.  </td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表 4-2:ls 长格式列表的字段</caption>
 <tr>
 <th class="title">字段</th>
@@ -377,19 +369,17 @@ required to in Linux. We can invoke the file command this way:
 在 Linux 系统中，并不要求文件名来反映文件的内容。然而，一个类似“picture.jpg”的文件名，我们会期望它包含
 JPEG 压缩图像，但 Linux 却不这样要求它。可以这样调用 file 命令：
 
-<div class="code"><pre>
-<tt>file filename</tt>
-</pre></div>
+    file filename
+    
 
 When invoked, the file command will print a brief description of the file's
 contents. For example:
 
 当调用 file 命令后，file 命令会打印出文件内容的简单描述。例如：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ file picture.jpg
-picture.jpg: JPEG image data, JFIF standard 1.01</tt>
-</pre></div>
+    [me@linuxbox ~]$ file picture.jpg
+    picture.jpg: JPEG image data, JFIF standard 1.01
+    
 
 There are many kinds of files. In fact, one of the common ideas in Unix-like operating
 systems such as Linux is that “everything is a file.” As we proceed with our lessons, we
@@ -414,9 +404,8 @@ convenient way to examine them.
 less 命令是一个用来浏览文本文件的程序。纵观 Linux 系统，有许多人类可读的文本文件。less 程序为我们检查文本文件
 提供了方便。
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<di class="single">
+
 <h3>What Is "Text"</h3>
 <h3> 什么是“文本”</h3>
 <p>There are many ways to represent information on a computer. All methods
@@ -456,9 +445,7 @@ program is an editor for plain ASCII text files.  </p>
 普通的 ASCII 文件，只包含字符本身，和一些基本的控制符，像制表符，回车符及换行符。纵观 Linux 系统，许多文件
 以文本格式存储，也有许多 Linux 工具来处理文本文件。甚至 Windows 也承认这种文件格式的重要性。著名的 NOTEPAD.EXE
 程序就是一个 ASCII 文本文件编辑器。 </p>
-</td>
-</tr>
-</table>
+</div>
 
 Why would we want to examine text files? Because many of the files that contain system
 settings (called configuration files) are stored in this format, and being able to read them
@@ -475,17 +462,15 @@ The less command is used like this:
 
 less 命令是这样使用的：
 
-<div class="code"><pre>
-<tt>less filename</tt>
-</pre></div>
+    less filename
+    
 
 Once started, the less program allows you to scroll forward and backward through a
 text file. For example, to examine the file that defines all the system's user accounts,
 enter the following command:
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ less /etc/passwd</tt>
-</pre></div>
+    [me@linuxbox ~]$ less /etc/passwd
+    
 
 一旦运行起来，less 程序允许你前后滚动文件。例如，要查看一个定义了系统中全部用户身份的文件，输入以下命令：
 
@@ -499,7 +484,7 @@ The table below lists the most common keyboard commands used by less.
 下表列出了 less 程序最常使用的键盘命令。
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 4-3: less Commands</caption>
 <tr>
 <th class="title" width="30%">Command</th>
@@ -549,7 +534,7 @@ The table below lists the most common keyboard commands used by less.
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表 4-3: less 命令</caption>
 <tr>
 <th class="title" width="30%">命令</th>
@@ -649,13 +634,13 @@ readable text. As we go about our tour, try the following:
 <li>如果文件看起来像文本，试着用 less 命令浏览它</li>
 </ol>
 
-<hr />
+---
 Remember the copy and paste trick! If you are using a mouse, you can double
 click on a filename to copy it and middle click to paste it into commands.
 
 记得复制和粘贴技巧！如果你正在使用鼠标，双击文件名，来复制它，然后按下鼠标中键，粘贴文件名到命令行中。
 
-<hr />
+---
 
 As we wander around, don't be afraid to look at stuff. Regular users are largely
 prohibited from messing things up. That's the system administrators job! If a command
@@ -668,7 +653,7 @@ Table 4-4 lists just a few of the directories we can explore. Feel free to try m
 表4-4仅仅列出了一些我们可以浏览的目录。闲暇时试试看！
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 4-4: Directories Found On Linux Systems </caption>
 <tr>
 <th class="title">Drectory</th>
@@ -853,7 +838,7 @@ some systems, you must be the superuser to view log files.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表 4-4: Linux 系统中的目录</caption>
 <tr>
 <th class="title">目录</th>
@@ -1020,9 +1005,8 @@ As we look around, we are likely to see a directory listing with an entry like t
 
 在我们到处查看时，我们可能会看到一个目录，列出像这样的一条信息：
 
-<div class="code"><pre>
-<tt>lrwxrwxrwx 1 root root 11 2007-08-11 07:34 libc.so.6 -> libc-2.6.so </tt>
-</pre></div>
+    lrwxrwxrwx 1 root root 11 2007-08-11 07:34 libc.so.6 -> libc-2.6.so 
+    
 
 Notice how the first letter of the listing is “l” and the entry seems to have two filenames?
 This is a special kind of a file called a symbolic link (also known as a soft link or

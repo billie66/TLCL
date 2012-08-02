@@ -26,9 +26,8 @@ title: 操作文件和目录
 到另一个目录，但这些 HTML 文件不存在于目标目录，或者是文件版本新于目标目录里的文件？
 要完成这个任务，使用文件管理器相当难，使用命令行相当容易：
 
-<div class="code"><pre>
-<tt>cp -u *.html destination </tt>
-</pre></div>
+    cp -u *.html destination 
+    
 
 ### 通配符
 
@@ -74,6 +73,7 @@ title: 操作文件和目录
 
 接受文件名作为参数的任何命令，都可以使用通配符，我们会在第八章更深入的谈到这个知识点。
 
+<div class="single">
 <h3>字符范围</h3>
 
 如果你用过别的类似 Unix 系统的操作环境，或者是读过这方面的书籍，你可能遇到过[A-Z]或
@@ -94,25 +94,23 @@ title: 操作文件和目录
 
 <p>最初源于命令行界面中的想法，在图形界面中也适用。这就是使 Linux 桌面系统
 如此强大的众多原因中的一个。</p>
+</div>
 
 mkdir 命令是用来创建目录的。它这样工作：
 
-<div class="code"><pre>
-<tt>mkdir directory...</tt>
-</pre></div>
+    mkdir directory...
+    
 
 __注意表示法:__ 在描述一个命令时（如上所示），当有三个圆点跟在一个命令的参数后面，
 这意味着那个参数可以重复，就像这样：
 
-<div class="code"><pre>
-<tt>mkdir dir1</tt>
-</pre></div>
+    mkdir dir1
+    
 
 会创建一个名为"dir1"的目录，而
 
-<div class="code"><pre>
-<tt>mkdir dir1 dir2 dir3</tt>
-</pre></div>
+    mkdir dir1 dir2 dir3
+    
 
 会创建三个目录，名为"dir1", "dir2", "dir3"。
 
@@ -120,15 +118,13 @@ __注意表示法:__ 在描述一个命令时（如上所示），当有三个�
 
 cp 命令，复制文件或者目录。它有两种使用方法：
 
-<div class="code"><pre>
-<tt>cp item1 item2</tt>
-</pre></div>
+    cp item1 item2
+    
 
 复制单个文件或目录"item1"到文件或目录"item2"，和：
 
-<div class="code"><pre>
-<tt>cp item... directory</tt>
-</pre></div>
+    cp item... directory
+    
 
 复制多个项目（文件或目录）到一个目录下。
 
@@ -168,13 +164,11 @@ dir2必须已经存在。</td>
 mv 命令可以执行文件移动和文件命名任务，这依赖于你怎样使用它。任何一种
 情况下，完成操作之后，原来的文件名不再存在。mv 使用方法与 cp 很相像：
 
-<div class="code"><pre>
-<tt>mv item1 item2</tt>
-</pre></div>
+    mv item1 item2
+    
 
-<div class="code"><pre>
-<tt>mv item... directory</tt>
-</pre></div>
+    mv item... directory
+    
 
 ### 有用的选项和实例
 
@@ -199,9 +193,8 @@ class="title">移动 file1到 file2。<b>如果 file2存在，它的内容会被
 目录 dir2中，同时删除目录 dir1。如果目录 dir2存在，移动目录 dir1（及它的内容）到
 目录 dir2。</td>
 
-<div class="code"><pre>
-<tt>rm item...</tt>
-</pre></div>
+    rm item...
+    
 
 "item"代表一个或多个文件或目录。
 
@@ -228,6 +221,8 @@ valign="top">在删除已存在的文件前，提示用户确认信息。
 <td valign="top">删除文件 file1, 目录 dir1，及 dir1中的内容。</td>
 valign="top">同上，除了如果文件 file1，或目录 dir1不存在的话，rm 仍会继续执行。</td>
 
+<div class="single">
+
 <h3>小心 rm!</h3>
 
 <p>类似于 Unix 的操作系统，比如说 Linux，没有复原命令。一旦你用 rm 删除了一些东西，
@@ -246,12 +241,13 @@ valign="top">同上，除了如果文件 file1，或目录 dir1不存在的话�
 
 ### ln — 创建链接
 
-ln 命令即可创建硬链接，也可以创建符号链接。可以用其中一种方法来使用它： <div class="code"><pre> <tt>ln file link</tt> </pre></div> to create a hard link, and: 
+ln 命令即可创建硬链接，也可以创建符号链接。可以用其中一种方法来使用它： 
+
+    ln file link
+
 创建硬链接，和：
 
-<div class="code"><pre>
-<tt>ln -s item link</tt>
-</pre></div>
+    ln -s item link
 
 创建符号链接，"item"可以是一个文件或是一个目录。
 
@@ -299,19 +295,17 @@ ln 命令即可创建硬链接，也可以创建符号链接。可以用其中�
 mkdir 命令被用来创建目录。首先确定我们在我们的主目录下，来创建 playground 目录，
 然后创建这个新目录：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cd
-[me@linuxbox ~]$ mkdir playground</tt>
-</pre></div>
+    [me@linuxbox ~]$ cd
+    [me@linuxbox ~]$ mkdir playground
+    
 
 为了让我们的游戏场更加有趣，在 playground 目录下创建一对目录
 ，分别叫做"dir1"和"dir2"。更改我们的当前工作目录到 playground，然后
 执行 mkdir 命令：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cd playground
-[me@linuxbox playground]$ mkdir dir1 dir2</tt>
-</pre></div>
+    [me@linuxbox ~]$ cd playground
+    [me@linuxbox playground]$ mkdir dir1 dir2
+    
 
 注意到 mkdir 命令可以接受多个参数，它允许我们用一个命令来创建这两个
 目录。
@@ -323,36 +317,32 @@ mkdir 命令被用来创建目录。首先确定我们在我们的主目录下�
 下一步，让我们得到一些数据到我们的游戏场中。通过复制一个文件来实现目的。
 使用 cp 命令，我们从/etc 目录复制 passwd 文件到当前工作目录下：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ cp /etc/passwd .</tt>
-</pre></div>
+    [me@linuxbox playground]$ cp /etc/passwd .
+    
 
 注意：我们怎样使用当前工作目录的快捷方式，命令末尾的单个圆点。如果我们执行 ls 命令，
 可以看到我们的文件：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ ls -l
-total 12
-drwxrwxr-x 2  me  me   4096 2008-01-10 16:40 dir1
-drwxrwxr-x 2  me  me   4096 2008-01-10 16:40 dir2
--rw-r--r-- 1  me  me   1650 2008-01-10 16:07 passwd </tt>
-</pre></div>
+    [me@linuxbox playground]$ ls -l
+    total 12
+    drwxrwxr-x 2  me  me   4096 2008-01-10 16:40 dir1
+    drwxrwxr-x 2  me  me   4096 2008-01-10 16:40 dir2
+    -rw-r--r-- 1  me  me   1650 2008-01-10 16:07 passwd 
+    
 
 现在，仅仅是为了高兴，重复操作复制命令，使用"-v"选项（唠叨），看一个它的作用：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ cp -v /etc/passwd .
-`/etc/passwd' -> `./passwd'</tt>
-</pre></div>
+    [me@linuxbox playground]$ cp -v /etc/passwd .
+    `/etc/passwd' -> `./passwd'
+    
 
 cp 命令再一次执行了复制操作，但是这次显示了一条简洁的信息，指明它
 进行了什么操作。注意，cp 没有警告，就重写了第一次复制的文件。这是一个案例，
 cp 假定你知道你的所作所为。为了得到警示信息，在命令中包含"-i"选项：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ cp -i /etc/passwd .
-cp: overwrite `./passwd'?</tt>
-</pre></div>
+    [me@linuxbox playground]$ cp -i /etc/passwd .
+    cp: overwrite `./passwd'?
+    
 
 响应命令提示信息，输入"y"，文件就会被重写，其它的字符（例如，"n"）
 会导致 cp 命令不理会文件。
@@ -361,77 +351,68 @@ cp: overwrite `./passwd'?</tt>
 
 现在，"passwd"这个名字，看起来不怎么有趣，这是个游戏场，所以我们给它改个名字：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ mv passwd fun</tt>
-</pre></div>
+    [me@linuxbox playground]$ mv passwd fun
+    
 
 让我们来传送 fun 文件，通过移动重命名的文件到各个子目录，
 然后再把它移回到当前目录：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ mv fun dir1</tt>
-</pre></div>
+    [me@linuxbox playground]$ mv fun dir1
+    
 
 首先，把 fun 文件移动目录 dir1中，然后：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ mv dir1/fun dir2</tt>
-</pre></div>
+    [me@linuxbox playground]$ mv dir1/fun dir2
+    
 
 再把 fun 文件从 dir1移到目录 dir2, 然后：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ mv dir2/fun .</tt>
-</pre></div>
+    [me@linuxbox playground]$ mv dir2/fun .
+    
 
 最后，再把 fun 文件带回到当前工作目录。下一步，来看看移动目录的效果。
 首先，我们先移动我们的数据文件到 dir1目录：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ mv fun dir1</tt>
-</pre></div>
+    [me@linuxbox playground]$ mv fun dir1
+    
 
 然后移动 dir1到 dir2目录，用 ls 来确认执行结果:
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ mv dir1 dir2
-[me@linuxbox playground]$ ls -l dir2
-total 4
-drwxrwxr-x 2 me me 4096 2008-01-11 06:06 dir1
-[me@linuxbox playground]$ ls -l dir2/dir1
-total 4
--rw-r--r-- 1 me me 1650 2008-01-10 16:33 fun</tt>
-</pre></div>
+    [me@linuxbox playground]$ mv dir1 dir2
+    [me@linuxbox playground]$ ls -l dir2
+    total 4
+    drwxrwxr-x 2 me me 4096 2008-01-11 06:06 dir1
+    [me@linuxbox playground]$ ls -l dir2/dir1
+    total 4
+    -rw-r--r-- 1 me me 1650 2008-01-10 16:33 fun
+    
 
 注意：因为目录 dir2已经存在，mv 命令移动 dir1到 dir2目录。如果 dir2不存在，
 mv 会重新命名 dir1为 dir2。最后，把所有的东西放回原处。
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ mv dir2/dir1 .
-[me@linuxbox playground]$ mv dir1/fun .</tt>
-</pre></div>
+    [me@linuxbox playground]$ mv dir2/dir1 .
+    [me@linuxbox playground]$ mv dir1/fun .
+    
 
 ### 创建硬链接
 
 现在，我们试着创建链接。首先是硬链接。我们创建一些关联我们
 数据文件的链接：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ ln fun fun-hard
-[me@linuxbox playground]$ ln fun dir1/fun-hard
-[me@linuxbox playground]$ ln fun dir2/fun-hard</tt>
-</pre></div>
+    [me@linuxbox playground]$ ln fun fun-hard
+    [me@linuxbox playground]$ ln fun dir1/fun-hard
+    [me@linuxbox playground]$ ln fun dir2/fun-hard
+    
 
 所以现在，我们有四个文件"fun"的实例。看一下目录 playground 中的内容：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ ls -l
-total 16
-drwxrwxr-x 2 me  me 4096 2008-01-14 16:17 dir1
-drwxrwxr-x 2 me  me 4096 2008-01-14 16:17 dir2
--rw-r--r-- 4 me  me 1650 2008-01-10 16:33 fun
--rw-r--r-- 4 me  me 1650 2008-01-10 16:33 fun-hard</tt>
-</pre></div>
+    [me@linuxbox playground]$ ls -l
+    total 16
+    drwxrwxr-x 2 me  me 4096 2008-01-14 16:17 dir1
+    drwxrwxr-x 2 me  me 4096 2008-01-14 16:17 dir2
+    -rw-r--r-- 4 me  me 1650 2008-01-10 16:33 fun
+    -rw-r--r-- 4 me  me 1650 2008-01-10 16:33 fun-hard
+    
 
 注意到一件事，列表中，文件 fun 和 fun-hard 的第二个字段是"4"，这个数字
 是文件"fun"的硬链接数目。你要记得一个文件至少有一个硬链接，因为文件
@@ -448,14 +429,13 @@ drwxrwxr-x 2 me  me 4096 2008-01-14 16:17 dir2
 
 ls 命令有一种方法，来展示（文件索引节点）的信息。在命令中加上"-l"选项：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ ls -li
-total 16
-12353539 drwxrwxr-x 2 me  me 4096  2008-01-14  16:17  dir1
-12353540 drwxrwxr-x 2 me  me 4096  2008-01-14  16:17  dir2
-12353538 -rw-r--r-- 4 me  me 1650  2008-01-10  16:33  fun
-12353538 -rw-r--r-- 4 me  me 1650  2008-01-10  16:33  fun-hard</tt>
-</pre></div>
+    [me@linuxbox playground]$ ls -li
+    total 16
+    12353539 drwxrwxr-x 2 me  me 4096  2008-01-14  16:17  dir1
+    12353540 drwxrwxr-x 2 me  me 4096  2008-01-14  16:17  dir2
+    12353538 -rw-r--r-- 4 me  me 1650  2008-01-10  16:33  fun
+    12353538 -rw-r--r-- 4 me  me 1650  2008-01-10  16:33  fun-hard
+    
 
 在这个版本的列表中，第一字段表示文件索引节点号，正如我们所见到的，
 fun 和 fun-hard 共享一样的索引节点号，这就证实这两个文件是一样的文件。
@@ -468,23 +448,21 @@ fun 和 fun-hard 共享一样的索引节点号，这就证实这两个文件是
 
 符号链接的建立过程相似于创建硬链接：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ ln -s fun fun-sym
-[me@linuxbox playground]$ ln -s ../fun dir1/fun-sym
-[me@linuxbox playground]$ ln -s ../fun dir2/fun-sym</tt>
-</pre></div>
+    [me@linuxbox playground]$ ln -s fun fun-sym
+    [me@linuxbox playground]$ ln -s ../fun dir1/fun-sym
+    [me@linuxbox playground]$ ln -s ../fun dir2/fun-sym
+    
 
 第一个实例相当直接，在 ln 命令中，简单地加上"-s"选项就可以创建一个符号链接，
 而不是一个硬链接。下面两个例子又是怎样呢？ 记住，当我们创建一个符号链接
 的时候，会建立一个目标文件在哪里和符号链接有关联的文本描述。如果我们看看
 ls 命令的输出结果，比较容易理解。
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ ls -l dir1
-total 4
--rw-r--r-- 4 me  me 1650 2008-01-10 16:33 fun-hard
-lrwxrwxrwx 1 me  me    6 2008-01-15 15:17 fun-sym -> ../fun</tt>
-</pre></div>
+    [me@linuxbox playground]$ ls -l dir1
+    total 4
+    -rw-r--r-- 4 me  me 1650 2008-01-10 16:33 fun-hard
+    lrwxrwxrwx 1 me  me    6 2008-01-15 15:17 fun-sym -> ../fun
+    
 
 目录 dir1中，fun-sym 的列表说明了它是一个符号链接，通过在第一字段中的首字符"l"
 可知，并且它还指向"../fun"，也是正确的。相对于 fun-sym 的存储位置，fun 在它的
@@ -493,73 +471,66 @@ lrwxrwxrwx 1 me  me    6 2008-01-15 15:17 fun-sym -> ../fun</tt>
 
 当建立符号链接时，你即可以使用绝对路径名：
 
-<div class="code"><pre>
-<tt>ln -s /home/me/playground/fun dir1/fun-sym</tt>
-</pre></div>
+    ln -s /home/me/playground/fun dir1/fun-sym
+    
 
 也可用相对路径名，正如前面例题所展示的。使用相对路径名更令人满意，
 因为它允许一个包含符号链接的目录重命名或移动，而不会破坏链接。
 
 除了普通文件，符号链接也能关联目录：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ ln -s dir1 dir1-sym
-[me@linuxbox playground]$ ls -l
-total 16
-...省略</tt>
-</pre></div>
+    [me@linuxbox playground]$ ln -s dir1 dir1-sym
+    [me@linuxbox playground]$ ls -l
+    total 16
+    ...省略
+    
 
 ### 移动文件和目录
 
 正如我们之前讨论的，rm 命令被用来删除文件和目录。我们将要使用它
 来清理一下我们的游戏场。首先，删除一个硬链接：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ rm fun-hard
-[me@linuxbox playground]$ ls -l
-total 12
-...省略</tt>
-</pre></div>
+    [me@linuxbox playground]$ rm fun-hard
+    [me@linuxbox playground]$ ls -l
+    total 12
+    ...省略
+    
 
 结果不出所料。文件 fun-hard 消失了，文件 fun 的链接数从4减到3，正如
 目录列表第二字段所示。下一步，我们会删除文件 fun，仅为了娱乐，我们会包含"-i"
 选项，看一个它的作用：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ rm -i fun
-rm: remove regular file `fun'?</tt>
-</pre></div>
+    [me@linuxbox playground]$ rm -i fun
+    rm: remove regular file `fun'?
+    
 
 在提示符下输入"y"，删除文件。让我们看一下 ls 的输出结果。注意，fun-sym 发生了
 什么事? 因为它是一个符号链接，指向已经不存在的文件，链接已经坏了：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ ls -l
-total 8
-drwxrwxr-x 2 me  me     4096 2008-01-15 15:17 dir1
-lrwxrwxrwx 1 me  me        4 2008-01-16 14:45 dir1-sym -> dir1
-drwxrwxr-x 2 me  me     4096 2008-01-15 15:17 dir2
-lrwxrwxrwx 1 me  me        3 2008-01-15 15:15 <b>fun-sym -> fun</b></tt>
-</pre></div>
+    [me@linuxbox playground]$ ls -l
+    total 8
+    drwxrwxr-x 2 me  me     4096 2008-01-15 15:17 dir1
+    lrwxrwxrwx 1 me  me        4 2008-01-16 14:45 dir1-sym -> dir1
+    drwxrwxr-x 2 me  me     4096 2008-01-15 15:17 dir2
+    lrwxrwxrwx 1 me  me        3 2008-01-15 15:15 fun-sym -> fun
+    
 
 大多数 Linux 的发行版本配置 ls 显示损坏的链接。在 Fedora 系统中，坏的链接以闪烁的
 红色文本显示！损坏链接的出现，并不危险，但是相当混乱。如果我们试着使用
 损坏的链接，会看到以下情况：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ less fun-sym
-fun-sym: No such file or directory</tt>
-</pre></div>
+    [me@linuxbox playground]$ less fun-sym
+    fun-sym: No such file or directory
+    
 
 稍微清理一下现场。删除符号链接：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ rm fun-sym dir1-sym
-[me@linuxbox playground]$ ls -l
-total 8
-drwxrwxr-x 2 me  me    4096 2008-01-15 15:17 dir1
-drwxrwxr-x 2 me  me    4096 2008-01-15 15:17 dir2</tt>
-</pre></div>
+    [me@linuxbox playground]$ rm fun-sym dir1-sym
+    [me@linuxbox playground]$ ls -l
+    total 8
+    drwxrwxr-x 2 me  me    4096 2008-01-15 15:17 dir1
+    drwxrwxr-x 2 me  me    4096 2008-01-15 15:17 dir2
+    
 
 对于符号链接，有一点值得记住，执行的大多数文件操作是针对链接的对象，而不是链接本身。
 而 rm 命令是个特例。当你删除链接的时候，删除链接本身，而不是链接的对象。
@@ -568,16 +539,19 @@ drwxrwxr-x 2 me  me    4096 2008-01-15 15:17 dir2</tt>
 我们的主目录，然后用 rm 命令加上选项(-r)，来删除目录 playground，
 和目录下的所有内容，包括子目录：
 
-<div class="code"><pre>
-<tt>[me@linuxbox playground]$ cd
-[me@linuxbox ~]$ rm -r playground</tt>
-</pre></div>
+    [me@linuxbox playground]$ cd
+    [me@linuxbox ~]$ rm -r playground
+    
+
+<div class="single">
 <h3>用 GUI 来创建符号链接</h3>
 
 <p>文件管理器 GNOME 和 KDE 都提供了一个简单而且自动化的方法来创建符号链接。
 在 GNOME 里面，当拖动文件时，同时按下 Ctrl+Shift 按键会创建一个链接，而不是
 复制（或移动）文件。在 KDE 中，无论什么时候放下一个文件，会弹出一个小菜单，
 这个菜单会提供复制，移动，或创建链接文件选项。</p>
+
+</div>
 
 ### 总结
 

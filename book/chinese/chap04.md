@@ -15,44 +15,40 @@ Linux 系统有帮助的命令。
 有充分的理由证明，ls 可能是用户最常使用的命令。通过它，我们可以知道目录的内容，以及各种各样重要文件和目录的
 属性。正如我们所知道的，只简单的输入 ls 就能看到在当前目录下所包含的文件和子目录列表。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls
-Desktop Documents Music Pictures Publica Templates Videos </tt>
-</pre></div>
+    [me@linuxbox ~]$ ls
+    Desktop Documents Music Pictures Publica Templates Videos 
+    
 
 除了当前工作目录以外，也可以列出指定目录的内容，就像这样：
 
-<div class="code"><pre>
-<tt>me@linuxbox ~]$ ls /usr
-bin games   kerberos    libexec  sbin   src
-etc include lib         local    share  tmp </tt>
-</pre></div>
+    me@linuxbox ~]$ ls /usr
+    bin games   kerberos    libexec  sbin   src
+    etc include lib         local    share  tmp 
+    
 
 甚至可以列出多个指定目录的内容。在这个例子中，将会列出用户主目录（用字符“~”代表）和/usr 目录的内容：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls ~ /usr
-/home/me:
-Desktop  Documents  Music  Pictures  Public  Templates  Videos
-
-/usr:
-bin  games      kerberos  libexec  sbin   src
-etc  include    lib       local    share  tmp </tt>
-</pre></div>
+    [me@linuxbox ~]$ ls ~ /usr
+    /home/me:
+    Desktop  Documents  Music  Pictures  Public  Templates  Videos
+    
+    /usr:
+    bin  games      kerberos  libexec  sbin   src
+    etc  include    lib       local    share  tmp 
+    
 
 我们也可以改变输出格式，来得到更多的细节：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l
-total 56
-drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Desktop
-drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Documents
-drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Music
-drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Pictures
-drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Public
-drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Templates
-drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Videos</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -l
+    total 56
+    drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Desktop
+    drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Documents
+    drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Music
+    drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Pictures
+    drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Public
+    drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Templates
+    drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Videos
+    
 
 使用 ls 命令的“-l”选项，则结果以长模式输出。
 
@@ -61,9 +57,8 @@ drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Videos</tt>
 我们将学习一个非常重要的知识点，大多数命令是如何工作的。命令名经常会带有一个或多个用来更正命令行为的选项，
 更进一步，选项后面会带有一个或多个参数，这些参数是命令作用的对象。所以大多数命令看起来像这样：
 
-<div class="code"><pre>
-<tt><b>command -options arguments</b></tt>
-</pre></div>
+    command -options arguments
+    
 
  to be strung together. In this example, the ls command is given two options, the “l” option 
 
@@ -71,15 +66,13 @@ drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Videos</tt>
 长选项由两个中划线加上一个字组成。当然，许多命令也允许把多个短选项串在一起使用。下面这个例子，ls 命令有两个选项，“l” 
 选项产生长格式输出，“t”选项按文件修改时间的先后来排序。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -lt</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -lt
+    
 
 加上长选项“--reverse”，则结果会以相反的顺序输出：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -lt --reverse</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -lt --reverse
+    
 
 ls 命令有大量的选项。表4-1列出了最常使用的选项。
 
@@ -104,19 +97,18 @@ valign="top">通常，如果指定了目录名，ls 命令会列出这个目录�
 正如我们先前知道的，“-l”选项导致 ls 的输出结果以长格式输出。这种格式包含大量的有用信息。下面的例子目录来自
 于 Ubuntu 系统：
 
-<div class="code"><pre><tt>
--rw-r--r-- 1 root root 3576296 2007-04-03 11:05 Experience ubuntu.ogg
--rw-r--r-- 1 root root 1186219 2007-04-03 11:05 kubuntu-leaflet.png 
--rw-r--r-- 1 root root   47584 2007-04-03 11:05 logo-Edubuntu.png 
--rw-r--r-- 1 root root   44355 2007-04-03 11:05 logo-Kubuntu.png
--rw-r--r-- 1 root root   34391 2007-04-03 11:05 logo-Ubuntu.png
--rw-r--r-- 1 root root   32059 2007-04-03 11:05 oo-cd-cover.odf
--rw-r--r-- 1 root root  159744 2007-04-03 11:05 oo-derivatives.doc
--rw-r--r-- 1 root root   27837 2007-04-03 11:05 oo-maxwell.odt
--rw-r--r-- 1 root root   98816 2007-04-03 11:05 oo-trig.xls
--rw-r--r-- 1 root root  453764 2007-04-03 11:05 oo-welcome.odt
--rw-r--r-- 1 root root  358374 2007-04-03 11:05 ubuntu Sax.ogg </tt>
-</pre></div>
+    -rw-r--r-- 1 root root 3576296 2007-04-03 11:05 Experience ubuntu.ogg
+    -rw-r--r-- 1 root root 1186219 2007-04-03 11:05 kubuntu-leaflet.png 
+    -rw-r--r-- 1 root root   47584 2007-04-03 11:05 logo-Edubuntu.png 
+    -rw-r--r-- 1 root root   44355 2007-04-03 11:05 logo-Kubuntu.png
+    -rw-r--r-- 1 root root   34391 2007-04-03 11:05 logo-Ubuntu.png
+    -rw-r--r-- 1 root root   32059 2007-04-03 11:05 oo-cd-cover.odf
+    -rw-r--r-- 1 root root  159744 2007-04-03 11:05 oo-derivatives.doc
+    -rw-r--r-- 1 root root   27837 2007-04-03 11:05 oo-maxwell.odt
+    -rw-r--r-- 1 root root   98816 2007-04-03 11:05 oo-trig.xls
+    -rw-r--r-- 1 root root  453764 2007-04-03 11:05 oo-welcome.odt
+    -rw-r--r-- 1 root root  358374 2007-04-03 11:05 ubuntu Sax.ogg 
+    
 
 选一个文件，来看一下各个输出字段的含义：
 
@@ -140,16 +132,14 @@ valign="top">通常，如果指定了目录名，ls 命令会列出这个目录�
 在 Linux 系统中，并不要求文件名来反映文件的内容。然而，一个类似“picture.jpg”的文件名，我们会期望它包含
 JPEG 压缩图像，但 Linux 却不这样要求它。可以这样调用 file 命令：
 
-<div class="code"><pre>
-<tt>file filename</tt>
-</pre></div>
+    file filename
+    
 
 当调用 file 命令后，file 命令会打印出文件内容的简单描述。例如：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ file picture.jpg
-picture.jpg: JPEG image data, JFIF standard 1.01</tt>
-</pre></div>
+    [me@linuxbox ~]$ file picture.jpg
+    picture.jpg: JPEG image data, JFIF standard 1.01
+    
 
 有许多类型的文件。事实上，在类似于 Unix 操作系统中比如说 Linux，有个普遍的观念就是“任何东西都是一个文件”。
 随着课程的进行，我们将会明白这句话的真谛。
@@ -176,6 +166,7 @@ ASCII 文本。ASCII（发音是"As-Key"）是美国信息交换标准码的简�
 普通的 ASCII 文件，只包含字符本身，和一些基本的控制符，像制表符，回车符及换行符。纵观 Linux 系统，许多文件
 以文本格式存储，也有许多 Linux 工具来处理文本文件。甚至 Windows 也承认这种文件格式的重要性。著名的 NOTEPAD.EXE
 程序就是一个 ASCII 文本文件编辑器。 </p>
+</div>
 
 为什么我们要查看文本文件呢？ 因为许多包含系统设置的文件（叫做配置文件），是以文本格式存储的，阅读它们
 可以更深入的了解系统是如何工作的。另外，许多系统所用到的实际程序（叫做脚本）也是以这种格式存储的。在随后的章节里，
@@ -183,13 +174,11 @@ ASCII 文本。ASCII（发音是"As-Key"）是美国信息交换标准码的简�
 
 less 命令是这样使用的：
 
-<div class="code"><pre>
-<tt>less filename</tt>
-</pre></div>
+    less filename
+    
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ less /etc/passwd</tt>
-</pre></div>
+    [me@linuxbox ~]$ less /etc/passwd
+    
 
 一旦运行起来，less 程序允许你前后滚动文件。例如，要查看一个定义了系统中全部用户身份的文件，输入以下命令：
 
@@ -233,7 +222,11 @@ Linux 系统中，文件系统布局与类似 Unix 系统的文件布局很相�
 <li>如果看到一个有趣的文件，用 file 命令确定文件内容</li>
 <li>如果文件看起来像文本，试着用 less 命令浏览它</li>
 
+---
+
 记得复制和粘贴技巧！如果你正在使用鼠标，双击文件名，来复制它，然后按下鼠标中键，粘贴文件名到命令行中。
+
+---
 
 在系统中游玩时，不要害怕粘花惹草。普通用户是很难把东西弄乱的。那是系统管理员的工作！如果一个命令抱怨一些事情，不要管它，
 尽管去玩别的东西。花一些时间四处走走。系统是我们自己的，尽情地探究吧。记住在 Linux 中，没有秘密存在！
@@ -304,9 +297,8 @@ valign="top">这个/var/log 目录包含日志文件，各种系统活动的记�
 
 在我们到处查看时，我们可能会看到一个目录，列出像这样的一条信息：
 
-<div class="code"><pre>
-<tt>lrwxrwxrwx 1 root root 11 2007-08-11 07:34 libc.so.6 -> libc-2.6.so </tt>
-</pre></div>
+    lrwxrwxrwx 1 root root 11 2007-08-11 07:34 libc.so.6 -> libc-2.6.so 
+    
 
 注意，这条信息第一个字符是“l”，并且看起来像有两个文件名？ 这是一个特殊文件，叫做符号链接（也称为软链接或者 symlink）。
 在大多数类似 Unix 系统中，有可能一个文件被多个文件名参考。虽然这种特性的意义并不明显，但它真地很有用。

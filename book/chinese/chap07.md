@@ -45,32 +45,27 @@ I/O 重定向允许我们来重定义标准输出送到哪里。重定向标准�
 一个文件很有用处。例如，我们可以告诉 shell 把 ls 命令的运行结果输送到文件 ls-output.txt 中去，
 由文件代替屏幕。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /usr/bin > ls-output.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -l /usr/bin > ls-output.txt
+    
 
 这里，我们创建了一个长长的目录/usr/bin 列表，并且输送程序运行结果到文件 ls-output.txt 中。
 我们检查一下重定向的命令输出结果：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l ls-output.txt
--rw-rw-r-- 1   me   me    167878 2008-02-01 15:07 ls-output.txt
-</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -l ls-output.txt
+    -rw-rw-r-- 1   me   me    167878 2008-02-01 15:07 ls-output.txt
+    
 
 好；一个不错的大型文本文件。如果我们用 less 阅读器来查看这个文件，我们会看到文件
 ls-output.txt 的确包含 ls 命令的执行结果。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ less ls-output.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ less ls-output.txt
+    
 
 现在，重复我们的重定向测试，但这次有改动。我们把目录换成一个不存在的目录。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /bin/usr > ls-output.txt
-ls: cannot access /bin/usr: No such file or directory</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -l /bin/usr > ls-output.txt
+    ls: cannot access /bin/usr: No such file or directory
+    
 
 我们收到一个错误信息。这很有意义，因为我们指定了一个不存在的目录/bin/usr,
 但是为什么这条错误信息显示在屏幕上而不是被重定向到文件 ls-output.txt？答案是，
@@ -79,19 +74,17 @@ ls 程序不把它的错误信息输送到标准输出。反而，像许多写�
 所以错误信息被送到屏幕。马上，我们将知道怎样重定向标准错误，但是首先看一下
 我们的输出文件发生了什么事情。
 
-<div class="code"><pre>
-<tt>me@linuxbox ~]$ ls -l ls-output.txt
--rw-rw-r-- 1 me   me    0 2008-02-01 15:08 ls-output.txt</tt>
-</pre></div>
+    me@linuxbox ~]$ ls -l ls-output.txt
+    -rw-rw-r-- 1 me   me    0 2008-02-01 15:08 ls-output.txt
+    
 
 文件长度成为零！这是因为，当我们使用"&gt;"重定向符来重定向输出结果时，目标文件总是从开头被重写。
 因为我们 ls 命令没有产生运行结果，只有错误信息，重定向操作开始重写文件，然后
 由于错误而停止，导致文件内容删除。事实上，如果我们需要删除一个文件内容（或者创建一个
 新的空文件），可以使用这样的技巧：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ > ls-output.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ > ls-output.txt
+    
 
 简单地使用重定向符，没有命令在它之前，这会删除一个已存在文件的内容或是
 创建一个新的空文件。
@@ -99,19 +92,16 @@ ls 程序不把它的错误信息输送到标准输出。反而，像许多写�
 所以，怎样才能把重定向结果追加到文件内容后面，而不是从开头重写文件？为了这个目的，
 我们使用"&gt;&gt;"重定向符，像这样：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /usr/bin &gt;&gt; ls-output.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -l /usr/bin >> ls-output.txt
+    
 
 使用"&gt;&gt;"操作符，将导致输出结果添加到文件内容之后。如果文件不存在，文件会
 被创建，就如使用了"&gt;"操作符。把它放到测试中：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /usr/bin &gt;&gt; ls-output.txt
-[me@linuxbox ~]$ ls -l /usr/bin &gt;&gt; ls-output.txt
-[me@linuxbox ~]$ ls -l ls-output.txt
--rw-rw-r-- 1 me   me    503634 2008-02-01 15:45 ls-output.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -l /usr/bin >> ls-output.txt
+    [me@linuxbox ~]$ ls -l ls-output.txt
+    -rw-rw-r-- 1 me   me    503634 2008-02-01 15:45 ls-output.txt
+    
 
 我们重复执行命令三次，导致输出文件大小是原来的三倍。
 
@@ -123,9 +113,8 @@ ls 程序不把它的错误信息输送到标准输出。反而，像许多写�
 了一种表示法来重定向文件，使用文件描述符。因为标准错误和文件描述符2一样，我们用这种
 表示法来重定向标准错误：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /bin/usr 2> ls-error.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -l /bin/usr 2> ls-error.txt
+    
 
 文件描述符"2"，紧挨着放在重定向操作符之前，来执行重定向标准错误到文件 ls-error.txt 任务。
 
@@ -135,12 +124,13 @@ ls 程序不把它的错误信息输送到标准输出。反而，像许多写�
 必须同时重定向标准输出和标准错误。有两种方法来完成任务。第一个，传统的方法，
 在旧版本 shell 中也有效：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /bin/usr > ls-output.txt 2&gt;&amp;1</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -l /bin/usr > ls-output.txt 2>&amp;1
+    
 
 使用这种方法，我们完成两个重定向。首先重定向标准输出到文件 ls-output.txt，然后
 重定向文件描述符2（标准错误）到文件描述符1（标准输出）使用表示法2&gt;&amp;1。
+
+---
 
 注意重定向的顺序安排非常重要。标准错误的重定向必须总是出现在标准输出
 重定向之后，要不然它不起作用。上面的例子，
@@ -148,12 +138,12 @@ ls 程序不把它的错误信息输送到标准输出。反而，像许多写�
 重定向标准错误到文件 ls-output.txt，但是如果命令顺序改为：
 
 则标准错误定向到屏幕。
+---
 
 现在的 bash 版本提供了第二种方法，更精简合理的方法来执行这种联合的重定向。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /bin/usr &amp;&lt; ls-output.txt </tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -l /bin/usr &amp;< ls-output.txt 
+    
 
 在这个例子里面，我们使用单单一个表示法&amp;&gt;来重定向标准输出和错误到文件 ls-output.txt。
 
@@ -164,16 +154,17 @@ ls 程序不把它的错误信息输送到标准输出。反而，像许多写�
 到一个特殊的叫做"/dev/null"的文件。这个文件是系统设备，叫做位存储桶，它可以
 接受输入，并且对输入不做任何处理。为了隐瞒命令错误信息，我们这样做：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /bin/usr 2> /dev/null</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -l /bin/usr 2> /dev/null
+    
+
+<div class="single">
 
 <h3>Unix 文化中的/dev/null</h3>
 
 <p>位存储桶是个古老的 Unix 概念，由于它的普遍性，它的身影出现在 Unix 文化的
 许多部分。当有人说他/她正在发送你的评论到/dev/null，现在你应该知道那是
-什么意思了。更多的例子，可以阅读 Wikipedia 关于"/dev/null"的文章。
- </p>
+什么意思了。更多的例子，可以阅读 Wikipedia 关于"/dev/null"的文章。 </p>
+</div>
 
 ### 重定向标准输入
 
@@ -184,16 +175,14 @@ ls 程序不把它的错误信息输送到标准输出。反而，像许多写�
 
 cat 命令读取一个或多个文件，然后复制它们到标准输出，就像这样:
 
-<div class="code"><pre>
-<tt><b>cat [file]</b></tt>
-</pre></div>
+    cat [file]
+    
 
 在大多数情况下，你可以认为 cat 命令相似于 DOS 中的 TYPE 命令。你可以使用 cat 来显示
 文件而没有分页，例如：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat ls-output.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ cat ls-output.txt
+    
 
 将会显示文件 ls-output.txt 的内容。cat 经常被用来显示简短的文本文件。因为 cat 可以
 接受不只一个文件作为参数，所以它也可以用来把文件连接在一起。比方说我们下载了一个
@@ -202,63 +191,54 @@ cat 命令读取一个或多个文件，然后复制它们到标准输出，就�
 
 我们能用这个命令把它们连接起来：
 
-<div class="code"><pre>
-<tt>cat movie.mpeg.0* > movie.mpeg</tt>
-</pre></div>
+    cat movie.mpeg.0* > movie.mpeg
+    
 
 因为通配符总是以有序的方式展开，所以这些参数会以正确顺序安排。
 
 这很好，但是这和标准输入有什么关系呢？没有任何关系，让我们试着做些其他的工作。
 如果我们输入不带参数的"cat"命令，会发生什么呢：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat</tt>
-</pre></div>
+    [me@linuxbox ~]$ cat
+    
 
 没有发生任何事情，它只是坐在那里，好像挂掉了一样。看起来是那样，但是它正在做它该做的事情：
 
 如果 cat 没有给出任何参数，它会从标准输入读入数据，因为标准输入，默认情况下，连接到键盘。
 它正在等待我们输入数据！试试这个：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat
-The quick brown fox jumped over the lazy dog.</tt>
-</pre></div>
+    [me@linuxbox ~]$ cat
+    The quick brown fox jumped over the lazy dog.
+    
 
 下一步，输入 Ctrl-d（按住 Ctrl 键同时按下"d"），来告诉 cat，在标准输入中，
 它已经到达文件末尾（EOF）：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat
-The quick brown fox jumped over the lazy dog.
-The quick brown fox jumped over the lazy dog.</tt>
-</pre></div>
+    [me@linuxbox ~]$ cat
+    The quick brown fox jumped over the lazy dog.
+    
 
 由于文件名参数的缺席，cat 复制标准输入到标准输出，所以我们看到文本行重复出现。
 我们可以使用这种行为来创建简短的文本文件。比方说，我们想创建一个叫做"lazy_dog.txt"
 的文件，这个文件包含例子中的文本。我们这样做：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat &gt; lazy_dog.txt
-The quick brown fox jumped over the lazy dog.</tt>
-</pre></div>
+    [me@linuxbox ~]$ cat > lazy_dog.txt
+    The quick brown fox jumped over the lazy dog.
+    
 
 输入命令，其后输入要放入文件中的文本。记住，最后输入 Ctrl-d。通过使用这个命令，我们
 实现了世界上最低能的文字处理器！看一下运行结果，我们使用 cat 来复制文件内容到
 标准输出：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat lazy_dog.txt
-The quick brown fox jumped over the lazy dog.</tt>
-</pre></div>
+    [me@linuxbox ~]$ cat lazy_dog.txt
+    The quick brown fox jumped over the lazy dog.
+    
 
 现在我们知道怎讲接受标准输入，除了文件名参数，让我们试着重定向标准输入：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat &lt; lazy_dog.txt
-The quick brown fox jumped over the lazy dog.</tt>
-</pre>
-</div>
+    [me@linuxbox ~]$ cat < lazy_dog.txt
+    The quick brown fox jumped over the lazy dog.
+    
 
 使用“<”重定向操作符，我们把标准输入源从键盘改到文件 lazy_dog.tx。我们看到结果
 和传递单个文件名作为参数的执行结果一样。把这和传递一个文件名参数作比较，尤其没有意义，
@@ -272,17 +252,15 @@ The quick brown fox jumped over the lazy dog.</tt>
 一个 shell 特性所利用，这个特性叫做管道线。使用管道操作符"|"（竖杠），一个命令的
 标准输出可以管道到另一个命令的标准输入：
 
-<div class="code"><pre>
-<tt>command1 | command2</tt>
-</pre></div>
+    command1 | command2
+    
 
 为了全面地说明这个命令，我们需要一些命令。是否记得我们说过，我们已经知道有一个
 命令接受标准输入？它是 less 命令。我们用 less 来一页一页地显示任何命令的输出，命令把
 它的运行结果输送到标准输出：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /usr/bin | less</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -l /usr/bin | less
+    
 
 这极其方便！使用这项技术，我们可以方便地检测会产生标准输出的任一命令的运行结果。
 
@@ -293,9 +271,8 @@ The quick brown fox jumped over the lazy dog.</tt>
 输出它。第一个我们想试验的过滤器是 sort。想象一下，我们想把目录/bin 和/usr/bin 中
 的可执行程序都联合在一起，再把它们排序，然后浏览执行结果：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls /bin /usr/bin | sort | less</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls /bin /usr/bin | sort | less
+    
 
 因为我们指定了两个目录（/bin 和/usr/bin），ls 命令的输出结果由有序列表组成，
 各自针对一个目录。通过在管道线中包含 sort，我们改变输出数据，从而产生一个
@@ -308,43 +285,38 @@ uniq 命令经常和 sort 命令结合在一起使用。uniq 从标准输入或�
 我们的列表中不包含重复句子（这是说，出现在目录/bin 和/usr/bin 中重名的程序），我们添加
 uniq 到我们的管道线中：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq | less</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq | less
+    
 
 在这个例子中，我们使用 uniq 从 sort 命令的输出结果中，来删除任何重复行。如果我们想看到
 重复的数据列表，让 uniq 命令带上"-d"选项，就像这样：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq -d | less</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq -d | less
+    
 
 ### wc －打印行，字和字节数
 
 wc（字计数）命令是用来显示文件所包含的行，字和字节数。例如：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ wc ls-output.txt
-7902 64566 503634 ls-output.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ wc ls-output.txt
+    7902 64566 503634 ls-output.txt
+    
 
 在这个例子中，wc 打印出来三个数字：行数，单词数和字节数，包含在文件 ls-output.txt 中。
 正如我们先前的命令，如果 wc 不带命令行参数，它接受标准输入。"-l"选项限制命令输出只能
 报道行数。添加 wc 到管道线来统计数据，是个很便利的方法。查看我们的有序列表中程序个数，
 我们可以这样做：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq | wc -l
-2728</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq | wc -l
+    2728
+    
 
 ### grep －打印匹配行
 
 grep 是个很强大的程序，用来找到文件中的匹配文本。这样使用 grep 命令：
 
-<div class="code"><pre>
-<tt>grep pattern [file...]</tt>
-</pre></div>
+    grep pattern [file...]
+    
 
 当 grep 遇到一个文件中的匹配"模式"，它会打印出包含这个类型的行。grep 能够匹配的模式可以
 很复杂，但是现在我们把注意力集中在简单文本匹配上面。在后面的章节中，我们将会研究
@@ -353,13 +325,12 @@ grep 是个很强大的程序，用来找到文件中的匹配文本。这样使
 比如说，我们想在我们的程序列表中，找到文件名中包含单词"zip"的所有文件。这样一个搜索，
 可能让我们了解系统中的一些程序与文件压缩有关系。这样做：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq | grep zip
-bunzip2
-bzip2
-gunzip
-...</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq | grep zip
+    bunzip2
+    bzip2
+    gunzip
+    ...
+    
 
 grep 有－对方便的选项："-i"导致 grep 忽略大小写当执行搜索时（通常，搜索是大小写
 敏感的），"-v"选项会告诉 grep 只打印不匹配的行。
@@ -370,32 +341,29 @@ grep 有－对方便的选项："-i"导致 grep 忽略大小写当执行搜索�
 head 命令打印文件的前十行，而 tail 命令打印文件的后十行。默认情况下，两个命令
 都打印十行文本，但是可以通过"-n"选项来调整命令打印的行数。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ head -n 5 ls-output.txt
-total 343496
-...
-[me@linuxbox ~]$ tail -n 5 ls-output.txt
-...</tt>
-</pre></div>
+    [me@linuxbox ~]$ head -n 5 ls-output.txt
+    total 343496
+    ...
+    [me@linuxbox ~]$ tail -n 5 ls-output.txt
+    ...
+    
 
 它们也能用在管道线中：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls /usr/bin | tail -n 5
-znew
-...</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls /usr/bin | tail -n 5
+    znew
+    ...
+    
 
 tail 有一个选项允许你实时的浏览文件。当观察日志文件的进展时，这很有用，因为
 它们同时在被写入。在以下的例子里，我们要查看目录/var/log 里面的信息文件。在
 一些 Linux 发行版中，要求有超级用户权限才能阅读这些文件，因为文件/var/log/messages
 可能包含安全信息。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ tail -f /var/log/messages
-Feb 8 13:40:05 twin4 dhclient: DHCPACK from 192.168.1.1
-....</tt>
-</pre></div>
+    [me@linuxbox ~]$ tail -f /var/log/messages
+    Feb 8 13:40:05 twin4 dhclient: DHCPACK from 192.168.1.1
+    ....
+    
 
 使用"-f"选项，tail 命令继续监测这个文件，当新的内容添加到文件后，它们会立即
 出现在屏幕上。这会一直继续下去直到你输入 Ctrl-c。
@@ -408,12 +376,11 @@ Feb 8 13:40:05 twin4 dhclient: DHCPACK from 192.168.1.1
 阶段来捕捉一个管道线的内容时，这很有帮助。这里，我们重复执行一个先前的例子，
 这次包含 tee 命令，在 grep 过滤管道线的内容之前，来捕捉整个目录列表到文件 ls.txt：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls /usr/bin | tee ls.txt | grep zip
-bunzip2
-bzip2
-....</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls /usr/bin | tee ls.txt | grep zip
+    bunzip2
+    bzip2
+    ....
+    
 
 ### 总结归纳
 
@@ -422,6 +389,7 @@ bzip2
 在解决特殊问题时非常有用处。有许多命令利用标准输入和输出，而几乎所有的命令行
 程序都使用标准错误来显示它们的详细信息。
 
+<div class="single">
 <h3>Linux 是关于想象力的</h3>
 
 <p>当我被要求解释 Windows 与 Linux 之间的差异时，我经常拿玩具来作比喻。</p>
@@ -432,13 +400,14 @@ bzip2
 最后，你玩腻了游戏机自带的游戏，你回到商店，告诉售货员，“我想要一个这样的游戏！”
 但售货员告诉你没有这样的游戏存在，因为它没有“市场需求”。然后你说，“但是我只
 需要修改一下这个游戏！“，售货员又告诉你不能修改它。所有游戏都被封装在它们的
-存储器中。到头来，你发现你的玩具只局限于别人为你规定好的游戏。
+存储器中。到头来，你发现你的玩具只局限于别人为你规定好的游戏。 </p>
 
 <p>另一方面，Linux 就像一个全世界上最大的建造模型。你打开它，发现它只是一个巨大的
 部件集合。有许多钢支柱，螺钉，螺母，齿轮，滑轮，发动机，和一些怎样来建造它的说明书。
 然后你开始摆弄它。你建造了一个又一个样板模型。过了一会儿，你发现你要建造自己的模型。
 你不必返回商店，因为你已经拥有了你需要的一切。建造模型以你构想的形状为模板，搭建
-你想要的模型。
+你想要的模型。 </p>
 
 <p>当然，选择哪一个玩具，是你的事情，那么你觉得哪个玩具更令人满意呢？</p>
+</div>
 

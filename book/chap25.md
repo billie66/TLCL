@@ -352,9 +352,7 @@ to activate completion.
 命令行的一个区别是，脚本可能雇佣 tab 字符拉实现缩进，然而命令行却不能，因为 tab 字符被用来
 激活自动补全功能。
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>Configuring vim For Script Writing</h3>
 
 <h3>为书写脚本配置 vim</h3>
@@ -402,9 +400,7 @@ programming constructs. To stop indentation, type Ctrl-d.</p>
 <p>These changes can be made permanent by adding these commands (without the
 leading colon characters) to your ~/.vimrc file.</p>
 <p>通过把这些命令（没有开头的冒号字符）添加到你的~/.vimrc 文件中，这些改动会永久生效。</p>
-</td>
-</tr>
-</table>
+</div>
 
 ### Summing Up
 

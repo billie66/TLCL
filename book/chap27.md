@@ -521,9 +521,7 @@ take this up in the next chapter.
 只有用超级用户权限执行我们的脚本时，才会工作。一个更好的解决方案是让脚本能根据用户的使用权限来
 调整自己的行为。我们将在下一章中讨论这个问题。
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>Shell Functions In Your .bashrc File</h3>
 
 <h3>你的.bashrc 文件中的 shell 函数</h3>
@@ -543,9 +541,7 @@ could create a similar function named ds for our .bashrc file:
 echo “Disk Space Utilization For $HOSTNAME”
 df -h
 } </p>
-</td>
-</tr>
-</table>
+</div>
 
 ### Summing Up
 

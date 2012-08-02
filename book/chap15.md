@@ -60,7 +60,7 @@ Debian 的&quot;.deb&quot;，和红帽的&quot;.rpm&quot;。也有一些重要�
 Slackware，和 Foresight，但大多数会使用这两个基本系统中的一个。
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 15-1: Major Packaging System Families</caption>
 <tr>
 <th class="title">Packaging System </th>
@@ -210,7 +210,7 @@ Hat 产品使用的工具。虽然所有基于 Red Hat 风格的发行版都依�
 Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发行版提供了带有可比较特性的上层工具。
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table15- 2: Packaging System Tools</caption>
 <tr>
 <th class="title">Distributions 
@@ -261,7 +261,7 @@ on its name or description.
 使用上层工具来搜索资源库元数据，可以根据软件包的名字和说明来定位它。
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 15-3: Package Search Commands</caption>
 <tr>
 <th class="title">Style</th>
@@ -284,9 +284,8 @@ used:
 
 例如：搜索一个 yum 资源库来查找 emacs 文本编辑器，使用以下命令：
 
-<div class="code"><pre>
-<tt>yum search emacs</tt>
-</pre></div>
+    yum search emacs
+    
 
 Installing A Package From A Repository
 
@@ -298,7 +297,7 @@ full dependency resolution.
 上层工具允许从一个资源库中下载一个软件包，并经过完全依赖解析来安装它。
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 15-4: Package Installation Commands
 </caption>
 <tr>
@@ -321,9 +320,8 @@ Example: To install the emacs text editor from an apt repository:
 
 例如：从一个 apt 资源库来安装 emacs 文本编辑器：
 
-<div class="code"><pre>
-<tt>apt-get update; apt-get install emacs</tt>
-</pre></div>
+    apt-get update; apt-get install emacs
+    
 
 Installing A Package From A Package File
 
@@ -335,7 +333,7 @@ installed directly (though without dependency resolution) using a low-level tool
 如果从某处而不是从资源库中下载了一个软件包文件，可以使用底层工具来直接（没有经过依赖解析）安装它。
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 15-5: Low-Level Package Installation Commands</caption>
 <tr>
 <th class="title">Style</th>
@@ -359,19 +357,18 @@ from a non-repository site, it would be installed this way:
 例如：如果已经从一个并非资源库的网站下载了软件包文件 emacs-22.1-7.fc7-i386.rpm，
 则可以通过这种方法来安装它：
 
-<div class="code"><pre>
-<tt>rpm -i emacs-22.1-7.fc7-i386.rpm</tt>
-</pre></div>
+    rpm -i emacs-22.1-7.fc7-i386.rpm
+    
 
 <br />
-<hr />
+---
 Note: Since this technique uses the low-level rpm program to perform the
 installation, no dependency resolution is performed. If rpm discovers a missing
 dependency, rpm will exit with an error.
 
 注意：因为这项技术使用底层的 rpm 程序来执行安装任务，所以没有运行依赖解析。如果 rpm
 程序发现缺少了一个依赖，则会报错并退出。
-<hr />
+---
 
 Removing A Package
 
@@ -383,7 +380,7 @@ are shown below.
 可以使用上层或者底层工具来卸载软件。下面是可用的上层工具。
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table15- 6: Package Removal Commands
 </caption>
 <tr>
@@ -405,9 +402,8 @@ Example: To uninstall the emacs package from a Debian-style system:
 
 例如：从 Debian 风格的系统中卸载 emacs 软件包：
 
-<div class="code"><pre>
-<tt>apt-get remove emacs</tt>
-</pre></div>
+    apt-get remove emacs
+    
 
 Updating Packages From A Repository
 
@@ -420,7 +416,7 @@ latest packages. The high-level tools can perform this vital task in one single 
 这个至关重要的任务。
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 15-7: Package Update Commands
 </caption>
 <tr>
@@ -445,10 +441,9 @@ system:
 
 例如：更新安装在 Debian 风格系统中的软件包：
 
-<div class="code"><pre>
-<tt>apt-get update; apt-get upgrade
-</tt>
-</pre></div>
+    apt-get update; apt-get upgrade
+    
+    
 
 Upgrading A Package From A Package File
 
@@ -461,7 +456,7 @@ can be installed, replacing the previous version:
 替代先前的版本：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 15-8: Low-Level Package Upgrade Commands
 </caption>
 <tr>
@@ -486,17 +481,16 @@ package file emacs-22.1-7.fc7-i386.rpm on a Red Hat system:
 
 例如：把 Red Hat 系统中所安装的 emacs 的版本更新到软件包文件 emacs-22.1-7.fc7-i386.rpmz 所包含的 emacs 版本。
 
-<div class="code"><pre>
-<tt>rpm -U emacs-22.1-7.fc7-i386.rpm</tt>
-</pre></div>
+    rpm -U emacs-22.1-7.fc7-i386.rpm
+    
 
 <br />
-<hr />
+---
 Note: dpkg does not have a specific option for upgrading a package versus
 installing one as rpm does.
 
 注意：dpkg 程序与安装软件相比没有一个特定的选项，如 rpm 程序那样，来升级一个软件包，。
-<hr />
+---
 
 Listing Installed Packages
 
@@ -507,7 +501,7 @@ These commands can be used to display a list of all the packages installed on th
 下表中的命令可以用来显示安装到系统中的所有软件包列表：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 15-9: Package Listing Commands
 </caption>
 <tr>
@@ -535,7 +529,7 @@ These low-level tools can be used to display whether a specified package is inst
 这些底端工具可以用来显示是否安装了一个指定的软件包：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 15-10: Package Status Commands
 </caption>
 <tr>
@@ -559,9 +553,8 @@ Example: To determine if the emacs package is installed on a Debian style system
 
 例如：确定是否 Debian 风格的系统中安装了这个 emacs 软件包：
 
-<div class="code"><pre>
-<tt>dpkg --status emacs</tt>
-</pre></div>
+    dpkg --status emacs
+    
 
 Displaying Info About An Installed Package
 
@@ -573,7 +566,7 @@ display a description of the package:
 如果知道了所安装软件包的名字，使用以下命令可以显示这个软件包的说明信息：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 15-11: Package Information Commands
 </caption>
 <tr>
@@ -595,9 +588,8 @@ Example: To see a description of the emacs package on a Debian-style system:
 
 例如：查看 Debian 风格的系统中 emacs 软件包的说明信息：
 
-<div class="code"><pre>
-<tt>apt-cache show emacs</tt>
-</pre></div>
+    apt-cache show emacs
+    
 
 Finding Which Package Installed A File
 
@@ -609,7 +601,7 @@ following commands can be used:
 确定哪个软件包对所安装的某个特殊文件负责，使用下表中的命令：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 15-12: Package File Identification Commands
 </caption>
 <tr>
@@ -633,9 +625,8 @@ Example: To see what package installed the /usr/bin/vim file on a Red Hat system
 
 例如：在 Red Hat 系统中，查看哪个软件包安装了/usr/bin/vim 这个文件
 
-<div class="code"><pre>
-<tt>rpm -qf /usr/bin/vim</tt>
-</pre></div>
+    rpm -qf /usr/bin/vim
+    
 
 Summing Up
 
@@ -651,9 +642,7 @@ management, we should have no problem installing and managing the programs we ne
 大多数程序一般是默认安装的，但是若所需程序没有安装在系统中，那么我们可能需要安装额外的软件包。
 通过我们新学到的（和了解的）软件包管理知识，我们应该没有问题来安装和管理所需的程序。
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>The Linux Software Installation Myth</h3>
 <h3>Linux 软件安装谣言</h3>
 
@@ -717,8 +706,7 @@ remove the offending hardware and pitch it into the trash, with your other usele
 items.</p></li>
 </ol>
 
-<ol>
-<li><p><b>设备太新。</b>因为许多硬件供应商没有积极地支持 Linux 的发展，那么编写内核
+<ol><li><p><b>设备太新。</b>因为许多硬件供应商没有积极地支持 Linux 的发展，那么编写内核
 驱动代码的任务就由一些 Linux 社区来承担，而这需要花费时间。</p></li>
 
 <li><p><b>设备太奇异。</b>不是所有的发行版都包含每个可能的设备驱动。每个发行版会建立
@@ -729,12 +717,8 @@ items.</p></li>
 <li><p><b>硬件供应商隐藏信息。</b>他们既不发布应用于 Linux 系统的驱动程序代码，
 也不发布技术文档来让某人创建它。这意味着硬件供应商试图保密此设备的程序接口。因为我们
 不想在计算机中使用保密的设备，所以我建议删除这令人厌恶的软件，
-把它和其它无用的项目都仍到垃圾桶里。</p></li>
-
-</ol>
-</td>
-</tr>
-</table>
+把它和其它无用的项目都仍到垃圾桶里。</p></li></ol>
+</div>
 
 Further Reading
 

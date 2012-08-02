@@ -59,31 +59,29 @@ vi 来说，取得了实质性进步。通常，vim 在 Linux 系统中是“vi�
 
 要想启动 vi，只要简单地输入以下命令：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ vi</tt>
-</pre></div>
+    [me@linuxbox ~]$ vi
+    
 
 一个像这样的屏幕应该出现：
 
-<div class="code"><pre>
-<tt><center>VIM - Vi Improved
-....</center></tt>
-</pre></div>
+    VIM - Vi Improved
+    ....
+    
 
 正如我们之前操作 nano 时，首先要学的是怎样退出 vi。要退出 vi，输入下面的命令（注意冒号是命令的一部分）：
 
-<div class="code"><pre>
-<tt>:q</tt>
-</pre></div>
+    :q
+    
 
 shell 提示符应该返回。如果由于某种原因，vi 不能退出（通常因为我们对文件做了修改，却没有保存文件）。
 通过给命令加上叹号，我们可以告诉 vi 我们真要退出 vi。
 
-<div class="code"><pre>
-<tt>:q!</tt>
-</pre></div>
+    :q!
+    
 
 小贴示：如果你在 vi 中“迷失”了，试着按下 Esc 键两次来找到路（回到普通模式）。
+
+<div class="single">
 
 <P>上面实例中的启动屏幕（来自于 Ubuntu
 8.04），我们看到一行文字“以 Vi 兼容的模式运行”。这意味着 vim 将以近似于 vi 常规的模式
@@ -99,22 +97,21 @@ shell 提示符应该返回。如果由于某种原因，vi 不能退出（通�
 <p>不同的 Linux 发行版其 vim 软件包也迥然不同。一些发行版只是安装了 vim 的最小版本，
 其默认只支持有限的 vim 特性。当练习随后的课程时，你可能会遇到缺失的功能。
 如果是这种情况，就安装 vim 的完整版。</p>
+</div>
 
 ### 编辑模式
 
 再次启动 vi，这次传递给 vi 一个不存在的文件名。这也是用 vi 创建新文件的方法。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ rm -f foo.txt
-[me@linuxbox ~]$ vi foo.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ rm -f foo.txt
+    [me@linuxbox ~]$ vi foo.txt
+    
 
 如果一切运行正常，我们应该获得一个像这样的屏幕：
 
-<div class="code"><pre>
-<tt>....
-"foo.txt" [New File]</tt>
-</pre></div>
+    ....
+    "foo.txt" [New File]
+    
 
 每行开头的波浪号（"~"）指示那一行不存在文本。这表示我们有一个空文件。还没有输入任何字符？
 
@@ -126,15 +123,13 @@ shell 提示符应该返回。如果由于某种原因，vi 不能退出（通�
 为了在文件中添加文本，首先我们必须进入插入模式。按下"i"按键进入插入模式。之后，我们应该
 在屏幕底部看到下面一行，如果 vi 运行在高级模式下（这不会出现在 vi 兼容模式下）：
 
-<div class="code"><pre>
-<tt>-- INSERT --</tt>
-</pre></div>
+    -- INSERT --
+    
 
 现在我们能输入一些文本了。试着输入这些文本：
 
-<div class="code"><pre>
-<tt>The quick brown fox jumped over the lazy dog.</tt>
-</pre></div>
+    The quick brown fox jumped over the lazy dog.
+    
 
 按下 Esc 按键，退出插入模式并返回命令模式。
 
@@ -143,21 +138,18 @@ shell 提示符应该返回。如果由于某种原因，vi 不能退出（通�
 为了保存我们刚才对文件所做的修改，我们必须在命令模式下输入一个 ex 命令。
 通过按下":"键，这很容易完成。按下冒号键之后，一个冒号字符应该出现在屏幕的底部：
 
-<div class="code"><pre>
-<tt>:</tt>
-</pre></div>
+    :
+    
 
 为了写入我们修改的文件，我们在冒号之后输入"w"字符，然后按下回车键：
 
-<div class="code"><pre>
-<tt>:w</tt>
-</pre></div>
+    :w
+    
 
 文件将会写入到硬盘，并且我们应该在屏幕底部得到一个确认信息，就像这样：
 
-<div class="code"><pre>
-<tt>"foo.txt" [New] 1L, 46C written</tt>
-</pre></div>
+    "foo.txt" [New] 1L, 46C written
+    
 
 小贴示：如果你阅读 vim 的文档，你注意到（混淆地）命令模式被叫做普通模式，ex 命令
 叫做命令模式。当心。
@@ -186,17 +178,15 @@ vi 有几种不同进入插入模式的方法。我们已经使用了 i 命令�
 
 让我们返回到我们的 foo.txt 文件中，呆一会儿：
 
-<div class="code"><pre>
-<tt>The quick brown fox jumped over the lazy dog.</tt>
-</pre></div>
+    The quick brown fox jumped over the lazy dog.
+    
 
 如果我们想要在这个句子的末尾添加一些文本，我们会发现 i 命令不能完成任务，因为我们不能把
 光标移到行尾。vi 提供了追加文本的命令，明智地命名为"a"命令。如果我们把光标移动到行尾，输入"a",
 光标就会越过行尾，vi 进入插入模式。这样就允许我们添加更多的文本：
 
-<div class="code"><pre>
-<tt>The quick brown fox jumped over the lazy dog. It was cool.</tt>
-</pre></div>
+    The quick brown fox jumped over the lazy dog. It was cool.
+    
 
 记住按下 Esc 按键来退出插入模式。
 
@@ -205,13 +195,12 @@ vi 有几种不同进入插入模式的方法。我们已经使用了 i 命令�
 
 首先，使用"0"(零)命令，将光标移动到行首。现在我们输入"A"，来添加以下文本行：
 
-<div class="code"><pre>
-<tt>The quick brown fox jumped over the lazy dog. It was cool.
-Line 2
-Line 3
-Line 4
-Line 5</tt>
-</pre></div>
+    The quick brown fox jumped over the lazy dog. It was cool.
+    Line 2
+    Line 3
+    Line 4
+    Line 5
+    
 
 再一次，按下 Esc 按键退出插入模式。
 
@@ -224,27 +213,25 @@ Line 5</tt>
 
 我们可以演示一下：把光标放到"Line 3"上，按下小 o 按键。
 
-<div class="code"><pre>
-<tt>The quick brown fox jumped over the lazy dog. It was cool.
-Line 2
-Line 3
-
-line 4
-line 5</tt>
-</pre></div>
+    The quick brown fox jumped over the lazy dog. It was cool.
+    Line 2
+    Line 3
+    
+    line 4
+    line 5
+    
 
 在第三行之下打开了新的一行，并且进入插入模式。按下 Esc，退出插入模式。按下 u 按键，撤销我们的修改。
 
 按下大 O 按键在光标之上打开新的一行：
 
-<div class="code"><pre>
-<tt>The quick brown fox jumped over the lazy dog. It was cool.
-Line 2
-
-Line 3
-Line 4
-Line 5</tt>
-</pre></div>
+    The quick brown fox jumped over the lazy dog. It was cool.
+    Line 2
+    
+    Line 3
+    Line 4
+    Line 5
+    
 
 按下 Esc 按键，退出插入模式，并且按下 u 按键，撤销我们的更改。
 
@@ -262,31 +249,28 @@ d 命令之后总是带上一个移动命令，用来控制删除的范围。这
 
 我们再次执行删除命令，这次使用 d 命令。还是移动光标到单词"It"之上，按下的 dW 来删除单词：
 
-<div class="code"><pre>
-<tt>The quick brown fox jumped over the lazy dog. was cool.
-Line 2
-Line 3
-Line 4
-Line 5</tt>
-</pre></div>
+    The quick brown fox jumped over the lazy dog. was cool.
+    Line 2
+    Line 3
+    Line 4
+    Line 5
+    
 
 按下 d$删除从光标位置到行尾的文本：
 
-<div class="code"><pre>
-<tt>The quick brown fox jumped over the lazy dog.
-Line 2
-Line 3
-Line 4
-Line 5</tt>
-</pre></div>
+    The quick brown fox jumped over the lazy dog.
+    Line 2
+    Line 3
+    Line 4
+    Line 5
+    
 
 按下 dG 按键删除从当前行到文件末尾的所有行：
 
-<div class="code"><pre>
-<tt>
-~ 
-....</tt>
-</pre></div>
+    
+    ~ 
+    ....
+    
 
 连续按下 u 按键三次，来恢复删除部分。
 
@@ -302,26 +286,24 @@ y 命令用来“拉”（复制）文本，和 d 命令剪切文本的方式差
 我们试着做些复制和粘贴工作。把光标放到文本第一行，输入 yy 来复制当前行。下一步，把光标移动
 最后一行（G），输入小写的 p 把复制的一行粘贴到当前行的下面：
 
-<div class="code"><pre>
-<tt>The quick brown fox jumped over the lazy dog. It was cool.
-Line 2
-Line 3
-Line 4
-Line 5
-The quick brown fox jumped over the lazy dog. <b>It was cool.</b></tt>
-</pre></div>
+    The quick brown fox jumped over the lazy dog. It was cool.
+    Line 2
+    Line 3
+    Line 4
+    Line 5
+    The quick brown fox jumped over the lazy dog. It was cool.
+    
 
 和以前一样，u 命令会撤销我们的修改。光标仍然位于文件的最后一行，输入大写的 P 命令把
 所复制的文本粘贴到当前行之上：
 
-<div class="code"><pre>
-<tt>The quick brown fox jumped over the lazy dog. It was cool.
-Line 2
-Line 3
-Line 4
-Line 5
-The quick brown fox jumped over the lazy dog. <b>It was cool.</b></tt>
-</pre></div>
+    The quick brown fox jumped over the lazy dog. It was cool.
+    Line 2
+    Line 3
+    Line 4
+    Line 5
+    The quick brown fox jumped over the lazy dog. It was cool.
+    
 
 试着执行上表中一些其他的 y 命令，了解小写 p 和大写 P 命令的行为。当你完成练习之后，把文件
 恢复原样。
@@ -334,12 +316,11 @@ j 是用来移动光标的）把行与行之间连接起来。
 
 如果我们把光标放到 line 3上，输入大写的 J 命令，看看发生什么情况：
 
-<div class="code"><pre>
-<tt>The quick brown fox jumped over the lazy dog. It was cool.
-Line 2
-<b>Line 3 Line 4</b>
-Line 5</tt>
-</pre></div>
+    The quick brown fox jumped over the lazy dog. It was cool.
+    Line 2
+    Line 3 Line 4
+    Line 5
+    
 
 ### 查找和替换
 
@@ -358,19 +339,17 @@ f 命令查找一行，移动光标到下一个所指定的字符上。例如，
 按下回车。光标就会移动到下一个包含所查找字符串的位置。通过 n 命令来重复先前的查找。
 这里有个例子：
 
-<div class="code"><pre>
-<tt>The quick brown fox jumped over the lazy dog. It was cool.
-Line 2
-Line 3
-Line 4
-Line 5</tt>
-</pre></div>
+    The quick brown fox jumped over the lazy dog. It was cool.
+    Line 2
+    Line 3
+    Line 4
+    Line 5
+    
 
 把光标移动到文件的第一行。输入：
 
-<div class="code"><pre>
-<tt><b>/Line</b></tt>
-</pre></div>
+    /Line
+    
 
 然后键入回车。光标会移动到第二行。下一步，输入 n，光标移到第三行。重复这个 n 命令，光标会
 继续向下移动直到遍历了所有的匹配项。虽然目前，我们只是使用了单词和短语来作为我们的查找
@@ -382,35 +361,31 @@ Line 5</tt>
 vi 使用 ex 命令来执行查找和替代操作（vi 中叫做“替换”）。把整个文件中的单词“Line”更改为“line”，
 我们输入以下命令：
 
-<div class="code"><pre>
-<tt><b>:%s/Line/line/g</b></tt>
-</pre></div>
+    :%s/Line/line/g
+    
 
 我们把这个命令分解为几个单独的部分，看一下每部分的含义：
 
 执行完查找和替代命令之后，我们的文件看起来像这样：
 
-<div class="code"><pre>
-<tt>The quick brown fox jumped over the lazy dog. It was cool.
-line 2
-line 3
-line 4
-line 5</tt>
-</pre></div>
+    The quick brown fox jumped over the lazy dog. It was cool.
+    line 2
+    line 3
+    line 4
+    line 5
+    
 
 我们也可以指定一个需要用户确认的替换命令。通过添加一个"c"字符到这个命令的末尾，来完成
 这个替换命令。例如：
 
-<div class="code"><pre>
-<tt><b>:%s/line/Line/gc</b></tt>
-</pre></div>
+    :%s/line/Line/gc
+    
 
 这个命令会把我们的文件恢复先前的模样；然而，在执行每个替换命令之前，vi 会停下来，
 通过下面的信息，来要求我们确认这个替换：
 
-<div class="code"><pre>
-<tt>replace with Line (y/n/a/q/l/^E/^Y)?</tt>
-</pre></div>
+    replace with Line (y/n/a/q/l/^E/^Y)?
+    
 
 括号中的每个字符都是一个可能的选择，如下所示：
 
@@ -421,46 +396,40 @@ line 5</tt>
 同时能够编辑多个文件是很有用的。你可能需要更改多个文件或者从一个文件复制内容到
 另一个文件。通过 vi，我们可以打开多个文件来编辑，只要在命令行中指定要编辑的文件名。
 
-<div class="code"><pre>
-<tt>vi file1 file2 file3...</tt>
-</pre></div>
+    vi file1 file2 file3...
+    
 
 我们先退出已经存在的 vi 会话，然后创建一个新文件来编辑。输入:wq 来退出 vi 并且保存了所做的修改。
 下一步，我们将在主目录下创建一个额外的用来玩耍的文件。通过获取从 ls 命令的输出，来创建这个文件。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /usr/bin > ls-output.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ ls -l /usr/bin > ls-output.txt
+    
 
 用 vi 来编辑我们的原文件和新创建的文件：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ vi foo.txt ls-output.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ vi foo.txt ls-output.txt
+    
 
 vi 启动，我们会看到第一个文件显示出来：
 
-<div class="code"><pre>
-<tt>The quick brown fox jumped over the lazy dog. It was cool.
-Line 2
-Line 3
-Line 4
-Line 5</tt>
-</pre></div>
+    The quick brown fox jumped over the lazy dog. It was cool.
+    Line 2
+    Line 3
+    Line 4
+    Line 5
+    
 
 #### 文件之间转换
 
 从这个文件转到下一个文件，使用这个 ex 命令：
 
-<div class="code"><pre>
-<tt>:n</tt>
-</pre></div>
+    :n
+    
 
 回到先前的文件使用：
 
-<div class="code"><pre>
-<tt>:N</tt>
-</pre></div>
+    :N
+    
 
 当我们从一个文件移到另一个文件时，如果当前文件没有保存修改，vi 会阻止我们转换文件，
 这是 vi 强制执行的政策。在命令之后添加感叹号，可以强迫 vi 放弃修改而转换文件。
@@ -469,12 +438,11 @@ Line 5</tt>
 多个文件更容易管理。我们可以查看正在编辑的文件列表，使用:buffers 命令。运行这个
 命令后，屏幕顶部就会显示出一个文件列表：
 
-<div class="code"><pre>
-<tt>:buffers
-1 #     "foo.txt"                 line 1
-2 %a    "ls-output.txt"           line 0
-Press ENTER or type command to continue</tt>
-</pre></div>
+    :buffers
+    1 #     "foo.txt"                 line 1
+    2 %a    "ls-output.txt"           line 0
+    Press ENTER or type command to continue
+    
 
 注意：你不同通过:n 或:N 命令在由:e 命令加载的文件之间进行切换。这时要使用:buffer 命令，
 其后加上缓冲区号码，来转换文件。
@@ -485,81 +453,72 @@ Press ENTER or type command to continue</tt>
 拉（yank）和粘贴命令，这很容易完成。说明如下。以打开的两个文件为例，首先转换到缓冲区1（foo.txt）
 ，输入：
 
-<div class="code"><pre>
-<tt><b>:buffer 1</b></tt>
-</pre></div>
+    :buffer 1
+    
 
 我们应该得到以下输出：
 
-<div class="code"><pre>
-<tt>The quick brown fox jumped over the lazy dog. It was cool.
-Line 2
-Line 3
-Line 4
-Line 5</tt>
-</pre></div>
+    The quick brown fox jumped over the lazy dog. It was cool.
+    Line 2
+    Line 3
+    Line 4
+    Line 5
+    
 
 下一步，把光标移到第一行，并且输入 yy 来复制这一行。
 
 转换到第二个缓冲区，输入：
 
-<div class="code"><pre>
-<tt><b>:buffer 2</b></tt>
-</pre></div>
+    :buffer 2
+    
 
 现在屏幕会包含一些文件列表（这里只列出了一部分）：
 
-<div class="code"><pre>
-<tt>total 343700
--rwxr-xr-x 1 root root    31316  2007-12-05  08:58 [
-....</tt>
-</pre></div>
+    total 343700
+    -rwxr-xr-x 1 root root    31316  2007-12-05  08:58 [
+    ....
+    
 
 移动光标到第一行，输入 p 命令把我们从前面文件中复制的一行粘贴到这个文件中：
 
-<div class="code"><pre>
-<tt>total 343700
-<b>The quick brown fox jumped over the lazy dog. It was cool.</b>
--rwxr-xr-x 1 root root    31316  2007-12-05  08:58 [
-....</tt>
-</pre></div>
+    total 343700
+    The quick brown fox jumped over the lazy dog. It was cool.
+    -rwxr-xr-x 1 root root    31316  2007-12-05  08:58 [
+    ....
+    
 
 #### 插入整个文件到另一个文件
 
 也有可能把整个文件插入到我们所编辑的文件中。看一下实际操作，结束 vi 会话，重新
 启动一个只打开一个文件的 vi 会话：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ vi ls-output.txt</tt>
-</pre></div>
+    [me@linuxbox ~]$ vi ls-output.txt
+    
 
 再一次看到我们的文件列表：
 
-<div class="code"><pre>
-<tt>total 343700
--rwxr-xr-x 1 root root    31316  2007-12-05  08:58 [</tt>
-</pre></div>
+    total 343700
+    -rwxr-xr-x 1 root root    31316  2007-12-05  08:58 [
+    
 
 移动光标到第三行，然后输入以下 ex 命令：
 
-<div class="code"><pre>
-<tt><b>:r foo.txt</b></tt>
-</pre></div>
+    :r foo.txt
+    
 
 这个:r 命令（是"read"的简称）把指定的文件插入到光标位置之前。现在屏幕应该看起来像这样：
 
-<div class="code"><pre>
-<tt>total 343700
--rwxr-xr-x 1 root root     31316 2007-12-05  08:58 [
-....
-<b>The quick brown fox jumped over the lazy dog. It was cool.
-Line 2
-Line 3
-Line 4
-Line 5</b>
--rwxr-xr-x 1 root root     111276 2008-01-31  13:36 a2p
-....</tt>
-</pre></div>
+    total 343700
+    -rwxr-xr-x 1 root root     31316 2007-12-05  08:58 [
+    ....
+    The quick brown fox jumped over the lazy dog. It was cool.
+    Line 2
+    Line 3
+    Line 4
+    Line 5
+    -rwxr-xr-x 1 root root     111276 2008-01-31  13:36 a2p
+    ....
+    
 
 ### 保存工作
 
@@ -572,12 +531,15 @@ ex 命令， 但还有几种方法，可能我们也觉得有帮助。
 这个:w 命令也可以指定可选的文件名。这个的作用就如"Save As..."。例如，如果我们
 正在编辑 foo.txt 文件，想要保存一个副本，叫做 foo1.txt，那么我们可以执行以下命令：
 
-<div class="code"><pre>
-<tt><b>:w foo1.txt</b></tt>
-</pre></div>
+    :w foo1.txt
+    
+
+---
 
 注意：当上面的命令以一个新名字保存文件时，但它并没有更改你正在编辑的文件的名字。
 如果你继续编辑的话，你还是在编辑文件 foo.txt，而不是 foo1.txt。
+
+---
 
 ### 拓展阅读
 

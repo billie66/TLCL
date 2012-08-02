@@ -59,9 +59,8 @@ contents will be fairly long, it is best to pipe the output of either command in
 显示 shell 和环境变量两者，而 printenv 只是显示环境变量。因为环境变量内容列表相当长，所以最好
 把每个命令的输出结果管道到 less 命令：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ printenv | less</tt>
-</pre></div>
+    [me@linuxbox ~]$ printenv | less
+    
 
 Doing so, we should get something that looks like this:
 
@@ -74,10 +73,9 @@ also list the value of a specific variable:
 我们所看到的是环境变量及其数值的列表。例如，我们看到一个叫做 USER 的变量，这个变量值是
 “me”。printenv 命令也能够列出特定变量的数值：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ printenv USER
-me</tt>
-</pre></div>
+    [me@linuxbox ~]$ printenv USER
+    me
+    
 
 The set command, when used without options or arguments, will display both the shell
 and environment variables, as well as any defined shell functions. Unlike printenv,
@@ -86,18 +84,16 @@ its output is courteously sorted in alphabetical order:
 当使用没有带选项和参数的 set 命令时，shell 和环境变量二者都会显示，同时也会显示定义的
 shell 函数。不同于 printenv 命令，set 命令的输出结果很礼貌地按照字母顺序排列：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ set | less</tt>
-</pre></div>
+    [me@linuxbox ~]$ set | less
+    
 
 It is also possible to view the contents of a variable using the echo command, like this:
 
 也可以通过 echo 命令来查看一个变量的内容，像这样：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo $HOME
-/home/me</tt>
-</pre></div>
+    [me@linuxbox ~]$ echo $HOME
+    /home/me
+    
 
 One element of the environment that neither set nor printenv displays is aliases. To
 see them, enter the alias command without arguments:
@@ -116,30 +112,29 @@ environment:
 shell 环境中包含相当多的变量，虽然你的 shell 环境可能不同于这里展示的，但是你可能会看到
 以下变量在你的 shell 环境中：
 
-<div class="code"><pre>
-<tt>KDE_MULTIHEAD=false
-SSH_AGENT_PID=6666
-HOSTNAME=linuxbox
-GPG_AGENT_INFO=/tmp/gpg-PdOt7g/S.gpg-agent:6689:1
-SHELL=/bin/bash
-TERM=xterm
-XDG_MENU_PREFIX=kde-
-HISTSIZE=1000
-XDG_SESSION_COOKIE=6d7b05c65846c3eaf3101b0046bd2b00-1208521990.996705
--1177056199
-GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/me/.gtkrc-2.0:/home/me/.kde/sh
-are/config/gtkrc-2.0
-GTK_RC_FILES=/etc/gtk/gtkrc:/home/me/.gtkrc:/home/me/.kde/share/confi
-g/gtkrc
-GS_LIB=/home/me/.fonts
-WINDOWID=29360136
-QTDIR=/usr/lib/qt-3.3
-QTINC=/usr/lib/qt-3.3/include
-KDE_FULL_SESSION=true
-USER=me
-LS_COLORS=no=00:fi=00:di=00;34:ln=00;36:pi=40;33:so=00;35:bd=40;33;01
-:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=00;32:\*.cmd=00;32:\*.exe:</tt>
-</pre></div>
+    KDE_MULTIHEAD=false
+    SSH_AGENT_PID=6666
+    HOSTNAME=linuxbox
+    GPG_AGENT_INFO=/tmp/gpg-PdOt7g/S.gpg-agent:6689:1
+    SHELL=/bin/bash
+    TERM=xterm
+    XDG_MENU_PREFIX=kde-
+    HISTSIZE=1000
+    XDG_SESSION_COOKIE=6d7b05c65846c3eaf3101b0046bd2b00-1208521990.996705
+    -1177056199
+    GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/me/.gtkrc-2.0:/home/me/.kde/sh
+    are/config/gtkrc-2.0
+    GTK_RC_FILES=/etc/gtk/gtkrc:/home/me/.gtkrc:/home/me/.kde/share/confi
+    g/gtkrc
+    GS_LIB=/home/me/.fonts
+    WINDOWID=29360136
+    QTDIR=/usr/lib/qt-3.3
+    QTINC=/usr/lib/qt-3.3/include
+    KDE_FULL_SESSION=true
+    USER=me
+    LS_COLORS=no=00:fi=00:di=00;34:ln=00;36:pi=40;33:so=00;35:bd=40;33;01
+    :cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=00;32:\*.cmd=00;32:\*.exe:
+    
 
 What we see is a list of environment variables and their values. For example, we see a
 variable called USER, which contains the value &quot;me&quot;. The printenv command can
@@ -148,10 +143,9 @@ also list the value of a specific variable:
 我们所看到的是环境变量及其数值的列表。例如，我们看到一个叫做 USER 的变量，这个变量值是
 &quot;me&quot;。printenv 命令也能够列出特定变量的数值：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ printenv USER
-me</tt>
-</pre></div>
+    [me@linuxbox ~]$ printenv USER
+    me
+    
 
 The set command, when used without options or arguments, will display both the shell
 and environment variables, as well as any defined shell functions. Unlike printenv,
@@ -160,18 +154,16 @@ its output is courteously sorted in alphabetical order:
 当使用没有带选项和参数的 set 命令时，shell 和环境变量二者都会显示，同时也会显示定义的
 shell 函数。不同于 printenv 命令，set 命令的输出结果很礼貌地按照字母顺序排列：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ set | less</tt>
-</pre></div>
+    [me@linuxbox ~]$ set | less
+    
 
 It is also possible to view the contents of a variable using the echo command, like this:
 
 也可以通过 echo 命令来查看一个变量的内容，像这样：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo $HOME
-/home/me</tt>
-</pre></div>
+    [me@linuxbox ~]$ echo $HOME
+    /home/me
+    
 
 One element of the environment that neither set nor printenv displays is aliases. To
 see them, enter the alias command without arguments:
@@ -179,15 +171,14 @@ see them, enter the alias command without arguments:
 如果 shell 环境中的一个成员既不可用 set 命令也不可用 printenv 命令显示，则这个变量是别名。
 输入不带参数的 alias 命令来查看它们:
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ alias
-alias l.=&apos;ls -d .\* --color=tty&apos;
-alias ll=&apos;ls -l --color=tty&apos;
-alias ls=&apos;ls --color=tty&apos;
-alias vi=&apos;vim&apos;
-alias which=&apos;alias | /usr/bin/which --tty-only --read-alias --show-
-dot --show-tilde&apos;</tt>
-</pre></div>
+    [me@linuxbox ~]$ alias
+    alias l.=&apos;ls -d .\* --color=tty&apos;
+    alias ll=&apos;ls -l --color=tty&apos;
+    alias ls=&apos;ls --color=tty&apos;
+    alias vi=&apos;vim&apos;
+    alias which=&apos;alias | /usr/bin/which --tty-only --read-alias --show-
+    dot --show-tilde&apos;
+    
 
 Some Interesting Variables
 
@@ -201,7 +192,7 @@ shell 环境中包含相当多的变量，虽然你的 shell 环境可能不同�
 以下变量在你的 shell 环境中：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 12-1: Environment Variables</caption>
 <tr>
 <th class="title">Variable</th>
@@ -276,7 +267,7 @@ this variable.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表12-1: 环境变量</caption>
 <tr>
 <th class="title">变量</th>
@@ -376,7 +367,7 @@ Login shells read one or more startup files as shown in Table 12-2:
 登录 shell 会读取一个或多个启动文件，正如表12－2所示：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 12-2: Startup Files For Login Shell Sessions</caption>
 <tr>
 <th class="title">File</th>
@@ -406,7 +397,7 @@ default in Debian-based distributions, such as Ubuntu.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表12-2: 登录 shell 会话的启动文件</caption>
 <tr>
 <th class="title">文件</th>
@@ -440,7 +431,7 @@ Non-login shell sessions read the following startup files:
 非登录 shell 会话会读取以下启动文件：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 12-3: Startup Files For Non-Login Shell Sessions</caption>
 <tr>
 <th class="title">File</th>
@@ -459,7 +450,7 @@ override settings in the global configuration script.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表12-3: 非登录 shell 会话的启动文件</caption>
 <tr>
 <th class="title">文件</th>
@@ -506,16 +497,15 @@ looks something like this:
 
 如果我们看一下典型的.bash_profile 文件（来自于 CentOS 4系统），它看起来像这样：
 
-<div class="code"><pre>
-<tt># .bash\_profile
- # Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-. ~/.bashrc
-fi
- # User specific environment and startup programs
-PATH=$PATH:$HOME/bin
-export PATH</tt>
-</pre></div>
+    # .bash\_profile
+     # Get the aliases and functions
+    if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+    fi
+     # User specific environment and startup programs
+    PATH=$PATH:$HOME/bin
+    export PATH
+    
 
 Lines that begin with a &quot;#&quot; are comments and are not read by the shell. These are there
 for human readability. The first interesting thing occurs on the fourth line, with the
@@ -524,20 +514,18 @@ following code:
 以&quot;#&quot;开头的行是注释，shell 不会读取它们。它们在那里是为了方便人们阅读。第一件有趣的事情
 发生在第四行，伴随着以下代码：
 
-<div class="code"><pre>
-<tt>if [ -f ~/.bashrc ]; then
-. ~/.bashrc
-fi</tt></pre></div>
+    if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+    fi
 
 This is called an if compound command, which we will cover fully when we get to shell
 scripting in Part 5, but for now we will translate:
 
 这叫做一个 if 复合命令，我们将会在第五部分详细地介绍它，现在我们对它翻译一下：
 
-<div class="code"><pre>
-<tt>If the file &quot;~/.bashrc&quot; exists, then
-        read the &quot;~/.bashrc&quot; file. </tt>
-</pre></div>
+    If the file &quot;~/.bashrc&quot; exists, then
+            read the &quot;~/.bashrc&quot; file. 
+    
 
 We can see that this bit of code is how a login shell gets the contents of .bashrc. The
 next thing in our startup file has to do with the PATH variable.
@@ -559,9 +547,8 @@ The PATH variable is often (but not always, depending on the distribution) set b
 
 PATH 变量经常（但不总是，依赖于发行版）在/etc/profile 启动文件中设置，通过这些代码：
 
-<div class="code"><pre>
-<tt>PATH=$PATH:$HOME/bin</tt>
-</pre></div>
+    PATH=$PATH:$HOME/bin
+    
 
 PATH is modified to add the directory $HOME/bin to the end of the list. This is an
 example of parameter expansion, which we touched on in Chapter 8. To demonstrate
@@ -570,14 +557,13 @@ how this works, try the following:
 修改 PATH 变量，添加目录$HOME/bin 到目录列表的末尾。这是一个参数展开的实例，
 参数展开我们在第八章中提到过。为了说明这是怎样工作的，试试下面的例子：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ foo=&quot;This is some &quot;
-[me@linuxbox ~]$ echo $foo
-This is some
-[me@linuxbox ~]$ foo=$foo&quot;text.&quot;
-[me@linuxbox ~]$ echo $foo
-This is some text.</tt>
-</pre></div>
+    [me@linuxbox ~]$ foo=&quot;This is some &quot;
+    [me@linuxbox ~]$ echo $foo
+    This is some
+    [me@linuxbox ~]$ foo=$foo&quot;text.&quot;
+    [me@linuxbox ~]$ echo $foo
+    This is some text.
+    
 
 <p>Using this technique, we can append text to the end of a variable's contents.
 By adding the string $HOME/bin to the end of the PATH variable's contents, the
@@ -604,9 +590,8 @@ Lastly, we have:
 
 最后，有下面一行代码：
 
-<div class="code"><pre>
-<tt>export PATH</tt>
-</pre></div>
+    export PATH
+    
 
 The export command tells the shell to make the contents of PATH available to child
 processes of this shell.
@@ -703,9 +688,8 @@ editor will assume that you want to create a new file. Here is an example using 
 所有的文本编辑器都可以通过在命令行中输入编辑器的名字，加上你所想要编辑的文件来唤醒。如果所
 输入的文件名不存在，编辑器则会假定你想要创建一个新文件。下面是一个使用 gedit 的例子：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ gedit some_file</tt>
-</pre></div>
+    [me@linuxbox ~]$ gedit some_file
+    
 
 This command will start the gedit text editor and load the file named &quot;some_file&quot;, if it
 exists.
@@ -724,9 +708,8 @@ To create a backup of the .bashrc file, do this:
 做之前，先练习一些&quot;安全计算&quot;。当我们编辑一个重要的配置文件时，首先创建一个这个文件的备份
 总是一个不错的主意。这样能避免我们在编辑文件时弄乱文件。创建文件.bashrc 的备份文件，这样做：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ cp .bashrc .bashrc.bak</tt>
-</pre></div>
+    [me@linuxbox ~]$ cp .bashrc .bashrc.bak
+    
 
 It doesn't matter what you call the backup file, just pick an understandable name. The
 extensions &quot;.bak&quot;, &quot;.sav&quot;, &quot;.old&quot;, and &quot;.orig&quot; 
@@ -740,18 +723,16 @@ Now that we have a backup file, we'll start the editor:
 
 现在我们有了一个备份文件，我们启动 nano 编辑器吧：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ nano .bashrc</tt>
-</pre></div>
+    [me@linuxbox ~]$ nano .bashrc
+    
 
 Once nano starts, we’ll get a screen like this:
 
 一旦 nano 编辑器启动后，我们将会得到一个像下面一样的屏幕：
 
-<div class="code"><pre>
-<tt>GNU nano 2.0.3
-....</tt>
-</pre></div>
+    GNU nano 2.0.3
+    ....
+    
 
 Note: If your system does not have nano installed, you may use a graphical editor
 instead.
@@ -780,13 +761,12 @@ following lines to the .bashrc file:
 已经获得了这些知识，接下来我们准备做些编辑工作。使用下箭头按键和／或下翻页按键，移动
 鼠标到文件的最后一行，然后添加以下几行到文件.bashrc 中：
 
-<div class="code"><pre>
-<tt>umask 0002
-export HISTCONTROL=ignoredups
-export HISTSIZE=1000
-alias l.=&apos;ls -d .\* --color=auto&apos;
-alias ll=&apos;ls -l --color=auto&apos;</tt>
-</pre></div>
+    umask 0002
+    export HISTCONTROL=ignoredups
+    export HISTSIZE=1000
+    alias l.=&apos;ls -d .\* --color=auto&apos;
+    alias ll=&apos;ls -l --color=auto&apos;
+    
 
 Note: Your distribution may already include some of these, but duplicates won't
 hurt anything.
@@ -798,7 +778,7 @@ Here is the meaning of our additions:
 下表是所添加行的意义：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <tr>
 <th class="title">Line</th>
 <th class="title">Meaning</th>
@@ -834,7 +814,7 @@ format directory listing.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <tr>
 <th class="title">Line</th>
 <th class="title">Meaning</th>
@@ -873,27 +853,24 @@ Using the editor, change our additions to look like this:
 正如我们所看到的，我们的许多附加物意思直觉上并不是明显的，所以添加注释到我们的文件.bashrc 中是
 一个好主意，可以帮助人们理解。使用编辑器，更改我们的附加物，让它们看起来像这样：
 
-<div class="code"><pre>
-<tt># Change umask to make directory sharing easier
-umask 0002
- # Ignore duplicates in command history and increase
- # history size to 1000 lines
-export HISTCONTROL=ignoredups
-export HISTSIZE=1000
- # Add some helpful aliases
-alias l.=&apos;ls -d .\* --color=auto&apos;
-alias ll=&apos;ls -l --color=auto&apos;
-</tt>
-</pre></div>
+    # Change umask to make directory sharing easier
+    umask 0002
+     # Ignore duplicates in command history and increase
+     # history size to 1000 lines
+    export HISTCONTROL=ignoredups
+    export HISTSIZE=1000
+     # Add some helpful aliases
+    alias l.=&apos;ls -d .\* --color=auto&apos;
+    alias ll=&apos;ls -l --color=auto&apos;
+    
+    
 
 Ah, much better! With our changes complete, type Ctrl-o to save our modified
 .bashrc file, and Ctrl-x to exit nano.
 
 啊，看起来好多了! 当我们完成修改后，输入 Ctrl-o 来保存我们修改的.bashrc 文件，输入 Ctrl-x 退出 nano。
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>Why Comments Are Important</h3>
 
 <h3>为什么注释很重要？</h3>
@@ -940,9 +917,7 @@ preserving the information it contains.</p>
 uncommenting
 (不注释)，这样你就会激活这些别名。相反地，如果你在一行的开头加上&quot;#&quot;符号，你可以
 注销掉这一行，但会保留它所包含的信息。</p>
-</td>
-</tr>
-</table>
+</div>
 
 Activating Our Changes
 
@@ -957,18 +932,16 @@ file with the following command:
 因为.bashrc 文件只是在刚开始启动终端会话时读取。然而，我们可以强迫 bash 重新读取修改过的
 .bashrc 文件，使用下面的命令：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ source .bashrc</tt>
-</pre></div>
+    [me@linuxbox ~]$ source .bashrc
+    
 
 After doing this, we should be able to see the effect of our changes. Try out one of the
 new aliases:
 
 运行上面命令之后，我们就应该能够看到所做修改的效果了。试试其中一个新的别名：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ll</tt>
-</pre></div>
+    [me@linuxbox ~]$ ll
+    
 
 Summing Up
 

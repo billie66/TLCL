@@ -58,14 +58,13 @@ TTY 是 "Teletype" 的简写，是指进程的控制终端。这里，Unix 展�
 
 如果给 ps 命令加上选项，我们可以得到更多关于系统运行状态的信息：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ps x
-PID TTY   STAT   TIME COMMAND
-2799 ?    Ssl    0:00 /usr/libexec/bonobo-activation-server –ac
-2820 ?    Sl     0:01 /usr/libexec/evolution-data-server-1.10 --
-
-and many more...</tt>
-</pre></div>
+    [me@linuxbox ~]$ ps x
+    PID TTY   STAT   TIME COMMAND
+    2799 ?    Ssl    0:00 /usr/libexec/bonobo-activation-server –ac
+    2820 ?    Sl     0:01 /usr/libexec/evolution-data-server-1.10 --
+    
+    and many more...
+    
 
 加上 "x" 选项（注意没有开头的 "-" 字符），告诉 ps 命令，展示所有进程，不管它们由什么
 终端（如果有的话）控制。在 TTY 一栏中出现的 "?" ，表示没有控制终端。使用这个 "x" 选项，可以
@@ -261,11 +260,10 @@ jobspec 是可有可无的。输入 Ctrl-c 来终止 xlogo 程序。
 停止 xlogo 程序之后，通过调整 xlogo 的窗口大小，我们可以证实这个程序已经停止了。
 它看起来像死掉了一样。使用 fg 命令，可以恢复程序到前台运行，或者用 bg 命令把程序移到后台。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ bg %1
-[1]+ xlogo &amp;
-[me@linuxbox ~]$</tt>
-</pre></div>
+    [me@linuxbox ~]$ bg %1
+    [1]+ xlogo &amp;
+    [me@linuxbox ~]$
+    
 
 和 fg 命令一样，如果只有一个任务的话，jobspec 参数是可选的。
 
@@ -280,12 +278,11 @@ jobspec 是可有可无的。输入 Ctrl-c 来终止 xlogo 程序。
 
 kill 命令被用来“杀死”程序。这样我们就可以终止需要杀死的程序。这里有一个实例：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ xlogo &amp;
-[1] 28401
-[me@linuxbox ~]$ kill 28401
-[1]+ Terminated               xlogo</tt>
-</pre></div>
+    [me@linuxbox ~]$ xlogo &amp;
+    [1] 28401
+    [me@linuxbox ~]$ kill 28401
+    [1]+ Terminated               xlogo
+    
 
 首先，我们在后台启动 xlogo 程序。shell 打印出 jobspec 和这个后台进程的 PID。下一步，我们使用
 kill 命令，并且指定我们想要终止的进程 PID。也可以用 jobspec（例如，“％1”）来代替 PID。
@@ -302,9 +299,8 @@ Ctrl-z 时，则发送一个叫做 TSTP（终端停止）的信号。程序，�
 
 kill 命令被用来给程序发送信号。它最常见的语法形式看起来像这样：
 
-<div class="code"><pre>
-<tt><b>kill [-signal] PID...</b></tt>
-</pre></div>
+    kill [-signal] PID...
+    
 
 如果在命令行中没有指定信号，那么默认情况下，发送 TERM（终止）信号。kill 命令被经常
 用来发送以下命令：
@@ -331,24 +327,22 @@ valign="top">停止。这个信号导致进程停止运行，而没有终止。�
 
 让我们实验一下 kill 命令：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ xlogo &amp;
-[1] 13546
-[me@linuxbox ~]$ kill -1 13546
-[1]+ Hangup         xlogo</tt>
-</pre></div>
+    [me@linuxbox ~]$ xlogo &amp;
+    [1] 13546
+    [me@linuxbox ~]$ kill -1 13546
+    [1]+ Hangup         xlogo
+    
 
 在这个例子里，我们在后台启动 xlogo 程序，然后通过 kill 命令，发送给它一个 HUP 信号。
 这个 xlogo 程序终止运行，并且 shell 指示这个后台进程已经接受了一个挂起信号。在看到这条
 信息之前，你可能需要多按几次 enter 键。注意，既可以用号码，也可以用名字，不过要在名字前面
 加上字母“SIG”，来指定所要发送的信号。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ xlogo &amp;
-[1] 13546
-[me@linuxbox ~]$ kill -1 13546
-[1]+ Hangup                    xlogo</tt>
-</pre></div>
+    [me@linuxbox ~]$ xlogo &amp;
+    [1] 13546
+    [me@linuxbox ~]$ kill -1 13546
+    [1]+ Hangup                    xlogo
+    
 
 重复上面的例子，试着使用其它的信号。记住，你也可以用 jobspecs 来代替 PID。
 
@@ -372,29 +366,26 @@ TSTP 信号由目标进程接收，且可能被忽略。</td>
 
 为了满足读者的好奇心，通过下面的命令可以得到一个完整的信号列表：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ kill -l</tt>
-</pre></div>
+    [me@linuxbox ~]$ kill -l
+    
 
 ### 通过 killall 命令给多个进程发送信号
 
 也有可能通过 killall 命令，给匹配特定程序或用户名的多个进程发送信号。下面是 killall 命令的语法形式：
 
-<div class="code"><pre>
-<tt><b>killall [-u user] [-signal] name...</b></tt>
-</pre></div>
+    killall [-u user] [-signal] name...
+    
 
 为了说明情况，我们将启动一对 xlogo 程序的实例，然后再终止它们：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ xlogo &amp;
-[1] 18801
-[me@linuxbox ~]$ xlogo &amp;
-[2] 18802
-[me@linuxbox ~]$ killall xlogo
-[1]- Terminated                xlogo
-[2]+ Terminated                xlogo</tt>
-</pre></div>
+    [me@linuxbox ~]$ xlogo &amp;
+    [1] 18801
+    [me@linuxbox ~]$ xlogo &amp;
+    [2] 18802
+    [me@linuxbox ~]$ killall xlogo
+    [1]- Terminated                xlogo
+    [2]+ Terminated                xlogo
+    
 
 记住，和 kill 命令一样，你必须拥有超级用户权限才能给不属于你的进程发送信号。
 

@@ -194,7 +194,7 @@ The following expressions are used to evaluate the status of files:
 以下表达式被用来计算文件状态：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="100%">
+<table class="multi">
 <caption class="cap">Table 28-1: test File Expressions</caption>
 <tr>
 <th class="title">Expression</th>
@@ -296,7 +296,7 @@ permission for the effective user).</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="100%">
+<table class="multi">
 <caption class="cap">表28-1: 测试文件表达式</caption>
 <tr>
 <th class="title">表达式</th>
@@ -494,7 +494,7 @@ The following expressions are used to evaluate strings:
 以下表达式用来计算字符串：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="100%">
+<table class="multi">
 <caption class="cap">Table 28-2: test String Expressions</caption>
 <tr>
 <th class="title">Expression</th>
@@ -533,7 +533,7 @@ equal signs may be used, but the use of double equal signs is greatly preferred.
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="100%">
+<table class="multi">
 <caption class="cap">表28-2: 测试字符串表达式</caption>
 <tr>
 <th class="title">表达式</th>
@@ -635,7 +635,7 @@ The following expressions are used with integers:
 下面的表达式用于整数：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="100%">
+<table class="multi">
 <caption class="cap">Table 28-3: test Integer Expressions</caption>
 <tr>
 <th class="title">Expression </th>
@@ -669,7 +669,7 @@ The following expressions are used with integers:
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="100%">
+<table class="multi">
 <caption class="cap">表28-3: 测试整数表达式</caption>
 <tr>
 <th class="title">表达式</th>
@@ -892,7 +892,7 @@ represent these operations :
 它们是 AND，OR，和 NOT。test 和`[[ ]]`使用不同的操作符来表示这些操作：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="100%">
+<table class="multi">
 <caption class="cap">Table 28-4: Logical Operators</caption>
 <tr>
 <th class="title" width="34%">Operation</th>
@@ -972,9 +972,8 @@ and is easier to code.
 然而`[[ ]]`特定于 bash。知道怎样使用 test 很重要，因为它被非常广泛地应用，但是显然`[[ ]]`更
 有助于，并更易于编码。
 
-<table class="single" cellpadding="10" width="100%">
-<tr>
-<td>
+<div class="single">
+
 <h3>Portability Is The Hobgoblin Of Little Minds</h3>
 
 <h3>可移植性是头脑狭隘人士的心魔</h3>
@@ -1019,9 +1018,7 @@ portable.</p>
 <p>GNU 工具，比如说 bash，就没有这些限制。他们通过支持标准和普遍地可用性来鼓励可移植性。你几乎可以
 在所有类型的系统中安装 bash 和其它的 GNU 工具，甚至是 Windows，而没有损失。所以就
 感觉可以自由的使用 bash 的所有功能。它是真正的可移植。</p>
-</td>
-</tr>
-</table>
+</div>
 
 ### Control Operators: Another Way To Branch
 

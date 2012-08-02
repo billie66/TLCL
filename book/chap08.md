@@ -105,9 +105,7 @@ and looking beyond our home directory:
 
 <br />
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>Pathname Expansion Of Hidden Files</h3>
 <h3>隐藏文件路径名展开</h3>
 
@@ -151,9 +149,7 @@ include a second period, contains at least one additional character and can be
 followed by any other characters.</p>
 <p>这种模式展开成为文件名，每个文件名以圆点开头，第二个字符不包含圆点，再包含至少一个字符，
 并且这个字符之后紧接着任意多个字符。</p>
-</td>
-</tr>
-</table>
+</div>
 
 ### Tilde Expansion
 
@@ -208,7 +204,7 @@ operators:
 一些它支持的操作符：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 8-1: Arithmetic Operators &nbsp;&nbsp; 算术操作符</caption>
 <tr>
 <th class="title">Operator  &nbsp; 操作符 </th>
@@ -612,9 +608,7 @@ quotes, the backslash loses its special meaning and is treated as an ordinary ch
 为了允许反斜杠字符出现，输入"\\"来转义。注意在单引号中，反斜杠失去它的特殊含义，它
 被看作普通字符。
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>Backslash Escape Sequences</h3>
 <h3>反斜杠转义字符序列</h3>
 
@@ -629,8 +623,7 @@ acknowledge).</p>
 一样的设备。一些编码是众所周知的（制表符，退格符，换行符，和回车符），其它
 一些编码就不熟悉了（空值，传输结束码，和确认）。</p>
 
-<p>
-<table cellpadding="10" border="1" width="%80">
+<table class="multi">
 <tr>
 <th class="title">Escape Sequence &nbsp; 转义序列</th>
 <th class="title">Meaning &nbsp; 意思</th>
@@ -657,7 +650,6 @@ acknowledge).</p>
 <td valign="top">Tab &nbsp; 制表符</td>
 </tr>
 </table>
-</p>
 
 <p> The table above lists some of the common backslash escape sequences. The idea
 behind this representation using the backslash originated in the C programming
@@ -683,9 +675,7 @@ we can create a primitive countdown timer:
 
 <p><b>sleep 10; echo "Time's up" $'\a'</b></p>
 
-</td>
-</tr>
-</table>
+</div>
 
 ### Summing Up
 

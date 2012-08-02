@@ -192,9 +192,7 @@ contains trailing spaces.
 “Control-I”，结果证明，它和 tab 字符是一样的。我们也看到一个$字符出现在文本行真正的结尾处，
 表明我们的文本包含末尾的空格。
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>MS-DOS Text Vs. Unix Text </h3>
 
 <h3>MS-DOS 文本 Vs. Unix 文本</h3>
@@ -223,10 +221,7 @@ programs discussed later in this chapter.</p>
 的系统中没有安装 dos2unix 程序，也不要担心。文件从 DOS 格式转变为 Unix 格式的过程非常
 简单；它只简单地涉及到删除违规的回车符。通过随后本章中讨论的一些程序，这个工作很容易
 完成。</p>
-
-</td>
-</tr>
-</table>
+</div>
 
 cat also has options that are used to modify text. The two most prominent are -n,
 which numbers lines, and -s, which suppresses the output of multiple blank lines. We
@@ -288,16 +283,15 @@ and wanted to combine them into a single sorted file, we could do something like
 因为 sort 程序能接受命令行中的多个文件作为参数，所以有可能把多个文件合并成一个有序的文件。例如，
 如果我们有三个文本文件，想要把它们合并为一个有序的文件，我们可以这样做：
 
-<div class="code"><pre>
-<tt><b>sort file1.txt file2.txt file3.txt > final_sorted_list.txt</b> </tt>
-</pre></div>
+    sort file1.txt file2.txt file3.txt > final_sorted_list.txt 
+    
 
 sort has several interesting options. Here is a partial list:
 
 sort 程序有几个有趣的选项。这里只是一部分列表：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 21-1: Common sort Options</caption>
 <tr>
 <th class="title">Option</th>
@@ -358,7 +352,7 @@ separated by spaces or tabs.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表21-1: 常见的 sort 程序选项</caption>
 <tr>
 <th class="title">选项</th>
@@ -497,9 +491,8 @@ containing the author’s name:
 这个 k 选项非常有趣，而且还有很多特点，但是首先我们需要讲讲 sort 程序怎样来定义字段。
 让我们考虑一个非常简单的文本文件，只有一行包含作者名字的文本。
 
-<div class="code"><pre>
-<tt>William      Shotts </tt>
-</pre></div>
+    William      Shotts 
+    
 
 By default, sort sees this line as having two fields. The first field contains the characters:
 
@@ -729,7 +722,7 @@ uniq has several options. Here are the common ones:
 这是因为 uniq 只会删除相邻的重复行。uniq 程序有几个选项。这里是一些常用选项：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 21-2: Common uniq Options</caption>
 <tr>
 <th class="title">Option</th>
@@ -766,7 +759,7 @@ no option for setting an alternate field separator.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表21-2: 常用的 uniq 选项</caption>
 <tr>
 <th class="title">选项</th>
@@ -832,7 +825,7 @@ using the following options:
 从文本行中指定要抽取的文本有些麻烦，使用以下选项：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 21-3: cut Selection Options
 </caption>
 <tr>
@@ -865,7 +858,7 @@ specified by -c and/or -f.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表21-3: cut 程序选择项</caption>
 <tr>
 <th class="title">选项</th>
@@ -984,9 +977,7 @@ can be specified.
 通过对我们的列表再次运行 cut 命令，我们能够抽取从位置7到10的字符，其对应于日期字段的年份。
 这个7-10表示法是一个区间的例子。cut 命令手册包含了一个如何指定区间的完整描述。
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>Expanding Tabs</h3>
 <h3>展开 Tabs</h3>
 <p>Our distros.txt file is ideally formatted for extracting fields using cut. But
@@ -1018,10 +1009,7 @@ end of the line: </p>
 <p>Coreutils also provides the unexpand program to substitute tabs for spaces.</p>
 
 <p>Coreutils 软件包也提供了 unexpand 程序，用 tab 来代替空格。</p>
-
-</td>
-</tr>
-</table>
+</div>
 
 When working with fields, it is possible to specify a different field delimiter rather than
 the tab character. Here we will extract the first field from the /etc/passwd file:
@@ -1345,7 +1333,7 @@ to convert the first file to the second file:
 用来描述要求更改的位置和类型，从而把第一个文件转变为第二个文件：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 21-4: diff Change Commands</caption>
 <tr>
 <th class="title">Change</th>
@@ -1370,7 +1358,7 @@ appeared at range r2 in the second file.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表21-4: diff 更改命令</caption>
 <tr>
 <th class="title">改变</th>
@@ -1443,7 +1431,7 @@ begin with one of four indicators:
 这表示第二个文件中从第一行到第四行的文本行。在更改组内，文本行以四个指示符之一开头：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 21-5: diff Context Format Change Indicators</caption>
 <tr>
 <th class="title">Indicator</th>
@@ -1470,7 +1458,7 @@ in its respective section of the change group.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表21-5：diff 上下文模式更改指示符</caption>
 <tr>
 <th class="title">指示符</th>
@@ -1524,7 +1512,7 @@ possible characters:
 这行字符串之后就是文本行本身，与三行默认的上下文。每行以可能的三个字符中的一个开头：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 21-6: diff Unified Format Change Indicators</caption>
 <tr>
 <th class="title">Character</th>
@@ -1546,7 +1534,7 @@ possible characters:
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表21-6：diff 统一模式更改指示符</caption>
 <tr>
 <th class="title">字符</th>
@@ -1720,7 +1708,7 @@ removed from the end of each line. This can be performed with tr as follows:
 MS-DOS 文本文件为 Unix 风格文本的问题。为了执行这个转换，每行末尾的回车符需要被删除。
 这个可以通过 tr 命令来执行，如下所示：
 
-tr -d '\r' < dos\_file > unix\_file
+    tr -d '\r' < dos\_file > unix\_file
 
 where dos_file is the file to be converted and unix_file is the result. This form of the
 command uses the escape sequence \r to represent the carriage return character. To see
@@ -1731,8 +1719,7 @@ a complete list of the sequences and character classes tr supports, try:
 
     [me@linuxbox ~]$ tr --help
 
-<br />
-<table class="single" cellpadding="10" width="%100">
+<div class="single">
 <tr>
 <td>
 <h3>ROT13: The Not-So-Secret Decoder Ring</h3>
@@ -1770,9 +1757,7 @@ encoding. Wikipedia contains a good article on the subject:</p>
 <p>大量的 email 程序和 USENET 新闻读者都支持 ROT13编码。Wikipedia 上面有一篇关于这个主题的好文章：</p>
 <p>http://en.wikipedia.org/wiki/ROT13</p>
 
-</td>
-</tr>
-</table>
+</div>
 
 tr can perform another trick, too. Using the -s option, tr can “squeeze” (delete)
 repeated instances of a character:
@@ -1877,7 +1862,7 @@ Addresses may be expressed in many ways. Here are the most common:
 最常用的：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 21-7: sed Address Notation</caption>
 <tr>
 <th class="title">Address</th>
@@ -1923,7 +1908,7 @@ fifth line thereafter.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表21-7: sed 地址表示法</caption>
 <tr>
 <th class="title">地址</th>
@@ -2031,7 +2016,7 @@ complete list of the basic editing commands:
 目前为止，我们已经知道了两个 sed 的编辑命令，s 和 p。这里是一个更加全面的基本编辑命令列表：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 21-8: sed Basic Editing Commands</caption>
 <tr>
 <th class="title">Command</th>
@@ -2092,7 +2077,7 @@ Note that unlike tr, sed requires that both sets be of the same length.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表21-8： sed 基本编辑命令 </caption>
 <tr>
 <th class="title">命令</th>
@@ -2388,9 +2373,7 @@ not preceded by an address, it applies to every line in the input stream.
 支持字符区域（例如，[a-z]），也不支持 POSIX 字符集。再说一次，因为 y 命令之前不带地址，
 所以它会操作输入流的每一行。
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>People Who Like sed Also Like...</h3>
 
 <h3>喜欢 sed 的人们也会喜欢。。。</h3>
@@ -2416,9 +2399,7 @@ awk 程序通常逐行处理文本文件，这点类似于 sed，awk 使用了�
 之后跟随编辑命令的概念相似。虽然关于 awk 和 perl 的内容都超出了本书所讨论的范围，
 但是对于 Linux 命令行用户来说，它们都是非常好的技能。</p>
 
-</td>
-</tr>
-</table>
+</div>
 
 #### aspell
 

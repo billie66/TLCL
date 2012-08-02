@@ -349,9 +349,7 @@ matching a specified keyword:
 
 whatis 程序显示匹配特定关键字的手册页的名字和一行命令说明：
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>The Most Brutal Man Page Of Them All</h3>
 <h3>最晦涩难懂的手册页</h3>
 
@@ -376,9 +374,7 @@ read it and it all makes sense. </p>
 <p>另一方面，bash 手册内容很精确简明，也非常完善。所以，如果你有胆量就
 查看一下，并且期望有一天你能读懂它。</p>
 
-</td>
-</tr>
-</table>
+</div>
 
 ### info – Display A Program's Info Entry
 

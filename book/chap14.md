@@ -25,9 +25,8 @@ Our default prompt looks something like this:
 
 我们默认的提示符看起来像这样：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$</tt>
-</pre></div>
+    [me@linuxbox ~]$
+    
 
 Notice that it contains our user name, our host name and our current working directory,
 but how did it get that way? Very simply, it turns out. The prompt is defined by an
@@ -38,20 +37,19 @@ contents of PS1 with the echo command:
 结果证明非常简单。提示符是由一个环境变量定义的，叫做 PS1（是“prompt string one”
 的简写）。我们可以通过 echo 命令来查看 PS1的内容。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo $PS1
-[\u@\h \W]\$</tt>
-</pre></div>
+    [me@linuxbox ~]$ echo $PS1
+    [\u@\h \W]\$
+    
 
 <br />
-<hr />
+---
 Note: Don't worry if your results are not exactly the same as the example above.
 Every Linux distribution defines the prompt string a little differently, some quite
 exotically.
 
 注意：如果你 shell 提示符的内容和上例不是一模一样，也不必担心。每个 Linux 发行版
 定义的提示符稍微有点不同，其中一些相当异乎寻常。
-<hr />
+---
 
 From the results, we can see that PS1 contains a few of the characters we see in our
 prompt such as the brackets, the at-sign, and the dollar sign, but the rest are a mystery.
@@ -64,7 +62,7 @@ specially in the prompt string:
 在第八章中看到的一样。这里是一部分字符列表，在提示符中 shell 会特殊对待这些字符：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 14-1: Escape Codes Used In Shell Prompts</caption>
 <tr>
 <th class="title">Sequence</th>
@@ -180,7 +178,7 @@ cursor or changing text colors.
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表14－1：Shell 提示符中用到的转义字符</caption>
 <tr>
 <th class="title">序列</th>
@@ -298,9 +296,8 @@ existing string into another shell variable that we create ourselves:
 我们把原来提示符字符串的内容备份一下，以备之后恢复原貌。为了完成备份，
 我们把已有的字符串复制到另一个 shell 变量中，这个变量是我们自己创造的。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ps1\_old="$PS1"</tt>
-</pre></div>
+    [me@linuxbox ~]$ ps1\_old="$PS1"
+    
 
 We create a new variable called ps1_old and assign the value of PS1 to it. We can
 verify that the string has been copied with the echo command:
@@ -308,28 +305,25 @@ verify that the string has been copied with the echo command:
 我们新创建了一个叫做 ps1_old 的变量，并把变量 PS1的值赋 ps1\_old。通过 echo 命令可以证明
 我们的确复制了 PS1的值。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ echo $ps1\_old
-[\u@\h \W]\$</tt>
-</pre></div>
+    [me@linuxbox ~]$ echo $ps1\_old
+    [\u@\h \W]\$
+    
 
 We can restore the original prompt at any time during our terminal session by simply
 reversing the process:
 
 在终端会话中，我们能在任一时间复原提示符，只要简单地反向操作就可以了。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ PS1="$ps1\_old"</tt>
-</pre></div>
+    [me@linuxbox ~]$ PS1="$ps1\_old"
+    
 
 Now that we are ready to proceed, let's see what happens if we have an empty prompt
 string:
 
 现在，我们准备开始，让我们看看如果有一个空的字符串会发生什么：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ PS1=</tt>
-</pre></div>
+    [me@linuxbox ~]$ PS1=
+    
 
 If we assign nothing to the prompt string, we get nothing. No prompt string at all! The
 prompt is still there, but displays nothing, just as we asked it to. Since this is kind of
@@ -338,9 +332,8 @@ disconcerting to look at, we'll replace it with a minimal prompt:
 如果我们没有给提示字符串赋值，那么我们什么也得不到。根本没有提示字符串！提示符仍然在那里，
 但是什么也不显示，正如我们所要求的那样。我们将用一个最小的提示符来代替它：
 
-<div class="code"><pre>
-<tt><b>PS1="\$ "</b></tt>
-</pre></div>
+    PS1="\$ "
+    
 
 That's better. At least now we can see what we are doing. Notice the trailing space
 within the double quotes. This provides the space between the dollar sign and the cursor
@@ -353,9 +346,8 @@ Let's add a bell to our prompt:
 
 在提示符中添加一个响铃：
 
-<div class="code"><pre>
-<tt>$ <b>PS1="\a\$ "</b></tt>
-</pre></div>
+    $ PS1="\a\$ "
+    
 
 Now we should hear a beep each time the prompt is displayed. This could get annoying,
 but it might be useful if we needed notification when an especially long-running
@@ -369,10 +361,9 @@ information:
 
 下一步，让我们试着创建一个信息丰富的提示符，包含主机名和当天时间的信息。
 
-<div class="code"><pre>
-<tt>$ PS1="\A \h \$ "
-17:33 linuxbox $</tt>
-</pre></div>
+    $ PS1="\A \h \$ "
+    17:33 linuxbox $
+    
 
 Try out the other sequences listed in the table above and see if you can come up with a
 brilliant new prompt.
@@ -391,9 +382,7 @@ color.
 大多数终端仿真器程序支持一定的非打印字符序列来控制，比方说字符属性（像颜色，黑体和可怕的闪烁）
 和光标位置。我们会更深入地讨论光标位置，但首先我们要看一下字体颜色。
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>Terminal Confusion</h3>
 <h3>混乱的终端时代</h3>
 
@@ -418,9 +407,7 @@ codes. </p>
 <p>为了努力使所有的终端都讲某种通用语言，美国国家标准委员会（ANSI）制定了
 一套标准的字符序列集合来控制视频终端。原先 DOS 用户会记得 ANSI.SYS 文件，
 这是一个用来使这些编码解释生效的文件。</p>
-</td>
-</tr>
-</table>
+</div>
 
 Character color is controlled by sending the terminal emulator an ANSI escape code
 embedded in the stream of characters to be displayed. The control code does not “print
@@ -434,9 +421,9 @@ code to set the text color to normal (attribute = 0), black text is:
 这个控制编码不会“打印”到屏幕上，而是被终端解释为一个指令。正如我们在上表看到的字符序列，
 这个\[和\]序列被用来封装这些非打印字符。一个 ANSI 转义编码以一个八进制033（这个编码是由
 退出按键产生的）开头，其后跟着一个可选的字符属性，在之后是一个指令。例如，把文本颜色
-设为正常（attribute = 0）,黑色文本的编码如下：
+设为正常（attribute = 0），黑色文本的编码如下：
 
-\033[0;30m
+    \033[0;30m
 
 Here is a table of available text colors. Notice that the colors are divided into two groups,
 differentiated by the application of the bold character attribute (1) which creates the
@@ -446,7 +433,7 @@ appearance of “light” colors:
 分化开来，这个属性可以描绘出“浅”色文本。
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table14- 2: Escape Sequences Used To Set Text Colors</caption>
 <tr>
 <th class="title">Sequence</th>
@@ -509,10 +496,9 @@ Let's try to make a red prompt. We'll insert the escape code at the beginning:
 
 让我们试着制作一个红色提示符。我们将在开头加入转义编码：
 
-<div class="code"><pre>
-<tt>&lt;me@linuxbox ~&gt;$ PS1=&quot;\[\033[0;31m\]&lt;\u@\h \W&gt;\$ &quot; 
-&lt;me@linuxbox ~&gt;$</tt>
-</pre></div>
+    <me@linuxbox ~>$ PS1=&quot;\[\033[0;31m\]<\u@\h \W>\$ &quot; 
+    <me@linuxbox ~>$
+    
 
 That works, but notice that all the text that we type after the prompt is also red. To fix
 this, we will add another escape code to the end of the prompt that tells the terminal
@@ -521,10 +507,9 @@ emulator to return to the previous color:
 我们的提示符生效了，但是注意我们在提示符之后输入的文本也是红色的。为了修改这个问题，
 我们将添加另一个转义编码到这个提示符的末尾来告诉终端仿真器恢复到原来的颜色。
 
-<div class="code"><pre>
-<tt>&lt;me@linuxbox ~&gt;$ PS1=&quot;\[\033[0;31m\]&lt;\u@\h \W&gt;\$\[\033[0m\]&quot; 
-&lt;me@linuxbox ~&gt;$</tt>
-</pre></div>
+    <me@linuxbox ~>$ PS1=&quot;\[\033[0;31m\]<\u@\h \W>\$\[\033[0m\]&quot; 
+    <me@linuxbox ~>$
+    
 
 That's better!
 
@@ -536,7 +521,7 @@ background colors do not support the bold attribute.
 也有可能要设置文本的背景颜色，使用下面列出的转义编码。这个背景颜色不支持黑体属性。
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 14-3: Escape Sequences Used To Set Background Color</caption>
 <tr>
 <td valign="top">\033[0;40m </td>
@@ -570,16 +555,15 @@ escape code:
 
 我们可以创建一个带有红色背景的提示符，只是对第一个转义编码做个简单的修改。
 
-<div class="code"><pre>
-<tt>&lt;me@linuxbox ~&gt;$ PS1=&quot;\[\033[0;41m\]&lt;\u@\h \W&gt;\$\[\033[0m\] &quot;
-&lt;me@linuxbox ~&gt;$</tt>
-</pre></div>
+    <me@linuxbox ~>$ PS1=&quot;\[\033[0;41m\]<\u@\h \W>\$\[\033[0m\] &quot;
+    <me@linuxbox ~>$
+    
 
 Try out the color codes and see what you can create!
 
 试试这些颜色编码，看看你能定制出怎样的提示符！
 <br />
-<hr />
+---
 Note: Besides the normal (0) and bold (1) character attributes, text may also be
 given underscore (4), blinking (5), and inverse (7) attributes as well. In the
 interests of good taste, many terminal emulators refuse to honor the blinking
@@ -587,7 +571,7 @@ attribute, however.
 
 注意：除了正常的（0）和黑体（1）字符属性之外，文本也可以具有下划线（4），闪烁（5），
 和反向（7）属性。为了拥有好品味，然而，许多终端仿真器拒绝使用这个闪烁属性。
-<hr />
+---
 
 Moving The Cursor
 
@@ -602,7 +586,7 @@ position the cursor:
 比如说上面一个角落，显示一个时钟或者其它一些信息。这里是一系列用来定位光标的转义编码：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 14-4: Cursor Movement Escape Sequences</caption>
 <tr>
 <th class="title">Escape Code</th>
@@ -650,7 +634,7 @@ position the cursor:
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表14－4： 光标移动转义序列</caption>
 <tr>
 <th class="title">转义编码</th>
@@ -703,17 +687,16 @@ The code for the prompt is this formidable looking string:
 包含时钟（由黄色文本渲染）的红色长条。提示符的编码就是这个看起来令人敬畏的字符串：
 
 
-<div class="code"><pre>
-<tt><b>PS1=&quot;\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
-&lt;\u@\h \W&gt;\$ &quot;</b></tt>
-</pre></div>
+    PS1=&quot;\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
+    <\u@\h \W>\$ &quot;
+    
 
 Let's take a look at each part of the string to see what it does:
 
 让我们分别看一下这个字符串的每一部分所表示的意思：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <tr>
 <th class="title">Squence</th>
 <th class="title">Action</th>
@@ -781,7 +764,7 @@ true size of the displayed prompt.  </td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <tr>
 <th class="title">序列</th>
 <th class="title">行动</th>
@@ -851,12 +834,11 @@ file. To do so, add these two lines to the file:
 显然地，我们不想总是敲入那个怪物，所以我们将要把这个提示符存储在某个地方。通过把它
 添加到我们的.bashrc 文件，可以使这个提示符永久存在。为了达到目的，把下面这两行添加到.bashrc 文件中。
 
-<div class="code"><pre>
-<tt><b>PS1=&quot;\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
-&lt;\u@\h \W&gt;\$ &quot;
-
-export PS1</b></tt>
-</pre></div>
+    PS1=&quot;\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
+    <\u@\h \W>\$ &quot;
+    
+    export PS1
+    
 
 Summing Up
 

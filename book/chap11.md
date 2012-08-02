@@ -119,14 +119,13 @@ If we add an option, we can get a bigger picture of what the system is doing:
 
 如果给 ps 命令加上选项，我们可以得到更多关于系统运行状态的信息：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ ps x
-PID TTY   STAT   TIME COMMAND
-2799 ?    Ssl    0:00 /usr/libexec/bonobo-activation-server –ac
-2820 ?    Sl     0:01 /usr/libexec/evolution-data-server-1.10 --
-
-and many more...</tt>
-</pre></div>
+    [me@linuxbox ~]$ ps x
+    PID TTY   STAT   TIME COMMAND
+    2799 ?    Ssl    0:00 /usr/libexec/bonobo-activation-server –ac
+    2820 ?    Sl     0:01 /usr/libexec/evolution-data-server-1.10 --
+    
+    and many more...
+    
 
 Adding the “x” option (note that there is no leading dash) tells ps to show all of our
 processes regardless of what terminal (if any) they are controlled by. The presence of a
@@ -152,7 +151,7 @@ reveals the current status of the process:
 输出结果中，新添加了一栏，标题为 STAT 。STAT 是 "state" 的简写，它揭示了进程当前状态：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 11-1: Process States</caption>
 <thead>
 <tr>
@@ -204,7 +203,7 @@ higher priority have been serviced.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表11-1: 进程状态</caption>
 <thead>
 <tr>
@@ -283,7 +282,7 @@ Linux 版本的 ps 命令，可以模拟几个不同 Unix 版本中的 ps 程序
 这些额外的列。
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 11-2: BSD Style ps Column Headers
 </caption>
 <thead>
@@ -325,7 +324,7 @@ a date is used.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表11-2: BSD 风格的 ps 命令列标题
 </caption>
 <thead>
@@ -402,7 +401,7 @@ The system summary contains a lot of good stuff. Here's a rundown:
 其中系统概要包含许多有用信息。下表是对系统概要的说明：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 11-3: top Information Fields</caption>
 <thead>
 <tr>
@@ -512,7 +511,7 @@ being used.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表11-3: top 命令信息字段</caption>
 <thead>
 <tr>
@@ -785,11 +784,10 @@ background with the bg command:
 停止 xlogo 程序之后，通过调整 xlogo 的窗口大小，我们可以证实这个程序已经停止了。
 它看起来像死掉了一样。使用 fg 命令，可以恢复程序到前台运行，或者用 bg 命令把程序移到后台。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ bg %1
-[1]+ xlogo &amp;
-[me@linuxbox ~]$</tt>
-</pre></div>
+    [me@linuxbox ~]$ bg %1
+    [1]+ xlogo &amp;
+    [me@linuxbox ~]$
+    
 
 As with the fg command, the jobspec is optional if there is only one job.
 
@@ -824,12 +822,11 @@ that need killing. Here's an example:
 
 kill 命令被用来“杀死”程序。这样我们就可以终止需要杀死的程序。这里有一个实例：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ xlogo &amp;
-[1] 28401
-[me@linuxbox ~]$ kill 28401
-[1]+ Terminated               xlogo</tt>
-</pre></div>
+    [me@linuxbox ~]$ xlogo &amp;
+    [1] 28401
+    [me@linuxbox ~]$ kill 28401
+    [1]+ Terminated               xlogo
+    
 
 We first launch xlogo in the background. The shell prints the jobspec and the PID of
 the background process. Next, we use the kill command and specify the PID of the
@@ -866,9 +863,8 @@ like this:
 
 kill 命令被用来给程序发送信号。它最常见的语法形式看起来像这样：
 
-<div class="code"><pre>
-<tt><b>kill [-signal] PID...</b></tt>
-</pre></div>
+    kill [-signal] PID...
+    
 
 If no signal is specified on the command line, then the TERM (Terminate) signal is sent by
 default. The kill command is most often used to send the following signals:
@@ -877,7 +873,7 @@ default. The kill command is most often used to send the following signals:
 用来发送以下命令：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 11-4: Common Signals</caption>
 <tr>
 <th class="title">Number</th>
@@ -938,7 +934,7 @@ thus it cannot be ignored.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表 11-4: 常用信号</caption>
 <tr>
 <th class="title">编号</th>
@@ -997,12 +993,11 @@ Let's try out the kill command:
 
 让我们实验一下 kill 命令：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ xlogo &amp;
-[1] 13546
-[me@linuxbox ~]$ kill -1 13546
-[1]+ Hangup         xlogo</tt>
-</pre></div>
+    [me@linuxbox ~]$ xlogo &amp;
+    [1] 13546
+    [me@linuxbox ~]$ kill -1 13546
+    [1]+ Hangup         xlogo
+    
 
 In this example, we start the xlogo program in the background and then send it a HUP
 signal with kill. The xlogo program terminates and the shell indicates that the
@@ -1015,12 +1010,11 @@ number or by name, including the name prefixed with the letters “SIG”:
 信息之前，你可能需要多按几次 enter 键。注意，既可以用号码，也可以用名字，不过要在名字前面
 加上字母“SIG”，来指定所要发送的信号。
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ xlogo &amp;
-[1] 13546
-[me@linuxbox ~]$ kill -1 13546
-[1]+ Hangup                    xlogo</tt>
-</pre></div>
+    [me@linuxbox ~]$ xlogo &amp;
+    [1] 13546
+    [me@linuxbox ~]$ kill -1 13546
+    [1]+ Hangup                    xlogo
+    
 
 Repeat the example above and try out the other signals. Remember, you can also use
 jobspecs in place of PIDs.
@@ -1040,7 +1034,7 @@ other signals frequently used by the system. Here is a list of other common sign
 信号列表：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 11-5: Other Common Signals</caption>
 <tr>
 <th class="title">Number</th>
@@ -1077,7 +1071,7 @@ signal by redrawing themselves to fit the new window dimensions.</td>
 </p>
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表 11-5: 其它常用信号</caption>
 <tr>
 <th class="title">编号</th>
@@ -1117,9 +1111,8 @@ For the curious, a complete list of signals can be seen with the following comma
 
 为了满足读者的好奇心，通过下面的命令可以得到一个完整的信号列表：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ kill -l</tt>
-</pre></div>
+    [me@linuxbox ~]$ kill -l
+    
 
 ### Sending Signals To Multiple Processes With killall
 
@@ -1130,24 +1123,22 @@ user name by using the killall command. Here is the syntax:
 
 也有可能通过 killall 命令，给匹配特定程序或用户名的多个进程发送信号。下面是 killall 命令的语法形式：
 
-<div class="code"><pre>
-<tt><b>killall [-u user] [-signal] name...</b></tt>
-</pre></div>
+    killall [-u user] [-signal] name...
+    
 
 To demonstrate, we will start a couple of instances of the xlogo program and then
 terminate them:
 
 为了说明情况，我们将启动一对 xlogo 程序的实例，然后再终止它们：
 
-<div class="code"><pre>
-<tt>[me@linuxbox ~]$ xlogo &amp;
-[1] 18801
-[me@linuxbox ~]$ xlogo &amp;
-[2] 18802
-[me@linuxbox ~]$ killall xlogo
-[1]- Terminated                xlogo
-[2]+ Terminated                xlogo</tt>
-</pre></div>
+    [me@linuxbox ~]$ xlogo &amp;
+    [1] 18801
+    [me@linuxbox ~]$ xlogo &amp;
+    [2] 18802
+    [me@linuxbox ~]$ killall xlogo
+    [1]- Terminated                xlogo
+    [2]+ Terminated                xlogo
+    
 
 Remember, as with kill, you must have superuser privileges to send signals to
 processes that do not belong to you.
@@ -1164,7 +1155,7 @@ commands for it. Here are some to play with:
 因为监测进程是一个很重要的系统管理任务，所以有许多命令与它相关。玩玩下面几个命令：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 11-6: Other Process Related Commands</caption>
 <tr>
 <th class="title">Command </th>
@@ -1197,7 +1188,7 @@ Terminate the output with Ctrl-c.</td>
 
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">表11-6: 其它与进程相关的命令</caption>
 <tr>
 <th class="title">命令名</th>

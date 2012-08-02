@@ -63,7 +63,7 @@ The following table lists the keys used to move the cursor:
 下表列出了移动光标所使用的按键：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 9-1: Cursor Movement Commands &nbsp; 光标移动命令</caption>
 <tr>
 <th class="title">Key &nbsp; 按键</th>
@@ -114,7 +114,7 @@ Table 9-2 lists keyboard commands that are used to edit characters on the comman
 表9－2列出了键盘命令，这些命令用来在命令行中编辑字符。
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 9-2: Text Editing Commands &nbsp; 文本编辑命令</caption>
 <tr>
 <th class="title">Key &nbsp; 按键</th>
@@ -159,8 +159,7 @@ kill-ring.
 Readline 的文档使用术语 killing 和 yanking 来指我们平常所说的剪切和粘贴。
 剪切下来的本文被存储在一个叫做剪切环(kill-ring)的缓冲区中。
 
-<p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 9-3: Cut And Paste Commands &nbsp; 剪切和粘贴命令</caption>
 <tr>
 <th class="title">Key &nbsp; 按键</th>
@@ -193,12 +192,8 @@ word. If the cursor is at the beginning of a word, kill the previous word.&nbsp;
 location. &nbsp; 把剪切环中的文本粘贴到光标位置。</td>
 </tr>
 </table>
-</p>
-<br />
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>The Meta Key</h3>
 <h3>元键</h3>
 
@@ -238,9 +233,7 @@ Readline 程序的开发者们，不能确定一个专用多余的控制键的�
 控制键，并把它叫做"元"（"meta"）。然而在现代的键盘上，Alt 键作为元键来服务。
 如果你仍然在使用终端（在 Linux 中，你仍然可以得到一个终端），你也可以按下和
 释放 Esc 键来得到如控制 Alt 键一样的效果。</p>
-</td>
-</tr>
-</table>
+</div>
 
 ### Completion
 
@@ -318,8 +311,7 @@ completion:
 
 有一系列的控制和元键序列与自动补全相关联：
 
-<p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 9-4: Completion Commands &nbsp; 自动补全命令</caption>
 <tr>
 <th class="title">Key &nbsp; 按键</th>
@@ -339,11 +331,9 @@ to use more than one possible match. &nbsp;
 插入所有可能的自动补全。当你想要使用多个可能的匹配项时，这个很有帮助。</td>
 </tr>
 </table>
-</p>
-<br />
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+
+
+<div class="single">
 <h3>Programmable Completion</h3>
 <h3>可编程自动补全</h3>
 
@@ -365,9 +355,7 @@ shell 函数是一种小巧的 shell 脚本，我们会在后面的章节中讨�
 <p><b>set | less</b></p>
 <p>and see if you can find them. Not all distributions include them by default.  </p>
 <p>查看一下如果你能找到它们的话。默认情况下，并不是所有的发行版都包括它们。</p>
-</td>
-</tr>
-</table>
+</div>
 
 ### Using History
 
@@ -469,7 +457,7 @@ The table below lists some of the keystrokes used to manipulate the history list
 这些按键用来操作历史列表：
 
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 9-5: History Commands &nbsp; 历史命令</caption>
 <tr>
 <th class="title">Key &nbsp; 按键</th>
@@ -533,7 +521,7 @@ features:
 通过使用 "!" 字符，shell 为历史列表中的命令，提供了一个特殊的展开类型。我们已经知道一个感叹号
 ，其后再加上一个数字，可以把来自历史列表中的命令插入到命令行中。还有一些其它的展开特性：
 <p>
-<table class="multi" cellpadding="10" border="1" width="%100">
+<table class="multi">
 <caption class="cap">Table 9-6: History Expansion Commands &nbsp; 历史展开命令
 </caption>
 <tr>
@@ -585,9 +573,7 @@ explore!
 如果我们再继续讨论的话，我们的头可能要爆炸了。bash 手册页的 HISTORY EXPANSION
 部分详尽地讲述了所有要素。
 
-<table class="single" cellpadding="10" width="%100">
-<tr>
-<td>
+<div class="single">
 <h3>script</h3>
 <h3>脚本</h3>
 
@@ -604,9 +590,7 @@ complete list of the program’s options and features.
 </p>
 <p>命令中的 file 是指用来存储 shell 会话记录的文件名。如果没有指定文件名，则使用文件
 typescript。查看脚本的手册页，可以得到一个关于 script 程序选项和特点的完整列表。</p>
-</td>
-</tr>
-</table>
+</div>
 
 ### Summing Up
 
