@@ -144,19 +144,55 @@ title: 读取键盘输入
 
 `read`支持以下选送：
 
+<table class="multi">
 <caption class="cap">表29-1: read 选项</caption>
+<thead>
+<tr>
 <th class="title">选项</th>
 <th class="title">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top" width="25%">-a array </td>
 <td valign="top">把输入赋值到数组 array 中，从索引号零开始。我们
 将在第36章中讨论数组问题。</td>
+</tr>
+<tr>
+<td valign="top">-d delimiter </td>
 <td valign="top">用字符串 delimiter 中的第一个字符指示输入结束，而不是一个换行符。</td>
+</tr>
+<tr>
+<td valign="top">-e</td>
 <td valign="top">使用 Readline 来处理输入。这使得与命令行相同的方式编辑输入。</td>
+</tr>
+<tr>
+<td valign="top">-n num</td>
 <td valign="top">读取 num 个输入字符，而不是整行。</td>
+</tr>
+<tr>
+<td valign="top">-p prompt </td>
 <td valign="top">为输入显示提示信息，使用字符串 prompt。</td>
+</tr>
+<tr>
+<td valign="top">-r</td>
 <td valign="top">Raw mode. 不把反斜杠字符解释为转义字符。</td>
+</tr>
+<tr>
+<td valign="top">-s</td>
+<td valign="top">Silent mode.
 不会在屏幕上显示输入的字符。当输入密码和其它确认信息的时候，这会很有帮助。</td>
+</tr>
+<tr>
+<td valign="top">-t seconds</td>
 <td valign="top">超时. 几秒钟后终止输入。read 会返回一个非零退出状态，若输入超时。 </td>
+</tr>
+<tr>
+<td valign="top">-u fd</td>
 <td valign="top">使用文件描述符 fd 中的输入，而不是标准输入。</td>
+</tr>
+</tbody>
+</table>
 
 使用各种各样的选项，我们能用`read`完成有趣的事情。例如，通过-p 选项，我们能够提供提示信息：
 

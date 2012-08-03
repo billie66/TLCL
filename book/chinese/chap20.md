@@ -37,18 +37,42 @@ POSIX 标准中描述的正则表达式（其包括了大多数的命令行工�
 
 这是一个常用的 grep 选项列表：
 
+<table class="multi">
 <caption class="cap">表20-1: grep 选项</caption>
+<tr>
 <th class="title">选项</th>
 <th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top" width="20%">-i</td>
 <td valign="top">忽略大小写。不会区分大小写字符。也可用--ignore-case 来指定。 </td>
+</tr>
+<tr>
+<td valign="top">-v</td>
 <td valign="top">不匹配。通常，grep 程序会打印包含匹配项的文本行。这个选项导致 grep 程序
 只会不包含匹配项的文本行。也可用--invert-match 来指定。 </td>
+</tr>
+<tr>
+<td valign="top">-c</td>
 <td valign="top">打印匹配的数量（或者是不匹配的数目，若指定了-v 选项），而不是文本行本身。
 也可用--count 选项来指定。 </td></tr>
+<tr>
+<td valign="top">-l</td>
 <td valign="top">打印包含匹配项的文件名，而不是文本行本身，也可用--files-with-matches 选项来指定。</td>
+</tr>
+<tr>
+<td valign="top">-L</td>
 <td valign="top">相似于-l 选项，但是只是打印不包含匹配项的文件名。也可用--files-without-match 来指定。</td>
+</tr>
+<tr>
+<td valign="top">-n</td>
 <td valign="top">在每个匹配行之前打印出其位于文件中的相应行号。也可用--line-number 选项来指定。</td>
+</tr>
+<tr>
+<td valign="top">-h</td>
 <td valign="top">应用于多文件搜索，不输出文件名。也可用--no-filename 选项来指定。 </td>
+</tr>
+</table>
 
 为了更好的探究 grep 程序，让我们创建一些文本文件来搜寻：
 
@@ -305,23 +329,66 @@ POSIX 标准中描述的正则表达式（其包括了大多数的命令行工�
 为了部分地解决这个问题，POSIX 标准包含了大量的字符集，其提供了有用的字符区域。
 下表中描述了它们：
 
+<table class="multi">
 <caption class="cap">表20-2: POSIX 字符集 </caption>
+<tr>
 <th class="title">字符集</th>
 <th class="title">说明</th>
+</tr>
+<tr>
+<td valign="top" width="25%">[:alnum:] </td>
 <td valign="top">字母数字字符。在 ASCII 中，等价于：[A-Za-z0-9] </td>
+</tr>
+<tr>
+<td valign="top">[:word:] </td>
 <td valign="top">与[:alnum:]相同, 但增加了下划线字符。 </td>
+</tr>
+<tr>
+<td valign="top">[:alpha:] </td>
 <td valign="top">字母字符。在 ASCII 中，等价于：[A-Za-z] </td>
+</tr>
+<tr>
+<td valign="top">[:blank:] </td>
 <td valign="top">包含空格和 tab 字符。</td>
+</tr>
+<tr>
+<td valign="top">[:cntrl:] </td>
 <td valign="top">ASCII 的控制码。包含了0到31，和127的 ASCII 字符。</td>
+</tr>
+<tr>
+<td valign="top">[:digit:] </td>
 <td valign="top">数字0到9</td>
+</tr>
+<tr>
+<td valign="top">[:graph:]</td>
 <td valign="top">可视字符。在 ASCII 中，它包含33到126的字符。 </td>
+</tr>
+<tr>
+<td valign="top">[:lower:] </td>
 <td valign="top">小写字母。</td>
+</tr>
+<tr>
+<td valign="top">[:punct:] </td>
 <td valign="top">标点符号字符。在 ASCII 中，等价于：</td>
+</tr>
+<tr>
+<td valign="top">[:print:] </td>
 <td valign="top">可打印的字符。在[:graph:]中的所有字符，再加上空格字符。</td>
+</tr>
+<tr>
+<td valign="top">[:space:] </td>
 <td valign="top">空白字符，包括空格，tab，回车，换行，vertical tab, 和 form feed.在 ASCII 中， 
 等价于：[ \t\r\n\v\f] </td>
+</tr>
+<tr>
+<td valign="top">[:upper:] </td>
 <td valign="top">大写字母。</td>
+</tr>
+<tr>
+<td valign="top">[:xdigit:] </td>
 <td valign="top">用来表示十六进制数字的字符。在 ASCII 中，等价于：[0-9A-Fa-f] </td>
+</tr>
+</table>
 
 甚至通过字符集，仍然没有便捷的方法来表达部分区域，比如[A-M]。
 
@@ -500,13 +567,29 @@ Alternation 并不局限于两种选择：
 
 {和}元字符都被用来表达要求匹配的最小和最大数目。它们可以通过四种方法来指定：
 
+<table class="multi">
 <caption class="cap">表20-3: 指定匹配的数目 </caption>
+<tr>
 <th class="title">限定符</th>
 <th class="title">意思</th>
+</tr>
+<tr>
+<td valign="top" width="25%">{n}</td>
 <td valign="top">匹配前面的元素，如果它确切地出现了 n 次。</td>
+</tr>
+<tr>
+<td valign="top">{n,m}</td>
 <td valign="top">匹配前面的元素，如果它至少出现了 n 次，但是不多于 m 次。</td>
+</tr>
+<tr>
+<td valign="top">{n,}</td>
 <td valign="top">匹配前面的元素，如果它出现了 n 次或多于 n 次。</td>
+</tr>
+<tr>
+<td valign="top">{,m}</td>
 <td valign="top">匹配前面的元素，如果它出现的次数不多于 m 次。</td>
+</tr>
+</table>
 
 回到之前处理电话号码的例子，我们能够使用这种指定重复次数的方法来简化我们最初的正则表达式：
 

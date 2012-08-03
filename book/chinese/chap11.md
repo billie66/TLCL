@@ -76,21 +76,56 @@ TTY 是 "Teletype" 的简写，是指进程的控制终端。这里，Unix 展�
 
 输出结果中，新添加了一栏，标题为 STAT 。STAT 是 "state" 的简写，它揭示了进程当前状态：
 
+<table class="multi">
 <caption class="cap">表11-1: 进程状态</caption>
+<thead>
+<tr>
 <th class="title">状态</th>
 <th class="title">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top" width="15%">R</td>
 <td valign="top">运行。这意味着，进程正在运行或准备运行。
+</td>
+</tr>
+<tr>
+<td valign="top">S</td>
 <td valign="top">正在睡眠。 进程没有运行，而是，正在等待一个事件，
 比如说，一个按键或者网络数据包。
+</td>
+</tr>
+<tr>
+<td valign="top">D</td>
 <td valign="top">不可中断睡眠。进程正在等待 I/O，比方说，一个磁盘驱动器的 I/O。</td>
+</tr>
+<tr>
+<td valign="top">T</td>
 <td valign="top">已停止. 已经指示进程停止运行。稍后介绍更多。</td>
+</tr>
+<tr>
+<td valign="top">Z</td>
+<td
 valign="top">一个死进程或“僵尸”进程。这是一个已经终止的子进程，但是它的父进程还没有清空它。
 （父进程没有把子进程从进程表中删除）</td>
+</tr>
+<tr>
+<td valign="top">&lt;</td>
+<td
 valign="top">一个高优先级进程。这可能会授予一个进程更多重要的资源，给它更多的 CPU 时间。
 进程的这种属性叫做 niceness。具有高优先级的进程据说是不好的（less nice），
 因为它占用了比较多的 CPU 时间，这样就给其它进程留下很少时间。
+</td>
+</tr>
+<tr>
+<td valign="top">N</td>
 <td valign="top">低优先级进程。
 一个低优先级进程（一个“好”进程）只有当其它高优先级进程执行之后，才会得到处理器时间。
+</td>
+</tr>
+</tbody>
+</table>
 
 进程状态信息之后，可能还跟随其他的字符。这表示各种外来进程的特性。详细信息请看 ps 手册页。
 
@@ -107,15 +142,43 @@ valign="top">一个高优先级进程。这可能会授予一个进程更多重�
 Linux 版本的 ps 命令，可以模拟几个不同 Unix 版本中的 ps 程序的行为。通过这些选项，我们得到
 这些额外的列。
 
+<table class="multi">
 <caption class="cap">表11-2: BSD 风格的 ps 命令列标题
+</caption>
+<thead>
+<tr>
 <th class="title">标题</th>
 <th class="title">意思</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top" width="15%">USER</td>
 <td valign="top">用户 ID. 进程的所有者。
+</td>
+</tr>
+<tr>
+<td valign="top">%CPU</td>
 <td valign="top">以百分比表示的 CPU 使用率</td>
+</tr>
+<tr>
+<td valign="top">%MEM</td>
 <td valign="top">以百分比表示的内存使用率</td>
+</tr>
+<tr>
+<td valign="top">VSZ</td>
 <td valign="top">虚拟内存大小</td>
+</tr>
+<tr>
+<td valign="top">RSS</td>
 <td valign="top">进程占用的物理内存的大小，以千字节为单位。</td>
+</tr>
+<tr>
+<td valign="top">START</td>
 <td valign="top">进程运行的起始时间。若超过24小时，则用天表示。</td>
+</tr>
+</tbody>
+</table>
 
 ### 用 top 命令动态查看进程
 
@@ -142,28 +205,98 @@ top 程序连续显示系统进程更新的信息（默认情况下，每三分�
 
    priority) processes.
 
+<table class="multi">
 <caption class="cap">表11-3: top 命令信息字段</caption>
+<thead>
+<tr>
 <th class="title">行号</th>
 <th class="title">字段</th>
 <th class="title">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top" width="10%">1</td>
+<td valign="top" width="15%">top</td>
 <td class="title">程序名。</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">14:59:20</td>
 <td valign="top">当前时间。
+</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">up 6:30 </td>
 <td valign="top">这是正常运行时间。它是计算机从上次启动到现在所运行的时间。
 在这个例子里，系统已经运行了六个半小时。  </td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">2 users</td>
 <td valign="top">有两个用户登录系统。</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">load average: </td>
+<td
 valign="top">加载平均值是指，等待运行的进程数目，也就是说，处于运行状态的进程个数，
 这些进程共享 CPU。展示了三个数值，每个数值对应不同的时间周期。第一个是最后60秒的平均值，
 下一个是前5分钟的平均值，最后一个是前15分钟的平均值。若平均值低于1.0，则指示计算机
 工作不忙碌。</td>
+</tr>
+<tr>
+<td valign="top">2</td>
+<td valign="top">Tasks:</td>
 <td valign="top">总结了进程数目和各种进程状态。</td>
+</tr>
+<tr>
+<td valign="top">3</td>
+<td valign="top">Cpu(s):</td>
 <td valign="top">这一行描述了 CPU 正在执行的进程的特性。</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">0.7%us </td>
+<td valign="top">0.7% of the CPU is being used for user
 processes. 这意味着进程在内核之外。</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">1.0%sy </td>
 <td valign="top">1.0%的 CPU 时间被用于系统（内核）进程。
+</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">0.0%ni </td>
 <td valign="top">0.0%的 CPU 时间被用于"nice"（低优先级）进程。
+</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">98.3%id </td>
 <td valign="top">98.3%的 CPU 时间是空闲的。</td>
+</tr>
+<tr>
+<td valign="top"></td>
+<td valign="top">0.0%wa </td>
 <td valign="top">0.0%的 CPU 时间来等待 I/O。</td>
+</tr>
+<tr>
+<td valign="top">4</td>
+<td valign="top">Mem:</td>
 <td valign="top">展示物理内存的使用情况。</td>
+</tr>
+<tr>
+<td valign="top">5</td>
+<td valign="top">Swap:</td>
 <td valign="top">展示交换分区（虚拟内存）的使用情况。
+</td>
+</tr>
+</tbody>
+</table>
 
 top 程序接受一系列从键盘输入的命令。两个最有趣的命令是 h 和 q。h，显示程序的帮助屏幕，q，
 退出 top 程序。
@@ -305,25 +438,59 @@ kill 命令被用来给程序发送信号。它最常见的语法形式看起来
 如果在命令行中没有指定信号，那么默认情况下，发送 TERM（终止）信号。kill 命令被经常
 用来发送以下命令：
 
+<table class="multi">
 <caption class="cap">表 11-4: 常用信号</caption>
+<tr>
 <th class="title">编号</th>
 <th class="title">名字</th>
 <th class="title">含义</th>
+</tr>
+<tr>
+<td valign="top" width="10%">1</td>
+<td valign="top" width="10%">HUP</td>
 <td valign="top">挂起。这是美好往昔的痕迹，那时候终端机通过电话线和调制解调器连接到
 远端的计算机。这个信号被用来告诉程序，控制的终端机已经“挂起”。
 通过关闭一个终端会话，可以说明这个信号的作用。发送这个信号到终端机上的前台程序，程序会终止。
 <p>许多守护进程也使用这个信号，来重新初始化。这意味着，当发送这个信号到一个守护进程后，
 这个进程会重新启动，并且重新读取它的配置文件。Apache 网络服务器守护进程就是一个例子。</p>
+</td>
+</tr>
+<tr>
+<td valign="top">2</td>
+<td valign="top">INT</td>
 <td valign="top">中断。实现和 Ctrl-c 一样的功能，由终端发送。通常，它会终止一个程序。
+</td>
+</tr>
+<tr>
+<td valign="top">9</td>
+<td valign="top">KILL</td>
+<td
 valign="top">杀死。这个信号很特别。鉴于进程可能会选择不同的方式，来处理发送给它的
 信号，其中也包含忽略信号，这样呢，从不发送 Kill 信号到目标进程。而是内核立即终止
 这个进程。当一个进程以这种方式终止的时候，它没有机会去做些“清理”工作，或者是保存劳动成果。
 因为这个原因，把 KILL 信号看作杀手锏，当其它终止信号失败后，再使用它。
+</td>
+</tr>
+<tr>
+<td valign="top">15</td>
+<td valign="top">TERM</td>
 <td valign="top">终止。这是 kill 命令发送的默认信号。如果程序仍然“活着”，可以接受信号，那么
 这个信号终止。 </td>
+</tr>
+<tr>
+<td valign="top">18</td>
+<td valign="top">CONT</td>
 <td valign="top">继续。在停止一段时间后，进程恢复运行。</td>
+</tr>
+<tr>
+<td valign="top">19</td>
+<td valign="top">STOP</td>
+<td
 valign="top">停止。这个信号导致进程停止运行，而没有终止。像 KILL 信号，它不被
 发送到目标进程，因此它不能被忽略。
+</td>
+</tr>
+</table>
 
 让我们实验一下 kill 命令：
 
@@ -352,17 +519,40 @@ valign="top">停止。这个信号导致进程停止运行，而没有终止。�
 除了上表列出的 kill 命令最常使用的信号之外，还有一些系统频繁使用的信号。以下是其它一些常用
 信号列表：
 
+<table class="multi">
 <caption class="cap">表 11-5: 其它常用信号</caption>
+<tr>
 <th class="title">编号</th>
 <th class="title">名字</th>
 <th class="title">含义</th>
+</tr>
+<tr>
+<td valign="top" width="10%">3</td>
+<td valign="top" width="10%">QUIT</td>
 <td valign="top">退出</td>
+</tr>
+<tr>
+<td valign="top">11</td>
+<td valign="top">SEGV</td>
+<td
 valign="top">段错误。如果一个程序非法使用内存，就会发送这个信号。也就是说，
 程序试图写入内存，而这个内存空间是不允许此程序写入的。</td>
+</tr>
+<tr>
+<td valign="top">20</td>
+<td valign="top">TSTP</td>
+<td
 valign="top">终端停止。当按下 Ctrl-z 组合键后，终端发送这个信号。不像 STOP 信号，
 TSTP 信号由目标进程接收，且可能被忽略。</td>
+</tr>
+<tr>
+<td valign="top">28</td>
+<td valign="top">WINCH</td>
 <td valign="top">改变窗口大小。当改变窗口大小时，系统会发送这个信号。 
 一些程序，像 top 和 less 程序会响应这个信号，按照新窗口的尺寸，刷新显示的内容。
+</td>
+</tr>
+</table>
 
 为了满足读者的好奇心，通过下面的命令可以得到一个完整的信号列表：
 
@@ -393,12 +583,28 @@ TSTP 信号由目标进程接收，且可能被忽略。</td>
 
 因为监测进程是一个很重要的系统管理任务，所以有许多命令与它相关。玩玩下面几个命令：
 
+<table class="multi">
 <caption class="cap">表11-6: 其它与进程相关的命令</caption>
+<tr>
 <th class="title">命令名</th>
 <th class="title">命令描述</th>
+</tr>
+<tr>
+<td valign="top" width="15%">pstree </td>
 <td valign="top">输出一个树型结构的进程列表，这个列表展示了进程间父/子关系。</td>
+</tr>
+<tr>
+<td valign="top">vmstat</td>
 <td valign="top">输出一个系统资源使用快照，包括内存，交换分区和磁盘 I/O。
 为了看到连续的显示结果，则在命令名后加上延时的时间（以秒为单位）。例如，“vmstat 5”。
 终止输出，按下 Ctrl-c 组合键。</td>
+</tr>
+<tr>
+<td valign="top">xload</td>
 <td valign="top">一个图形界面程序，可以画出系统负载的图形。</td>
+</tr>
+<tr>
+<td valign="top">tload</td>
 <td valign="top">与 xload 程序相似，但是在终端中画出图形。使用 Ctrl-c，来终止输出。</td>
+</tr>
+</table>

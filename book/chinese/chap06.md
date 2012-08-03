@@ -128,14 +128,51 @@ page)。一个特殊的叫做 man 的分页程序，可用来浏览他们。它�
 man 所显示的参考手册，被分成几个章节，它们不仅仅包括用户命令，也包括系统管理员
 命令，程序接口，文件格式等等。下表描绘了手册的布局：
 
+<table class="multi">
+<caption class="cap">Table 6-1: Man Page Organization</caption>
+<thead>
+<tr>
+<th class="title">Section</th>
+<th class="title">Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
 <td>User commands  用户命令</td>
+</tr>
+<tr>
+<td>2</td>
 <td>Programming interfaces kernel system calls  程序接口内核系统调用</td>
+</tr>
+<tr>
+<td>3</td>
 <td>Programming interfaces to the C library  C 库函数程序接口</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Special files such as device nodes and drivers
 特殊文件，比如说设备结点和驱动程序</td>
+</tr>
+<tr>
+<td>5</td>
 <td>File formats  文件格式</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Games and amusements such as screen savers
 游戏娱乐，如屏幕保护程序</td>
+</tr>
+<tr>
+<td>7</td>
 <td>Miscellaneous  其他方面</td>
+</tr>
+<tr>
+<td>8</td>
 <td>System administration commands  系统管理员命令</td>
+</tr>
+</tbody>
+</table>
 
 有时候，我们需要查看参考手册的特定章节，从而找到我们需要的信息。
 如果我们要查找一种文件格式，而同时它也是一个命令名时,这种情况尤其正确。
@@ -199,17 +236,49 @@ info 文件包含超级链接，它可以让你从一个结点跳到另一个结
 输入"info"，接着输入程序名称，启动 info。下表中的命令，当显示一个 info 页面时，
 用来控制阅读器。
 
+<table class="multi">
 <caption class="cap">表 6－2：info 命令</caption>
+<thead>
+<tr>
 <th class="title">命令</th>
 <th class="title">行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top" width="25%">?</td>
 <td valign="top">显示命令帮助</td>
+</tr>
+<tr>
+<td valign="top">PgUp or Backspace</td>
 <td valign="top">显示上一页 </td>
+</tr>
+<tr>
+<td valign="top">PgDn or Space</td>
 <td valign="top">显示下一页</td>
+</tr>
+<tr>
+<td valign="top">n</td>
 <td valign="top">下一个 - 显示下一个结点</td>
+</tr>
+<tr>
+<td valign="top">p</td>
 <td valign="top">上一个 - 显示上一个结点</td>
+</tr>
+<tr>
+<td valign="top">u</td>
 <td valign="top">Up - 显示当前所显示结点的父结点，通常是个菜单</td>
+</tr>
+<tr>
+<td valign="top">Enter</td>
 <td valign="top">激活光标位置下的超级链接</td>
+</tr>
+<tr>
+<td valign="top">q</td>
 <td valign="top">退出</td>
+</tr>
+</tbody>
+</table>
 
 到目前为止，我们所讨论的大多数命令行程序，属于 GNU 项目"coreutils"包，所以输入：
 

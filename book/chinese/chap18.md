@@ -120,14 +120,33 @@ find 命令的最简单使用是，搜索一个或多个目录。例如，输出
 
 这里是 find 命令支持的普通文件类型测试条件：
 
+<table class="multi">
 <caption class="cap">表18-1: find 文件类型</caption>
+<tr>
 <th class="title">文件类型</th>
 <th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top" width="25%">b</td>
 <td valign="top">块设备文件 </td>
+</tr>
+<tr>
+<td valign="top">c</td>
 <td valign="top">字符设备文件</td>
+</tr>
+<tr>
+<td valign="top">d</td>
 <td valign="top">目录</td>
+</tr>
+<tr>
+<td valign="top">f</td>
 <td valign="top">普通文件</td>
+</tr>
+<tr>
+<td valign="top">l</td>
 <td valign="top">符号链接</td>
+</tr>
+</table>
 
 我们也可以通过加入一些额外的测试条件，根据文件大小和文件名来搜索：让我们查找所有文件名匹配
 通配符模式“\*.JPG”和文件大小大于1M 的文件：
@@ -145,31 +164,91 @@ find 命令的最简单使用是，搜索一个或多个目录。例如，输出
 find 命令支持大量不同的测试条件。下表是列出了一些常见的测试条件。请注意，在需要数值参数的
 情况下，可以应用以上讨论的“+”和"-"符号表示法：
 
+<table class="multi">
 <caption class="cap">表18-3: find 测试条件</caption>
+<tr>
 <th class="title">测试条件</th>
 <th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top" width="25%">-cmin n </td>
 <td valign="top">匹配的文件和目录的内容或属性最后修改时间正好在 n 分钟之前。
 指定少于 n 分钟之前，使用-n，指定多于 n 分钟之前，使用+n。 </td>
+</tr>
+<tr>
+<td valign="top">-cnewer file </td>
 <td valign="top">匹配的文件和目录的内容或属性最后修改时间早于那些文件。 </td>
+</tr>
+<tr>
+<td valign="top">-ctime n </td>
 <td valign="top">匹配的文件和目录的内容和属性最后修改时间在 n\*24小时之前。</td>
+</tr>
+<tr>
+<td valign="top">-empty </td>
 <td valign="top">匹配空文件和目录。</td>
+</tr>
+<tr>
+<td valign="top">-group name </td>
 <td valign="top">匹配的文件和目录属于一个组。组可以用组名或组 ID 来表示。</td>
+</tr>
+<tr>
+<td valign="top">-iname pattern </td>
 <td valign="top">就像-name 测试条件，但是大小写敏感。</td>
+</tr>
+<tr>
+<td valign="top">-inum n </td>
 <td valign="top">匹配的文件的 inode 号是 n。这对于找到某个特殊 inode 的所有硬链接很有帮助。 </td>
+</tr>
+<tr>
+<td valign="top">-mmin n </td>
 <td valign="top">匹配的文件或目录的内容被修改于 n 分钟之前。</td>
+</tr>
+<tr>
+<td valign="top">-mtime n </td>
 <td valign="top">匹配的文件或目录的内容被修改于 n\*24小时之前。 </td>
+</tr>
+<tr>
+<td valign="top">-name pattern </td>
 <td valign="top">用指定的通配符模式匹配的文件和目录。</td>
+</tr>
+<tr>
+<td valign="top">-newer file </td>
+<td
 valign="top">匹配的文件和目录的内容早于指定的文件。当编写 shell 脚本，做文件备份时，非常有帮助。
 每次你制作一个备份，更新文件（比如说日志），然后使用 find 命令来决定自从上次更新，哪一个文件已经更改了。 </td>
+</tr>
+<tr>
+<td valign="top">-nouser </td>
 <td valign="top">匹配的文件和目录不属于一个有效用户。这可以用来查找
 属于删除帐户的文件或监测攻击行为。 </td>
+</tr>
+<tr>
+<td valign="top">-nogroup </td>
 <td valign="top">匹配的文件和目录不属于一个有效的组。 </td>
+</tr>
+<tr>
+<td valign="top">-perm mode </td>
 <td valign="top">匹配的文件和目录的权限已经设置为指定的 mode。mode 可以用
 八进制或符号表示法。</td>
+</tr>
+<tr>
+<td valign="top">-samefile name </td>
 <td valign="top">相似于-inum 测试条件。匹配和文件 name 享有同样 inode 号的文件。 </td>
+</tr>
+<tr>
+<td valign="top">-size n </td>
 <td valign="top">匹配的文件大小为 n。</td>
+</tr>
+<tr>
+<td valign="top">-type c </td>
 <td valign="top">匹配的文件类型是 c。</td>
+</tr>
+<tr>
+<td valign="top">-user name </td>
+<td
 valign="top">匹配的文件或目录属于某个用户。这个用户可以通过用户名或用户 ID 来表示。 </td>
+</tr>
+</table>
 
 这不是一个完整的列表。find 命令手册有更详细的说明。
 
@@ -187,18 +266,34 @@ valign="top">匹配的文件或目录属于某个用户。这个用户可以通�
 呀！这的确看起来很奇怪。这些是什么东西？实际上，这些操作符没有那么复杂，一旦你知道了它们。
 这里是操作符列表：
 
+<table class="multi">
 <caption class="cap">表18-4: find 命令的逻辑操作符</caption>
+<tr>
 <th class="title">操作符</th>
 <th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top" width="25%">-and</td>
 <td valign="top">匹配如果操作符两边的测试条件都是真。可以简写为-a。
 注意若没有使用操作符，则默认使用-and。</td>
+</tr>
+<tr>
+<td valign="top">-or</td>
 <td valign="top">匹配若操作符两边的任一个测试条件为真。可以简写为-o。</td>
+</tr>
+<tr>
+<td valign="top">-not</td>
 <td valign="top">匹配若操作符后面的测试条件是真。可以简写为一个感叹号（!）。</td>
+</tr>
+<tr>
+<td valign="top">()</td>
 <td valign="top"> 把测试条件和操作符组合起来形成更大的表达式。这用来控制逻辑计算的优先级。
 默认情况下，find 命令按照从左到右的顺序计算。经常有必要重写默认的求值顺序，以得到期望的结果。
 即使没有必要，有时候包括组合起来的字符，对提高命令的可读性是很有帮助的。注意
 因为圆括号字符对于 shell 来说有特殊含义，所以在命令行中使用它们的时候，它们必须
 用引号引起来，才能作为实参传递给 find 命令。通常反斜杠字符被用来转义圆括号字符。</td>
+</tr>
+</table>
 
 通过这张操作符列表，我们重建 find 命令。从最外层看，我们看到测试条件被分为两组，由一个
 -or 操作符分开：
@@ -228,17 +323,34 @@ valign="top">匹配的文件或目录属于某个用户。这个用户可以通�
 在所有情况下，总会执行表达式 expr1；然而由操作符来决定是否执行表达式 expr2。这里
 列出了它是怎样工作的：
 
+<table class="multi">
 <caption class="cap">表18-5: find AND/OR 逻辑</caption>
+<tr>
 <th class="title" width="%30">expr1的结果</th>
 <th class="title" width="%30">操作符</th>
+<th class="title">expr2 is...</th>
+</tr>
+<tr>
 <td valign="top">真</td>
+<td valign="top">-and</td>
 <td valign="top">总要执行</td>
+</tr>
+<tr>
 <td valign="top">假</td>
+<td valign="top">-and</td>
 <td valign="top">从不执行</td>
+</tr>
+<tr>
 <td valign="top">真</td>
+<td valign="top">-or</td>
 <td valign="top">从不执行</td>
+</tr>
+<tr>
 <td valign="top">假</td>
+<td valign="top">-or</td>
 <td valign="top">总要执行</td>
+</tr>
+</table>
 
 为什么这会发生呢？这样做是为了提高性能。以-and 为例，我们知道表达式 expr1 -and expr2
 不能为真，如果表达式 expr1的结果为假，所以没有必要执行 expr2。同样地，如果我们有表达式
@@ -252,14 +364,31 @@ expr1 -or expr2，并且表达式 expr1的结果为真，那么就没有必要�
 中的某些条目。幸运地是，find 命令允许基于搜索结果来执行操作。有许多预定义的操作和几种方式来
 应用用户定义的操作。首先，让我们看一下几个预定义的操作：
 
+<table class="multi">
 <caption class="cap">表18-6: 几个预定义的 find 命令操作</caption>
+<tr>
 <th class="title">操作</th>
 <th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top" width="25%">-delete</td>
 <td valign="top">删除当前匹配的文件。</td>
+</tr>
+<tr>
+<td valign="top">-ls</td>
 <td valign="top">对匹配的文件执行等同的 ls -dils 命令。并将结果发送到标准输出。
+</td>
+</tr>
+<tr>
+<td valign="top">-print</td>
 <td valign="top">把匹配文件的全路径名输送到标准输出。如果没有指定其它操作，这是
 默认操作。</td>
+</tr>
+<tr>
+<td valign="top">-quit</td>
 <td valign="top">一旦找到一个匹配，退出。</td>
+</tr>
+</table>
 
 和测试条件一样，还有更多的操作。查看 find 命令手册得到更多细节。在第一个例子里，
 我们这样做：
@@ -299,11 +428,25 @@ expr1 -or expr2，并且表达式 expr1的结果为真，那么就没有必要�
 
 当命令被充分表达之后，让我们看看逻辑运算符是如何影响其执行的：
 
+<table class="multi">
+<tr>
 <th class="title">测试／行为 
+</th>
 <th class="title">只有...的时候，才被执行</th>
+</tr>
+<tr>
+<td valign="top" width="25%">-print</td>
 <td valign="top">只有-type f and -name '\*.BAK'为真的时候</td>
+</tr>
+<tr>
+<td valign="top">-name ‘\*.BAK’ </td>
 <td valign="top">只有-type f 为真的时候</td>
+</tr>
+<tr>
+<td valign="top">-type f </td>
 <td valign="top">总是被执行，因为它是与-and 关系中的第一个测试／行为。</td>
+</tr>
+</table>
 
 因为测试和行为之间的逻辑关系决定了哪一个会被执行，我们知道测试和行为的顺序很重要。例如，
 如果我们重新安排测试和行为之间的顺序，让-print 行为是第一个，那么这个命令执行起来会截然不同：
@@ -498,15 +641,34 @@ touch 了操练场中名为 file-B 的所有文件，所以现在它们“新于
 最后，我们有这些选项。这些选项被用来控制 find 命令的搜索范围。当构建 find 表达式的时候，
 它们可能被其它的测试条件和行为包含：
 
+<table class="multi">
 <caption class="cap">表 18-7: find 命令选项</caption>
+<tr>
 <th class="title">选项</th>
 <th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top" width="25%">-depth</td>
 <td valign="top"> 指导 find 程序先处理目录中的文件，再处理目录自身。当指定-delete 行为时，会自动
 应用这个选项。</td>
+</tr>
+<tr>
+<td valign="top">-maxdepth levels </td>
 <td valign="top">当执行测试条件和行为的时候，设置 find 程序陷入目录树的最大级别数 </td>
+</tr>
+<tr>
+<td valign="top">-mindepth levels </td>
 <td valign="top">在应用测试条件和行为之前，设置 find 程序陷入目录数的最小级别数。 </td>
+</tr>
+<tr>
+<td valign="top">-mount </td>
 <td valign="top">指导 find 程序不要搜索挂载到其它文件系统上的目录。</td>
+</tr>
+<tr>
+<td valign="top">-noleaf </td>
 <td valign="top">指导 find 程序不要基于搜索类似于 Unix 的文件系统做出的假设，来优化它的搜索。</td>
+</tr>
+</table>
 
 ### 拓展阅读
 

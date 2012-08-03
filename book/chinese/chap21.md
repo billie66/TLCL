@@ -142,19 +142,56 @@ cat 程序也包含用来修改文本的选项。最著名的两个选项是-n�
 
 sort 程序有几个有趣的选项。这里只是一部分列表：
 
+<table class="multi">
 <caption class="cap">表21-1: 常见的 sort 程序选项</caption>
+<tr>
 <th class="title">选项</th>
 <th class="title">长选项</th>
 <th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top" width="15%">-b</td>
+<td valign="top">--ignore-leading-blanks </td>
 <td valign="top"> 默认情况下，对整行进行排序，从每行的第一个字符开始。这个选项导致 sort 程序忽略
 每行开头的空格，从第一个非空白字符开始排序。</td>
+</tr>
+<tr>
+<td valign="top">-f</td>
+<td valign="top">--ignore-case </td>
 <td valign="top">让排序不区分大小写。</td>
+</tr>
+<tr>
+<td valign="top">-n</td>
+<td valign="top">--numeric-sort</td>
 <td valign="top">基于字符串的长度来排序。使用此选项允许根据数字值执行排序，而不是字母值。</td>
+</tr>
+<tr>
+<td valign="top">-r</td>
+<td valign="top">--reverse </td>
 <td valign="top">按相反顺序排序。结果按照降序排列，而不是升序。</td>
+</tr>
+<tr>
+<td valign="top">-k</td>
+<td valign="top">--key=field1[,field2] </td>
 <td valign="top">对从 field1到 field2之间的字符排序，而不是整个文本行。看下面的讨论。 </td>
+</tr>
+<tr>
+<td valign="top">-m</td>
+<td valign="top">--merge</td>
+<td
 valign="top">把每个参数看作是一个预先排好序的文件。把多个文件合并成一个排好序的文件，而没有执行额外的排序。</td>
+</tr>
+<tr>
+<td valign="top">-o</td>
+<td valign="top">--output=file </td>
 <td valign="top">把排好序的输出结果发送到文件，而不是标准输出。</td>
+</tr>
+<tr>
+<td valign="top">-t</td>
+<td valign="top">--field-separator=char </td>
 <td valign="top">定义域分隔字符。默认情况下，域由空格或制表符分隔。</td>
+</tr>
+</table>
 
 虽然以上大多数选项的含义是不言自喻的，但是有些也不是。首先，让我们看一下-n 选项，被用做数值排序。
 通过这个选项，有可能基于数值进行排序。我们通过对 du 命令的输出结果排序来说明这个选项，du 命令可以
@@ -352,16 +389,38 @@ uniq 程序是一个传统的 Unix 工具，经常与 sort 程序一块使用，
 
 这是因为 uniq 只会删除相邻的重复行。uniq 程序有几个选项。这里是一些常用选项：
 
+<table class="multi">
 <caption class="cap">表21-2: 常用的 uniq 选项</caption>
+<tr>
 <th class="title">选项</th>
 <th class="title">说明</th>
+</tr>
+<tr>
+<td valign="top" width="25%">-c</td>
 <td valign="top">输出所有的重复行，并且每行开头显示重复的次数。 </td>
+</tr>
+<tr>
+<td valign="top">-d</td>
 <td valign="top">只输出重复行，而不是特有的文本行。</td>
+</tr>
+<tr>
+<td valign="top">-f n</td>
 <td valign="top">忽略每行开头的 n 个字段，字段之间由空格分隔，正如 sort 程序中的空格分隔符；然而，
 不同于 sort 程序，uniq 没有选项来设置备用的字段分隔符。 </td>
+</tr>
+<tr>
+<td valign="top">-i</td>
 <td valign="top">在比较文本行的时候忽略大小写。</td>
+</tr>
+<tr>
+<td valign="top">-s n</td>
 <td valign="top">跳过（忽略）每行开头的 n 个字符。</td>
+</tr>
+<tr>
+<td valign="top">-u</td>
 <td valign="top">只是输出独有的文本行。这是默认的。</td>
+</tr>
+</table>
 
 这里我们看到 uniq 被用来报告文本文件中重复行的次数，使用这个-c 选项：
 
@@ -377,16 +436,32 @@ uniq 程序是一个传统的 Unix 工具，经常与 sort 程序一块使用，
 
 从文本行中指定要抽取的文本有些麻烦，使用以下选项：
 
+<table class="multi">
 <caption class="cap">表21-3: cut 程序选择项</caption>
+<tr>
 <th class="title">选项</th>
 <th class="title">说明</th>
+</tr>
+<tr>
+<td valign="top" width="25%">-c char_list </td>
 <td valign="top">从文本行中抽取由 char_list 定义的文本。这个列表可能由一个或多个逗号
 分隔开的数值区间组成。</td>
+</tr>
+<tr>
+<td valign="top">-f field_list</td>
 <td valign="top">从文本行中抽取一个或多个由 field_list 定义的字段。这个列表可能
 包括一个或多个字段，或由逗号分隔开的字段区间。 </td>
+</tr>
+<tr>
+<td valign="top">-d delim_char </td>
 <td valign="top">当指定-f 选项之后，使用 delim_char 做为字段分隔符。默认情况下，
 字段之间必须由单个 tab 字符分隔开。</td>
+</tr>
+<tr>
+<td valign="top">--complement </td>
 <td valign="top">抽取整个文本行，除了那些由-c 和／或-f 选项指定的文本。 </td>
+</tr>
+</table>
 
 正如我们所看到的，cut 程序抽取文本的方式相当不灵活。cut 命令最好用来从其它程序产生的文件中
 抽取文本，而不是从人们直接输入的文本中抽取。我们将会看一下我们的 distros.txt 文件，看看
@@ -670,12 +745,25 @@ CUSTNUM	    FNAME       ME
 每组的更改之前都是一个更改命令，其形式为_range operation range_ ，
 用来描述要求更改的位置和类型，从而把第一个文件转变为第二个文件：
 
+<table class="multi">
 <caption class="cap">表21-4: diff 更改命令</caption>
+<tr>
 <th class="title">改变</th>
 <th class="title">说明</th>
+</tr>
+<tr>
+<td valign="top" width="25%">r1ar2</td>
 <td valign="top">把第二个文件中位置 r2处的文件行添加到第一个文件中的 r1处。</td>
+</tr>
+<tr>
+<td valign="top">r1cr2</td>
 <td valign="top">用第二个文件中位置 r2处的文本行更改（替代）位置 r1处的文本行。</td>
+</tr>
+<tr>
+<td valign="top">r1dr2</td>
 <td valign="top">删除第一个文件中位置 r1处的文本行，这些文本行将会出现在第二个文件中位置 r2处。</td>
+</tr>
+</table>
 
 在这种格式中，一个范围就是由逗号分隔开的开头行和结束行的列表。虽然这种格式是默认情况（），
 但是它并不像其它可选格式一样被广泛地使用。最流行的两种格式是上下文模式和统一模式。
@@ -705,13 +793,29 @@ CUSTNUM	    FNAME       ME
 
 这表示第二个文件中从第一行到第四行的文本行。在更改组内，文本行以四个指示符之一开头：
 
+<table class="multi">
 <caption class="cap">表21-5：diff 上下文模式更改指示符</caption>
+<tr>
 <th class="title">指示符</th>
 <th class="title">意思</th>
+</tr>
+<tr>
+<td valign="top" width="25%">blank</td>
 <td valign="top">上下文显示行。它并不表示两个文件之间的差异。</td>
+</tr>
+<tr>
+<td valign="top">-</td>
 <td valign="top">删除行。这一行将会出现在第一个文件中，而不是第二个文件内。</td>
+</tr>
+<tr>
+<td valign="top">+</td>
 <td valign="top">添加行。这一行将会出现在第二个文件内，而不是第一个文件中。</td>
+</tr>
+<tr>
+<td valign="top">!</td>
 <td valign="top">更改行。将会显示某个文本行的两个版本，每个版本会出现在更改组的各自部分。</td>
+</tr>
+</table>
 
 这个统一模式相似于上下文模式，但是更加简洁。通过-u 选项来指定它：
 
@@ -730,13 +834,25 @@ CUSTNUM	    FNAME       ME
 @@ -1,4 +1,4 @@。这行字符串表示了在更改组中描述的第一个文件中的文本行和第二个文件中的文本行。
 这行字符串之后就是文本行本身，与三行默认的上下文。每行以可能的三个字符中的一个开头：
 
+<table class="multi">
 <caption class="cap">表21-6：diff 统一模式更改指示符</caption>
+<tr>
 <th class="title">字符</th>
 <th class="title">意思</th>
+</tr>
+<tr>
 <td valign="top" width="25%">空格</td>
 <td valign="top">两个文件都包含这一行。</td>
+</tr>
+<tr>
+<td valign="top">-</td>
 <td valign="top">在第一个文件中删除这一行。</td>
+</tr>
+<tr>
+<td valign="top">+</td>
 <td valign="top">添加这一行到第一个文件中。</td>
+</tr>
+</table>
 
 这个 patch 程序被用来把更改应用到文本文件中。它接受从 diff 程序的输出，并且通常被用来
 把较老的文件版本转变为较新的文件版本。让我们考虑一个著名的例子。Linux 内核是由一个
@@ -881,20 +997,46 @@ sed 中的大多数命令之前都会带有一个地址，其指定了输入流�
 我们看到没有执行这个编辑命令，因为我们的输入流没有第二行。地址可以用许多方式来表达。这里是
 最常用的：
 
+<table class="multi">
 <caption class="cap">表21-7: sed 地址表示法</caption>
+<tr>
 <th class="title">地址</th>
 <th class="title">说明</th>
+</tr>
+<tr>
+<td valign="top" width="25%">n</td>
 <td valign="top">行号，n 是一个正整数。</td>
+</tr>
+<tr>
+<td valign="top">$</td>
 <td valign="top">最后一行。</td>
+</tr>
+<tr>
+<td valign="top">/regexp/ </td>
 <td valign="top">所有匹配一个 POSIX 基本正则表达式的文本行。注意正则表达式通过
 斜杠字符界定。选择性地，这个正则表达式可能由一个备用字符界定，通过\cregexpc 来
 指定表达式，这里 c 就是一个备用的字符。</td>
+</tr>
+<tr>
+<td valign="top">addr1,addr2 </td>
 <td valign="top">从 addr1到 addr2范围内的文本行，包含地址 addr2在内。地址可能是上述任意
 单独的地址形式。</td>
+</tr>
+<tr>
+<td valign="top">first~step </td>
+<td
 valign="top">匹配由数字 first 代表的文本行，然后随后的每个在 step 间隔处的文本行。例如
 1~2是指每个位于偶数行号的文本行，5~5则指第五行和之后每五行位置的文本行。</td>
+</tr>
+<tr>
+<td valign="top">addr1,+n </td>
 <td valign="top">匹配地址 addr1和随后的 n 个文本行。</td>
+</tr>
+<tr>
+<td valign="top">addr! </td>
 <td valign="top">匹配所有的文本行，除了 addr 之外，addr 可能是上述任意的地址形式。</td>
+</tr>
+</table>
 
 通过使用这一章中早前的 distros.txt 文件，我们将演示不同种类的地址表示法。首先，一系列行号：
 
@@ -940,24 +1082,56 @@ valign="top">匹配由数字 first 代表的文本行，然后随后的每个在
 
 目前为止，我们已经知道了两个 sed 的编辑命令，s 和 p。这里是一个更加全面的基本编辑命令列表：
 
+<table class="multi">
 <caption class="cap">表21-8： sed 基本编辑命令 </caption>
+<tr>
 <th class="title">命令</th>
 <th class="title">说明</th>
+</tr>
+<tr>
+<td valign="top" width="25%">=</td>
 <td valign="top">输出当前的行号。</td>
+</tr>
+<tr>
+<td valign="top">a</td>
 <td valign="top">在当前行之后追加文本。</td>
+</tr>
+<tr>
+<td valign="top">d</td>
 <td valign="top">删除当前行。</td>
+</tr>
+<tr>
+<td valign="top">i</td>
 <td valign="top">在当前行之前插入文本。</td>
+</tr>
+<tr>
+<td valign="top">p</td>
+<td
 valign="top">打印当前行。默认情况下，sed 程序打印每一行，并且只是编辑文件中匹配
 指定地址的文本行。通过指定-n 选项，这个默认的行为能够被忽略。</td>
+</tr>
+<tr>
+<td valign="top">q</td>
 <td valign="top">退出 sed，不再处理更多的文本行。如果不指定-n 选项，输出当前行。</td>
+</tr>
+<tr>
+<td valign="top">Q</td>
 <td valign="top">退出 sed，不再处理更多的文本行。</td>
+</tr>
+<tr>
+<td valign="top">s/regexp/replacement/ </td>
 <td valign="top">只要找到一个 regexp 匹配项，就替换为 replacement 的内容。
 replacement 可能包括特殊字符&amp;，其等价于由 regexp 匹配的文本。另外，
 replacement 可能包含序列\1到\9，其是 regexp 中相对应的子表达式的内容。更多信息，查看
 下面 back references 部分的讨论。在 replacement 末尾的斜杠之后，可以指定一个
 可选的标志，来修改 s 命令的行为。</td>
+</tr>
+<tr>
+<td valign="top">y/set1/set2 </td>
 <td valign="top">执行字符转写操作，通过把 set1中的字符转变为相对应的 set2中的字符。
 注意不同于 tr 程序，sed 要求两个字符集合具有相同的长度。</td>
+</tr>
+</table>
 
 到目前为止，这个 s 命令是最常使用的编辑命令。我们将仅仅演示一些它的功能，通过编辑我们的
 distros.txt 文件。我们以前讨论过 distros.txt 文件中的日期字段不是“友好地计算机”模式。

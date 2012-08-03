@@ -113,33 +113,98 @@ True 命令总是执行成功，而 false 命令总是执行失败：
 
 以下表达式被用来计算文件状态：
 
-<td valign="top">not equal 5"; fi	x=0 </td>
-
+<table class="multi">
 <caption class="cap">表28-1: 测试文件表达式</caption>
+<tr>
 <th class="title">表达式</th>
 <th class="title">如果为真</th>
+</tr>
+<tr>
+<td valign="top" width="16%">file1 -ef file2 </td>
 <td valign="top">file1 和 file2 拥有相同的索引号（通过硬链接两个文件名指向相同的文件）。</td>
+</tr>
+<tr>
+<td valign="top">file1 -nt file2 </td>
 <td valign="top">file1新于 file2。</td>
+</tr>
+<tr>
+<td valign="top">file1 -ot file2 </td>
 <td valign="top">file1早于 file2。</td>
+</tr>
+<tr>
+<td valign="top">-b file </td>
 <td valign="top">file 存在并且是一个块（设备）文件。</td>
+</tr>
+<tr>
+<td valign="top">-c file </td>
 <td valign="top">file 存在并且是一个字符（设备）文件。</td>
+</tr>
+<tr>
+<td valign="top">-d file</td>
 <td valign="top">file 存在并且是一个目录。</td>
+</tr>
+<tr>
+<td valign="top">-e file</td>
 <td valign="top">file 存在。</td>
+</tr>
+<tr>
+<td valign="top">-f file</td>
 <td valign="top">file 存在并且是一个普通文件。</td>
+</tr>
+<tr>
+<td valign="top">-g file</td>
 <td valign="top">file 存在并且设置了组 ID。</td>
+</tr>
+<tr>
+<td valign="top">-G file</td>
 <td valign="top">file 存在并且由有效组 ID 拥有。</td>
+</tr>
+<tr>
+<td valign="top">-k file</td>
 <td valign="top">file 存在并且设置了它的“sticky bit”。</td>
+</tr>
+<tr>
+<td valign="top">-L file</td>
 <td valign="top">file 存在并且是一个符号链接。</td>
+</tr>
+<tr>
+<td valign="top">-O file</td>
 <td valign="top">file 存在并且由有效用户 ID 拥有。</td>
+</tr>
+<tr>
+<td valign="top">-p file </td>
 <td valign="top">file 存在并且是一个命名管道。</td>
+</tr>
+<tr>
+<td valign="top">-r file </td>
 <td valign="top">file 存在并且可读（有效用户有可读权限）。 </td>
+</tr>
+<tr>
+<td valign="top">-s file</td>
 <td valign="top">file 存在且其长度大于零。</td>
+</tr>
+<tr>
+<td valign="top">-S file</td>
 <td valign="top">file 存在且是一个网络 socket。</td>
+</tr>
+<tr>
+<td valign="top">-t fd</td>
 <td valign="top">fd 是一个定向到终端／从终端定向的文件描述符 。
 这可以被用来决定是否重定向了标准输入／输出错误。</td>
+</tr>
+<tr>
+<td valign="top">-u file </td>
 <td valign="top">file 存在并且设置了 setuid 位。</td>
+</tr>
+<tr>
+<td valign="top">-w file </td>
 <td valign="top">file 存在并且可写（有效用户拥有可写权限）。</td>
+</tr>
+<tr>
+<td valign="top">-x file </td>
 <td valign="top">file 存在并且可执行（有效用户有执行／搜索权限）。</td>
+</tr>
+</table>
 
 这里我们有一个脚本说明了一些文件表达式：
 
@@ -218,16 +283,41 @@ True 命令总是执行成功，而 false 命令总是执行失败：
 
 以下表达式用来计算字符串：
 
+<table class="multi">
 <caption class="cap">表28-2: 测试字符串表达式</caption>
+<tr>
 <th class="title">表达式</th>
 <th class="title">如果为真...</th>
+</tr>
+<tr>
+<td valign="top" width="35%">string</td>
 <td valign="top">string 不为 null。</td>
+</tr>
+<tr>
+<td valign="top">-n string</td>
 <td valign="top">字符串 string 的长度大于零。</td>
+</tr>
+<tr>
+<td valign="top">-z string</td>
 <td valign="top">字符串 string 的长度为零。</td>
+</tr>
+<tr>
+<td valign="top"><p>string1 = string2</p><p>string1 == string2</p></td>
 <td valign="top">string1和 string2相同. 单或双等号都可以，不过双等号更受欢迎。 </td>
+</tr>
+<tr>
+<td valign="top">string1 != string2 </td>
 <td valign="top">string1和 string2不相同。</td>
+</tr>
+<tr>
+<td valign="top">string1 &gt; string2</td>
 <td valign="top">sting1排列在 string2之后。</td>
+</tr>
+<tr>
+<td valign="top">string1 &lt; string2</td>
 <td valign="top">string1排列在 string2之前。</td>
+</tr>
+</table>
 
 ---
 
@@ -271,15 +361,37 @@ is no answer.”重定向到标准错误，这是处理错误信息的“合理�
 
 下面的表达式用于整数：
 
+<table class="multi">
 <caption class="cap">表28-3: 测试整数表达式</caption>
+<tr>
 <th class="title">表达式</th>
 <th class="title">如果为真...</th>
+</tr>
+<tr>
+<td valign="top" width="50%">integer1 -eq integer2 </td>
 <td valign="top">integer1等于 integer2.</td>
+</tr>
+<tr>
+<td valign="top">integer1 -ne integer2 </td>
 <td valign="top">integer1不等于 integer2.</td>
+</tr>
+<tr>
+<td valign="top">integer1 -le integer2 </td>
 <td valign="top">integer1小于或等于 integer2.</td>
+</tr>
+<tr>
+<td valign="top">integer1 -lt integer2 </td>
 <td valign="top">integer1小于 integer2.</td>
+</tr>
+<tr>
+<td valign="top">integer1 -ge integer2 </td>
 <td valign="top">integer1大于或等于 integer2.</td>
+</tr>
+<tr>
+<td valign="top">integer1 -gt integer2 </td>
 <td valign="top">integer1大于 integer2.</td>
+</tr>
+</table>
 
     #!/bin/bash
 

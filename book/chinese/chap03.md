@@ -127,12 +127,29 @@ ls 命令还能完成许多有趣的事情。在下一章节，我们将介绍�
 
 在表3-1中，列举出了一些快速改变当前工作目录的有效方法。
 
+<table class="multi">
 <caption class="cap">表3-1: cd 快捷键</caption>
+<thead>
+<tr>
 <th class="title">快捷键</th>
 <th class="title">运行结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td >cd</td>
 <td >更改工作目录到主目录。</td>
+</tr>
+<tr>
+<td > cd -</td>
 <td > 更改工作目录到先前的工作目录。</td>
+</tr>
+<tr>
+<td id="tdlist">cd ~user_name</td>
 <td valign="top"> 更改工作目录到用户主目录。例如, cd ~bob 会更改工作目录到用户“bob”的主目录。</td>
+</tr>
+</tbody>
+</table>
 
 <div class="single">
 

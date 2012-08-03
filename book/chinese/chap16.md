@@ -70,29 +70,55 @@ Linux 桌面系统的最新进展已经使存储设备管理对于桌面用户�
 
 这些是硬盘分区。每行由六个字段组成，如下所示：
 
+<table class="multi">
 <caption class="cap">表16－1： /etc/fstab 字段</caption>
+<tr>
 <th class="title">字段</th>
 <th class="title">内容</th>
 <th class="title">说明</th>
+</tr>
+<tr>
+<td valign="top" width="8%">1</td>
 <td valign="top" width="12%">设备名</td>
+<td valign="top">
 传统上，这个字段包含与物理设备相关联的设备文件的实际名字，比如说/dev/hda1（第一个 IDE
 通道上第一个主设备分区）。然而今天的计算机，有很多热插拔设备（像 USB 驱动设备），许多
 现代的 Linux 发行版用一个文本标签和设备相关联。当这个设备连接到系统中时，
 这个标签（当储存媒介格式化时，这个标签会被添加到存储媒介中）会被操作系统读取。
 那样的话，不管赋给实际物理设备哪个设备文件，这个设备仍然能被系统正确地识别。
+</td>
+</tr>
+<tr>
+<td valign="top">2</td>
 <td valign="top">挂载点</td>
 <td valign="top">设备所连接到的文件系统树的目录。
+</td>
+</tr>
+<tr>
+<td valign="top">3</td>
 <td valign="top">文件系统类型</td>
 <td valign="top">Linux 允许挂载许多文件系统类型。大多数本地的 Linux 文件系统是 ext3，
 但是也支持很多其它的，比方说 FAT16 (msdos), FAT32
 (vfat)，NTFS (ntfs)，CD-ROM (iso9660)，等等。
+</td>
+</tr>
+<tr>
+<td valign="top">4</td>
 <td valign="top">选项</td>
 <td valign="top">文件系统可以通过各种各样的选项来挂载。有可能，例如，挂载只读的文件系统，
 或者挂载阻止执行任何程序的文件系统（一个有用的安全特性，避免删除媒介。）</td>
+</tr>
+<tr>
+<td valign="top">5</td>
 <td valign="top">频率</td>
 <td valign="top">一位数字，指定是否和在什么时间用 dump 命令来备份一个文件系统。</td>
+</tr>
+<tr>
+<td valign="top">6</td>
 <td valign="top">次序</td>
 <td valign="top">一位数字，指定 fsck 命令按照什么次序来检查文件系统。</td>
+</tr>
+</table>
 
 ### 查看挂载的文件系统列表
 
@@ -250,21 +276,41 @@ Linux 已经发展地比其祖先更加灵活。在以上事例中，我们利�
 
 这个列表的内容揭示了一些设备命名的模式。这里有几个：
 
+<table class="multi">
 <caption class="cap"> 表16－2： Linux 存储设备名称</caption>
+<tr>
 <th class="title">模式</th>
 <th class="title">设备</th>
+</tr>
+<tr>
+<td valign="top" width="15%">/dev/fd* </td>
 <td valign="top">软盘驱动器</td>
+</tr>
+<tr>
+<td valign="top">/dev/hd* </td>
 <td valign="top">老系统中的 IDE(PATA)磁盘。典型的主板包含两个 IDE 连接器或者是通道，每个连接器
 带有一根缆线，每根缆线上有两个硬盘驱动器连接点。缆线上的第一个驱动器叫做主设备，
 第二个叫做从设备。设备名称这样安排，/dev/hdb 是指第一通道上的主设备名；/dev/hdb
 是第一通道上的从设备名；/dev/hdc 是第二通道上的主设备名，等等。末尾的数字表示
 硬盘驱动器上的分区。例如，/dev/hda1是指系统中第一硬盘驱动器上的第一个分区，而
 /dev/hda 则是指整个硬盘驱动器。</td>
+</tr>
+<tr>
+<td valign="top">/dev/lp* </td>
 <td valign="top">打印机</td>
+</tr>
+<tr>
+<td valign="top">/dev/sd* </td>
+<td valign="top">
 SCSI 磁盘。在最近的 Linux 系统中，内核把所有类似于磁盘的设备（包括 PATA/SATA 硬盘，
 闪存，和 USB 存储设备，比如说可移动的音乐播放器和数码相机）看作 SCSI 磁盘。
 剩下的命名系统类似于上述所描述的旧的/dev/hd*命名方案。</td>
+</tr>
+<tr>
+<td valign="top">/dev/sr* </td>
 <td valign="top">光盘（CD/DVD 读取器和烧写器）</td>
+</tr>
+</table>
 
 另外，我们经常看到符号链接比如说/dev/cdrom，/dev/dvd 和/dev/floppy，它们指向实际的
 设备文件，提供这些链接是为了方便使用。如果你工作的系统不能自动挂载可移动的设备，你可以使用

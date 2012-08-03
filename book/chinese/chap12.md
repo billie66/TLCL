@@ -124,25 +124,73 @@ shell 函数。不同于 printenv 命令，set 命令的输出结果很礼貌地
 shell 环境中包含相当多的变量，虽然你的 shell 环境可能不同于这里展示的，但是你可能会看到
 以下变量在你的 shell 环境中：
 
+<table class="multi">
 <caption class="cap">表12-1: 环境变量</caption>
+<tr>
 <th class="title">变量</th>
 <th class="title">内容</th>
+</tr>
+<tr>
+<td valign="top" width="25%">DISPLAY </td>
 <td valign="top">如果你正在运行图形界面环境，那么这个变量就是你显示器的名字。通常，它是&quot;:0&quot;，
 意思是由 X 产生的第一个显示器。</td>
+</tr>
+<tr>
+<td valign="top">EDITOR</td>
 <td valign="top">文本编辑器的名字。</td>
+</tr>
+<tr>
+<td valign="top">SHELL</td>
 <td valign="top">shell 程序的名字。</td>
+</tr>
+<tr>
+<td valign="top">HOME</td>
 <td valign="top">用户主目录。</td>
+</tr>
+<tr>
+<td valign="top">LANG</td>
 <td valign="top">定义了字符集以及语言编码方式。</td>
+</tr>
+<tr>
+<td valign="top">OLD\_PWD </td>
 <td valign="top">先前的工作目录。</td>
+</tr>
+<tr>
+<td valign="top">PAGER</td>
 <td valign="top">页输出程序的名字。这经常设置为/usr/bin/less。 
+</td>
+</tr>
+<tr>
+<td valign="top">PATH</td>
 <td valign="top">由冒号分开的目录列表，当你输入可执行程序名后，会搜索这个目录列表。
+</td>
+</tr>
+<tr>
+<td valign="top">PS1</td>
 <td valign="top">Prompt String 1. 这个定义了你的 shell 提示符的内容。随后我们可以看到，这个变量
 内容可以全面地定制。
+</td>
+</tr>
+<tr>
+<td valign="top">PWD</td>
 <td valign="top">当前工作目录。</td>
+</tr>
+<tr>
+<td valign="top">TERM </td>
 <td valign="top">终端类型名。类似于 Unix 的系统支持许多终端协议；这个变量设置你的终端仿真器所用的协议。
+</td>
+</tr>
+<tr>
+<td valign="top">TZ</td>
 <td valign="top">指定你所在的时区。大多数类似于 Unix 的系统按照协调时间时(UTC)来维护计算机内部的时钟
 ，然后应用一个由这个变量指定的偏差来显示本地时间。
+</td>
+</tr>
+<tr>
+<td valign="top">USER</td>
 <td valign="top">你的用户名</td>
+</tr>
+</table>
 
 如果缺失了一些变量，不要担心，这些变量会因发行版本的不同而不同。
 
@@ -158,22 +206,52 @@ shell 环境中包含相当多的变量，虽然你的 shell 环境可能不同�
 
 登录 shell 会读取一个或多个启动文件，正如表12－2所示：
 
+<table class="multi">
 <caption class="cap">表12-2: 登录 shell 会话的启动文件</caption>
+<tr>
 <th class="title">文件</th>
 <th class="title">内容</th>
+</tr>
+<tr>
+<td valign="top" width="25%">/etc/profile</td>
 <td valign="top">应用于所有用户的全局配置脚本。</td>
+</tr>
+<tr>
+<td valign="top">~/.bash_profile </td>
 <td valign="top">用户私人的启动文件。可以用来扩展或重写全局配置脚本中的设置。</td>
+</tr>
+<tr>
+<td valign="top">~/.bash_login </td>
 <td valign="top">如果文件~/.bash_profile 没有找到，bash 会尝试读取这个脚本。
+</td>
+</tr>
+<tr>
+<td valign="top">~/.profile </td>
+<td
 valign="top">如果文件~/.bash_profile 或文件~/.bash_login 都没有找到，bash 会试图读取这个文件。
 这是基于 Debian 发行版的默认设置，比方说 Ubuntu。
+</td>
+</tr>
+</table>
 
 非登录 shell 会话会读取以下启动文件：
 
+<table class="multi">
 <caption class="cap">表12-3: 非登录 shell 会话的启动文件</caption>
+<tr>
 <th class="title">文件</th>
 <th class="title">内容</th>
+</tr>
+<tr>
+<td valign="top" width="25%">/etc/bash.bashrc </td>
 <td valign="top">应用于所有用户的全局配置文件。</td>
+</tr>
+<tr>
+<td valign="top">~/.bashrc</td>
 <td valign="top">用户私有的启动文件。可以用来扩展或重写全局配置脚本中的设置。
+</td>
+</tr>
+</table>
 
 除了读取以上启动文件之外，非登录 shell 会话也会继承它们父进程的环境设置，通常是一个登录 shell。
  
@@ -338,11 +416,35 @@ vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stal
 
 下表是所添加行的意义：
 
+<table class="multi">
+<tr>
+<th class="title">Line</th>
+<th class="title">Meaning</th>
+</tr>
+<tr>
+<td valign="top" width="25%">umask 0002 </td>
 <td valign="top">设置掩码来解决共享目录的问题。</td>
+</tr>
+<tr> 
+<td valign="top">export HISTCONTROL=ignoredups </td> 
 <td valign="top">使得 shell 的历史记录功能忽略一个命令，如果相同的命令已被记录。</td>
+</tr>
+<tr>
+<td valign="top" width="25%">export HISTSIZE=1000 
+</td>
 <td valign="top">增加命令历史的大小，从默认的500行扩大到1000行。</td>
+</tr>
+<tr>
+<td valign="top" width="25%">alias l.=&apos;ls -d .\* --color=auto&apos; </td>
+<td
 valign="top">创建一个新命令，叫做&apos;l.&apos;，这个命令会显示所有以点开头的目录名。</td>
+</tr>
+<tr>
+<td valign="top" width="25%">alias ll=&apos;ls -l --color=auto&apos; 
+</td>
 <td valign="top">创建一个叫做&apos;ll&apos;的命令，这个命令会显示长格式目录列表。</td>
+</tr>
+</table>
 
 正如我们所看到的，我们的许多附加物意思直觉上并不是明显的，所以添加注释到我们的文件.bashrc 中是
 一个好主意，可以帮助人们理解。使用编辑器，更改我们的附加物，让它们看起来像这样：

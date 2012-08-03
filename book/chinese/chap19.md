@@ -67,19 +67,51 @@ foo.\*文件列表中，我们看到原始文件已经被压缩文件替代了�
 
 gzip 命令有许多选项。这里列出了一些：
 
+<table class="multi">
 <caption class="cap">表19-1: gzip 选项 </caption>
+<tr>
 <th class="title">选项</th>
 <th class="title">说明</th>
+</tr>
+<tr>
+<td valign="top" width="25%">-c </td>
 <td valign="top">把输出写入到标准输出，并且保留原始文件。也有可能用--stdout 和--to-stdout 选项来指定。 </td>
+</tr>
+<tr>
+<td valign="top">-d</td>
+<td
 valign="top">解压缩。正如 gunzip 命令一样。也可以用--decompress 或者--uncompress 选项来指定. </td>
+</tr>
+<tr>
+<td valign="top">-f</td>
 <td valign="top">强制压缩，即使原始文件的压缩文件已经存在了，也要执行。也可以用--force 选项来指定。 </td>
+</tr>
+<tr>
+<td valign="top">-h</td>
 <td valign="top">显示用法信息。也可用--help 选项来指定。</td>
+</tr>
+<tr>
+<td valign="top">-l</td>
 <td valign="top">列出每个被压缩文件的压缩数据。也可用--list 选项。 </td>
+</tr>
+<tr>
+<td valign="top">-r</td>
 <td valign="top">若命令的一个或多个参数是目录，则递归地压缩目录中的文件。也可用--recursive 选项来指定。 </td>
+</tr>
+<tr>
+<td valign="top">-t</td>
 <td valign="top">测试压缩文件的完整性。也可用--test 选项来指定。</td>
+</tr>
+<tr>
+<td valign="top">-v</td>
 <td valign="top">显示压缩过程中的信息。也可用--verbose 选项来指定。 </td>
+</tr>
+<tr>
+<td valign="top">-number</td>
 <td valign="top">设置压缩数量。number 是一个在1（最快，最小压缩）到9（最慢，最大压缩）之间的整数。
 数值1和9也可以各自用--fast 和--best 选项来表示。默认值是整数6。 </td>
+</tr>
+</table>
 
 返回到我们之前的例子中：
 
@@ -160,13 +192,30 @@ archive 的简称，揭示了它的根源，它是一款制作磁带备份的工
 
 这里的 mode 是指以下操作模式（这里只展示了一部分，查看 tar 的手册来得到完整列表）之一：
 
+<table class="multi">
 <caption class="cap">表19-2: tar 模式 
+</caption>
+<tr>
 <th class="title">模式</th>
 <th class="title">说明</th>
+</tr>
+<tr>
+<td valign="top" width="25%">c</td>
 <td valign="top">为文件和／或目录列表创建归档文件。 </td>
+</tr>
+<tr>
+<td valign="top">x</td>
 <td valign="top">抽取归档文件。</td>
+</tr>
+<tr>
+<td valign="top">r</td>
 <td valign="top">追加具体的路径到归档文件的末尾。</td>
+</tr>
+<tr>
+<td valign="top">t</td>
 <td valign="top">列出归档文件的内容。</td>
+</tr>
+</table>
 
 tar 命令使用了稍微有点奇怪的方式来表达它的选项，所以我们需要一些例子来展示它是
 怎样工作的。首先，让我们重新创建之前我们用过的操练场:

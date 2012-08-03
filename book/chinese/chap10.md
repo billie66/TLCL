@@ -100,16 +100,44 @@ Linux 系统的多用户性能，不是最近的“创新”，而是一种特�
 列表的前十个字符是文件的属性。这十个字符的第一个字符表明文件类型。下表是你可能经常看到
 的文件类型（还有其它的，不常见类型）：
 
+<table class="multi">
 <caption class="cap">Table 10-1: File Types &nbsp; 文件类型</caption>
+<tr>
 <th class="title" width="15%">Attribute &nbsp; 属性</th>
 <th class="title">File Type &nbsp; 文件类型</th>
+</tr>
+<tr>
+<td valign="top">-</td>
 <td valign="top">a regular file &nbsp; 一个普通文件</td>
+</tr>
+<tr>
+<td valign="top">d </td>
 <td valign="top">A directory &nbsp; 一个目录</td>
+</tr>
+<tr>
+<td valign="top">l</td>
+<td valign="top">A symbolic link. Notice that with symbolic links, the
+remainning file attributes are always “rwxrwxrwx” and are dummy values. The
+real file attributes are those of the file the symbolic link points to. &nbsp;
 一个符号链接。注意对于符号链接文件，剩余的文件属性总是"rwxrwxrwx"，而且都是
 虚拟值。真正的文件属性是指符号链接所指向的文件的属性。</td>
+</tr>
+<tr>
+<td valign="top">c</td>
+<td valign="top">A character special file. This file type refers to a device that
+handles data as a stream of bytes, such as a terminal or modem. &nbsp;
 一个字符设备文件。这种文件类型是指按照字节流，来处理数据的设备。
 比如说终端机，或者调制解调器。
+</td>
+</tr>
+<tr>
+<td valign="top">b</td>
+<td valign="top">A block special file. This file type refers to a device that handles
+data in blocks, such as a hard drive or CD-ROM drive. &nbsp;
 一个块设备文件。这种文件类型是指按照数据块，来处理数据的设备，例如一个硬盘，或者 CD-ROM 盘。
+</td>
+</tr>
+</table>
 
 剩下的九个字符，叫做文件模式，代表着文件所有者，文件组所有者，和其他人的读，写，执行权限。
 
@@ -172,23 +200,74 @@ chmod 命令支持一种符号表示法，来指定文件模式。符号表示�
 要执行哪个操作，要设置哪种权限。通过字符“u”， “g”， “o”， and “a”的组合来指定
 要影响的对象，如下所示：
 
+<table class="multi">
+<caption class="cap">Table 10-4: chmod Symbolic Notation &nbsp;
 chmod 命令符号表示法
+</caption>
+<tr>
+<td class="title" width="15%">u</td>
+<td class="title">Short for "user", but means the file or directory owner. &nbsp;
 "user"的简写，意思是文件或目录的所有者。</td>
+</tr>
+<tr>
+<td valign="top">g</td>
 <td valign="top">Group owner. &nbsp; 用户组。</td>
+</tr>
+<tr>
+<td valign="top">o</td>
+<td valign="top">Short for "others", but means world. &nbsp;
 "others"的简写，意思是其他所有的人。</td>
+</tr>
+<tr>
+<td valign="top">a</td>
+<td valign="top">Short for "all", the combination of "u", "g", and "o". &nbsp;
 "all"的简写，是"u", "g"和“o”三者的联合。</td>
+</tr>
+</table>
 
 如果没有指定字符，则假定使用"all"。执行的操作可能是一个“＋”字符，表示加上一个权限，
 一个“－”，表示删掉一个权限，或者是一个“＝”，表示只有指定的权限可用，其它所有的权限被删除。
 
 权限由“r”, “w”, and “x”来指定。这里是一些符号表示法的实例：
 
+<table class="multi">
+<caption class="cap">Table 10-5: chmod Symbolic Notation Examples &nbsp;
 chmod 符号表示法实例
+</caption>
+<tr>
+<td class="title" width="15%">u+x </td>
+<td class="title">Add execute permission for the owner. &nbsp;
 为文件所有者添加可执行权限。</td>
+</tr>
+<tr>
+<td valign="top">u-x</td>
+<td valign="top">Remove execute permission from the owner. &nbsp;
 删除文件所有者的可执行权限。</td>
+</tr>
+<tr>
+<td valign="top">+x</td>
+<td valign="top">Add execute permission for the owner, group, and world.
 Equivalent to a+x. &nbsp; 为文件所有者，用户组，和其他所有人添加可执行权限。
 等价于 a+x。</td>
+</tr>
+<tr>
+<td valign="top">o-rw</td>
+<td valign="top">Remove the read and write permission from anyone besides the
 owner and group owner. &nbsp; 除了文件所有者和用户组，删除其他人的读权限和写权限。</td>
+</tr>
+<tr>
+<td valign="top">go=rw</td>
+<td valign="top">Set the group owner and anyone besides the owner to have read and
+write permission. If either the group owner or world previously had
+execute permissions, they are removed. &nbsp; </td>
+</tr>
+<tr>
+<td valign="top">u+x,go=rw</td>
+<td valign="top">Add execute permission for the owner and set the permissions for
+the group and others to read and execute. Multiple specifications
+may be separated by commas.</td>
+</tr>
+</table>
 
 一些人喜欢使用八进制表示法，而另些人真正地喜欢符号表示法。符号表示法的优点是，
 允许你设置文件模式的单个组成部分的属性，而没有影响其他的部分。
@@ -421,12 +500,35 @@ chown 命令被用来更改文件或目录的所有者和用户组。使用这�
 chown 命令可以更改文件所有者和/或文件用户组，依据于这个命令的第一个参数。这里有
 一些例子：
 
+<table class="multi">
 <caption class="cap">Table 10-6: chown Argument Examples &nbsp; chown 参数实例</caption>
+<tr>
+<th class="title">Argument </th>
+<th class="title">Results</th>
+</tr>
+<tr>
+<td valign="top" width="15%">bob</td>
+<td valign="top">Changes the ownership of the file from its current owner to user
 bob. &nbsp; 把文件所有者从当前属主更改为用户 bob。</td>
+</tr>
+<tr>
+<td valign="top">bob:users</td>
+<td valign="top">Changes the ownership of the file from its current owner to user
+bob and changes the file group owner to group users. &nbsp;
 把文件所有者改为用户 bob，文件用户组改为用户组 users。</td>
+</tr>
+<tr>
+<td valign="top">:admins</td>
+<td valign="top">Changes the group owner to the group admins. The file owner is
 unchanged. &nbsp; 把文件用户组改为组 admins，文件所有者不变。</td>
+</tr>
+<tr>
+<td valign="top">bob:</td>
+<td valign="top">Change the file owner from the current owner to user bob and
 changes the group owner to the login group of user bob. &nbsp; 文件所有者改为
 用户 bob，文件用户组改为，用户 bob 登录系统时，所属的用户组。</td>
+</tr>
+</table>
 
 比方说，我们有两个用户，janet，拥有超级用户访问权限，而 tony 没有。用户 jant 想要从
 她的主目录复制一个文件到用户 tony 的主目录。因为用户 jant 想要 tony 能够编辑这个文件，

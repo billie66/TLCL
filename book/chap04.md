@@ -404,7 +404,7 @@ convenient way to examine them.
 less 命令是一个用来浏览文本文件的程序。纵观 Linux 系统，有许多人类可读的文本文件。less 程序为我们检查文本文件
 提供了方便。
 
-<di class="single">
+<div class="single">
 
 <h3>What Is "Text"</h3>
 <h3> 什么是“文本”</h3>

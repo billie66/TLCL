@@ -108,15 +108,40 @@ shell 允许算术表达式通过展开来执行。这允许我们把 shell 提�
 算术表达式只支持整数（全部是数字，不带小数点），但是能执行很多不同的操作。这里是
 一些它支持的操作符：
 
+<table class="multi">
 <caption class="cap">Table 8-1: Arithmetic Operators &nbsp;&nbsp; 算术操作符</caption>
+<tr>
 <th class="title">Operator  &nbsp; 操作符 </th>
 <th class="title">Description &nbsp; 说明</th>
+</tr>
+<tr>
+<td valign="top" width="25%">+</td>
 <td valign="top">Addition &nbsp; 加 </td>
+</tr>
+<tr>
+<td valign="top">-</td>
 <td valign="top">Subtraction &nbsp; &nbsp; 减</td>
+</tr>
+<tr>
+<td valign="top">\*</td>
 <td valign="top">Multiplication &nbsp; 乘</td>
+</tr>
+<tr>
+<td valign="top">/</td>
+<td valign="top">Division(but remember, since expansion only supports integer
+arithmetic, results are integers.) &nbsp;
 除（但是记住，因为展开只是支持整数除法，所以结果是整数。）</td>
+</tr>
+<tr>
+<td valign="top">%</td>
+<td valign="top">Modulo, which simply means, "remainder". &nbsp;
 取余，只是简单的意味着，“余数”</td>
+</tr>
+<tr>
+<td valign="top">\*\*</td>
 <td valign="top">Exponentiation &nbsp; 取幂</td>
+</tr>
+</table>
 
 在算术表达式中空格并不重要，并且表达式可以嵌套。例如，5的平方乘以3：
 
@@ -252,7 +277,7 @@ bash 也支持这种语法。它使用倒引号来代替美元符号和括号：
 ### 双引号
 
 我们将要看一下引用的第一种类型，双引号。如果你把文本放在双引号中，
-shell 使用的特殊字符，除了 `$`, `\` (反斜杠），和 ```（倒引号）之外，
+shell 使用的特殊字符，除了 __$__, __\__ (反斜杠），和 __`__（倒引号）之外，
 则失去它们的特殊含义，被当作普通字符来看待。这意味着单词分割，路径名展开，
 波浪线展开，和花括号展开都被禁止，然而参数展开，算术展开，和命令替换
 仍然执行。使用双引号，我们可以处理包含空格的文件名。比方说我们是不幸的
@@ -347,13 +372,33 @@ shell 使用的特殊字符，除了 `$`, `\` (反斜杠），和 ```（倒引�
 一样的设备。一些编码是众所周知的（制表符，退格符，换行符，和回车符），其它
 一些编码就不熟悉了（空值，传输结束码，和确认）。</p>
 
+<table class="multi">
+<tr>
 <th class="title">Escape Sequence &nbsp; 转义序列</th>
 <th class="title">Meaning &nbsp; 意思</th>
+</tr>
+<tr>
+<td valign="top" width="25%">\a</td>
 <td valign="top">Bell("Alert"-causes the computer to beep) &nbsp; 响铃（"警告"－导致计算机嘟嘟响）</td>
+</tr>
+<tr>
+<td valign="top">\b</td>
 <td valign="top">Backspace &nbsp; 退格符</td>
+</tr>
+<tr>
+<td valign="top">\n</td>
+<td valign="top">Newline. On Unix-like systems, this produces a linefeed.
 &nbsp; 新的一行。在类似 Unix 系统中，产生换行。</td>
+</tr>
+<tr>
+<td valign="top">\r</td>
 <td valign="top">Carriage return &nbsp; 回车符</td>
+</tr>
+<tr>
+<td valign="top">\t</td>
 <td valign="top">Tab &nbsp; 制表符</td>
+</tr>
+</table>
 
 <p>上表列出了一些常见的反斜杠转义字符。反斜杠表示法背后的思想来源于 C 编程语言，
 许多其它语言也采用了这种表示方法，包括 shell。</p>
