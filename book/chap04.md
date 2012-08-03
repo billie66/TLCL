@@ -401,13 +401,15 @@ The less command is a program to view text files. Throughout our Linux system, t
 are many files that contain human-readable text. The less program provides a
 convenient way to examine them.
 
-less 命令是一个用来浏览文本文件的程序。纵观 Linux 系统，有许多人类可读的文本文件。less 程序为我们检查文本文件
-提供了方便。
+less 命令是一个用来浏览文本文件的程序。纵观 Linux
+系统，有许多人类可读的文本文件。less 程序为我们检查文本文件 提供了方便。
 
 <div class="single">
 
 <h3>What Is "Text"</h3>
+
 <h3> 什么是“文本”</h3>
+
 <p>There are many ways to represent information on a computer. All methods
 involve defining a relationship between the information and some numbers that
 will be used to represent it. Computers, after all, only understand numbers and all
@@ -440,11 +442,14 @@ Windows recognizes the importance of this format. The well-known NOTEPAD.EXE
 program is an editor for plain ASCII text files.  </p>
 
 <p>文本是简单的字符与数字之间的一对一映射。它非常紧凑。五十个字符的文本翻译成五十个字节的数据。文本只是包含
-简单的字符到数字的映射，理解这点很重要。它和一些文字处理器文档不一样，比如说由微软和 OpenOffice.org 文档
-编辑器创建的文件。这些文件，和简单的 ASCII 文件形成鲜明对比，它们包含许多非文本元素，来描述它的结构和格式。
-普通的 ASCII 文件，只包含字符本身，和一些基本的控制符，像制表符，回车符及换行符。纵观 Linux 系统，许多文件
-以文本格式存储，也有许多 Linux 工具来处理文本文件。甚至 Windows 也承认这种文件格式的重要性。著名的 NOTEPAD.EXE
-程序就是一个 ASCII 文本文件编辑器。 </p>
+简单的字符到数字的映射，理解这点很重要。它和一些文字处理器文档不一样，比如说由微软和
+OpenOffice.org 文档 编辑器创建的文件。这些文件，和简单的 ASCII
+文件形成鲜明对比，它们包含许多非文本元素，来描述它的结构和格式。 普通的 ASCII
+文件，只包含字符本身，和一些基本的控制符，像制表符，回车符及换行符。纵观 Linux
+系统，许多文件 以文本格式存储，也有许多 Linux 工具来处理文本文件。甚至 Windows
+也承认这种文件格式的重要性。著名的 NOTEPAD.EXE 程序就是一个 ASCII
+文本文件编辑器。 </p>
+
 </div>
 
 Why would we want to examine text files? Because many of the files that contain system
