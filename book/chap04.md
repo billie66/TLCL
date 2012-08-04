@@ -3,8 +3,6 @@ layout: book
 title: 探究操作系统
 ---
 
-4 – Exploring The System
-
 Now that we know how to move around the file system, it's time for a guided tour of our
 Linux system. Before we start however, we’re going to learn some more commands that
 will be useful along the way:
@@ -38,7 +36,6 @@ subdirectories contained in the current working directory:
 
     [me@linuxbox ~]$ ls
     Desktop Documents Music Pictures Publica Templates Videos 
-    
 
 Besides the current working directory, we can specify the directory to list, like so:
 
@@ -48,7 +45,6 @@ Besides the current working directory, we can specify the directory to list, lik
     bin games   kerberos    libexec  sbin   src
     etc include lib         local    share  tmp 
     
-
 Or even specify multiple directories. In this example we will list both the user's home
 directory (symbolized by the “~” character) and the /usr directory:
 
@@ -102,20 +98,19 @@ consisting of a word preceded by two dashes. Also, many commands allow multiple 
  to be strung together. In this example, the ls command is given two options, the “l” option 
 to produce long format output, and the “t” option to sort the result by the file's modification time.
 
-大多数命令使用的选项，是由一个中划线加上一个字符组成，例如，“-l”，但是许多命令，包括来自于 GNU 项目的命令，也支持长选项，
-长选项由两个中划线加上一个字组成。当然，许多命令也允许把多个短选项串在一起使用。下面这个例子，ls 命令有两个选项，“l” 
-选项产生长格式输出，“t”选项按文件修改时间的先后来排序。
+大多数命令使用的选项，是由一个中划线加上一个字符组成，例如，“-l”，但是许多命令，包括来自于
+GNU 项目的命令，也支持长选项，长选项由两个中划线加上一个字组成。当然，
+许多命令也允许把多个短选项串在一起使用。下面这个例子，ls 命令有两个选项，
+“l” 选项产生长格式输出，“t”选项按文件修改时间的先后来排序。
 
     [me@linuxbox ~]$ ls -lt
     
-
 We'll add the long option “--reverse” to reverse the order of the sort:
 
-加上长选项“--reverse”，则结果会以相反的顺序输出：
+加上长选项 “--reverse”，则结果会以相反的顺序输出：
 
     [me@linuxbox ~]$ ls -lt --reverse
     
-
 The ls command has a large number of possible options. The most common are listed in
 the Table 4-1.
 
@@ -131,57 +126,51 @@ ls 命令有大量的选项。表4-1列出了最常使用的选项。
 <th class="title">Description</th>
 </tr>
 <tr>
-<td valign="top">-a</td>
-<td valign="top">--all</td>
-<td valign="top">List all files, even those with names that 
+<td>-a</td>
+<td>--all</td>
+<td>List all files, even those with names that 
 begin with a period, which are normally not listed(i.e.,hidden).</td>
 </tr>
 <tr>
-<td valign="top">-d</td>
-<td valign="top">--directory</td>
-<td valign="top">Ordinaryly,if a directory is specified, ls
+<td>-d</td>
+<td>--directory</td>
+<td>Ordinaryly,if a directory is specified, ls
 will list the contents of the directory, not the directory 
 itself. Use this option in conjunction with the -l option 
 to see details about the directory rather than its contents.</td>
 </tr>
 <tr>
-<td valign="top">-F</td>
-<td valign="top">--classify</td>
-<td valign="top">This option will append an indicator character
-to the end of each listed name. For example, a "/" if the name is a directory.
-</td>
+<td>-F</td>
+<td>--classify</td>
+<td>This option will append an indicator character
+to the end of each listed name. For example, a "/" if the name is a directory.  </td>
 </tr>
 <tr>
-<td valign="top">-h</td>
-<td valign="top">--human-readable</td>
-<td valign="top">In long format listings, display file sizes in
-human readable format rather than in bytes. 
-</td>
+<td>-h</td>
+<td>--human-readable</td>
+<td>In long format listings, display file sizes in
+human readable format rather than in bytes.  </td>
 </tr>
 <tr>
-<td valign="top">-l</td>
-<td valign="top"> </td>
-<td valign="top">Display results in long format. 
-</td>
+<td>-l</td>
+<td> </td>
+<td>Display results in long format.  </td>
 </tr>
 <tr>
-<td valign="top">-r</td>
-<td valign="top">--reverse</td>
-<td valign="top">Display the results in reverse order. Normally, 
-ls display its results in ascending alphabetical order.
-</td>
+<td>-r</td>
+<td>--reverse</td>
+<td>Display the results in reverse order. Normally, 
+ls display its results in ascending alphabetical order.  </td>
 </tr>
 <tr>
-<td valign="top">-S</td>
-<td valign="top"> </td>
-<td valign="top">Sort results by file size. 
-</td>
+<td>-S</td>
+<td> </td>
+<td>Sort results by file size. </td>
 </tr>
 <tr>
-<td valign="top">-t</td>
-<td valign="top"> </td>
-<td valign="top">Sort by modification time. 
-</td>
+<td>-t</td>
+<td> </td>
+<td>Sort by modification time. </td>
 </tr>
 </table>
 </p>
@@ -226,20 +215,17 @@ valign="top">通常，如果指定了目录名，ls 命令会列出这个目录�
 <tr>
 <td valign="top">-r</td>
 <td valign="top">--reverse</td>
-<td valign="top">以相反的顺序来显示结果。通常，ls 命令的输出结果按照字母升序排列。
-</td>
+<td valign="top">以相反的顺序来显示结果。通常，ls 命令的输出结果按照字母升序排列。</td>
 </tr>
 <tr>
 <td valign="top">-S</td>
 <td valign="top"> </td>
-<td valign="top">命令输出结果按照文件大小来排序。 
-</td>
+<td valign="top">命令输出结果按照文件大小来排序。 </td>
 </tr>
 <tr>
 <td valign="top">-t</td>
 <td valign="top"> </td>
-<td valign="top">按照修改时间来排序。 
-</td>
+<td valign="top">按照修改时间来排序。/td>
 </tr>
 </table>
 </p>
@@ -328,13 +314,11 @@ later in this chapter.  </td>
 <td valign="top">对于文件的访问权限。第一个字符指明文件类型。在不同类型之间，
 开头的“－”说明是一个普通文件，“d”表明是一个目录。其后三个字符是文件所有者的
 访问权限，再其后的三个字符是文件所属组中成员的访问权限，最后三个字符是其他所
-有人的访问权限。这个字段的完整含义将在第十章讨论。
-</td>
+有人的访问权限。这个字段的完整含义将在第十章讨论。 </td>
 </tr>
 <tr>
 <td valign="top">1</td>
-<td valign="top">文件的硬链接数目。参考随后讨论的关于链接的内容。
-</td>
+<td valign="top">文件的硬链接数目。参考随后讨论的关于链接的内容。 </td>
 </tr>
 <tr>
 <td valign="top">root</td>
@@ -370,11 +354,10 @@ filenames in Linux are not required to reflect a file's contents. While a filena
 required to in Linux. We can invoke the file command this way:
 
 随着探究操作系统的进行，知道文件包含的内容是很有用的。我们将用 file 命令来确定文件的类型。我们之前讨论过，
-在 Linux 系统中，并不要求文件名来反映文件的内容。然而，一个类似“picture.jpg”的文件名，我们会期望它包含
+在 Linux 系统中，并不要求文件名来反映文件的内容。然而，一个类似 “picture.jpg” 的文件名，我们会期望它包含
 JPEG 压缩图像，但 Linux 却不这样要求它。可以这样调用 file 命令：
 
     file filename
-    
 
 When invoked, the file command will print a brief description of the file's
 contents. For example:
@@ -407,7 +390,6 @@ convenient way to examine them.
 
 less 命令是一个用来浏览文本文件的程序。纵观 Linux
 系统，有许多人类可读的文本文件。less 程序为我们检查文本文件 提供了方便。
-
 
 <div class="single">
 <h3>What Is "Text"</h3>
@@ -473,14 +455,12 @@ less 命令是这样使用的：
 
     less filename
     
-
 Once started, the less program allows you to scroll forward and backward through a
 text file. For example, to examine the file that defines all the system's user accounts,
 enter the following command:
 
     [me@linuxbox ~]$ less /etc/passwd
     
-
 一旦运行起来，less 程序允许你前后滚动文件。例如，要查看一个定义了系统中全部用户身份的文件，输入以下命令：
 
 Once the less program starts, we may view the contents of the file. If the file is longer
@@ -600,7 +580,7 @@ The less program was designed as an improved replacement of an earlier Unix
 program called more. The name “less” is a play on the phrase “less is more”—a
 motto of modernist architects and designers.
 
-less 程序是早期 Unix 程序 more 的改进版。“less”这个名字，对习语“less is more”开了个玩笑，
+less 程序是早期 Unix 程序 more 的改进版。“less” 这个名字，对习语 “less is more” 开了个玩笑，
 这个习语是现代主义建筑师和设计者的座右铭。
 
 less falls into the class of programs called “pagers,” programs that allow the
@@ -636,12 +616,10 @@ readable text. As we go about our tour, try the following:
 3. If you see an interesting file, determine its contents with file
 4. If it looks like it might be text, try viewing it with less
 
-<ol>
-<li>cd 到给定目录</li>
+<ol><li>cd 到给定目录</li>
 <li>列出目录内容 ls -l</li>
 <li>如果看到一个有趣的文件，用 file 命令确定文件内容</li>
-<li>如果文件看起来像文本，试着用 less 命令浏览它</li>
-</ol>
+<li>如果文件看起来像文本，试着用 less 命令浏览它</li></ol>
 
 ---
 
@@ -658,8 +636,9 @@ complains about something, just move on to something else. Spend some time looki
 around. The system is ours to explore. Remember, in Linux, there are no secrets!
 Table 4-4 lists just a few of the directories we can explore. Feel free to try more!
 
-在系统中游玩时，不要害怕粘花惹草。普通用户是很难把东西弄乱的。那是系统管理员的工作！如果一个命令抱怨一些事情，不要管它，
-尽管去玩别的东西。花一些时间四处走走。系统是我们自己的，尽情地探究吧。记住在 Linux 中，没有秘密存在！
+在系统中游玩时，不要害怕粘花惹草。普通用户是很难把东西弄乱的。那是系统管理员的工作！
+如果一个命令抱怨一些事情，不要管它，尽管去玩别的东西。花一些时间四处走走。
+系统是我们自己的，尽情地探究吧。记住在 Linux 中，没有秘密存在！ 
 表4-4仅仅列出了一些我们可以浏览的目录。闲暇时试试看！
 
 <p>
@@ -744,15 +723,13 @@ that are mounted automatically at insertion.  </td>
 <tr>
 <td valign="top">/mnt</td>
 <td valign="top">On older Linux systems, the /mnt directory contains mount
-points for removable devices that have been mounted manually.
-</td>
+points for removable devices that have been mounted manually. </td>
 </tr>
 <tr>
 <td valign="top">/opt</td>
 <td valign="top">The /opt directory is used to install “optional” software.
 This is mainly used to hold commercial software products
-that may be installed on your system.
-</td>
+that may be installed on your system.  </td>
 </tr>
 <tr>
 <td valign="top">/proc</td>
@@ -760,19 +737,16 @@ that may be installed on your system.
 the sense of files stored on your hard drive. Rather, it is a virtual file 
 system maintained by the Linux kernel. The “files” it contains are peepholes
 into the kernel itself. The files are readable and will give you a picture of how the
-kernel sees your computer.
-</td>
+kernel sees your computer.  </td>
 </tr>
 <tr>
 <td valign="top">/root</td>
-<td valign="top">This is the home directory for the root account.
-</td>
+<td valign="top">This is the home directory for the root account.  </td>
 </tr>
 <tr>
 <td valign="top">/sbin</td>
 <td valign="top">This directory contains “system” binaries. These are programs
-that perform vital system tasks that are generally reserved for the superuser.
-</td>
+that perform vital system tasks that are generally reserved for the superuser.  </td>
 </tr>
 <tr>
 <td valign="top">/tmp</td>
@@ -783,8 +757,7 @@ directory to be emptied each time the system is rebooted.  </td>
 <tr>
 <td valign="top">/usr</td>
 <td valign="top">The /usr directory tree is likely the largest one on a Linux
-system. It contains all the programs and support files used by regular users.
-</td>
+system. It contains all the programs and support files used by regular users. </td>
 </tr>
 <tr>
 <td valign="top">/usr/bin</td>
@@ -794,8 +767,7 @@ programs.</td>
 </tr>
 <tr>
 <td valign="top">/usr/lib</td>
-<td valign="top">The shared libraries for the programs in /usr/bin.
-</td>
+<td valign="top">The shared libraries for the programs in /usr/bin.  </td>
 </tr>
 <tr>
 <td valign="top">/usr/local</td>
@@ -804,28 +776,23 @@ included with your distribution but are intended for system-
 wide use are installed. Programs compiled from source code
 are normally installed in /usr/local/bin. On a newly
 installed Linux system, this tree exists, but it will be empty
-until the system administrator puts something in it.
-</td>
+until the system administrator puts something in it.  </td>
 </tr>
 <tr>
 <td valign="top">/usr/sbin</td>
-<td valign="top">Contains more system administration programs.
-</td>
+<td valign="top">Contains more system administration programs.  </td>
 </tr>
 <tr>
 <td valign="top">/usr/share</td>
 <td valign="top">/usr/share contains all the shared data used by
 programs in /usr/bin. This includes things like default
-configuration files, icons, screen backgrounds, sound files,
-etc.
-</td>
+configuration files, icons, screen backgrounds, sound files, etc.  </td>
 </tr>
 <tr>
 <td valign="top">/usr/share/doc</td>
 <td valign="top">Most packages installed on the system will include some
 kind of documentation. In /usr/share/doc, we will
-find documentation files organized by package.
-</td>
+find documentation files organized by package.  </td>
 </tr>
 <tr>
 <td valign="top">/var</td>
@@ -833,8 +800,7 @@ find documentation files organized by package.
 have looked at so far remain relatively static, that is, their
 contents don't change. The /var directory tree is where
 data that is likely to change is stored. Various databases,
-spool files, user mail, etc. are located here.
-</td>
+spool files, user mail, etc. are located here.  </td>
 </tr>
 <tr>
 <td valign="top">/var/log</td>
@@ -886,8 +852,7 @@ some systems, you must be the superuser to view log files.</td>
 <td valign="top"><p>这个目录包含所有系统层面的配置我文件。它也包含一系列的 shell 脚本，
 在系统启动时，这些脚本会运行每个系统服务。这个目录中的任何文件应该是可读的文本文件。</p>
 
-<p>有意思的文件：虽然/etc 目录中的任何文件都有趣，但这里只列出了一些我一直喜欢的文件：
-</p>
+<p>有意思的文件：虽然/etc 目录中的任何文件都有趣，但这里只列出了一些我一直喜欢的文件：</p>
 
 <ul>
 <li>/etc/crontab， 定义自动运行的任务。</li>
@@ -914,83 +879,80 @@ some systems, you must be the superuser to view log files.</td>
 真正的损坏了，那么这个目录会是个空目录。</td>
 </tr>
 <tr>
-<td valign="top">/media </td>
-<td valign="top">在现在的 Linux 系统中，/media 目录会包含可移除媒体设备的挂载点，
+<td>/media </td>
+<td>在现在的 Linux 系统中，/media 目录会包含可移除媒体设备的挂载点，
 例如 USB 驱动器，CD-ROMs 等等。这些设备连接到计算机之后，会自动地挂载到这个目录结点下。
 </td>
 </tr>
 <tr>
-<td valign="top">/mnt</td>
-<td valign="top">在早些的 Linux 系统中，/mnt 目录包含可移除设备的挂载点。</td>
+<td>/mnt</td>
+<td>在早些的 Linux 系统中，/mnt 目录包含可移除设备的挂载点。</td>
 </tr>
 <tr>
-<td valign="top">/opt</td>
-<td valign="top">这个/opt 目录被用来安装“可选的”软件。这个主要用来存储可能
+<td>/opt</td>
+<td>这个/opt 目录被用来安装“可选的”软件。这个主要用来存储可能
 安装在系统中的商业软件产品。</td>
 </tr>
 <tr>
-<td valign="top">/proc</td>
-<td valign="top">这个/proc 目录很特殊。从存储在硬盘上的文件的意义上说，它不是真正的文件系统。
+<td>/proc</td>
+<td>这个/proc 目录很特殊。从存储在硬盘上的文件的意义上说，它不是真正的文件系统。
 反而，它是一个由 Linux 内核维护的虚拟文件系统。它所包含的文件是内核的窥视孔。这些文件是可读的，
 它们会告诉你内核是怎样监管计算机的。</td>
 </tr>
 <tr>
-<td valign="top">/root</td>
-<td valign="top">root 帐户的主目录。</td>
+<td>/root</td>
+<td>root 帐户的主目录。</td>
 </tr>
 <tr>
-<td valign="top">/sbin</td>
-<td valign="top">这个目录包含“系统”二进制文件。它们是完成重大系统任务的程序，通常为超级用户保留。</td>
+<td>/sbin</td>
+<td>这个目录包含“系统”二进制文件。它们是完成重大系统任务的程序，通常为超级用户保留。</td>
 </tr>
 <tr>
-<td valign="top">/tmp</td>
-<td valign="top">这个/tmp 目录，是用来存储由各种程序创建的临时文件的地方。一些配置，导致系统每次
+<td>/tmp</td>
+<td>这个/tmp 目录，是用来存储由各种程序创建的临时文件的地方。一些配置，导致系统每次
 重新启动时，都会清空这个目录。</td>
 </tr>
 <tr>
-<td valign="top">/usr</td>
-<td valign="top">在 Linux 系统中，/usr 目录可能是最大的一个。它包含普通用户所需要的所有程序和文件。</td>
+<td>/usr</td>
+<td>在 Linux 系统中，/usr 目录可能是最大的一个。它包含普通用户所需要的所有程序和文件。</td>
 </tr>
 <tr>
-<td valign="top">/usr/bin</td>
-<td valign="top">/usr/bin 目录包含系统安装的可执行程序。通常，这个目录会包含许多程序。</td>
+<td>/usr/bin</td>
+<td>/usr/bin 目录包含系统安装的可执行程序。通常，这个目录会包含许多程序。</td>
 </tr>
 <tr>
-<td valign="top">/usr/lib</td>
-<td valign="top">包含由/usr/bin 目录中的程序所用的共享库。 </td>
+<td>/usr/lib</td>
+<td>包含由/usr/bin 目录中的程序所用的共享库。 </td>
 </tr>
 <tr>
-<td valign="top">/usr/local</td>
-<td valign="top">这个/usr/local 目录，是非系统发行版自带，却打算让系统使用的程序的安装目录。
+<td>/usr/local</td>
+<td>这个/usr/local 目录，是非系统发行版自带，却打算让系统使用的程序的安装目录。
 通常，由源码编译的程序会安装在/usr/local/bin 目录下。新安装的 Linux 系统中，会存在这个目录，
 但却是空目录，直到系统管理员放些东西到它里面。</td>
 </tr>
 <tr>
-<td valign="top">/usr/sbin</td>
-<td valign="top">包含许多系统管理程序。 </td>
+<td>/usr/sbin</td>
+<td>包含许多系统管理程序。 </td>
 </tr>
 <tr>
-<td valign="top">/usr/share</td>
-<td valign="top">/usr/share 目录包含许多由/usr/bin 目录中的程序使用的共享数据。
+<td>/usr/share</td>
+<td>/usr/share 目录包含许多由/usr/bin 目录中的程序使用的共享数据。
 其中包括像默认的配置文件，图标，桌面背景，音频文件等等。</td>
 </tr>
 <tr>
-<td valign="top">/usr/share/doc</td>
-<td
-valign="top">大多数安装在系统中的软件包会包含一些文档。在/usr/share/doc 目录下，
+<td>/usr/share/doc</td>
+<td>大多数安装在系统中的软件包会包含一些文档。在/usr/share/doc 目录下，
 我们可以找到按照软件包分类的文档。</td>
 </tr>
 <tr>
-<td valign="top">/var</td>
-<td
-valign="top">除了/tmp 和/home 目录之外，相对来说，目前我们看到的目录是静态的，这是说，
+<td>/var</td>
+<td>除了/tmp 和/home 目录之外，相对来说，目前我们看到的目录是静态的，这是说，
 它们的内容不会改变。/var 目录是可能需要改动的文件存储的地方。各种数据库，假脱机文件，
 用户邮件等等，都驻扎在这里。</td>
 </tr>
 <tr>
-<td valign="top">/var/log</td>
-<td
-valign="top">这个/var/log 目录包含日志文件，各种系统活动的记录。这些文件非常重要，并且
+<td>/var/log</td>
+<td>这个/var/log 目录包含日志文件，各种系统活动的记录。这些文件非常重要，并且
 应该时时监测它们。其中最重要的一个文件是/var/log/messages。注意，为了系统安全，在一些系统中，
 你必须是超级用户才能查看这些日志文件。</td></tr>
 </table>
@@ -1006,7 +968,6 @@ As we look around, we are likely to see a directory listing with an entry like t
 
     lrwxrwxrwx 1 root root 11 2007-08-11 07:34 libc.so.6 -> libc-2.6.so 
     
-
 Notice how the first letter of the listing is “l” and the entry seems to have two filenames?
 This is a special kind of a file called a symbolic link (also known as a soft link or
 symlink.) In most Unix-like systems it is possible to have a file referenced by multiple

@@ -155,7 +155,6 @@ pathname) there is a directory called "usr" which contains a directory called
     [me@linuxbox bin]$ ls
     ...Listing of many, many files ...
 
-
 Now we can see that we have changed the current working directory to /usr/bin
 and that it is full of files. Notice how the shell prompt has changed? As a
 convenience, it is usually set up to automatically display the name of the
@@ -266,11 +265,10 @@ quickly changed.
 <td> Changes the working directory to the previous working directory.</td>
 </tr>
 <tr>
-<td id="tdlist">cd ~user_name</td>
+<td id="tdlist">cd ~user\_name</td>
 <td> Changes the working directory to the home directory of
-user_name. For example, cd ~bob will change the directory to
-the home directory of user “bob.”
-</td>
+user\_name. For example, cd ~bob will change the directory to
+the home directory of user “bob.” </td>
 </tr>
 </tbody>
 </table>
@@ -293,8 +291,8 @@ the home directory of user “bob.”
 <td > 更改工作目录到先前的工作目录。</td>
 </tr>
 <tr>
-<td id="tdlist">cd ~user_name</td>
-<td valign="top"> 更改工作目录到用户主目录。例如, cd ~bob 会更改工作目录到用户“bob”的主目录。</td>
+<td id="tdlist">cd ~user\_name</td>
+<td> 更改工作目录到用户主目录。例如, cd ~bob 会更改工作目录到用户“bob”的主目录。</td>
 </tr>
 </tbody>
 </table>
@@ -333,8 +331,7 @@ a filename, use underscore characters. You will thank yourself
 later.</p></li>
 </ol>
 
-<ol>
-<li><p>以 "." 字符开头的文件名是隐藏文件。这仅表示，ls 命令不能列出它们，
+<ol><li><p>以 "." 字符开头的文件名是隐藏文件。这仅表示，ls 命令不能列出它们，
 除非使用 ls -a 命令。当你创建帐号后，几个配置帐号的隐藏文件被放置在
 你的主目录下。稍后，我们会仔细研究一些隐藏文件，来定制你的系统环境。
 另外，一些应用程序也会把它们的配置文件以隐藏文件的形式放在你的主目录下面。</p></li>
@@ -347,8 +344,7 @@ later.</p></li>
 
 <li><p>虽然 Linux 支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限
 使用 “.”，“－”，下划线。最重要的是，不要在文件名中使用空格。如果你想表示词与
-词间的空格，用下划线字符来代替。过些时候，你会感激自己这样做。</p></li>
-</ol>
+词间的空格，用下划线字符来代替。过些时候，你会感激自己这样做。</p></li></ol>
 
 </div>
 

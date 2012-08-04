@@ -701,7 +701,3 @@ additional options are available and try them out!
 
   <http://en.wikipedia.org/wiki/Man_page>
 
-
-
-
-

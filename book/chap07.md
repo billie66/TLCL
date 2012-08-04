@@ -95,7 +95,6 @@ I/O 重定向允许我们来重定义标准输出送到哪里。重定向标准�
 由文件代替屏幕。
 
     [me@linuxbox ~]$ ls -l /usr/bin > ls-output.txt
-    
 
 Here, we created a long listing of the /usr/bin directory and sent the results to the file
 ls-output.txt. Let's examine the redirected output of the command:
@@ -106,8 +105,6 @@ ls-output.txt. Let's examine the redirected output of the command:
     [me@linuxbox ~]$ ls -l ls-output.txt
     -rw-rw-r-- 1   me   me    167878 2008-02-01 15:07 ls-output.txt
     
-    
-
 Good; a nice, large, text file. If we look at the file with less, we will see that the file
 ls-output.txt does indeed contain the results from our ls command:
 
@@ -116,7 +113,6 @@ ls-output.txt 的确包含 ls 命令的执行结果。
 
     [me@linuxbox ~]$ less ls-output.txt
     
-
 Now, let's repeat our redirection test, but this time with a twist. We'll change the name of
 the directory to one that does not exist:
 
@@ -125,7 +121,6 @@ the directory to one that does not exist:
     [me@linuxbox ~]$ ls -l /bin/usr > ls-output.txt
     ls: cannot access /bin/usr: No such file or directory
     
-
 We received an error message. This makes sense since we specified the non-existent
 directory /bin/usr, but why was the error message displayed on the screen rather than
 being redirected to the file ls-output.txt? The answer is that the ls program does
@@ -145,7 +140,6 @@ ls 程序不把它的错误信息输送到标准输出。反而，像许多写�
     me@linuxbox ~]$ ls -l ls-output.txt
     -rw-rw-r-- 1 me   me    0 2008-02-01 15:08 ls-output.txt
     
-
 The file now has zero length! This is because, when we redirect output with the “&gt;”
 redirection operator, the destination file is always rewritten from the beginning. Since
 our ls command generated no results and only an error message, the redirection
@@ -159,7 +153,6 @@ we can use a trick like this:
 新的空文件），可以使用这样的技巧：
 
     [me@linuxbox ~]$ > ls-output.txt
-    
 
 Simply using the redirection operator with no command preceding it will truncate an
 existing file or create a new, empty file.
@@ -189,7 +182,6 @@ put it to the test:
     [me@linuxbox ~]$ ls -l ls-output.txt
     -rw-rw-r-- 1 me   me    503634 2008-02-01 15:45 ls-output.txt
     
-
 We repeated the command three times resulting in an output file three times as large.
 
 我们重复执行命令三次，导致输出文件大小是原来的三倍。
