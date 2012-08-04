@@ -23,10 +23,10 @@ for file in *.md; do
       if [[ "$line" =~ div\>$ ]]; then 
         flag="0"
       fi
-      code=$(echo "$line"|sed -e 's/<\/*[a-z]*>//g' -e 's/\&lt;/\</g' -e 's/\&gt;/\>/g')
+      code=$(echo "$line"|sed -e 's/<\/*[a-z]*>//g; s/\&lt;/\</g; s/\&gt;/\>/g')
       echo "    $code" >>nodico/$file
     else
-      if [ "$line" == "<hr />" ]; then
+      if [ "$line" =~ ^\<hr  ]; then
         echo "---" >>nodico/$file 
       else
         echo "$line" >>nodico/$file 

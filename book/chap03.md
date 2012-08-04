@@ -305,6 +305,7 @@ the home directory of user “bob.”
 <h3>Important Facts About Filenames</h3>
 
 <h3> 关于文件名的重要规则</h3>
+
 <ol>
 <li><p>
 Filenames that begin with a period character are hidden. This only means that
@@ -333,8 +334,7 @@ later.</p></li>
 </ol>
 
 <ol>
-<li><p>
-以 "." 字符开头的文件名是隐藏文件。这仅表示，ls 命令不能列出它们，
+<li><p>以 "." 字符开头的文件名是隐藏文件。这仅表示，ls 命令不能列出它们，
 除非使用 ls -a 命令。当你创建帐号后，几个配置帐号的隐藏文件被放置在
 你的主目录下。稍后，我们会仔细研究一些隐藏文件，来定制你的系统环境。
 另外，一些应用程序也会把它们的配置文件以隐藏文件的形式放在你的主目录下面。</p></li>

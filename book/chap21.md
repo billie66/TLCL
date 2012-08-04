@@ -663,7 +663,7 @@ By specifying the colon character as the field separator, we can sort on the sev
 
 通过指定冒号字符做为字段分隔符，我们能按照第七个字段来排序。
 
-####uniq
+#### uniq
 
 Compared to sort, the uniq program is a lightweight. uniq performs a seemingly
 trivial task. When given a sorted file (including standard input), it removes any duplicate
@@ -674,13 +674,15 @@ to clean the output of duplicates.
 排好序的文件（包括标准输出），uniq 会删除任意重复行，并且把结果发送到标准输出。
 它常常和 sort 程序一块使用，来清理重复的输出。
 
-<hr style="height:5px;width:100%;background:gray" />
-<b>Tip:</b> While uniq is a traditional Unix tool often used with sort, the GNU version
-of sort supports a -u option, which removes duplicates from the sorted output.
+---
 
-uniq 程序是一个传统的 Unix 工具，经常与 sort 程序一块使用，但是这个 GNU 版本的 sort 程序支持一个-u 选项，
-其可以从排好序的输出结果中删除重复行。
-<hr style="height:5px;width:100%;background:gray" />
+Tip: While uniq is a traditional Unix tool often used with sort, the
+GNU version of sort supports a -u option, which removes duplicates from the
+sorted output.
+
+uniq 程序是一个传统的 Unix 工具，经常与 sort 程序一块使用，但是这个 GNU 版本的 sort 程序支持一个 -u 选项，其可以从排好序的输出结果中删除重复行。
+
+---
 
 Let’s make a text file to try this out:
 
@@ -1387,12 +1389,13 @@ compatibility with traditional Unix versions of diff), it is not as widely used 
 optional formats. Two of the more popular formats are the _context format_ and the _unified
 format_.
 
-在这种格式中，一个范围就是由逗号分隔开的开头行和结束行的列表。虽然这种格式是默认情况（），
+在这种格式中，一个范围就是由逗号分隔开的开头行和结束行的列表。虽然这种格式是默认情况（主要是
+为了服从 POSIX 标准且向后与传统的 Unix diff 命令兼容），
 但是它并不像其它可选格式一样被广泛地使用。最流行的两种格式是上下文模式和统一模式。
 
-When viewed using the context format (the -c option), we will see this:
+When viewed using the _context format_ (the -c option), we will see this:
 
-当使用上下文模式（带上-c 选项），我们将看到这些：
+当使用上下文模式（带上 -c 选项），我们将看到这些：
 
     [me@linuxbox ~]$ diff -c file1.txt file2.txt
     *** file1.txt    2008-12-23 06:40:13.000000000 -0500
@@ -1419,13 +1422,13 @@ group, we see:
 纵观列表的其它部分，这些标记将象征它们各自代表的文件。下一步，我们看到几组修改，
 包括默认的周围上下文行数。在第一组中，我们看到：
 
-\*\*\* 1,4 \*\*\*
+    *** 1,4 ***
 
 which indicates lines one through four in the first file. Later we see:
 
 其表示第一个文件中从第一行到第四行的文本行。随后我们看到：
 
--&nbsp;-&nbsp;- 1,4 -&nbsp;-&nbsp;-
+    --- 1,4 ---
 
 which indicates lines one through four in the second file. Within a change group, lines
 begin with one of four indicators:
@@ -1485,7 +1488,7 @@ in its respective section of the change group.</td>
 </table>
 </p>
 
-The unified format is similar to the context format, but is more concise. It is specified
+The _unified format_ is similar to the _context format_, but is more concise. It is specified
 with the -u option:
 
 这个统一模式相似于上下文模式，但是更加简洁。通过-u 选项来指定它：
@@ -1600,7 +1603,7 @@ below) suggests using diff as follows:
 
 准备一个 diff 文件供 patch 程序使用，GNU 文档（查看下面的拓展阅读部分）建议这样使用 diff 命令：
 
-diff -Naur old\_file new\_file > diff\_file
+    diff -Naur old_file new_file > diff_file
 
 Where old\_file and new\_file are either single files or directories containing files. The r
 option supports recursion of a directory tree.
@@ -1611,7 +1614,7 @@ Once the diff file has been created, we can apply it to patch the old file into 
 
 一旦创建了 diff 文件，我们就能应用它，把旧文件修补成新文件。
 
-patch < diff\_file
+    patch < diff_file
 
 We’ll demonstrate with our test file:
 
@@ -1664,8 +1667,8 @@ follows:
 换字是一种把字符从一个字母转换为另一个字母的过程。例如，把小写字母转换成大写字母就是
 换字。我们可以通过 tr 命令来执行这样的转换，如下所示：
 
-[me@linuxbox ~]$ echo "lowercase letters" | tr a-z A-Z
-LOWERCASE LETTERS
+    [me@linuxbox ~]$ echo "lowercase letters" | tr a-z A-Z
+    LOWERCASE LETTERS
 
 As we can see, tr operates on standard input, and outputs its results on standard output.
 tr accepts two arguments: a set of characters to convert from and a corresponding set of
@@ -1685,7 +1688,7 @@ and thus should be used with caution.
 <ol>
 <li><p>一个枚举列表。例如， ABCDEFGHIJKLMNOPQRSTUVWXYZ</p></li>
 
-<li><p>一个字符域。例如，A-Z。注意这种方法有时候面临与其它命令相同的问题，归因于
+<li><p>一个字符域。例如，A-Z 。注意这种方法有时候面临与其它命令相同的问题，归因于
 语系的排序规则，因此应该谨慎使用。</p></li>
 
 <li><p>POSIX 字符类。例如，[:upper:]</p></li>
@@ -1710,20 +1713,19 @@ removed from the end of each line. This can be performed with tr as follows:
 MS-DOS 文本文件为 Unix 风格文本的问题。为了执行这个转换，每行末尾的回车符需要被删除。
 这个可以通过 tr 命令来执行，如下所示：
 
-    tr -d '\r' < dos\_file > unix\_file
+    tr -d '\r' < dos_file > unix_file
 
 where dos_file is the file to be converted and unix_file is the result. This form of the
 command uses the escape sequence \r to represent the carriage return character. To see
 a complete list of the sequences and character classes tr supports, try:
 
-这里的 dos\_file 是需要被转换的文件，unix\_file 是转换后的结果。这种形式的命令使用转义序列
-\r 来代表回车符。查看 tr 命令所支持地完整的转义序列和字符类别列表，试试下面的命令：
+这里的 dos\_file 是需要被转换的文件，unix\_file
+是转换后的结果。这种形式的命令使用转义序列 \r 来代表回车符。查看 tr
+命令所支持地完整的转义序列和字符类别列表，试试下面的命令：
 
     [me@linuxbox ~]$ tr --help
 
 <div class="single">
-<tr>
-<td>
 <h3>ROT13: The Not-So-Secret Decoder Ring</h3>
 
 <h3>ROT13: 不那么秘密的编码环</h3>
@@ -2354,12 +2356,14 @@ the end of the i command.
 连行符结束。实际上，脚本的第六行是插入文本的末尾，它以一个普通的回车符结尾，而不是一个
 连行符，通知解释器 i 命令结束了。
 
-<hr style="height:5px;width:100%;background:gray" />
+---
+
 Note: A line continuation character is formed by a backslash followed immediately
 by a carriage return. No intermediary spaces are permitted.
 
 注意：一个连行符由一个斜杠字符其后紧跟一个回车符组成。它们之间不允许有空白字符。
-<hr style="height:5px;width:100%;background:gray" />
+
+---
 
 Line seven is our search and replace command. Since it is not preceded by an address,
 each line in the input stream is subject to its action.
@@ -2588,7 +2592,8 @@ contents of ALT tags, which benefit from checking, are checked in this mode.
 这个 HTML 标志被忽略了，并且只会检查文件中非标志部分的内容。在这种模式下，HTML 标志的
 内容被忽略了，不会进行拼写检查。然而，ALT 标志的内容，会被检查。
 
-<hr style="height:5px;width:100%;background:gray" />
+---
+
 Note: By default, aspell will ignore URLs and email addresses in text. This
 behavior can be overridden with command line options. It is also possible to
 specify which markup tags are checked and skipped. See the aspell man page
@@ -2596,7 +2601,8 @@ for details.
 
 注意：默认情况下，aspell 会忽略文本中 URL 和电子邮件地址。通过命令行选项，可以重写此行为。
 也有可能指定哪些标志进行检查及跳过。详细内容查看 aspell 命令手册。
-<hr style="height:5px;width:100%;background:gray" />
+
+---
 
 ### Summing Up
 

@@ -838,7 +838,8 @@ for filenames ending in .BAK. When they are found, they are deleted.
 
 在这个例子里面，用户主目录（和它的子目录）下搜索每个以.BAK 结尾的文件名。当找到后，就删除它们。
 
-<hr style="height:5px;width:100%;background:gray" />
+---
+
 Warning: It should go without saying that you should use extreme caution when
 using the -delete action. Always test the command first by substituting the
 -print action for -delete to confirm the search results.
@@ -846,7 +847,7 @@ using the -delete action. Always test the command first by substituting the
 警告：当使用-delete 操作时，不用说，你应该格外小心。首先测试一下命令，用-print 操作代替-delete，
 来确认搜索结果。
 
-<hr style="height:5px;width:100%;background:gray" />
+---
 
 Before we go on, let’s take another look at how the logical operators affect actions.
 Consider the following command:
@@ -1059,7 +1060,8 @@ constructs an argument list for ls command and then executes it.
 这里我们看到 find 命令的输出被管道到 xargs 命令，反过来，xargs 会为 ls 命令构建
 参数列表，然后执行 ls 命令。
 
-<hr style="height:5px;width:100%;background:gray" />
+---
+
 Note: While the number of arguments that can be placed into a command line is
 quite large, it’s not unlimited. It is possible to create commands that are too long
 for the shell to accept. When a command line exceeds the maximum length
@@ -1072,7 +1074,8 @@ execute xargs with the --show-limits option.
 太长以至于 shell 不能接受。当命令行超过系统支持的最大长度时，xargs 会执行带有最大
 参数个数的指定命令，然后重复这个过程直到耗尽标准输入。执行带有--show--limits 选项
 的 xargs 命令，来查看命令行的最大值。
-<hr style="height:5px;width:100%;background:gray" />
+
+---
 <br />
 
 <div class="single">

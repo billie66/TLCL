@@ -302,6 +302,7 @@ talk more about that in Chapter 8.
 接受文件名作为参数的任何命令，都可以使用通配符，我们会在第八章更深入的谈到这个知识点。
 
 <div class="single">
+
 <h3>Character Ranges</h3>
 <h3>字符范围</h3>
 
@@ -312,8 +313,8 @@ worked in older versions of Linux as well. They can still work, but you have to
 be very careful with them because they will not produce the expected results
 unless properly configured. For now, you should avoid using them and use
 character classes instead.</p>
-<p>
-如果你用过别的类似 Unix 系统的操作环境，或者是读过这方面的书籍，你可能遇到过[A-Z]或
+
+<p>如果你用过别的类似 Unix 系统的操作环境，或者是读过这方面的书籍，你可能遇到过[A-Z]或
 [a-z]形式的字符范围表示法。这些都是传统的 Unix 表示法，并且在早期的 Linux 版本中仍有效。
 虽然它们仍然起作用，但是你必须小心地使用它们，因为它们不会产生你期望的输出结果，除非
 你合理地配置它们。从现在开始，你应该避免使用它们，并且用字符类来代替它们。</p>
@@ -323,6 +324,7 @@ character classes instead.</p>
 
 <p>Wildcards are especially valuable not only because they are used so frequently on
 the command line, but are also supported by some graphical file managers.</p>
+
 <p>通配符非常重要，不仅因为它们经常用在命令行中，而且一些图形文件管理器也支持它们。</p>
 
 <ul>
@@ -336,14 +338,13 @@ files starting with a lowercase “u” in the /usr/bin directory, type “/usr/
 into the location bar and it will display the result.  </li>
 </ul>
 
-<ul>
-<li>在 Nautilus (GNOME 文件管理器）中，可以通过 Edit/Select 模式菜单项来选择文件。
+<ul><li>在 Nautilus (GNOME 文件管理器）中，可以通过 Edit/Select 模式菜单项来选择文件。
 输入一个用通配符表示的文件选择模式后，那么当前所浏览的目录中，所匹配的文件名
 就会高亮显示。</li>
+
 <li>在 Dolphin 和 Konqueror（KDE 文件管理器）中，可以在地址栏中直接输入通配符。例如，如果你
-想查看目录/usr/bin 中，所有以小写字母"u"开头的文件，在地址栏中敲入"/usr/bin/u*"，则
-文件管理器会显示匹配的结果。</li>
-</ul>
+想查看目录 /usr/bin 中，所有以小写字母 "u" 开头的文件，在地址栏中敲入 "/usr/bin/u*"，则
+文件管理器会显示匹配的结果。</li></ul>
 
 <p>Many ideas originally found in the command line interface make their way into
 the graphical interface, too. It is one of the many things that make the Linux

@@ -242,7 +242,8 @@ and treated as literals instead of being interpreted as metacharacters.
 然后其它所有字符都被认为是原义字符，虽然在个别情况下，反斜杠会被用来创建元序列，
 也允许元字符被转义为原义字符，而不是被解释为元字符。
 
-<hr style="height:5px;width:100%;background:gray" />
+---
+
 Note: As we can see, many of the regular expression metacharacters are also
 characters that have meaning to the shell when expansion is performed. When we
 pass regular expressions containing metacharacters on the command line, it is vital
@@ -251,7 +252,8 @@ that they be enclosed in quotes to prevent the shell from attempting to expand t
 <p>注意：正如我们所见到的，当 shell 执行展开的时候，许多正则表达式元字符，也是对 shell 有特殊
 含义的字符。当我们在命令行中传递包含元字符的正则表达式的时候，把元字符用引号引起来至关重要，
 这样可以阻止 shell 试图展开它们。</p>
-<hr style="height:5px;width:100%;background:gray" />
+
+---
 
 ### The Any Character
 
@@ -1411,7 +1413,8 @@ to activate search highlighting.
 
 来激活搜索高亮功能。
 
-<hr style="height:5px;width:100%;background:gray" />
+---
+
 Note: Depending on your distribution, vim may or may not support text search
 highlighting. Ubuntu, in particular, supplies a very stripped-down version of vim
 by default. On such systems, you may want to use your package manager to install
@@ -1420,7 +1423,8 @@ a more complete version of vim.
 注意：依赖于你的发行版，vim 有可能支持或不支持文本搜索高亮功能。尤其是 Ubuntu 自带了
 一款非常简化的 vim 版本。在这样的系统中，你可能要使用你的软件包管理器来安装一个功能
 更完备的 vim 版本。
-<hr style="height:5px;width:100%;background:gray" />
+
+---
 
 ### Summing Up
 

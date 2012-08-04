@@ -859,14 +859,13 @@ some systems, you must be the superuser to view log files.</td>
 </tr>
 <tr>
 <td valign="top">/bin</td>
-<td valign="top">包含系统启动和运行所必须的二进制程序。
-</td>
+<td valign="top">包含系统启动和运行所必须的二进制程序。</td>
 </tr>
 
 <tr>
 <td valign="top">/boot</td>
-<td valign="top">包含 Linux 内核，最初的 RMA 磁盘映像（系统启动时，由驱动程序所需），和
-启动加载程序。
+<td valign="top"><p>包含 Linux 内核，最初的 RMA 磁盘映像（系统启动时，由驱动程序所需），和
+启动加载程序。</p>
 <p>有趣的文件：</p>
 <ul>
 <li>/boot/grub/grub.conf or menu.lst， 被用来配置启动加载程序。</li>
@@ -874,18 +873,17 @@ some systems, you must be the superuser to view log files.</td>
 </ul>
 </td>
 </tr>
+
 <tr>
 <td valign="top">/dev</td>
 <td valign="top">这是一个包含设备结点的特殊目录。“一切都是文件”，也使用于设备。
-在这个目录里，内核维护着它支持的设备。
- </td>
+在这个目录里，内核维护着它支持的设备。</td>
 </tr>
 
 <tr>
 <td valign="top">/etc</td>
-<td
-valign="top">这个目录包含所有系统层面的配置我文件。它也包含一系列的 shell 脚本，
-在系统启动时，这些脚本会运行每个系统服务。这个目录中的任何文件应该是可读的文本文件。
+<td valign="top"><p>这个目录包含所有系统层面的配置我文件。它也包含一系列的 shell 脚本，
+在系统启动时，这些脚本会运行每个系统服务。这个目录中的任何文件应该是可读的文本文件。</p>
 
 <p>有意思的文件：虽然/etc 目录中的任何文件都有趣，但这里只列出了一些我一直喜欢的文件：
 </p>
@@ -901,21 +899,18 @@ valign="top">这个目录包含所有系统层面的配置我文件。它也包�
 <tr>
 <td valign="top">/home</td>
 <td valign="top">在通常的配置环境下，系统会在/home 下，给每个用户分配一个目录。普通只能
-在他们自己的目录下创建文件。这个限制保护系统免受错误的用户活动破坏。
-</td>
+在他们自己的目录下创建文件。这个限制保护系统免受错误的用户活动破坏。</td>
 </tr>
 
 <tr>
 <td valign="top">/lib </td>
-<td valign="top">包含核心系统程序所需的库文件。这些文件与 Windows 中的动态链接库相似。
-</td>
+<td valign="top">包含核心系统程序所需的库文件。这些文件与 Windows 中的动态链接库相似。</td>
 </tr>
 <tr>
 <td valign="top">/lost+found </td>
 <td valign="top">每个使用 Linux 文件系统的格式化分区或设备，例如 ext3文件系统，
 都会有这个目录。当部分恢复一个损坏的文件系统时，会用到这个目录。除非文件系统
-真正的损坏了，那么这个目录会是个空目录。
-</td>
+真正的损坏了，那么这个目录会是个空目录。</td>
 </tr>
 <tr>
 <td valign="top">/media </td>
@@ -925,26 +920,22 @@ valign="top">这个目录包含所有系统层面的配置我文件。它也包�
 </tr>
 <tr>
 <td valign="top">/mnt</td>
-<td valign="top">在早些的 Linux 系统中，/mnt 目录包含可移除设备的挂载点。
-</td>
+<td valign="top">在早些的 Linux 系统中，/mnt 目录包含可移除设备的挂载点。</td>
 </tr>
 <tr>
 <td valign="top">/opt</td>
 <td valign="top">这个/opt 目录被用来安装“可选的”软件。这个主要用来存储可能
-安装在系统中的商业软件产品。
-</td>
+安装在系统中的商业软件产品。</td>
 </tr>
 <tr>
 <td valign="top">/proc</td>
 <td valign="top">这个/proc 目录很特殊。从存储在硬盘上的文件的意义上说，它不是真正的文件系统。
 反而，它是一个由 Linux 内核维护的虚拟文件系统。它所包含的文件是内核的窥视孔。这些文件是可读的，
-它们会告诉你内核是怎样监管计算机的。
-</td>
+它们会告诉你内核是怎样监管计算机的。</td>
 </tr>
 <tr>
 <td valign="top">/root</td>
-<td valign="top">root 帐户的主目录。
-</td>
+<td valign="top">root 帐户的主目录。</td>
 </tr>
 <tr>
 <td valign="top">/sbin</td>
@@ -957,8 +948,7 @@ valign="top">这个目录包含所有系统层面的配置我文件。它也包�
 </tr>
 <tr>
 <td valign="top">/usr</td>
-<td
-valign="top">在 Linux 系统中，/usr 目录可能是最大的一个。它包含普通用户所需要的所有程序和文件。</td>
+<td valign="top">在 Linux 系统中，/usr 目录可能是最大的一个。它包含普通用户所需要的所有程序和文件。</td>
 </tr>
 <tr>
 <td valign="top">/usr/bin</td>
@@ -966,8 +956,7 @@ valign="top">在 Linux 系统中，/usr 目录可能是最大的一个。它包�
 </tr>
 <tr>
 <td valign="top">/usr/lib</td>
-<td valign="top">包含由/usr/bin 目录中的程序所用的共享库。
-</td>
+<td valign="top">包含由/usr/bin 目录中的程序所用的共享库。 </td>
 </tr>
 <tr>
 <td valign="top">/usr/local</td>
@@ -1022,8 +1011,9 @@ This is a special kind of a file called a symbolic link (also known as a soft li
 symlink.) In most Unix-like systems it is possible to have a file referenced by multiple
 names. While the value of this may not be obvious, it is really a useful feature.
 
-注意，这条信息第一个字符是“l”，并且看起来像有两个文件名？ 这是一个特殊文件，叫做符号链接（也称为软链接或者 symlink）。
-在大多数类似 Unix 系统中，有可能一个文件被多个文件名参考。虽然这种特性的意义并不明显，但它真地很有用。
+注意，这条信息第一个字符是“l”，并且看起来像有两个文件名？
+这是一个特殊文件，叫做符号链接（也称为软链接或者 symlink）。 在大多数类似 Unix
+系统中，有可能一个文件被多个文件名参考。虽然这种特性的意义并不明显，但它真地很有用。
 
 Picture this scenario: a program requires the use of a shared resource of some kind
 contained in a file named “foo,” but “foo” has frequent version changes. It would be
@@ -1051,11 +1041,13 @@ Imagine that “foo-2.7” has a bug (damn those developers!) and we need to rev
 old version. Again, we just delete the symbolic link pointing to the new version and
 create a new symbolic link pointing to the old version.
 
-这就是符号链接存在至今的原因。比方说，我们安装了文件“foo”的2.6版本，它的文件名是“foo-2.6”，然后创建了叫做“foo” 
-的符号链接，这个符号链接指向“foo-2.6”。这意味着，当一个程序打开文件 “foo”时，它实际上是打开文件“foo-2.6”。
-现在，每个人都很高兴。依赖于“foo”文件的程序能找到这个文件，并且我们能知道安装了哪个文件版本。当升级到“foo-2.7”
-版本的时候，仅添加这个文件到文件系统中，删除符号链接“foo”，创建一个指向新版本的符号链接。这不仅解决了版本升级问题
-，而且还允许在系统中保存两个不同的文件版本。假想“foo-2.7”有个错误（该死的开发者！）,那我们得回到原来的版本。
+这就是符号链接存在至今的原因。比方说，我们安装了文件 “foo” 的 2.6 版本，它的
+文件名是 “foo-2.6”，然后创建了叫做 “foo” 的符号链接，这个符号链接指向 “foo-2.6”。
+这意味着，当一个程序打开文件 “foo” 时，它实际上是打开文件 “foo-2.6”。
+现在，每个人都很高兴。依赖于 “foo” 文件的程序能找到这个文件，并且我们能知道安装了哪个文件版本。
+当升级到 “foo-2.7” 版本的时候，仅添加这个文件到文件系统中，删除符号链接 “foo”，
+创建一个指向新版本的符号链接。这不仅解决了版本升级问题，而且还允许在系统中保存两个不同的文件版本。
+假想 “foo-2.7” 有个错误（该死的开发者！）,那我们得回到原来的版本。
 一样的操作，我们只需要删除指向新版本的符号链接，然后创建指向旧版本的符号链接就可以了。
 
 The directory listing above (from the /lib directory of a Fedora system) shows a
@@ -1063,8 +1055,8 @@ symbolic link called “libc.so.6” that points to a shared library file called
 This means that programs looking for “libc.so.6” will actually get the file “libc-2.6.so.”
 We will learn how to create symbolic links in the next chapter.
 
-在上面列出的目录（来自于 Fedora 的/lib 目录）展示了一个叫做“libc.so.6”的符号链接，这个符号链接指向一个
-叫做“libc-2.6.so”的共享库文件。这意味着，寻找文件“libc.so.6”的程序，实际上得到是文件“libc-2.6.so”。
+在上面列出的目录（来自于 Fedora 的 /lib 目录）展示了一个叫做 “libc.so.6” 的符号链接，这个符号链接指向一个
+叫做 “libc-2.6.so” 的共享库文件。这意味着，寻找文件 “libc.so.6” 的程序，实际上得到是文件 “libc-2.6.so”。
 在下一章节，我们将学习如何建立符号链接。
 
 Hard Links

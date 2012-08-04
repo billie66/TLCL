@@ -71,14 +71,16 @@ terms.
 
 请查看下面的“拓展阅读”部分，有几篇关于这些术语的有用文章。
 
-<hr style="width:100%;height:5px;background:gray" />
+---
+
 <p align="left">Note: Some of the commands we will cover may (depending on your distribution)
 require the installation of additional packages from your distribution’s repositories,
 and some may require superuser privileges to execute.</p>
 
 注意：一些将要讲到的命令可能（取决于系统发行版）需要从系统发行版的仓库中安装额外的软件包，
 并且一些命令可能需要超级用户权限才能执行。
-<hr style="width:100%;height:5px;background:gray" />
+
+---
 
 ### Examining And Monitoring A Network
 
@@ -99,7 +101,8 @@ verified.
 最基本的网络命令是 ping。这个 ping 命令发送一个特殊的网络数据包，叫做 IMCP ECHO\_REQUEST，到
 一台指定的主机。大多数接收这个包的网络设备将会回复它，来允许网络连接验证。
 
-<hr style="width:100%;height:5px;background:gray" />
+---
+
 Note: It is possible to configure most network devices (including Linux hosts) to
 ignore these packets. This is usually done for security reasons, to partially obscure
 a host from a potential attacker. It is also common for firewalls to be configured to
@@ -107,7 +110,8 @@ block IMCP traffic.
 
 注意：有可能配置大多数网络设备（包括 Linux 主机）来忽略这些数据包。通常，这样做是出于网络安全
 原因，部分地遮蔽一台主机免受一个潜在攻击者地侵袭。配置防火墙来阻塞 IMCP 流量也很普遍。
-<hr style="width:100%;height:5px;background:gray" />
+
+---
 
 For example, to see if we can reach linuxcommand.org (one of our favorite sites ;-),
 we can use use ping like this:
@@ -549,7 +553,8 @@ Hat）,而另一些（比方说 Ubuntu）则只是提供客户端服务。为了
 安装 OpenSSH-server 软件包，配置，运行它，并且（如果系统正在运行，或者是在防火墙之后）
 它必须允许在 TCP 端口号上接收网络连接。
 
-<hr style="width:100%;height:5px;background:gray" />
+---
+
 Tip: If you don’t have a remote system to connect to but want to try these
 examples, make sure the OpenSSH-server package is installed on your system
 and use localhost as the name of the remote host. That way, your machine will
@@ -557,7 +562,8 @@ create network connections with itself.
 
 小贴示：如果你没有远端系统去连接，但还想试试这些实例，则确认安装了 OpenSSH-server 软件包
 ，则可使用 localhost 作为远端主机的名字。这种情况下，计算机会和它自己创建网络连接。
-<hr style="width:100%;height:5px;background:gray" />
+
+---
 
 The SSH client program used to connect to remote SSH servers is called, appropriately
 enough, ssh. To connect to a remote host named remote-sys, we would use the ssh
@@ -745,8 +751,8 @@ graphical output on our local system. We could do this:</p>
 叫做 linuxbox 的机器之前，且系统中运行着 X 服务器，现在我们想要在名为 remote-sys 的远端系统中
 运行 xload 程序，但是要在我们的本地系统中看到这个程序的图形化输出。我们可以这样做：</p>
 
-<p> [me@linuxbox ~]$ ssh -X remote-sys</p>
-<p> me@remote-sys's password:</p>
+<p>[me@linuxbox ~]$ ssh -X remote-sys</p>
+<p>me@remote-sys's password:</p>
 <p>Last login: Mon Sep 08 13:23:11 2008</p>
 <p>[me@remote-sys ~]$ xload</p>
 
@@ -780,7 +786,6 @@ current working directory on our local system, we could do this:
     document.txt
     100%        5581        5.5KB/s         00:00
     [me@linuxbox ~]$
-    
 
 As with ssh, you may apply a user name to the beginning of the remote host’s name if
 the desired remote host account name does not match that of the local system:
@@ -790,7 +795,6 @@ the desired remote host account name does not match that of the local system:
 
     [me@linuxbox ~]$ scp bob@remote-sys:document.txt .
     
-
 The second SSH file copying program is sftp which, as its name implies, is a secure
 replacement for the ftp program. sftp works much like the original ftp program that
 we used earlier; however, instead of transmitting everything in cleartext, it uses an SSH
@@ -817,19 +821,20 @@ also be used as a FTP-like server. Here is a sample session:
     /home/me/ubuntu-8.04-desktop-i386.iso 100% 699MB 7.4MB/s 01:35
     sftp> bye
     
-
 <br />
 
-<hr style="width:100%;height:5px;background:gray" />
+---
+
 Tip: The SFTP protocol is supported by many of the graphical file managers found
 in Linux distributions. Using either Nautilus (GNOME) or Konqueror (KDE), we
 can enter a URI beginning with sftp:// into the location bar and operate on files
 stored on a remote system running an SSH server.
 
-小贴示：这个 SFTP 协议被许多 Linux 发行版中的图形化文件管理器支持。使用 Nautilus (GNOME),
- 或者是 Konqueror (KDE)，我们都能在位置栏中输入以 sftp://开头的 URI，
- 来操作存储在运行着 SSH 服务器的远端系统中的文件。
-<hr style="width:100%;height:5px;background:gray" />
+小贴示：这个 SFTP 协议被许多 Linux 发行版中的图形化文件管理器支持。使用
+Nautilus (GNOME), 或者是 Konqueror (KDE)，我们都能在位置栏中输入以
+sftp://开头的 URI， 来操作存储在运行着 SSH 服务器的远端系统中的文件。
+
+---
 
 <br />
 

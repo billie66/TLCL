@@ -298,13 +298,13 @@ files:
     
 
 <br />
-<hr style="height:5px;width:100%;background:gray" />
+
+---
 
 <p><b>Tip:</b> There is a zless program, too. It performs the same function as the pipeline above.</p>
-
 <p><b>小贴士:</b> 还有一个 zless 程序。它与上面的管道线有相同的功能。</p>
 
-<hr style="height:5px;width:100%;background:gray" />
+---
 
 #### bzip2
 

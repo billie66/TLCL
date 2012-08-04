@@ -457,22 +457,21 @@ provides a mechanism called quoting to selectively suppress unwanted expansions.
 
 The first type of quoting we will look at is double quotes. If you place text
 inside double quotes, all the special characters used by the shell lose their
-special meaning and are treated as ordinary characters. The exceptions are
-__$__, __\__ (backslash), and __`__ (back-quote). This means that word-splitting,
-pathname expansion, tilde expansion, and brace expansion are suppressed, but
-parameter expansion, arithmetic expansion, and command substitution are still
-carried out. Using double quotes, we can cope with filenames containing
-embedded spaces. Say we were the unfortunate victim of a file called 
-__two words.txt__.If we tried to use this on the command line, word-splitting would
-cause this to be treated as two separate arguments rather than the desired
-single argument:
+special meaning and are treated as ordinary characters. The exceptions are $,
+\\ (backslash), and \` (back-quote). This means that word-splitting, pathname
+expansion, tilde expansion, and brace expansion are suppressed, but parameter
+expansion, arithmetic expansion, and command substitution are still carried
+out. Using double quotes, we can cope with filenames containing embedded
+spaces. Say we were the unfortunate victim of a file called _two words.txt_.If
+we tried to use this on the command line, word-splitting would cause this to
+be treated as two separate arguments rather than the desired single argument:
 
 我们将要看一下引用的第一种类型，双引号。如果你把文本放在双引号中，
-shell 使用的特殊字符，除了 __$__, __\__ (反斜杠），和 __`__（倒引号）之外，
+shell 使用的特殊字符，除了 $，\\ (反斜杠），和 \`（倒引号）之外，
 则失去它们的特殊含义，被当作普通字符来看待。这意味着单词分割，路径名展开，
 波浪线展开，和花括号展开都被禁止，然而参数展开，算术展开，和命令替换
 仍然执行。使用双引号，我们可以处理包含空格的文件名。比方说我们是不幸的
-名为 __two words.txt__ 文件的受害者。如果我们试图在命令行中使用这个
+名为 _two words.txt_ 文件的受害者。如果我们试图在命令行中使用这个
 文件，单词分割机制会导致这个文件名被看作两个独自的参数，而不是所期望
 的单个参数：
 
