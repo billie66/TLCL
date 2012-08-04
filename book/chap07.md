@@ -694,7 +694,7 @@ line programs use standard error to display their informative messages.
 
 <div class="single">
 <h3>Linux Is About Imagination</h3>
-<h3>Linux 是关于想象力的</h3>
+<h3>Linux 可以激发我们的想象</h3>
 
 <p> When I am asked to explain the difference between Windows and Linux, I often
 use a toy analogy.  </p>
