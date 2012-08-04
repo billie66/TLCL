@@ -8,25 +8,25 @@ used to format text output, rather than changing the text itself. These tools ar
 to prepare text for eventual printing, a subject that we will cover in the next chapter. The
 programs that we will cover in this chapter include:
 
-● nl – Number lines
+* nl – Number lines
 
-● fold – Wrap each line to a specified length
+* fold – Wrap each line to a specified length
 
-● fmt – A simple text formatter
+* fmt – A simple text formatter
 
-● pr – Prepare text for printing
+* pr – Prepare text for printing
 
-● printf – Format and print data
+* printf – Format and print data
 
-● groff – A document formatting system
+* groff – A document formatting system
 
-###Simple Formatting Tools
+### Simple Formatting Tools
 
 We’ll look at some of the simple formatting tools first. These are mostly single purpose
 programs, and a bit unsophisticated in what they do, but they can be used for small tasks
 and as parts of pipelines and scripts.
 
-####nl – Number Lines
+#### nl – Number Lines
 
 The nl program is a rather arcane tool used to perform a simple task. It numbers lines.
 In its simplest use, it resembles cat -n:
@@ -175,7 +175,7 @@ and
 
     nl -w 3 -s ' '
 
-####fold – Wrap Each Line To A Specified Length
+#### fold – Wrap Each Line To A Specified Length
 
 Folding is the process of breaking lines of text at a specified width. Like our other
 commands, fold accepts either one or more text files or standard input. If we send
@@ -202,7 +202,7 @@ fold to break the line at the last available space before the line width is reac
     the lazy
     dog.
 
-####fmt – A Simple Text Formatter
+#### fmt – A Simple Text Formatter
 
 The fmt program also folds text, plus a lot more. It accepts either files or standard input
 and performs paragraph formatting on the text stream. Basically, it fills and joins lines in

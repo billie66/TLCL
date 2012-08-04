@@ -1162,9 +1162,10 @@ foo1.txt, we would enter the following:
 
     :w foo1.txt
     
-
 <br />
+
 ---
+
 Note: While the command above saves the file under a new name, it does not
 change the name of the file you are editing. As you continue to edit, you will still
 be editing foo.txt, not foo1.txt.

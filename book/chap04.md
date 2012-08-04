@@ -644,6 +644,7 @@ readable text. As we go about our tour, try the following:
 </ol>
 
 ---
+
 Remember the copy and paste trick! If you are using a mouse, you can double
 click on a filename to copy it and middle click to paste it into commands.
 

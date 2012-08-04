@@ -40,15 +40,17 @@ contents of PS1 with the echo command:
     [me@linuxbox ~]$ echo $PS1
     [\u@\h \W]\$
     
-
 <br />
+
 ---
+
 Note: Don't worry if your results are not exactly the same as the example above.
 Every Linux distribution defines the prompt string a little differently, some quite
 exotically.
 
 注意：如果你 shell 提示符的内容和上例不是一模一样，也不必担心。每个 Linux 发行版
 定义的提示符稍微有点不同，其中一些相当异乎寻常。
+
 ---
 
 From the results, we can see that PS1 contains a few of the characters we see in our
@@ -57,7 +59,7 @@ The astute among us will recognize these as backslash-escaped special characters
 those we saw in Chapter 8. Here is a partial list of the characters that the shell treats
 specially in the prompt string:
 
-从输出结果中，我们看到那个 PS1环境变量包含一些这样的字符，比方说中括号，@符号，和美元符号，
+从输出结果中，我们看到那个 PS1 环境变量包含一些这样的字符，比方说中括号，@符号，和美元符号，
 但是剩余部分就是个谜。我们中一些机敏的人会把这些看作是由反斜杠转义的特殊字符，就像我们
 在第八章中看到的一样。这里是一部分字符列表，在提示符中 shell 会特殊对待这些字符：
 
@@ -563,15 +565,19 @@ escape code:
 Try out the color codes and see what you can create!
 
 试试这些颜色编码，看看你能定制出怎样的提示符！
+
 <br />
+
 ---
+
 Note: Besides the normal (0) and bold (1) character attributes, text may also be
 given underscore (4), blinking (5), and inverse (7) attributes as well. In the
 interests of good taste, many terminal emulators refuse to honor the blinking
 attribute, however.
 
-注意：除了正常的（0）和黑体（1）字符属性之外，文本也可以具有下划线（4），闪烁（5），
-和反向（7）属性。为了拥有好品味，然而，许多终端仿真器拒绝使用这个闪烁属性。
+注意：除了正常的 (0) 和黑体 (1) 字符属性之外，文本也可以具有下划线 (4)，闪烁 (5)，
+和反向 (7) 属性。为了拥有好品味，然而，许多终端仿真器拒绝使用这个闪烁属性。
+
 ---
 
 Moving The Cursor

@@ -244,6 +244,7 @@ descriptor one (standard output) using the notation 2&gt;&amp;1.
 重定向文件描述符2（标准错误）到文件描述符1（标准输出）使用表示法2&gt;&amp;1。
 
 ---
+
 Notice that the order of the redirections is significant. The redirection of
 standard error must always occur after redirecting standard output or it doesn't
 work. In the example above,
@@ -251,17 +252,18 @@ work. In the example above,
 注意重定向的顺序安排非常重要。标准错误的重定向必须总是出现在标准输出
 重定向之后，要不然它不起作用。上面的例子，
 
-<p>&gt;ls-output.txt 2&gt&amp;;1</p>
+<p>&gt;ls-output.txt 2&gt;&amp;1</p>
 
 redirects standard error to the file ls-output.txt, but if the order is changed to
 
 重定向标准错误到文件 ls-output.txt，但是如果命令顺序改为：
 
-2&gl;&amp;1 &gl;ls-output.txt
+2&gt;&amp;1 &gt;ls-output.txt
 
 standard error is directed to the screen.
 
 则标准错误定向到屏幕。
+
 ---
 
 Recent versions of bash provide a second, more streamlined method for performing this
@@ -275,7 +277,7 @@ combined redirection:
 In this example, we use the single notation &> to redirect both standard output and
 standard error to the file ls-output.txt.
 
-在这个例子里面，我们使用单单一个表示法&amp;&gt;来重定向标准输出和错误到文件 ls-output.txt。
+在这个例子里面，我们使用单单一个表示法 &amp;&gt; 来重定向标准输出和错误到文件 ls-output.txt。
 
 ### Disposing Of Unwanted Output
 
@@ -293,7 +295,6 @@ To suppress error messages from a command, we do this:
 接受输入，并且对输入不做任何处理。为了隐瞒命令错误信息，我们这样做：
 
     [me@linuxbox ~]$ ls -l /bin/usr 2> /dev/null
-    
 
 <div class="single">
 <h3>/dev/null in Unix Culture</h3>

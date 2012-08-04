@@ -1021,9 +1021,9 @@ contents to an ordinary file for later restoration or copying:
 以后恢复或复制数据：
 
     dd if=/dev/sdb of=flash_drive.img
-    
 
 ---
+
 Warning! The dd command is very powerful. Though its name derives from “data
 definition,” it is sometimes called “destroy disk” because users often mistype either
 the if or of specifications. <b>Always double check your input and output
@@ -1031,6 +1031,7 @@ specifications before pressing enter!</b>
 
 警告！这个 dd 命令非常强大。虽然它的名字来自于“数据定义”，有时候也把它叫做“清除磁盘”
 因为用户经常会误输入 if 或 of 的规范。<b>在按下回车键之前，要再三检查输入与输出规范！</b>
+
 ---
 
 Creating CD-ROM Images

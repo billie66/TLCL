@@ -393,7 +393,7 @@ and write while removing all permissions from the group owner and world. Though
 remembering the octal to binary mapping may seem inconvenient, you will usually only
 have to use a few common ones: 7 (rwx), 6 (rw-), 5 (r-x), 4 (r--), and 0 (---).
 
-通过传递参数“600”，我们能够设置文件所有者的权限为读写权限，而删除用户组和其他人的所有
+通过传递参数 “600”，我们能够设置文件所有者的权限为读写权限，而删除用户组和其他人的所有
 权限。虽然八进制到二进制的映射看起来不方便，但通常只会用到一些常见的映射关系：
 7 (rwx)， 6 (rw-)，5 (r-x)， 4 (r--)， and 0 (---)。
 

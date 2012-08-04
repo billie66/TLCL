@@ -844,8 +844,8 @@ Warning: It should go without saying that you should use extreme caution when
 using the -delete action. Always test the command first by substituting the
 -print action for -delete to confirm the search results.
 
-警告：当使用-delete 操作时，不用说，你应该格外小心。首先测试一下命令，用-print 操作代替-delete，
-来确认搜索结果。
+警告：当使用 -delete 操作时，不用说，你应该格外小心。首先测试一下命令，
+用 -print 操作代替 -delete，来确认搜索结果。
 
 ---
 
@@ -855,7 +855,6 @@ Consider the following command:
 在我们继续之前，让我们看一下逻辑运算符是怎样影响操作的。考虑以下命令：
 
     find ~ -type f -name '\*.BAK' -print
-    
 
 As we have seen, this command will look for every regular file (-type f) whose name
 ends with .BAK (-name '\*.BAK') and will output the relative pathname of each
@@ -865,9 +864,9 @@ actions. Remember, there is, by default, an implied -and relationship between ea
 and action. We could also express the command this way to make the logical
 relationships easier to see:
 
-正如我们所见到的，这个命令会查找每个文件名以.BAK（-name '\*.BAK'）结尾的普通文件（-type f），
-并把每个匹配文件的相对路径名输出到标准输出（-print）。然而，此命令按这个方式执行的原因，是
-由每个测试和操作之间的逻辑关系决定的。记住，在每个测试和操作之间会默认应用-and 逻辑运算符。
+正如我们所见到的，这个命令会查找每个文件名以.BAK (-name '\*.BAK') 结尾的普通文件 (-type f)，
+并把每个匹配文件的相对路径名输出到标准输出 (-print)。然而，此命令按这个方式执行的原因，是
+由每个测试和操作之间的逻辑关系决定的。记住，在每个测试和操作之间会默认应用 -and 逻辑运算符。
 我们也可以这样表达这个命令，使逻辑关系更容易看出：
 
     find ~ -type f -and -name '\*.BAK' -and -print
@@ -1072,10 +1071,11 @@ execute xargs with the --show-limits option.
 
 注意：当被放置到命令行中的参数个数相当大时，参数个数是有限制的。有可能创建的命令
 太长以至于 shell 不能接受。当命令行超过系统支持的最大长度时，xargs 会执行带有最大
-参数个数的指定命令，然后重复这个过程直到耗尽标准输入。执行带有--show--limits 选项
+参数个数的指定命令，然后重复这个过程直到耗尽标准输入。执行带有 --show--limits 选项
 的 xargs 命令，来查看命令行的最大值。
 
 ---
+
 <br />
 
 <div class="single">
@@ -1099,8 +1099,8 @@ accepts null separated input. Here’s an example:</p>
 程序构建参数列表的 xargs 程序，造成了问题。一个嵌入的空格会被看作是一个界定符，生成的
 命令会把每个空格分离的单词解释为单独的参数。为了解决这个问题，find 命令和 xarg 程序
 允许可选择的使用一个 null 字符作为参数分隔符。一个 null 字符被定义在 ASCII 码中，由数字
-零来表示（相反的，例如，空格字符在 ASCII 码中由数字32表示）。find 命令提供的-print0行为，
-则会产生由 null 字符分离的输出，并且 xargs 命令有一个--null 选项，这个选项会接受由 null 字符
+零来表示（相反的，例如，空格字符在 ASCII 码中由数字32表示）。find 命令提供的 -print0 行为，
+则会产生由 null 字符分离的输出，并且 xargs 命令有一个 --null 选项，这个选项会接受由 null 字符
 分离的输入。这里有一个例子：</p>
 
 <p> find ~ -iname '\*.jpg' -print0 | xargs --null ls -l </p>
@@ -1160,7 +1160,6 @@ them:
 
     [me@linuxbox ~]$ find playground -type f -name 'file-A'
     
-
 Note that unlike ls, find does not produce results in sorted order. Its order is
 determined by the layout of the storage device. To confirm that we actually have one
 hundred instances of the file we can confirm it this way:
@@ -1169,7 +1168,6 @@ hundred instances of the file we can confirm it this way:
 我们拥有一百个此文件的实例，我们可以用这种方式来确认：
 
     [me@linuxbox ~]$ find playground -type f -name 'file-A' | wc -l 
-    
 
 Next, let’s look at finding files based on their modification times. This will be helpful
 when creating backups or organizing files in chronological order. To do this, we will first
@@ -1179,7 +1177,6 @@ create a reference file against which we will compare modification time:
 组织文件的时候，这会很有帮助。为此，首先我们将创建一个参考文件，我们将与其比较修改时间：
 
     [me@linuxbox ~]$ touch playground/timestamp
-    
 
 This creates an empty file named timestamp and sets its modification time to the
 current time. We can verify this by using another handy command, stat, which is a
@@ -1199,7 +1196,6 @@ understands about a file and its attributes:
     Modify: 2008-10-08 15:15:39.000000000 -0400
     Change: 2008-10-08 15:15:39.000000000 -0400
     
-
 If we touch the file again and then examine it with stat, we will see that the file’s
 times have been updated.
 
@@ -1215,14 +1211,12 @@ times have been updated.
     Modify: 2008-10-08 15:23:33.000000000 -0400
     Change: 2008-10-08 15:23:33.000000000 -0400 
     
-
 Next, let’s use find to update some of our playground files:
 
 下一步，让我们使用 find 命令来更新一些操练场中的文件：
 
     [me@linuxbox ~]$ find playground -type f -name 'file-B' -exec touch '{}' ';' 
     
-
 This updates all files in the playground named file-B. Next we’ll use find to identify
 the updated files by comparing all the files to the reference file timestamp:
 
@@ -1231,7 +1225,6 @@ the updated files by comparing all the files to the reference file timestamp:
 
     [me@linuxbox ~]$ find playground -type f -newer playground/timestamp
     
-
 The results contain all one hundred instances of file-B. Since we performed a touch
 on all the files in the playground named file-B after we updated timestamp, they
 are now “newer” than timestamp and thus can be identified with the -newer test.
@@ -1247,21 +1240,19 @@ playground:
 
     [me@linuxbox ~]$ find playground \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)
     
-
 This command lists all one hundred directories and twenty-six hundred files in
 playground (as well as timestamp and playground itself, for a total of 2702)
 because none of them meets our definition of “good permissions.” With our knowledge
 of operators and actions, we can add actions to this command to apply new permissions
 to the files and directories in our playground:
 
-这个命令列出了操练场中所有一百个目录和二百六十个文件（还有 timestamp 和操练场本身，共2702个）
+这个命令列出了操练场中所有一百个目录和二百六十个文件（还有 timestamp 和操练场本身，共 2702 个）
 ，因为没有一个符合我们“正确权限”的定义。通过对运算符和行为知识的了解，我们可以给这个命令
 添加行为，对实战场中的文件和目录应用新的权限。
 
     [me@linuxbox ~]$ find playground \( -type f -not -perm 0600 -exec chmod 0600 '{}' ';' \) 
        -or \( -type d -not -perm 0711 -exec chmod 0700 '{}' ';' \)
     
-
 On a day-to-day basis, we might find it easier to issue two commands, one for the
 directories and one for the files, rather than this one large compound command, but it’s
 nice to know that we can do it this way. The important point here is to understand how

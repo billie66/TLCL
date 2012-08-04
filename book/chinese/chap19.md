@@ -146,7 +146,11 @@ valign="top">解压缩。正如 gunzip 命令一样。也可以用--decompress �
     [me@linuxbox ~]$ zcat foo.txt.gz | less 
     
 
+---
+
 <p><b>小贴士:</b> 还有一个 zless 程序。它与上面的管道线有相同的功能。</p>
+
+---
 
 这个 bzip2程序，由 Julian Seward 开发，与 gzip 程序相似，但是使用了不同的压缩算法，
 舍弃了压缩速度，而实现了更高的压缩级别。在大多数情况下，它的工作模式等同于 gzip。

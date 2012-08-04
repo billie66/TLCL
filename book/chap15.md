@@ -359,15 +359,17 @@ from a non-repository site, it would be installed this way:
 
     rpm -i emacs-22.1-7.fc7-i386.rpm
     
-
 <br />
+
 ---
+
 Note: Since this technique uses the low-level rpm program to perform the
 installation, no dependency resolution is performed. If rpm discovers a missing
 dependency, rpm will exit with an error.
 
-注意：因为这项技术使用底层的 rpm 程序来执行安装任务，所以没有运行依赖解析。如果 rpm
-程序发现缺少了一个依赖，则会报错并退出。
+注意：因为这项技术使用底层的 rpm 程序来执行安装任务，所以没有运行依赖解析。
+如果 rpm 程序发现缺少了一个依赖，则会报错并退出。
+
 ---
 
 Removing A Package
@@ -485,11 +487,14 @@ package file emacs-22.1-7.fc7-i386.rpm on a Red Hat system:
     
 
 <br />
+
 ---
+
 Note: dpkg does not have a specific option for upgrading a package versus
 installing one as rpm does.
 
 注意：dpkg 程序与安装软件相比没有一个特定的选项，如 rpm 程序那样，来升级一个软件包，。
+
 ---
 
 Listing Installed Packages

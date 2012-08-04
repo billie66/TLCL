@@ -2,7 +2,6 @@
 layout: book
 title: shell&nbsp;环&nbsp;境
 ---
-The Environment
 
 As we discussed earlier, the shell maintains a body of information during our shell
 session called the environment. Data stored in the environment is used by programs to
