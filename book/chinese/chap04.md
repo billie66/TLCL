@@ -7,7 +7,9 @@ title: 探究操作系统
 Linux 系统有帮助的命令。
 
 * ls — 列出目录内容
+
 * file — 确定文件类型
+
 * less — 浏览文件内容
 
 ### ls 乐趣
@@ -184,11 +186,11 @@ valign="top">通常，如果指定了目录名，ls 命令会列出这个目录�
 <td valign="top">以字节数表示的文件大小。</td>
 </tr>
 <tr>
-<td valign="top" width="%20">2007-04-03 11:05 </td>
+<td valign="top">2007-04-03 11:05 </td>
 <td valign="top">上次修改文件的时间和日期。</td>
 </tr>
 <tr>
-<td valign="top" width="%20">oo-cd-cover.odf </td>
+<td valign="top">oo-cd-cover.odf </td>
 <td valign="top">文件名。</td>
 </tr>
 </table>
@@ -236,6 +238,7 @@ ASCII 文本。ASCII（发音是"As-Key"）是美国信息交换标准码的简�
 以文本格式存储，也有许多 Linux 工具来处理文本文件。甚至 Windows 也承认这种文件格式的重要性。著名的 NOTEPAD.EXE
 程序就是一个 ASCII 文本文件编辑器。 </p>
 </div>
+<br />
 
 为什么我们要查看文本文件呢？ 因为许多包含系统设置的文件（叫做配置文件），是以文本格式存储的，阅读它们
 可以更深入的了解系统是如何工作的。另外，许多系统所用到的实际程序（叫做脚本）也是以这种格式存储的。在随后的章节里，

@@ -13,11 +13,15 @@ will be useful along the way:
 Linux 系统有帮助的命令。
 
 * ls – List directory contents
+
 * file – Determine file type
+
 * less – View file contents
 
 * ls — 列出目录内容
+
 * file — 确定文件类型
+
 * less — 浏览文件内容
 
 More Fun With ls
@@ -302,11 +306,11 @@ later in this chapter.  </td>
 <td valign="top">Size of the file in bytes.  </td>
 </tr>
 <tr>
-<td valign="top" width="%20">2007-04-03 11:05 </td>
+<td valign="top">2007-04-03 11:05 </td>
 <td valign="top">Date and time of the file's last modification.  </td>
 </tr>
 <tr>
-<td valign="top" width="%20">oo-cd-cover.odf </td>
+<td valign="top">oo-cd-cover.odf </td>
 <td valign="top">Name of the file.  </td>
 </tr>
 </table>
@@ -404,8 +408,8 @@ convenient way to examine them.
 less 命令是一个用来浏览文本文件的程序。纵观 Linux
 系统，有许多人类可读的文本文件。less 程序为我们检查文本文件 提供了方便。
 
-<div class="single">
 
+<div class="single">
 <h3>What Is "Text"</h3>
 
 <h3> 什么是“文本”</h3>
@@ -451,6 +455,7 @@ OpenOffice.org 文档 编辑器创建的文件。这些文件，和简单的 ASC
 文本文件编辑器。 </p>
 
 </div>
+<br />
 
 Why would we want to examine text files? Because many of the files that contain system
 settings (called configuration files) are stored in this format, and being able to read them
@@ -460,8 +465,7 @@ learn how to edit text files in order to modify systems settings and write our o
 but for now we will just look at their contents.
 
 为什么我们要查看文本文件呢？ 因为许多包含系统设置的文件（叫做配置文件），是以文本格式存储的，阅读它们
-可以更深入的了解系统是如何工作的。另外，许多系统所用到的实际程序（叫做脚本）也是以这种格式存储的。在随后的章节里，
-我们将要学习怎样编辑文本文件，为的是修改系统设置，还要学习编写自己的脚本文件，但现在我们只是看看它们的内容而已。
+可以更深入的了解系统是如何工作的。另外，许多系统所用到的实际程序（叫做脚本）也是以这种格式存储的。在随后的章节里，我们将要学习怎样编辑文本文件，为的是修改系统设置，还要学习编写自己的脚本文件，但现在我们只是看看它们的内容而已。
 
 The less command is used like this:
 

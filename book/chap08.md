@@ -148,6 +148,7 @@ followed by any other characters.</p>
 <p>这种模式展开成为文件名，每个文件名以圆点开头，第二个字符不包含圆点，再包含至少一个字符，
 并且这个字符之后紧接着任意多个字符。</p>
 </div>
+<br />
 
 ### Tilde Expansion
 
@@ -674,6 +675,7 @@ we can create a primitive countdown timer:
 <p><b>sleep 10; echo "Time's up" $'\a'</b></p>
 
 </div>
+<br />
 
 ### Summing Up
 

@@ -234,6 +234,7 @@ Readline 程序的开发者们，不能确定一个专用多余的控制键的�
 如果你仍然在使用终端（在 Linux 中，你仍然可以得到一个终端），你也可以按下和
 释放 Esc 键来得到如控制 Alt 键一样的效果。</p>
 </div>
+<br />
 
 ### Completion
 
@@ -356,6 +357,7 @@ shell 函数是一种小巧的 shell 脚本，我们会在后面的章节中讨�
 <p>and see if you can find them. Not all distributions include them by default.  </p>
 <p>查看一下如果你能找到它们的话。默认情况下，并不是所有的发行版都包括它们。</p>
 </div>
+<br />
 
 ### Using History
 
@@ -591,6 +593,7 @@ complete list of the program’s options and features.
 <p>命令中的 file 是指用来存储 shell 会话记录的文件名。如果没有指定文件名，则使用文件
 typescript。查看脚本的手册页，可以得到一个关于 script 程序选项和特点的完整列表。</p>
 </div>
+<br />
 
 ### Summing Up
 

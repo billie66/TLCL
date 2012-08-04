@@ -315,6 +315,7 @@ be very useful...</p>
 <p>现在，十六进制表示法（经常叫做“hex”）比八进制更普遍，但是我们很快会看到，用八进制
 来表示3个二进制数非常有用处...</p>
 </div>
+<br />
 
 With octal notation we use octal numbers to set the pattern of desired permissions. Since
 each digit in an octal number represents three binary digits, this maps nicely to the
@@ -732,6 +733,7 @@ Here are some examples. First, a program that is setuid:</p>
 <p>drwxrwxrwt</p>
 
 </div>
+<br />
 
 ### Changing Identities
 
@@ -941,6 +943,7 @@ similar powers to subsequent user accounts.</p>
 通过 sudo 命令，最初的用户可以拥有超级用户权限，也可以授予随后的用户帐号相似的权力。</p>
 
 </div>
+<br />
 
 ### chown – Change File Owner And Group
 

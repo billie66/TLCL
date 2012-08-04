@@ -401,6 +401,7 @@ programming constructs. To stop indentation, type Ctrl-d.</p>
 leading colon characters) to your ~/.vimrc file.</p>
 <p>通过把这些命令（没有开头的冒号字符）添加到你的~/.vimrc 文件中，这些改动会永久生效。</p>
 </div>
+<br />
 
 ### Summing Up
 

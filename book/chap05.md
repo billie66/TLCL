@@ -352,6 +352,7 @@ desktop so powerful.</p>
 <p>最初源于命令行界面中的想法，在图形界面中也适用。这就是使 Linux 桌面系统
 如此强大的众多原因中的一个。</p>
 </div>
+<br />
 
 ### mkdir — Create Directories
 
@@ -874,6 +875,7 @@ replace the ls with rm.</p>
 用 ls 命令来测试通配符。这会让你看到要删除的文件列表。然后按下上箭头按键，重新调用
 刚刚执行的命令，用 rm 替换 ls。</p>
 </div>
+<br />
 
 ### In — Create Links
 
@@ -1383,8 +1385,8 @@ copying, moving, or linking the file.
 在 GNOME 里面，当拖动文件时，同时按下 Ctrl+Shift 按键会创建一个链接，而不是
 复制（或移动）文件。在 KDE 中，无论什么时候放下一个文件，会弹出一个小菜单，
 这个菜单会提供复制，移动，或创建链接文件选项。</p>
-
 </div>
+<br />
 
 ### Summing Up
 

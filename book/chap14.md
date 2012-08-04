@@ -408,6 +408,7 @@ codes. </p>
 一套标准的字符序列集合来控制视频终端。原先 DOS 用户会记得 ANSI.SYS 文件，
 这是一个用来使这些编码解释生效的文件。</p>
 </div>
+<br />
 
 Character color is controlled by sending the terminal emulator an ANSI escape code
 embedded in the stream of characters to be displayed. The control code does not “print

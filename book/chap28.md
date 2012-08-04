@@ -1019,6 +1019,7 @@ portable.</p>
 在所有类型的系统中安装 bash 和其它的 GNU 工具，甚至是 Windows，而没有损失。所以就
 感觉可以自由的使用 bash 的所有功能。它是真正的可移植。</p>
 </div>
+<br />
 
 ### Control Operators: Another Way To Branch
 

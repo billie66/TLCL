@@ -222,6 +222,7 @@ programs discussed later in this chapter.</p>
 简单；它只简单地涉及到删除违规的回车符。通过随后本章中讨论的一些程序，这个工作很容易
 完成。</p>
 </div>
+<br />
 
 cat also has options that are used to modify text. The two most prominent are -n,
 which numbers lines, and -s, which suppresses the output of multiple blank lines. We
@@ -1010,6 +1011,7 @@ end of the line: </p>
 
 <p>Coreutils 软件包也提供了 unexpand 程序，用 tab 来代替空格。</p>
 </div>
+<br />
 
 When working with fields, it is possible to specify a different field delimiter rather than
 the tab character. Here we will extract the first field from the /etc/passwd file:
@@ -1758,6 +1760,7 @@ encoding. Wikipedia contains a good article on the subject:</p>
 <p>http://en.wikipedia.org/wiki/ROT13</p>
 
 </div>
+<br />
 
 tr can perform another trick, too. Using the -s option, tr can “squeeze” (delete)
 repeated instances of a character:
@@ -2400,6 +2403,7 @@ awk 程序通常逐行处理文本文件，这点类似于 sed，awk 使用了�
 但是对于 Linux 命令行用户来说，它们都是非常好的技能。</p>
 
 </div>
+<br />
 
 #### aspell
 

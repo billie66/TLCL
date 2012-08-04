@@ -16,8 +16,8 @@ html {
 }
 
 p.figure {
-  font-style:italic;
-  text-align:center;
+  font-style: italic;
+  text-align: center;
 }
 
 div.code pre{
@@ -46,7 +46,8 @@ hr {
 }
 
 div.single {
-  border:2px solid #E7E5DC;
+  border: 2px solid #E7E5DC;
+  padding: 3% 3% 1%;
   background-color: #f8f8f8;
 }
 
@@ -61,7 +62,7 @@ caption.cap {
 }
 
 th.title {
-  background-color:#f1f1f1;
+  background-color: #f1f1f1;
 }
 
 #tdlist {

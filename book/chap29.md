@@ -484,6 +484,7 @@ discussed in Chapter 37.</p>
 <p>使用 here 字符串是解决此问题的一种方法。另一种方法将在37章中讨论。</p>
 
 </div>
+<br />
 
 ### Validating Input
 

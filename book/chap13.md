@@ -176,6 +176,7 @@ missing features. If this is the case, install the full version of vim.</p>
 其默认只支持有限的 vim 特性。当练习随后的课程时，你可能会遇到缺失的功能。
 如果是这种情况，就安装 vim 的完整版。</p>
 </div>
+<br />
 
 Editing Modes
 

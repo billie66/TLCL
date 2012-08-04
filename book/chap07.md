@@ -309,6 +309,7 @@ see the Wikipedia article on “/dev/null”.  </p>
 许多部分。当有人说他/她正在发送你的评论到/dev/null，现在你应该知道那是
 什么意思了。更多的例子，可以阅读 Wikipedia 关于"/dev/null"的文章。 </p>
 </div>
+<br />
 
 ### Redirecting Standard Input
 

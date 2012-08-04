@@ -139,6 +139,7 @@ updatedb 程序。因为数据库不能被持续地更新，所以当使用 loca
 更改为超级用户身份，在提示符下运行 updatedb 命令。</p>
 
 </div>
+<br />
 
 ### find – Find Files The Hard Way
 
@@ -1106,6 +1107,7 @@ spaces in their names, are handled correctly. </p>
 
 <p>使用这项技术，我们可以保证所有文件，甚至那些文件名中包含空格的文件，都能被正确地处理。</p>
 </div>
+<br />
 
 A Return To The Playground
 
