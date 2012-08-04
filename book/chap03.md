@@ -265,9 +265,9 @@ quickly changed.
 <td> Changes the working directory to the previous working directory.</td>
 </tr>
 <tr>
-<td id="tdlist">cd ~user\_name</td>
+<td id="tdlist">cd ~user_name</td>
 <td> Changes the working directory to the home directory of
-user\_name. For example, cd ~bob will change the directory to
+user_name. For example, cd ~bob will change the directory to
 the home directory of user “bob.” </td>
 </tr>
 </tbody>
@@ -291,7 +291,7 @@ the home directory of user “bob.” </td>
 <td > 更改工作目录到先前的工作目录。</td>
 </tr>
 <tr>
-<td id="tdlist">cd ~user\_name</td>
+<td id="tdlist">cd ~user_name</td>
 <td> 更改工作目录到用户主目录。例如, cd ~bob 会更改工作目录到用户“bob”的主目录。</td>
 </tr>
 </tbody>

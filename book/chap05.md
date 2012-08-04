@@ -56,7 +56,6 @@ manager. Pretty easy with the command line:
 
     cp -u *.html destination 
     
-
 Wildcards
 
 ### 通配符
@@ -81,7 +80,7 @@ and what they select:
 <th class="title">Meaning</th>
 </tr>
 <tr>
-<td valign="top">\*</td>
+<td valign="top">*</td>
 <td valign="top">Matches any characters</td>
 </tr>
 <tr>
@@ -111,7 +110,7 @@ characters</td>
 <th class="title">意义</th>
 </tr>
 <tr>
-<td valign="top">\*</td>
+<td valign="top">*</td>
 <td valign="top">匹配任意多个字符（包括零个或一个）</td>
 </tr>
 <tr>
@@ -210,15 +209,15 @@ filenames. Here are some examples of patterns and what they match:
 <th class="title">Matches</th>
 </tr>
 <tr>
-<td valign="top">\*</td>
+<td valign="top">*</td>
 <td valign="top">All files</td>
 </tr>
 <tr>
-<td valign="top">g\*</td>
+<td valign="top">g*</td>
 <td valign="top">All file beginning with "g"</td>
 </tr>
 <tr>
-<td valign="top">b\*.txt</td>
+<td valign="top">b*.txt</td>
 <td valign="top">Any file beginning with "b" followed by any characters and
 ending with ".txt"</td>
 </tr>
@@ -228,7 +227,7 @@ ending with ".txt"</td>
 characters</td>
 </tr>
 <tr>
-<td valign="top">[abc]\*</td>
+<td valign="top">[abc]*</td>
 <td valign="top">Any file beginning with either an "a", a "b", or a "c"</td>
 </tr>
 <tr>
@@ -237,15 +236,15 @@ characters</td>
 numerals</td>
 </tr>
 <tr>
-<td valign="top">[[:upper:]]\*</td>
+<td valign="top">[[:upper:]]*</td>
 <td valign="top">Any file beginning with an uppercase letter</td>
 </tr>
 <tr>
-<td valign="top">[![:digit:]]\*</td>
+<td valign="top">[![:digit:]]*</td>
 <td valign="top">Any file not beginning with a numeral</td>
 </tr>
 <tr>
-<td valign="top" width="25%">\*[[:lower:]123]</td>
+<td valign="top" width="25%">*[[:lower:]123]</td>
 <td valign="top">Any file ending with a lowercase letter or the numerals "1",
 "2", or "3"</td>
 </tr>
@@ -259,15 +258,15 @@ numerals</td>
 <th class="title">匹配对象</th>
 </tr>
 <tr>
-<td valign="top">\*</td>
+<td valign="top">*</td>
 <td valign="top">所有文件</td>
 </tr>
 <tr>
-<td valign="top">g\*</td>
+<td valign="top">g*</td>
 <td valign="top">文件名以“g”开头的文件</td>
 </tr>
 <tr>
-<td valign="top">b\*.txt</td>
+<td valign="top">b*.txt</td>
 <td valign="top">以"b"开头，中间有零个或任意多个字符，并以".txt"结尾的文件</td>
 </tr>
 <tr>
@@ -275,7 +274,7 @@ numerals</td>
 <td valign="top">以“Data”开头，其后紧接着3个字符的文件</td>
 </tr>
 <tr>
-<td valign="top">[abc]\*</td>
+<td valign="top">[abc]*</td>
 <td valign="top">文件名以"a","b",或"c"开头的文件</td>
 </tr>
 <tr>
@@ -283,16 +282,16 @@ numerals</td>
 <td valign="top">以"BACKUP."开头，并紧接着3个数字的文件</td>
 </tr>
 <tr>
-<td valign="top">[[:upper:]]\*</td>
+<td valign="top">[[:upper:]]*</td>
 <td valign="top">以大写字母开头的文件</td>
 </tr>
 <tr>
-<td valign="top">[![:digit:]]\*</td>
+<td valign="top">[![:digit:]]*</td>
 <td valign="top">不以数字开头的文件</td>
 </tr>
 <tr>
-<td valign="top" width="25%">\*[[:lower:]123]</td>
-<td valign="top">文件名以小写字母结尾，或以“1”，“2”，或“3”结尾的文件</td>
+<td valign="top" width="25%">*[[:lower:]123]</td>
+<td valign="top">文件名以小写字母结尾，或以 “1”，“2”，或 “3” 结尾的文件</td>
 </tr>
 </table>
 </p>
@@ -335,7 +334,7 @@ wildcards and the files in the currently viewed directory will be highlighted
 for selection.</li>
 <li>In Dolphin and Konqueror (the file managers for KDE), you can enter
 wildcards directly on the location bar. For example, if you want to see all the
-files starting with a lowercase “u” in the /usr/bin directory, type “/usr/bin/u\*”
+files starting with a lowercase “u” in the /usr/bin directory, type “/usr/bin/u*” 
 into the location bar and it will display the result.  </li>
 </ul>
 
@@ -344,7 +343,7 @@ into the location bar and it will display the result.  </li>
 就会高亮显示。</li>
 
 <li>在 Dolphin 和 Konqueror（KDE 文件管理器）中，可以在地址栏中直接输入通配符。例如，如果你
-想查看目录 /usr/bin 中，所有以小写字母 "u" 开头的文件，在地址栏中敲入 "/usr/bin/u\*"，则
+想查看目录 /usr/bin 中，所有以小写字母 "u" 开头的文件，在地址栏中敲入 "/usr/bin/u*"，则
 文件管理器会显示匹配的结果。</li></ul>
 
 <p>Many ideas originally found in the command line interface make their way into
@@ -396,14 +395,12 @@ cp 命令，复制文件或者目录。它有两种使用方法：
 
     cp item1 item2
     
-
 to copy the single file or directory “item1” to file or directory “item2” and:
 
 复制单个文件或目录"item1"到文件或目录"item2"，和：
 
     cp item... directory
     
-
 to copy multiple items (either files or directories) into a directory.
 
 复制多个项目（文件或目录）到一个目录下。
@@ -581,12 +578,10 @@ mv 命令可以执行文件移动和文件命名任务，这依赖于你怎样�
 
     mv item1 item2
     
-
 to move or rename file or directory “item1” to “item2” or:
 
     mv item... directory
     
-
 to move one or more items from one directory to another.
 
 ### Useful Options And Examples

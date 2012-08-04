@@ -179,53 +179,51 @@ ls display its results in ascending alphabetical order.  </td>
 <table class="multi">
 <caption class="cap">表 4-1: ls 命令选项 </caption>
 <tr>
-<th class="title" width="10%">选项</th>
-<th class="title" width="15%" >长选项</th>
-<th class="title">描述</th>
+<th class="title">选项</th>
+<th>长选项</th>
+<th>描述</th>
 </tr>
 <tr>
 <td valign="top">-a</td>
-<td valign="top">--all</td>
-<td valign="top">列出所有文件名，包括以圆点开头的文件名，一般不会
-列出隐藏文件名。</td>
+<td>--all</td>
+<td>列出所有文件名，包括以圆点开头的文件名，一般不会列出隐藏文件名。</td>
 </tr>
 <tr>
 <td valign="top">-d</td>
-<td valign="top">--directory</td>
-<td
-valign="top">通常，如果指定了目录名，ls 命令会列出这个目录中的内容，而不是目录本身。
+<td>--directory</td>
+<td>通常，如果指定了目录名，ls 命令会列出这个目录中的内容，而不是目录本身。
 把这个选项与-l 选项结合使用，可以看到所指定目录的详细信息，而不是目录中的内容。</td>
 </tr>
 <tr>
-<td valign="top">-F</td>
-<td valign="top">--classify</td>
-<td valign="top">这个选项会在每个所列出的名字后面加上一个指示符。例如，如果名字是
+<td >-F</td>
+<td >--classify</td>
+<td >这个选项会在每个所列出的名字后面加上一个指示符。例如，如果名字是
 目录名，则会加上一个“/”字符。 </td>
 </tr>
 <tr>
-<td valign="top">-h</td>
-<td valign="top">--human-readable</td>
-<td valign="top">以长格式列出。以人们可读的格式，而不是以字节数来显示文件的大小。</td>
+<td >-h</td>
+<td >--human-readable</td>
+<td >以长格式列出。以人们可读的格式，而不是以字节数来显示文件的大小。</td>
 </tr>
 <tr>
-<td valign="top">-l</td>
-<td valign="top"> </td>
-<td valign="top">以长格式显示结果。 </td>
+<td >-l</td>
+<td > </td>
+<td >以长格式显示结果。 </td>
 </tr>
 <tr>
-<td valign="top">-r</td>
-<td valign="top">--reverse</td>
-<td valign="top">以相反的顺序来显示结果。通常，ls 命令的输出结果按照字母升序排列。</td>
+<td>-r</td>
+<td>--reverse</td>
+<td>以相反的顺序来显示结果。通常，ls 命令的输出结果按照字母升序排列。</td>
 </tr>
 <tr>
-<td valign="top">-S</td>
-<td valign="top"> </td>
-<td valign="top">命令输出结果按照文件大小来排序。 </td>
+<td>-S</td>
+<td> </td>
+<td>命令输出结果按照文件大小来排序。 </td>
 </tr>
 <tr>
-<td valign="top">-t</td>
-<td valign="top"> </td>
-<td valign="top">按照修改时间来排序。/td>
+<td>-t</td>
+<td> </td>
+<td>按照修改时间来排序。</td>
 </tr>
 </table>
 </p>
@@ -317,28 +315,28 @@ later in this chapter.  </td>
 有人的访问权限。这个字段的完整含义将在第十章讨论。 </td>
 </tr>
 <tr>
-<td valign="top">1</td>
-<td valign="top">文件的硬链接数目。参考随后讨论的关于链接的内容。 </td>
+<td>1</td>
+<td>文件的硬链接数目。参考随后讨论的关于链接的内容。 </td>
 </tr>
 <tr>
-<td valign="top">root</td>
-<td valign="top">文件属主的用户名。</td>
+<td>root</td>
+<td>文件属主的用户名。</td>
 </tr>
 <tr>
-<td valign="top">root</td>
-<td valign="top">文件所属用户组的名字。</td>
+<td>root</td>
+<td>文件所属用户组的名字。</td>
 </tr>
 <tr>
-<td valign="top">32059</td>
-<td valign="top">以字节数表示的文件大小。</td>
+<td>32059</td>
+<td>以字节数表示的文件大小。</td>
 </tr>
 <tr>
-<td valign="top" width="%20">2007-04-03 11:05 </td>
-<td valign="top">上次修改文件的时间和日期。</td>
+<td>2007-04-03 11:05 </td>
+<td>上次修改文件的时间和日期。</td>
 </tr>
 <tr>
-<td valign="top" width="%20">oo-cd-cover.odf </td>
-<td valign="top">文件名。</td>
+<td>oo-cd-cover.odf </td>
+<td>文件名。</td>
 </tr>
 </table>
 </p>
@@ -367,7 +365,6 @@ contents. For example:
     [me@linuxbox ~]$ file picture.jpg
     picture.jpg: JPEG image data, JFIF standard 1.01
     
-
 There are many kinds of files. In fact, one of the common ideas in Unix-like operating
 systems such as Linux is that “everything is a file.” As we proceed with our lessons, we
 will see just how true that statement is.
