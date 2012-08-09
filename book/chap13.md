@@ -108,7 +108,6 @@ To start vi, we simply type the following:
 要想启动 vi，只要简单地输入以下命令：
 
     [me@linuxbox ~]$ vi
-    
 
 And a screen like this should appear:
 
@@ -116,7 +115,6 @@ And a screen like this should appear:
 
     VIM - Vi Improved
     ....
-    
 
 Just as we did with nano earlier, the first thing to learn is how to exit. To exit, we enter
 the following command (note that the colon character is part of the command):
@@ -124,7 +122,6 @@ the following command (note that the colon character is part of the command):
 正如我们之前操作 nano 时，首先要学的是怎样退出 vi。要退出 vi，输入下面的命令（注意冒号是命令的一部分）：
 
     :q
-    
 
 The shell prompt should return. If, for some reason, vi will not quit (usually because we
 made a change to a file that has not yet been saved), we can tell vi that we really mean it
@@ -135,7 +132,6 @@ shell 提示符应该返回。如果由于某种原因，vi 不能退出（通�
 
     :q!
     
-
 Tip: If you get “lost” in vi, try pressing the Esc key twice to find your way again.
 
 小贴示：如果你在 vi 中“迷失”了，试着按下 Esc 键两次来找到路（回到普通模式）。
@@ -189,7 +185,6 @@ we can create a new file with vi:
 
     [me@linuxbox ~]$ rm -f foo.txt
     [me@linuxbox ~]$ vi foo.txt
-    
 
 If all goes well, we should get a screen like this:
 
@@ -198,7 +193,6 @@ If all goes well, we should get a screen like this:
     ....
     "foo.txt" [New File]
     
-
 The leading tilde characters (”~”) indicate that no text exists on that line. This shows that
 we have an empty file. Do not type anything yet!
 
@@ -225,14 +219,12 @@ running in its usual enhanced mode (this will not appear in vi compatible mode):
 
     -- INSERT --
     
-
 Now we can enter some text. Try this:
 
 现在我们能输入一些文本了。试着输入这些文本：
 
     The quick brown fox jumped over the lazy dog.
     
-
 To exit insert mode and return to command mode, press the Esc key.
 
 按下 Esc 按键，退出插入模式并返回命令模式。
@@ -249,14 +241,12 @@ character should appear at the bottom of the screen:
 通过按下":"键，这很容易完成。按下冒号键之后，一个冒号字符应该出现在屏幕的底部：
 
     :
-    
 
 To write our modified file, we follow the colon with a “w” then Enter:
 
 为了写入我们修改的文件，我们在冒号之后输入"w"字符，然后按下回车键：
 
     :w
-    
 
 The file will be written to the hard drive and we should get a confirmation message at the
 bottom of the screen, like this:
@@ -264,7 +254,6 @@ bottom of the screen, like this:
 文件将会写入到硬盘，并且我们应该在屏幕底部得到一个确认信息，就像这样：
 
     "foo.txt" [New] 1L, 46C written
-    
 
 Tip: If you read the vim documentation, you will notice that (confusingly)
 command mode is called normal mode and ex commands are called command
@@ -283,7 +272,6 @@ which it shares with less. Here is a subset:
 当在 vi 命令模式下时，vi 提供了大量的移动命令，其中一些是与 less 阅读器共享的。这里
 列举了一些：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 13-1: Cursor Movement Keys</caption>
 <tr>
@@ -353,7 +341,6 @@ line of the file.</td>
 <td valign="top">To the last line of the file.</td>
 </tr>
 </table>
-</p>
 
 Why are the h, j, k, and l keys used for cursor movement? Because when vi was
 originally written, not all video terminals had arrow keys, and skilled typists could use
@@ -401,7 +388,6 @@ Let's go back to our foo.txt file for a moment:
 
     The quick brown fox jumped over the lazy dog.
     
-
 If we wanted to add some text to the end of this sentence, we would discover that the i
 command will not do it, since we can't move the cursor beyond the end of the line. vi
 provides a command to append text, the sensibly named “a” command. If we move the
@@ -413,7 +399,6 @@ and vi will enter insert mode. This will allow us to add some more text:
 光标就会越过行尾，vi 进入插入模式。这样就允许我们添加更多的文本：
 
     The quick brown fox jumped over the lazy dog. It was cool.
-    
 
 Remember to press the Esc key to exit insert mode.
 
@@ -436,7 +421,6 @@ Now we type “A” and add the following lines of text:
     Line 3
     Line 4
     Line 5
-    
 
 Again, press the Esc key to exit insert mode.
 
@@ -457,7 +441,6 @@ two existing lines and enters insert mode. This has two variants:
 我们插入文本的另一种方式是“打开”一行。这会在存在的两行之间插入一个空白行，并且进入插入模式。
 这种方式有两个变体：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 13-2: Line Opening Keys</caption>
 <tr>
@@ -473,7 +456,6 @@ two existing lines and enters insert mode. This has two variants:
 <td valign="top">The line above the current line.</td>
 </tr>
 </table>
-</p>
 
 We can demonstrate this as follows: place the cursor on “Line 3” then press the o key.
 
@@ -486,7 +468,6 @@ We can demonstrate this as follows: place the cursor on “Line 3” then press 
     line 4
     line 5
     
-
 A new line was opened below the third line and we entered insert mode. Exit insert mode
 by pressing the Esc key. Press the u key to undo our change.
 
@@ -502,7 +483,6 @@ Press the O key to open the line above the cursor:
     Line 3
     Line 4
     Line 5
-    
 
 Exit insert mode by pressing the Esc key and undo our change by pressing u.
 
@@ -524,7 +504,6 @@ x 按键会删除光标位置的一个字符。可以在 x 命令之前带上一
 d 按键更通用一些。类似 x 命令，d 命令之前可以带上一个数字，来指定要执行的删除次数。另外，
 d 命令之后总是带上一个移动命令，用来控制删除的范围。这里有些实例：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 13-3: Text Deletion Commands</caption>
 <tr>
@@ -574,7 +553,6 @@ of the the line.</td>
 <td valign="top">From the current line to the twentieth line of the file.</td>
 </tr>
 </table>
-</p>
 
 Place the cursor on the word “It” on the first line of our text. Press the x key repeatedly
 until the rest of the sentence is deleted. Next, press the u key repeatedly until the
@@ -598,7 +576,6 @@ the word “It” and press dW to delete the word:
     Line 4
     Line 5
     
-
 Press d$ to delete from the cursor position to the end of the line:
 
 按下 d$删除从光标位置到行尾的文本：
@@ -608,7 +585,6 @@ Press d$ to delete from the cursor position to the end of the line:
     Line 3
     Line 4
     Line 5
-    
 
 Press dG to delete from the current line to the end of the file:
 
@@ -617,7 +593,6 @@ Press dG to delete from the current line to the end of the file:
     
     ~ 
     ....
-    
 
 Press u three times to undo the deletion.
 
@@ -643,7 +618,6 @@ movement commands:
 y 命令用来“拉”（复制）文本，和 d 命令剪切文本的方式差不多。这里有些把 y 命令和各种移动命令
 结合起来使用的实例：
 
-<p>
 <table class="multi">
 <caption class="cap">Table13- 4: Yanking Commands
 </caption>
@@ -688,7 +662,6 @@ whitespace character in the line.</td>
 <td valign="top">From the current line to the twentieth line of the file.</td>
 </tr>
 </table>
-</p>
 
 Let's try some copy and paste. Place the cursor on the first line of the text and type yy to
 copy the current line. Next, move the cursor to the last line (G) and type p to paste the
@@ -703,7 +676,6 @@ line below the current line:
     Line 4
     Line 5
     The quick brown fox jumped over the lazy dog. It was cool.
-    
 
 Just as before, the u command will undo our change. With the cursor still positioned on
 the last line of the file, type P to paste the text above the current line:
@@ -717,7 +689,6 @@ the last line of the file, type P to paste the text above the current line:
     Line 4
     Line 5
     The quick brown fox jumped over the lazy dog. It was cool.
-    
 
 Try out some of the other y commands in the table above and get to know the behavior of
 both the p and P commands. When you are done, return the file to its original state.
@@ -747,7 +718,6 @@ If we place the cursor on line 3 and type the J command, here's what happens:
     Line 3 Line 4
     Line 5
     
-
 Search And Replace
 
 ### 查找和替换
@@ -793,14 +763,12 @@ string with the n command. Here's an example:
     Line 4
     Line 5
     
-
 Place the cursor on the first line of the file. Type:
 
 把光标移动到文件的第一行。输入：
 
     /Line
     
-
 followed by the Enter key. The cursor will move to line 2. Next, type n and the cursor
 will move to line 3. Repeating the n command will move the cursor down the file until it
 runs out of matches. While we have so far only used words and phrases for our search
@@ -825,12 +793,10 @@ vi 使用 ex 命令来执行查找和替代操作（vi 中叫做“替换”）�
 
     :%s/Line/line/g
     
-
 Let's break this command down into separate items and see what each one does:
 
 我们把这个命令分解为几个单独的部分，看一下每部分的含义：
 
-<p>
 <table class="multi">
 <tr>
 <th class="title">Item</th>
@@ -866,7 +832,6 @@ performed on every instance of the search string in the line. If omitted,
 only the first instance of the search string on each line is replaced.</td>
 </tr>
 </table>
-</p>
 
 After executing our search and replace command our file looks like this:
 
@@ -877,7 +842,6 @@ After executing our search and replace command our file looks like this:
     line 3
     line 4
     line 5
-    
 
 We can also specify a substitution command with user confirmation. This is done by
 adding a “c” to the end of the command. For example:
@@ -886,7 +850,6 @@ adding a “c” to the end of the command. For example:
 这个替换命令。例如：
 
     :%s/line/Line/gc
-    
 
 This command will change our file back to its previous form; however, before each
 substitution, vi stops and asks us to confirm the substitution with this message:
@@ -895,13 +858,11 @@ substitution, vi stops and asks us to confirm the substitution with this message
 通过下面的信息，来要求我们确认这个替换：
 
     replace with Line (y/n/a/q/l/^E/^Y)?
-    
 
 Each of the characters within the parentheses is a possible choice as follows:
 
 括号中的每个字符都是一个可能的选择，如下所示：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 13-5: Replace Confirmation Keys</caption>
 <tr>
@@ -935,7 +896,6 @@ of the pattern.</td>
 the context of the proposed substitution.</td>
 </tr>
 </table>
-</p>
 
 If you type y, the substitution will be performed, n will cause vi to skip this instance and
 move on to the next one.
@@ -955,7 +915,6 @@ can open multiple files for editing by specifying them on the command line:
 
     vi file1 file2 file3...
     
-
 Let's exit our existing vi session and create a new file for editing. Type :wq to exit vi
 saving our modified text. Next, we'll create an additional file in our home directory that
 we can play with. We'll create the file by capturing some output from the ls command:
@@ -965,13 +924,11 @@ we can play with. We'll create the file by capturing some output from the ls com
 
     [me@linuxbox ~]$ ls -l /usr/bin > ls-output.txt
     
-
 Let's edit our old file and our new one with vi:
 
 用 vi 来编辑我们的原文件和新创建的文件：
 
     [me@linuxbox ~]$ vi foo.txt ls-output.txt
-    
 
 vi will start up and we will see the first file on the screen:
 
@@ -983,7 +940,6 @@ vi 启动，我们会看到第一个文件显示出来：
     Line 4
     Line 5
     
-
 Switching Between Files
 
 #### 文件之间转换
@@ -993,14 +949,12 @@ To switch from one file to the next, use this ex command:
 从这个文件转到下一个文件，使用这个 ex 命令：
 
     :n
-    
 
 To move back to the previous file use:
 
 回到先前的文件使用：
 
     :N
-    
 
 While we can move from one file to another, vi enforces a policy that prevents us from
 switching files if the current file has unsaved changes. To force vi to switch files and
@@ -1022,7 +976,6 @@ files at the bottom of the display:
     1 #     "foo.txt"                 line 1
     2 %a    "ls-output.txt"           line 0
     Press ENTER or type command to continue
-    
 
 Note: You cannot switch to files loaded with the :e command using either the :n
 or :N command. To switch files, use the :buffer command followed by the
@@ -1030,7 +983,6 @@ buffer number.
 
 注意：你不同通过:n 或:N 命令在由:e 命令加载的文件之间进行切换。这时要使用:buffer 命令，
 其后加上缓冲区号码，来转换文件。
-
 
 Copying Content From One File Into Another
 
@@ -1047,7 +999,6 @@ used earlier. We can demonstrate as follows. First, using our two files, switch 
 
     :buffer 1
     
-
 which should give us this:
 
 我们应该得到以下输出：
@@ -1057,7 +1008,6 @@ which should give us this:
     Line 3
     Line 4
     Line 5
-    
 
 Next, move the cursor to the first line, and type yy to yank (copy) the line.
 
@@ -1069,7 +1019,6 @@ Switch to the second buffer by entering:
 
     :buffer 2
     
-
 The screen will now contain some file listings like this (only a portion is shown here):
 
 现在屏幕会包含一些文件列表（这里只列出了一部分）：
@@ -1077,7 +1026,6 @@ The screen will now contain some file listings like this (only a portion is show
     total 343700
     -rwxr-xr-x 1 root root    31316  2007-12-05  08:58 [
     ....
-    
 
 Move the cursor to the first line and paste the line we copied from the preceding file by
 typing the p command:
@@ -1089,7 +1037,6 @@ typing the p command:
     -rwxr-xr-x 1 root root    31316  2007-12-05  08:58 [
     ....
     
-
 Inserting An Entire File Into Another
 
 #### 插入整个文件到另一个文件
@@ -1102,21 +1049,18 @@ let's end our vi session and start a new one with just a single file:
 
     [me@linuxbox ~]$ vi ls-output.txt
     
-
 We will see our file listing again:
 
 再一次看到我们的文件列表：
 
     total 343700
     -rwxr-xr-x 1 root root    31316  2007-12-05  08:58 [
-    
 
 Move the cursor to the third line, then enter the following ex command:
 
 移动光标到第三行，然后输入以下 ex 命令：
 
     :r foo.txt
-    
 
 The :r command (short for “read”) inserts the specified file before the cursor position.
 Our screen should now look like this:
@@ -1133,7 +1077,6 @@ Our screen should now look like this:
     Line 5
     -rwxr-xr-x 1 root root     111276 2008-01-31  13:36 a2p
     ....
-    
 
 Saving Our Work
 
@@ -1205,11 +1148,11 @@ continue your journey towards vi mastery:
 
 * Wikipedia 上关于 Bill Joy 的文章，vi 的创始人。
 
-  <http://en.wikipedia.org/wiki/Bill\_Joy>
+  <http://en.wikipedia.org/wiki/Bill_Joy>
 
 * A Wikipedia article on Bram Moolenaar, the author of vim:
 
 * Wikipedia 上关于 Bram Moolenaar 的文章，vim 的作者：
 
-  <http://en.wikipedia.org/wiki/Bram\_Moolenaar>
+  <http://en.wikipedia.org/wiki/Bram_Moolenaar>
 

@@ -27,7 +27,6 @@ Our default prompt looks something like this:
 
     [me@linuxbox ~]$
     
-
 Notice that it contains our user name, our host name and our current working directory,
 but how did it get that way? Very simply, it turns out. The prompt is defined by an
 environment variable named PS1 (short for “prompt string one”). We can view the
@@ -63,7 +62,6 @@ specially in the prompt string:
 但是剩余部分就是个谜。我们中一些机敏的人会把这些看作是由反斜杠转义的特殊字符，就像我们
 在第八章中看到的一样。这里是一部分字符列表，在提示符中 shell 会特殊对待这些字符：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 14-1: Escape Codes Used In Shell Prompts</caption>
 <tr>
@@ -177,9 +175,7 @@ cursor or changing text colors.
 </td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表14－1：Shell 提示符中用到的转义字符</caption>
 <tr>
@@ -284,7 +280,6 @@ cursor or changing text colors.
 <td valign="top">标志着非打印字符序列结束。 </td>
 </tr>
 </table>
-</p>
 
 Trying Some Alternate Prompt Designs
 
@@ -299,7 +294,6 @@ existing string into another shell variable that we create ourselves:
 我们把已有的字符串复制到另一个 shell 变量中，这个变量是我们自己创造的。
 
     [me@linuxbox ~]$ ps1\_old="$PS1"
-    
 
 We create a new variable called ps1_old and assign the value of PS1 to it. We can
 verify that the string has been copied with the echo command:
@@ -309,7 +303,6 @@ verify that the string has been copied with the echo command:
 
     [me@linuxbox ~]$ echo $ps1\_old
     [\u@\h \W]\$
-    
 
 We can restore the original prompt at any time during our terminal session by simply
 reversing the process:
@@ -317,7 +310,6 @@ reversing the process:
 在终端会话中，我们能在任一时间复原提示符，只要简单地反向操作就可以了。
 
     [me@linuxbox ~]$ PS1="$ps1\_old"
-    
 
 Now that we are ready to proceed, let's see what happens if we have an empty prompt
 string:
@@ -326,7 +318,6 @@ string:
 
     [me@linuxbox ~]$ PS1=
     
-
 If we assign nothing to the prompt string, we get nothing. No prompt string at all! The
 prompt is still there, but displays nothing, just as we asked it to. Since this is kind of
 disconcerting to look at, we'll replace it with a minimal prompt:
@@ -335,7 +326,6 @@ disconcerting to look at, we'll replace it with a minimal prompt:
 但是什么也不显示，正如我们所要求的那样。我们将用一个最小的提示符来代替它：
 
     PS1="\$ "
-    
 
 That's better. At least now we can see what we are doing. Notice the trailing space
 within the double quotes. This provides the space between the dollar sign and the cursor
@@ -350,7 +340,6 @@ Let's add a bell to our prompt:
 
     $ PS1="\a\$ "
     
-
 Now we should hear a beep each time the prompt is displayed. This could get annoying,
 but it might be useful if we needed notification when an especially long-running
 command has been executed.
@@ -366,7 +355,6 @@ information:
     $ PS1="\A \h \$ "
     17:33 linuxbox $
     
-
 Try out the other sequences listed in the table above and see if you can come up with a
 brilliant new prompt.
 
@@ -435,7 +423,6 @@ appearance of “light” colors:
 这里是一个可用的文本颜色列表。注意这些颜色被分为两组，由应用程序粗体字符属性（1）
 分化开来，这个属性可以描绘出“浅”色文本。
 
-<p>
 <table class="multi">
 <caption class="cap">Table14- 2: Escape Sequences Used To Set Text Colors</caption>
 <tr>
@@ -493,7 +480,6 @@ appearance of “light” colors:
 <td valign="top">White</td>
 </tr>
 </table>
-</p>
 
 Let's try to make a red prompt. We'll insert the escape code at the beginning:
 
@@ -501,7 +487,6 @@ Let's try to make a red prompt. We'll insert the escape code at the beginning:
 
     <me@linuxbox ~>$ PS1=&quot;\[\033[0;31m\]<\u@\h \W>\$ &quot; 
     <me@linuxbox ~>$
-    
 
 That works, but notice that all the text that we type after the prompt is also red. To fix
 this, we will add another escape code to the end of the prompt that tells the terminal
@@ -513,7 +498,6 @@ emulator to return to the previous color:
     <me@linuxbox ~>$ PS1=&quot;\[\033[0;31m\]<\u@\h \W>\$\[\033[0m\]&quot; 
     <me@linuxbox ~>$
     
-
 That's better!
 
 这看起来要好些！
@@ -523,7 +507,6 @@ background colors do not support the bold attribute.
 
 也有可能要设置文本的背景颜色，使用下面列出的转义编码。这个背景颜色不支持黑体属性。
 
-<p>
 <table class="multi">
 <caption class="cap">Table 14-3: Escape Sequences Used To Set Background Color</caption>
 <tr>
@@ -551,7 +534,6 @@ background colors do not support the bold attribute.
 <td valign="top">Light Gray</td>
 </tr>
 </table>
-</p>
 
 We can create a prompt with a red background by applying a simple change to the first
 escape code:
@@ -560,7 +542,6 @@ escape code:
 
     <me@linuxbox ~>$ PS1=&quot;\[\033[0;41m\]<\u@\h \W>\$\[\033[0m\] &quot;
     <me@linuxbox ~>$
-    
 
 Try out the color codes and see what you can create!
 
@@ -592,7 +573,6 @@ position the cursor:
 转义编码也可以用来定位光标。这些编码被普遍地用来，每次当提示符出现的时候，会在屏幕的不同位置
 比如说上面一个角落，显示一个时钟或者其它一些信息。这里是一系列用来定位光标的转义编码：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 14-4: Cursor Movement Escape Sequences</caption>
 <tr>
@@ -638,9 +618,7 @@ position the cursor:
 <td valign="top">Recall the stored cursor position.  </td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表14－4： 光标移动转义序列</caption>
 <tr>
@@ -684,7 +662,6 @@ position the cursor:
 <td valign="top">唤醒之前存储的光标位置。</td>
 </tr>
 </table>
-</p>
 
 Using the codes above, we'll construct a prompt that draws a red bar at the top of the
 screen containing a clock (rendered in yellow text) each time the prompt is displayed.
@@ -697,12 +674,10 @@ The code for the prompt is this formidable looking string:
     PS1=&quot;\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
     <\u@\h \W>\$ &quot;
     
-
 Let's take a look at each part of the string to see what it does:
 
 让我们分别看一下这个字符串的每一部分所表示的意思：
 
-<p>
 <table class="multi">
 <tr>
 <th class="title">Squence</th>
@@ -768,9 +743,7 @@ true size of the displayed prompt.  </td>
 <td valign="top">Prompt string.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <tr>
 <th class="title">序列</th>
@@ -828,7 +801,6 @@ true size of the displayed prompt.  </td>
 <td valign="top">提示符字符串。</td>
 </tr>
 </table>
-</p>
 
 Saving The Prompt
 
@@ -846,7 +818,6 @@ file. To do so, add these two lines to the file:
     
     export PS1
     
-
 Summing Up
 
 ### 总结归纳

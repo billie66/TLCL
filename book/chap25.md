@@ -64,8 +64,7 @@ file’s permissions to allow execution.
 certain directories for executable files when no explicit pathname is specified.
 For maximum convenience, we will place our scripts in these directories.
 
-<ol>
-<li><p> __编写一个脚本。__ Shell 脚本就是普通的文本文件。所以我们需要一个文本编辑器来书写它们。最好的文本
+<ol><li><p> __编写一个脚本。__ Shell 脚本就是普通的文本文件。所以我们需要一个文本编辑器来书写它们。最好的文本
    编辑器都会支持语法高亮，这样我们就能够看到一个脚本关键字的彩色编码视图。语法高亮会帮助我们查看某种常见
    错误。为了编写脚本文件，vim，gedit，kate，和许多其它编辑器都是不错的候选者。</p></li>
 
@@ -73,8 +72,7 @@ For maximum convenience, we will place our scripts in these directories.
    所以我们需要设置脚本文件的权限来允许其可执行。 </p></li>
 
 <li><p> __把脚本放置到 shell 能够找到的地方。__ 当没有指定可执行文件明确的路径名时，shell 会自动地搜索某些目录，
-来查找此可执行文件。为了最大程度的方便，我们会把脚本放到这些目录当中。</p></li>
-</ol>
+来查找此可执行文件。为了最大程度的方便，我们会把脚本放到这些目录当中。</p></li></ol>
 
 ### Script File Format
 
@@ -370,12 +368,14 @@ identifying certain kinds of programming errors. It looks cool, too. Note that f
 this feature to work, you must have a complete version of vim installed, and the
 file you are editing must have a shebang indicating the file is a shell script. If you
 have difficulty with the command above, try <b>:set syntax=sh</b> instead. </p>
+
 <p>打开语法高亮。通过这个设置，当查看脚本的时候，不同的 shell 语法元素会以不同的颜色
 显示。这对于识别某些编程错误很有帮助。并且它看起来也很酷。注意为了这个功能起作用，你
 必须安装了一个完整的 vim 版本，并且你编辑的文件必须有一个 shebang，来说明这个文件是
 一个 shell 脚本。如果对于上面的命令，你遇到了困难，试试<b>:set syntax=sh</b>。</p>
 
 <p><b>:set hlsearch</b></p>
+
 <p>turns on the option to highlight search results. Say we search for the word
 “echo.” With this option on, each instance of the word will be highlighted.</p>
 
@@ -383,6 +383,7 @@ have difficulty with the command above, try <b>:set syntax=sh</b> instead. </p>
 单词的每个实例会高亮显示。</p>
 
 <p><b>:set tabstop=4</b></p>
+
 <p>sets the number of columns occupied by a tab character. The default is eight
 columns. Setting the value to four (which is a common practice) allows long
 lines to fit more easily on the screen.</p>
@@ -390,6 +391,7 @@ lines to fit more easily on the screen.</p>
 从而让长文本行更容易适应屏幕。</p>
 
 <p><b>:set autoindent</b></p>
+
 <p>turns on the “auto indent” feature. This causes vim to indent a new line the same
 amount as the line just typed. This speeds up typing on many kinds of
 programming constructs. To stop indentation, type Ctrl-d.</p>
@@ -399,6 +401,7 @@ programming constructs. To stop indentation, type Ctrl-d.</p>
 
 <p>These changes can be made permanent by adding these commands (without the
 leading colon characters) to your ~/.vimrc file.</p>
+
 <p>通过把这些命令（没有开头的冒号字符）添加到你的~/.vimrc 文件中，这些改动会永久生效。</p>
 </div>
 <br />
@@ -421,8 +424,7 @@ in good script writing.
 
 ### 拓展阅读 
 
-* For “Hello World” programs and examples in various programming languages,
-see:
+* For “Hello World” programs and examples in various programming languages, see:
 
 * 查看各种各样编程语言的“Hello World”程序和实例：
 
@@ -433,12 +435,4 @@ see:
 * 这篇 Wikipedia 文章讨论了更多关于 shebang 机制的内容：
 
   <http://en.wikipedia.org/wiki/Shebang_(Unix)>
-
-
- 
-
-
-
-
-
 

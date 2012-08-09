@@ -50,7 +50,6 @@ a markup element, nl deletes it from the text stream.
 
 Here are the common options for nl:
 
-<p>
 <table class="multi">
 <caption class="cap">Table 22-2: Common nl Options</caption>
 <tr>
@@ -102,7 +101,6 @@ Here are the common options for nl:
 <td valign="top">Set width of the line number field to width. Default is six.</td>
 </tr>
 </table>
-</p>
 
 Admittedly, we probably won’t be numbering lines that often, but we can use nl to look
 at how we can combine multiple tools to perform more complex tasks. We will build on

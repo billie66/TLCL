@@ -186,7 +186,6 @@ Running this script results in this:
 
 `read`支持以下选送：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 29-1: read Options</caption>
 <thead>
@@ -241,9 +240,7 @@ input.</td>
 </tr>
 </tbody>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表29-1: read 选项</caption>
 <thead>
@@ -293,7 +290,6 @@ input.</td>
 </tr>
 </tbody>
 </table>
-</p>
 
 Using the various options, we can do interesting things with `read`. For example, with
 the -p option, we can provide a prompt string:
@@ -564,7 +560,7 @@ we have covered thus far, including shell functions, `[[ ]]`, `(( ))`, the contr
 `&&`, and if, as well as a healthy dose of regular expressions.
 
 这个脚本提示用户输入一个数字。随后，分析这个数字来决定它的内容。正如我们所看到的，这个脚本
-使用了许多我们已经讨论过的概念，包括 shell 函数，`[[ ]]`，`(( ))`，控制操作符`&&`，以及`if`和
+使用了许多我们已经讨论过的概念，包括 shell 函数，`[[ ]]`，`(( ))`，控制操作符 `&&`，以及 `if` 和
 一些正则表达式。
 
 ### Menus

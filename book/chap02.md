@@ -158,7 +158,6 @@ date. This command displays the current time and date.
     [me@linuxbox ~]$ date
     Thu Oct 25 13:51:54 EDT 2007
     
-
 A related command is cal which, by default, displays a calendar of the current month.
 
 一个相关联的命令，cal，它默认显示当前月份的日历。
@@ -172,7 +171,6 @@ A related command is cal which, by default, displays a calendar of the current m
     21 22 23 24 25 26 27
     28 29 30 31
     
-
 To see the current amount of free space on your disk drives, type df:
 
 查看磁盘剩余空间的数量，输入 df:
@@ -184,7 +182,6 @@ To see the current amount of free space on your disk drives, type df:
     /dev/sda1               147764     17370   122765   13% /boot
     tmpfs                   256856         0   256856    0% /dev/shm
     
-
 Likewise, to display the amount of free memory, type the free command.
 
 同样地，显示空闲内存的数量，输入命令 free。
@@ -196,7 +193,6 @@ Likewise, to display the amount of free memory, type the free command.
     -/+ buffers/cache:     441860    1617816
     Swap:      1042428          0    1042428
     
-
 Ending A Terminal Session
 
 ### 结束终端会话
@@ -208,7 +204,6 @@ entering the exit command at the shell prompt:
 
     [me@linuxbox ~]$ exit
     
-
 The Console Behind The Curtain
 
 ### 幕后控制台

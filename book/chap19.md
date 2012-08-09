@@ -65,7 +65,7 @@ bits, or three bytes per pixel), the image will occupy thirty thousand bytes of 
 纯黑的图片文件。根据数据存储方案（假定每个像素占24位，或者3个字节），那么这张图像将会占用
 30,000个字节的存储空间：
 
-100 * 100 * 3 = 30,000
+    100 * 100 * 3 = 30,000
 
 An image that is all one color contains entirely redundant data. If we were clever, we
 could encode the data in such a way that we simply describe the fact that we have a block
@@ -117,7 +117,6 @@ an example:
     [me@linuxbox ~]$ gunzip foo.txt
     [me@linuxbox ~]$ ls -l foo.\*
     -rw-r--r-- 1 me     me 15738 2008-10-14 07:15 foo.txt 
-    
 
 In this example, we create a text file named foo.txt from a directory listing. Next, we
 run gzip, which replaces the original file with a compressed version named
@@ -142,7 +141,6 @@ gzip has many options. Here are a few:
 
 gzip 命令有许多选项。这里列出了一些：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 19-1: gzip Options </caption>
 <tr>
@@ -195,9 +193,7 @@ values 1 and 9 may also be expressed as --fast and --best,
 respectively. The default value is 6.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表19-1: gzip 选项 </caption>
 <tr>
@@ -243,7 +239,6 @@ valign="top">解压缩。正如 gunzip 命令一样。也可以用--decompress �
 数值1和9也可以各自用--fast 和--best 选项来表示。默认值是整数6。 </td>
 </tr>
 </table>
-</p>
 
 Going back to our earlier example:
 
@@ -253,7 +248,6 @@ Going back to our earlier example:
     [me@linuxbox ~]$ gzip -tv foo.txt.gz
     foo.txt.gz: OK
     [me@linuxbox ~]$ gzip -d foo.txt.gz
-    
 
 Here, we replaced the file foo.txt with a compressed version, named foo.txt.gz.
 Next, we tested the integrity of the compressed version, using the -t and -v options.
@@ -265,7 +259,6 @@ gzip can also be used in interesting ways via standard input and output:
 
     [me@linuxbox ~]$ ls -l /etc | gzip > foo.txt.gz 
     
-
 This command creates a compressed version of a directory listing.
 
 这个命令创建了一个目录列表的压缩文件。
@@ -279,13 +272,11 @@ conflict with an existing uncompressed file:
 
     [me@linuxbox ~]$ gunzip foo.txt 
     
-
 If our goal were only to view the contents of a compressed text file, we can do this:
 
 如果我们的目标只是为了浏览一下压缩文本文件的内容，我们可以这样做：
 
     [me@linuxbox ~]$ gunzip -c foo.txt | less 
-    
 
 Alternately, there is a program supplied with gzip, called zcat, that is equivalent to
 gunzip with the -c option. It can be used like the cat command on gzip compressed
@@ -296,7 +287,6 @@ files:
 
     [me@linuxbox ~]$ zcat foo.txt.gz | less 
     
-
 <br />
 
 ---
@@ -324,7 +314,6 @@ compressed with bzip2 is denoted with the extension .bz2:
     [me@linuxbox ~]$ ls -l foo.txt.bz2
     -rw-r--r-- 1 me     me      2792 2008-10-17 13:51 foo.txt.bz2
     [me@linuxbox ~]$ bunzip2 foo.txt.bz2 
-    
 
 As we can see, bzip2 can be used the same way as gzip. All the options (except for -
 r) that we discussed for gzip are also supported in bzip2. Note, however, that the
@@ -401,7 +390,6 @@ see the tar man page for a complete list):
 
 这里的 mode 是指以下操作模式（这里只展示了一部分，查看 tar 的手册来得到完整列表）之一：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 19-2: tar Modes
 </caption>
@@ -426,9 +414,7 @@ see the tar man page for a complete list):
 <td valign="top">List the contents of an archive.  </td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表19-2: tar 模式 
 </caption>
@@ -453,7 +439,6 @@ see the tar man page for a complete list):
 <td valign="top">列出归档文件的内容。</td>
 </tr>
 </table>
-</p>
 
 tar uses a slightly odd way of expressing options, so we’ll need some examples to show
 how it works. First, let’s re-create our playground from the previous chapter:
@@ -463,7 +448,6 @@ tar 命令使用了稍微有点奇怪的方式来表达它的选项，所以我�
 
     [me@linuxbox ~]$ mkdir -p playground/dir-{00{1..9},0{10..99},100}
     [me@linuxbox ~]$ touch playground/dir-{00{1..9},0{10..99},100}/file-{A-Z} 
-    
 
 Next, let’s create a tar archive of the entire playground:
 
@@ -471,7 +455,6 @@ Next, let’s create a tar archive of the entire playground:
 
     [me@linuxbox ~]$ tar cf playground.tar playground 
     
-
 This command creates a tar archive named playground.tar that contains the entire
 playground directory hierarchy. We can see that the mode and the f option, which is
 used to specify the name of the tar archive, may be joined together, and do not require a
@@ -487,14 +470,12 @@ To list the contents of the archive, we can do this:
 要想列出归档文件的内容，我们可以这样做：
 
     [me@linuxbox ~]$ tar tf playground.tar 
-    
 
 For a more detailed listing, we can add the v (verbose) option:
 
 为了得到更详细的列表信息，我们可以添加选项 v：
 
     [me@linuxbox ~]$ tar tvf playground.tar 
-    
 
 Now, let’s extract the playground in a new location. We will do this by creating a new
 directory named foo, and changing the directory and extracting the tar archive:
@@ -507,7 +488,6 @@ directory named foo, and changing the directory and extracting the tar archive:
     [me@linuxbox ~]$ tar xf ../playground.tar
     [me@linuxbox ~]$ ls
     playground 
-    
 
 If we examine the contents of ~/foo/playground, we see that the archive was
 successfully installed, creating a precise reproduction of the original files. There is one
@@ -530,7 +510,6 @@ tar 命令另一个有趣的行为是它处理归档文件路径名的方式。�
 
     [me@linuxbox foo]$ cd
     [me@linuxbox ~]$ tar cf playground2.tar ~/playground 
-    
 
 Remember, ~/playground will expand into /home/me/playground when we
 press the enter key, so we will get an absolute pathname for our demonstration. Next, we
@@ -547,7 +526,6 @@ will extract the archive as before and watch what happens:
     me
     [me@linuxbox foo]$ ls home/me
     playground 
-    
 
 Here we can see that when we extracted our second archive, it recreated the directory
 home/me/playground relative to our current working directory, ~/foo, not relative
@@ -577,7 +555,6 @@ can do the following:
 
     [me@linuxbox ~]$ sudo tar cf /media/BigDisk/home.tar /home 
     
-
 After the tar file is written, we unmount the drive and attach it to the second computer.
 Again, it is mounted at /media/BigDisk. To extract the archive, we do this:
 
@@ -586,7 +563,6 @@ tar 包制作完成之后，我们卸载硬盘，然后把它连接到第二个�
 
     [me@linuxbox2 ~]$ cd /
     [me@linuxbox2 /]$ sudo tar xf /media/BigDisk/home.tar 
-    
 
 What’s important to see here is that we must first change directory to /, so that the
 extraction is relative to the root directory, since all pathnames within the archive are
@@ -602,7 +578,6 @@ example, if we wanted to extract a single file from an archive, it could be done
 可以这样实现：
 
     tar xf archive.tar pathname 
-    
 
 By adding the trailing pathname to the command, tar will only restore the specified file.
 Multiple pathnames may be specified. Note that the pathname must be the full, exact
@@ -619,7 +594,6 @@ is an example using our previous playground.tar file:
     [me@linuxbox ~]$ cd foo
     [me@linuxbox foo]$ tar xf ../playground2.tar --wildcards 'home/me/playground/dir-\*/file-A' 
     
-
 This command will extract only files matching the specified pathname including the
 wildcard dir-\*.
 
@@ -633,7 +607,6 @@ tar 命令经常结合 find 命令一起来制作归档文件。在这个例子�
 
     [me@linuxbox ~]$ find playground -name 'file-A' -exec tar rf playground.tar '{}' '+' 
     
-
 Here we use find to match all the files in playground named file-A and then,
 using the -exec action, we invoke tar in the append mode (r) to add the matching
 files to the archive playground.tar.
@@ -659,7 +632,6 @@ tar 命令也可以利用标准输出和输入。这里是一个完整的例子:
     [me@linuxbox ~]$ find playground -name 'file-A' | tar cf - --files- from=- 
        | gzip > playground.tgz 
     
-
 In this example, we used the find program to produce a list of matching files and piped
 them into tar. If the filename “-” is specified, it is taken to mean standard input or
 output, as needed (by the way, this convention of using “-” to represent standard
@@ -687,7 +659,6 @@ simplify it this way:
 我们可以这样简化它：
 
     [me@linuxbox ~]$ find playground -name 'file-A' | tar czf playground.tgz -T - 
-    
 
 If we had wanted to create a bzip2 compressed archive instead, we could have done this:
 
@@ -695,7 +666,6 @@ If we had wanted to create a bzip2 compressed archive instead, we could have don
 
     [me@linuxbox ~]$ find playground -name 'file-A' | tar cjf playground.tbz -T - 
     
-
 By simply changing the compression option from z to j (and changing the output file’s
 extension to .tbz to indicate a bzip2 compressed file) we enabled bzip2 compression.
 Another interesting use of standard input and output with the tar command involves
@@ -715,7 +685,6 @@ local system:
     me@remote-sys’s password:
     [me@linuxbox remote-stuff]$ ls
     Documents 
-    
 
 Here we were able to copy a directory named Documents from the remote system
 remote-sys to a directory within the directory named remote-stuff on the local
@@ -748,7 +717,7 @@ In its most basic usage, zip is invoked like this:
 
 在 zip 命令最基本的使用中，可以这样唤醒 zip 命令：
 
-zip options zipfile file...
+    zip options zipfile file...
 
 For example, to make a zip archive of our playground, we would do this:
 
@@ -756,7 +725,6 @@ For example, to make a zip archive of our playground, we would do this:
 
     [me@linuxbox ~]$ zip -r playground.zip playground 
     
-
 Unless we include the -r option for recursion, only the playground directory (but
 none of its contents) is stored. Although the addition of the extension .zip is automatic
 a, we will include the file extension for clarity.
@@ -774,7 +742,6 @@ like this:
     adding: playground/dir-020/file-X (stored 0%)
     adding: playground/dir-087/ (stored 0%)
     adding: playground/dir-087/file-S (stored 0%) 
-    
 
 These messages show the status of each file added to the archive. zip will add files to
 the archive using one of two storage methods: either it will “store” a file without
@@ -794,7 +761,6 @@ Extracting the contents of a zip file is straightforward when using the unzip pr
 
     [me@linuxbox ~]$ cd foo
     [me@linuxbox foo]$ unzip ../playground.zip 
-    
 
 One thing to note about zip (as opposed to tar) is that if an existing archive is
 specified, it is updated rather than replaced. This means that the existing archive is
@@ -820,7 +786,6 @@ unzip:
     [r]ename: y
     extracting: playground/dir-87/file-Z 
     
-
 Using the -l option causes unzip to merely list the contents of the archive without
 extracting the file. If no file(s) are specified, unzip will list all files in the archive. The
 -v option can be added to increase the verbosity of the listing. Note that when the
@@ -839,7 +804,6 @@ somewhat less useful. It is possible to pipe a list of filenames to zip via the 
 
     [me@linuxbox foo]$ cd
     [me@linuxbox ~]$ find playground -name "file-A" | zip -@ file-A.zip 
-    
 
 Here we use find to generate a list of files matching the test -name "file-A", and
 pipe the list into zip, which creates the archive file-A.zip containing the selected
@@ -864,7 +828,6 @@ other programs:
 
     [me@linuxbox ~]$ ls -l /etc/ | zip ls-etc.zip -
     adding: - (deflated 80%) 
-    
 
 In this example we pipe the output of ls into zip. Like tar, zip interprets the trailing
 dash as “use standard input for the input file.”
@@ -879,7 +842,6 @@ pipe) option is specified:
 
     [me@linuxbox ~]$ unzip -p ls-etc.zip | less 
     
-
 We touched on some of the basic things that zip/unzip can do. They both have a lot of
 options that add to their flexibility, though some are platform specific to other systems.
 The man pages for both zip and unzip are pretty good and contain useful examples.
@@ -930,9 +892,8 @@ where source and destination are one of the following:
   
 * A remote rsync server specified with a URI of rsync://[user@]host[:port]/path
 
-<ul>
-<p><li> 一个本地文件或目录</li></p>
-</ul>
+
+* 一个本地文件或目录
 
 * 一个远端文件或目录，以[user@]host:path 的形式存在
 
@@ -947,15 +908,13 @@ Let’s try rsync out on some local files. First, let’s clean out our foo dire
 
 让我们试着对一些本地文件使用 rsync 命令。首先，清空我们的 foo 目录：
 
-    [me@linuxbox ~]$ rm -rf foo/\* 
-    
+    [me@linuxbox ~]$ rm -rf foo/* 
 
 Next, we’ll synchronize the playground directory with a corresponding copy in foo:
 
 下一步，我们将同步 playground 目录和它在 foo 目录中相对应的副本
 
     [me@linuxbox ~]$ rsync -av playground foo 
-    
 
 We’ve included both the -a option (for archiving—causes recursion and preservation of 
 file attributes) and the -v option (verbose output) to make a mirror of the playground
@@ -968,7 +927,6 @@ directories being copied. At the end, we will see a summary message like this:
 
     sent 135759 bytes received 57870 bytes 387258.00 bytes/sec
     total size is 3230 speedup is 0.02
-    
 
 indicating the amount of copying performed. If we run the command again, we will see a
 different result:
@@ -981,7 +939,6 @@ different result:
     total size is 3230 speedup is 0.14
     45310.00 bytes/sec 
     
-
 Notice that there was no listing of files. This is because rsync detected that there were
 no differences between ~/playground and ~/foo/playground, and therefore it
 didn’t need to copy anything. If we modify a file in playground and run rsync
@@ -997,7 +954,6 @@ again:
     playground/dir-099/file-Z
     sent 22685 bytes received 42 bytes 45454.00 bytes/sec
     total size is 3230 speedup is 0.14 
-    
 
 we see that rsync detected the change and copied only the updated file.
 As a practical example, let’s consider the imaginary external hard drive that we used
@@ -1014,7 +970,6 @@ stuff from our system to the external drive:
 
     [me@linuxbox ~]$ mkdir /media/BigDisk/backup
     [me@linuxbox ~]$ sudo rsync -av --delete /etc /home /usr/local /media/BigDisk/backup 
-    
 
 In this example, we copied the /etc, /home, and /usr/local directories from our
 system to our imaginary storage device. We included the --delete option to remove
@@ -1033,7 +988,6 @@ rsync 命令，不断重复这个过程，是一个不错的（虽然不理想�
 来提供这个特性：
 
     alias backup='sudo rsync -av --delete /etc /home /usr/local /media/BigDisk/backup' 
-    
 
 Now all we have to do is attach our external drive and run the backup command to do
 the job.
@@ -1060,7 +1014,6 @@ rsync 程序的真正好处之一，是它可以被用来在网络间复制文�
 
     [me@linuxbox ~]$ sudo rsync -av --delete --rsh=ssh /etc /home /usr/local remote-sys:/backup 
     
-
 We made two changes to our command to facilitate the network copy. First, we added
 the --rsh=ssh option, which instructs rsync to use the ssh program as its remote
 shell. In this way, we were able to use an ssh encrypted tunnel to securely transfer the
@@ -1095,7 +1048,6 @@ Hat 软件中心为它的 Fedora 发行版，维护着一个巨大的正在开�
     [me@linuxbox ~]$ rsync -av -delete rsync://rsync.gtlib.gatech.edu/fedora-linux-
      core/development/i386/os fedora-devel 
     
-
 In this example, we use the URI of the remote rsync server, which consists of a protocol
 (rsync://), followed by the remote host name (rsync.gtlib.gatech.edu),
 followed by the pathname of the repository.
@@ -1111,13 +1063,8 @@ followed by the pathname of the repository.
   contain useful examples. In addition, the GNU Project has a good online manual
   for its version of tar. It can be found here:
 
-<ul><li>
-<p>在这里讨论的所有命令的手册文档都相当清楚明白，并且包含了有用的例子。另外，
-GNU 版本的 tar 命令有一个不错的在线文档。可以在下面链接处找到：</p> 
+* 在这里讨论的所有命令的手册文档都相当清楚明白，并且包含了有用的例子。另外，
+GNU 版本的 tar 命令有一个不错的在线文档。可以在下面链接处找到： 
 
-<p><a href='http://www.gnu.org/software/tar/manual/index.html'>http://www.gnu.org/software/tar/manual/index.html</a></p>
-</li></ul>
-
-
-
+  <http://www.gnu.org/software/tar/manual/index.html>
 

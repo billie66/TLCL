@@ -188,7 +188,7 @@ Arithmetic expansion uses the form:
 
 算术表达式展开使用这种格式：
 
-$((expression))
+    $((expression))
 
 where expression is an arithmetic expression consisting of values and arithmetic
 operators.
@@ -202,7 +202,6 @@ operators:
 算术表达式只支持整数（全部是数字，不带小数点），但是能执行很多不同的操作。这里是
 一些它支持的操作符：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 8-1: Arithmetic Operators &nbsp;&nbsp; 算术操作符</caption>
 <tr>
@@ -237,7 +236,6 @@ arithmetic, results are integers.) &nbsp;
 <td valign="top">Exponentiation &nbsp; 取幂</td>
 </tr>
 </table>
-</p>
 
 Spaces are not significant in arithmetic expressions and expressions may be nested. For
 example, to multiply five squared by three:

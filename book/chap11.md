@@ -126,7 +126,6 @@ If we add an option, we can get a bigger picture of what the system is doing:
     
     and many more...
     
-
 Adding the “x” option (note that there is no leading dash) tells ps to show all of our
 processes regardless of what terminal (if any) they are controlled by. The presence of a
 “?” in the TTY column indicates no controlling terminal. Using this option, we see a list
@@ -150,7 +149,6 @@ reveals the current status of the process:
 
 输出结果中，新添加了一栏，标题为 STAT 。STAT 是 "state" 的简写，它揭示了进程当前状态：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 11-1: Process States</caption>
 <thead>
@@ -200,9 +198,7 @@ higher priority have been serviced.</td>
 </tr>
 </tbody>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表11-1: 进程状态</caption>
 <thead>
@@ -253,7 +249,6 @@ valign="top">一个高优先级进程。这可能会授予一个进程更多重�
 </tr>
 </tbody>
 </table>
-</p>
 
 The process state may be followed by other characters. These indicate various exotic
 process characteristics. See the ps man page for more detail.
@@ -281,7 +276,6 @@ Unix implementations. With these options, we get these additional columns:
 Linux 版本的 ps 命令，可以模拟几个不同 Unix 版本中的 ps 程序的行为。通过这些选项，我们得到
 这些额外的列。
 
-<p>
 <table class="multi">
 <caption class="cap">Table 11-2: BSD Style ps Column Headers
 </caption>
@@ -321,9 +315,7 @@ a date is used.</td>
 </tr>
 </tbody>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表11-2: BSD 风格的 ps 命令列标题
 </caption>
@@ -361,7 +353,6 @@ a date is used.</td>
 </tr>
 </tbody>
 </table>
-</p>
 
 ### Viewing Processes Dynamically With top
 
@@ -400,7 +391,6 @@ The system summary contains a lot of good stuff. Here's a rundown:
 
 其中系统概要包含许多有用信息。下表是对系统概要的说明：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 11-3: top Information Fields</caption>
 <thead>
@@ -508,9 +498,7 @@ being used.</td>
 </tr>
 </tbody>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表11-3: top 命令信息字段</caption>
 <thead>
@@ -603,7 +591,6 @@ processes. 这意味着进程在内核之外。</td>
 </tr>
 </tbody>
 </table>
-</p>
 
 The top program accepts a number of keyboard commands. The two most interesting are
 h, which displays the program's help screen, and q, which quits top.
@@ -788,7 +775,6 @@ background with the bg command:
     [1]+ xlogo &amp;
     [me@linuxbox ~]$
     
-
 As with the fg command, the jobspec is optional if there is only one job.
 
 和 fg 命令一样，如果只有一个任务的话，jobspec 参数是可选的。
@@ -827,7 +813,6 @@ kill 命令被用来“杀死”程序。这样我们就可以终止需要杀死
     [me@linuxbox ~]$ kill 28401
     [1]+ Terminated               xlogo
     
-
 We first launch xlogo in the background. The shell prints the jobspec and the PID of
 the background process. Next, we use the kill command and specify the PID of the
 process we want to terminate. We could have also specified the process using a jobspec
@@ -864,7 +849,6 @@ like this:
 kill 命令被用来给程序发送信号。它最常见的语法形式看起来像这样：
 
     kill [-signal] PID...
-    
 
 If no signal is specified on the command line, then the TERM (Terminate) signal is sent by
 default. The kill command is most often used to send the following signals:
@@ -872,7 +856,6 @@ default. The kill command is most often used to send the following signals:
 如果在命令行中没有指定信号，那么默认情况下，发送 TERM（终止）信号。kill 命令被经常
 用来发送以下命令：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 11-4: Common Signals</caption>
 <tr>
@@ -931,9 +914,7 @@ terminating. Like the KILL signal, it is not sent to the target process, and
 thus it cannot be ignored.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表 11-4: 常用信号</caption>
 <tr>
@@ -987,7 +968,6 @@ valign="top">停止。这个信号导致进程停止运行，而没有终止。�
 </td>
 </tr>
 </table>
-</p>
 
 Let's try out the kill command:
 
@@ -998,7 +978,6 @@ Let's try out the kill command:
     [me@linuxbox ~]$ kill -1 13546
     [1]+ Hangup         xlogo
     
-
 In this example, we start the xlogo program in the background and then send it a HUP
 signal with kill. The xlogo program terminates and the shell indicates that the
 background process has received a hangup signal. You may need to press the enter key a
@@ -1015,7 +994,6 @@ number or by name, including the name prefixed with the letters “SIG”:
     [me@linuxbox ~]$ kill -1 13546
     [1]+ Hangup                    xlogo
     
-
 Repeat the example above and try out the other signals. Remember, you can also use
 jobspecs in place of PIDs.
 
@@ -1033,7 +1011,6 @@ other signals frequently used by the system. Here is a list of other common sign
 除了上表列出的 kill 命令最常使用的信号之外，还有一些系统频繁使用的信号。以下是其它一些常用
 信号列表：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 11-5: Other Common Signals</caption>
 <tr>
@@ -1068,9 +1045,7 @@ window changes size. Some programs , like top and less will respond to this
 signal by redrawing themselves to fit the new window dimensions.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表 11-5: 其它常用信号</caption>
 <tr>
@@ -1105,7 +1080,6 @@ TSTP 信号由目标进程接收，且可能被忽略。</td>
 </td>
 </tr>
 </table>
-</p>
 
 For the curious, a complete list of signals can be seen with the following command:
 
@@ -1113,7 +1087,6 @@ For the curious, a complete list of signals can be seen with the following comma
 
     [me@linuxbox ~]$ kill -l
     
-
 ### Sending Signals To Multiple Processes With killall
 
 ### 通过 killall 命令给多个进程发送信号
@@ -1125,7 +1098,6 @@ user name by using the killall command. Here is the syntax:
 
     killall [-u user] [-signal] name...
     
-
 To demonstrate, we will start a couple of instances of the xlogo program and then
 terminate them:
 
@@ -1139,7 +1111,6 @@ terminate them:
     [1]- Terminated                xlogo
     [2]+ Terminated                xlogo
     
-
 Remember, as with kill, you must have superuser privileges to send signals to
 processes that do not belong to you.
 
@@ -1154,7 +1125,6 @@ commands for it. Here are some to play with:
 
 因为监测进程是一个很重要的系统管理任务，所以有许多命令与它相关。玩玩下面几个命令：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 11-6: Other Process Related Commands</caption>
 <tr>
@@ -1184,10 +1154,7 @@ time</td>
 Terminate the output with Ctrl-c.</td>
 </tr>
 </table>
-</p>
 
-
-<p>
 <table class="multi">
 <caption class="cap">表11-6: 其它与进程相关的命令</caption>
 <tr>
@@ -1213,4 +1180,3 @@ Terminate the output with Ctrl-c.</td>
 <td valign="top">与 xload 程序相似，但是在终端中画出图形。使用 Ctrl-c，来终止输出。</td>
 </tr>
 </table>
-</p>

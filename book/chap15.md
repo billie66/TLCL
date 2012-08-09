@@ -59,7 +59,6 @@ Gentoo, Slackware, and Foresight, but most others use one of these two basic sys
 Debian 的&quot;.deb&quot;，和红帽的&quot;.rpm&quot;。也有一些重要的例外，比方说 Gentoo，
 Slackware，和 Foresight，但大多数会使用这两个基本系统中的一个。
 
-<p>
 <table class="multi">
 <caption class="cap">Table 15-1: Major Packaging System Families</caption>
 <tr>
@@ -76,7 +75,6 @@ Slackware，和 Foresight，但大多数会使用这两个基本系统中的一�
 Mandriva, PCLinuxOS</td>
 </tr>
 </table>
-</p>
 
 How A Package System Works
 
@@ -209,7 +207,6 @@ Hat 产品使用的工具。虽然所有基于 Red Hat 风格的发行版都依�
 但是它们却使用不同的上层工具。我们将研究上层程序 yum 供我们讨论，Fedora, Red
 Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发行版提供了带有可比较特性的上层工具。
 
-<p>
 <table class="multi">
 <caption class="cap">Table15- 2: Packaging System Tools</caption>
 <tr>
@@ -234,7 +231,6 @@ Enterprise Linux, CentOS
 <td valign="top">yum</td>
 </tr>
 </table>
-</p>
 
 Common Package Management Tasks
 
@@ -260,7 +256,6 @@ on its name or description.
 
 使用上层工具来搜索资源库元数据，可以根据软件包的名字和说明来定位它。
 
-<p>
 <table class="multi">
 <caption class="cap">Table 15-3: Package Search Commands</caption>
 <tr>
@@ -277,7 +272,6 @@ on its name or description.
 <td valign="top">yum search search_string</td>
 </tr>
 </table>
-</p>
 
 Example: To search a yum repository for the emacs text editor, this command could be
 used:
@@ -285,7 +279,6 @@ used:
 例如：搜索一个 yum 资源库来查找 emacs 文本编辑器，使用以下命令：
 
     yum search emacs
-    
 
 Installing A Package From A Repository
 
@@ -296,7 +289,6 @@ full dependency resolution.
 
 上层工具允许从一个资源库中下载一个软件包，并经过完全依赖解析来安装它。
 
-<p>
 <table class="multi">
 <caption class="cap">Table 15-4: Package Installation Commands
 </caption>
@@ -314,7 +306,6 @@ full dependency resolution.
 <td valign="top">yum install package\_name</td>
 </tr>
 </table>
-</p>
 
 Example: To install the emacs text editor from an apt repository:
 
@@ -322,7 +313,6 @@ Example: To install the emacs text editor from an apt repository:
 
     apt-get update; apt-get install emacs
     
-
 Installing A Package From A Package File
 
 ### 通过软件包文件来安装软件
@@ -332,7 +322,6 @@ installed directly (though without dependency resolution) using a low-level tool
 
 如果从某处而不是从资源库中下载了一个软件包文件，可以使用底层工具来直接（没有经过依赖解析）安装它。
 
-<p>
 <table class="multi">
 <caption class="cap">Table 15-5: Low-Level Package Installation Commands</caption>
 <tr>
@@ -349,7 +338,6 @@ installed directly (though without dependency resolution) using a low-level tool
 <td valign="top">rpm -i package_file</td>
 </tr>
 </table>
-</p>
 
 Example: If the emacs-22.1-7.fc7-i386.rpm package file had been downloaded
 from a non-repository site, it would be installed this way:
@@ -381,7 +369,6 @@ are shown below.
 
 可以使用上层或者底层工具来卸载软件。下面是可用的上层工具。
 
-<p>
 <table class="multi">
 <caption class="cap">Table15- 6: Package Removal Commands
 </caption>
@@ -398,7 +385,6 @@ are shown below.
 <td valign="top">yum erase package_name</td>
 </tr>
 </table>
-</p>
 
 Example: To uninstall the emacs package from a Debian-style system:
 
@@ -406,7 +392,6 @@ Example: To uninstall the emacs package from a Debian-style system:
 
     apt-get remove emacs
     
-
 Updating Packages From A Repository
 
 ### 经过资源库来更新软件包
@@ -417,7 +402,6 @@ latest packages. The high-level tools can perform this vital task in one single 
 最常见的软件包管理任务是保持系统中的软件包都是最新的。上层工具仅需一步就能完成
 这个至关重要的任务。
 
-<p>
 <table class="multi">
 <caption class="cap">Table 15-7: Package Update Commands
 </caption>
@@ -436,7 +420,6 @@ latest packages. The high-level tools can perform this vital task in one single 
 </td>
 </tr>
 </table>
-</p>
 
 Example: To apply any available updates to the installed packages on a Debian-style
 system:
@@ -457,7 +440,6 @@ can be installed, replacing the previous version:
 如果已经从一个非资源库网站下载了一个软件包的最新版本，可以安装这个版本，用它来
 替代先前的版本：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 15-8: Low-Level Package Upgrade Commands
 </caption>
@@ -476,7 +458,6 @@ can be installed, replacing the previous version:
 </td>
 </tr>
 </table>
-</p>
 
 Example: Updating an existing installation of emacs to the version contained in the
 package file emacs-22.1-7.fc7-i386.rpm on a Red Hat system:
@@ -505,7 +486,6 @@ These commands can be used to display a list of all the packages installed on th
 
 下表中的命令可以用来显示安装到系统中的所有软件包列表：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 15-9: Package Listing Commands
 </caption>
@@ -523,7 +503,6 @@ These commands can be used to display a list of all the packages installed on th
 <td valign="top">rpm -qa</td>
 </tr>
 </table>
-</p>
 
 Determining If A Package Is Installed
 
@@ -533,7 +512,6 @@ These low-level tools can be used to display whether a specified package is inst
 
 这些底端工具可以用来显示是否安装了一个指定的软件包：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 15-10: Package Status Commands
 </caption>
@@ -552,14 +530,12 @@ These low-level tools can be used to display whether a specified package is inst
 </td>
 </tr>
 </table>
-</p>
 
 Example: To determine if the emacs package is installed on a Debian style system:
 
 例如：确定是否 Debian 风格的系统中安装了这个 emacs 软件包：
 
     dpkg --status emacs
-    
 
 Displaying Info About An Installed Package
 
@@ -570,7 +546,6 @@ display a description of the package:
 
 如果知道了所安装软件包的名字，使用以下命令可以显示这个软件包的说明信息：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 15-11: Package Information Commands
 </caption>
@@ -587,14 +562,12 @@ display a description of the package:
 <td valign="top">yum info package_name</td>
 </tr>
 </table>
-</p>
 
 Example: To see a description of the emacs package on a Debian-style system:
 
 例如：查看 Debian 风格的系统中 emacs 软件包的说明信息：
 
     apt-cache show emacs
-    
 
 Finding Which Package Installed A File
 
@@ -605,7 +578,6 @@ following commands can be used:
 
 确定哪个软件包对所安装的某个特殊文件负责，使用下表中的命令：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 15-12: Package File Identification Commands
 </caption>
@@ -624,7 +596,6 @@ following commands can be used:
 </td>
 </tr>
 </table>
-</p>
 
 Example: To see what package installed the /usr/bin/vim file on a Red Hat system:
 
@@ -632,7 +603,6 @@ Example: To see what package installed the /usr/bin/vim file on a Red Hat system
 
     rpm -qf /usr/bin/vim
     
-
 Summing Up
 
 ### 总结归纳

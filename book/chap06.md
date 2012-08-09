@@ -20,15 +20,13 @@ this chapter are:
 * whatis – Display a very brief description of a command
 * alias – Create an alias for a command
 
-<ul>
-<li>type – 说明怎样解释一个命令名</li>
+<ul><li>type – 说明怎样解释一个命令名</li>
 <li> which – 显示会执行哪个可执行程序</li>
 <li> man – 显示命令手册页</li>
 <li> apropos – 显示一系列适合的命令</li>
 <li> info – 显示命令 info</li>
 <li> whatis – 显示一个命令的简洁描述</li>
-<li> alias – 创建命令别名</li>
-</ul>
+<li> alias – 创建命令别名</li></ul>
 
 ### What Exactly Are Commands?
 
@@ -54,8 +52,7 @@ functions in later chapters, but for now, just be aware that they exist.</li>
 <li> An alias. Commands that we can define ourselves, built from other commands.</li>
 </ol>
 
-<ol>
-<li>是一个可执行程序，就像我们所看到的位于目录/usr/bin 中的文件一样。
+<ol><li>是一个可执行程序，就像我们所看到的位于目录/usr/bin 中的文件一样。
 属于这一类的程序，可以编译成二进制文件，诸如用 C 和 C++语言写成的程序,
 也可以是由脚本语言写成的程序，比如说 shell，perl，python，ruby，等等。</li>
 
@@ -66,8 +63,7 @@ functions in later chapters, but for now, just be aware that they exist.</li>
 在后续的章节里，我们将讨论配置环境变量以及书写 shell 函数。但是现在，
 仅仅意识到它们的存在就可以了。</li>
 
-<li>是一个命令别名。我们可以定义自己的命令，建立在其它命令之上。</li>
-</ol>
+<li>是一个命令别名。我们可以定义自己的命令，建立在其它命令之上。</li></ol>
 
 ### Identifying Commands
 
@@ -136,8 +132,7 @@ example, cd, we either get no response or an error message:
     [me@linuxbox ~]$ which cd
     /usr/bin/which: no cd in
     (/opt/jre1.6.0_03/bin:/usr/lib/qt-3.3/bin:/usr/kerberos/bin:/opt/jre1
-    .6.0_03/bin:/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/home/me/bin
-    )
+    .6.0_03/bin:/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/home/me/bin)
 
 which is a fancy way of saying “command not found.”
 
@@ -166,7 +161,6 @@ bash 有一个内建的帮助工具，可供每一个 shell 内部命令使用�
     cd: cd [-L|-P] [dir]
     Change ...
 
-
 A note on notation: When square brackets appear in the description of a command's
 syntax, they indicate optional items. A vertical bar character indicates mutually exclusive
 items. In the case of the cd command above:
@@ -174,7 +168,7 @@ items. In the case of the cd command above:
 注意表示法：出现在命令语法说明中的方括号，表示可选的项目。一个竖杠字符
 表示互斥选项。在上面 cd 命令的例子中：
 
-<p><b>cd [-L|-P] [dir]</b></p>
+    cd [-L|-P] [dir]
 
 This notation says that the command cd may be followed optionally by either a “-L” or a
 “-P” and further, optionally followed by the argument “dir”.
@@ -350,6 +344,7 @@ matching a specified keyword:
 whatis 程序显示匹配特定关键字的手册页的名字和一行命令说明：
 
 <div class="single">
+
 <h3>The Most Brutal Man Page Of Them All</h3>
 <h3>最晦涩难懂的手册页</h3>
 
@@ -550,7 +545,6 @@ Here's the example we will use:
     bin  games    kerberos  lib64    local  share  tmp
     ...
     [me@linuxbox ~]$
-
 
 As we can see, we have combined three commands on one line. First we change
 directory to /usr then list the directory and finally return to the original directory (by

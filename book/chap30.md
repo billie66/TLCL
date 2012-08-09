@@ -49,15 +49,13 @@ carrot. If we express this activity in pseudocode, it might look something like 
 
 7. if entire carrot sliced, then quit, else go to step 4
 
-<ol>
-<li><p>准备切菜板</p></li>
+<ol><li><p>准备切菜板</p></li>
 <li><p>准备菜刀</p></li>
 <li><p>把胡萝卜放到切菜板上</p></li>
 <li><p>提起菜刀</p></li>
 <li><p>向前推进胡萝卜</p></li>
 <li><p>切胡萝卜</p></li>
-<li><p>如果切完整个胡萝卜，就退出，要不然回到第四步继续执行</p></li>
-</ol>
+<li><p>如果切完整个胡萝卜，就退出，要不然回到第四步继续执行</p></li></ol>
 
 Steps 4 through 7 form a loop. The actions within the loop are repeated until the
 condition, “entire carrot sliced,” is reached.

@@ -61,7 +61,6 @@ try to use locate this way to find our files:
 
     [me@linuxbox ~]$ locate bin/zip
     
-
 locate will search its database of pathnames and output any that contain the string “bin/zip”:
 
 locate 命令将会搜索它的路径名数据库，输出任一个包含字符串“bin/zip”的路径名：
@@ -72,7 +71,6 @@ locate 命令将会搜索它的路径名数据库，输出任一个包含字符�
     /usr/bin/zipinfo
     /usr/bin/zipnote
     /usr/bin/zipsplit
-    
 
 If the search requirement is not so simple, locate can be combined with other tools
 such as grep to design more interesting searches:
@@ -99,7 +97,6 @@ such as grep to design more interesting searches:
     /usr/bin/zipinfo
     /usr/bin/zipnote
     /usr/bin/zipsplit
-    
 
 The locate program has been around for a number of years, and there are several
 different variants in common use. The two most common ones found in modern Linux
@@ -162,7 +159,6 @@ find 命令的最简单使用是，搜索一个或多个目录。例如，输出
 
     [me@linuxbox ~]$ find ~
     
-
 On most active user accounts, this will produce a large list. Since the list is sent to
 standard output, we can pipe the list into other programs. Let’s use wc to count the
 number of files:
@@ -172,7 +168,6 @@ number of files:
 
     [me@linuxbox ~]$ find ~ | wc -l
     47068
-    
 
 Wow, we’ve been busy! The beauty of find is that it can be used to identify files that
 meet specific criteria. It does this through the (slightly strange) application of options,
@@ -191,7 +186,6 @@ following test:
     [me@linuxbox ~]$ find ~ -type d | wc -l
     1695
     
-
 Adding the test -type d limited the search to directories. Conversely, we could have
 limited the search to regular files with this test:
 
@@ -200,12 +194,10 @@ limited the search to regular files with this test:
     [me@linuxbox ~]$ find ~ -type f | wc -l
     38737
     
-
 Here are the common file type tests supported by find:
 
 这里是 find 命令支持的普通文件类型测试条件：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 18-1: find File Types</caption>
 <tr>
@@ -234,9 +226,7 @@ Here are the common file type tests supported by find:
 <td valign="top">Symbolic link</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表18-1: find 文件类型</caption>
 <tr>
@@ -264,7 +254,6 @@ Here are the common file type tests supported by find:
 <td valign="top">符号链接</td>
 </tr>
 </table>
-</p>
 
 We can also search by file size and filename by adding some additional tests: Let’s look
 for all the regular files that match the wild card pattern “\*.JPG” and are larger than one
@@ -275,7 +264,6 @@ megabyte:
 
     [me@linuxbox ~]$ find ~ -type f -name "\*.JPG" -size +1M | wc -l
     840
-    
 
 In this example, we add the -name test followed by the wild card pattern. Notice how
 we enclose it in quotes to prevent pathname expansion by the shell. Next, we add the
@@ -291,7 +279,6 @@ is megabytes. The following characters may be used to specify units:
 若没有符号意味着“精确匹配这个数”。结尾字母“M”表明测量单位是兆字节。下面的字符可以
 被用来指定测量单位：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 18-2: find Size Units</caption>
 <tr>
@@ -323,7 +310,6 @@ is megabytes. The following characters may be used to specify units:
 <td valign="top">Gigabytes (Units of 1073741824 bytes)</td>
 </tr>
 </table>
-</p>
 
 find supports a large number of different tests. Below is a rundown of the common
 ones. Note that in cases where a numeric argument is required, the same “+” and “-”
@@ -332,7 +318,6 @@ notation discussed above can be applied:
 find 命令支持大量不同的测试条件。下表是列出了一些常见的测试条件。请注意，在需要数值参数的
 情况下，可以应用以上讨论的“+”和"-"符号表示法：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 18-3: find Tests</caption>
 <tr>
@@ -435,9 +420,7 @@ user may be expressed by a user name or by a numeric user
 ID.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表18-3: find 测试条件</caption>
 <tr>
@@ -523,7 +506,6 @@ valign="top">匹配的文件和目录的内容早于指定的文件。当编写 
 valign="top">匹配的文件或目录属于某个用户。这个用户可以通过用户名或用户 ID 来表示。 </td>
 </tr>
 </table>
-</p>
 
 This is not a complete list. The find man page has all the details.
 
@@ -548,7 +530,6 @@ could do this:
 为了表达上述的测试条件，我们可以这样做：
 
     [me@linuxbox ~]$ find ~ \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)
-    
 
 Yikes! That sure looks weird. What is all this stuff? Actually, the operators are not that
 complicated once you get to know them. Here is the list:
@@ -556,7 +537,6 @@ complicated once you get to know them. Here is the list:
 呀！这的确看起来很奇怪。这些是什么东西？实际上，这些操作符没有那么复杂，一旦你知道了它们。
 这里是操作符列表：
 
-<p>
 <table class="multi">
 <caption class="cap">表18-4: find 命令的逻辑操作符</caption>
 <tr>
@@ -585,7 +565,6 @@ complicated once you get to know them. Here is the list:
 用引号引起来，才能作为实参传递给 find 命令。通常反斜杠字符被用来转义圆括号字符。</td>
 </tr>
 </table>
-</p>
 
 With this list of operators in hand, let’s deconstruct our find command. When viewed
 from the uppermost level, we see that our tests are arranged as two groupings separated
@@ -595,7 +574,6 @@ by an -or operator:
 -or 操作符分开：
 
     ( expression 1 ) -or ( expression 2 )
-    
 
 This makes sense, since we are searching for files with a certain set of permissions and
 for directories with a different set. If we are looking for both files and directories, why
@@ -610,7 +588,7 @@ this way:
 匹配指定的测试条件。我们想要知道它是具有错误权限的文件还是有错误权限的目录。它不可能同时符合这
 两个条件。所以如果展开组合起来的表达式，我们能这样解释它：
 
-( file with bad perms ) -or ( directory with bad perms )
+    ( file with bad perms ) -or ( directory with bad perms )
 
 Our next challenge is how to test for “bad permissions.” How do we do that? Actually
 we don’t. What we will test for is “not good permissions,” since we know what “good
@@ -621,13 +599,13 @@ permissions” are. In the case of files, we define good as 0600 and for directo
 “不是正确权限”，因为我们知道什么是“正确权限”。对于文件，我们定义正确权限为0600，
 目录则为0711。测试具有“不正确”权限的文件表达式为：
 
--type f -and -not -perms 0600
+    -type f -and -not -perms 0600
 
 and for directories:
 
 对于目录，表达式为：
 
--type d -and -not -perms 0700
+    -type d -and -not -perms 0700
 
 As noted in the table of operators above, the -and operator can be safely removed, since
 it is implied by default. So if we put this all back together, we get our final command:
@@ -635,7 +613,7 @@ it is implied by default. So if we put this all back together, we get our final 
 正如上述操作符列表中提到的，这个-and 操作符能够被安全地删除，因为它是默认使用的操作符。
 所以如果我们把这两个表达式连起来，就得到最终的命令：
 
-find ~ ( -type f -not -perms 0600 ) -or ( -type d -not -perms 0700 )
+    find ~ ( -type f -not -perms 0600 ) -or ( -type d -not -perms 0700 )
 
 However, since the parentheses have special meaning to the shell, we must escape them
 to prevent the shell from trying to interpret them. Preceding each one with a backslash
@@ -649,7 +627,7 @@ that we have two expressions separated by a logical operator:
 
 逻辑操作符的另一个特性要重点理解。比方说我们有两个由逻辑操作符分开的表达式：
 
-expr1 -operator expr2
+    expr1 -operator expr2
 
 In all cases, expr1 will always be performed; however the operator will determine if
 expr2 is performed. Here’s how it works:
@@ -657,7 +635,6 @@ expr2 is performed. Here’s how it works:
 在所有情况下，总会执行表达式 expr1；然而由操作符来决定是否执行表达式 expr2。这里
 列出了它是怎样工作的：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 18-5: find AND/OR Logic</caption>
 <tr>
@@ -686,9 +663,7 @@ expr2 is performed. Here’s how it works:
 <td valign="top">Always performed</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表18-5: find AND/OR 逻辑</caption>
 <tr>
@@ -717,7 +692,6 @@ expr2 is performed. Here’s how it works:
 <td valign="top">总要执行</td>
 </tr>
 </table>
-</p>
 
 Why does this happen? It’s done to improve performance. Take -and, for example. We
 know that the expression expr1 -and expr2 cannot be true if the result of expr1
@@ -747,7 +721,6 @@ actions:
 中的某些条目。幸运地是，find 命令允许基于搜索结果来执行操作。有许多预定义的操作和几种方式来
 应用用户定义的操作。首先，让我们看一下几个预定义的操作：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 18-6: Predefined find Actions</caption>
 <tr>
@@ -775,7 +748,6 @@ output. This is the default action if no other action is specified.</td>
 </tr>
 </table>
 
-<p>
 <table class="multi">
 <caption class="cap">表18-6: 几个预定义的 find 命令操作</caption>
 <tr>
@@ -801,8 +773,6 @@ output. This is the default action if no other action is specified.</td>
 <td valign="top">一旦找到一个匹配，退出。</td>
 </tr>
 </table>
-</p>
-</p>
 
 As with the tests, there are many more actions. See the find man page for full details.
 In our very first example, we did this:
@@ -812,7 +782,6 @@ In our very first example, we did this:
 
     find ~
     
-
 which produced a list of every file and subdirectory contained within our home directory.
 It produced a list because the -print action is implied if no other action is specified.
 Thus our command could also be expressed as:
@@ -821,7 +790,6 @@ Thus our command could also be expressed as:
 ，如果没有指定其它操作的话。因此我们的命令也可以这样表述：
 
     find ~ -print
-    
 
 We can use find to delete files that meet certain criteria. For example, to delete files
 that have the file extension “.BAK” (which is often used to designate backup files), we
@@ -831,7 +799,6 @@ could use this command:
 的文件，我们可以使用这个命令：
 
     find ~ -type f -name '\*.BAK' -delete
-    
 
 In this example, every file in the user’s home directory (and its subdirectories) is searched
 for filenames ending in .BAK. When they are found, they are deleted.
@@ -871,13 +838,11 @@ relationships easier to see:
 
     find ~ -type f -and -name '\*.BAK' -and -print
     
-
 With our command fully expressed, let’s look at how the logical operators affect its
 execution:
 
 当命令被充分表达之后，让我们看看逻辑运算符是如何影响其执行的：
 
-<p>
 <table class="multi">
 <tr>
 <th class="title">Test/Action 
@@ -898,9 +863,7 @@ execution:
 -and relationship.  </td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <tr>
 <th class="title">测试／行为 
@@ -920,7 +883,6 @@ execution:
 <td valign="top">总是被执行，因为它是与-and 关系中的第一个测试／行为。</td>
 </tr>
 </table>
-</p>
 
 Since the logical relationship between the tests and actions determines which of them are
 performed, we can see that the order of the tests and actions is important. For instance, if
@@ -932,7 +894,6 @@ command would behave much differently:
 
     find ~ -print -and -type f -and -name '\*.BAK'
     
-
 This version of the command will print each file (the -print action always evaluates to
 true) and then test for file type and the specified file extension.
 
@@ -948,7 +909,7 @@ traditional way of doing this is with the -exec action. This action works like t
 除了预定义的行为之外，我们也可以唤醒随意的命令。传统方式是通过-exec 行为。这个
 行为像这样工作：
 
--exec command {} ;
+    -exec command {} ;
 
 where command is the name of a command, {} is a symbolic representation of the current
 pathname and the semicolon is a required delimiter indicating the end of the command.
@@ -958,7 +919,6 @@ Here’s an example of using -exec to act like the -delete action discussed earl
 表明命令结束。这里是一个使用-exec 行为的例子，其作用如之前讨论的-delete 行为：
 
     -exec rm '{}' ';'
-    
 
 Again, since the brace and semicolon characters have special meaning to the shell, they
 must be quoted or escaped.
@@ -977,7 +937,6 @@ in place of -exec, the user is prompted before execution of each specified comma
     < ls ... /home/me/foo.txt > ? y
     -rw-r--r-- 1 me    me 0 2008-09-19 12:53 /home/me/foo.txt 
     
-
 In this example, we search for files with names starting with the string “foo” and execute
 the command ls -l each time one is found. Using the -ok action prompts the user
 before the ls command is executed.
@@ -997,14 +956,14 @@ than executing the commands like this:
 当-exec 行为被使用的时候，若每次找到一个匹配的文件，它会启动一个新的指定命令的实例。
 我们可能更愿意把所有的搜索结果结合起来，再运行一个命令的实例。例如，而不是像这样执行命令：
 
-ls -l file1
-ls -l file2
+    ls -l file1
+    ls -l file2
 
 we may prefer to execute it this way:
 
 我们更喜欢这样执行命令：
 
-ls -l file1 file2
+    ls -l file1 file2
 
 thus causing the command to be executed only one time rather than multiple times.
 There are two ways we can do this. The traditional way, using the external command
@@ -1024,7 +983,6 @@ the desired command. Going back to our example, this:
     find ~ -type f -name 'foo\*' -exec ls -l '{}' ';'
     -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
     -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt 
-    
 
 will execute ls each time a matching file is found. By changing the command to:
 
@@ -1034,7 +992,6 @@ will execute ls each time a matching file is found. By changing the command to:
     -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
     -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt 
     
-
 we get the same results, but the system only has to execute the ls command once.
 
 虽然我们得到一样的结果，但是系统只需要执行一次 ls 命令。
@@ -1051,7 +1008,6 @@ we would use it like this:
     find ~ -type f -name 'foo\*' -print | xargs ls -l
     -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
     -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt 
-    
 
 Here we see the output of the find command piped into xargs which, in turn,
 constructs an argument list for ls command and then executes it.
@@ -1128,7 +1084,6 @@ First, let’s create a playground with lots of subdirectories and files:
     [me@linuxbox ~]$ mkdir -p playground/dir-{00{1..9},0{10..99},100}
     [me@linuxbox ~]$ touch playground/dir-{00{1..9},0{10..99},100}/file-{A..Z}
     
-
 Marvel in the power of the command line! With these two lines, we created a playground
 directory containing one hundred subdirectories each containing twenty-six empty files.
 Try that with the GUI!
@@ -1273,7 +1228,6 @@ Here is a list of the most commonly used ones:
 最后，我们有这些选项。这些选项被用来控制 find 命令的搜索范围。当构建 find 表达式的时候，
 它们可能被其它的测试条件和行为包含：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 18-7: find Options</caption>
 <tr>
@@ -1309,9 +1263,7 @@ This is needed when scanning DOS/Windows file
 systems and CD-ROMs.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表 18-7: find 命令选项</caption>
 <tr>
@@ -1340,7 +1292,6 @@ systems and CD-ROMs.</td>
 <td valign="top">指导 find 程序不要基于搜索类似于 Unix 的文件系统做出的假设，来优化它的搜索。</td>
 </tr>
 </table>
-</p>
 
 ### Further Reading
 

@@ -47,13 +47,17 @@ hr {
 
 div.single {
   border: 2px solid #E7E5DC;
-  padding: 3% 3% 1%;
+  padding: 3% 2% 1%;
   background-color: #f8f8f8;
 }
 
 table.multi {
   text-align: left;
   border: 1px;
+}
+
+td {
+  vertical-align: top;
 }
 
 caption.cap {

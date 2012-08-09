@@ -168,7 +168,6 @@ beginning? For that, we use the “&gt;&gt;” redirection operator, like so:
 
     [me@linuxbox ~]$ ls -l /usr/bin >> ls-output.txt
     
-
 Using the “&gt;&gt;” operator will result in the output being appended to the file. If the file
 does not already exist, it is created just as though the “&gt;” operator had been used. Let's
 put it to the test:
@@ -206,7 +205,6 @@ number two, we can redirect standard error with this notation:
 
     [me@linuxbox ~]$ ls -l /bin/usr 2> ls-error.txt
     
-
 The file descriptor “2” is placed immediately before the redirection operator to perform
 the redirection of standard error to the file ls-error.txt.
 
@@ -227,7 +225,6 @@ old versions of the shell:
 
     [me@linuxbox ~]$ ls -l /bin/usr > ls-output.txt 2>&amp;1
     
-
 Using this method, we perform two redirections. First we redirect standard output to the
 file ls-output.txt and then we redirect file descriptor two (standard error) to file
 descriptor one (standard output) using the notation 2&gt;&amp;1.
@@ -244,13 +241,13 @@ work. In the example above,
 注意重定向的顺序安排非常重要。标准错误的重定向必须总是出现在标准输出
 重定向之后，要不然它不起作用。上面的例子，
 
-<p>&gt;ls-output.txt 2&gt;&amp;1</p>
+    &gt;ls-output.txt 2&gt;&amp;1
 
 redirects standard error to the file ls-output.txt, but if the order is changed to
 
 重定向标准错误到文件 ls-output.txt，但是如果命令顺序改为：
 
-2&gt;&amp;1 &gt;ls-output.txt
+    2&gt;&amp;1 &gt;ls-output.txt
 
 standard error is directed to the screen.
 
@@ -265,7 +262,6 @@ combined redirection:
 
     [me@linuxbox ~]$ ls -l /bin/usr &amp;< ls-output.txt 
     
-
 In this example, we use the single notation &> to redirect both standard output and
 standard error to the file ls-output.txt.
 
@@ -325,7 +321,6 @@ cat 命令读取一个或多个文件，然后复制它们到标准输出，就�
 
     cat [file]
     
-
 In most cases, you can think of cat as being analogous to the TYPE command in DOS.
 You can use it to display files without paging, for example:
 
@@ -333,7 +328,6 @@ You can use it to display files without paging, for example:
 文件而没有分页，例如：
 
     [me@linuxbox ~]$ cat ls-output.txt
-    
 
 will display the contents of the file ls-output.txt. cat is often used to display
 short text files. Since cat can accept more than one file as an argument, it can also be
@@ -354,7 +348,6 @@ we could join them back together with this command:
 
     cat movie.mpeg.0* > movie.mpeg
     
-
 Since wildcards always expand in sorted order, the arguments will be arranged in the
 correct order.
 
@@ -368,7 +361,6 @@ but let's try something else. What happens if we type “cat” with no argument
 
     [me@linuxbox ~]$ cat
     
-
 Nothing happens, it just sits there like it's hung. It may seem that way, but it's really
 doing exactly what it's supposed to.
 
@@ -383,7 +375,6 @@ is, by default, attached to the keyboard, it's waiting for us to type something!
     [me@linuxbox ~]$ cat
     The quick brown fox jumped over the lazy dog.
     
-
 Next, type a Ctrl-d (i.e., hold down the Ctrl key and press “d”) to tell cat that it has
 reached end of file (EOF) on standard input:
 
@@ -393,13 +384,11 @@ reached end of file (EOF) on standard input:
     [me@linuxbox ~]$ cat
     The quick brown fox jumped over the lazy dog.
     The quick brown fox jumped over the lazy dog.
-    
 
 In the absence of filename arguments, cat copies standard input to standard output, so
 we see our line of text repeated. We can use this behavior to create short text files. Let's
 say that we wanted to create a file called “lazy_dog.txt” containing the text in our
 example. We would do this:
-
 
 由于文件名参数的缺席，cat 复制标准输入到标准输出，所以我们看到文本行重复出现。
 我们可以使用这种行为来创建简短的文本文件。比方说，我们想创建一个叫做"lazy_dog.txt"
@@ -408,7 +397,6 @@ example. We would do this:
     [me@linuxbox ~]$ cat > lazy_dog.txt
     The quick brown fox jumped over the lazy dog.
     
-
 Type the command followed by the text we want in to place in the file. Remember to
 type Ctrl-d at the end. Using the command line, we have implemented the world's
 dumbest word processor! To see our results, we can use cat to copy the file to stdout
@@ -431,14 +419,13 @@ let's try redirecting standard input:
     The quick brown fox jumped over the lazy dog.
     
     
-
-Using the “<” redirection operator, we change the source of standard input from the
+Using the “&lt;” redirection operator, we change the source of standard input from the
 keyboard to the file lazy_dog.txt. We see that the result is the same as passing a
 single filename argument. This is not particularly useful compared to passing a filename
 argument, but it serves to demonstrate using a file as a source of standard input. Other
 commands make better use of standard input, as we shall soon see.
 
-使用“<”重定向操作符，我们把标准输入源从键盘改到文件 lazy_dog.tx。我们看到结果
+使用“&lt;”重定向操作符，我们把标准输入源从键盘改到文件 lazy_dog.tx。我们看到结果
 和传递单个文件名作为参数的执行结果一样。把这和传递一个文件名参数作比较，尤其没有意义，
 但它是用来说明把一个文件作为标准输入源。
 
@@ -460,7 +447,6 @@ standard output of one command can be piped into the standard input of another:
 
     command1 | command2
     
-
 To fully demonstrate this, we are going to need some commands. Remember how we
 said there was one we already knew that accepts standard input? It's less. We can use
 less to display, page-by-page, the output of any command that sends its results to
@@ -472,7 +458,6 @@ standard output:
 
     [me@linuxbox ~]$ ls -l /usr/bin | less
     
-
 This is extremely handy! Using this technique, we can conveniently examine the output
 of any command that produces standard output.
 
@@ -495,7 +480,6 @@ executable programs in /bin and /usr/bin, put them in sorted order and view it:
 
     [me@linuxbox ~]$ ls /bin /usr/bin | sort | less
     
-
 Since we specified two directories (/bin and /usr/bin), the output of ls would have
 consisted of two sorted lists, one for each directory. By including sort in our pipeline,
 we changed the data to produce a single, sorted list.
@@ -521,7 +505,6 @@ uniq 到我们的管道线中：
 
     [me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq | less
     
-
 In this example, we use uniq to remove any duplicates from the output of the sort
 command. If we want to see the list of duplicates instead, we add the “-d” option to
 uniq like so:
@@ -530,7 +513,6 @@ uniq like so:
 重复的数据列表，让 uniq 命令带上"-d"选项，就像这样：
 
     [me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq -d | less
-    
 
 ### wc – Print Line, Word, And Byte Counts
 
@@ -544,7 +526,6 @@ wc（字计数）命令是用来显示文件所包含的行，字和字节数。
     [me@linuxbox ~]$ wc ls-output.txt
     7902 64566 503634 ls-output.txt
     
-
 In this case it prints out three numbers: lines, words, and bytes contained in ls-
 output.txt. Like our previous commands, if executed without command line
 arguments, wc accepts standard input. The “-l” option limits its output to only report
@@ -559,7 +540,6 @@ programs we have in our sorted list, we can do this:
     [me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq | wc -l
     2728
     
-
 ### grep – Print Lines Matching A Pattern
 
 ### grep －打印匹配行
@@ -570,7 +550,6 @@ grep 是个很强大的程序，用来找到文件中的匹配文本。这样使
 
     grep pattern [file...]
     
-
 When grep encounters a “pattern” in the file, it prints out the lines containing it. The
 patterns that grep can match can be very complex, but for now we will concentrate on
 simple text matches. We'll cover the advanced patterns, called regular expressions in a
@@ -593,7 +572,6 @@ our system that had something to do with file compression. We would do this:
     gunzip
     ...
     
-
 There are a couple of handy options for grep: “-i” which causes grep to ignore case
 when performing the search (normally searches are case sensitive) and “-v” which tells
 grep to only print lines that do not match the pattern.
@@ -620,7 +598,6 @@ head 命令打印文件的前十行，而 tail 命令打印文件的后十行。
     [me@linuxbox ~]$ tail -n 5 ls-output.txt
     ...
     
-
 These can be used in pipelines as well:
 
 它们也能用在管道线中：
@@ -628,7 +605,6 @@ These can be used in pipelines as well:
     [me@linuxbox ~]$ ls /usr/bin | tail -n 5
     znew
     ...
-    
 
 tail has an option which allows you to view files in real-time. This is useful for
 watching the progress of log files as they are being written. In the following example, we
@@ -645,7 +621,6 @@ tail 有一个选项允许你实时的浏览文件。当观察日志文件的进
     Feb 8 13:40:05 twin4 dhclient: DHCPACK from 192.168.1.1
     ....
     
-
 Using the “-f” option, tail continues to monitor the file and when new lines are
 appended, they immediately appear on the display. This continues until you type Ctrl-c.
 
@@ -675,7 +650,6 @@ contents:
     bzip2
     ....
     
-
 ### Summing Up
 
 ### 总结归纳

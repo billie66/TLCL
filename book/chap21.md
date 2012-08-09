@@ -286,12 +286,10 @@ and wanted to combine them into a single sorted file, we could do something like
 
     sort file1.txt file2.txt file3.txt > final_sorted_list.txt 
     
-
 sort has several interesting options. Here is a partial list:
 
 sort 程序有几个有趣的选项。这里只是一部分列表：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 21-1: Common sort Options</caption>
 <tr>
@@ -350,9 +348,7 @@ additional sorting. </td>
 separated by spaces or tabs.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表21-1: 常见的 sort 程序选项</caption>
 <tr>
@@ -403,7 +399,6 @@ valign="top">把每个参数看作是一个预先排好序的文件。把多个�
 <td valign="top">定义域分隔字符。默认情况下，域由空格或制表符分隔。</td>
 </tr>
 </table>
-</p>
 
 Although most of the options above are pretty self-explanatory, some are not. First, let’s
 look at the -n option, used for numeric sorting. With this option, it is possible to sort
@@ -493,7 +488,6 @@ containing the author’s name:
 让我们考虑一个非常简单的文本文件，只有一行包含作者名字的文本。
 
     William      Shotts 
-    
 
 By default, sort sees this line as having two fields. The first field contains the characters:
 
@@ -724,7 +718,6 @@ uniq has several options. Here are the common ones:
 
 这是因为 uniq 只会删除相邻的重复行。uniq 程序有几个选项。这里是一些常用选项：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 21-2: Common uniq Options</caption>
 <tr>
@@ -759,9 +752,7 @@ no option for setting an alternate field separator.</td>
 <td valign="top">Only output unique lines. This is the default.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表21-2: 常用的 uniq 选项</caption>
 <tr>
@@ -794,7 +785,6 @@ no option for setting an alternate field separator.</td>
 <td valign="top">只是输出独有的文本行。这是默认的。</td>
 </tr>
 </table>
-</p>
 
 Here we see uniq used to report the number of duplicates found in our text file, using
 the -c option:
@@ -806,14 +796,14 @@ the -c option:
             2 b
             2 c
 
-###Slicing And Dicing
+### Slicing And Dicing
 
 The next three programs we will discuss are used to peel columns of text out of files and
 recombine them in useful ways.
 
 下面我们将要讨论的三个程序用来从文件中获得文本列，并且以有用的方式重组它们。
 
-####cut
+#### cut
 
 The cut program is used to extract a section of text from a line and output the extracted
 section to standard output. It can accept multiple file arguments or input from standard
@@ -827,7 +817,6 @@ using the following options:
 
 从文本行中指定要抽取的文本有些麻烦，使用以下选项：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 21-3: cut Selection Options
 </caption>
@@ -858,9 +847,7 @@ character.</td>
 specified by -c and/or -f.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表21-3: cut 程序选择项</caption>
 <tr>
@@ -887,7 +874,6 @@ specified by -c and/or -f.</td>
 <td valign="top">抽取整个文本行，除了那些由-c 和／或-f 选项指定的文本。 </td>
 </tr>
 </table>
-</p>
 
 As we can see, the way cut extracts text is rather inflexible. cut is best used to extract
 text from files that are produced by other programs, rather than text directly typed by
@@ -1138,11 +1124,9 @@ name (FNAME) and the customer’s last name (LNAME):
 表格组成，每个表格包含一条记录。第一个表格，叫做 CUSTOMERS，有三个数据域：一个客户号（CUSTNUM），
 客户的名字（FNAME）和客户的姓（LNAME）：
 
-<pre>
-CUSTNUM	    FNAME       ME
-========    =====       ======
-4681934	    John        Smith
-</pre>
+    CUSTNUM	    FNAME       ME
+    ========    =====       ======
+    4681934	    John        Smith
 
 The second table is called ORDERS and contains four fields: an order number
 (ORDERNUM), the customer number (CUSTNUM), the quantity (QUAN), and the item
@@ -1151,10 +1135,9 @@ ordered (ITEM).
 第二个表格叫做 ORDERS，其包含四个数据域：订单号（ORDERNUM），客户号（CUSTNUM），数量（QUAN），
 和订购的货品（ITEM）。
 
-<pre>ORDERNUM        CUSTNUM     QUAN ITEM
-========        =======     ==== ====
-3014953305      4681934     1    Blue Widget
-</pre>
+    ORDERNUM        CUSTNUM     QUAN ITEM
+    ========        =======     ==== ====
+    3014953305      4681934     1    Blue Widget
 
 Note that both tables share the field CUSTNUM. This is important, as it allows a
 relationship between the tables.
@@ -1168,10 +1151,9 @@ CUSTNUM fields of both tables, a join operation could produce the following:
 执行一个 join 操作将允许我们把两个表格中的数据域结合起来，得到一个有用的结果，例如准备
 一张发货单。通过使用两个表格 CUSTNUM 数字域中匹配的数值，一个 join 操作会产生以下结果：
 
-<pre>FNAME       LNAME       QUAN ITEM
-=====       =====       ==== ====
-John        Smith       1    Blue Widget
-</pre>
+    FNAME       LNAME       QUAN ITEM
+    =====       =====       ==== ====
+    John        Smith       1    Blue Widget
 
 To demonstrate the join program, we’ll need to make a couple of files with a shared
 key. To do this, we will use our distros-by-date.txt file. From this file, we will
@@ -1336,7 +1318,6 @@ to convert the first file to the second file:
 每组的更改之前都是一个更改命令，其形式为_range operation range_ ，
 用来描述要求更改的位置和类型，从而把第一个文件转变为第二个文件：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 21-4: diff Change Commands</caption>
 <tr>
@@ -1359,9 +1340,7 @@ position r2 in the second file.</td>
 appeared at range r2 in the second file.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表21-4: diff 更改命令</caption>
 <tr>
@@ -1381,7 +1360,6 @@ appeared at range r2 in the second file.</td>
 <td valign="top">删除第一个文件中位置 r1处的文本行，这些文本行将会出现在第二个文件中位置 r2处。</td>
 </tr>
 </table>
-</p>
 
 In this format, a range is a comma separated list of the starting line and the ending line.
 While this format is the default (mostly for POSIX compliance and backward
@@ -1435,7 +1413,6 @@ begin with one of four indicators:
 
 这表示第二个文件中从第一行到第四行的文本行。在更改组内，文本行以四个指示符之一开头：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 21-5: diff Context Format Change Indicators</caption>
 <tr>
@@ -1460,9 +1437,7 @@ begin with one of four indicators:
 in its respective section of the change group.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表21-5：diff 上下文模式更改指示符</caption>
 <tr>
@@ -1486,7 +1461,6 @@ in its respective section of the change group.</td>
 <td valign="top">更改行。将会显示某个文本行的两个版本，每个版本会出现在更改组的各自部分。</td>
 </tr>
 </table>
-</p>
 
 The _unified format_ is similar to the _context format_, but is more concise. It is specified
 with the -u option:
@@ -1516,7 +1490,6 @@ possible characters:
 @@ -1,4 +1,4 @@。这行字符串表示了在更改组中描述的第一个文件中的文本行和第二个文件中的文本行。
 这行字符串之后就是文本行本身，与三行默认的上下文。每行以可能的三个字符中的一个开头：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 21-6: diff Unified Format Change Indicators</caption>
 <tr>
@@ -1536,9 +1509,7 @@ possible characters:
 <td valign="top">This line was added to the first file.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表21-6：diff 统一模式更改指示符</caption>
 <tr>
@@ -1558,7 +1529,6 @@ possible characters:
 <td valign="top">添加这一行到第一个文件中。</td>
 </tr>
 </table>
-</p>
 
 #### patch
 
@@ -1587,11 +1557,9 @@ two significant advantages:
 
 2. The diff file concisely shows the change being made, allowing reviewers of the patch to quickly evaluate it.
 
-<ol>
-<li><p>一个 diff 文件非常小，与整个源码树的大小相比较而言。</p></li>
+<ol><li><p>一个 diff 文件非常小，与整个源码树的大小相比较而言。</p></li>
 
-<li><p> 一个 diff 文件简洁地显示了所做的修改，从而允许程序补丁的审阅者能快速地评估它。</p></li>
-</ol>
+<li><p> 一个 diff 文件简洁地显示了所做的修改，从而允许程序补丁的审阅者能快速地评估它。</p></li></ol>
 
 Of course, diff/patch will work on any text file, not just source code. It would be
 equally applicable to configuration files or any other text.
@@ -1685,14 +1653,12 @@ and thus should be used with caution.
 
 3. POSIX character classes. For example, [:upper:].
 
-<ol>
-<li><p>一个枚举列表。例如， ABCDEFGHIJKLMNOPQRSTUVWXYZ</p></li>
+<ol><li><p>一个枚举列表。例如， ABCDEFGHIJKLMNOPQRSTUVWXYZ</p></li>
 
 <li><p>一个字符域。例如，A-Z 。注意这种方法有时候面临与其它命令相同的问题，归因于
 语系的排序规则，因此应该谨慎使用。</p></li>
 
-<li><p>POSIX 字符类。例如，[:upper:]</p></li>
-</ol>
+<li><p>POSIX 字符类。例如，[:upper:]</p></li></ol>
 
 In most cases, both character sets should be of equal length; however, it is possible for
 the first set to be larger than the second, particularly if we wish to convert multiple
@@ -1866,7 +1832,6 @@ Addresses may be expressed in many ways. Here are the most common:
 我们看到没有执行这个编辑命令，因为我们的输入流没有第二行。地址可以用许多方式来表达。这里是
 最常用的：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 21-7: sed Address Notation</caption>
 <tr>
@@ -1910,9 +1875,7 @@ fifth line thereafter.</td>
 <td valign="top">Match all lines except addr, which may be any of the forms above.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表21-7: sed 地址表示法</caption>
 <tr>
@@ -1953,7 +1916,6 @@ valign="top">匹配由数字 first 代表的文本行，然后随后的每个在
 <td valign="top">匹配所有的文本行，除了 addr 之外，addr 可能是上述任意的地址形式。</td>
 </tr>
 </table>
-</p>
 
 We’ll demonstrate different kinds of addresses using the distros.txt file from earlier
 in this chapter. First, a range of line numbers:
@@ -2020,7 +1982,6 @@ complete list of the basic editing commands:
 
 目前为止，我们已经知道了两个 sed 的编辑命令，s 和 p。这里是一个更加全面的基本编辑命令列表：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 21-8: sed Basic Editing Commands</caption>
 <tr>
@@ -2079,9 +2040,7 @@ from set1 to the corresponding characters in set2.
 Note that unlike tr, sed requires that both sets be of the same length.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表21-8： sed 基本编辑命令 </caption>
 <tr>
@@ -2132,7 +2091,6 @@ replacement 可能包含序列\1到\9，其是 regexp 中相对应的子表达�
 注意不同于 tr 程序，sed 要求两个字符集合具有相同的长度。</td>
 </tr>
 </table>
-</p>
 
 The s command is by far the most commonly used editing command. We will
 demonstrate just some of its power by performing an edit on our distros.txt file.
@@ -2632,31 +2590,31 @@ GNU 项目网站包含了本章中所讨论工具的许多在线指南。
 
 * From the Coreutils package:
 
-  http://www.gnu.org/software/coreutils/manual/coreutils.html#Output-of-entire-files
+  <http://www.gnu.org/software/coreutils/manual/coreutils.html#Output-of-entire-files>
 
-  http://www.gnu.org/software/coreutils/manual/coreutils.html#Operating-on-sorted-files
+  <http://www.gnu.org/software/coreutils/manual/coreutils.html#Operating-on-sorted-files>
 
-  http://www.gnu.org/software/coreutils/manual/coreutils.html#Operating-on-fields-within-a-line
+  <http://www.gnu.org/software/coreutils/manual/coreutils.html#Operating-on-fields-within-a-line>
 
-  http://www.gnu.org/software/coreutils/manual/coreutils.html#Operating-on-characters
+  <http://www.gnu.org/software/coreutils/manual/coreutils.html#Operating-on-characters>
 
 * From the Diffutils package:
   
-  http://www.gnu.org/software/diffutils/manual/html\_mono/diff.html
+  <http://www.gnu.org/software/diffutils/manual/html\_mono/diff.html>
 
 * sed
 
-  http://www.gnu.org/software/sed/manual/sed.html
+  <http://www.gnu.org/software/sed/manual/sed.html>
 
 * aspell
 
-  http://aspell.net/man-html/index.html
+  <http://aspell.net/man-html/index.html>
 
 * There are many other online resources for sed, in particular:
 
-  http://www.grymoire.com/Unix/Sed.html
+  <http://www.grymoire.com/Unix/Sed.html>
   
-  http://sed.sourceforge.net/sed1line.txt
+  <http://sed.sourceforge.net/sed1line.txt>
 
 * Also try googling “sed one liners”, “sed cheat sheets”
 

@@ -58,9 +58,8 @@ make full use of this chapter we should be familiar with the following terms:
 * IP (网络协议)地址
 
 * Host and domain name
-<li>
-<p>主机和域名</p>
-</li>
+
+<li><p>主机和域名</p></li>
 
 * URI (Uniform Resource Identifier)
 
@@ -120,7 +119,6 @@ we can use use ping like this:
 我们可以这样使用 ping 命令：
 
     [me@linuxbox ~]$ ping linuxcommand.org
-    
 
 Once started, ping continues to send packets at a specified interval (default is one
 second) until it is interrupted:
@@ -140,7 +138,6 @@ second) until it is interrupted:
     64 bytes from vhost.sourceforge.net (66.35.250.210): icmp\_seq=5
     ttl=43 time=105 ms
     ...
-    
 
 After it is interrupted (in this case after the sixth packet) by pressing Ctrl-c, ping
 prints performance statistics. A properly performing network will exhibit zero percent
@@ -164,7 +161,6 @@ taken to reach slashdot.org, we would do this:
 
     [me@linuxbox ~]$ traceroute slashdot.org
     
-
 The output looks like this:
 
 命令输出看起来像这样：
@@ -181,7 +177,6 @@ The output looks like this:
     ms 15.983 ms 16.256 ms
     6 po-30-ar01.howardcounty.md.bad.comcast.net (68.87.136.5) 22.835
     ...
-    
 
 In the output, we can see that connecting from our test system to slashdot.org
 requires traversing sixteen routers. For routers that provided identifying information, we
@@ -217,7 +212,6 @@ setup. Using the “-ie” option, we can examine the network interfaces in our 
     lo      Link encap:Local Loopback
             inet addr:127.0.0.1 Mask:255.0.0.0
     ...
-    
 
 In the example above, we see that our test system has two network interfaces.
 The first, called eth0, is the Ethernet interface and the second, called lo,
@@ -253,7 +247,6 @@ shows how the network is configured to send packets from network to network:
     192.168.1.0     *           255.255.255.0   U        0    0          0 eth0
     default         192.168.1.1 0.0.0.0         UG       0    0          0 eth0
     
-
 In this simple example, we see a typical routing table for a client machine on
 a LAN (Local Area Network) behind a firewall/router. The first line of the
 listing shows the destination 192.168.1.0. IP addresses that end in zero refer
@@ -355,12 +348,10 @@ anonymous FTP server fileserver:
     ftp> bye
     
     
-
 Here is an explanation of the commands entered during this session:
 
 这里是对会话期间所输入命令的解释说明：
 
-<p>
 <table class="multi">
 <tr>
 <th class="title">Command</th>
@@ -407,9 +398,7 @@ there. </td>
 The commands quit and exit may also be used. </td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <tr>
 <th class="title">命令</th>
@@ -449,7 +438,6 @@ The commands quit and exit may also be used. </td>
 valign="top">退出远端服务器，结束 ftp 程序会话。也可以使用命令 quit 和 exit。</td>
 </tr>
 </table>
-</p>
 
 Typing “help” at the “ftp&gt;” prompt will display a list of the supported commands. Using
 ftp on a server where sufficient permissions have been granted, it is possible to perform
@@ -493,7 +481,6 @@ we could do this:
       [ <                        => ]        3,120       --.--K/s
     
     11:02:51 (161.75 MB/s) - 'index.php' saved [3120]
-    
 
 The program's many options allow wget to recursively download, download files in the
 background (allowing you to log off but continue downloading), and complete the
@@ -579,7 +566,6 @@ client program like so:
     41:ed:7a:df:23:19:bf:3c:a5:17:bc:61:b3:7f:d9:bb.
     Are you sure you want to continue connecting (yes/no)?
     
-
 The first time the connection is attempted, a message is displayed indicating that the
 authenticity of the remote host cannot be established. This is because the client program
 has never seen this remote host before. To accept the credentials of the remote host, enter
@@ -594,7 +580,6 @@ his/her password:
     of known hosts.
     me@remote-sys's password:
     
-
 After the password is successfully entered, we receive the shell prompt from the remote
 system:
 
@@ -602,7 +587,6 @@ system:
 
     Last login: Sat Aug 30 13:00:48 2008
     [me@remote-sys ~]$
-    
 
 The remote shell session continues until the user enters the exit command at the remote
 shell prompt, thereby closing the remote connection. At this point, the local shell session
@@ -622,7 +606,6 @@ in to the account bob on the remote system as follows:
     bob@remote-sys's password:
     Last login: Sat Aug 30 13:03:21 2008
     [bob@remote-sys ~]$
-    
 
 As stated before, ssh verifies the authenticity of the remote host. If the remote host does
 not successfully authenticate, the following message appears:
@@ -640,7 +623,6 @@ not successfully authenticate, the following message appears:
     attack)!
     ...
     
-
 This message is caused by one of two possible situations. First, an attacker may be
 attempting a “man-in-the-middle” attack. This is rare, since everybody knows that ssh
 alerts the user to this. The more likely culprit is that the remote system has been changed
@@ -663,8 +645,7 @@ message above, we see this:
 使用文本编辑器（可能是 vim）从文件~/.ssh/known\_hosts 中删除废弃的钥匙，
 就解决了问题。在上面的例子里，我们看到这样一句话：
 
-    Offending key in /home/me/.ssh/known\_hosts:1
-    
+    Offending key in /home/me/.ssh/known_hosts:1
 
 This means that line one of the known\_hosts file contains the offending key. Delete
 this line from the file, and the ssh program will be able to accept new authentication
@@ -692,7 +673,6 @@ shell 会话中。
     
     [me@linuxbox ~]$
     
-
 It’s possible to use this technique in more interesting ways, such as this example in which
 we perform an ls on the remote system and redirect the output to a file on the local
 system:
@@ -704,7 +684,6 @@ system:
     me@twin4's password:
     [me@linuxbox ~]$
     
-
 Notice the use of the single quotes in the command above. This is done because we do
 not want the pathname expansion performed on the local machine; rather, we want it to
 be performed on the remote system. Likewise, if we had wanted the output redirected to
@@ -765,7 +744,7 @@ option rather than the “-X” option to do this.</p>
 </div>
 <br />
 
-####scp And sftp
+#### scp And sftp
 
 The OpenSSH package also includes two programs that can make use of an SSH
 encrypted tunnel to copy files across the network. The first, scp (secure copy) is used
@@ -878,9 +857,9 @@ for the scp and sftp programs.</p>
 
 * Wikipedia 上包含了许多网络方面的优秀文章。这里有一些基础的：
 
-  <http://en.wikipedia.org/wiki/Internet\_protocol\_address>
+  <http://en.wikipedia.org/wiki/Internet_protocol_address>
 
-  <http://en.wikipedia.org/wiki/Host\_name>
+  <http://en.wikipedia.org/wiki/Host_name>
 
-  <http://en.wikipedia.org/wiki/Uniform\_Resource\_Identifier>
+  <http://en.wikipedia.org/wiki/Uniform_Resource_Identifier>
 

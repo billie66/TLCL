@@ -72,7 +72,6 @@ and what they select:
 使用通配符（也以文件名代换著称）允许你依据字符类型来选择文件名。下表列出这些通配符
 以及它们所选择的对象：
 
-<p>
 <table class="multi" >
 <caption class="cap">Table 5-1: Wildcards</caption>
 <tr>
@@ -101,8 +100,7 @@ characters</td>
 <td valign="top">Matches any character that is a member of the specified class</td>
 </tr>
 </table>
-</p>
-<p>
+
 <table class="multi">
 <caption class="cap">表5－1：通配符</caption>
 <tr>
@@ -130,13 +128,11 @@ characters</td>
 <td valign="top">匹配任意一个属于指定字符类中的字符</td>
 </tr>
 </table>
-</p>
 
 Table 5-2 lists the most commonly used character classes:
 
 表5-2列出了最常使用的字符类：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 5-2: Commonly Used Character Classes</caption>
 <tr>
@@ -164,9 +160,7 @@ Table 5-2 lists the most commonly used character classes:
 <td>Matches any uppercase letter</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表5－2：普遍使用的字符类</caption>
 <tr>
@@ -194,14 +188,12 @@ Table 5-2 lists the most commonly used character classes:
 <td>匹配任意一个大写字母</td>
 </tr>
 </table>
-</p>
 
 Using wildcards makes it possible to construct very sophisticated selection criteria for
 filenames. Here are some examples of patterns and what they match:
 
 借助通配符，为文件名构建非常复杂的选择标准成为可能。下面是一些类型匹配的范例:
 
-<p>
 <table class="multi">
 <caption class="cap">Table 5-3: Wildcard Examples</caption>
 <tr>
@@ -249,8 +241,7 @@ numerals</td>
 "2", or "3"</td>
 </tr>
 </table>
-</p>
-<p>
+
 <table class="multi">
 <caption class="cap">表5－3：通配符范例</caption>
 <tr>
@@ -294,7 +285,6 @@ numerals</td>
 <td valign="top">文件名以小写字母结尾，或以 “1”，“2”，或 “3” 结尾的文件</td>
 </tr>
 </table>
-</p>
 
 Wildcards can be used with any command that accepts filenames as arguments, but we’ll
 talk more about that in Chapter 8.
@@ -373,14 +363,12 @@ __注意表示法:__ 在描述一个命令时（如上所示），当有三个�
 
     mkdir dir1
     
-
 would create a single directory named "dir1", while
 
 会创建一个名为"dir1"的目录，而
 
     mkdir dir1 dir2 dir3
     
-
 would create three directokries named "dir1", "dir2", "dir3".
 
 会创建三个目录，名为"dir1", "dir2", "dir3"。
@@ -414,7 +402,6 @@ option) for cp:
 
 这里列举了 cp 命令一些有用的选项（短选项和等效的长选项）：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 5-4: cp Options</caption>
 <tr>
@@ -453,9 +440,7 @@ directory.</td>
 performed.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表5－4：cp 选项</caption>
 <tr>
@@ -487,9 +472,7 @@ cp 命令会默认重写文件。</td>
 <td valign="top">显示翔实的命令操作信息</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">Table 5-5: cp Examples</caption>
 <tr>
@@ -527,9 +510,7 @@ its contents) will be copied into dir2.
 </td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表 5—5： cp 实例</caption>
 <tr>
@@ -563,7 +544,6 @@ dir2必须已经存在。</td>
 如果目录 dir2存在，则目录 dir1(和目录中的内容)将会被复制到 dir2中。</td>
 </tr>
 </table>
-</p>
 
 ### mv — Move And Rename Files
 
@@ -592,7 +572,6 @@ mv shares many of the same options as cp:
 
 mv 与 cp 共享了很多一样的选项：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 5-6: mv options</caption>
 <tr>
@@ -618,9 +597,7 @@ directory.
 <td valign="top">Display informative messages as the move is performed.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表 5－6：mv 选项</caption>
 <tr>
@@ -642,9 +619,7 @@ directory.
 <td valign="top">当操作 mv 命令时，显示翔实的操作信息。</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">Table 5-7: mv Examples</caption>
 <tr>
@@ -672,9 +647,7 @@ if directory dir2 does exist, move directory dir1 (and its contents) into
 directory dir2.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表 5－7 mv 实例</caption>
 <tr>
@@ -700,7 +673,6 @@ class="title">移动 file1到 file2。<b>如果 file2存在，它的内容会被
 目录 dir2。</td>
 </tr>
 </table>
-</p>
 
 ### rm - Remove Files And Directories
 
@@ -913,11 +885,9 @@ may not reference a file that is not on the same disk partition as the link itse
 
 2. A hard link may not reference a directory.
 
-<ol>
-<li>一个硬链接不能关联它所在文件系统之外的文件。这是说一个链接不能关联
+<ol><li>一个硬链接不能关联它所在文件系统之外的文件。这是说一个链接不能关联
 与链接本身不在同一个磁盘分区上的文件。</li>
-<li>一个硬链接不能关联一个目录。</li>
-</ol>
+<li>一个硬链接不能关联一个目录。</li></ol>
 
 A hard link is indistinguishable from the file itself. Unlike a symbolic link, when you list
 a directory containing a hard link you will see no special indication of the link. When a
@@ -993,7 +963,6 @@ mkdir 命令被用来创建目录。首先确定我们在我们的主目录下�
     [me@linuxbox ~]$ cd
     [me@linuxbox ~]$ mkdir playground
     
-
 To make our playground a little more interesting, let's create a couple of directories inside
 it called “dir1” and “dir2”. To do this, we will change our current working directory to
 playground and execute another mkdir:
@@ -1005,7 +974,6 @@ playground and execute another mkdir:
     [me@linuxbox ~]$ cd playground
     [me@linuxbox playground]$ mkdir dir1 dir2
     
-
 Notice that the mkdir command will accept multiple arguments allowing us to create
 both directories with a single command.
 
@@ -1025,7 +993,6 @@ working directory:
 
     [me@linuxbox playground]$ cp /etc/passwd .
     
-
 Notice how we used the shorthand for the current working directory, the single trailing
 period. So now if we perform an ls, we will see our file:
 
@@ -1038,7 +1005,6 @@ period. So now if we perform an ls, we will see our file:
     drwxrwxr-x 2  me  me   4096 2008-01-10 16:40 dir2
     -rw-r--r-- 1  me  me   1650 2008-01-10 16:07 passwd 
     
-
 Now, just for fun, let's repeat the copy using the “-v” option (verbose) to see what it does:
 
 现在，仅仅是为了高兴，重复操作复制命令，使用"-v"选项（唠叨），看一个它的作用：
@@ -1046,7 +1012,6 @@ Now, just for fun, let's repeat the copy using the “-v” option (verbose) to 
     [me@linuxbox playground]$ cp -v /etc/passwd .
     `/etc/passwd' -> `./passwd'
     
-
 The cp command performed the copy again, but this time displayed a concise message
 indicating what operation it was performing. Notice that cp overwrote the first copy
 without any warning. Again this is a case of cp assuming that you know what you’re are
@@ -1059,7 +1024,6 @@ cp 假定你知道你的所作所为。为了得到警示信息，在命令中�
     [me@linuxbox playground]$ cp -i /etc/passwd .
     cp: overwrite `./passwd'?
     
-
 Responding to the prompt by entering a “y” will cause the file to be overwritten, any
 other character (for example, “n”) will cause cp to leave the file alone.
 
@@ -1077,7 +1041,6 @@ change it to something else:
 
     [me@linuxbox playground]$ mv passwd fun
     
-
 Let's pass the fun around a little by moving our renamed file to each of the directories and
 back again:
 
@@ -1086,21 +1049,18 @@ back again:
 
     [me@linuxbox playground]$ mv fun dir1
     
-
 to move it first to directory dir1, then:
 
 首先，把 fun 文件移动目录 dir1中，然后：
 
     [me@linuxbox playground]$ mv dir1/fun dir2
     
-
 to move it from dir1 to dir2, then:
 
 再把 fun 文件从 dir1移到目录 dir2, 然后：
 
     [me@linuxbox playground]$ mv dir2/fun .
     
-
 to finally bringing it back to the current working directory. Next, let's see the effect of mv
 on directories. First we will move our data file into dir1 again:
 
@@ -1109,7 +1069,6 @@ on directories. First we will move our data file into dir1 again:
 
     [me@linuxbox playground]$ mv fun dir1
     
-
 then move dir1 into dir2 and confirm it with ls:
 
 然后移动 dir1到 dir2目录，用 ls 来确认执行结果:
@@ -1122,7 +1081,6 @@ then move dir1 into dir2 and confirm it with ls:
     total 4
     -rw-r--r-- 1 me me 1650 2008-01-10 16:33 fun
     
-
 Note that since dir2 already existed, mv moved dir1 into dir2. If dir2 had not
 existed, mv would have renamed dir1 to dir2. Lastly, let's put everything back:
 
@@ -1132,7 +1090,6 @@ mv 会重新命名 dir1为 dir2。最后，把所有的东西放回原处。
     [me@linuxbox playground]$ mv dir2/dir1 .
     [me@linuxbox playground]$ mv dir1/fun .
     
-
 ### Creating Hard Links
 
 ### 创建硬链接
@@ -1147,7 +1104,6 @@ like so:
     [me@linuxbox playground]$ ln fun dir1/fun-hard
     [me@linuxbox playground]$ ln fun dir2/fun-hard
     
-
 So now we have four instances of the file “fun”. Let's take a look our playground
 directory:
 
@@ -1160,7 +1116,6 @@ directory:
     -rw-r--r-- 4 me  me 1650 2008-01-10 16:33 fun
     -rw-r--r-- 4 me  me 1650 2008-01-10 16:33 fun-hard
     
-
 One thing you notice is that the second field in the listing for fun and fun-hard both
 contain a “4” which is the number of hard links that now exist for the file. You'll
 remember that a file will always have at least one because the file's name is created by a
@@ -1200,7 +1155,6 @@ ls 命令有一种方法，来展示（文件索引节点）的信息。在命�
     12353538 -rw-r--r-- 4 me  me 1650  2008-01-10  16:33  fun
     12353538 -rw-r--r-- 4 me  me 1650  2008-01-10  16:33  fun-hard
     
-
 In this version of the listing, the first field is the inode number and, as we can see, both
 fun and fun-hard share the same inode number, which confirms they are the same
 file.
@@ -1229,7 +1183,6 @@ Creating symbolic links is similar to creating hard links:
     [me@linuxbox playground]$ ln -s ../fun dir1/fun-sym
     [me@linuxbox playground]$ ln -s ../fun dir2/fun-sym
     
-
 The first example is pretty straightforward, we simply add the “-s” option to create a
 symbolic link rather than a hard link. But what about the next two? Remember, when we
 create a symbolic link, we are creating a text description of where the target file is
@@ -1245,7 +1198,6 @@ ls 命令的输出结果，比较容易理解。
     -rw-r--r-- 4 me  me 1650 2008-01-10 16:33 fun-hard
     lrwxrwxrwx 1 me  me    6 2008-01-15 15:17 fun-sym -> ../fun
     
-
 The listing for fun-sym in dir1 shows that is it a symbolic link by the leading “l” in
 the first field and that it points to “../fun”, which is correct. Relative to the location of
 fun-sym, fun is in the directory above it. Notice too, that the length of the symbolic
@@ -1263,7 +1215,6 @@ When creating symbolic links, you can either use absolute pathnames:
 
     ln -s /home/me/playground/fun dir1/fun-sym
     
-
 or relative pathnames, as we did in our earlier example. Using relative pathnames is
 more desirable because it allows a directory containing symbolic links to be renamed
 and/or moved without breaking the links.
@@ -1280,7 +1231,6 @@ In addition to regular files, symbolic links can also reference directories:
     total 16
     ...省略
     
-
 ### Removing Files And Directories
 
 ### 移动文件和目录
@@ -1297,7 +1247,6 @@ links:
     total 12
     ...省略
     
-
 That worked as expected. The file fun-hard is gone and the link count shown for fun
 is reduced from four to three, as indicated in the second field of the directory listing.
 Next, we'll delete the file fun, and just for enjoyment, we'll include the “-i” option to
@@ -1310,7 +1259,6 @@ show what that does:
     [me@linuxbox playground]$ rm -i fun
     rm: remove regular file `fun'?
     
-
 Enter “y” at the prompt and the file is deleted. But let's look at the output of ls now.
 Noticed what happened to fun-sym? Since it's a symbolic link pointing to a now-
 nonexistent file, the link is broken:
@@ -1325,7 +1273,6 @@ nonexistent file, the link is broken:
     drwxrwxr-x 2 me  me     4096 2008-01-15 15:17 dir2
     lrwxrwxrwx 1 me  me        3 2008-01-15 15:15 fun-sym -> fun
     
-
 Most Linux distributions configure ls to display broken links. On a Fedora box, broken
 links are displayed in blinking red text! The presence of a broken link is not, in and of
 itself dangerous but it is rather messy. If we try to use a broken link we will see this:
@@ -1337,7 +1284,6 @@ itself dangerous but it is rather messy. If we try to use a broken link we will 
     [me@linuxbox playground]$ less fun-sym
     fun-sym: No such file or directory
     
-
 Let's clean up a little. We'll delete the symbolic links:
 
 稍微清理一下现场。删除符号链接：
@@ -1348,7 +1294,6 @@ Let's clean up a little. We'll delete the symbolic links:
     drwxrwxr-x 2 me  me    4096 2008-01-15 15:17 dir1
     drwxrwxr-x 2 me  me    4096 2008-01-15 15:17 dir2
     
-
 One thing to remember about symbolic links is that most file operations are carried out
 on the link's target, not the link itself. rm is an exception. When you delete a link, it is
 the link that is deleted, not the target.
@@ -1367,8 +1312,8 @@ including its subdirectories:
     [me@linuxbox playground]$ cd
     [me@linuxbox ~]$ rm -r playground
     
-
 <div class="single">
+
 <h3>Creating Symlinks With The GUI</h3>
 <h3>用 GUI 来创建符号链接</h3>
 
@@ -1401,6 +1346,4 @@ take the time to learn how they work. They can be a real lifesaver.
 命令和通配符，非常重要。空闲时，通过添加文件和目录来拓展 playground 练习，
 使用通配符来为各种各样的操作命令指定文件。关于链接的概念，在刚开始接触
 时会觉得有点迷惑，花些时间来学习它们是怎样工作的。它们能成为真正的救星。
-
-
 

@@ -58,7 +58,6 @@ directory (symbolized by the “~” character) and the /usr directory:
     bin  games      kerberos  libexec  sbin   src
     etc  include    lib       local    share  tmp 
     
-
 We can also change the format of the output to reveal more detail:
 
 我们也可以改变输出格式，来得到更多的细节：
@@ -73,7 +72,6 @@ We can also change the format of the output to reveal more detail:
     drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Templates
     drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Videos
     
-
 By adding “-l” to the command, we changed the output to the long format.
 
 使用 ls 命令的“-l”选项，则结果以长模式输出。
@@ -91,7 +89,6 @@ the items upon which the command acts. So most commands look kind of like this:
 
     command -options arguments
     
-
 Most commands use options consisting of a single character preceded by a dash, 
 for example, “-l”, but many commands, including those from the GNU Project, also support long options, 
 consisting of a word preceded by two dashes. Also, many commands allow multiple short options
@@ -116,7 +113,6 @@ the Table 4-1.
 
 ls 命令有大量的选项。表4-1列出了最常使用的选项。
 
-<p>
 <table class="multi">
 <caption class="cap">Table 4-1: Common ls Options
 </caption>
@@ -173,9 +169,7 @@ ls display its results in ascending alphabetical order.  </td>
 <td>Sort by modification time. </td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表 4-1: ls 命令选项 </caption>
 <tr>
@@ -226,7 +220,6 @@ ls display its results in ascending alphabetical order.  </td>
 <td>按照修改时间来排序。</td>
 </tr>
 </table>
-</p>
 
 A Longer Look At Long Format
 
@@ -251,12 +244,10 @@ from an Ubuntu system:
     -rw-r--r-- 1 root root  453764 2007-04-03 11:05 oo-welcome.odt
     -rw-r--r-- 1 root root  358374 2007-04-03 11:05 ubuntu Sax.ogg 
     
-
 Let's look at the different fields from one of the files and examine their meanings:
 
 选一个文件，来看一下各个输出字段的含义：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 4-2:ls Long Listing Fields</caption>
 <tr>
@@ -264,7 +255,7 @@ Let's look at the different fields from one of the files and examine their meani
 <th class="title">Meaning</th>
 </tr>
 <tr>
-<td valign="top">-rw-r--r--</td>
+<td valign="top" width="20%">-rw-r--r--</td>
 <td valign="top">Access rights to the file. The first character indicates the
 type of file. Among the different types, a leading dash means a regular file,
 while a “d” indicates a directory.  The next three characters are the access
@@ -298,9 +289,7 @@ later in this chapter.  </td>
 <td valign="top">Name of the file.  </td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表 4-2:ls 长格式列表的字段</caption>
 <tr>
@@ -308,7 +297,7 @@ later in this chapter.  </td>
 <th class="title">含义</th>
 </tr>
 <tr>
-<td valign="top">-rw-r--r--</td>
+<td valign="top" width="20%">-rw-r--r--</td>
 <td valign="top">对于文件的访问权限。第一个字符指明文件类型。在不同类型之间，
 开头的“－”说明是一个普通文件，“d”表明是一个目录。其后三个字符是文件所有者的
 访问权限，再其后的三个字符是文件所属组中成员的访问权限，最后三个字符是其他所
@@ -339,7 +328,6 @@ later in this chapter.  </td>
 <td>文件名。</td>
 </tr>
 </table>
-</p>
 
 Determining A File's Type With file
 
@@ -385,8 +373,7 @@ The less command is a program to view text files. Throughout our Linux system, t
 are many files that contain human-readable text. The less program provides a
 convenient way to examine them.
 
-less 命令是一个用来浏览文本文件的程序。纵观 Linux
-系统，有许多人类可读的文本文件。less 程序为我们检查文本文件 提供了方便。
+less 命令是一个用来浏览文本文件的程序。纵观 Linux 系统，有许多人类可读的文本文件。less 程序为我们检查文本文件 提供了方便。
 
 <div class="single">
 <h3>What Is "Text"</h3>
@@ -444,7 +431,8 @@ learn how to edit text files in order to modify systems settings and write our o
 but for now we will just look at their contents.
 
 为什么我们要查看文本文件呢？ 因为许多包含系统设置的文件（叫做配置文件），是以文本格式存储的，阅读它们
-可以更深入的了解系统是如何工作的。另外，许多系统所用到的实际程序（叫做脚本）也是以这种格式存储的。在随后的章节里，我们将要学习怎样编辑文本文件，为的是修改系统设置，还要学习编写自己的脚本文件，但现在我们只是看看它们的内容而已。
+可以更深入的了解系统是如何工作的。另外，许多系统所用到的实际程序（叫做脚本）也是以这种格式存储的。
+在随后的章节里，我们将要学习怎样编辑文本文件，为的是修改系统设置，还要学习编写自己的脚本文件，但现在我们只是看看它们的内容而已。
 
 The less command is used like this:
 
@@ -469,7 +457,6 @@ The table below lists the most common keyboard commands used by less.
 
 下表列出了 less 程序最常使用的键盘命令。
 
-<p>
 <table class="multi">
 <caption class="cap">Table 4-3: less Commands</caption>
 <tr>
@@ -517,9 +504,7 @@ The table below lists the most common keyboard commands used by less.
 <td valign="top">Quit less</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表 4-3: less 命令</caption>
 <tr>
@@ -567,7 +552,6 @@ The table below lists the most common keyboard commands used by less.
 <td valign="top">退出 less 程序</td>
 </tr>
 </table>
-</p>
 
 Less Is More
 
@@ -638,7 +622,6 @@ Table 4-4 lists just a few of the directories we can explore. Feel free to try m
 系统是我们自己的，尽情地探究吧。记住在 Linux 中，没有秘密存在！ 
 表4-4仅仅列出了一些我们可以浏览的目录。闲暇时试试看！
 
-<p>
 <table class="multi">
 <caption class="cap">Table 4-4: Directories Found On Linux Systems </caption>
 <tr>
@@ -808,9 +791,7 @@ from time to time. The most useful one is
 some systems, you must be the superuser to view log files.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表 4-4: Linux 系统中的目录</caption>
 <tr>
@@ -953,7 +934,6 @@ some systems, you must be the superuser to view log files.</td>
 应该时时监测它们。其中最重要的一个文件是/var/log/messages。注意，为了系统安全，在一些系统中，
 你必须是超级用户才能查看这些日志文件。</td></tr>
 </table>
-</p>
 
 Symbolic Links
 

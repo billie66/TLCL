@@ -31,8 +31,7 @@ might describe the overall process as the following series of steps:
 
 * Enter house.
 
-<ul>
-<li><p>上车</p></li>
+<ul><li><p>上车</p></li>
 
 <li><p>开车到市场</p></li>
 
@@ -44,8 +43,7 @@ might describe the overall process as the following series of steps:
 
 <li><p>开车回家</p></li>
 
-<li><p>回到家中</p></li>
-</ul>
+<li><p>回到家中</p></li></ul>
 
 However, a person from Mars is likely to need more detail. We could further break down
 the subtask “Park car” into this series of steps:
@@ -64,8 +62,7 @@ the subtask “Park car” into this series of steps:
 
 * Lock car.
 
-<ul>
-<li><p> 找到停车位</p></li>
+<ul><li><p> 找到停车位</p></li>
 
 <li><p> 开车到停车位</p></li>
 
@@ -75,8 +72,7 @@ the subtask “Park car” into this series of steps:
 
 <li><p> 下车</p></li>
 
-<li><p> 锁车</p></li>
-</ul>
+<li><p> 锁车</p></li></ul>
 
 The “Turn off motor” subtask could further be broken down into steps including “Turn
 off ignition,” “Remove ignition key” and so on, until every step of the entire process of
@@ -123,8 +119,7 @@ Our script currently performs the following steps to generate the HTML document:
   
 * Close page.
 
-<ul>
-<li><p>打开网页 </p></li>
+<ul><li><p>打开网页 </p></li>
 
 <li><p>打开网页标头</p></li>
 
@@ -140,8 +135,7 @@ Our script currently performs the following steps to generate the HTML document:
 
 <li><p>关闭网页主体</p></li>
 
-<li><p>关闭网页</p></li>
-</ul>
+<li><p>关闭网页</p></li></ul>
 
 For our next stage of development, we will add some additional tasks between steps 7
 and 8. These will include:
@@ -156,14 +150,12 @@ and 8. These will include:
 
 * Home space. The amount of storage space being used by each user.
 
-<ul>
-<li><p>系统正常运行时间和负载。这是自上次关机或重启之后系统的运行时间，以及在几个时间间隔内当前运行在处理
+<ul><li><p>系统正常运行时间和负载。这是自上次关机或重启之后系统的运行时间，以及在几个时间间隔内当前运行在处理
 中的平均任务量。</p></li>
 
 <li><p>磁盘空间。系统中存储设备的总使用量。</p></li>
 
-<li><p>主目录空间。每个用户所使用的存储空间数量。</p></li>
-</ul>
+<li><p>主目录空间。每个用户所使用的存储空间数量。</p></li></ul>
 
 If we had a command for each of these tasks, we could add them to our script simply
 through command substitution:
@@ -537,10 +529,12 @@ could create a similar function named ds for our .bashrc file:
  非常局限于命令的种类和它们支持的 shell 功能，然而 shell 函数允许任何可以编写脚本的东西。
  例如，如果我们喜欢 为我们的脚本开发的这个 report_disk_space shell 函数，我们可以为我们的.bashrc 文件
  创建一个相似的名为 ds 的函数：</p>
-<p> ds () {
+
+<pre>ds () {
 echo “Disk Space Utilization For $HOSTNAME”
 df -h
-} </p>
+} </pre>
+
 </div>
 <br />
 

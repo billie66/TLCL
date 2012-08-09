@@ -254,8 +254,7 @@ data or situations that were unforeseen by the programmer. This can also include
 unanticipated expansions, such as a filename that contains embedded spaces that
 expands into multiple command arguments rather than a single filename.
 
-<ol>
-<li><p>不正确的条件表达式。很容易编写一个错误的 if/then/else 语句，并且执行错误的逻辑。
+<ol><li><p>不正确的条件表达式。很容易编写一个错误的 if/then/else 语句，并且执行错误的逻辑。
 有时候逻辑会被颠倒，或者是逻辑结构不完整。</p></li>
 
 <li><p>“超出一个值”错误。当编写带有计数器的循环语句的时候，为了计数在恰当的点结束，循环语句
@@ -263,8 +262,7 @@ expands into multiple command arguments rather than a single filename.
 要不就是过早的结束了一次迭代，从而错过了最后一次迭代循环。</p></li>
 
 <li><p>意外情况。大多数逻辑错误来自于程序碰到了程序员没有预见到的数据或者情况。这也
-可以包括出乎意料的展开，比如说一个包含嵌入式空格的文件名展开成多个命令参数而不是单个的文件名。</p></li>
-</ol>
+可以包括出乎意料的展开，比如说一个包含嵌入式空格的文件名展开成多个命令参数而不是单个的文件名。</p></li></ol>
 
 #### Defensive Programming
 

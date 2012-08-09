@@ -60,7 +60,6 @@ contents will be fairly long, it is best to pipe the output of either command in
 
     [me@linuxbox ~]$ printenv | less
     
-
 Doing so, we should get something that looks like this:
 
 执行以上命令之后，我们应该能得到类似以下内容：
@@ -75,7 +74,6 @@ also list the value of a specific variable:
     [me@linuxbox ~]$ printenv USER
     me
     
-
 The set command, when used without options or arguments, will display both the shell
 and environment variables, as well as any defined shell functions. Unlike printenv,
 its output is courteously sorted in alphabetical order:
@@ -84,7 +82,6 @@ its output is courteously sorted in alphabetical order:
 shell 函数。不同于 printenv 命令，set 命令的输出结果很礼貌地按照字母顺序排列：
 
     [me@linuxbox ~]$ set | less
-    
 
 It is also possible to view the contents of a variable using the echo command, like this:
 
@@ -93,7 +90,6 @@ It is also possible to view the contents of a variable using the echo command, l
     [me@linuxbox ~]$ echo $HOME
     /home/me
     
-
 One element of the environment that neither set nor printenv displays is aliases. To
 see them, enter the alias command without arguments:
 
@@ -134,7 +130,6 @@ shell 环境中包含相当多的变量，虽然你的 shell 环境可能不同�
     LS_COLORS=no=00:fi=00:di=00;34:ln=00;36:pi=40;33:so=00;35:bd=40;33;01
     :cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=00;32:\*.cmd=00;32:\*.exe:
     
-
 What we see is a list of environment variables and their values. For example, we see a
 variable called USER, which contains the value &quot;me&quot;. The printenv command can
 also list the value of a specific variable:
@@ -144,7 +139,6 @@ also list the value of a specific variable:
 
     [me@linuxbox ~]$ printenv USER
     me
-    
 
 The set command, when used without options or arguments, will display both the shell
 and environment variables, as well as any defined shell functions. Unlike printenv,
@@ -154,7 +148,6 @@ its output is courteously sorted in alphabetical order:
 shell 函数。不同于 printenv 命令，set 命令的输出结果很礼貌地按照字母顺序排列：
 
     [me@linuxbox ~]$ set | less
-    
 
 It is also possible to view the contents of a variable using the echo command, like this:
 
@@ -163,7 +156,6 @@ It is also possible to view the contents of a variable using the echo command, l
     [me@linuxbox ~]$ echo $HOME
     /home/me
     
-
 One element of the environment that neither set nor printenv displays is aliases. To
 see them, enter the alias command without arguments:
 
@@ -178,7 +170,6 @@ see them, enter the alias command without arguments:
     alias which=&apos;alias | /usr/bin/which --tty-only --read-alias --show-
     dot --show-tilde&apos;
     
-
 Some Interesting Variables
 
 ### 一些有趣的变量
@@ -190,7 +181,6 @@ environment:
 shell 环境中包含相当多的变量，虽然你的 shell 环境可能不同于这里展示的，但是你可能会看到
 以下变量在你的 shell 环境中：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 12-1: Environment Variables</caption>
 <tr>
@@ -263,9 +253,7 @@ this variable.</td>
 <td valign="top">Your user name.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表12-1: 环境变量</caption>
 <tr>
@@ -333,7 +321,6 @@ this variable.</td>
 <td valign="top">你的用户名</td>
 </tr>
 </table>
-</p>
 
 Don't worry if some of these values are missing. They vary by distribution.
 
@@ -365,7 +352,6 @@ Login shells read one or more startup files as shown in Table 12-2:
 
 登录 shell 会读取一个或多个启动文件，正如表12－2所示：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 12-2: Startup Files For Login Shell Sessions</caption>
 <tr>
@@ -393,9 +379,7 @@ is found, bash attempts to read this file. This is the
 default in Debian-based distributions, such as Ubuntu.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表12-2: 登录 shell 会话的启动文件</caption>
 <tr>
@@ -423,13 +407,11 @@ valign="top">如果文件~/.bash_profile 或文件~/.bash_login 都没有找到�
 </td>
 </tr>
 </table>
-</p>
 
 Non-login shell sessions read the following startup files:
 
 非登录 shell 会话会读取以下启动文件：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 12-3: Startup Files For Non-Login Shell Sessions</caption>
 <tr>
@@ -446,9 +428,7 @@ Non-login shell sessions read the following startup files:
 override settings in the global configuration script.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表12-3: 非登录 shell 会话的启动文件</caption>
 <tr>
@@ -465,7 +445,6 @@ override settings in the global configuration script.</td>
 </td>
 </tr>
 </table>
-</p>
 
 In addition to reading the startup files above, non-login shells also inherit the
 environment from their parent process, usually a login shell.
@@ -497,11 +476,14 @@ looks something like this:
 如果我们看一下典型的.bash_profile 文件（来自于 CentOS 4系统），它看起来像这样：
 
     # .bash\_profile
-     # Get the aliases and functions
+    # Get the aliases and functions
+
     if [ -f ~/.bashrc ]; then
     . ~/.bashrc
     fi
-     # User specific environment and startup programs
+
+    # User specific environment and startup programs
+
     PATH=$PATH:$HOME/bin
     export PATH
     
@@ -525,7 +507,6 @@ scripting in Part 5, but for now we will translate:
     If the file &quot;~/.bashrc&quot; exists, then
             read the &quot;~/.bashrc&quot; file. 
     
-
 We can see that this bit of code is how a login shell gets the contents of .bashrc. The
 next thing in our startup file has to do with the PATH variable.
 
@@ -548,7 +529,6 @@ PATH 变量经常（但不总是，依赖于发行版）在/etc/profile 启动�
 
     PATH=$PATH:$HOME/bin
     
-
 PATH is modified to add the directory $HOME/bin to the end of the list. This is an
 example of parameter expansion, which we touched on in Chapter 8. To demonstrate
 how this works, try the following:
@@ -562,7 +542,6 @@ how this works, try the following:
     [me@linuxbox ~]$ foo=$foo&quot;text.&quot;
     [me@linuxbox ~]$ echo $foo
     This is some text.
-    
 
 <p>Using this technique, we can append text to the end of a variable's contents.
 By adding the string $HOME/bin to the end of the PATH variable's contents, the
@@ -571,12 +550,10 @@ entered. This means that when we want to create a directory within our home dire
 for storing our own private programs, the shell is ready to accommodate us. All we have
 to do is call it bin, and we're ready to go.</p>
 
-<p>
-使用这种技巧，我们可以把文本附加到一个变量值的末尾。通过添加字符串$HOME/bin 到 PATH 变量值
-的末尾，则目录$HOME/bin 就添加到了命令搜索目录列表中。这意味着当我们想要在自己的主目录下，
+使用这种技巧，我们可以把文本附加到一个变量值的末尾。通过添加字符串 $HOME/bin 到 PATH 变量值
+的末尾，则目录 $HOME/bin 就添加到了命令搜索目录列表中。这意味着当我们想要在自己的主目录下，
 创建一个目录来存储我们自己的私人程序时，shell 已经给我们准备好了。我们所要做的事就是
 把创建的目录叫做 bin，赶快行动吧。
-</p>
 
 Note: Many distributions provide this PATH setting by default. Some Debian
 based distributions, such as Ubuntu, test for the existence of the ~/bin directory at
@@ -591,7 +568,6 @@ Lastly, we have:
 
     export PATH
     
-
 The export command tells the shell to make the contents of PATH available to child
 processes of this shell.
 
@@ -670,11 +646,11 @@ emacs editor was originally written by Richard Stallman. It is a gigantic, all-p
 does-everything programming environment. While readily available, it is seldom
 installed on most Linux systems by default.</p>
 
-<p>有许多基于文本的编辑器。你将会遇到一些流行的编辑器，它们是 nano，vi，和 emacs。这个 nano 编辑器
+有许多基于文本的编辑器。你将会遇到一些流行的编辑器，它们是 nano，vi，和 emacs。这个 nano 编辑器
 是一个简单的，容易使用的编辑器，它是 pico 编辑器的替代物，pico 编辑器由 PINE 邮件套件提供。vi 编辑器
 （在大多数 Linux 系统中被 vim 替代，vim 是&quot;Vi IMproved&quot;的简写）是类似于 Unix 操作系统的传统编辑器。
 vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stallman 写成。emacs 是一个庞大的，多用途的，
-可做任何事情的编程环境。虽然 emacs 很容易获取，但是大多数 Linux 系统很少默认安装它。</p>
+可做任何事情的编程环境。虽然 emacs 很容易获取，但是大多数 Linux 系统很少默认安装它。
 
 Using A Text Editor
 
@@ -688,7 +664,6 @@ editor will assume that you want to create a new file. Here is an example using 
 输入的文件名不存在，编辑器则会假定你想要创建一个新文件。下面是一个使用 gedit 的例子：
 
     [me@linuxbox ~]$ gedit some_file
-    
 
 This command will start the gedit text editor and load the file named &quot;some_file&quot;, if it
 exists.
@@ -709,7 +684,6 @@ To create a backup of the .bashrc file, do this:
 
     [me@linuxbox ~]$ cp .bashrc .bashrc.bak
     
-
 It doesn't matter what you call the backup file, just pick an understandable name. The
 extensions &quot;.bak&quot;, &quot;.sav&quot;, &quot;.old&quot;, and &quot;.orig&quot; 
 are all popular ways of indicating a backup
@@ -723,7 +697,6 @@ Now that we have a backup file, we'll start the editor:
 现在我们有了一个备份文件，我们启动 nano 编辑器吧：
 
     [me@linuxbox ~]$ nano .bashrc
-    
 
 Once nano starts, we’ll get a screen like this:
 
@@ -731,7 +704,6 @@ Once nano starts, we’ll get a screen like this:
 
     GNU nano 2.0.3
     ....
-    
 
 Note: If your system does not have nano installed, you may use a graphical editor
 instead.
@@ -766,7 +738,6 @@ following lines to the .bashrc file:
     alias l.=&apos;ls -d .\* --color=auto&apos;
     alias ll=&apos;ls -l --color=auto&apos;
     
-
 Note: Your distribution may already include some of these, but duplicates won't
 hurt anything.
 
@@ -776,7 +747,6 @@ Here is the meaning of our additions:
 
 下表是所添加行的意义：
 
-<p>
 <table class="multi">
 <tr>
 <th class="title">Line</th>
@@ -810,9 +780,7 @@ directory entries that begin with a dot.</td>
 format directory listing.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <tr>
 <th class="title">Line</th>
@@ -842,9 +810,9 @@ valign="top">创建一个新命令，叫做&apos;l.&apos;，这个命令会显�
 <td valign="top">创建一个叫做&apos;ll&apos;的命令，这个命令会显示长格式目录列表。</td>
 </tr>
 </table>
-</p>
 
 <br />
+
 As we can see, many of our additions are not intuitively obvious, so it would be a good
 idea to add some comments to our .bashrc file to help explain things to the humans.
 Using the editor, change our additions to look like this:
@@ -863,7 +831,6 @@ Using the editor, change our additions to look like this:
     alias ll=&apos;ls -l --color=auto&apos;
     
     
-
 Ah, much better! With our changes complete, type Ctrl-o to save our modified
 .bashrc file, and Ctrl-x to exit nano.
 
@@ -934,7 +901,6 @@ file with the following command:
 
     [me@linuxbox ~]$ source .bashrc
     
-
 After doing this, we should be able to see the effect of our changes. Try out one of the
 new aliases:
 
@@ -942,7 +908,6 @@ new aliases:
 
     [me@linuxbox ~]$ ll
     
-
 Summing Up
 
 ### 总结

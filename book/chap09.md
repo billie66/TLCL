@@ -62,7 +62,6 @@ The following table lists the keys used to move the cursor:
 
 下表列出了移动光标所使用的按键：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 9-1: Cursor Movement Commands &nbsp; 光标移动命令</caption>
 <tr>
@@ -103,7 +102,6 @@ The clear command does the same thing. &nbsp; 清空屏幕，移动光标到左�
 clear 命令完成同样的工作。</td>
 </tr>
 </table>
-</p>
 
 ### Modifying Text
 
@@ -113,7 +111,6 @@ Table 9-2 lists keyboard commands that are used to edit characters on the comman
 
 表9－2列出了键盘命令，这些命令用来在命令行中编辑字符。
 
-<p>
 <table class="multi">
 <caption class="cap">Table 9-2: Text Editing Commands &nbsp; 文本编辑命令</caption>
 <tr>
@@ -146,7 +143,6 @@ the word to lowercase. &nbsp; 把从光标位置到字尾的字符转换成小�
 the word to uppercase. &nbsp; 把从光标位置到字尾的字符转换成大写字母。</td>
 </tr>
 </table>
-</p>
 
 ### Cutting And Pasting (Killing And Yanking) Text
 
@@ -396,7 +392,7 @@ this:
 
 比方说在我们的搜索结果之中，我们得到一行，包含了有趣的命令，像这样；
 
-<p>88  ls -l /usr/bin > ls-output.txt</p>
+    88  ls -l /usr/bin > ls-output.txt
 
 The number “88” is the line number of the command in the history list. We could use this
 immediately using another type of expansion called history expansion. To use our
@@ -458,7 +454,6 @@ The table below lists some of the keystrokes used to manipulate the history list
 我们的 shell 提示符重新出现，命令行加载完毕，正准备行动！下表列出了一些按键组合，
 这些按键用来操作历史列表：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 9-5: History Commands &nbsp; 历史命令</caption>
 <tr>
@@ -509,7 +504,6 @@ commands in the history list. &nbsp; 执行历史列表中的当前项，并移�
 如果你想要执行历史列表中一系列的命令，这很方便。</td>
 </tr>
 </table>
-</p>
 
 ### History Expansion
 
@@ -522,7 +516,7 @@ features:
 
 通过使用 "!" 字符，shell 为历史列表中的命令，提供了一个特殊的展开类型。我们已经知道一个感叹号
 ，其后再加上一个数字，可以把来自历史列表中的命令插入到命令行中。还有一些其它的展开特性：
-<p>
+
 <table class="multi">
 <caption class="cap">Table 9-6: History Expansion Commands &nbsp; 历史展开命令
 </caption>
@@ -559,7 +553,6 @@ and enter. &nbsp;
 </td>
 </tr>
 </table>
-</p>
 
 I would caution against using the “!string” and “!?string” forms unless you are absolutely
 sure of the contents of the history list items.
@@ -612,9 +605,9 @@ up more of these tricks. For now, consider them optional and potentially helpful
 
 ### 拓展阅读
 
-The Wikipedia has a good article on computer terminals:
+* The Wikipedia has a good article on computer terminals:
 
-Wikipedia 上有一篇关于计算机终端的好文章：
+* Wikipedia 上有一篇关于计算机终端的好文章：
 
- <http://en.wikipedia.org/wiki/Computer_terminal>
+  <http://en.wikipedia.org/wiki/Computer_terminal>
 

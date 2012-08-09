@@ -118,7 +118,6 @@ These are the hard disk partitions. Each line of the file consists of six fields
 
 这些是硬盘分区。每行由六个字段组成，如下所示：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 16-1: /etc/fstab Fields</caption>
 <tr>
@@ -181,9 +180,7 @@ system is to be backed up with the dump command.</td>
 systems should be checked with the fsck command.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表16－1： /etc/fstab 字段</caption>
 <tr>
@@ -233,7 +230,6 @@ systems should be checked with the fsck command.</td>
 <td valign="top">一位数字，指定 fsck 命令按照什么次序来检查文件系统。</td>
 </tr>
 </table>
-</p>
 
 Viewing A List Of Mounted File Systems
 
@@ -259,7 +255,6 @@ arguments will display a list of the file systems currently mounted:
     /dev/sdd1 on /media/disk type vfat (rw,nosuid,nodev,noatime,
     uhelper=hal,uid=500,utf8,shortname=lower)
     twin4:/musicbox on /misc/musicbox type nfs4 (rw,addr=192.168.1.4)
-    
 
 The format of the listing is: device on mount_point type file_system_type (options). For
 example, the first line shows that device /dev/sda2 is mounted as the root file system
@@ -287,7 +282,6 @@ before a CD-ROM is inserted:
     tmpfs on /dev/shm type tmpfs (rw)
     none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)
     sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw)
-    
 
 This listing is from a CentOS 5 system, which is using LVM (Logical Volume Manager)
 to create its root file system. Like many modern Linux distributions, this system will
@@ -309,7 +303,6 @@ see the following:
     /dev/hdc on /media/live-1.0.10-8 type iso9660 (ro,noexec,nosuid,
     nodev,uid=500)
     
-
 After we insert the disk, we see the same listing as before with one additional entry. At
 the end of the listing we see that the CD-ROM (which is device /dev/hdc on this
 system) has been mounted on /media/live-1.0.10-8, and is type iso9660 (a CD-
@@ -346,7 +339,6 @@ umount（注意这个命令的拼写）来卸载光盘：
     [me@linuxbox ~]$ su -
     Password:
     [root@linuxbox ~]# umount /dev/hdc
-    
 
 The next step is to create a new mount point for the disk. A mount point is simply a
 directory somewhere on the file system tree. Nothing special about it. It doesn't even
@@ -360,7 +352,6 @@ For our purposes, we will create a new directory:
 
     [root@linuxbox ~]# mkdir /mnt/cdrom
     
-
 Finally, we mount the CD-ROM at the new mount point. The -t option is used to
 specify the file system type:
 
@@ -368,14 +359,12 @@ specify the file system type:
 
     [root@linuxbox ~]# mount -t iso9660 /dev/hdc /mnt/cdrom
     
-
 Afterward, we can examine the contents of the CD-ROM via the new mount point:
 
 之后，我们可以通过这个新挂载点来查看 CD-ROW 的内容：
 
     [root@linuxbox ~]# cd /mnt/cdrom
     [root@linuxbox cdrom]# ls
-    
 
 Notice what happens when we try to unmount the CD-ROM:
 
@@ -383,7 +372,6 @@ Notice what happens when we try to unmount the CD-ROM:
 
     [root@linuxbox cdrom]# umount /dev/hdc
     umount: /mnt/cdrom: device is busy
-    
 
 Why is this? The reason is that we cannot unmount a device if the device is being used
 by someone or some process. In this case, we changed our working directory to the
@@ -394,10 +382,8 @@ the issue by changing the working directory to something other than the mount po
 情况下，我们把工作目录更改到了 CD-ROW 的挂载点，这个挂载点导致设备忙碌。我们可以很容易地修复这个问题
 通过把工作目录改到其它目录而不是这个挂载点。
 
-
     [root@linuxbox cdrom]# cd
     [root@linuxbox ~]# umount /dev/hdc
-    
 
 Now the device unmounts successfully.
 
@@ -502,12 +488,10 @@ directory (where all devices live), we can see that there are lots and lots of d
 
     [me@linuxbox ~]$ ls /dev
     
-
 The contents of this listing reveal some patterns of device naming. Here are a few:
 
 这个列表的内容揭示了一些设备命名的模式。这里有几个：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 16-2: Linux Storage Device Names</caption>
 <tr>
@@ -549,9 +533,7 @@ similar to the older /dev/hd* naming scheme described above.</td>
 <td valign="top">Optical drives (CD/DVD readers and burners)</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap"> 表16－2： Linux 存储设备名称</caption>
 <tr>
@@ -587,7 +569,6 @@ SCSI 磁盘。在最近的 Linux 系统中，内核把所有类似于磁盘的�
 <td valign="top">光盘（CD/DVD 读取器和烧写器）</td>
 </tr>
 </table>
-</p>
 
 In addition, we often see symbolic links such as /dev/cdrom, /dev/dvd and /dev/
 floppy, which point to the actual device files, provided as a convenience.
@@ -603,7 +584,6 @@ may require superuser privileges for this):
 
     [me@linuxbox ~]$ sudo tail -f /var/log/messages
     
-
 The last few lines of the file will be displayed and then pause. Next, plug in the
 removable device. In this example, we will use a 16 MB flash drive. Almost
 immediately, the kernel will notice the device and probe it:
@@ -640,7 +620,6 @@ immediately, the kernel will notice the device and probe it:
     Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: Attached scsi generic
     sg3 type 0
     
-
 After the display pauses again, type Ctrl-c to get the prompt back. The interesting parts
 of the output are the repeated references to “[sdb]” which matches our expectation of a
 SCSI disk device name. Knowing this, two lines become particularly illuminating:
@@ -651,7 +630,6 @@ SCSI disk device name. Knowing this, two lines become particularly illuminating:
     Jul 23 10:07:59 linuxbox kernel: sdb: sdb1
     Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] Attached SCSI
     removable disk
-    
 
 This tells us the device name is /dev/sdb for the entire device and /dev/sdb1 for
 the first partition on the device. As we have seen, working with Linux is full of
@@ -680,7 +658,6 @@ With our device name in hand, we can now mount the flash drive:
     tmpfs           776808      0           776808      0%      /dev/shm
     /dev/sdb1       15560       0           15560       0%      /mnt/flash
     
-
 The device name will remain the same as long as it remains physically attached to the
 computer and the computer is not rebooted. 
 
@@ -724,7 +701,6 @@ needed) and then invoke the fdisk program as follows:
 
     [me@linuxbox ~]$ sudo umount /dev/sdb1
     [me@linuxbox ~]$ sudo fdisk /dev/sdb
-    
 
 Notice that we must specify the device in terms of the entire device, not by partition
 number. After the program starts up, we will see the following prompt:
@@ -733,7 +709,6 @@ number. After the program starts up, we will see the following prompt:
 将看到以下提示：
 
     Command (m for help):
-    
 
 Entering an “m” will display the program menu:
 
@@ -742,7 +717,6 @@ Entering an “m” will display the program menu:
     Command action
     a       toggle a bootable flag
     ....
-    
 
 The first thing we want to do is examine the existing partition layout. We do this by
 entering “p” to print the partition table for the device:
@@ -757,7 +731,6 @@ entering “p” to print the partition table for the device:
     
     Device Boot     Start        End     Blocks   Id        System
     /dev/sdb1           2       1008      15608+   b       w95 FAT32
-    
 
 In this example, we see a 16 MB device with a single partition (1) that uses 1006 of the
 available 1008 cylinders on the device. The partition is identified as Windows 95 FAT32
@@ -777,7 +750,6 @@ choice:
 参考之前的程序菜单。我们会看到以下选项：
 
     l   list known partition types
-    
 
 If we enter “l” at the prompt, a large list of possible types is displayed. Among them we
 see “b” for our existing partition type and “83” for Linux.
@@ -791,7 +763,6 @@ Going back to the menu, we see this choice to change a partition ID:
 
     t   change a partition's system id
     
-
 We enter “t” at the prompt enter the new ID:
 
 我们先输入“t”，再输入新的 ID 号：
@@ -801,7 +772,6 @@ We enter “t” at the prompt enter the new ID:
     Hex code (type L to list codes): 83
     Changed system type of partition 1 to 83 (Linux)
     
-
 This completes all the changes that we need to make. Up to this point, the device has
 been untouched (all the changes have been stored in memory, not on the physical device),
 so we will write the modified partition table to the device and exit. To do this, we enter
@@ -819,7 +789,6 @@ so we will write the modified partition table to the device and exit. To do this
     information.
     Syncing disks.
     [me@linuxbox ~]$
-    
 
 If we had decided to leave the device unaltered, we could have entered “q” at the prompt,
 which would have exited the program without writing the changes. We can safely ignore
@@ -864,7 +833,6 @@ by the name of device containing the partition we wish to format:
     This filesystem will be automatically checked every 34 mounts or
     180 days, whichever comes first. Use tune2fs -c or -i to override.
     [me@linuxbox ~]$
-    
 
 The program will display a lot of information when ext3 is the chosen file system type.
 To re-format the device to its original FAT32 file system, specify “vfat” as the file system
@@ -874,7 +842,6 @@ type:
 系统，指定"vfat"作为文件系统类型：
 
     [me@linuxbox ~]$ sudo mkfs -t vfat /dev/sdb1
-    
 
 This process of partitioning and formatting can be used anytime additional storage
 devices are added to the system. While we worked with a tiny flash drive, the same
@@ -921,7 +888,6 @@ To check our flash drive (which should be unmounted first), we could do the foll
     e2fsck 1.40.8 (13-Mar-2008)
     /dev/sdb1: clean, 11/3904 files, 1661/15608 blocks
     
-
 In my experience, file system corruption is quite rare unless there is a hardware problem,
 such as a failing disk drive. On most systems, file system corruption detected at boot
 time will cause the system to stop and direct you to run fsck before continuing.
@@ -963,13 +929,11 @@ floppy device (usually /dev/fd0):
     Formatting ... done
     Verifying ... done
     
-
 Next, we apply a FAT file system to the diskette with mkfs:
 
 接下来，通过 mkfs 命令，给这个软盘创建一个 FAT 文件系统：
 
     [me@linuxbox ~]$ sudo mkfs -t msdos /dev/fd0
-    
 
 Notice that we use the “msdos” file system type to get the older (and smaller) style file
 allocation tables. After a diskette is prepared, it may be mounted like other devices.
@@ -999,7 +963,6 @@ uses a unique syntax (for historical reasons) and is usually used this way:
 ，经常它被这样使用：
 
     dd if=input_file of=output_file [bs=block_size [count=blocks]]
-    
 
 Let’s say we had two USB flash drives of the same size and we wanted to exactly copy
 the first drive to the second. If we attached both drives to the computer and they are
@@ -1012,7 +975,6 @@ on the first drive to the second drive with the following:
 驱动器中。
 
     dd if=/dev/sdb of=/dev/sdc
-    
 
 Alternately, if only the first device were attached to the computer, we could copy its
 contents to an ordinary file for later restoration or copying:
@@ -1061,7 +1023,6 @@ CD，用它来制作一个 iso 文件，以后我们可以用它来制作更多�
 它的设备名称（假定是/dev/cdrom），然后像这样来制作 iso 文件：
 
     dd if=/dev/cdrom of=ubuntu.iso
-    
 
 This technique works for data DVDs as well, but will not work for audio CDs, as they do
 not use a file system for storage. For audio CDs, look at the cdrdao command.
@@ -1087,7 +1048,6 @@ rom.iso with the following command:
 
     genisoimage -o cd-rom.iso -R -J ~/cd-rom-files
     
-
 The “-R” option adds metadata for the Rock Ridge extensions, which allows the use of
 long filenames and POSIX style file permissions. Likewise, the “-J” option enables the
 Joliet extensions, which permit long filenames for Windows.
@@ -1142,7 +1102,6 @@ iso9660"文件系统类型），挂载这个映像文件就好像它是一台设
     mkdir /mnt/iso_image
     mount -t iso9660 -o loop image.iso /mnt/iso_image
     
-
 In the example above, we created a mount point named /mnt/iso_image and then
 mounted the image file image.iso at that mount point. After the image is mounted, it
 can be treated just as though it were a real CD-ROM or DVD. Remember to unmount the
@@ -1165,7 +1124,6 @@ blanking to be performed. The wodim program offers several types. The most minim
 设备名称和清空的类型。此 wodim 程序提供了几种清空类型。最小（且最快）的是"fast"类型：
 
     wodim dev=/dev/cdrw blank=fast
-    
 
 Writing An Image
 
@@ -1178,7 +1136,6 @@ device and the name of the image file:
 
     wodim dev=/dev/cdrw image.iso
     
-
 In addition to the device name and image file, wodim supports a very large set of
 options. Two common ones are “-v” for verbose output, and “-dao” which writes the disk
 in disk-at-once mode. This mode should be used if you are preparing a disk for
@@ -1221,7 +1178,6 @@ number:
     md5sum image.iso
     34e354760f9bb7fbf85c96f6a3f94ece    image.iso
     
-
 After you download an image, you should run md5sum against it and compare the results
 with the md5sum value supplied by the publisher.
 
@@ -1238,7 +1194,6 @@ checked this way:
 
     md5sum /dev/cdrom
     34e354760f9bb7fbf85c96f6a3f94ece    /dev/cdrom
-    
 
 Many types of media, such as DVDs require a precise calculation of the number of
 blocks. In the example below, we check the integrity of the image file dvd-

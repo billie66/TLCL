@@ -48,7 +48,7 @@ following URL in Firefox to view the file:
 如果我们将这些内容输入到文本编辑器中，并把文件保存为 foo.html，然后我们就能在 Firefox 中
 使用下面的 URL 来查看文件内容：
 
-file:///home/username/foo.html
+    file:///home/username/foo.html
 
 The first stage of our program will be able to output this HTML file to standard output.
 We can write a program to do this pretty easily. Let’s start our text editor and create a
@@ -297,13 +297,11 @@ underscore characters.
 
 3. Spaces and punctuation symbols are not allowed.
 
-<ol>
-<li><p> 变量名可由字母数字字符（字母和数字）和下划线字符组成。</p></li>
+<ol><li><p> 变量名可由字母数字字符（字母和数字）和下划线字符组成。</p></li>
 
-<li><p>变量名的第一个字符必须是一个字母或一个下划线。 </p></li>
+<li><p>变量名的第一个字符必须是一个字母或一个下划线。</p></li>
 
-<li><p>变量名中不允许出现空格和标点符号。</p></li>
-</ol>
+<li><p>变量名中不允许出现空格和标点符号。</p></li></ol>
 
 The word “variable” implies a value that changes, and in many applications, variables are
 used this way. However, the variable in our application, title, is used as a constant. A
@@ -372,7 +370,7 @@ variables are assigned values this way:
 
 这里是我们真正开始使用参数扩展知识的地方。正如我们所知道的，这样给变量赋值：
 
-*variable=value*
+    variable=value
 
 where variable is the name of the variable and value is a string. Unlike some other
 programming languages, the shell does not care about the type of data assigned to a
@@ -467,11 +465,11 @@ and feed it into the standard input of a command. It works like this:
 *here document* 或者 *here script*。一个 here document 是另外一种 I/O 重定向形式，我们
 在脚本文件中嵌入正文文本，然后把它发送给一个命令的标准输入。它这样工作：
 
-*command << token*
+    command << token
 
-text
+    text
 
-*token*
+    token
 
 where *command* is the name of command that accepts standard input and *token* is a string
 used to indicate the end of the embedded text. We’ll modify our script to use a here

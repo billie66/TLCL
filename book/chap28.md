@@ -193,7 +193,6 @@ The following expressions are used to evaluate the status of files:
 
 以下表达式被用来计算文件状态：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 28-1: test File Expressions</caption>
 <tr>
@@ -293,9 +292,7 @@ effective user).</td>
 permission for the effective user).</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表28-1: 测试文件表达式</caption>
 <tr>
@@ -388,7 +385,6 @@ permission for the effective user).</td>
 <td valign="top">file 存在并且可执行（有效用户有执行／搜索权限）。</td>
 </tr>
 </table>
-</p>
 
 Here we have a script that demonstrates some of the file expressions:
 
@@ -493,7 +489,6 @@ The following expressions are used to evaluate strings:
 
 以下表达式用来计算字符串：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 28-2: test String Expressions</caption>
 <tr>
@@ -530,9 +525,7 @@ equal signs may be used, but the use of double equal signs is greatly preferred.
 <td valign="top">string1 sorts before string2.</td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表28-2: 测试字符串表达式</caption>
 <tr>
@@ -568,7 +561,6 @@ equal signs may be used, but the use of double equal signs is greatly preferred.
 <td valign="top">string1排列在 string2之前。</td>
 </tr>
 </table>
-</p>
 
 <br />
 
@@ -635,7 +627,6 @@ The following expressions are used with integers:
 
 下面的表达式用于整数：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 28-3: test Integer Expressions</caption>
 <tr>
@@ -667,9 +658,7 @@ The following expressions are used with integers:
 <td valign="top">integer1 is greater than integer2.  </td>
 </tr>
 </table>
-</p>
 
-<p>
 <table class="multi">
 <caption class="cap">表28-3: 测试整数表达式</caption>
 <tr>
@@ -701,7 +690,6 @@ The following expressions are used with integers:
 <td valign="top">integer1大于 integer2.</td>
 </tr>
 </table>
-</p>
 
 Here is a script that demonstrates them:
 
@@ -892,7 +880,6 @@ represent these operations :
 在第18章中已经知道了这些，当我们学习 find 命令的时候。它们是用于 test 和`[[ ]]`三个逻辑操作。
 它们是 AND，OR，和 NOT。test 和`[[ ]]`使用不同的操作符来表示这些操作：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 28-4: Logical Operators</caption>
 <tr>
@@ -916,7 +903,6 @@ represent these operations :
 <td valign="top">!</td>
 </tr>
 </table>
-</p>
 
 Here’s an example of an AND operation. The following script determines if an integer is
 within a range of values:
@@ -961,8 +947,8 @@ Since all expressions and operators used by test are treated as command argument
 the shell (unlike `[[ ]]` and `(( ))` ), characters which have special meaning to bash,
 such as &lt;, &gt;, (, and ), must be quoted or escaped.
 
-因为 test 使用的所有的表达式和操作符都被 shell 看作是命令参数（不像`[[ ]]`和`(())` ），
-对于 bash 有特殊含义的字符，比如说&lt;，&gt;，(，和)，必须引起来或者是转义。
+因为 test 使用的所有的表达式和操作符都被 shell 看作是命令参数（不像`[[ ]]`和`(( ))` ），
+对于 bash 有特殊含义的字符，比如说&lt;，&gt;，(，和 )，必须引起来或者是转义。
 
 Seeing that test and `[[ ]]` do roughly the same thing, which is preferable? test is
 traditional (and part of POSIX), whereas `[[ ]]` is specific to bash. It’s important to
@@ -1130,13 +1116,13 @@ covered in this chapter:
 
 bash 手册页中有几部分对本章中涵盖的主题提供了更详细的内容：
 
-* Lists (讨论控制操作符 `||` 和 `&&`)
+* Lists ( 讨论控制操作符 `||` 和 `&&` )
 
-* Compound Commands (讨论 `[[ ]]`, `(( ))` 和 if)
+* Compound Commands ( 讨论 `[[ ]]`, `(( ))` 和 if )
 
 * CONDITIONAL EXPRESSIONS
 
-* SHELL BUILTIN COMMANDS (讨论 test)
+* SHELL BUILTIN COMMANDS ( 讨论 test )
 
 Further, the Wikipedia has a good article on the concept of pseudocode:
 

@@ -76,7 +76,6 @@ problem when trying to examine a file such as /etc/shadow:
     [me@linuxbox ~]$ less /etc/shadow
     /etc/shadow:  Permission denied
     
-
 The reason for this error message is that, as regular users, we do not have permission to
 read this file.
 
@@ -98,7 +97,6 @@ information about your identity, use the id command:
     [me@linuxbox ~]$ id
     uid=500(me) gid=500(me) groups=500(me)
     
-
 Let's look at the output. When user accounts are created, users are assigned a number
 called a user ID or uid which is then, for the sake of the humans, mapped to a user name.
 The user is assigned a primary group ID or gid and may belong to additional groups. The
@@ -115,7 +113,6 @@ may look a little different:
     groups=4(adm),20(dialout),24(cdrom),25(floppy),29(audio),30(dip),44(v
     ideo),46(plugdev),108(lpadmin),114(admin),1000(me)
     
-
 As we can see, the uid and gid numbers are different. This is simply because Fedora
 starts its numbering of regular user accounts at 500, while Ubuntu starts at 1000. We can
 also see that the Ubuntu user belongs to a lot more groups. This has to do with the way
@@ -169,7 +166,6 @@ to how this is implemented:
     [me@linuxbox ~]$ ls -l foo.txt
     -rw-rw-r-- 1 me   me   0 2008-03-06 14:52 foo.txt
     
-
 The first ten characters of the listing are the file attributes. The first of these characters is
 the file type. Here are the file types you are most likely to see (there are other, less
 common types too):
@@ -177,7 +173,6 @@ common types too):
 列表的前十个字符是文件的属性。这十个字符的第一个字符表明文件类型。下表是你可能经常看到
 的文件类型（还有其它的，不常见类型）：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 10-1: File Types &nbsp; 文件类型</caption>
 <tr>
@@ -216,7 +211,6 @@ data in blocks, such as a hard drive or CD-ROM drive. &nbsp;
 </td>
 </tr>
 </table>
-</p>
 
 The remaining nine characters of the file attributes, called the file mode, represent the
 read, write, and execute permissions for the file's owner, the file's group owner, and
@@ -387,7 +381,6 @@ world:
     [me@linuxbox ~]$ ls -l foo.txt
     -rw------- 1 me    me    0  2008-03-06 14:52 foo.txt
     
-
 By passing the argument “600”, we were able to set the permissions of the owner to read
 and write while removing all permissions from the group owner and world. Though
 remembering the octal to binary mapping may seem inconvenient, you will usually only
@@ -406,7 +399,6 @@ chmod 命令支持一种符号表示法，来指定文件模式。符号表示�
 要执行哪个操作，要设置哪种权限。通过字符“u”， “g”， “o”， and “a”的组合来指定
 要影响的对象，如下所示：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 10-4: chmod Symbolic Notation &nbsp;
 chmod 命令符号表示法
@@ -431,7 +423,6 @@ chmod 命令符号表示法
 "all"的简写，是"u", "g"和“o”三者的联合。</td>
 </tr>
 </table>
-</p>
 
 If no character is specified, “all” will be assumed. The operation may be a “+” indicating
 that a permission is to be added, a “-” indicating that a permission is to be taken away, or
@@ -446,7 +437,6 @@ of symbolic notation:
 
 权限由“r”, “w”, and “x”来指定。这里是一些符号表示法的实例：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 10-5: chmod Symbolic Notation Examples &nbsp;
 chmod 符号表示法实例
@@ -485,7 +475,6 @@ the group and others to read and execute. Multiple specifications
 may be separated by commas.</td>
 </tr>
 </table>
-</p>
 
 Some people prefer to use octal notation, some folks really like the symbolic. Symbolic
 notation does offer the advantage of allowing you to set a single attribute without
@@ -546,7 +535,6 @@ attributes. Let's take a look:
     [me@linuxbox ~]$ ls -l foo.txt
     -rw-rw-r-- 1 me   me   0 2008-03-06 14:53 foo.txt
     
-
 We first removed any old copy of foo.txt to make sure we were starting fresh. Next,
 we ran the umask command without an argument to see the current value. It responded
 with the value 0002 (the value 0022 is another common default value), which is the
@@ -571,7 +559,6 @@ setting the mask ourselves:
     [me@linuxbox ~]$ ls -l foo.txt
     -rw-rw-rw- 1 me   me    0 2008-03-06 14:58 foo.txt
     
-
 When we set the mask to 0000 (effectively turning it off), we see that the file is now
 world writable. To understand how this works, we have to look at octal numbers again.
 If we take the mask and expand it into binary, then compare it to the attributes we can see
@@ -635,7 +622,6 @@ remember to clean up:
 
     [me@linuxbox ~]$ rm foo.txt; umask 0002
     
-
 Most of the time you won't have to change the mask; the default provided by your
 distribution will be fine. In some high-security situations, however, you will want to
 control it.
@@ -965,7 +951,6 @@ argument of the command. Here are some examples:
 chown 命令可以更改文件所有者和/或文件用户组，依据于这个命令的第一个参数。这里有
 一些例子：
 
-<p>
 <table class="multi">
 <caption class="cap">Table 10-6: chown Argument Examples &nbsp; chown 参数实例</caption>
 <tr>
@@ -995,7 +980,6 @@ changes the group owner to the login group of user bob. &nbsp; 文件所有者�
 用户 bob，文件用户组改为，用户 bob 登录系统时，所属的用户组。</td>
 </tr>
 </table>
-</p>
 
 Let's say that we have two users; janet, who has access to superuser privileges and
 tony, who does not. User janet wants to copy a file from her home directory to the
@@ -1014,7 +998,6 @@ janet 把这个文件的所有者更改为 tony:
     [janet@linuxbox ~]$ sudo ls -l ~tony/myfile.txt
     -rw-r--r-- 1 tony  tony 8031 2008-03-20 14:30 /home/tony/myfile.txt
     
-
 Here we see user janet copy the file from her directory to the home directory of user
 tony. Next, janet changes the ownership of the file from root (a result of using
 sudo) to tony. Using the trailing colon in the first argument, janet also changed the
@@ -1077,7 +1060,6 @@ Next, bill creates the directory for the music files:
     [bill@linuxbox ~]$ sudo mkdir /usr/local/share/Music
     password:
     
-
 Since bill is manipulating files outside his home directory, superuser privileges are
 required. After the directory is created, it has the following ownerships and permissions:
 
@@ -1087,7 +1069,6 @@ required. After the directory is created, it has the following ownerships and pe
     [bill@linuxbox ~]$ ls -ld /usr/local/share/Music
     drwxr-xr-x 2 root root 4096 2008-03-21 18:05 /usr/local/share/Music
     
-
 As we can see, the directory is owned by root and has 755 permissions. To make this
 directory sharable, bill needs to change the group ownership and the group permissions
 to allow writing:
@@ -1100,7 +1081,6 @@ karen）写入，bill 需要更改目录用户组所有权和权限：
     [bill@linuxbox ~]$ ls -ld /usr/local/share/Music
     drwxrwxr-x 2 root music 4096 2008-03-21 18:05 /usr/local/share/Music
     
-
 So what does this all mean? It means that we now have a directory,
 /usr/local/share/Music that is owned by root and allows read and write
 access to group music. Group music has members bill and karen, thus bill and
@@ -1123,7 +1103,6 @@ karen:
     [bill@linuxbox ~]$ ls -l /usr/local/share/Music
     -rw-r--r-- 1 bill    bill    0 2008-03-24 20:03 test_file
     
-
 Actually there are two problems. First, the default umask on this system is 0022 which
 prevents group members from writing files belonging to other members of the group.
 This would not be a problem if the shared directory only contained files, but since this
@@ -1148,7 +1127,6 @@ directory:
     [bill@linuxbox ~]$ ls -ld /usr/local/share/Music
     drwxrwsr-x 2 root music 4096 2008-03-24 20:03 /usr/local/share/Music
     
-
 Now we test to see if the new permissions fix the problem. bill sets his umask to
 0002, removes the previous test file, creates a new test file and directory:
 
@@ -1166,7 +1144,6 @@ Now we test to see if the new permissions fix the problem. bill sets his umask t
     -rw-rw-r-- 1 bill   music 0 2008-03-24 20:22 test_file
     [bill@linuxbox ~]$
     
-
 Both files and directories are now created with the correct permissions to allow all
 members of the group music to create files and directories inside the Music directory.
 
@@ -1193,7 +1170,6 @@ passwd command is used. The command syntax looks like this:
 
     passwd [user]
     
-
 To change your password, just enter the passwd command. You will be prompted for
 your old password and your new password:
 
@@ -1203,7 +1179,6 @@ your old password and your new password:
     (current) UNIX password:
     New UNIX password:
     
-
 The passwd command will try to enforce use of “strong” passwords. This means the it
 will refuse to accept passwords that are too short, too similar to previous passwords, are
 dictionary words, or too easily guessed:
@@ -1220,7 +1195,6 @@ passwd 命令将会试着强迫你使用“强”密码。这意味着，它会�
     New UNIX password:
     BAD PASSWORD: it is based on a dictionary word
     
-
 If you have superuser privileges, you can specify a user name as an argument to the
 passwd command to set the password for another user. There are other options
 available to the superuser to allow account locking, password expiration, etc. See the
@@ -1234,11 +1208,11 @@ passwd man page for details.
 
 ### 拓展阅读
 
-Wikipedia has a good article on malware:
+* Wikipedia has a good article on malware:
 
-Wikipedia 上面有一篇关于 malware（恶意软件）好文章：
+* Wikipedia 上面有一篇关于 malware（恶意软件）好文章：
 
-<http://en.wikipedia.org/wiki/Malware>
+  <http://en.wikipedia.org/wiki/Malware>
 
 There are number of command line programs used to create and maintain users and
 groups. For more information, see the man pages for the following commands:
