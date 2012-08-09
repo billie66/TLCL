@@ -95,7 +95,7 @@ value of zero indicates success and any other value indicates failure. The shell
 parameter that we can use to examine the exit status. Here we see it in action:
 
 当命令执行完毕后，命令（包括我们编写的脚本和 shell 函数）会给系统发送一个值，叫做退出状态。
-这个值是一个0到255之间的整数，说明命令执行成功或是失败。按照惯例，一个零值说明成功，其它所有值说明失败。
+这个值是一个 0 到 255 之间的整数，说明命令执行成功或是失败。按照惯例，一个零值说明成功，其它所有值说明失败。
 Shell 提供了一个参数，我们可以用它检查退出状态。用具体实例看一下：
 
     [me@linuxbox ~]$ ls -d /usr/bin
@@ -118,7 +118,7 @@ a zero always indicates success.
 
 在这个例子中，我们执行了两次 ls 命令。第一次，命令执行成功。如果我们显示参数`$?`的值，我们
 看到它是零。我们第二次执行 ls 命令的时候，产生了一个错误，并再次查看参数`$?`。这次它包含一个
-数字2，表明这个命令遇到了一个错误。有些命令使用不同的退出值，来诊断错误，而许多命令当
+数字 2，表明这个命令遇到了一个错误。有些命令使用不同的退出值，来诊断错误，而许多命令当
 它们执行失败的时候，会简单地退出并发送一个数字1。手册页中经常会包含一章标题为“退出状态”的内容，
 描述了使用的代码。然而，一个零总是表明成功。
 
@@ -151,7 +151,7 @@ executes successfully, and is not executed when the command following if does no
 execute successfully. If a list of commands follows if, the last command in the list is
 evaluated:
 
-当 if 之后的命令执行成功的时候，命令 echo "It's true."将会执行，否则此命令不执行。
+当 if 之后的命令执行成功的时候，命令 echo "It's true." 将会执行，否则此命令不执行。
 如果 if 之后跟随一系列命令，则将计算列表中的最后一个命令：
 
     [me@linuxbox ~]$ if false; true; then echo "It's true."; fi
@@ -429,7 +429,7 @@ parameter insures that the operator is always followed by a string, even if the 
 empty. Second, notice the presence of the exit commands near the end of the script.
 The exit command accepts a single, optional argument, which becomes the script’s exit
 status. When no argument is passed, the exit status defaults to zero. Using exit in this
-way allows the script to indicate failure if $FILE expands to the name of a nonexistent
+way allows the script to indicate failure if `$FILE` expands to the name of a nonexistent
 file. The exit command appearing on the last line of the script is there as a formality.
 When a script “runs off the end” (reaches end of file), it terminates with an exit status of
 zero by default, anyway.
@@ -439,7 +439,7 @@ zero by default, anyway.
 是一个空值，就会导致一个错误（操作符将会被解释为非空的字符串而不是操作符）。用引号把参数引起来就
 确保了操作符之后总是跟随着一个字符串，即使字符串为空。第二个，注意脚本末尾的 exit 命令。
 这个 exit 命令接受一个单独的，可选的参数，其成为脚本的退出状态。当不传递参数时，退出状态默认为零。
-以这种方式使用 exit 命令，则允许此脚本提示失败如果$FILE 展开成一个不存在的文件名。这个 exit 命令
+以这种方式使用 exit 命令，则允许此脚本提示失败如果 `$FILE` 展开成一个不存在的文件名。这个 exit 命令
 出现在脚本中的最后一行，是一个当一个脚本“运行到最后”（到达文件末尾），不管怎样，
 默认情况下它以退出状态零终止。
 
@@ -575,7 +575,7 @@ versions of bash up to and including 4.0.
 
 警告：这个&lt;和&gt;表达式操作符必须用引号引起来（或者是用反斜杠转义），
 当与 test 一块使用的时候。如果不这样，它们会被 shell 解释为重定向操作符，造成潜在地破坏结果。
-同时也要注意虽然 bash 文档声明排序遵从当前语系的排列规则，但并不这样。将来的 bash 版本，包含4.0，
+同时也要注意虽然 bash 文档声明排序遵从当前语系的排列规则，但并不这样。将来的 bash 版本，包含 4.0，
 使用 ASCII（POSIX）排序规则。
 
 ---

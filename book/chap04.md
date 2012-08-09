@@ -118,7 +118,7 @@ ls 命令有大量的选项。表4-1列出了最常使用的选项。
 </caption>
 <tr>
 <th class="title" width="10%">Option</th>
-<th class="title" width="15%" >Long Option</th>
+<th class="title" width="20%">Long Option</th>
 <th class="title">Description</th>
 </tr>
 <tr>
@@ -173,8 +173,8 @@ ls display its results in ascending alphabetical order.  </td>
 <table class="multi">
 <caption class="cap">表 4-1: ls 命令选项 </caption>
 <tr>
-<th class="title">选项</th>
-<th>长选项</th>
+<th class="title" width="10%">选项</th>
+<th width="20%">长选项</th>
 <th>描述</th>
 </tr>
 <tr>
@@ -1014,9 +1014,9 @@ Further Reading
 
 ### 拓展阅读
 
-The full version of the Linux Filesystem Hierarchy Standard can be found here:
+* The full version of the Linux Filesystem Hierarchy Standard can be found here:
 
-完整的 Linux 文件系统层次标准可通过以下链接找到：
+* 完整的 Linux 文件系统层次标准可通过以下链接找到：
 
-<http://www.pathname.com/fhs/>
+  <http://www.pathname.com/fhs/>
 

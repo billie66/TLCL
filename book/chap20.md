@@ -737,8 +737,11 @@ can be used for both.
 是因为 POSIX 规范的字符集适用于二者。
 
 <div class="single">
+
 <h3>Reverting To Traditional Collation Order </h3>
+
 <h3>恢复到传统的排列顺序</h3>
+
 <p>You can opt to have your system use the traditional (ASCII) collation order by
 changing the value of the LANG environment variable. As we saw above, the
 LANG variable contains the name of the language and character set used in your
@@ -767,20 +770,22 @@ LANG 变量包含了语种和字符集。这个值最初由你安装 Linux 系�
 <p>LC_IDENTIFICATION="en_US.UTF-8" </p>
 <p>LC\_ALL= </p>
 
-<p>To change the locale to use the traditional Unix behaviors, set the LANG variable
-to POSIX:</p>
+<p>To change the locale to use the traditional Unix behaviors, set the LANG variable to POSIX:</p>
+
 <p>把这个 LANG 变量设置为 POSIX，来更改 locale，使其使用传统的 Unix 行为。</p>
 
 <p>[me@linuxbox ~]$ export LANG=POSIX </p>
 
 <p>Note that this change converts the system to use U.S. English (more specifically,
 ASCII) for its character set, so be sure if this is really what you want.  </p>
-<p>You can make this change permanent by adding this line to you your .bashrc
-file:</p>
+
+<p>You can make this change permanent by adding this line to you your .bashrc file:</p>
+
 <p>注意这个改动使系统为它的字符集使用 U.S.英语（更准确地说，ASCII），所以要确认一下这
 是否是你真正想要的效果。通过把这条语句添加到你的.bashrc 文件中，你可以使这个更改永久有效。</p>
 
 <p>export LANG=POSIX </p>
+
 </div>
 <br />
 
@@ -830,16 +835,18 @@ option is used.
 一直由 egrep 程序来执行这项操作，但是 GUN 版本的 grep 程序也支持扩展的正则表达式，当使用了-E 选项之后。
 
 <div class="single">
+
 <h3>POSIX </h3>
-<p> During the 1980’s, Unix became a very popular commercial operating system, but
+
+<p>During the 1980’s, Unix became a very popular commercial operating system, but
 by 1988, the Unix world was in turmoil. Many computer manufacturers had
-licensed the Unix source code from its creators, AT&T, and were supplying
+licensed the Unix source code from its creators, AT&amp;T, and were supplying
 various versions of the operating system with their systems. However, in their
 efforts to create product differentiation, each manufacturer added proprietary
 changes and extensions. This started to limit the compatibility of the software. </p>
 
-<p>在世纪80年代，Unix 成为一款非常流行的商业操作系统，但是到了1988年，Unix 世界
-一片混乱。许多计算机制造商从 Unix 的创建者 AT&T 那里得到了许可的 Unix 源码，并且
+<p>在 20 世纪 80 年代，Unix 成为一款非常流行的商业操作系统，但是到了1988年，Unix 世界
+一片混乱。许多计算机制造商从 Unix 的创建者 AT&amp;T 那里得到了许可的 Unix 源码，并且
 供应各种版本的操作系统。然而，在他们努力创造产品差异化的同时，每个制造商都增加了
 专用的更改和扩展。这就开始限制了软件的兼容性。</p>
 
@@ -850,20 +857,20 @@ today as “the Balkanization.” </p>
 <p>专有软件供应商一如既往，每个供应商都试图玩嬴游戏“锁定”他们的客户。这个 Unix 历史上
 的黑暗时代，就是今天众所周知的“the Balkanization”。</p>
 
-<p> Enter the IEEE (Institute of Electrical and Electronics Engineers). In the
+<p>Enter the IEEE (Institute of Electrical and Electronics Engineers). In the
 mid-1980s, the IEEE began developing a set of standards that would define how
 Unix (and Unix-like) systems would perform. These standards, formally known
 as IEEE 1003, define the application programming interfaces (APIs), shell and
 utilities that are to be found on a standard Unix-like system. The name “POSIX,”
 which stands for Portable Operating System Interface (with the “X” added to the
 end for extra snappiness), was suggested by Richard Stallman (yes, that Richard
-Stallman), and was adopted by the IEEE.  </p>
+Stallman), and was adopted by the IEEE. </p>
 
-<p>然后进入 IEEE（电气与电子工程师协会）时代。在上世纪80年代中叶，IEEE 开始制定一套标准，
-其将会定义 Unix 系统（以及类似于 Unix 的系统）如何执行。这些标准，正式成为 IEEE
-1003，定义了应用程序编程接口（APIs），shell 和一些实用程序，其将会在标准的类似于 Unix
-操作系统中找到。“POSIX”这个名字，象征着可移植的操作系统接口（为了额外的，添加末尾的“X”），
-是由 Richard Stallman 建议的（是的，的确是 Richard Stallman），后来被 IEEE 采纳。</p>
+<p>然后进入 IEEE（ 电气与电子工程师协会 ）时代。在上世纪 80 年代中叶，IEEE 开始制定一套标准，
+其将会定义 Unix 系统（ 以及类似于 Unix 的系统 ）如何执行。这些标准，正式成为 IEEE 1003，
+定义了应用程序编程接口（ APIs ），shell 和一些实用程序，其将会在标准的类似于 Unix
+操作系统中找到。“POSIX” 这个名字，象征着可移植的操作系统接口（为了额外的，添加末尾的 “X” ），
+是由 Richard Stallman 建议的（ 是的，的确是 Richard Stallman ），后来被 IEEE 采纳。</p>
 </div>
 <br />
 

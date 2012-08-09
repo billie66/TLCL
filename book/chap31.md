@@ -132,19 +132,19 @@ The result is this:
 Again, the error message points to a error that occurs later than the actual problem. What
 happens is really pretty interesting. As we recall, if accepts a list of commands and
 evaluates the exit code of the last command in the list. In our program, we intend this list
-to consist of a single command, [, a synonym for test. The [ command takes what
-follows it as a list of arguments. In our case, three arguments: $number, =, and ]. With
+to consist of a single command, \[, a synonym for test. The \[ command takes what
+follows it as a list of arguments. In our case, three arguments: $number, =, and \]. With
 the semicolon removed, the word then is added to the list of arguments, which is
 syntactically legal. The following echo command is legal, too. It’s interpreted as
 another command in the list of commands that if will evaluate for an exit code. The
 else is encountered next, but it’s out of place, since the shell recognizes it as a reserved
-word (a word that has special meaning to the shell) and not the name of a command,
+word \(a word that has special meaning to the shell\) and not the name of a command,
 hence the error message.
 
 再次，错误信息指向一个错误，其出现的位置靠后于实际问题所在的文本行。所发生的事情真是相当有意思。我们记得，
 if 能够接受一系列命令，并且会计算列表中最后一个命令的退出代码。在我们的程序中，我们打算这个列表由
-单个命令组成，即[，测试的同义词。这个[命令把它后面的东西看作是一个参数列表。在我们这种情况下，
-有三个参数： $number，=，和 ]。由于删除了分号，单词 then 被添加到参数列表中，从语法上讲，
+单个命令组成，即 \[，测试的同义词。这个\[ 命令把它后面的东西看作是一个参数列表。在我们这种情况下，
+有三个参数： $number，=，和 \]。由于删除了分号，单词 then 被添加到参数列表中，从语法上讲，
 这是合法的。随后的 echo 命令也是合法的。它被解释为命令列表中的另一个命令，if
 将会计算命令的 退出代码。接下来遇到单词 else，但是它出局了，因为 shell 把它认定为一个
 保留字（对于 shell 有特殊含义的单词），而不是一个命令名，因此报告错误信息。
@@ -198,8 +198,8 @@ undergoes expansion with number being empty, the result is this:
 
 which is invalid and the error is generated. The = operator is a binary operator (it
 requires a value on each side), but the first value is missing, so the test command
-expects a unary operator (such as -z) instead. Further, since the test failed (because of
-the error), the if command receives a non-zero exit code and acts accordingly, and the
+expects a unary operator \(such as -z\) instead. Further, since the test failed (because of
+the error\), the if command receives a non-zero exit code and acts accordingly, and the
 second echo command is executed.
 
 这是无效的，所以就产生了错误。这个 = 操作符是一个二元操作符（它要求每边都有一个数值），但是第一个数值是缺失的，
@@ -282,12 +282,12 @@ two lines of code:
     rm *
 
 There is nothing intrinsically wrong with these two lines, as long as the directory named
-in the variable, dir_name, exists. But what happens if it does not? In that case, the cd
+in the variable, dir\_name, exists. But what happens if it does not? In that case, the cd
 command fails, the script continues to the next line and deletes the files in the current
 working directory. Not the desired outcome at all! The hapless administrator destroyed
 an important part of the server because of this design decision.
 
-从本质上来说，这两行代码没有任何问题，只要是变量 dir_name
+从本质上来说，这两行代码没有任何问题，只要是变量 dir\_name
 中存储的目录名字存在就可以。但是如果不是这样会发生什么事情呢？在那种情况下，cd
 命令会运行失败，脚本会继续执行下一行代码，将会删除当前工作目录中的所有文件。完成不是期望的结果！
 由于这种设计策略，这个倒霉的管理员销毁了服务器中的一个重要部分。
@@ -301,14 +301,14 @@ the execution of rm contingent on the success of cd:
     cd $dir_name && rm *
 
 This way, if the cd command fails, the rm command is not carried out. This is better, but
-still leaves open the possibility that the variable, dir_name, is unset or empty, which
+still leaves open the possibility that the variable, dir\_name, is unset or empty, which
 would result in the files in the user’s home directory being deleted. This could also be
-avoided by checking to see that dir_name actually contains the name of an existing
+avoided by checking to see that dir\_name actually contains the name of an existing
 directory:
 
 这样，如果 cd 命令运行失败后，rm 命令将不会执行。这样比较好，但是仍然有可能未设置变量
-dir_name 或其变量值为空，从而导致删除了用户主目录下面的所有文件。这个问题也能够避免，通过检验变量
-dir_name 中包含的目录名是否真正地存在：
+dir\_name 或其变量值为空，从而导致删除了用户主目录下面的所有文件。这个问题也能够避免，通过检验变量
+dir\_name 中包含的目录名是否真正地存在：
 
     [[ -d $dir_name ]] && cd $dir_name && rm *
 
