@@ -293,12 +293,12 @@ sort 程序有几个有趣的选项。这里只是一部分列表：
 <table class="multi">
 <caption class="cap">Table 21-1: Common sort Options</caption>
 <tr>
-<th class="title">Option</th>
-<th class="title">Long Option</th>
+<th class="title" width="10%">Option</th>
+<th class="title" width="23%">Long Option</th>
 <th class="title">Description</th>
 </tr>
 <tr>
-<td valign="top" width="15%">-b</td>
+<td valign="top">-b</td>
 <td valign="top">--ignore-leading-blanks </td>
 <td valign="top">By default, sorting is performed on the entire line,
 starting with the first character in the line. This option causes sort to
@@ -352,8 +352,8 @@ separated by spaces or tabs.</td>
 <table class="multi">
 <caption class="cap">表21-1: 常见的 sort 程序选项</caption>
 <tr>
-<th class="title">选项</th>
-<th class="title">长选项</th>
+<th class="title" width="10%">选项</th>
+<th class="title" width="23%">长选项</th>
 <th class="title">描述</th>
 </tr>
 <tr>
@@ -406,7 +406,7 @@ values based on numeric values. We can demonstrate this by sorting the results o
 command to determine the largest users of disk space. Normally, the du command lists
 the results of a summary in pathname order:
 
-虽然以上大多数选项的含义是不言自喻的，但是有些也不是。首先，让我们看一下-n 选项，被用做数值排序。
+虽然以上大多数选项的含义是不言自喻的，但是有些也不是。首先，让我们看一下 -n 选项，被用做数值排序。
 通过这个选项，有可能基于数值进行排序。我们通过对 du 命令的输出结果排序来说明这个选项，du 命令可以
 确定最大的磁盘空间用户。通常，这个 du 命令列出的输出结果按照路径名来排序：
 
@@ -426,10 +426,10 @@ In this example, we pipe the results into head to limit the results to the first
 We can produce a numerically sorted list to show the ten largest consumers of space this
 way:
 
-在这个例子里面，我们把结果管道到 head 命令，把输出结果限制为前10行。我们能够产生一个按数值排序的
-列表，来显示10个最大的空间消费者：
+在这个例子里面，我们把结果管道到 head 命令，把输出结果限制为前 10 行。我们能够产生一个按数值排序的
+列表，来显示 10 个最大的空间消费者：
 
-    [me@linuxbox ~]$ du -s /usr/share/\* | sort -nr | head
+    [me@linuxbox ~]$ du -s /usr/share/* | sort -nr | head
     509940         /usr/share/locale-langpack
     242660         /usr/share/doc
     197560         /usr/share/fonts
@@ -446,7 +446,7 @@ appearing first in the results. This sort works because the numerical values occ
 beginning of each line. But what if we want to sort a list based on some value found
 within the line? For example, the results of an ls -l:
 
-通过使用此-nr 选项，我们产生了一个反向的数值排序，最大数值排列在第一位。这种排序起作用是
+通过使用此 -nr 选项，我们产生了一个反向的数值排序，最大数值排列在第一位。这种排序起作用是
 因为数值出现在每行的开头。但是如果我们想要基于文件行中的某个数值排序，又会怎样呢？
 例如，命令 ls -l 的输出结果：
 
@@ -478,7 +478,7 @@ sort 程序的许多用法都涉及到处理表格数据，例如上面 ls 命�
 把数据库这个术语应用到上面的表格中，我们会说每行是一条记录，并且每条记录由多个字段组成，
 例如文件属性，链接数，文件名，文件大小等等。sort 程序能够处理独立的字段。在数据库术语中，
 我们能够指定一个或者多个关键字段，来作为排序的关键值。在上面的例子中，我们指定
-n 和 r 选项来执行相反的数值排序，并且指定-k 5，让 sort 程序使用第五字段作为排序的关键值。
+n 和 r 选项来执行相反的数值排序，并且指定 -k 5，让 sort 程序使用第五字段作为排序的关键值。
 
 The k option is very interesting and has many features, but first we need to talk about
 how sort defines fields. Let’s consider a very simple text file consisting of a single line
@@ -516,7 +516,7 @@ of three popular Linux distributions released from 2006 to 2008. Each line in th
 three fields: the distribution name, version number, and date of release in
 MM/DD/YYYY format:
 
-让我们考虑用下面的文件，其包含从2006年到2008年三款流行的 Linux 发行版的发行历史，来做一系列实验。
+让我们考虑用下面的文件，其包含从 2006 年到 2008 年三款流行的 Linux 发行版的发行历史，来做一系列实验。
 文件中的每一行都有三个字段：发行版的名称，版本号，和 MM/DD/YYYY 格式的发行日期：
 
     SUSE        10.2   12/07/2006
@@ -548,8 +548,8 @@ Well, it mostly worked. The problem occurs in the sorting of the Fedora version
 numbers. Since a “1” comes before a “5” in the character set, version “10” ends up at the
 top while version “9” falls to the bottom.
 
-恩，大部分正确。问题出现在 Fedora 的版本号上。因为在字符集中“1”出现在“5”之前，版本号“10”在
-最顶端，然而版本号“9”却掉到底端。
+恩，大部分正确。问题出现在 Fedora 的版本号上。因为在字符集中 “1” 出现在 “5” 之前，版本号 “10” 在
+最顶端，然而版本号 “9” 却掉到底端。
 
 To fix this problem we are going to have to sort on multiple keys. We want to perform an
 alphabetic sort on the first field and then a numeric sort on the third field. sort allows
@@ -559,7 +559,7 @@ previous examples), sort uses a key that begins with the specified field and ext
 the end of the line. Here is the syntax for our multi-key sort:
 
 为了解决这个问题，我们必须依赖多个键值来排序。我们想要对第一个字段执行字母排序，然后对
-第三个字段执行数值排序。sort 程序允许多个-k 选项的实例，所以可以指定多个排序关键值。事实上，
+第三个字段执行数值排序。sort 程序允许多个 -k 选项的实例，所以可以指定多个排序关键值。事实上，
 一个关键值可能包括一个字段区域。如果没有指定区域（如同之前的例子），sort 程序会使用一个键值，
 其始于指定的字段，一直扩展到行尾。下面是多键值排序的语法：
 
@@ -579,9 +579,9 @@ indicate the type of sort to be performed. These option letters are the same as 
 options for the sort program: b (ignore leading blanks), n (numeric sort), r (reverse
 sort), and so on.
 
-虽然为了清晰，我们使用了选项的长格式，但是-k 1,1 -k 2n 格式是等价的。在第一个 key 选项的实例中，
-我们指定了一个字段区域。因为我们只想对第一个字段排序，我们指定了1,1，
-意味着“始于并且结束于第一个字段。”在第二个实例中，我们指定了2n，意味着第二个字段是排序的键值，
+虽然为了清晰，我们使用了选项的长格式，但是 -k 1,1 -k 2n 格式是等价的。在第一个 key 选项的实例中，
+我们指定了一个字段区域。因为我们只想对第一个字段排序，我们指定了 1,1，
+意味着“始于并且结束于第一个字段。”在第二个实例中，我们指定了 2n，意味着第二个字段是排序的键值，
 并且按照数值排序。一个选项字母可能被包含在一个键值说明符的末尾，其用来指定排序的种类。这些
 选项字母和 sort 程序的全局选项一样：b（忽略开头的空格），n（数值排序），r（逆向排序），等等。
 
@@ -613,15 +613,15 @@ add the n and r options to achieve a reverse numeric sort. The b option is inclu
 suppress the leading spaces (whose numbers vary from line to line, thereby affecting the
 outcome of the sort) in the date field.
 
-通过指定-k 3.7，我们指示 sort 程序使用一个排序键值，其始于第三个字段中的第七个字符，对应于
-年的开头。同样地，我们指定-k 3.1和-k 3.4来分离日期中的月和日。
+通过指定 -k 3.7，我们指示 sort 程序使用一个排序键值，其始于第三个字段中的第七个字符，对应于
+年的开头。同样地，我们指定 -k 3.1和 -k 3.4来分离日期中的月和日。
 我们也添加了 n 和 r 选项来实现一个逆向的数值排序。这个 b 选项用来删除日期字段中开头的空格（
 行与行之间的空格数迥异，因此会影响 sort 程序的输出结果）。
 
 Some files don’t use tabs and spaces as field delimiters; for example, the /etc/passwd
 file:
 
-一些文件不会使用 tabs 和空格做为字段界定符；例如，这个/etc/passwd 文件：
+一些文件不会使用 tabs 和空格做为字段界定符；例如，这个 /etc/passwd 文件：
 
     [me@linuxbox ~]$ head /etc/passwd
     root:x:0:0:root:/root:/bin/bash
@@ -640,7 +640,7 @@ key field? sort provides the -t option to define the field separator character. 
 the passwd file on the seventh field (the account’s default shell), we could do this:
 
 这个文件的字段之间通过冒号分隔开，所以我们怎样使用一个 key 字段来排序这个文件？sort 程序提供
-了一个-t 选项来定义分隔符。按照第七个字段（帐户的默认 shell）来排序此 passwd 文件，我们可以这样做：
+了一个 -t 选项来定义分隔符。按照第七个字段（帐户的默认 shell）来排序此 passwd 文件，我们可以这样做：
 
     [me@linuxbox ~]$ sort -t ':' -k 7 /etc/passwd | head
     me:x:1001:1001:Myself,,,:/home/me:/bin/bash
@@ -883,7 +883,7 @@ the file meets our requirements of tab separated fields:
 
 正如我们所看到的，cut 程序抽取文本的方式相当不灵活。cut 命令最好用来从其它程序产生的文件中
 抽取文本，而不是从人们直接输入的文本中抽取。我们将会看一下我们的 distros.txt 文件，看看
-是否它足够“整齐”成为 cut 实例的一个好样本。如果我们使用带有-A 选项的 cat 命令，我们能查看是否这个
+是否它足够 “整齐” 成为 cut 实例的一个好样本。如果我们使用带有 -A 选项的 cat 命令，我们能查看是否这个
 文件符号由 tab 字符分离字段的要求。
 
     [me@linuxbox ~]$ cat -A distros.txt
@@ -908,7 +908,7 @@ It looks good. No embedded spaces, just single tab characters between the fields
 the file uses tabs rather than spaces, we’ll use the -f option to extract a field:
 
 看起来不错。字段之间仅仅是单个 tab 字符，没有嵌入空格。因为这个文件使用了 tab 而不是空格，
-我们将使用-f 选项来抽取一个字段：
+我们将使用 -f 选项来抽取一个字段：
 
     [me@linuxbox ~]$ cut -f 3 distros.txt
     12/07/2006
@@ -964,7 +964,7 @@ example of a range. The cut man page contains a complete description of how rang
 can be specified.
 
 通过对我们的列表再次运行 cut 命令，我们能够抽取从位置7到10的字符，其对应于日期字段的年份。
-这个7-10表示法是一个区间的例子。cut 命令手册包含了一个如何指定区间的完整描述。
+这个 7-10 表示法是一个区间的例子。cut 命令手册包含了一个如何指定区间的完整描述。
 
 <div class="single">
 <h3>Expanding Tabs</h3>
@@ -991,7 +991,7 @@ end of the line: </p>
 
 <p>如果我们通过 expand 来处理 distros.txt 文件，我们能够使用 cut -c 命令来从文件中抽取
 任意区间内的字符。例如，我们能够使用以下命令来从列表中抽取发行年份，通过展开
-此文件，再使用 cut 命令，来抽取从位置23开始到行尾的每一个字符：</p>
+此文件，再使用 cut 命令，来抽取从位置 23 开始到行尾的每一个字符：</p>
 
 <p> [me@linuxbox ~]$ expand distros.txt | cut -c 23- </p>
 
@@ -1034,7 +1034,7 @@ produce a chronological list of releases.
 
 这个 paste 命令的功能正好与 cut 相反。它会添加一个或多个文本列到文件中，而不是从文件中抽取文本列。
 它通过读取多个文件，然后把每个文件中的字段整合成单个文本流，输入到标准输出。类似于 cut 命令，
-paste 接受多个文件参数和／或标准输入。为了说明 paste 是怎样工作的，我们将会对 distros.txt 文件
+paste 接受多个文件参数和 ／ 或标准输入。为了说明 paste 是怎样工作的，我们将会对 distros.txt 文件
 动手术，来产生发行版的年代表。
 
 From our earlier work with sort, we will first produce a list of distros sorted by date
@@ -1198,7 +1198,7 @@ and the second file, which contains the release dates and the version numbers:
 We now have two files with a shared key (the “release date” field). It is important to
 point out that the files must be sorted on the key field for join to work properly.
 
-现在我们有两个具有共享键值（“发行日期”数据域）的文件。有必要指出，为了使 join 命令
+现在我们有两个具有共享键值（ “发行日期” 数据域 ）的文件。有必要指出，为了使 join 命令
 能正常工作，所有文件必须按照关键数据域排序。
 
     [me@linuxbox ~]$ join distros-key-names.txt distros-key-vernums.txt | head
@@ -1273,8 +1273,8 @@ which column(s) to suppress. For example, if we only wanted to output the lines 
 by both files, we would suppress the output of columns one and two:
 
 正如我们所见到的，comm 命令产生了三列输出。第一列包含第一个文件独有的文本行；第二列，
-文本行是第二列独有的；第三列包含两个文件共有的文本行。comm 支持-n 形式的选项，这里 n 代表
-1，2或3。这些选项使用的时候，指定了要隐藏的列。例如，如果我们只想输出两个文件共享的文本行，
+文本行是第二列独有的；第三列包含两个文件共有的文本行。comm 支持 -n 形式的选项，这里 n 代表
+1，2 或 3。这些选项使用的时候，指定了要隐藏的列。例如，如果我们只想输出两个文件共享的文本行，
 我们将隐藏第一列和第二列的输出结果：
 
     [me@linuxbox ~]$ comm -12 file1.txt file2.txt
@@ -1465,7 +1465,7 @@ in its respective section of the change group.</td>
 The _unified format_ is similar to the _context format_, but is more concise. It is specified
 with the -u option:
 
-这个统一模式相似于上下文模式，但是更加简洁。通过-u 选项来指定它：
+这个统一模式相似于上下文模式，但是更加简洁。通过 -u 选项来指定它：
 
     [me@linuxbox ~]$ diff -u file1.txt file2.txt
     --- file1.txt 2008-12-23 06:40:13.000000000 -0500
@@ -1724,7 +1724,7 @@ text restores it to its original form. To perform this encoding with tr: </p>
 <p>A number of email programs and USENET news readers support ROT13
 encoding. Wikipedia contains a good article on the subject:</p>
 
-<p>大量的 email 程序和 USENET 新闻读者都支持 ROT13编码。Wikipedia 上面有一篇关于这个主题的好文章：</p>
+<p>大量的 email 程序和 USENET 新闻读者都支持 ROT13 编码。Wikipedia 上面有一篇关于这个主题的好文章：</p>
 <p>http://en.wikipedia.org/wiki/ROT13</p>
 
 </div>
@@ -1820,7 +1820,7 @@ sed 中的大多数命令之前都会带有一个地址，其指定了输入流�
 Adding the address 1 to our command causes our substitution to be performed on the first
 line of our one-line input stream. If we specify another number:
 
-给我们的命令添加地址1，就导致只对仅有一行文本的输入流的第一行执行替换操作。如果我们指定另一
+给我们的命令添加地址 1，就导致只对仅有一行文本的输入流的第一行执行替换操作。如果我们指定另一
 个数字：
 
     [me@linuxbox ~]$ echo "front" | sed '2s/front/back/'
@@ -1898,18 +1898,18 @@ fifth line thereafter.</td>
 </tr>
 <tr>
 <td valign="top">addr1,addr2 </td>
-<td valign="top">从 addr1到 addr2范围内的文本行，包含地址 addr2在内。地址可能是上述任意
+<td valign="top">从 addr1 到 addr2 范围内的文本行，包含地址 addr2 在内。地址可能是上述任意
 单独的地址形式。</td>
 </tr>
 <tr>
 <td valign="top">first~step </td>
 <td
 valign="top">匹配由数字 first 代表的文本行，然后随后的每个在 step 间隔处的文本行。例如
-1~2是指每个位于偶数行号的文本行，5~5则指第五行和之后每五行位置的文本行。</td>
+1~2 是指每个位于偶数行号的文本行，5~5 则指第五行和之后每五行位置的文本行。</td>
 </tr>
 <tr>
 <td valign="top">addr1,+n </td>
-<td valign="top">匹配地址 addr1和随后的 n 个文本行。</td>
+<td valign="top">匹配地址 addr1 和随后的 n 个文本行。</td>
 </tr>
 <tr>
 <td valign="top">addr! </td>
@@ -1935,7 +1935,7 @@ printed. For this to be effective however, we must include the option -n (the no
 print option) to cause sed not to print every line by default.
 
 在这个例子中，我们打印出一系列的文本行，开始于第一行，直到第五行。为此，我们使用 p 命令，
-其就是简单地把匹配的文本行打印出来。然而为了高效，我们必须包含选项-n（不自动打印选项），
+其就是简单地把匹配的文本行打印出来。然而为了高效，我们必须包含选项 -n（不自动打印选项），
 让 sed 不要默认地打印每一行。
 
 Next, we’ll try a regular expression:
@@ -1951,7 +1951,7 @@ Next, we’ll try a regular expression:
 By including the slash-delimited regular expression /SUSE/, we are able to isolate the
 lines containing it in much the same manner as grep.
 
-通过包含由斜杠界定的正则表达式/SUSE/，我们能够孤立出包含它的文本行，和 grep 程序的功能
+通过包含由斜杠界定的正则表达式 \/SUSE\/，我们能够孤立出包含它的文本行，和 grep 程序的功能
 是相同的。
 
 Finally, we’ll try negation by adding an ! to the address:
@@ -2042,7 +2042,7 @@ Note that unlike tr, sed requires that both sets be of the same length.</td>
 </table>
 
 <table class="multi">
-<caption class="cap">表21-8： sed 基本编辑命令 </caption>
+<caption class="cap">表 21-8： sed 基本编辑命令 </caption>
 <tr>
 <th class="title">命令</th>
 <th class="title">说明</th>
@@ -2081,13 +2081,13 @@ valign="top">打印当前行。默认情况下，sed 程序打印每一行，并
 <td valign="top">s/regexp/replacement/ </td>
 <td valign="top">只要找到一个 regexp 匹配项，就替换为 replacement 的内容。
 replacement 可能包括特殊字符&amp;，其等价于由 regexp 匹配的文本。另外，
-replacement 可能包含序列\1到\9，其是 regexp 中相对应的子表达式的内容。更多信息，查看
+replacement 可能包含序列 \1到 \9，其是 regexp 中相对应的子表达式的内容。更多信息，查看
 下面 back references 部分的讨论。在 replacement 末尾的斜杠之后，可以指定一个
 可选的标志，来修改 s 命令的行为。</td>
 </tr>
 <tr>
 <td valign="top">y/set1/set2 </td>
-<td valign="top">执行字符转写操作，通过把 set1中的字符转变为相对应的 set2中的字符。
+<td valign="top">执行字符转写操作，通过把 set1 中的字符转变为相对应的 set2 中的字符。
 注意不同于 tr 程序，sed 要求两个字符集合具有相同的长度。</td>
 </tr>
 </table>
@@ -2157,7 +2157,7 @@ we simply enclose them in parentheses like so:
 此表达式匹配两位数字，一个斜杠，两位数字，一个斜杠，四位数字，以及行尾。如此关心_regexp_，
 那么_replacement_又怎样呢？为了解决此问题，我们必须介绍一个正则表达式的新功能，它出现
 在一些使用 BRE 的应用程序中。这个功能叫做_逆参照_，像这样工作：如果序列\n 出现在_replacement_中
-，这里 n 是指从1到9的数字，则这个序列指的是在前面正则表达式中相对应的子表达式。为了
+，这里 n 是指从 1 到 9 的数字，则这个序列指的是在前面正则表达式中相对应的子表达式。为了
 创建这个子表达式，我们简单地把它们用圆括号括起来，像这样：
 
     ([0-9]{2})/([0-9]{2})/([0-9]{4})$
@@ -2213,7 +2213,7 @@ We see that the replacement was performed, but only to the first instance of the
 while the remaining instances were left unchanged. By adding the g flag, we are able to
 change all the instances:
 
-我们看到虽然执行了替换操作，但是只针对第一个字母“b”实例，然而剩余的实例没有更改。通过添加 g 标志，
+我们看到虽然执行了替换操作，但是只针对第一个字母 “b” 实例，然而剩余的实例没有更改。通过添加 g 标志，
 我们能够更改所有的实例：
 
     [me@linuxbox ~]$ echo "aaabbbccc" | sed 's/b/B/g'
@@ -2306,7 +2306,7 @@ continuation character. The sixth line of our script is actually the end of our 
 and ends with a plain carriage return rather than a line continuation character, signaling
 the end of the i command.
 
-从第三行到第六行所包含地文本要被插入到地址1处，也就是输入文本的第一行中。这个 i 命令
+从第三行到第六行所包含地文本要被插入到地址 1 处，也就是输入文本的第一行中。这个 i 命令
 之后是反斜杠回车符，来产生一个转义的回车符，或者就是所谓的连行符。这个序列能够
 被用在许多环境下，包括 shell 脚本，从而允许把回车符嵌入到文本流中，而没有通知
 解释器（在这是指 sed 解释器）已经到达了文本行的末尾。这个 i 命令，同样地，命令 a（追加文本，
@@ -2427,7 +2427,7 @@ list of other possible actions. Finally, at the very bottom, we see a prompt rea
 our choice.
 
 在显示屏的顶部，我们看到我们的文本中有一个拼写可疑且高亮显示的单词。在中间部分，我们看到
-十个拼写建议，序号从0到9，然后是一系列其它可能的操作。最后，在最底部，我们看到一个提示符，
+十个拼写建议，序号从 0 到 9，然后是一系列其它可能的操作。最后，在最底部，我们看到一个提示符，
 准备接受我们的选择。
 
 If we press the 1 key, aspell replaces the offending word with the word “jumped” and
@@ -2435,8 +2435,8 @@ moves on to the next misspelled word which is “laxy.” If we select the repla
 “lazy,” aspell replaces it and terminates. Once aspell has finished, we can examine
 our file and see that the misspellings have been corrected:
 
-如果我们按下1按键，aspell 会用单词“jumped”代替错误单词，然后移动到下一个拼写错的单词，就是
-“laxy”。如果我们选择替代物“lazy”，aspell 会替换“laxy”并且终止。一旦 aspell 结束操作，我们
+如果我们按下 1 按键，aspell 会用单词 “jumped” 代替错误单词，然后移动到下一个拼写错的单词，就是
+ “laxy”。如果我们选择替代物 “lazy”，aspell 会替换 “laxy” 并且终止。一旦 aspell 结束操作，我们
 可以检查我们的文件，会看到拼写错误的单词已经更正了。
 
     [me@linuxbox ~]$ cat foo.txt
