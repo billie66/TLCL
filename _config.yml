@@ -1,3 +1,6 @@
+# Github can't run jekyll to build pages, refer to the link.
+# http://stackoverflow.com/questions/8104183/unable-to-run-jekyll
+
 #---
 #auto        : false
 #lsi         : false
