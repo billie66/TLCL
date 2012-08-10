@@ -20,19 +20,11 @@ p.figure {
   text-align: center;
 }
 
-div.code pre{
-  background-color: #f8f8f8;
-}
-
 pre {
   border: 1px solid #E7E5DC;
   border-width: 1px 0 4px 6px;
   font-size: 13px;
-}
-
-code {
-  border: 1px solid #E7E5DC;
-  padding: 0.1em;
+  overflow: auto;
 }
 
 pre code {
