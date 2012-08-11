@@ -84,13 +84,13 @@ I/O 重定向允许我们可以更改输出走向和输入来向。一般地，�
 ### 重定向标准输出
 
 I/O redirection allows us to redefine where standard output goes. To redirect standard
-output to another file besides the screen, we use the “&gt;” redirection operator followed by
+output to another file besides the screen, we use the “>” redirection operator followed by
 the name of the file. Why would we want to do this? It's often useful to store the output
 of a command in a file. For example, we could tell the shell to send the output of the ls
 command to the file ls-output.txt instead of the screen:
 
 I/O 重定向允许我们来重定义标准输出送到哪里。重定向标准输出到另一个文件除了屏幕，我们使用
-"&gt;"重定向符，其后跟着文件名。为什么我们要这样做呢？因为有时候把一个命令的运行结果存储到
+">"重定向符，其后跟着文件名。为什么我们要这样做呢？因为有时候把一个命令的运行结果存储到
 一个文件很有用处。例如，我们可以告诉 shell 把 ls 命令的运行结果输送到文件 ls-output.txt 中去，
 由文件代替屏幕。
 
@@ -151,14 +151,14 @@ ls 程序不把它的错误信息输送到标准输出。反而，像许多写�
 -rw-rw-r-- 1 me   me    0 2008-02-01 15:08 ls-output.txt</tt>
 </pre></div>
 
-The file now has zero length! This is because, when we redirect output with the “&gt;”
+The file now has zero length! This is because, when we redirect output with the “>”
 redirection operator, the destination file is always rewritten from the beginning. Since
 our ls command generated no results and only an error message, the redirection
 operation started to rewrite the file and then stopped because of the error, resulting in its
 truncation. In fact, if we ever need to actually truncate a file (or create a new, empty file)
 we can use a trick like this:
 
-文件长度成为零！这是因为，当我们使用"&gt;"重定向符来重定向输出结果时，目标文件总是从开头被重写。
+文件长度成为零！这是因为，当我们使用">"重定向符来重定向输出结果时，目标文件总是从开头被重写。
 因为我们 ls 命令没有产生运行结果，只有错误信息，重定向操作开始重写文件，然后
 由于错误而停止，导致文件内容删除。事实上，如果我们需要删除一个文件内容（或者创建一个
 新的空文件），可以使用这样的技巧：
@@ -174,26 +174,26 @@ existing file or create a new, empty file.
 创建一个新的空文件。
 
 So, how can we append redirected output to a file instead of overwriting the file from the
-beginning? For that, we use the “&gt;&gt;” redirection operator, like so:
+beginning? For that, we use the “>>” redirection operator, like so:
 
 所以，怎样才能把重定向结果追加到文件内容后面，而不是从开头重写文件？为了这个目的，
-我们使用"&gt;&gt;"重定向符，像这样：
+我们使用">>"重定向符，像这样：
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /usr/bin &gt;&gt; ls-output.txt</tt>
+<tt>[me@linuxbox ~]$ ls -l /usr/bin >> ls-output.txt</tt>
 </pre></div>
 
-Using the “&gt;&gt;” operator will result in the output being appended to the file. If the file
-does not already exist, it is created just as though the “&gt;” operator had been used. Let's
+Using the “>>” operator will result in the output being appended to the file. If the file
+does not already exist, it is created just as though the “>” operator had been used. Let's
 put it to the test:
 
-使用"&gt;&gt;"操作符，将导致输出结果添加到文件内容之后。如果文件不存在，文件会
-被创建，就如使用了"&gt;"操作符。把它放到测试中：
+使用">>"操作符，将导致输出结果添加到文件内容之后。如果文件不存在，文件会
+被创建，就如使用了">"操作符。把它放到测试中：
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /usr/bin &gt;&gt; ls-output.txt
-[me@linuxbox ~]$ ls -l /usr/bin &gt;&gt; ls-output.txt
-[me@linuxbox ~]$ ls -l /usr/bin &gt;&gt; ls-output.txt
+<tt>[me@linuxbox ~]$ ls -l /usr/bin >> ls-output.txt
+[me@linuxbox ~]$ ls -l /usr/bin >> ls-output.txt
+[me@linuxbox ~]$ ls -l /usr/bin >> ls-output.txt
 [me@linuxbox ~]$ ls -l ls-output.txt
 -rw-rw-r-- 1 me   me    503634 2008-02-01 15:45 ls-output.txt</tt>
 </pre></div>
@@ -243,15 +243,15 @@ old versions of the shell:
 在旧版本 shell 中也有效：
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /bin/usr > ls-output.txt 2&gt;&amp;1</tt>
+<tt>[me@linuxbox ~]$ ls -l /bin/usr > ls-output.txt 2>&1</tt>
 </pre></div>
 
 Using this method, we perform two redirections. First we redirect standard output to the
 file ls-output.txt and then we redirect file descriptor two (standard error) to file
-descriptor one (standard output) using the notation 2&gt;&amp;1.
+descriptor one (standard output) using the notation 2>&1.
 
 使用这种方法，我们完成两个重定向。首先重定向标准输出到文件 ls-output.txt，然后
-重定向文件描述符2（标准错误）到文件描述符1（标准输出）使用表示法2&gt;&amp;1。
+重定向文件描述符2（标准错误）到文件描述符1（标准输出）使用表示法2>&1。
 
 <hr />
 Notice that the order of the redirections is significant. The redirection of
@@ -261,13 +261,13 @@ work. In the example above,
 注意重定向的顺序安排非常重要。标准错误的重定向必须总是出现在标准输出
 重定向之后，要不然它不起作用。上面的例子，
 
-<p>&gt;ls-output.txt 2&gt&amp;;1</p>
+<p>>ls-output.txt 2>&1</p>
 
 redirects standard error to the file ls-output.txt, but if the order is changed to
 
 重定向标准错误到文件 ls-output.txt，但是如果命令顺序改为：
 
-2&gl;&amp;1 &gl;ls-output.txt
+2>&1 >ls-output.txt
 
 standard error is directed to the screen.
 
@@ -280,13 +280,13 @@ combined redirection:
 现在的 bash 版本提供了第二种方法，更精简合理的方法来执行这种联合的重定向。
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ ls -l /bin/usr &amp;&lt; ls-output.txt </tt>
+<tt>[me@linuxbox ~]$ ls -l /bin/usr &> ls-output.txt </tt>
 </pre></div>
 
 In this example, we use the single notation &> to redirect both standard output and
 standard error to the file ls-output.txt.
 
-在这个例子里面，我们使用单单一个表示法&amp;&gt;来重定向标准输出和错误到文件 ls-output.txt。
+在这个例子里面，我们使用单单一个表示法&>来重定向标准输出和错误到文件 ls-output.txt。
 
 ### Disposing Of Unwanted Output
 
@@ -437,7 +437,7 @@ example. We would do this:
 的文件，这个文件包含例子中的文本。我们这样做：
 
 <div class="code"><pre>
-<tt>[me@linuxbox ~]$ cat &gt; lazy_dog.txt
+<tt>[me@linuxbox ~]$ cat > lazy_dog.txt
 The quick brown fox jumped over the lazy dog.</tt>
 </pre></div>
 
@@ -591,7 +591,7 @@ arguments, wc accepts standard input. The “-l” option limits its output to o
 lines. Adding it to a pipeline is a handy way to count things. To see the number of
 programs we have in our sorted list, we can do this:
 
-在这个例子中，wc 打印出来三个数字：行数，单词数和字节数，包含在文件 ls-output.txt 中。
+在这个例子中，wc 打印出来三个数字：包含在文件 ls-output.txt 中的行数，单词数和字节数。
 正如我们先前的命令，如果 wc 不带命令行参数，它接受标准输入。"-l"选项限制命令输出只能
 报道行数。添加 wc 到管道线来统计数据，是个很便利的方法。查看我们的有序列表中程序个数，
 我们可以这样做：
