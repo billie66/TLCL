@@ -41,7 +41,7 @@ for file in *.md; do
           if [[ "$line" =~ table\>$ ]]; then
             flag="0"
             con=$(echo $(cat tmp))
-            local=$(echo "$con" | sed -e 's/[[:punct:]]//g' -e 's/\ //g')
+            local=$(echo "$con" | sed 's/[[:punct:]]//g' -e 's/\ //g')
             if [[ !( "$local" =~ ^[A-Za-z0-9]*$ ) ]]; then
               cat tmp >>zh/$file 
               echo >tmp

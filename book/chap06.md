@@ -154,7 +154,7 @@ available for each kind of command.
 bash has a built-in help facility available for each of the shell builtins. To use it, type
 “help” followed by the name of the shell builtin. For example:
 
-bash 有一个内建的帮助工具，可供每一个 shell 内部命令使用。输入"type"，接着是 shell
+bash 有一个内建的帮助工具，可供每一个 shell 内部命令使用。输入"help"，接着是 shell
 内部命令名。例如：
 
     [me@linuxbox ~]$ help cd
@@ -184,7 +184,7 @@ talked about yet! Don't worry. We'll get there.
 
 ### --help – Display Usage Information
 
-### --help － 显示用法信息
+### --help — 显示用法信息
 
 Many executable programs support a “--help” option that displays a description of the
 command's supported syntax and options. For example:
@@ -310,7 +310,7 @@ For example:
 
 This will display the man page describing the file format of the /etc/passwd file.
 
-命令运行结果会显示文件/etc/passwd 的文件格式说明手册。
+命令运行结果会显示文件 /etc/passwd 的文件格式说明手册。
 
 ### apropos – Display Appropriate Commands
 
@@ -356,21 +356,20 @@ careful review to ensure that I was covering most of its topics. When printed, i
 over eighty pages long and extremely dense, and its structure makes absolutely no
 sense to a new user. </p>
 
-<p>正如我们所见到的，Linux 和类似 Unix 系统所提供的手册页，只是打算作为参考手册使用，
-而不是教材。很多手册页很难阅读，但是我认为因为阅读难度而拿到特等奖的手册页，是 bash
-的手册页。因为我正在为这本书做调查，所以我很仔细的浏览了 bash 手册，以此来确定我包括了
-大多数的 bash 主题。当我把 bash 参考手册打印出来，有八十多页，且内容极其紧密，并且文档
-结构对于初学者来说，完全没有意义。</p>
+<p>正如我们所看到的，Linux 和类似于 Unix 的系统提供的手册页，只是打算作为参考手册使用，
+而不是教材。许多手册页都很难阅读，但是我认为由于阅读难度而能拿到特等奖的手册页应该是 bash
+手册页。因为我正在为这本书做我的研究，所以我很仔细地浏览了整个 bash 手册，为的是确保我讲述了
+大部分的 bash 主题。当把 bash 参考手册整个打印出来，其篇幅有八十多页且内容极其紧密，
+但对于初学者来说，其结构安排毫无意义。</p>
 
 <p> On the other hand, it is very accurate and concise, as well as being extremely
 complete. So check it out if you dare and look forward to the day when you can
 read it and it all makes sense. </p>
 
-<p>另一方面，bash 手册内容很精确简明，也非常完善。所以，如果你有胆量就
-查看一下，并且期望有一天你能读懂它。</p>
+<p>另一方面，bash 参考手册的内容非常简明精确，同时也非常完善。所以，如果你有胆量就查看一下，
+并且期望有一天你能读懂它。</p>
 
 </div>
-<br />
 
 ### info – Display A Program's Info Entry
 
@@ -535,8 +534,10 @@ each command with a semicolon character. It works like this:
 
 现在是时候，感受第一次编程经历了！我们将用 alias 命令创建我们自己的命令。但在
 开始之前，我们需要展示一个命令行小技巧。可以把多个命令放在同一行上，命令之间
-用":"分开。它像这样工作：
+用";"分开。它像这样工作：
 
+    command1; command2; command3...
+    
 Here's the example we will use:
 
 我们会用到下面的例子：
@@ -579,7 +580,7 @@ Notice the structure of this command:
 
 注意命令结构：
 
-    <b>alias name='string'</b>
+    alias name='string'
 
 After the command “alias” we give alias a name followed immediately (no whitespace
 allowed) by an equals sign, followed immediately by a quoted string containing the

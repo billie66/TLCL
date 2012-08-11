@@ -1056,7 +1056,9 @@ Joliet extensions, which permit long filenames for Windows.
 同样地，这个"-J"选项使 Joliet 扩展生效，这样 Windows 中就支持长文件名了。
 
 <div class="single">
+
 <h3>A Program By Any Other Name...</h3>
+
 <p>If you look at on-line tutorials for creating and burning optical media like CD-
 ROMs and DVDs, you will frequently encounter two programs called mkisofs
 and cdrecord. These programs were part of a popular package called
@@ -1096,8 +1098,8 @@ mount (along with the required “-t iso9660” file system type), we can mount 
 file as though it were a device and attach it to the file system tree:
 
 有一个诀窍，我们可以用它来挂载 iso 映像文件，虽然此文件仍然在我们的硬盘中，但我们
-当作它已经在光盘中了。添加"-o loop"选项来挂载（同时带有必需的"-t
-iso9660"文件系统类型），挂载这个映像文件就好像它是一台设备，把它连接到文件系统树上：
+当作它已经在光盘中了。添加 "-o loop" 选项来挂载（同时带有必需的 "-t iso9660" 文件系统类型），
+挂载这个映像文件就好像它是一台设备，把它连接到文件系统树上：
 
     mkdir /mnt/iso_image
     mount -t iso9660 -o loop image.iso /mnt/iso_image
@@ -1121,7 +1123,7 @@ blanking to be performed. The wodim program offers several types. The most minim
 (and fastest) is the “fast” type:
 
 可重写入的 CD-RW 媒介在被重使用之前需要擦除或清空。为此，我们可以用 wodim 命令，指定
-设备名称和清空的类型。此 wodim 程序提供了几种清空类型。最小（且最快）的是"fast"类型：
+设备名称和清空的类型。此 wodim 程序提供了几种清空类型。最小（且最快）的是 "fast" 类型：
 
     wodim dev=/dev/cdrw blank=fast
 
@@ -1142,8 +1144,8 @@ in disk-at-once mode. This mode should be used if you are preparing a disk for
 commercial reproduction. The default mode for wodim is track-at-once, which is useful
 for recording music tracks.
 
-除了设备名称和映像文件之外，wodim 命令还支持非常多的选项。常见的两个选项是，"-v"可详细输出，
-和"－dao"以 disk-at-once 模式写入光盘。如果你正在准备一张光盘为的是商业复制，那么应该使用这种模式。
+除了设备名称和映像文件之外，wodim 命令还支持非常多的选项。常见的两个选项是，"-v" 可详细输出，
+和 "－dao" 以 disk-at-once 模式写入光盘。如果你正在准备一张光盘为的是商业复制，那么应该使用这种模式。
 wodim 命令的默认模式是 track-at-once，这对于录制音乐很有用。
 
 Further Reading
@@ -1172,8 +1174,11 @@ checksum will be much different. The most common method of checksum generation
 uses the md5sum program. When you use md5sum, it produces a unique hexadecimal
 number:
 
-通常验证我们下载的 iso 映像文件的完整性很有用处。在大多数情况下，iso 映像文件的贡献者也会提供
-一个 checksum 文件。一个 checksum 是
+通常验证一下我们已经下载的 iso 映像文件的完整性很有用处。在大多数情况下，iso 映像文件的贡献者也会提供
+一个 checksum 文件。一个 checksum 是一个神奇的数学运算的计算结果，这个数学计算会产生一个能表示目标文件内容的数字。
+如果目标文件的内容即使更改一个二进制位，checksum 的结果将会非常不一样。
+生成 checksum 数字的最常见方法是使用 md5sum 程序。当你使用 md5sum 程序的时候，
+它会产生一个独一无二的十六进制数字：
 
     md5sum image.iso
     34e354760f9bb7fbf85c96f6a3f94ece    image.iso
@@ -1181,7 +1186,7 @@ number:
 After you download an image, you should run md5sum against it and compare the results
 with the md5sum value supplied by the publisher.
 
-你下载映像文件之后，应该运行 md5sum 命令
+当你下载完映像文件之后，你应该对映像文件执行 md5sum 命令，然后把运行结果与发行商提供的 md5sum 数值作比较。
 
 In addition to checking the integrity of a downloaded file, we can use md5sum to verify
 newly written optical media. To do this, we first calculate the checksum of the image file
@@ -1192,15 +1197,22 @@ always written in 2048 byte blocks) and reading that many blocks from the media.
 some types of media, this is not required. A CD-R written in disk-at-once mode can be
 checked this way:
 
+除了检查下载文件的完整性之外，我们也可以使用 md5sum 程序验证新写入的光学存储介质。 
+为此，首先我们计算映像文件的 checksum 数值，然后计算此光学存储介质的 checksum 数值。
+这种验证光学介质的技巧是限定只对 光学存储介质中包含映像文件的部分计算 checksum 数值。
+通过确定映像文件所包含的 2048 个字节块的数目（光学存储介质总是以 2048 个字节块的方式写入）
+并从存储介质中读取那么多的字节块，我们就可以完成操作。
+某些类型的存储介质，并不需要这样做。一个以 disk-at-once 模式写入的 CD-R，可以用下面的方式检验：
+
     md5sum /dev/cdrom
     34e354760f9bb7fbf85c96f6a3f94ece    /dev/cdrom
 
 Many types of media, such as DVDs require a precise calculation of the number of
-blocks. In the example below, we check the integrity of the image file dvd-
-image.iso and the disk in the DVD reader /dev/dvd. Can you figure out how this
-works?
+blocks. In the example below, we check the integrity of the image file dvd-image.iso 
+and the disk in the DVD reader /dev/dvd. Can you figure out how this works?
 
-许多媒介类型，如 DVD 需要
+许多存储介质类型，如 DVD 需要精确地计算字节块的数目。在下面的例子中，我们检验了映像文件 dvd-image.iso
+以及 DVD 光驱中磁盘 /dev/dvd 文件的完整性。你能弄明白这是怎么回事吗？
 
     md5sum dvd-image.iso; dd if=/dev/dvd bs=2048 count=$(( $(stat -c "%s" dvd-image.iso) / 2048 )) | md5sum
     
