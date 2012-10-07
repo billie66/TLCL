@@ -945,7 +945,7 @@ Since we are going to do some real file manipulation, let's build a safe place t
 with our file manipulation commands. First we need a directory to work in. We'll create
 one in our home directory and call it “playground.”
 
-因为我们将要做些正在的文件操作，让我们先建立一个安全地带，
+下面我们将要做些真正的文件操作，让我们先建立一个安全地带，
 来玩一下文件操作命令。首先，我们需要一个工作目录。在我们的
 主目录下创建一个叫做"playground"的目录。
 
