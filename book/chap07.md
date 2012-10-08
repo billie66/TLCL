@@ -260,7 +260,7 @@ combined redirection:
 
 现在的 bash 版本提供了第二种方法，更精简合理的方法来执行这种联合的重定向。
 
-    [me@linuxbox ~]$ ls -l /bin/usr &< ls-output.txt 
+    [me@linuxbox ~]$ ls -l /bin/usr &> ls-output.txt 
     
 In this example, we use the single notation &> to redirect both standard output and
 standard error to the file ls-output.txt.
