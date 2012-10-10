@@ -691,7 +691,7 @@ immediately placed in the background, we follow the command with an- “&” cha
 和后台（表层之下放置隐藏的事物）（的设备）。启动一个程序，让它立即在后台
 运行，我们在程序命令之后，加上"&"字符：
 
-    [me@linuxbox ~]$ xlogo &amp;
+    [me@linuxbox ~]$ xlogo &
     [1] 28236
     [me@linuxbox ~]$
 
@@ -735,7 +735,7 @@ this way:
 fg 命令，让一个进程返回前台执行：
 
     [me@linuxbox ~]$ jobs
-    [1]+ Running        xlogo &amp;
+    [1]+ Running        xlogo &
     [me@linuxbox ~]$ fg %1 
     xlogo
 
@@ -772,7 +772,7 @@ background with the bg command:
 它看起来像死掉了一样。使用 fg 命令，可以恢复程序到前台运行，或者用 bg 命令把程序移到后台。
 
     [me@linuxbox ~]$ bg %1
-    [1]+ xlogo &amp;
+    [1]+ xlogo &
     [me@linuxbox ~]$
     
 As with the fg command, the jobspec is optional if there is only one job.
@@ -808,7 +808,7 @@ that need killing. Here's an example:
 
 kill 命令被用来“杀死”程序。这样我们就可以终止需要杀死的程序。这里有一个实例：
 
-    [me@linuxbox ~]$ xlogo &amp;
+    [me@linuxbox ~]$ xlogo &
     [1] 28401
     [me@linuxbox ~]$ kill 28401
     [1]+ Terminated               xlogo
@@ -973,7 +973,7 @@ Let's try out the kill command:
 
 让我们实验一下 kill 命令：
 
-    [me@linuxbox ~]$ xlogo &amp;
+    [me@linuxbox ~]$ xlogo &
     [1] 13546
     [me@linuxbox ~]$ kill -1 13546
     [1]+ Hangup         xlogo
@@ -989,7 +989,7 @@ number or by name, including the name prefixed with the letters “SIG”:
 信息之前，你可能需要多按几次 enter 键。注意，既可以用号码，也可以用名字，不过要在名字前面
 加上字母“SIG”，来指定所要发送的信号。
 
-    [me@linuxbox ~]$ xlogo &amp;
+    [me@linuxbox ~]$ xlogo &
     [1] 13546
     [me@linuxbox ~]$ kill -1 13546
     [1]+ Hangup                    xlogo
@@ -1103,9 +1103,9 @@ terminate them:
 
 为了说明情况，我们将启动一对 xlogo 程序的实例，然后再终止它们：
 
-    [me@linuxbox ~]$ xlogo &amp;
+    [me@linuxbox ~]$ xlogo &
     [1] 18801
-    [me@linuxbox ~]$ xlogo &amp;
+    [me@linuxbox ~]$ xlogo &
     [2] 18802
     [me@linuxbox ~]$ killall xlogo
     [1]- Terminated                xlogo
