@@ -691,7 +691,7 @@ immediately placed in the background, we follow the command with an- “&” cha
 和后台（表层之下放置隐藏的事物）（的设备）。启动一个程序，让它立即在后台
 运行，我们在程序命令之后，加上"&"字符：
 
-    [me@linuxbox ~]$ xlogo &amp;
+    [me@linuxbox ~]$ xlogo &
     [1] 28236
     [me@linuxbox ~]$
 
