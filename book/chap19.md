@@ -109,13 +109,13 @@ an example:
 相对应的 gunzip 程序被用来把压缩文件复原为没有被压缩的版本。这里有个例子：
 
     [me@linuxbox ~]$ ls -l /etc > foo.txt
-    [me@linuxbox ~]$ ls -l foo.\*
+    [me@linuxbox ~]$ ls -l foo.*
     -rw-r--r-- 1 me     me 15738 2008-10-14 07:15 foo.txt
     [me@linuxbox ~]$ gzip foo.txt
-    [me@linuxbox ~]$ ls -l foo.\*
+    [me@linuxbox ~]$ ls -l foo.*
     -rw-r--r-- 1 me     me 3230 2008-10-14 07:15 foo.txt.gz
     [me@linuxbox ~]$ gunzip foo.txt
-    [me@linuxbox ~]$ ls -l foo.\*
+    [me@linuxbox ~]$ ls -l foo.*
     -rw-r--r-- 1 me     me 15738 2008-10-14 07:15 foo.txt 
 
 In this example, we create a text file named foo.txt from a directory listing. Next, we
@@ -127,7 +127,7 @@ permissions and time stamp as the original.
 
 在这个例子里，我们创建了一个名为 foo.txt 的文本文件，其内容包含一个目录的列表清单。
 接下来，我们运行 gzip 命令，它会把原始文件替换为一个叫做 foo.txt.gz 的压缩文件。在
-foo.\*文件列表中，我们看到原始文件已经被压缩文件替代了，并将这个压缩文件大约是原始
+foo.*文件列表中，我们看到原始文件已经被压缩文件替代了，并将这个压缩文件大约是原始
 文件的十五分之一。我们也能看到压缩文件与原始文件有着相同的权限和时间戳。
 
 Next, we run the gunzip program to uncompress the file. Afterward, we can see that
@@ -235,7 +235,7 @@ valign="top">解压缩。正如 gunzip 命令一样。也可以用--decompress �
 </tr>
 <tr>
 <td valign="top">-number</td>
-<td valign="top">设置压缩数量。number 是一个在1（最快，最小压缩）到9（最慢，最大压缩）之间的整数。
+<td valign="top">设置压缩指数。number 是一个在1（最快，最小压缩）到9（最慢，最大压缩）之间的整数。
 数值1和9也可以各自用--fast 和--best 选项来表示。默认值是整数6。 </td>
 </tr>
 </table>
@@ -629,7 +629,7 @@ example:
 tar 命令也可以利用标准输出和输入。这里是一个完整的例子:
 
     [me@linuxbox foo]$ cd
-    [me@linuxbox ~]$ find playground -name 'file-A' | tar cf - --files- from=- 
+    [me@linuxbox ~]$ find playground -name 'file-A' | tar cf - --files-from=- 
        | gzip > playground.tgz 
     
 In this example, we used the find program to produce a list of matching files and piped
