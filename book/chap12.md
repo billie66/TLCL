@@ -504,8 +504,8 @@ scripting in Part 5, but for now we will translate:
 
 这叫做一个 if 复合命令，我们将会在第五部分详细地介绍它，现在我们对它翻译一下：
 
-    If the file &quot;~/.bashrc&quot; exists, then
-            read the &quot;~/.bashrc&quot; file. 
+    If the file ~/.bashrc exists, then
+            read the ~/.bashrc file. 
     
 We can see that this bit of code is how a login shell gets the contents of .bashrc. The
 next thing in our startup file has to do with the PATH variable.
@@ -536,10 +536,10 @@ how this works, try the following:
 修改 PATH 变量，添加目录$HOME/bin 到目录列表的末尾。这是一个参数展开的实例，
 参数展开我们在第八章中提到过。为了说明这是怎样工作的，试试下面的例子：
 
-    [me@linuxbox ~]$ foo=&quot;This is some &quot;
+    [me@linuxbox ~]$ foo="This is some"
     [me@linuxbox ~]$ echo $foo
     This is some
-    [me@linuxbox ~]$ foo=$foo&quot;text.&quot;
+    [me@linuxbox ~]$ foo="$foo text."
     [me@linuxbox ~]$ echo $foo
     This is some text.
 
