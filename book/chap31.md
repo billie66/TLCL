@@ -8,8 +8,8 @@ things go wrong and they don’t do what we want. In this chapter, we’ll look 
 some of the common kinds of errors that occur in scripts, and describe a few useful
 techniques that can be used to track down and eradicate problems.
 
-随着我们的脚本变得越来越复杂，是时候看看怎么回事了，当脚本运行出错，执行结果出人意料的时候。
-本章中，我们将看一些出现在脚本中的常见错误，还会介绍几个有用的技巧，可以用来跟踪和消除问题。
+随着我们的脚本变得越来越复杂，当脚本运行出错，执行结果出人意料的时候, 我们就应该查看一下原因了。
+在这一章中，我们将会看一些在脚本中出现地常见错误，同时还会介绍几个有用的可以跟踪和消除问题的技巧。
 
 ### Syntactic Errors
 
@@ -143,7 +143,7 @@ hence the error message.
 
 再次，错误信息指向一个错误，其出现的位置靠后于实际问题所在的文本行。所发生的事情真是相当有意思。我们记得，
 if 能够接受一系列命令，并且会计算列表中最后一个命令的退出代码。在我们的程序中，我们打算这个列表由
-单个命令组成，即 \[，测试的同义词。这个\[ 命令把它后面的东西看作是一个参数列表。在我们这种情况下，
+单个命令组成，即 \[，测试的同义词。这个 \[ 命令把它后面的东西看作是一个参数列表。在我们这种情况下，
 有三个参数： $number，=，和 \]。由于删除了分号，单词 then 被添加到参数列表中，从语法上讲，
 这是合法的。随后的 echo 命令也是合法的。它被解释为命令列表中的另一个命令，if
 将会计算命令的 退出代码。接下来遇到单词 else，但是它出局了，因为 shell 把它认定为一个
@@ -186,7 +186,7 @@ command. The problem is the expansion of the number variable within the test
 command. When the command:
 
 我们得到一个相当神秘的错误信息，其后是第二个 echo 命令的输出结果。这问题是由于 test 命令中
-的 number 变量的展开结果造成的。当此命令：
+ number 变量的展开结果造成的。当此命令：
 
     [ $number = 1 ]
 
@@ -288,15 +288,14 @@ working directory. Not the desired outcome at all! The hapless administrator des
 an important part of the server because of this design decision.
 
 从本质上来说，这两行代码没有任何问题，只要是变量 dir\_name
-中存储的目录名字存在就可以。但是如果不是这样会发生什么事情呢？在那种情况下，cd
-命令会运行失败，脚本会继续执行下一行代码，将会删除当前工作目录中的所有文件。完成不是期望的结果！
+中存储的目录名字存在就可以。但是如果不是这样会发生什么事情呢？在那种情况下，cd 命令会运行失败，
+脚本会继续执行下一行代码，将会删除当前工作目录中的所有文件。完成不是期望的结果！
 由于这种设计策略，这个倒霉的管理员销毁了服务器中的一个重要部分。
 
 Let’s look at some ways this design could be improved. First, it might be wise to make
 the execution of rm contingent on the success of cd:
 
-让我们看一些能够提高这个设计的方法。首先，在cd 命令执行成功之后，再运行 rm
-命令，可能是明智的选择。
+让我们看一些能够提高这个设计的方法。首先，在 cd 命令执行成功之后，再运行 rm 命令，可能是明智的选择。
 
     cd $dir_name && rm *
 
@@ -333,6 +332,45 @@ Here, we check both the name, to see that it is that of an existing directory, a
 success of the cd command. If either fails, a descriptive error message is sent to standard
 error and the script terminates with an exit status of one to indicate a failure.
 
-这里，我们检验了两种情况，一个名字，看看它是否为一个真正存在的目录，另一个是 cd
-命令是否执行成功。如果任一种情况失败，就会发送一个错误说明信息到标准错误，然后脚本
-终止执行，并用退出状态 1 表明脚本执行失败。
+这里，我们检验了两种情况，一个名字，看看它是否为一个真正存在的目录，另一个是 cd 命令是否执行成功。
+如果任一种情况失败，就会发送一个错误说明信息到标准错误，然后脚本终止执行，并用退出状态 1 表明脚本执行失败。
+
+#### Verifying Input
+
+A general rule of good programming is that if a program accepts input, it must be able to
+deal with anything it receives. This usually means that input must be carefully screened,
+to ensure that only valid input is accepted for further processing. We saw an example of
+this in the previous chapter when we studied the read command. One script contained
+the following test to verify a menu selection:
+
+    [[ $REPLY =~ ^[0-3]$ ]]
+
+This test is very specific. It will only return a zero exit status if the string returned by the
+user is a numeral in the range of zero to three. Nothing else will be accepted. Sometimes
+these sorts of tests can be very challenging to write, but the effort is necessary to produce
+a high quality script.
+
+<table class="single" >
+<tbody>
+<tr>
+<td>
+<h3>Design Is A Function Of Time</h3>
+<p>When I was a college student studying industrial design, a wise professor stated
+that the degree of design on a project was determined by the amount of time given
+to the designer. If you were given five minutes to design a device “that kills
+flies,” you designed a flyswatter. If you were given five months, you might come
+up with a laser-guided “anti-fly system” instead.</p>
+<p> The same principle applies to programming. Sometimes a “quick and dirty”
+script will do if it’s only going to be used once and only used by the programmer.
+That kind of script is common and should be developed quickly to make the effort
+economical. Such scripts don’t need a lot of comments and defensive checks. On
+the other hand, if a script is intended for production use, that is, a script that will
+be used over and over for an important task or by multiple users, it needs much
+more careful development.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
