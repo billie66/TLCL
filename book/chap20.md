@@ -173,7 +173,7 @@ In order to more fully explore grep, let’s create some text files to search:
     [me@linuxbox ~]$ ls /usr/bin > dirlist-usr-bin.txt
     [me@linuxbox ~]$ ls /sbin > dirlist-sbin.txt
     [me@linuxbox ~]$ ls /usr/sbin > dirlist-usr-sbin.txt
-    [me@linuxbox ~]$ ls dirlist\*.txt
+    [me@linuxbox ~]$ ls dirlist*.txt
     dirlist-bin.txt     dirlist-sbin.txt    dirlist-usr-sbin.txt
     dirlist-usr-bin.txt 
     
@@ -181,7 +181,7 @@ We can perform a simple search of our list of files like this:
 
 我们能够对我们的文件列表执行简单的搜索，像这样：
 
-    [me@linuxbox ~]$ grep bzip dirlist\*.txt
+    [me@linuxbox ~]$ grep bzip dirlist*.txt
     dirlist-bin.txt:bzip2
     dirlist-bin.txt:bzip2recover 
 
@@ -194,7 +194,7 @@ option:
 文件 dirlist-bin.txt 中。如果我们只是对包含匹配项的文件列表，而不是对匹配项本身感兴趣
 的话，我们可以指定-l 选项：
 
-    [me@linuxbox ~]$ grep -l bzip dirlist\*.txt
+    [me@linuxbox ~]$ grep -l bzip dirlist*.txt
     dirlist-bin.txt 
 
 Conversely, if we wanted only to see a list of the files that did not contain a match, we
@@ -202,7 +202,7 @@ could do this:
 
 相反地，如果我们只想查看不包含匹配项的文件列表，我们可以这样操作：
 
-    [me@linuxbox ~]$ grep -L bzip dirlist\*.txt
+    [me@linuxbox ~]$ grep -L bzip dirlist*.txt
     dirlist-sbin.txt
     dirlist-usr-bin.txt
     dirlist-usr-sbin.txt 
@@ -224,7 +224,7 @@ Regular expression metacharacters consist of the following:
 它们匹配本身。除了原义字符之外，正则表达式也可能包含元字符，其被用来指定更复杂的匹配项。
 正则表达式元字符由以下字符组成：
 
-    ^ $ . [ ] { } - ? \* + ( ) | \
+    ^ $ . [ ] { } - ? * + ( ) | \
 
 All other characters are considered literals, though the backslash character is used in a
 few cases to create meta sequences, as well as allowing the metacharacters to be escaped
@@ -252,10 +252,10 @@ The first metacharacter we will look at is the dot or period character, which is
 match any character. If we include it in a regular expression, it will match any character
 in that character position. Here’s an example:
 
-我们将要查看的第一个院字符是圆点字符，其被用来匹配任意字符。如果我们在正则表达式中包含它，
+我们将要查看的第一个元字符是圆点字符，其被用来匹配任意字符。如果我们在正则表达式中包含它，
 它将会匹配在此位置的任意一个字符。这里有个例子：
 
-    [me@linuxbox ~]$ grep -h '.zip' dirlist\*.txt
+    [me@linuxbox ~]$ grep -h '.zip' dirlist*.txt
     bunzip2
     bzip2
     bzip2recover
@@ -292,14 +292,14 @@ the beginning of the line or at the end of the line:
 在正则表达式中，插入符号和美元符号被看作是锚（定位点）。这意味着正则表达式
 只有在文本行的开头或末尾被找到时，才算发生一次匹配。
 
-    [me@linuxbox ~]$ grep -h '^zip' dirlist\*.txt
+    [me@linuxbox ~]$ grep -h '^zip' dirlist*.txt
     zip
     zipcloak
     zipgrep
     zipinfo
     zipnote
     zipsplit
-    [me@linuxbox ~]$ grep -h 'zip$' dirlist\*.txt
+    [me@linuxbox ~]$ grep -h 'zip$' dirlist*.txt
     gunzip
     gzip
     funzip
@@ -308,7 +308,7 @@ the beginning of the line or at the end of the line:
     prezip
     unzip
     zip
-    [me@linuxbox ~]$ grep -h '^zip$' dirlist\*.txt
+    [me@linuxbox ~]$ grep -h '^zip$' dirlist*.txt
     zip 
 
 Here we searched the list of files for the string “zip” located at the beginning of the line,
@@ -371,7 +371,7 @@ example, using a two character set:
 我们也能够从一个指定的字符集合中匹配一个单个的字符。通过中括号表达式，我们能够指定
 一个字符集合（包含在不加中括号的情况下会被解释为元字符的字符）来被匹配。在这个例子里，使用了一个两个字符的集合：
 
-    [me@linuxbox ~]$ grep -h '[bg]zip' dirlist\*.txt
+    [me@linuxbox ~]$ grep -h '[bg]zip' dirlist*.txt
     bzip2
     bzip2recover
     gzip 
@@ -399,7 +399,7 @@ do this by modifying our previous example:
 如果在正则表示式中的第一个字符是一个插入字符，则剩余的字符被看作是不会在给定的字符位置出现的
 字符集合。通过修改之前的例子，我们试验一下：
 
-    [me@linuxbox ~]$ grep -h '[^bg]zip' dirlist\*.txt
+    [me@linuxbox ~]$ grep -h '[^bg]zip' dirlist*.txt
     bunzip2
     gunzip
     funzip
@@ -436,14 +436,14 @@ beginning with an upper case letter, we could do this:
 如果我们想要构建一个正则表达式，它可以在我们的列表中找到每个以大写字母开头的文件，我们
 可以这样做：
 
-    [me@linuxbox ~]$ grep -h '^[ABCDEFGHIJKLMNOPQRSTUVWXZY]' dirlist\*.txt 
+    [me@linuxbox ~]$ grep -h '^[ABCDEFGHIJKLMNOPQRSTUVWXZY]' dirlist*.txt 
     
 It’s just a matter of putting all twenty-six upper case letters in a bracket expression. But
 the idea of all that typing is deeply troubling, so there is another way:
 
 这只是一个在正则表达式中输入26个大写字母的问题。但是输入所有字母非常令人烦恼，所以有另外一种方式：
 
-    [me@linuxbox ~]$ grep -h '^[A-Z]' dirlist\*.txt
+    [me@linuxbox ~]$ grep -h '^[A-Z]' dirlist*.txt
     MAKEDEV
     ControlPanel
     GET
@@ -463,7 +463,7 @@ that matches all filenames starting with letters and numbers:
 通过使用一个三字符区域，我们能够缩写26个字母。任意字符的区域都能按照这种方式表达，包括多个区域，
 比如下面这个表达式就匹配了所有以字母和数字开头的文件名：
 
-    [me@linuxbox ~]$ grep -h '^[A-Za-z0-9]' dirlist\*.txt 
+    [me@linuxbox ~]$ grep -h '^[A-Za-z0-9]' dirlist*.txt 
     
 In character ranges, we see that the dash character is treated specially, so how do we
 actually include a dash character in a bracket expression? By making it the first character
@@ -472,13 +472,13 @@ in the expression. Consider these two examples:
 在字符区域中，我们看到这个连字符被特殊对待，所以我们怎样在一个正则表达式中包含一个连字符呢？
 方法就是使连字符成为表达式中的第一个字符。考虑一下这两个例子：
 
-    [me@linuxbox ~]$ grep -h '[A-Z]' dirlist\*.txt 
+    [me@linuxbox ~]$ grep -h '[A-Z]' dirlist*.txt 
     
 This will match every filename containing an upper case letter. While:
 
 这会匹配包含一个大写字母的文件名。然而：
 
-    [me@linuxbox ~]$ grep -h '[-AZ]' dirlist\*.txt 
+    [me@linuxbox ~]$ grep -h '[-AZ]' dirlist*.txt 
     
 will match every filename containing a dash, or a upper case “A” or an uppercase “Z”.
 
@@ -504,7 +504,7 @@ identical to the way they are used in regular expressions, but here’s the prob
 回到第5章，我们看看通配符怎样被用来完成路径名展开操作。在那次讨论中，我们说过在
 某种程度上，那个字符区域被使用的方式几乎与在正则表达式中的用法一样，但是有一个问题：
 
-    [me@linuxbox ~]$ ls /usr/sbin/[ABCDEFGHIJKLMNOPQRSTUVWXYZ]\*
+    [me@linuxbox ~]$ ls /usr/sbin/[ABCDEFGHIJKLMNOPQRSTUVWXYZ]*
     /usr/sbin/MAKEFLOPPIES
     /usr/sbin/NetworkManagerDispatcher
     /usr/sbin/NetworkManager
@@ -516,7 +516,7 @@ empty list. This example is from Ubuntu) This command produces the expected resu
 （依赖于不同的 Linux 发行版，我们将得到不同的文件列表，有可能是一个空列表。这个例子来自于 Ubuntu）
 这个命令产生了期望的结果——只有以大写字母开头的文件名，但是：
 
-    [me@linuxbox ~]$ ls /usr/sbin/[A-Z]\*
+    [me@linuxbox ~]$ ls /usr/sbin/[A-Z]*
     /usr/sbin/biosdecode
     /usr/sbin/chat
     /usr/sbin/chgpasswd
@@ -724,7 +724,7 @@ Using character classes, we can repeat our directory listing and see an improved
 
 通过使用字符集，我们重做上述的例题，看到一个改进的结果：
 
-    [me@linuxbox ~]$ ls /usr/sbin/[[:upper:]]\*
+    [me@linuxbox ~]$ ls /usr/sbin/[[:upper:]]*
     /usr/sbin/MAKEFLOPPIES
     /usr/sbin/NetworkManagerDispatcher
     /usr/sbin/NetworkManager 
@@ -930,7 +930,7 @@ the alternation:
 
 为了把 alternation 和其它正则表达式元素结合起来，我们可以使用()来分离 alternation。
 
-    [me@linuxbox ~]$ grep -Eh '^(bz|gz|zip)' dirlist\*.txt 
+    [me@linuxbox ~]$ grep -Eh '^(bz|gz|zip)' dirlist*.txt 
 
 This expression will match the filenames in our lists that start with either “bz”, “gz”, or
 “zip”. Had we left off the parentheses, the meaning of this regular expression :
@@ -938,7 +938,7 @@ This expression will match the filenames in our lists that start with either “
 这个表达式将会在我们的列表中匹配以“bz”，或“gz”，或“zip”开头的文件名。如果我们删除了圆括号，
 这个表达式的意思：
 
-    [me@linuxbox ~]$ grep -Eh '^bz|gz|zip' dirlist\*.txt 
+    [me@linuxbox ~]$ grep -Eh '^bz|gz|zip' dirlist*.txt 
 
 changes to match any filename that begins with “bz” or contains “gz” or contains “zip”.
 
@@ -1140,11 +1140,11 @@ Let’s try it:
 
 让我们试一下：
 
-    [me@linuxbox ~]$ echo "(555) 123-4567" | grep -E '^\(?[0-9]{3}\)? [0- 9]{3}-[0-9]{4}$'
+    [me@linuxbox ~]$ echo "(555) 123-4567" | grep -E '^\(?[0-9]{3}\)? [0-9]{3}-[0-9]{4}$'
     (555) 123-4567
-    [me@linuxbox ~]$ echo "555 123-4567" | grep -E '^\(?[0-9]{3}\)? [0-9] {3}-[0-9]{4}$'
+    [me@linuxbox ~]$ echo "555 123-4567" | grep -E '^\(?[0-9]{3}\)? [0-9]{3}-[0-9]{4}$'
     555 123-4567
-    [me@linuxbox ~]$ echo "5555 123-4567" | grep -E '^\(?[0-9]{3}\)? [0-9 ]{3}-[0-9]{4}$'
+    [me@linuxbox ~]$ echo "5555 123-4567" | grep -E '^\(?[0-9]{3}\)? [0-9]{3}-[0-9]{4}$'
     [me@linuxbox ~]$ 
     
 As we can see, our revised expression can successfully validate numbers both with and
