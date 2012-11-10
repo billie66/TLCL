@@ -8,8 +8,8 @@ things go wrong and they don’t do what we want. In this chapter, we’ll look 
 some of the common kinds of errors that occur in scripts, and describe a few useful
 techniques that can be used to track down and eradicate problems.
 
-随着我们的脚本变得越来越复杂，当脚本运行出错，执行结果出人意料的时候, 我们就应该查看一下原因了。
-在这一章中，我们将会看一些在脚本中出现地常见错误，同时还会介绍几个有用的可以跟踪和消除问题的技巧。
+随着我们的脚本变得越来越复杂，当脚本运行错误，执行结果出人意料的时候, 我们就应该查看一下原因了。
+在这一章中，我们将会看一些脚本中出现地常见错误类型，同时还会介绍几个可以跟踪和消除问题的有用技巧。
 
 ### Syntactic Errors
 

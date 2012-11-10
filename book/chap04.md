@@ -180,10 +180,10 @@ ls display its results in ascending alphabetical order.  </td>
 <tr>
 <td valign="top">-a</td>
 <td>--all</td>
-<td>列出所有文件名，包括以圆点开头的文件名，一般不会列出隐藏文件名。</td>
+<td>列出所有文件，甚至包括文件名以圆点开头的隐藏文件。</td>
 </tr>
 <tr>
-<td valign="top">-d</td>
+<td valign="top">-d</td>    
 <td>--directory</td>
 <td>通常，如果指定了目录名，ls 命令会列出这个目录中的内容，而不是目录本身。
 把这个选项与-l 选项结合使用，可以看到所指定目录的详细信息，而不是目录中的内容。</td>
