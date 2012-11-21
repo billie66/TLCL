@@ -466,13 +466,13 @@ owner and group owner. &nbsp; 除了文件所有者和用户组，删除其他�
 <td valign="top">go=rw</td>
 <td valign="top">Set the group owner and anyone besides the owner to have read and
 write permission. If either the group owner or world previously had
-execute permissions, they are removed. &nbsp; </td>
+execute permissions, they are removed. &nbsp;给群组的主人和任意文件拥有者的人读写权限。如果群组的主人或全局之前已经有了执行的权限，他们将被移除。 </td>
 </tr>
 <tr>
 <td valign="top">u+x,go=rw</td>
 <td valign="top">Add execute permission for the owner and set the permissions for
 the group and others to read and execute. Multiple specifications
-may be separated by commas.</td>
+may be separated by commas. &nbsp; 给文件拥有者执行权限并给组和其他人读和执行的权限。多种设定可以用逗号分开。</td>
 </tr>
 </table>
 
@@ -704,7 +704,7 @@ special permissions. First assigning setuid to a program:</p>
 
 <p>When viewing the output from ls, you can determine the special permissions.
 Here are some examples. First, a program that is setuid:</p>
-<p>当浏览 ls 命令的输出结果时，你可以确认这些特殊权限。</p>
+<p>当浏览 ls 命令的输出结果时，你可以确认这些特殊权限。这里有一些例子。首先，一个程序被设置为setuid属性：</p>
 
 <p>-rwsr-xr-x</p>
 
