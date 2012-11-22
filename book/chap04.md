@@ -582,7 +582,8 @@ Filesystem Hierarchy Standard. Not all Linux distributions conform to the standa
 exactly but most come pretty close.
 
 Linux 系统中，文件系统布局与类似 Unix 系统的文件布局很相似。实际上，一个已经发布的标准，
-叫做 Linux 文件系统层次标准，详细说明了这种设计模式。
+叫做 Linux 文件系统层次标准，详细说明了这种设计模式。不是所有Linux发行版都根据这个标准，但
+大多数都是。
 
 Next, we are going to wander around the file system ourselves to see what makes our
 Linux system tick. This will give you a chance to practice your navigation skills. One of
