@@ -293,7 +293,7 @@ existing string into another shell variable that we create ourselves:
 我们把原来提示符字符串的内容备份一下，以备之后恢复原貌。为了完成备份，
 我们把已有的字符串复制到另一个 shell 变量中，这个变量是我们自己创造的。
 
-    [me@linuxbox ~]$ ps1\_old="$PS1"
+    [me@linuxbox ~]$ ps1_old="$PS1"
 
 We create a new variable called ps1_old and assign the value of PS1 to it. We can
 verify that the string has been copied with the echo command:
@@ -301,7 +301,7 @@ verify that the string has been copied with the echo command:
 我们新创建了一个叫做 ps1_old 的变量，并把变量 PS1的值赋 ps1\_old。通过 echo 命令可以证明
 我们的确复制了 PS1的值。
 
-    [me@linuxbox ~]$ echo $ps1\_old
+    [me@linuxbox ~]$ echo $ps1_old
     [\u@\h \W]\$
 
 We can restore the original prompt at any time during our terminal session by simply
@@ -309,7 +309,7 @@ reversing the process:
 
 在终端会话中，我们能在任一时间复原提示符，只要简单地反向操作就可以了。
 
-    [me@linuxbox ~]$ PS1="$ps1\_old"
+    [me@linuxbox ~]$ PS1="$ps1_old"
 
 Now that we are ready to proceed, let's see what happens if we have an empty prompt
 string:
@@ -485,7 +485,7 @@ Let's try to make a red prompt. We'll insert the escape code at the beginning:
 
 让我们试着制作一个红色提示符。我们将在开头加入转义编码：
 
-    <me@linuxbox ~>$ PS1=&quot;\[\033[0;31m\]<\u@\h \W>\$ &quot; 
+    <me@linuxbox ~>$ PS1='\[\033[0;31m\]<\u@\h \W>\$'  
     <me@linuxbox ~>$
 
 That works, but notice that all the text that we type after the prompt is also red. To fix
@@ -495,7 +495,7 @@ emulator to return to the previous color:
 我们的提示符生效了，但是注意我们在提示符之后输入的文本也是红色的。为了修改这个问题，
 我们将添加另一个转义编码到这个提示符的末尾来告诉终端仿真器恢复到原来的颜色。
 
-    <me@linuxbox ~>$ PS1=&quot;\[\033[0;31m\]<\u@\h \W>\$\[\033[0m\]&quot; 
+    <me@linuxbox ~>$ PS1='\[\033[0;31m\]<\u@\h \W>\$\[\033[0m\]' 
     <me@linuxbox ~>$
     
 That's better!
@@ -540,7 +540,7 @@ escape code:
 
 我们可以创建一个带有红色背景的提示符，只是对第一个转义编码做个简单的修改。
 
-    <me@linuxbox ~>$ PS1=&quot;\[\033[0;41m\]<\u@\h \W>\$\[\033[0m\] &quot;
+    <me@linuxbox ~>$ PS1='\[\033[0;41m\]<\u@\h \W>\$\[\033[0m\] '
     <me@linuxbox ~>$
 
 Try out the color codes and see what you can create!
@@ -671,8 +671,8 @@ The code for the prompt is this formidable looking string:
 包含时钟（由黄色文本渲染）的红色长条。提示符的编码就是这个看起来令人敬畏的字符串：
 
 
-    PS1=&quot;\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
-    <\u@\h \W>\$ &quot;
+    PS1='\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
+    <\u@\h \W>\$ '
     
 Let's take a look at each part of the string to see what it does:
 
@@ -813,8 +813,8 @@ file. To do so, add these two lines to the file:
 显然地，我们不想总是敲入那个怪物，所以我们将要把这个提示符存储在某个地方。通过把它
 添加到我们的.bashrc 文件，可以使这个提示符永久存在。为了达到目的，把下面这两行添加到.bashrc 文件中。
 
-    PS1=&quot;\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
-    <\u@\h \W>\$ &quot;
+    PS1='\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
+    <\u@\h \W>\$ '
     
     export PS1
     
