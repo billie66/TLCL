@@ -137,14 +137,14 @@ command: </p>
 和".."也出现在结果中。因为这些名字是指当前工作目录和它的父目录，使用这种
 模式可能会产生不正确的结果。我们能看到这样的结果，如果我们试一下这个命令：</p>
 
-<p>ls -d .\* | less</p>
+<p>ls -d .* | less</p>
 
 <p> To correctly perform pathname expansion in this situation, we have to
 employ a more specific pattern. This will work correctly: </p>
 <p>为了在这种情况下正确地完成路径名展开，我们应该雇佣一个更精确些的模式。
 这个模式会正确地工作：</p>
 
-<p>ls -d .[!.]?\* </p>
+<p>ls -d .[!.]?* </p>
 
 <p>This pattern expands into every filename that begins with a period, does not
 include a second period, contains at least one additional character and can be
