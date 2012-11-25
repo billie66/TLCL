@@ -798,7 +798,7 @@ could use this command:
 我们可以使用 find 命令来删除符合一定条件的文件。例如，来删除扩展名为“.BAK”（这通常用来指定备份文件）
 的文件，我们可以使用这个命令：
 
-    find ~ -type f -name '\*.BAK' -delete
+    find ~ -type f -name '*.BAK' -delete
 
 In this example, every file in the user’s home directory (and its subdirectories) is searched
 for filenames ending in .BAK. When they are found, they are deleted.
@@ -821,7 +821,7 @@ Consider the following command:
 
 在我们继续之前，让我们看一下逻辑运算符是怎样影响操作的。考虑以下命令：
 
-    find ~ -type f -name '\*.BAK' -print
+    find ~ -type f -name '*.BAK' -print
 
 As we have seen, this command will look for every regular file (-type f) whose name
 ends with .BAK (-name '\*.BAK') and will output the relative pathname of each
@@ -836,7 +836,7 @@ relationships easier to see:
 由每个测试和操作之间的逻辑关系决定的。记住，在每个测试和操作之间会默认应用 -and 逻辑运算符。
 我们也可以这样表达这个命令，使逻辑关系更容易看出：
 
-    find ~ -type f -and -name '\*.BAK' -and -print
+    find ~ -type f -and -name '*.BAK' -and -print
     
 With our command fully expressed, let’s look at how the logical operators affect its
 execution:
@@ -854,7 +854,7 @@ execution:
 <td valign="top">-type f and -name '\*.BAK' are true</td>
 </tr>
 <tr>
-<td valign="top">-name ‘\*.BAK’ </td>
+<td valign="top">-name ‘*.BAK’ </td>
 <td valign="top">-type f is true</td>
 </tr>
 <tr>
@@ -872,10 +872,10 @@ execution:
 </tr>
 <tr>
 <td valign="top" width="25%">-print</td>
-<td valign="top">只有-type f and -name '\*.BAK'为真的时候</td>
+<td valign="top">只有-type f and -name '*.BAK'为真的时候</td>
 </tr>
 <tr>
-<td valign="top">-name ‘\*.BAK’ </td>
+<td valign="top">-name ‘*.BAK’ </td>
 <td valign="top">只有-type f 为真的时候</td>
 </tr>
 <tr>
@@ -892,7 +892,7 @@ command would behave much differently:
 因为测试和行为之间的逻辑关系决定了哪一个会被执行，我们知道测试和行为的顺序很重要。例如，
 如果我们重新安排测试和行为之间的顺序，让-print 行为是第一个，那么这个命令执行起来会截然不同：
 
-    find ~ -print -and -type f -and -name '\*.BAK'
+    find ~ -print -and -type f -and -name '*.BAK'
     
 This version of the command will print each file (the -print action always evaluates to
 true) and then test for file type and the specified file extension.
@@ -931,7 +931,7 @@ in place of -exec, the user is prompted before execution of each specified comma
 也有可能交互式地执行一个用户定义的行为。通过使用-ok 行为来代替-exec，在执行每个指定的命令之前，
 会提示用户：
 
-    find ~ -type f -name 'foo\*' -ok ls -l '{}' ';'
+    find ~ -type f -name 'foo*' -ok ls -l '{}' ';'
     < ls ... /home/me/bin/foo > ? y
     -rwxr-xr-x 1 me    me 224 2007-10-29 18:44 /home/me/bin/foo
     < ls ... /home/me/foo.txt > ? y
@@ -980,7 +980,7 @@ the desired command. Going back to our example, this:
 通过把末尾的分号改为加号，就激活了 find 命令的一个功能，把搜索结果结合为一个参数列表，
 然后执行一次所期望的命令。再看一下之前的例子，这个：
 
-    find ~ -type f -name 'foo\*' -exec ls -l '{}' ';'
+    find ~ -type f -name 'foo*' -exec ls -l '{}' ';'
     -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
     -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt 
 
@@ -988,7 +988,7 @@ will execute ls each time a matching file is found. By changing the command to:
 
 会执行 ls 命令，每次找到一个匹配的文件。把命令改为：
 
-    find ~ -type f -name 'foo\*' -exec ls -l '{}' +
+    find ~ -type f -name 'foo*' -exec ls -l '{}' +
     -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
     -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt 
     
@@ -1059,7 +1059,7 @@ accepts null separated input. Here’s an example:</p>
 则会产生由 null 字符分离的输出，并且 xargs 命令有一个 --null 选项，这个选项会接受由 null 字符
 分离的输入。这里有一个例子：</p>
 
-<p> find ~ -iname '\*.jpg' -print0 | xargs --null ls -l </p>
+<p> find ~ -iname '*.jpg' -print0 | xargs --null ls -l </p>
 
 <p> Using this technique, we can ensure that all files, even those containing embedded
 spaces in their names, are handled correctly. </p>

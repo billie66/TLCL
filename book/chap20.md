@@ -571,7 +571,7 @@ the language setting of our system using this command:
 选择所需的字符集。通过使用下面这个命令，我们能够查看到我们系统的语言设置：
 
     [me@linuxbox ~]$ echo $LANG
-    en\_US.UTF-8 
+    en_US.UTF-8 
 
 With this setting, POSIX compliant applications will use a dictionary collation order
 rather than ASCII order. This explains the behavior of the commands above. A character
@@ -755,7 +755,7 @@ LANG 变量包含了语种和字符集。这个值最初由你安装 Linux 系�
 <p>使用 locale 命令，来查看 locale 的设置。</p>
 
 <p>[me@linuxbox ~]$ locale</p>
-<p>LANG=en\_US.UTF-8 </p>
+<p>LANG=en_US.UTF-8 </p>
 <p>LC_CTYPE="en_US.UTF-8" </p>
 <p>LC_NUMERIC="en_US.UTF-8" </p>
 <p>LC_TIME="en_US.UTF-8" </p>
@@ -768,7 +768,7 @@ LANG 变量包含了语种和字符集。这个值最初由你安装 Linux 系�
 <p>LC_TELEPHONE="en_US.UTF-8" </p>
 <p>LC_MEASUREMENT="en_US.UTF-8" </p>
 <p>LC_IDENTIFICATION="en_US.UTF-8" </p>
-<p>LC\_ALL= </p>
+<p>LC_ALL= </p>
 
 <p>To change the locale to use the traditional Unix behaviors, set the LANG variable to POSIX:</p>
 
@@ -1027,11 +1027,11 @@ match:
 两个字符集以及一个空格的中括号表达式，和一个被反斜杠字符转义过的圆点。第二个元素末尾带有一个
 \*元字符，所以在开头的大写字母之后，可能会跟随着任意数目的大写和小写字母和空格，并且匹配：
 
-    [me@linuxbox ~]$ echo "This works." | grep -E '[[:upper:]][[:upper:][ :lower:] ]\*\.'
+    [me@linuxbox ~]$ echo "This works." | grep -E '[[:upper:]][[:upper:][[:lower:]]*.'
     This works.
-    [me@linuxbox ~]$ echo "This Works." | grep -E '[[:upper:]][[:upper:][ :lower:] ]\*\.'
+    [me@linuxbox ~]$ echo "This Works." | grep -E '[[:upper:]][[:upper:][[:lower:]]*.'
     This Works.
-    [me@linuxbox ~]$ echo "this does not" | grep -E '[[:upper:]][[:upper: ][:lower:] ]\*\.'
+    [me@linuxbox ~]$ echo "this does not" | grep -E '[[:upper:]][[:upper: ][[:lower:]]*.'
     [me@linuxbox ~]$ 
 
 The expression matches the first two tests, but not the third, since it lacks the required
@@ -1251,12 +1251,12 @@ offensive characters:
 
 这样一种扫描会发现包含空格和其它潜在不规范字符的路径名：
 
-    [me@linuxbox ~]$ find . -regex \'.\*[^-\_./0-9a-zA-Z].\*\'
+    [me@linuxbox ~]$ find . -regex '.*[^-\_./0-9a-zA-Z].*'
     
 Due to the requirement for an exact match of the entire pathname, we use .\* at both ends
 of the expression to match zero or more instances of any character. In the middle of the
 expression, we use a negated bracket expression containing our set of acceptable
-pathname characters.
+pathname characters.`
 
 由于要精确地匹配整个路径名，所以我们在表达式的两端使用了.\*，来匹配零个或多个字符。
 在表达式中间，我们使用了否定的中括号表达式，其包含了我们一系列可接受的路径名字符。
