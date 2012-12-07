@@ -9,6 +9,12 @@ layout: default
 
 欢迎大家参与本书的翻译: [github](https://github.com/billie66/TLCL)
 
+<p><br /><b>翻译贡献者:</b></p>
+
+<p>
+<a href="contibutors.html">点击查看名单 </a>
+</p>
+
 <p><br /><b>Contact Information:</b></p>
 
 <blockquote>
