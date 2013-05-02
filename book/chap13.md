@@ -45,9 +45,9 @@ why should we learn vi? There are three good reasons:
   configuration. nano, while increasingly popular is still not universal. POSIX, a
   standard for program compatibility on Unix systems, requires that vi be present.
 
-* vi 总是可用的。如果我们的系统没有图形界面，比方说一台远端服务器或者是一个
+* vi 很多系统都预装。如果我们的系统没有图形界面，比方说一台远端服务器或者是一个
   X 配置损坏了的本地系统，那么 vi 就成了我们的救星。虽然 nano 逐渐流行起来，但是它
-  还没有普及。POSIX，Unix 系统中程序兼容标准，要求自带 vi。
+  还没有普及。POSIX，这套 Unix 系统中程序兼容的标准，就要求系统要预装 vi。
 
 * vi is lightweight and fast. For many tasks, it's easier to bring up vi than it is to
   find the graphical text editor in the menus and wait for its multiple megabytes to
