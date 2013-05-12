@@ -444,10 +444,10 @@ Once started, the less program allows you to scroll forward and backward through
 text file. For example, to examine the file that defines all the system's user accounts,
 enter the following command:
 
-    [me@linuxbox ~]$ less /etc/passwd
-    
 一旦运行起来，less 程序允许你前后滚动文件。例如，要查看一个定义了系统中全部用户身份的文件，输入以下命令：
 
+    [me@linuxbox ~]$ less /etc/passwd
+    
 Once the less program starts, we may view the contents of the file. If the file is longer
 than one page, we can scroll up and down. To exit less, press the “q” key.
 The table below lists the most common keyboard commands used by less.

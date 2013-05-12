@@ -342,6 +342,74 @@ line of the file.</td>
 </tr>
 </table>
 
+<table class="multi">
+<caption class="cap">表13-1: 光标移动按键</caption>
+<tr>
+<th class="title">按键</th>
+<th class="title">移动光标</th>
+</tr>
+<tr>
+<td valign="top" width="25%">l or 右箭头</td>
+<td valign="top">向右移动一个字符</td>
+</tr>
+<tr>
+<td valign="top">h or 左箭头</td>
+<td valign="top">向左移动一个字符</td>
+</tr>
+<tr>
+<td valign="top">j or 下箭头</td>
+<td valign="top">向下移动一行</td>
+</tr>
+<tr>
+<td valign="top">k or 上箭头</td>
+<td valign="top">向上移动一行</td>
+</tr>
+<tr>
+<td valign="top">0 (零按键) </td>
+<td valign="top">移动到当前行的行首。</td>
+</tr>
+<tr>
+<td valign="top">^</td>
+<td valign="top">移动到当前行的第一个非空字符。</td>
+</tr>
+<tr>
+<td valign="top">$</td>
+<td valign="top">移动到当前行的末尾。</td>
+</tr>
+<tr>
+<td valign="top">w</td>
+<td valign="top">移动到下一个单词或标点符号的开头。</td>
+</tr>
+<tr>
+<td valign="top">W</td>
+<td valign="top">移动到下一个单词的开头，忽略标点符号。</td>
+</tr>
+<tr>
+<td valign="top">b</td>
+<td valign="top">移动到上一个单词或标点符号的开头。</td>
+</tr>
+<tr>
+<td valign="top">B</td>
+<td valign="top">移动到上一个单词的开头，忽略标点符号。</td>
+</tr>
+<tr>
+<td valign="top">Ctrl-f or Page Down </td>
+<td valign="top">向下翻一页</td>
+</tr>
+<tr>
+<td valign="top">Ctrl-b or Page Up </td>
+<td valign="top">向上翻一页</td>
+</tr>
+<tr>
+<td valign="top">numberG</td>
+<td valign="top">移动到第 number 行。例如，1G 移动到文件的第一行。</td>
+</tr>
+<tr>
+<td valign="top">G</td>
+<td valign="top">移动到文件末尾。</td>
+</tr>
+</table>
+
 Why are the h, j, k, and l keys used for cursor movement? Because when vi was
 originally written, not all video terminals had arrow keys, and skilled typists could use
 regular keyboard keys to move the cursor without ever having to lift their fingers from
@@ -457,6 +525,22 @@ two existing lines and enters insert mode. This has two variants:
 </tr>
 </table>
 
+<table class="multi">
+<caption class="cap">表13-2: 文本行打开按键</caption>
+<tr>
+<th class="title">命令</th>
+<th class="title">打开行</th>
+</tr>
+<tr>
+<td valign="top" width="25%">o</td>
+<td valign="top">当前行的下方打开一行。</td>
+</tr>
+<tr>
+<td valign="top">O</td>
+<td valign="top">当前行的上方打开一行。</td>
+</tr>
+</table>
+
 We can demonstrate this as follows: place the cursor on “Line 3” then press the o key.
 
 我们可以演示一下：把光标放到"Line 3"上，按下小 o 按键。
@@ -536,13 +620,11 @@ d 命令之后总是带上一个移动命令，用来控制删除的范围。这
 </tr>
 <tr>
 <td valign="top" width="25%">d0</td>
-<td valign="top">From the cursor position to the beginning of the current
-line.</td>
+<td valign="top">From the cursor position to the beginning of the current line.</td>
 </tr>
 <tr>
 <td valign="top" width="25%">d^</td>
-<td valign="top">From the cursor position to the first non-whitespace character
-of the the line.</td>
+<td valign="top">From the cursor position to the first non-whitespace character of the line.</td>
 </tr>
 <tr>
 <td valign="top" width="25%">dG</td>
@@ -551,6 +633,54 @@ of the the line.</td>
 <tr>
 <td valign="top" width="25%">d20G</td>
 <td valign="top">From the current line to the twentieth line of the file.</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表13-3: 文本删除命令</caption>
+<tr>
+<th class="title">命令</th>
+<th class="title">删除的文本</th>
+</tr>
+<tr>
+<td valign="top" width="25%">x</td>
+<td valign="top">当前字符</td>
+</tr>
+<tr>
+<td valign="top">3x</td>
+<td valign="top">当前字符及其后的两个字符。</td>
+</tr>
+<tr>
+<td valign="top" width="25%">dd</td>
+<td valign="top">当前行。</td>
+</tr>
+<tr>
+<td valign="top" width="25%">5dd</td>
+<td valign="top">当前行及随后的四行文本。</td>
+</tr>
+<tr>
+<td valign="top" width="25%">dW</td>
+<td valign="top">从光标位置开始到下一个单词的开头。</td>
+</tr>
+<tr>
+<td valign="top" width="25%">d$</td>
+<td valign="top">从光标位置开始到当前行的行尾。</td>
+</tr>
+<tr>
+<td valign="top" width="25%">d0</td>
+<td valign="top">从光标位置开始到当前行的行首。</td>
+</tr>
+<tr>
+<td valign="top" width="25%">d^</td>
+<td valign="top">从光标位置开始到文本行的第一个非空字符。</td>
+</tr>
+<tr>
+<td valign="top" width="25%">dG</td>
+<td valign="top">从当前行到文件的末尾。</td>
+</tr>
+<tr>
+<td valign="top" width="25%">d20G</td>
+<td valign="top">从当前行到文件的第20行。</td>
 </tr>
 </table>
 
@@ -619,8 +749,7 @@ y 命令用来“拉”（复制）文本，和 d 命令剪切文本的方式差
 结合起来使用的实例：
 
 <table class="multi">
-<caption class="cap">Table13- 4: Yanking Commands
-</caption>
+<caption class="cap">Table13- 4: Yanking Commands </caption>
 <tr>
 <th class="title">Command</th>
 <th class="title">Copies</th>
@@ -660,6 +789,46 @@ whitespace character in the line.</td>
 <tr>
 <td valign="top">y20G</td>
 <td valign="top">From the current line to the twentieth line of the file.</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表13-4: 复制命令 </caption>
+<tr>
+<th class="title">命令</th>
+<th class="title">复制的内容</th>
+</tr>
+<tr>
+<td valign="top" width="25%">yy</td>
+<td valign="top">当前行。</td>
+</tr>
+<tr>
+<td valign="top">5yy</td>
+<td valign="top">当前行及随后的四行文本。</td>
+</tr>
+<tr>
+<td valign="top">yW</td>
+<td valign="top">从当前光标位置到下一个单词的开头。</td>
+</tr>
+<tr>
+<td valign="top">y$</td>
+<td valign="top">从当前光标位置到当前行的末尾。</td>
+</tr>
+<tr>
+<td valign="top">y0</td>
+<td valign="top">从当前光标位置到行首。</td>
+</tr>
+<tr>
+<td valign="top">y^</td>
+<td valign="top">从当前光标位置到文本行的第一个非空字符。</td>
+</tr>
+<tr>
+<td valign="top">yG</td>
+<td valign="top">从当前行到文件末尾。</td>
+</tr>
+<tr>
+<td valign="top">y20G</td>
+<td valign="top">从当前行到文件的第20行。</td>
 </tr>
 </table>
 
@@ -833,6 +1002,36 @@ only the first instance of the search string on each line is replaced.</td>
 </tr>
 </table>
 
+<table class="multi">
+<tr>
+<th class="title">条目</th>
+<th class="title">含义</th>
+</tr>
+<tr>
+<td valign="top" width="25%">:</td>
+<td valign="top">冒号字符运行一个 ex 命令。</td>
+</tr>
+<tr>
+<td valign="top">%</td>
+<td valign="top">指定要操作的行数。% 是一个快捷方式，表示从第一行到最后一行。另外，操作范围也
+可以用 1,5 来代替（因为我们的文件只有5行文本），或者用 1,$ 来代替，意思是 “ 从第一行到文件的最后一行。”
+如果省略了文本行的范围，那么操作只对当前行生效。</td>
+</tr>
+<tr>
+<td valign="top">s</td>
+<td valign="top">指定操作。在这种情况下是，替换（查找与替代）。</td>
+</tr>
+<tr>
+<td valign="top">/Line/line</td>
+<td valign="top">查找类型与替代文本。</td>
+</tr>
+<tr>
+<td valign="top">g</td>
+<td valign="top">这是“全局”的意思，意味着对文本行中所有匹配的字符串执行查找和替换操作。如果省略 g，则
+只替换每个文本行中第一个匹配的字符串。</td>
+</tr>
+</table>
+
 After executing our search and replace command our file looks like this:
 
 执行完查找和替代命令之后，我们的文件看起来像这样：
@@ -894,6 +1093,38 @@ of the pattern.</td>
 <td valign="top">Ctrl-e, Ctrl-y</td>
 <td valign="top">Scroll down and scroll up, respectively. Useful for viewing
 the context of the proposed substitution.</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表13-5: 替换确认按键</caption>
+<tr>
+<th class="title">按键</th>
+<th class="title">行为</th>
+</tr>
+<tr>
+<td valign="top" width="25%">y</td>
+<td valign="top">执行替换操作</td>
+</tr>
+<tr>
+<td valign="top">n</td>
+<td valign="top">跳过这个匹配的实例</td>
+</tr>
+<tr>
+<td valign="top">a</td>
+<td valign="top">对这个及随后所有匹配的字符串执行替换操作。</td>
+</tr>
+<tr>
+<td valign="top">q or esc</td>
+<td valign="top">退出替换操作。</td>
+</tr>
+<tr>
+<td valign="top">l</td>
+<td valign="top">执行这次替换并退出。l 是 “last” 的简写。</td>
+</tr>
+<tr>
+<td valign="top">Ctrl-e, Ctrl-y</td>
+<td valign="top">分别是向下滚动和向上滚动。用于查看建议替换的上下文。</td>
 </tr>
 </table>
 

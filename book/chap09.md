@@ -63,43 +63,74 @@ The following table lists the keys used to move the cursor:
 下表列出了移动光标所使用的按键：
 
 <table class="multi">
-<caption class="cap">Table 9-1: Cursor Movement Commands &nbsp; 光标移动命令</caption>
+<caption class="cap">Table 9-1: Cursor Movement Commands</caption>
 <tr>
-<th class="title">Key &nbsp; 按键</th>
-<th class="title">Action &nbsp; 行动</th>
+<th class="title">Key</th>
+<th class="title">Action</th>
 </tr>
 <tr>
 <td valign="top" width="25%">Ctrl-a</td>
-<td valign="top">Move cursor to the beginning of the line. &nbsp;
-移动光标到行首。</td>
+<td valign="top">Move cursor to the beginning of the line.</td>
 </tr>
 <tr>
 <td valign="top">Ctrl-e</td>
-<td valign="top">Move cursor to the end of the line. &nbsp; 移动光标到行尾。</td>
+<td valign="top">Move cursor to the end of the line.</td>
 </tr>
 <tr>
 <td valign="top">Ctrl-f</td>
-<td valign="top">Move cursor forward one character;same as the right arrow
-key. &nbsp; 光标前移一个字符；和右箭头作用一样。</td>
+<td valign="top">Move cursor forward one character;same as the right arrow key.</td>
 </tr>
 <tr>
 <td valign="top">Ctrl-b</td>
-<td valign="top">Move cursor backward one character;same as the left arrow
-key. &nbsp; 光标后移一个字符；和左箭头作用一样。</td>
+<td valign="top">Move cursor backward one character;same as the left arrow key./td>
 </tr>
 <tr>
 <td valign="top">Alt-f</td>
-<td valign="top">Move cursor forward one word. &nbsp; 光标前移一个字。</td>
+<td valign="top">Move cursor forward one word.</td>
 </tr>
 <tr>
 <td valign="top">Alt-b</td>
-<td valign="top">Move cursor backward one word. &nbsp; 光标后移一个字。</td>
+<td valign="top">Move cursor backward one word.</td>
 </tr>
 <tr>
 <td valign="top">Ctrl-l</td>
-<td valign="top">Clear the screen and move the cursor to the top left corner.
-The clear command does the same thing. &nbsp; 清空屏幕，移动光标到左上角。
-clear 命令完成同样的工作。</td>
+<td valign="top">Clear the screen and move the cursor to the top left corner. The clear command does the same thing.</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表9-1: 光标移动命令</caption>
+<tr>
+<th class="title">按键</th>
+<th class="title">行动</th>
+</tr>
+<tr>
+<td valign="top" width="25%">Ctrl-a</td>
+<td valign="top">移动光标到行首。</td>
+</tr>
+<tr>
+<td valign="top">Ctrl-e</td>
+<td valign="top">移动光标到行尾。</td>
+</tr>
+<tr>
+<td valign="top">Ctrl-f</td>
+<td valign="top">光标前移一个字符；和右箭头作用一样。</td>
+</tr>
+<tr>
+<td valign="top">Ctrl-b</td>
+<td valign="top">光标后移一个字符；和左箭头作用一样。</td>
+</tr>
+<tr>
+<td valign="top">Alt-f</td>
+<td valign="top">光标前移一个字。</td>
+</tr>
+<tr>
+<td valign="top">Alt-b</td>
+<td valign="top">光标后移一个字。</td>
+</tr>
+<tr>
+<td valign="top">Ctrl-l</td>
+<td valign="top">清空屏幕，移动光标到左上角。clear 命令完成同样的工作。</td>
 </tr>
 </table>
 
@@ -112,35 +143,57 @@ Table 9-2 lists keyboard commands that are used to edit characters on the comman
 表9－2列出了键盘命令，这些命令用来在命令行中编辑字符。
 
 <table class="multi">
-<caption class="cap">Table 9-2: Text Editing Commands &nbsp; 文本编辑命令</caption>
+<caption class="cap">Table 9-2: Text Editing Commands</caption>
 <tr>
-<th class="title">Key &nbsp; 按键</th>
-<th class="title">Action &nbsp; 行动</th>
+<th class="title">Key</th>
+<th class="title">Action</th>
 </tr>
 <tr>
 <td valign="top" width="25%">Ctrl-d</td>
-<td valign="top">Delete the character at the cursor location &nbsp;
-删除光标位置的字符。</td>
+<td valign="top">Delete the character at the cursor location</td>
 </tr>
 <tr>
 <td valign="top">Ctrl-t</td>
-<td valign="top">Transpose(exchange)the character at the cursor location with
-the one preceding it. &nbsp; 光标位置的字符和光标前面的字符互换位置。</td>
+<td valign="top">Transpose(exchange)the character at the cursor location with the one preceding it.</td>
 </tr>
 <tr>
 <td valign="top">Alt-t</td>
-<td valign="top">Transpose the word at the cursor location with the one
-preceding it. 光标位置的字和其前面的字互换位置。</td>
+<td valign="top">Transpose the word at the cursor location with the one preceding it.</td>
 </tr>
 <tr>
 <td valign="top">Alt-l</td>
-<td valign="top">Convert the characters from the cursor location to the end of
-the word to lowercase. &nbsp; 把从光标位置到字尾的字符转换成小写字母。</td>
+<td valign="top">Convert the characters from the cursor location to the end of the word to lowercase.</td>
 </tr>
 <tr>
 <td valign="top">Alt-u</td>
-<td valign="top">Convert the characters from the cursor location to the end of
-the word to uppercase. &nbsp; 把从光标位置到字尾的字符转换成大写字母。</td>
+<td valign="top">Convert the characters from the cursor location to the end of the word to uppercase.</td>
+</tr>
+</table>
+<table class="multi">
+<caption class="cap">表9-2: 文本编辑命令</caption>
+<tr>
+<th class="title"> 按键</th>
+<th class="title"> 行动</th>
+</tr>
+<tr>
+<td valign="top" width="25%">Ctrl-d</td>
+<td valign="top"> 删除光标位置的字符。</td>
+</tr>
+<tr>
+<td valign="top">Ctrl-t</td>
+<td valign="top"> 光标位置的字符和光标前面的字符互换位置。</td>
+</tr>
+<tr>
+<td valign="top">Alt-t</td>
+<td valign="top"> 光标位置的字和其前面的字互换位置。</td>
+</tr>
+<tr>
+<td valign="top">Alt-l</td>
+<td valign="top"> 把从光标位置到字尾的字符转换成小写字母。</td>
+</tr>
+<tr>
+<td valign="top">Alt-u</td>
+<td valign="top"> 把从光标位置到字尾的字符转换成大写字母。</td>
 </tr>
 </table>
 
@@ -156,36 +209,59 @@ Readline 的文档使用术语 killing 和 yanking 来指我们平常所说的�
 剪切下来的本文被存储在一个叫做剪切环(kill-ring)的缓冲区中。
 
 <table class="multi">
-<caption class="cap">Table 9-3: Cut And Paste Commands &nbsp; 剪切和粘贴命令</caption>
+<caption class="cap">Table 9-3: Cut And Paste Commands</caption>
 <tr>
-<th class="title">Key &nbsp; 按键</th>
-<th class="title">Action &nbsp; 行动</th>
+<th class="title">Key</th>
+<th class="title">Action</th>
 </tr>
 <tr>
 <td valign="top" width="25%">Ctrl-k</td>
-<td valign="top">Kill text from the cursor location to the end of line. &nbsp;
-剪切从光标位置到行尾的文本。</td>
+<td valign="top">Kill text from the cursor location to the end of line.</td>
 </tr>
 <tr>
 <td valign="top">Ctrl-u</td>
-<td valign="top">Kill text from the cursor location to the beginning of the
-line. &nbsp; 剪切从光标位置到行首的文本。</td>
+<td valign="top">Kill text from the cursor location to the beginning of the line.</td>
 </tr>
 <tr>
 <td valign="top">Alt-d</td>
-<td valign="top">Kill text from the cursor location to the end of the current
-word. &nbsp; 剪切从光标位置到词尾的文本。</td>
+<td valign="top">Kill text from the cursor location to the end of the current word.</td>
 </tr>
 <tr>
 <td valign="top">Alt-Backspace</td>
 <td valign="top">Kill text from the cursor location to the beginning of the
-word. If the cursor is at the beginning of a word, kill the previous word.&nbsp; 
-剪切从光标位置到词头的文本。如果光标在一个单词的开头，剪切前一个单词。</td>
+word. If the cursor is at the beginning of a word, kill the previous word.</td>
 </tr>
 <tr>
 <td valign="top">Ctrl-y</td>
-<td valign="top">Yank text from the kill-ring and insert it at the cursor
-location. &nbsp; 把剪切环中的文本粘贴到光标位置。</td>
+<td valign="top">Yank text from the kill-ring and insert it at the cursor location.</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表9-3: 剪切和粘贴命令</caption>
+<tr>
+<th class="title"> 按键</th>
+<th class="title"> 行动</th>
+</tr>
+<tr>
+<td valign="top" width="25%">Ctrl-k</td>
+<td valign="top"> 剪切从光标位置到行尾的文本。</td>
+</tr>
+<tr>
+<td valign="top">Ctrl-u</td>
+<td valign="top"> 剪切从光标位置到行首的文本。</td>
+</tr>
+<tr>
+<td valign="top">Alt-d</td>
+<td valign="top"> 剪切从光标位置到词尾的文本。</td>
+</tr>
+<tr>
+<td valign="top">Alt-Backspace</td>
+<td valign="top"> 剪切从光标位置到词头的文本。如果光标在一个单词的开头，剪切前一个单词。</td>
+</tr>
+<tr>
+<td valign="top">Ctrl-y</td>
+<td valign="top"> 把剪切环中的文本粘贴到光标位置。</td>
 </tr>
 </table>
 

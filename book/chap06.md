@@ -254,37 +254,79 @@ man 所显示的参考手册，被分成几个章节，它们不仅仅包括用�
 <tbody>
 <tr>
 <td>1</td>
-<td>User commands  用户命令</td>
+<td>User commands</td>
 </tr>
 <tr>
 <td>2</td>
-<td>Programming interfaces kernel system calls  程序接口内核系统调用</td>
+<td>Programming interfaces kernel system calls</td>
 </tr>
 <tr>
 <td>3</td>
-<td>Programming interfaces to the C library  C 库函数程序接口</td>
+<td>Programming interfaces to the C library</td>
 </tr>
 <tr>
 <td>4</td>
-<td>Special files such as device nodes and drivers
-特殊文件，比如说设备结点和驱动程序</td>
+<td>Special files such as device nodes and drivers</td>
 </tr>
 <tr>
 <td>5</td>
-<td>File formats  文件格式</td>
+<td>File formats</td>
 </tr>
 <tr>
 <td>6</td>
-<td>Games and amusements such as screen savers
-游戏娱乐，如屏幕保护程序</td>
+<td>Games and amusements such as screen savers</td>
 </tr>
 <tr>
 <td>7</td>
-<td>Miscellaneous  其他方面</td>
+<td>Miscellaneous</td>
 </tr>
 <tr>
 <td>8</td>
-<td>System administration commands  系统管理员命令</td>
+<td>System administration commands</td>
+</tr>
+</tbody>
+</table>
+
+<table class="multi">
+<caption class="cap">表6-1: 手册页的组织形式</caption>
+<thead>
+<tr>
+<th class="title">章节</th>
+<th class="title">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>用户命令</td>
+</tr>
+<tr>
+<td>2</td>
+<td>程序接口内核系统调用</td>
+</tr>
+<tr>
+<td>3</td>
+<td>C 库函数程序接口</td>
+</tr>
+<tr>
+<td>4</td>
+<td>特殊文件，比如说设备结点和驱动程序</td>
+</tr>
+<tr>
+<td>5</td>
+<td>文件格式</td>
+</tr>
+<tr>
+<td>6</td>
+<td>游戏娱乐，如屏幕保护程序</td>
+</tr>
+<tr>
+<td>7</td>
+<td>其他方面</td>
+</tr>
+<tr>
+<td>8</td>
+<td>系统管理员命令</td>
 </tr>
 </tbody>
 </table>

@@ -207,37 +207,67 @@ operators:
 一些它支持的操作符：
 
 <table class="multi">
-<caption class="cap">Table 8-1: Arithmetic Operators &nbsp;&nbsp; 算术操作符</caption>
+<caption class="cap">Table 8-1: Arithmetic Operators</caption>
 <tr>
-<th class="title">Operator  &nbsp; 操作符 </th>
-<th class="title">Description &nbsp; 说明</th>
+<th class="title">Operator</th>
+<th class="title">Description</th>
 </tr>
 <tr>
 <td valign="top" width="25%">+</td>
-<td valign="top">Addition &nbsp; 加 </td>
+<td valign="top">Addition</td>
 </tr>
 <tr>
 <td valign="top">-</td>
-<td valign="top">Subtraction &nbsp; &nbsp; 减</td>
+<td valign="top">Subtraction</td>
 </tr>
 <tr>
-<td valign="top">\*</td>
-<td valign="top">Multiplication &nbsp; 乘</td>
+<td valign="top">*</td>
+<td valign="top">Multiplication</td>
 </tr>
 <tr>
 <td valign="top">/</td>
 <td valign="top">Division(but remember, since expansion only supports integer
-arithmetic, results are integers.) &nbsp;
-除（但是记住，因为展开只是支持整数除法，所以结果是整数。）</td>
+arithmetic, results are integers.)</td>
 </tr>
 <tr>
 <td valign="top">%</td>
-<td valign="top">Modulo, which simply means, "remainder". &nbsp;
-取余，只是简单的意味着，“余数”</td>
+<td valign="top">Modulo, which simply means, "remainder".</td>
 </tr>
 <tr>
-<td valign="top">\*\*</td>
-<td valign="top">Exponentiation &nbsp; 取幂</td>
+<td valign="top">**</td>
+<td valign="top">Exponentiation</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表 8-1: 算术操作符</caption>
+<tr>
+<th class="title"> 操作符 </th>
+<th class="title"> 说明</th>
+</tr>
+<tr>
+<td valign="top" width="25%">+</td>
+<td valign="top"> 加 </td>
+</tr>
+<tr>
+<td valign="top">-</td>
+<td valign="top"> &nbsp; 减</td>
+</tr>
+<tr>
+<td valign="top">*</td>
+<td valign="top"> 乘</td>
+</tr>
+<tr>
+<td valign="top">/</td>
+<td valign="top"> 除（但是记住，因为展开只是支持整数除法，所以结果是整数。）</td>
+</tr>
+<tr>
+<td valign="top">%</td>
+<td valign="top"> 取余，只是简单的意味着，“余数”</td>
+</tr>
+<tr>
+<td valign="top">**</td>
+<td valign="top"> 取幂</td>
 </tr>
 </table>
 
@@ -625,29 +655,55 @@ acknowledge).</p>
 
 <table class="multi">
 <tr>
-<th class="title">Escape Sequence &nbsp; 转义序列</th>
-<th class="title">Meaning &nbsp; 意思</th>
+<th class="title">Escape Sequence</th>
+<th class="title">Meaning</th>
 </tr>
 <tr>
 <td valign="top" width="25%">\a</td>
-<td valign="top">Bell("Alert"-causes the computer to beep) &nbsp; 响铃（"警告"－导致计算机嘟嘟响）</td>
+<td valign="top">Bell("Alert"-causes the computer to beep)</td>
 </tr>
 <tr>
 <td valign="top">\b</td>
-<td valign="top">Backspace &nbsp; 退格符</td>
+<td valign="top">Backspace</td>
 </tr>
 <tr>
 <td valign="top">\n</td>
-<td valign="top">Newline. On Unix-like systems, this produces a linefeed.
-&nbsp; 新的一行。在类似 Unix 系统中，产生换行。</td>
+<td valign="top">Newline. On Unix-like systems, this produces a linefeed.</td>
 </tr>
 <tr>
 <td valign="top">\r</td>
-<td valign="top">Carriage return &nbsp; 回车符</td>
+<td valign="top">Carriage return</td>
 </tr>
 <tr>
 <td valign="top">\t</td>
-<td valign="top">Tab &nbsp; 制表符</td>
+<td valign="top">Tab</td>
+</tr>
+</table>
+
+<table class="multi">
+<tr>
+<th class="title"> 转义序列</th>
+<th class="title"> 意思</th>
+</tr>
+<tr>
+<td valign="top" width="25%">\a</td>
+<td valign="top"> 响铃（"警告"－导致计算机嘟嘟响）</td>
+</tr>
+<tr>
+<td valign="top">\b</td>
+<td valign="top"> 退格符</td>
+</tr>
+<tr>
+<td valign="top">\n</td>
+<td valign="top"> 新的一行。在类似 Unix 系统中，产生换行。</td>
+</tr>
+<tr>
+<td valign="top">\r</td>
+<td valign="top"> 回车符</td>
+</tr>
+<tr>
+<td valign="top">\t</td>
+<td valign="top"> 制表符</td>
 </tr>
 </table>
 

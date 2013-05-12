@@ -560,9 +560,13 @@ mv 命令可以执行文件移动和文件命名任务，这依赖于你怎样�
     
 to move or rename file or directory “item1” to “item2” or:
 
+把文件或目录 “item1” 移动或重命名为 “item2”, 或者：
+
     mv item... directory
     
 to move one or more items from one directory to another.
+
+把一个或多个条目从一个目录移动到另一个目录中。
 
 ### Useful Options And Examples
 
@@ -677,6 +681,8 @@ class="title">移动 file1到 file2。<b>如果 file2存在，它的内容会被
 ### rm - Remove Files And Directories
 
 The rm command is used to remove(delete)files and directories:
+
+rm 命令用来移除（删除）文件和目录：
 
     rm item...
     

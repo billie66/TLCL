@@ -781,8 +781,8 @@ format directory listing.</td>
 
 <table class="multi">
 <tr>
-<th class="title">Line</th>
-<th class="title">Meaning</th>
+<th class="title">文本行</th>
+<th class="title">含义</th>
 </tr>
 <tr>
 <td valign="top" width="25%">umask 0002 </td>
@@ -866,10 +866,10 @@ these lines:</p>
 是为了给读者在可能的配置选项方面一些建议，或者给出正确的配置语法实例。例如，Ubuntu 8.04 
 中的 .bashrc 文件包含这些行：</p>
 
-<p># some more ls aliases</p>
-<p>#alias ll='ls -l'</p>
-<p>#alias la='ls -A'</p>
-<p>#alias l='ls -CF'</p>
+  <p># some more ls aliases</p>
+  <p>#alias ll='ls -l'</p>
+  <p>#alias la='ls -A'</p>
+  <p>#alias l='ls -CF'</p>
 
 <p>The last three lines are valid alias definitions that have been commented out. If
 you remove the leading "#" symbols from these three lines, a technique called
