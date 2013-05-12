@@ -2,8 +2,10 @@
 # coding: utf-8
 
 root = File.expand_path(File.dirname(__FILE__), '../book')
+tmpdir = File.join(root, 'tmp')
 outdir = File.join(root, 'zh')
 
+Dir.mkdir(tmpdir) if !Dir.exist?(tmpdir)
 Dir.mkdir(outdir) if !Dir.exist?(outdir)
 
 Dir.glob("#{root}/*.md") do |file|
@@ -11,8 +13,10 @@ Dir.glob("#{root}/*.md") do |file|
   token = false 
   count = 0
 
+  tmpfname = File.join(tmpdir, file.split('/').last)
   outfname = File.join(outdir, file.split('/').last)
-  out = File.open(outfname, 'w')
+
+  out = File.open(tmpfname, 'w')
 
   File.open(file, 'r').each_line do |line|
     case line 
@@ -47,4 +51,10 @@ Dir.glob("#{root}/*.md") do |file|
   end
 
   out.close
+
+  system("uniq < #{tmpfname} > #{outfname}")
 end
+
+system("rm -rf #{tmpdir}")
+
+puts "Done!"
