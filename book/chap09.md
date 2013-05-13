@@ -385,23 +385,37 @@ completion:
 有一系列的控制和元键序列与自动补全相关联：
 
 <table class="multi">
-<caption class="cap">Table 9-4: Completion Commands &nbsp; 自动补全命令</caption>
+<caption class="cap">Table 9-4: Completion Commands</caption>
 <tr>
-<th class="title">Key &nbsp; 按键</th>
-<th class="title">Action &nbsp; 行动</th>
+<th class="title">Key</th>
+<th class="title">Action</th>
 </tr>
 <tr>
 <td valign="top" width="25%">Alt-?</td>
 <td valign="top">Display list of possible completions. On most systems you can 
-also do this by pressing the tab key a second time, which is much easier.
-&nbsp; 显示可能的自动补全列表。在大多数系统中，你也可以完成这个通过按
-两次 tab 键，这会更容易些。</td>
+also do this by pressing the tab key a second time, which is much easier.</td>
 </tr>
 <tr>
 <td valign="top">Alt-*</td>
 <td valign="top">Insert all possible completions. This is useful when you want
-to use more than one possible match. &nbsp;
-插入所有可能的自动补全。当你想要使用多个可能的匹配项时，这个很有帮助。</td>
+to use more than one possible match.</td>
+</tr>
+
+</table>
+<table class="multi">
+<caption class="cap">表9-4: 自动补全命令</caption>
+<tr>
+<th class="title">按键</th>
+<th class="title">行动</th>
+</tr>
+<tr>
+<td valign="top" width="25%">Alt-?</td>
+<td valign="top"> 显示可能的自动补全列表。在大多数系统中，你也可以完成这个通过按
+两次 tab 键，这会更容易些。</td>
+</tr>
+<tr>
+<td valign="top">Alt-*</td>
+<td valign="top">插入所有可能的自动补全。当你想要使用多个可能的匹配项时，这个很有帮助。</td>
 </tr>
 </table>
 
@@ -531,53 +545,86 @@ The table below lists some of the keystrokes used to manipulate the history list
 这些按键用来操作历史列表：
 
 <table class="multi">
-<caption class="cap">Table 9-5: History Commands &nbsp; 历史命令</caption>
+<caption class="cap">Table 9-5: History Commands</caption>
 <tr>
-<th class="title">Key &nbsp; 按键</th>
-<th class="title">Action &nbsp; 行为</th>
+<th class="title">Key</th>
+<th class="title">Action</th>
 </tr>
 <tr>
 <td valign="top" width="25%">Ctrl-p </td>
-<td valign="top">Move to the previous history entry. Same action as the up arrow.
-&nbsp; 移动到上一个历史条目。类似于上箭头按键。</td>
+<td valign="top">Move to the previous history entry. Same action as the up arrow.</td>
 </tr>
 <tr>
-<td valign="top">Ctrl-n </td>
-<td valign="top">Move to the next history entry. Same action as the down arrow.
-&nbsp; 移动到下一个历史条目。类似于下箭头按键。</td>
+<td valign="top">Ctrl-n</td>
+<td valign="top">Move to the next history entry. Same action as the down arrow.</td>
 </tr>
 <tr>
 <td valign="top">Alt-&lt; </td>
-<td valign="top">Move to the beginning (top) of the history list. &nbsp;
-移动到历史列表开头。</td>
+<td valign="top">Move to the beginning (top) of the history list.</td>
 </tr>
 <tr>
 <td valign="top">Alt-&gt; </td>
 <td valign="top">Move to the end (bottom) of the history list, i.e., the current
-command line. &nbsp; 移动到历史列表结尾，即当前命令行。</td>
+command line.</td>
 </tr>
 <tr>
 <td valign="top">Ctrl-r </td>
 <td valign="top">Reverse incremental search. Searches incrementally from the 
-current command line up the history list. &nbsp; 反向递增搜索。从当前命令行开始，向上递增搜索。</td>
+current command line up the history list.</td>
 </tr>
 <tr>
 <td valign="top">Alt-p </td>
 <td valign="top">Reverse search, non-incremental. With this key, type in the search
-string and press enter before the search is performed. &nbsp;
-反向搜索，不是递增顺序。输入要查找的字符串，然后按下 Enter，执行搜索。</td>
+string and press enter before the search is performed.</td>
 </tr>
 <tr>
 <td valign="top">Alt-n </td>
-<td valign="top">Forward search, non-incremental. &nbsp;
-向前搜索，非递增顺序。</td>
+<td valign="top">Forward search, non-incremental.</td>
 </tr>
 <tr>
 <td valign="top">Ctrl-o </td>
 <td valign="top">Execute the current item in the history list and advance to the next
 one. This is handy if you are trying to re-execute a sequence of
-commands in the history list. &nbsp; 执行历史列表中的当前项，并移到下一个。
-如果你想要执行历史列表中一系列的命令，这很方便。</td>
+commands in the history list.</td>
+</tr>
+</table>
+<table class="multi">
+<caption class="cap">表9-5: 历史命令</caption>
+<tr>
+<th class="title">按键</th>
+<th class="title">行为</th>
+</tr>
+<tr>
+<td valign="top" width="25%">Ctrl-p </td>
+<td valign="top">移动到上一个历史条目。类似于上箭头按键。</td>
+</tr>
+<tr>
+<td valign="top">Ctrl-n </td>
+<td valign="top">移动到下一个历史条目。类似于下箭头按键。</td>
+</tr>
+<tr>
+<td valign="top">Alt-&lt; </td>
+<td valign="top"> 移动到历史列表开头。</td>
+</tr>
+<tr>
+<td valign="top">Alt-&gt; </td>
+<td valign="top">移动到历史列表结尾，即当前命令行。</td>
+</tr>
+<tr>
+<td valign="top">Ctrl-r </td>
+<td valign="top">反向递增搜索。从当前命令行开始，向上递增搜索。</td>
+</tr>
+<tr>
+<td valign="top">Alt-p </td>
+<td valign="top">反向搜索，不是递增顺序。输入要查找的字符串，然后按下 Enter，执行搜索。</td>
+</tr>
+<tr>
+<td valign="top">Alt-n </td>
+<td valign="top"> 向前搜索，非递增顺序。</td>
+</tr>
+<tr>
+<td valign="top">Ctrl-o </td>
+<td valign="top">执行历史列表中的当前项，并移到下一个。如果你想要执行历史列表中一系列的命令，这很方便。</td>
 </tr>
 </table>
 
@@ -594,39 +641,50 @@ features:
 ，其后再加上一个数字，可以把来自历史列表中的命令插入到命令行中。还有一些其它的展开特性：
 
 <table class="multi">
-<caption class="cap">Table 9-6: History Expansion Commands &nbsp; 历史展开命令
-</caption>
+<caption class="cap">Table 9-6: History Expansion Commands</caption>
 <tr>
-<th class="title">Sequence &nbsp; 序列</th>
-<th class="title">Action &nbsp; 行为</th>
+<th class="title">Sequence</th>
+<th class="title">Action</th>
 </tr>
 <tr>
 <td valign="top" width="25%">!!</td>
-<td valign="top">Repeat the last command. It is probably easier to press up arrow
-and enter. &nbsp;
-重复最后一次执行的命令。可能按下上箭头按键和 enter 键更容易些。
-</td>
+<td valign="top">Repeat the last command. It is probably easier to press up arrow and enter.</td>
 </tr>
 <tr>
-<td valign="top">!number 
-</td>
-<td valign="top">Repeat history list item number. &nbsp;
-重复历史列表中第 number 行的命令。
-</td>
+<td valign="top">!number</td>
+<td valign="top">Repeat history list item number.</td>
 </tr>
 <tr>
-<td valign="top">!string 
-</td>
-<td valign="top">Repeat last history list item starting with string. &nbsp; 
-重复最近历史列表中，以这个字符串开头的命令。
-</td>
+<td valign="top">!string</td>
+<td valign="top">Repeat last history list item starting with string.</td>
 </tr>
 <tr>
-<td valign="top">!?string 
-</td>
-<td valign="top">Repeat last history list item containing string. &nbsp; 
-重复最近历史列表中，包含这个字符串的命令。
-</td>
+<td valign="top">!?string</td>
+<td valign="top">Repeat last history list item containing string.</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表9-6: 历史展开命令 </caption>
+<tr>
+<th class="title">序列</th>
+<th class="title">行为</th>
+</tr>
+<tr>
+<td valign="top" width="25%">!!</td>
+<td valign="top">重复最后一次执行的命令。可能按下上箭头按键和 enter 键更容易些。</td>
+</tr>
+<tr>
+<td valign="top">!number</td>
+<td valign="top">重复历史列表中第 number 行的命令。</td>
+</tr>
+<tr>
+<td valign="top">!string</td>
+<td valign="top">重复最近历史列表中，以这个字符串开头的命令。</td>
+</tr>
+<tr>
+<td valign="top">!?string</td>
+<td valign="top">重复最近历史列表中，包含这个字符串的命令。</td>
 </tr>
 </table>
 
