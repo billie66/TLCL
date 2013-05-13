@@ -22,7 +22,7 @@ Dir.glob("#{root}/*.md") do |file|
     case line 
     when /^---$/, /^layout: book$/, /^title:/, /^<div/, /<\/div>/
       out << line
-    when /<http:/, /^$/, /^\s{2}/, /<br \/>/
+    when /<http:/, /^$/, /^\s{4}/, /<br \/>/
       out << line 
     when /<img/, /class=\"figure\"/
       out << line 
