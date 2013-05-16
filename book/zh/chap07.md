@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: book-zh
 title: 重&nbsp;定&nbsp;向 
 ---
 

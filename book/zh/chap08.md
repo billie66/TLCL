@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: book-zh
 title: 从 shell 眼中看世界 
 ---
 

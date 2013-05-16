@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: book-zh
 title: 读取键盘输入 
 ---
 

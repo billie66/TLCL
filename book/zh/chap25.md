@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: book-zh
 title: 编写第一个 Shell 脚本 
 ---
 

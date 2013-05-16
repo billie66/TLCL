@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: book-zh
 title: vi 简介 
 ---
 

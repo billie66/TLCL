@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: book-zh
 title: 启动一个项目 
 ---
 

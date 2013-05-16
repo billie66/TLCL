@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: book-zh
 title: 自定制 shell 提示符 
 ---
 

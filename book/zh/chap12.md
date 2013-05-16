@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: book-zh
 title: shell&nbsp;环&nbsp;境
 ---
 

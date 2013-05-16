@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: book-zh
 title: 键盘高级操作技巧 
 ---
 

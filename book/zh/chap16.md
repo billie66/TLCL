@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: book-zh
 title: 存储媒介 
 ---
 
