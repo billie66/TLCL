@@ -13,20 +13,32 @@ this chapter are:
 的命令。这一章将介绍以下命令：
 
 * type – Indicate how a command name is interpreted
+
+* type – 说明怎样解释一个命令名
+
 * which – Display which executable program will be executed
+
+* which – 显示会执行哪个可执行程序
+
 * man – Display a command's manual page
+
+* man – 显示命令手册页
+
 * apropos – Display a list of appropriate commands
+
+* apropos – 显示一系列适合的命令
+
 * info – Display a command's info entry
+
+* info – 显示命令 info
+
 * whatis – Display a very brief description of a command
+
+* whatis – 显示一个命令的简洁描述
+
 * alias – Create an alias for a command
 
-<ul><li>type – 说明怎样解释一个命令名</li>
-<li> which – 显示会执行哪个可执行程序</li>
-<li> man – 显示命令手册页</li>
-<li> apropos – 显示一系列适合的命令</li>
-<li> info – 显示命令 info</li>
-<li> whatis – 显示一个命令的简洁描述</li>
-<li> alias – 创建命令别名</li></ul>
+* alias – 创建命令别名
 
 ### What Exactly Are Commands?
 

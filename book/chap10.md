@@ -46,21 +46,37 @@ the following commands:
 
 在这一章中，我们将看看这一系统安全的本质部分，会介绍以下命令：
 
-* id – Display user identity &nbsp; 显示用户身份号
+* id – Display user identity
 
-* chmod – Change a file's mode &nbsp; 更改文件模式
+* id – 显示用户身份号
 
-* umask – Set the default file permissions &nbsp; 设置默认的文件权限
+* chmod – Change a file's mode
 
-* su – Run a shell as another user &nbsp; 以另一个用户的身份来运行 shell
+* chmod – 更改文件模式
 
-* sudo – Execute a command as another user &nbsp; 以另一个用户的身份来执行命令
+* umask – Set the default file permissions
 
-* chown – Change a file's owner &nbsp; 更改文件所有者
+* umask – 设置默认的文件权限
 
-* chgrp – Change a file's group ownership &nbsp; 更改文件组所有权
+* su – Run a shell as another user
 
-* passwd – Change a user's password &nbsp; 更改用户密码
+* su – 以另一个用户的身份来运行 shell
+
+* sudo – Execute a command as another user
+
+* sudo – 以另一个用户的身份来执行命令
+
+* chown – Change a file's owner
+
+* chown – 更改文件所有者
+
+* chgrp – Change a file's group ownership
+
+* chgrp – 更改文件组所有权
+
+* passwd – Change a user's password
+
+* passwd – 更改用户密码
 
 ### Owners, Group Members, And Everybody Else
 

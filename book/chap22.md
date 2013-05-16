@@ -11,19 +11,32 @@ programs that we will cover in this chapter include:
 这些工具通常让文本准备就绪打印 ， 这是我们在下一章会提到的 。 我们在这章中会提到的工具有 ：
 
 
-* nl – Number lines  添加行号
+* nl – Number lines
 
-* fold – Wrap each line to a specified length  限制文件列宽
+* nl – 添加行号
 
-* fmt – A simple text formatter  一个简单的文本格式转换器
+* fold – Wrap each line to a specified length
 
-* pr – Prepare text for printing  让文本为打印做好准备
+* fold – 限制文件列宽
 
-* printf – Format and print data  格式化数据并打印出来
+* fmt – A simple text formatter
 
-* groff – A document formatting system  一个文件格式系统
+* fmt – 一个简单的文本格式转换器
+
+* pr – Prepare text for printing
+
+* pr – 让文本为打印做好准备
+
+* printf – Format and print data
+
+* printf – 格式化数据并打印出来
+
+* groff – A document formatting system
+
+* groff – 一个文件格式系统
 
 ### Simple Formatting Tools   
+
 ###简单的格式化工具
 
 We’ll look at some of the simple formatting tools first. These are mostly single purpose

@@ -31,19 +31,19 @@ might describe the overall process as the following series of steps:
 
 * Enter house.
 
-<ul><li><p>上车</p></li>
+* 上车
 
-<li><p>开车到市场</p></li>
+* 开车到市场
 
-<li><p>停车</p></li>
+* 停车
 
-<li><p>买食物</p></li>
+* 买食物
 
-<li><p>回到车中</p></li>
+* 回到车中
 
-<li><p>开车回家</p></li>
+* 开车回家
 
-<li><p>回到家中</p></li></ul>
+* 回到家中
 
 However, a person from Mars is likely to need more detail. We could further break down
 the subtask “Park car” into this series of steps:
@@ -62,17 +62,17 @@ the subtask “Park car” into this series of steps:
 
 * Lock car.
 
-<ul><li><p> 找到停车位</p></li>
+*  找到停车位
 
-<li><p> 开车到停车位</p></li>
+* 开车到停车位
 
-<li><p> 关闭引擎</p></li>
+* 关闭引擎
 
-<li><p> 拉紧手刹</p></li>
+* 拉紧手刹
 
-<li><p> 下车</p></li>
+* 下车
 
-<li><p> 锁车</p></li></ul>
+* 锁车
 
 The “Turn off motor” subtask could further be broken down into steps including “Turn
 off ignition,” “Remove ignition key” and so on, until every step of the entire process of
@@ -119,23 +119,23 @@ Our script currently performs the following steps to generate the HTML document:
   
 * Close page.
 
-<ul><li><p>打开网页 </p></li>
+* 打开网页
 
-<li><p>打开网页标头</p></li>
+* 打开网页标头
 
-<li><p>设置网页标题</p></li>
+* 设置网页标题
 
-<li><p>关闭网页标头</p></li>
+* 关闭网页标头
 
-<li><p>打开网页主体部分</p></li>
+* 打开网页主体部分
 
-<li><p>输出网页标头</p></li>
+* 输出网页标头
 
-<li><p>输出时间戳</p></li>
+* 输出时间戳
 
-<li><p>关闭网页主体</p></li>
+* 关闭网页主体
 
-<li><p>关闭网页</p></li></ul>
+* 关闭网页
 
 For our next stage of development, we will add some additional tasks between steps 7
 and 8. These will include:
@@ -150,12 +150,12 @@ and 8. These will include:
 
 * Home space. The amount of storage space being used by each user.
 
-<ul><li><p>系统正常运行时间和负载。这是自上次关机或重启之后系统的运行时间，以及在几个时间间隔内当前运行在处理
-中的平均任务量。</p></li>
+* 系统正常运行时间和负载。这是自上次关机或重启之后系统的运行时间，以及在几个时间间隔内当前运行在处理
+中的平均任务量。
 
-<li><p>磁盘空间。系统中存储设备的总使用量。</p></li>
+* 磁盘空间。系统中存储设备的总使用量。
 
-<li><p>主目录空间。每个用户所使用的存储空间数量。</p></li></ul>
+* 主目录空间。每个用户所使用的存储空间数量。
 
 If we had a command for each of these tasks, we could add them to our script simply
 through command substitution:

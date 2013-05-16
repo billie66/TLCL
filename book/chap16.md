@@ -31,17 +31,29 @@ We will look at the following commands:
 
 我们将看看以下命令：
 
-* mount – Mount a file system   挂载一个文件系统
+* mount – Mount a file system
 
-* umount – Unmount a file system  卸载一个文件系统
+* mount – 挂载一个文件系统
 
-* fsck – Check and repair a file system  检查和修复一个文件系统
+* umount – Unmount a file system
 
-* fdisk – Partition table manipulator  分区表控制器 
+* umount – 卸载一个文件系统
 
-* mkfs – Create a file system  创建文件系统
+* fsck – Check and repair a file system
 
-* fdformat – Format a floppy disk  格式化一张软盘
+* fsck – 检查和修复一个文件系统
+
+* fdisk – Partition table manipulator
+
+* fdisk – 分区表控制器 
+
+* mkfs – Create a file system
+
+* mkfs – 创建文件系统
+
+* fdformat – Format a floppy disk
+
+* fdformat – 格式化一张软盘
 
 * dd – Write block oriented data directly to a device
 
