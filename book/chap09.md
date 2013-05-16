@@ -82,7 +82,7 @@ The following table lists the keys used to move the cursor:
 </tr>
 <tr>
 <td valign="top">Ctrl-b</td>
-<td valign="top">Move cursor backward one character;same as the left arrow key./td>
+<td valign="top">Move cursor backward one character;same as the left arrow key.</td>
 </tr>
 <tr>
 <td valign="top">Alt-f</td>
@@ -169,6 +169,7 @@ Table 9-2 lists keyboard commands that are used to edit characters on the comman
 <td valign="top">Convert the characters from the cursor location to the end of the word to uppercase.</td>
 </tr>
 </table>
+
 <table class="multi">
 <caption class="cap">表9-2: 文本编辑命令</caption>
 <tr>

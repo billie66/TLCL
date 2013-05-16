@@ -481,6 +481,64 @@ appearance of “light” colors:
 </tr>
 </table>
 
+<table class="multi">
+<caption class="cap">表14-2: 用转义序列来设置文本颜色</caption>
+<tr>
+<th class="title">序列</th>
+<th class="title">文本颜色</th>
+<th class="title">序列</th>
+<th class="title">文本颜色</th>
+</tr>
+<tr>
+<td valign="top">\033[0;30m</td>
+<td valign="top">黑色</td>
+<td valign="top">\033[1;30m </td>
+<td valign="top">深灰色</td>
+</tr>
+<tr>
+<td valign="top">\033[0;31m</td>
+<td valign="top">红色</td>
+<td valign="top">\033[1;31m </td>
+<td valign="top">浅红色</td>
+</tr>
+<tr>
+<td valign="top">\033[0;32m </td>
+<td valign="top">绿色</td>
+<td valign="top">\033[1;32m </td>
+<td valign="top">浅绿色</td>
+</tr>
+<tr>
+<td valign="top">\033[0;33m </td>
+<td valign="top">棕色</td>
+<td valign="top">\033[1;33m </td>
+<td valign="top">黄色</td>
+</tr>
+<tr>
+<td valign="top">\033[0;34m </td>
+<td valign="top">蓝色</td>
+<td valign="top">\033[1;34m </td>
+<td valign="top">浅蓝色</td>
+</tr>
+<tr>
+<td valign="top">\033[0;35m </td>
+<td valign="top">粉红</td>
+<td valign="top">\033[1;35m </td>
+<td valign="top">浅粉色</td>
+</tr>
+<tr>
+<td valign="top">\033[0;36m </td>
+<td valign="top">青色</td>
+<td valign="top">\033[1;36m </td>
+<td valign="top">浅青色</td>
+</tr>
+<tr>
+<td valign="top">\033[0;37m </td>
+<td valign="top">浅灰色</td>
+<td valign="top">\033[1;37m </td>
+<td valign="top">白色</td>
+</tr>
+</table>
+
 Let's try to make a red prompt. We'll insert the escape code at the beginning:
 
 让我们试着制作一个红色提示符。我们将在开头加入转义编码：
@@ -532,6 +590,34 @@ background colors do not support the bold attribute.
 <td valign="top">Brown</td>
 <td valign="top">\033[1;47m </td>
 <td valign="top">Light Gray</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表14-3: 用转义序列来设置背景颜色</caption>
+<tr>
+<td valign="top">\033[0;40m </td>
+<td valign="top">蓝色</td>
+<td valign="top">\033[1;44m </td>
+<td valign="top">黑色</td>
+</tr>
+<tr>
+<td valign="top">\033[0;41m </td>
+<td valign="top">红色</td>
+<td valign="top">\033[1;45m </td>
+<td valign="top">粉红</td>
+</tr>
+<tr>
+<td valign="top">\033[0;42m </td>
+<td valign="top">绿色</td>
+<td valign="top">\033[1;46m </td>
+<td valign="top">青色</td>
+</tr>
+<tr>
+<td valign="top">\033[0;43m </td>
+<td valign="top">棕色</td>
+<td valign="top">\033[1;47m </td>
+<td valign="top">浅灰色</td>
 </tr>
 </table>
 

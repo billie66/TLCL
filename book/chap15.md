@@ -76,6 +76,22 @@ Mandriva, PCLinuxOS</td>
 </tr>
 </table>
 
+<table class="multi">
+<caption class="cap">表15-1: 主要的包管理系统家族</caption>
+<tr>
+<th class="title">包管理系统</th>
+<th class="title">发行版 (部分列表)</th>
+</tr>
+<tr>
+<td valign="top" width="25%">Debian Style (.deb) </td>
+<td valign="top">Debian, Ubuntu, Xandros, Linspire</td>
+</tr>
+<tr>
+<td valign="top">Red Hat Style (.rpm) </td>
+<td valign="top">Fedora, CentOS, Red Hat Enterprise Linux, OpenSUSE, Mandriva, PCLinuxOS</td>
+</tr>
+</table>
+
 How A Package System Works
 
 ### 软件包管理系统是怎样工作的
@@ -210,23 +226,36 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 <table class="multi">
 <caption class="cap">Table15- 2: Packaging System Tools</caption>
 <tr>
-<th class="title">Distributions 
-</th>
-<th class="title">Low-Level Tools 
-</th>
-<th class="title">High-Level Tools
-</th>
+<th class="title">Distributions</th>
+<th class="title">Low-Level Tools</th>
+<th class="title">High-Level Tools</th>
 </tr>
 <tr>
-<td valign="top">Debian-Style 
-</td>
+<td valign="top">Debian-Style</td>
 <td valign="top">dpkg</td>
 <td valign="top">apt-get, aptitude</td>
 </tr>
 <tr>
-<td valign="top">Fedora, Red Hat
-Enterprise Linux, CentOS
-</td>
+<td valign="top">Fedora, Red Hat Enterprise Linux, CentOS</td>
+<td valign="top">rpm</td>
+<td valign="top">yum</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表15-2: 包管理工具</caption>
+<tr>
+<th class="title">发行版</th>
+<th class="title">底层工具</th>
+<th class="title">上层工具</th>
+</tr>
+<tr>
+<td valign="top">Debian-Style</td>
+<td valign="top">dpkg</td>
+<td valign="top">apt-get, aptitude</td>
+</tr>
+<tr>
+<td valign="top">Fedora, Red Hat Enterprise Linux, CentOS</td>
 <td valign="top">rpm</td>
 <td valign="top">yum</td>
 </tr>
@@ -264,8 +293,23 @@ on its name or description.
 </tr>
 <tr>
 <td valign="top">Debian</td>
-<td valign="top">apt-get update
-<p>apt-cache search search_string</p></td>
+<td valign="top">apt-get update <p>apt-cache search search_string</p></td>
+</tr>
+<tr>
+<td valign="top">Red Hat</td>
+<td valign="top">yum search search_string</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表15-3: 软件包查找工具</caption>
+<tr>
+<th class="title">风格</th>
+<th class="title">命令</th>
+</tr>
+<tr>
+<td valign="top">Debian</td>
+<td valign="top">apt-get update <p>apt-cache search search_string</p></td>
 </tr>
 <tr>
 <td valign="top">Red Hat</td>
@@ -290,16 +334,30 @@ full dependency resolution.
 上层工具允许从一个资源库中下载一个软件包，并经过完全依赖解析来安装它。
 
 <table class="multi">
-<caption class="cap">Table 15-4: Package Installation Commands
-</caption>
+<caption class="cap">Table 15-4: Package Installation Commands</caption>
 <tr>
 <th class="title">Style</th>
 <th class="title">Command(s)</th>
 </tr>
 <tr>
 <td valign="top" >Debian</td>
-<td valign="top">apt-get update
-<p>apt-get install package\_name</p></td>
+<td valign="top">apt-get update <p>apt-get install package\_name</p></td>
+</tr>
+<tr>
+<td valign="top">Red Hat</td>
+<td valign="top">yum install package\_name</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表15-4: 软件包安装命令</caption>
+<tr>
+<th class="title">风格</th>
+<th class="title">命令</th>
+</tr>
+<tr>
+<td valign="top" >Debian</td>
+<td valign="top">apt-get update <p>apt-get install package\_name</p></td>
 </tr>
 <tr>
 <td valign="top">Red Hat</td>
@@ -329,8 +387,23 @@ installed directly (though without dependency resolution) using a low-level tool
 <th class="title">Command(s)</th>
 </tr>
 <tr>
-<td valign="top">Debian 
-</td>
+<td valign="top">Debian</td>
+<td valign="top">dpkg --install package_file</td>
+</tr>
+<tr>
+<td valign="top">Red Hat</td>
+<td valign="top">rpm -i package_file</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表15-5: 底层软件包安装命令</caption>
+<tr>
+<th class="title">风格</th>
+<th class="title">命令</th>
+</tr>
+<tr>
+<td valign="top">Debian</td>
 <td valign="top">dpkg --install package_file</td>
 </tr>
 <tr>
@@ -370,11 +443,26 @@ are shown below.
 可以使用上层或者底层工具来卸载软件。下面是可用的上层工具。
 
 <table class="multi">
-<caption class="cap">Table15- 6: Package Removal Commands
-</caption>
+<caption class="cap">Table15-6: Package Removal Commands</caption>
 <tr>
 <th class="title">Style</th>
 <th class="title">Command(s)</th>
+</tr>
+<tr>
+<td valign="top">Debian</td>
+<td valign="top">apt-get remove package_name</td>
+</tr>
+<tr>
+<td valign="top">Red Hat</td>
+<td valign="top">yum erase package_name</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表15-6: 软件包删除命令</caption>
+<tr>
+<th class="title">风格</th>
+<th class="title">命令</th>
 </tr>
 <tr>
 <td valign="top">Debian</td>
@@ -403,11 +491,28 @@ latest packages. The high-level tools can perform this vital task in one single 
 这个至关重要的任务。
 
 <table class="multi">
-<caption class="cap">Table 15-7: Package Update Commands
-</caption>
+<caption class="cap">Table 15-7: Package Update Commands</caption>
 <tr>
 <th class="title">Style</th>
 <th class="title">Command(s)</th>
+</tr>
+<tr>
+<td valign="top">Debian</td>
+<td valign="top">apt-get update; apt-get upgrade
+</td>
+</tr>
+<tr>
+<td valign="top">Red Hat</td>
+<td valign="top">yum update
+</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表15-7: 软件包更新命令</caption>
+<tr>
+<th class="title">风格</th>
+<th class="title">命令</th>
 </tr>
 <tr>
 <td valign="top">Debian</td>
@@ -428,8 +533,6 @@ system:
 
     apt-get update; apt-get upgrade
     
-    
-
 Upgrading A Package From A Package File
 
 ### 经过软件包文件来升级软件
@@ -441,21 +544,34 @@ can be installed, replacing the previous version:
 替代先前的版本：
 
 <table class="multi">
-<caption class="cap">Table 15-8: Low-Level Package Upgrade Commands
-</caption>
+<caption class="cap">Table 15-8: Low-Level Package Upgrade Commands</caption>
 <tr>
 <th class="title">Style</th>
 <th class="title">Command(s)</th>
 </tr>
 <tr>
 <td valign="top">Debian</td>
-<td valign="top">dpkg --install package_file
-</td>
+<td valign="top">dpkg --install package_file</td>
 </tr>
 <tr>
 <td valign="top">Red Hat</td>
-<td valign="top">rpm -U package_file
-</td>
+<td valign="top">rpm -U package_file</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表15-8: 底层软件包升级命令</caption>
+<tr>
+<th class="title">风格</th>
+<th class="title">命令</th>
+</tr>
+<tr>
+<td valign="top">Debian</td>
+<td valign="top">dpkg --install package_file</td>
+</tr>
+<tr>
+<td valign="top">Red Hat</td>
+<td valign="top">rpm -U package_file</td>
 </tr>
 </table>
 
@@ -487,16 +603,30 @@ These commands can be used to display a list of all the packages installed on th
 下表中的命令可以用来显示安装到系统中的所有软件包列表：
 
 <table class="multi">
-<caption class="cap">Table 15-9: Package Listing Commands
-</caption>
+<caption class="cap">Table 15-9: Package Listing Commands</caption>
 <tr>
 <th class="title">Style</th>
 <th class="title">Command(s)</th>
 </tr>
 <tr>
 <td valign="top">Debian</td>
-<td valign="top">dpkg --list
-</td>
+<td valign="top">dpkg --list</td>
+</tr>
+<tr>
+<td valign="top">Red Hat</td>
+<td valign="top">rpm -qa</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表15-9: 列出所安装的软件包命令</caption>
+<tr>
+<th class="title">风格</th>
+<th class="title">命令</th>
+</tr>
+<tr>
+<td valign="top">Debian</td>
+<td valign="top">dpkg --list</td>
 </tr>
 <tr>
 <td valign="top">Red Hat</td>
@@ -513,21 +643,34 @@ These low-level tools can be used to display whether a specified package is inst
 这些底端工具可以用来显示是否安装了一个指定的软件包：
 
 <table class="multi">
-<caption class="cap">Table 15-10: Package Status Commands
-</caption>
+<caption class="cap">Table 15-10: Package Status Commands</caption>
 <tr>
 <th class="title">Style</th>
 <th class="title">Command(s)</th>
 </tr>
 <tr>
 <td valign="top">Debian</td>
-<td valign="top">dpkg --status package_name
-</td>
+<td valign="top">dpkg --status package_name</td>
 </tr>
 <tr>
 <td valign="top">Red Hat</td>
-<td valign="top">rpm -q package_name
-</td>
+<td valign="top">rpm -q package_name</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表15-10: 软件包状态命令</caption>
+<tr>
+<th class="title">风格</th>
+<th class="title">命令</th>
+</tr>
+<tr>
+<td valign="top">Debian</td>
+<td valign="top">dpkg --status package_name</td>
+</tr>
+<tr>
+<td valign="top">Red Hat</td>
+<td valign="top">rpm -q package_name</td>
 </tr>
 </table>
 
@@ -547,11 +690,26 @@ display a description of the package:
 如果知道了所安装软件包的名字，使用以下命令可以显示这个软件包的说明信息：
 
 <table class="multi">
-<caption class="cap">Table 15-11: Package Information Commands
-</caption>
+<caption class="cap">Table 15-11: Package Information Commands</caption>
 <tr>
 <th class="title">Style</th>
 <th class="title">Command(s)</th>
+</tr>
+<tr>
+<td valign="top">Debian</td>
+<td valign="top">apt-cache show package_name</td>
+</tr>
+<tr>
+<td valign="top">Red Hat</td>
+<td valign="top">yum info package_name</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表15-11: 查看软件包信息命令</caption>
+<tr>
+<th class="title">风格</th>
+<th class="title">命令</th>
 </tr>
 <tr>
 <td valign="top">Debian</td>
@@ -579,21 +737,34 @@ following commands can be used:
 确定哪个软件包对所安装的某个特殊文件负责，使用下表中的命令：
 
 <table class="multi">
-<caption class="cap">Table 15-12: Package File Identification Commands
-</caption>
+<caption class="cap">Table 15-12: Package File Identification Commands</caption>
 <tr>
 <th class="title">Style</th>
 <th class="title">Command(s)</th>
 </tr>
 <tr>
 <td valign="top">Debian</td>
-<td valign="top">dpkg --search file_name
-</td>
+<td valign="top">dpkg --search file_name</td>
 </tr>
 <tr>
 <td valign="top">Red Hat</td>
-<td valign="top">rpm -qf file_name
-</td>
+<td valign="top">rpm -qf file_name</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表15-12: 包文件识别命令</caption>
+<tr>
+<th class="title">风格</th>
+<th class="title">命令</th>
+</tr>
+<tr>
+<td valign="top">Debian</td>
+<td valign="top">dpkg --search file_name</td>
+</tr>
+<tr>
+<td valign="top">Red Hat</td>
+<td valign="top">rpm -qf file_name</td>
 </tr>
 </table>
 

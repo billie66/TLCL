@@ -33,7 +33,7 @@ Dir.glob("#{root}/*.md") do |file|
       token = false 
       out << line 
     when /^<table/
-      count += 1 
+      count += 1 if !token
       flag = true 
       out << line if count % 2 == 0
     when /table>$/

@@ -1302,4 +1302,3 @@ groups. For more information, see the man pages for the following commands:
 * useradd
 
 * groupadd
-

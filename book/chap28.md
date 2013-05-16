@@ -904,6 +904,30 @@ represent these operations :
 </tr>
 </table>
 
+<table class="multi">
+<caption class="cap">表28-4: 逻辑操作符</caption>
+<tr>
+<th class="title" width="34%">操作符</th>
+<th class="title">测试</th>
+<th class="title" width="34%">[[&nbsp;]] and ((&nbsp;))</th>
+</tr>
+<tr>
+<td valign="top">AND</td>
+<td valign="top">-a</td>
+<td valign="top">&amp;&amp;</td>
+</tr>
+<tr>
+<td valign="top">OR</td>
+<td valign="top">-o</td>
+<td valign="top">||</td>
+</tr>
+<tr>
+<td valign="top">NOT</td>
+<td valign="top">!</td>
+<td valign="top">!</td>
+</tr>
+</table>
+
 Here’s an example of an AND operation. The following script determines if an integer is
 within a range of values:
 

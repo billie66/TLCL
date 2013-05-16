@@ -818,8 +818,7 @@ using the following options:
 从文本行中指定要抽取的文本有些麻烦，使用以下选项：
 
 <table class="multi">
-<caption class="cap">Table 21-3: cut Selection Options
-</caption>
+<caption class="cap">Table 21-3: cut Selection Options</caption>
 <tr>
 <th class="title">Option</th>
 <th class="title">Description</th>

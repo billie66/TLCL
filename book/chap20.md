@@ -1102,7 +1102,7 @@ more than m times.  </td>
 </table>
 
 <table class="multi">
-<caption class="cap">表20-3: 指定匹配的数目 </caption>
+<caption class="cap">表20-3: 指定匹配的数目</caption>
 <tr>
 <th class="title">限定符</th>
 <th class="title">意思</th>

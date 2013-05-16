@@ -391,8 +391,7 @@ see the tar man page for a complete list):
 这里的 mode 是指以下操作模式（这里只展示了一部分，查看 tar 的手册来得到完整列表）之一：
 
 <table class="multi">
-<caption class="cap">Table 19-2: tar Modes
-</caption>
+<caption class="cap">Table 19-2: tar Modes</caption>
 <tr>
 <th class="title">Mode</th>
 <th class="title">Description</th>
@@ -416,8 +415,7 @@ see the tar man page for a complete list):
 </table>
 
 <table class="multi">
-<caption class="cap">表19-2: tar 模式 
-</caption>
+<caption class="cap">表19-2: tar 模式</caption>
 <tr>
 <th class="title">模式</th>
 <th class="title">说明</th>

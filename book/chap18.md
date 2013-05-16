@@ -280,7 +280,7 @@ is megabytes. The following characters may be used to specify units:
 被用来指定测量单位：
 
 <table class="multi">
-<caption class="cap">Table 18-2: find Size Units</caption>
+<caption class="cap">表18-2: find Size Units</caption>
 <tr>
 <th class="title">Character</th>
 <th class="title">Unit</th>
@@ -308,6 +308,38 @@ is megabytes. The following characters may be used to specify units:
 <tr>
 <td valign="top">G</td>
 <td valign="top">Gigabytes (Units of 1073741824 bytes)</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">Table 18-2: find 大小单位</caption>
+<tr>
+<th class="title">字符</th>
+<th class="title">单位</th>
+</tr>
+<tr>
+<td valign="top" width="25%">b</td>
+<td valign="top">512 个字节块。如果没有指定单位，则这是默认值。</td>
+</tr>
+<tr>
+<td valign="top">c</td>
+<td valign="top">字节</td>
+</tr>
+<tr>
+<td valign="top">w</td>
+<td valign="top">两个字节的字</td>
+</tr>
+<tr>
+<td valign="top">k</td>
+<td valign="top">千字节(1024个字节单位)</td>
+</tr>
+<tr>
+<td valign="top">M</td>
+<td valign="top">兆字节(1048576个字节单位)</td>
+</tr>
+<tr>
+<td valign="top">G</td>
+<td valign="top">千兆字节(1073741824个字节单位)</td>
 </tr>
 </table>
 
@@ -845,8 +877,7 @@ execution:
 
 <table class="multi">
 <tr>
-<th class="title">Test/Action 
-</th>
+<th class="title">Test/Action</th>
 <th class="title">Is Performed Only If...</th>
 </tr>
 <tr>
@@ -866,8 +897,7 @@ execution:
 
 <table class="multi">
 <tr>
-<th class="title">测试／行为 
-</th>
+<th class="title">测试／行为 </th>
 <th class="title">只有...的时候，才被执行</th>
 </tr>
 <tr>

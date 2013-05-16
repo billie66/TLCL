@@ -361,10 +361,7 @@ a high quality script.
 这条语句才返回一个 0 退出状态。而其它任何输入概不接受。有时候编写这类测试条件非常具有挑战性，
 但是为了能产出一个高质量的脚本，付出还是必要的。
 
-<table class="single" >
-<tbody>
-<tr>
-<td>
+<div class="single" >
 <h3>Design Is A Function Of Time</h3>
 <h3>设计是时间的函数</h3>
 <p>When I was a college student studying industrial design, a wise professor stated
@@ -387,10 +384,7 @@ more careful development.</p>
 但这个脚本只能被其作者使用一次。这类脚本很常见，为了节省气力也应该被快速地开发出来。
 所以这些脚本不需要太多的注释和防错检查。相反，如果一个脚本打算用于生产使用，也就是说，
 某个重要任务或者多个客户会不断地用到它，此时这个脚本就需要非常谨慎小心地开发了。</p>
-</td>
-</tr>
-</tbody>
-</table>
+</div>
 
 ### Testing
 
