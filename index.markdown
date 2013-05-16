@@ -5,7 +5,12 @@ layout: default
 <h2 style="text-align:center">The Linux Command Line</h2>
 <br />
 
-[本书](book)是[The Linux Command Line](http://linuxcommand.org/) 的中文版。
+本书是[The Linux Command Line](http://linuxcommand.org/) 的中文版,
+提供了两种不同的阅读方式。
+
+* [中英文混合版](book)
+
+* [中文版](book/zh)
 
 欢迎大家参与本书的翻译: [github](https://github.com/billie66/TLCL)
 
