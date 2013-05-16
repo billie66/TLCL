@@ -70,3 +70,9 @@ th.title {
     text-align: right;
 }
   
+.version {
+	font-size: 15px;
+}
+.contents {
+	margin-top: 10px;
+}

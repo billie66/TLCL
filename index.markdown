@@ -6,7 +6,7 @@ layout: default
 <br />
 
 本书是[The Linux Command Line](http://linuxcommand.org/) 的中文版,
-提供了两种不同的阅读方式。
+为大家提供了两种不同的阅读方式。
 
 * [中英文混合版](book)
 
