@@ -314,10 +314,9 @@ mv 与 cp 共享了很多一样的选项：
 <table class="multi">
 <caption class="cap">表 5－7 mv 实例</caption>
 <tr>
-<th class="title">mv file1 file2</th>
-<th
-class="title">移动 file1到 file2。<b>如果 file2存在，它的内容会被 file1的内容重写。
-</b>如果 file2不存在，则创建 file2。<b> 每种情况下，file1不再存在。</b></th>
+<td class="title">mv file1 file2</td>
+<td class="title">移动 file1到 file2。<b>如果 file2存在，它的内容会被 file1的内容重写。
+</b>如果 file2不存在，则创建 file2。<b> 每种情况下，file1不再存在。</b></td>
 </tr>
 <tr>
 <td valign="top" width="25%">mv -i file1 file2</td>
@@ -326,14 +325,13 @@ class="title">移动 file1到 file2。<b>如果 file2存在，它的内容会被
 </tr>
 <tr>
 <td valign="top">mv file1 file2 dir1</td>
-<td valign="top">移动 file1和 file2到目录 dir1中。dir1必须已经存在。
-</td>
+<td valign="top">移动 file1和 file2到目录 dir1中。dir1必须已经存在。</td>
 </tr>
 <tr>
 <td valign="top">mv dir1 dir2</td>
-<td valign="top">如果目录 dir2不存在，创建目录 dir2，并且移动目录 dir1的内容到
-目录 dir2中，同时删除目录 dir1。如果目录 dir2存在，移动目录 dir1（及它的内容）到
-目录 dir2。</td>
+<td valign="top">如果目录 dir2不存在，创建目录 dir2，
+并且移动目录 dir1的内容到目录 dir2中，同时删除目录 dir1。
+如果目录 dir2存在，移动目录 dir1（及它的内容）到目录 dir2。</td>
 </tr>
 </table>
 
