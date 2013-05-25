@@ -180,7 +180,7 @@ ls display its results in ascending alphabetical order.  </td>
 <tr>
 <td valign="top">-a</td>
 <td>--all</td>
-<td>列出所有文件，甚至包括文件名以圆点开头的隐藏文件。</td>
+<td>列出所有文件，甚至包括文件名以圆点开头的默认会被隐藏的隐藏文件。</td>
 </tr>
 <tr>
 <td valign="top">-d</td>    
