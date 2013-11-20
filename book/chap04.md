@@ -828,7 +828,7 @@ some systems, you must be the superuser to view log files.</td>
 
 <tr>
 <td valign="top">/etc</td>
-<td valign="top"><p>这个目录包含所有系统层面的配置我文件。它也包含一系列的 shell 脚本，
+<td valign="top"><p>这个目录包含所有系统层面的配置文件。它也包含一系列的 shell 脚本，
 在系统启动时，这些脚本会运行每个系统服务。这个目录中的任何文件应该是可读的文本文件。</p>
 
 <p>有意思的文件：虽然/etc 目录中的任何文件都有趣，但这里只列出了一些我一直喜欢的文件：</p>
