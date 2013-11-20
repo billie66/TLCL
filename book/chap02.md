@@ -94,13 +94,13 @@ previous command disappears.
 
 Cursor Movement
 
-### 移动鼠标
+### 移动光标
 
 Recall the previous command with the up-arrow key again. Now try the left and right-arrow keys. 
 See how we can position the cursor anywhere on the command line? This makes editing commands easy.
 
 可借助上箭头按键，来回想起上次输入的命令。现在试着使用左右箭头按键。
-看一下怎样把鼠标定位到命令行的任意位置？通过使用箭头按键，使编辑命令变得轻松些。
+看一下怎样把光标定位到命令行的任意位置？通过使用箭头按键，使编辑命令变得轻松些。
 
 A Few Words About Mice And Focus
 
