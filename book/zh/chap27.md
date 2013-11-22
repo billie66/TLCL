@@ -338,6 +338,10 @@ shell 函数可以在脚本之间进行剪切和粘贴。
  非常局限于命令的种类和它们支持的 shell 功能，然而 shell 函数允许任何可以编写脚本的东西。
  例如，如果我们喜欢 为我们的脚本开发的这个 report_disk_space shell 函数，我们可以为我们的.bashrc 文件
  创建一个相似的名为 ds 的函数：</p>
+<pre>ds () {
+echo “Disk Space Utilization For $HOSTNAME”
+df -h
+} </pre>
 
 </div>
 <br />
