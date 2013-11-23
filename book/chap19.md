@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 归档和备份 
+title: 归档和备份
 ---
 
 One of the primary tasks of a computer system’s administrator is keeping the system’s
@@ -80,7 +80,7 @@ the basic goal remains the same—get rid of redundant data.
 我们只要简单地描述这个事实，我们有3万个黑色的像素数据块。所以，我们不存储包含3万个0
 （通常在图像文件中，黑色由0来表示）的数据块，取而代之，我们把这些数据压缩为数字30,000，
 后跟一个0，来表示我们的数据。这种数据压缩方案被称为游程编码，是一种最基本的压缩技术。
-   
+
 Compression algorithms (the mathematical techniques used to carry out the compression)
 fall into two general categories, lossless and lossy. Lossless compression preserves all
 the data contained in the original. This means that when a file is restored from a
@@ -127,7 +127,7 @@ permissions and time stamp as the original.
 
 在这个例子里，我们创建了一个名为 foo.txt 的文本文件，其内容包含一个目录的列表清单。
 接下来，我们运行 gzip 命令，它会把原始文件替换为一个叫做 foo.txt.gz 的压缩文件。在
-foo.*文件列表中，我们看到原始文件已经被压缩文件替代了，并将这个压缩文件大约是原始
+foo.\*文件列表中，我们看到原始文件已经被压缩文件替代了，并将这个压缩文件大约是原始
 文件的十五分之一。我们也能看到压缩文件与原始文件有着相同的权限和时间戳。
 
 Next, we run the gunzip program to uncompress the file. Afterward, we can see that
@@ -258,7 +258,7 @@ gzip can also be used in interesting ways via standard input and output:
 的完整性，使用了-t 和-v 选项。
 
     [me@linuxbox ~]$ ls -l /etc | gzip > foo.txt.gz 
-    
+
 This command creates a compressed version of a directory listing.
 
 这个命令创建了一个目录列表的压缩文件。
@@ -271,7 +271,7 @@ conflict with an existing uncompressed file:
 只要指定的名字与现有的未压缩文件不冲突就可以：
 
     [me@linuxbox ~]$ gunzip foo.txt 
-    
+
 If our goal were only to view the contents of a compressed text file, we can do this:
 
 如果我们的目标只是为了浏览一下压缩文本文件的内容，我们可以这样做：
@@ -286,7 +286,7 @@ files:
 它可以被用来如 cat 命令作用于 gzip 压缩文件：
 
     [me@linuxbox ~]$ zcat foo.txt.gz | less 
-    
+
 <br />
 
 ---
@@ -303,9 +303,9 @@ compression algorithm that achieves higher levels of compression at the cost of
 compression speed. In most regards, it works in the same fashion as gzip. A file
 compressed with bzip2 is denoted with the extension .bz2:
 
-这个 bzip2程序，由 Julian Seward 开发，与 gzip 程序相似，但是使用了不同的压缩算法，
+这个 bzip2 程序，由 Julian Seward 开发，与 gzip 程序相似，但是使用了不同的压缩算法，
 舍弃了压缩速度，而实现了更高的压缩级别。在大多数情况下，它的工作模式等同于 gzip。
-由 bzip2压缩的文件，用扩展名.bz2来表示：
+由 bzip2 压缩的文件，用扩展名.bz2来表示：
 
     [me@linuxbox ~]$ ls -l /etc > foo.txt
     [me@linuxbox ~]$ ls -l foo.txt
@@ -315,17 +315,17 @@ compressed with bzip2 is denoted with the extension .bz2:
     -rw-r--r-- 1 me     me      2792 2008-10-17 13:51 foo.txt.bz2
     [me@linuxbox ~]$ bunzip2 foo.txt.bz2 
 
-As we can see, bzip2 can be used the same way as gzip. All the options (except for -
-r) that we discussed for gzip are also supported in bzip2. Note, however, that the
+As we can see, bzip2 can be used the same way as gzip. All the options (except for -r)
+ that we discussed for gzip are also supported in bzip2. Note, however, that the
 compression level option (-number) has a somewhat different meaning to bzip2.
 bzip2 comes with bunzip2 and bzcat for decompressing files.
 bzip2 also comes with the bzip2recover program, which will try to recover
 damaged .bz2 files.
 
-正如我们所看到的，bzip2程序使用起来和 gzip 程序一样。我们之前讨论的 gzip 程序的所有选项（除了-r）
-，bzip2程序同样也支持。注意，然而，压缩级别选项（-number）对于 bzip2程序来说，有少许不同的含义。
-伴随着 bzip2程序，有 bunzip2和 bzcat 程序来解压缩文件。bzip2文件也带有 bzip2recover 程序，其会
-试图恢复受损的.bz2文件。
+正如我们所看到的，bzip2程序使用起来和 gzip 程序一样。我们之前讨论的 gzip
+程序的所有选项(除了-r), bzip2 程序同样也支持。注意，然而，压缩级别选项（-number）对于 bzip2 程序来说，有少许不同的含义。
+伴随着 bzip2 程序，有 bunzip2 和 bzcat 程序来解压缩文件。bzip2 文件也带有 bzip2recover 程序, 其会
+试图恢复受损的 .bz2 文件。
 
 <div class="single">
 
@@ -552,7 +552,7 @@ can do the following:
 为了制作 tar 包，我们可以这样做：
 
     [me@linuxbox ~]$ sudo tar cf /media/BigDisk/home.tar /home 
-    
+
 After the tar file is written, we unmount the drive and attach it to the second computer.
 Again, it is mounted at /media/BigDisk. To extract the archive, we do this:
 
@@ -591,7 +591,7 @@ is an example using our previous playground.tar file:
 
     [me@linuxbox ~]$ cd foo
     [me@linuxbox foo]$ tar xf ../playground2.tar --wildcards 'home/me/playground/dir-\*/file-A' 
-    
+
 This command will extract only files matching the specified pathname including the
 wildcard dir-\*.
 
@@ -604,7 +604,7 @@ tar 命令经常结合 find 命令一起来制作归档文件。在这个例子�
 产生一个文件集合，然后这些文件被包含到归档文件中。
 
     [me@linuxbox ~]$ find playground -name 'file-A' -exec tar rf playground.tar '{}' '+' 
-    
+
 Here we use find to match all the files in playground named file-A and then,
 using the -exec action, we invoke tar in the append mode (r) to add the matching
 files to the archive playground.tar.
@@ -663,7 +663,7 @@ If we had wanted to create a bzip2 compressed archive instead, we could have don
 如果我们本要创建一个由 bzip2压缩的归档文件，我们可以这样做：
 
     [me@linuxbox ~]$ find playground -name 'file-A' | tar cjf playground.tbz -T - 
-    
+
 By simply changing the compression option from z to j (and changing the output file’s
 extension to .tbz to indicate a bzip2 compressed file) we enabled bzip2 compression.
 Another interesting use of standard input and output with the tar command involves
@@ -935,8 +935,8 @@ different result:
     building file list ... done
     sent 22635 bytes received 20 bytes
     total size is 3230 speedup is 0.14
-    45310.00 bytes/sec 
-    
+    45310.00 bytes/sec
+
 Notice that there was no listing of files. This is because rsync detected that there were
 no differences between ~/playground and ~/foo/playground, and therefore it
 didn’t need to copy anything. If we modify a file in playground and run rsync
@@ -985,7 +985,7 @@ rsync 命令，不断重复这个过程，是一个不错的（虽然不理想�
 当然，别名会对这个操作更有帮助些。我们将会创建一个别名，并把它添加到.bashrc 文件中，
 来提供这个特性：
 
-    alias backup='sudo rsync -av --delete /etc /home /usr/local /media/BigDisk/backup' 
+    alias backup='sudo rsync -av --delete /etc /home /usr/local /media/BigDisk/backup'
 
 Now all we have to do is attach our external drive and run the backup command to do
 the job.
@@ -1010,8 +1010,8 @@ rsync 程序的真正好处之一，是它可以被用来在网络间复制文�
 用远程系统来代替一个外部驱动器，来执行文件备份操作。假定远程系统中有一个名为/backup 的目录，
 其用来存放我们传送的文件，我们这样做：
 
-    [me@linuxbox ~]$ sudo rsync -av --delete --rsh=ssh /etc /home /usr/local remote-sys:/backup 
-    
+    [me@linuxbox ~]$ sudo rsync -av --delete --rsh=ssh /etc /home /usr/local remote-sys:/backup
+
 We made two changes to our command to facilitate the network copy. First, we added
 the --rsh=ssh option, which instructs rsync to use the ssh program as its remote
 shell. In this way, we were able to use an ssh encrypted tunnel to securely transfer the
@@ -1044,8 +1044,8 @@ Hat 软件中心为它的 Fedora 发行版，维护着一个巨大的正在开�
 
     [me@linuxbox ~]$ mkdir fedora-devel
     [me@linuxbox ~]$ rsync -av -delete rsync://rsync.gtlib.gatech.edu/fedora-linux-
-     core/development/i386/os fedora-devel 
-    
+     core/development/i386/os fedora-devel
+
 In this example, we use the URI of the remote rsync server, which consists of a protocol
 (rsync://), followed by the remote host name (rsync.gtlib.gatech.edu),
 followed by the pathname of the repository.
@@ -1055,7 +1055,7 @@ followed by the pathname of the repository.
 
 ### Further Reading
 
-### 拓展阅读 
+### 拓展阅读
 
 * The man pages for all of the commands discussed here are pretty clear and
   contain useful examples. In addition, the GNU Project has a good online manual

@@ -60,7 +60,7 @@ title: 归档和备份
 
 在这个例子里，我们创建了一个名为 foo.txt 的文本文件，其内容包含一个目录的列表清单。
 接下来，我们运行 gzip 命令，它会把原始文件替换为一个叫做 foo.txt.gz 的压缩文件。在
-foo.*文件列表中，我们看到原始文件已经被压缩文件替代了，并将这个压缩文件大约是原始
+foo.\*文件列表中，我们看到原始文件已经被压缩文件替代了，并将这个压缩文件大约是原始
 文件的十五分之一。我们也能看到压缩文件与原始文件有着相同的权限和时间戳。
 
 接下来，我们运行 gunzip 程序来解压缩文件。随后，我们能见到压缩文件已经被原始文件替代了，
@@ -116,7 +116,7 @@ valign="top">解压缩。正如 gunzip 命令一样。也可以用--decompress �
 
 返回到我们之前的例子中：
 
-    [me@linuxbox ~]$ gzip foo.txt 
+    [me@linuxbox ~]$ gzip foo.txt
     [me@linuxbox ~]$ gzip -tv foo.txt.gz
     foo.txt.gz: OK
     [me@linuxbox ~]$ gzip -d foo.txt.gz
@@ -125,7 +125,6 @@ valign="top">解压缩。正如 gunzip 命令一样。也可以用--decompress �
 的完整性，使用了-t 和-v 选项。
 
     [me@linuxbox ~]$ ls -l /etc | gzip > foo.txt.gz 
-    
 
 这个命令创建了一个目录列表的压缩文件。
 
@@ -133,7 +132,6 @@ valign="top">解压缩。正如 gunzip 命令一样。也可以用--decompress �
 只要指定的名字与现有的未压缩文件不冲突就可以：
 
     [me@linuxbox ~]$ gunzip foo.txt 
-    
 
 如果我们的目标只是为了浏览一下压缩文本文件的内容，我们可以这样做：
 

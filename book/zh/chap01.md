@@ -1,6 +1,6 @@
 ---
 layout: book-zh
-title: 引言 
+title: 引言
 ---
 
 我想给大家讲个故事。

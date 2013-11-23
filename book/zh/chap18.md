@@ -1,6 +1,6 @@
 ---
 layout: book-zh
-title: 查找文件 
+title: 查找文件
 ---
 
 因为我们已经浏览了 Linux 系统，所以一件事已经变得非常清楚：一个典型的 Linux 系统包含很多文件！
@@ -8,28 +8,34 @@ title: 查找文件
 类似于 Unix 的操作系统代代传承的习俗。但是仅文件数量就会引起可怕的问题。在这一章中，我们将察看
 两个用来在系统中查找文件的工具。这些工具是：
 
-* locate – 通过名字来查找文件 
+* locate – 通过名字来查找文件
+
 
 * find – 在目录层次结构中搜索文件
 
+
 我们也将看一个经常与文件搜索命令一起使用的命令，它用来处理搜索到的文件列表：
+
 
 * xargs – 从标准输入生成和执行命令行
 
+
 另外，我们将介绍两个命令来协助我们探索：
+
 
 * touch – 更改文件时间
 
+
 * stat – 显示文件或文件系统状态 
 
-### locate – 查找文件的简单方法 
+
+### locate – 查找文件的简单方法
 
 这个 locate 程序快速搜索路径名数据库，并且输出每个与给定字符串相匹配的文件名。比如说，
 例如，我们想要找到所有名字以“zip”开头的程序。因为我们正在查找程序，可以假定包含
 匹配程序的目录以"bin/"结尾。因此，我们试着以这种方式使用 locate 命令，来找到我们的文件：
 
     [me@linuxbox ~]$ locate bin/zip
-    
 
 locate 命令将会搜索它的路径名数据库，输出任一个包含字符串“bin/zip”的路径名：
 
@@ -84,7 +90,8 @@ updatedb 程序。因为数据库不能被持续地更新，所以当使用 loca
 </div>
 <br />
 
-### find – 查找文件的复杂方式 
+
+### find – 查找文件的复杂方式
 
 locate 程序只能依据文件名来查找文件，而 find 程序能基于各种各样的属性，
 搜索一个给定目录（以及它的子目录），来查找文件。我们将要花费大量的时间学习 find 命令，因为
@@ -93,7 +100,6 @@ locate 程序只能依据文件名来查找文件，而 find 程序能基于各�
 find 命令的最简单使用是，搜索一个或多个目录。例如，输出我们的主目录列表。
 
     [me@linuxbox ~]$ find ~
-    
 
 对于最活跃的用户帐号，这将产生一张很大的列表。因为这张列表被发送到标准输出，
 我们可以把这个列表管道到其它的程序中。让我们使用 wc 程序来计算出文件的数量：
@@ -101,20 +107,21 @@ find 命令的最简单使用是，搜索一个或多个目录。例如，输出
     [me@linuxbox ~]$ find ~ | wc -l
     47068
 
+
 哇，我们一直很忙！find 命令的美丽所在就是它能够被用来识别符合特定标准的文件。它通过
 （有点奇怪）应用选项，测试条件，和操作来完成搜索。我们先看一下测试条件。
+
+#### Tests
 
 比如说我们想要目录列表。我们可以添加以下测试条件：
 
     [me@linuxbox ~]$ find ~ -type d | wc -l
     1695
-    
 
 添加测试条件-type d 限制了只搜索目录。相反地，我们使用这个测试条件来限定搜索普通文件：
 
     [me@linuxbox ~]$ find ~ -type f | wc -l
     38737
-    
 
 这里是 find 命令支持的普通文件类型测试条件：
 
@@ -157,8 +164,6 @@ find 命令的最简单使用是，搜索一个或多个目录。例如，输出
 我们正在寻找文件大小大于指定数的文件。若字符串以减号开头，则意味着查找小于指定数的文件。
 若没有符号意味着“精确匹配这个数”。结尾字母“M”表明测量单位是兆字节。下面的字符可以
 被用来指定测量单位：
-
-<caption class="cap">表18-2: find Size Units</caption>
 
 <table class="multi">
 <caption class="cap">Table 18-2: find 大小单位</caption>
@@ -281,6 +286,8 @@ valign="top">匹配的文件或目录属于某个用户。这个用户可以通�
 </tr>
 </table>
 
+This is not a complete list. The find man page has all the details.
+
 这不是一个完整的列表。find 命令手册有更详细的说明。
 
 #### 操作符
@@ -296,23 +303,44 @@ valign="top">匹配的文件或目录属于某个用户。这个用户可以通�
 呀！这的确看起来很奇怪。这些是什么东西？实际上，这些操作符没有那么复杂，一旦你知道了它们。
 这里是操作符列表：
 
+<table class="multi">
 <caption class="cap">表18-4: find 命令的逻辑操作符</caption>
+<tr>
 <th class="title">操作符</th>
 <th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top" width="25%">-and</td>
 <td valign="top">匹配如果操作符两边的测试条件都是真。可以简写为-a。
 注意若没有使用操作符，则默认使用-and。</td>
+</tr>
+<tr>
+<td valign="top">-or</td>
 <td valign="top">匹配若操作符两边的任一个测试条件为真。可以简写为-o。</td>
+</tr>
+<tr>
+<td valign="top">-not</td>
 <td valign="top">匹配若操作符后面的测试条件是真。可以简写为一个感叹号（!）。</td>
+</tr>
+<tr>
+<td valign="top">()</td>
 <td valign="top"> 把测试条件和操作符组合起来形成更大的表达式。这用来控制逻辑计算的优先级。
 默认情况下，find 命令按照从左到右的顺序计算。经常有必要重写默认的求值顺序，以得到期望的结果。
 即使没有必要，有时候包括组合起来的字符，对提高命令的可读性是很有帮助的。注意
 因为圆括号字符对于 shell 来说有特殊含义，所以在命令行中使用它们的时候，它们必须
 用引号引起来，才能作为实参传递给 find 命令。通常反斜杠字符被用来转义圆括号字符。</td>
+</tr>
+</table>
+
+With this list of operators in hand, let’s deconstruct our find command. When viewed
+from the uppermost level, we see that our tests are arranged as two groupings separated
+by an -or operator:
 
 通过这张操作符列表，我们重建 find 命令。从最外层看，我们看到测试条件被分为两组，由一个
 -or 操作符分开：
 
     ( expression 1 ) -or ( expression 2 )
+
 
 这很有意义，因为我们正在搜索具有不同权限集合的文件和目录。如果我们文件和目录两者都查找，
 那为什么要用-or 来代替-and 呢？因为 find 命令扫描文件和目录时，会计算每一个对象，看看它是否
@@ -321,71 +349,66 @@ valign="top">匹配的文件或目录属于某个用户。这个用户可以通�
 
     ( file with bad perms ) -or ( directory with bad perms )
 
+
 下一个挑战是怎样来检查“错误权限”。我们怎样做呢？实际上我们没有那么做。我们将测试
 “不是正确权限”，因为我们知道什么是“正确权限”。对于文件，我们定义正确权限为0600，
 目录则为0711。测试具有“不正确”权限的文件表达式为：
 
     -type f -and -not -perms 0600
 
+
 对于目录，表达式为：
 
     -type d -and -not -perms 0700
+
 
 正如上述操作符列表中提到的，这个-and 操作符能够被安全地删除，因为它是默认使用的操作符。
 所以如果我们把这两个表达式连起来，就得到最终的命令：
 
     find ~ ( -type f -not -perms 0600 ) -or ( -type d -not -perms 0700 )
 
+
 然而，因为圆括号对于 shell 有特殊含义，我们必须转义它们，来阻止 shell 解释它们。在圆括号字符
 之前加上一个反斜杠字符来转义它们。
+
 
 逻辑操作符的另一个特性要重点理解。比方说我们有两个由逻辑操作符分开的表达式：
 
     expr1 -operator expr2
 
+
 在所有情况下，总会执行表达式 expr1；然而由操作符来决定是否执行表达式 expr2。这里
 列出了它是怎样工作的：
 
 <table class="multi">
-<caption class="cap">Table 18-5: find AND/OR Logic</caption>
+<caption class="cap">表18-5: find AND/OR 逻辑</caption>
 <tr>
-<th class="title" width="%30">Results of expr1</th>
-<th class="title" width="%30">Operator</th>
+<th class="title" width="%30">expr1的结果</th>
+<th class="title" width="%30">操作符</th>
 <th class="title">expr2 is...</th>
 </tr>
 <tr>
-<td valign="top">True</td>
+<td valign="top">真</td>
 <td valign="top">-and</td>
-<td valign="top">Always performed</td>
+<td valign="top">总要执行</td>
 </tr>
 <tr>
-<td valign="top">False</td>
+<td valign="top">假</td>
 <td valign="top">-and</td>
-<td valign="top">Never performed</td>
+<td valign="top">从不执行</td>
 </tr>
 <tr>
-<td valign="top">Ture</td>
+<td valign="top">真</td>
 <td valign="top">-or</td>
-<td valign="top">Never performed</td>
+<td valign="top">从不执行</td>
 </tr>
 <tr>
-<td valign="top">False</td>
+<td valign="top">假</td>
 <td valign="top">-or</td>
-<td valign="top">Always performed</td>
+<td valign="top">总要执行</td>
 </tr>
 </table>
 
-<caption class="cap">表18-5: find AND/OR 逻辑</caption>
-<th class="title" width="%30">expr1的结果</th>
-<th class="title" width="%30">操作符</th>
-<td valign="top">真</td>
-<td valign="top">总要执行</td>
-<td valign="top">假</td>
-<td valign="top">从不执行</td>
-<td valign="top">真</td>
-<td valign="top">从不执行</td>
-<td valign="top">假</td>
-<td valign="top">总要执行</td>
 
 为什么这会发生呢？这样做是为了提高性能。以-and 为例，我们知道表达式 expr1 -and expr2
 不能为真，如果表达式 expr1的结果为假，所以没有必要执行 expr2。同样地，如果我们有表达式
@@ -393,53 +416,44 @@ expr1 -or expr2，并且表达式 expr1的结果为真，那么就没有必要�
 表达式 expr1 -or expr2为真。好，这样会执行快一些。为什么这个很重要？
 它很重要是因为我们能依靠这种行为来控制怎样来执行操作。我们会很快看到...
 
-### 预定义的操作 
+
+### 预定义的操作
 
 让我们做一些工作吧！从 find 命令得到的结果列表很有用处，但是我们真正想要做的事情是操作列表
 中的某些条目。幸运地是，find 命令允许基于搜索结果来执行操作。有许多预定义的操作和几种方式来
 应用用户定义的操作。首先，让我们看一下几个预定义的操作：
 
 <table class="multi">
-<caption class="cap">Table 18-6: Predefined find Actions</caption>
+<caption class="cap">表18-6: 几个预定义的 find 命令操作</caption>
 <tr>
-<th class="title">Action </th>
-<th class="title">Description</th>
+<th class="title">操作</th>
+<th class="title">描述</th>
 </tr>
 <tr>
 <td valign="top" width="25%">-delete</td>
-<td valign="top">Delete the currently matching file.</td>
+<td valign="top">删除当前匹配的文件。</td>
 </tr>
 <tr>
 <td valign="top">-ls</td>
-<td valign="top">Perform the equivalent of ls -dils on the matching file.
-Output is sent to standard output.
+<td valign="top">对匹配的文件执行等同的 ls -dils 命令。并将结果发送到标准输出。
 </td>
 </tr>
 <tr>
 <td valign="top">-print</td>
-<td valign="top">Output the full pathname of the matching file to standard
-output. This is the default action if no other action is specified.</td>
+<td valign="top">把匹配文件的全路径名输送到标准输出。如果没有指定其它操作，这是
+默认操作。</td>
 </tr>
 <tr>
 <td valign="top">-quit</td>
-<td valign="top"> Quit once a match has been made.  </td>
+<td valign="top">一旦找到一个匹配，退出。</td>
 </tr>
 </table>
 
-<caption class="cap">表18-6: 几个预定义的 find 命令操作</caption>
-<th class="title">操作</th>
-<th class="title">描述</th>
-<td valign="top">删除当前匹配的文件。</td>
-<td valign="top">对匹配的文件执行等同的 ls -dils 命令。并将结果发送到标准输出。
-<td valign="top">把匹配文件的全路径名输送到标准输出。如果没有指定其它操作，这是
-默认操作。</td>
-<td valign="top">一旦找到一个匹配，退出。</td>
 
 和测试条件一样，还有更多的操作。查看 find 命令手册得到更多细节。在第一个例子里，
 我们这样做：
 
     find ~
-    
 
 这个命令输出了我们主目录中包含的每个文件和子目录。它会输出一个列表，因为会默认使用-print 操作
 ，如果没有指定其它操作的话。因此我们的命令也可以这样表述：
@@ -470,43 +484,35 @@ output. This is the default action if no other action is specified.</td>
 我们也可以这样表达这个命令，使逻辑关系更容易看出：
 
     find ~ -type f -and -name '*.BAK' -and -print
-    
 
 当命令被充分表达之后，让我们看看逻辑运算符是如何影响其执行的：
 
 <table class="multi">
 <tr>
-<th class="title">Test/Action</th>
-<th class="title">Is Performed Only If...</th>
+<th class="title">测试／行为 </th>
+<th class="title">只有...的时候，才被执行</th>
 </tr>
 <tr>
 <td valign="top" width="25%">-print</td>
-<td valign="top">-type f and -name '\*.BAK' are true</td>
+<td valign="top">只有-type f and -name '*.BAK'为真的时候</td>
 </tr>
 <tr>
 <td valign="top">-name ‘*.BAK’ </td>
-<td valign="top">-type f is true</td>
+<td valign="top">只有-type f 为真的时候</td>
 </tr>
 <tr>
 <td valign="top">-type f </td>
-<td valign="top">Is always performed, since it is the first test/action in an
--and relationship.  </td>
+<td valign="top">总是被执行，因为它是与-and 关系中的第一个测试／行为。</td>
 </tr>
 </table>
-
-<th class="title">测试／行为 </th>
-<th class="title">只有...的时候，才被执行</th>
-<td valign="top">只有-type f and -name '*.BAK'为真的时候</td>
-<td valign="top">只有-type f 为真的时候</td>
-<td valign="top">总是被执行，因为它是与-and 关系中的第一个测试／行为。</td>
 
 因为测试和行为之间的逻辑关系决定了哪一个会被执行，我们知道测试和行为的顺序很重要。例如，
 如果我们重新安排测试和行为之间的顺序，让-print 行为是第一个，那么这个命令执行起来会截然不同：
 
     find ~ -print -and -type f -and -name '*.BAK'
-    
 
 这个版本的命令会打印出每个文件（-print 行为总是为真），然后测试文件类型和指定的文件扩展名。
+
 
 ### 用户定义的行为
 
@@ -530,18 +536,19 @@ output. This is the default action if no other action is specified.</td>
     -rwxr-xr-x 1 me    me 224 2007-10-29 18:44 /home/me/bin/foo
     < ls ... /home/me/foo.txt > ? y
     -rw-r--r-- 1 me    me 0 2008-09-19 12:53 /home/me/foo.txt 
-    
 
 在这个例子里面，我们搜索以字符串“foo”开头的文件名，并且对每个匹配的文件执行 ls -l 命令。
 使用-ok 行为，会在 ls 命令执行之前提示用户。
 
-### 提高效率 
+
+### 提高效率
 
 当-exec 行为被使用的时候，若每次找到一个匹配的文件，它会启动一个新的指定命令的实例。
 我们可能更愿意把所有的搜索结果结合起来，再运行一个命令的实例。例如，而不是像这样执行命令：
 
     ls -l file1
     ls -l file2
+
 
 我们更喜欢这样执行命令：
 
@@ -562,9 +569,10 @@ xargs，另一种方法是，使用 find 命令自己的一个新功能。我们
     find ~ -type f -name 'foo*' -exec ls -l '{}' +
     -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
     -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt 
-    
 
 虽然我们得到一样的结果，但是系统只需要执行一次 ls 命令。
+
+#### xargs
 
 这个 xargs 命令会执行一个有趣的函数。它从标准输入接受输入，并把输入转换为一个特定命令的
 参数列表。对于我们的例子，我们可以这样使用它：
@@ -599,19 +607,22 @@ xargs，另一种方法是，使用 find 命令自己的一个新功能。我们
 则会产生由 null 字符分离的输出，并且 xargs 命令有一个 --null 选项，这个选项会接受由 null 字符
 分离的输入。这里有一个例子：</p>
 
+<p> find ~ -iname '*.jpg' -print0 | xargs --null ls -l </p>
+
 <p>使用这项技术，我们可以保证所有文件，甚至那些文件名中包含空格的文件，都能被正确地处理。</p>
 </div>
 <br />
+
 
 ### 返回操练场
 
 到实际使用 find 命令的时候了。我们将会创建一个操练场，来实践一些我们所学到的知识。
 
+
 首先，让我们创建一个包含许多子目录和文件的操练场：
 
     [me@linuxbox ~]$ mkdir -p playground/dir-{00{1..9},0{10..99},100}
     [me@linuxbox ~]$ touch playground/dir-{00{1..9},0{10..99},100}/file-{A..Z}
-    
 
 惊叹于命令行的强大功能！只用这两行，我们就创建了一个包含一百个子目录，每个子目录中
 包含了26个空文件的操练场。试试用 GUI 来创建它！
@@ -626,7 +637,6 @@ xargs，另一种方法是，使用 find 命令自己的一个新功能。我们
 在我们的操练场中，我们创建了一百个名为 file-A 的文件实例。让我们找到它们：
 
     [me@linuxbox ~]$ find playground -type f -name 'file-A'
-    
 
 注意不同于 ls 命令，find 命令的输出结果是无序的。其顺序由存储设备的布局决定。为了确定实际上
 我们拥有一百个此文件的实例，我们可以用这种方式来确认：
@@ -650,7 +660,6 @@ xargs，另一种方法是，使用 find 命令自己的一个新功能。我们
     Access: 2008-10-08 15:15:39.000000000 -0400
     Modify: 2008-10-08 15:15:39.000000000 -0400
     Change: 2008-10-08 15:15:39.000000000 -0400
-    
 
 如果我们再次 touch 这个文件，然后用 stat 命令检测它，我们会发现所有文件的时间已经更新了。
 
@@ -663,18 +672,15 @@ xargs，另一种方法是，使用 find 命令自己的一个新功能。我们
     Access: 2008-10-08 15:23:33.000000000 -0400
     Modify: 2008-10-08 15:23:33.000000000 -0400
     Change: 2008-10-08 15:23:33.000000000 -0400 
-    
 
 下一步，让我们使用 find 命令来更新一些操练场中的文件：
 
     [me@linuxbox ~]$ find playground -type f -name 'file-B' -exec touch '{}' ';' 
-    
 
 这会更新操练场中所有名为 file-B 的文件。接下来我们会使用 find 命令来识别已更新的文件，
 通过把所有文件与参考文件 timestamp 做比较：
 
     [me@linuxbox ~]$ find playground -type f -newer playground/timestamp
-    
 
 搜索结果包含所有一百个文件 file-B 的实例。因为我们在更新了文件 timestamp 之后，
 touch 了操练场中名为 file-B 的所有文件，所以现在它们“新于”timestamp 文件，因此能被用
@@ -683,7 +689,6 @@ touch 了操练场中名为 file-B 的所有文件，所以现在它们“新于
 最后，让我们回到之前那个错误权限的例子中，把它应用于操练场里：
 
     [me@linuxbox ~]$ find playground \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)
-    
 
 这个命令列出了操练场中所有一百个目录和二百六十个文件（还有 timestamp 和操练场本身，共 2702 个）
 ，因为没有一个符合我们“正确权限”的定义。通过对运算符和行为知识的了解，我们可以给这个命令
@@ -691,11 +696,11 @@ touch 了操练场中名为 file-B 的所有文件，所以现在它们“新于
 
     [me@linuxbox ~]$ find playground \( -type f -not -perm 0600 -exec chmod 0600 '{}' ';' \) 
        -or \( -type d -not -perm 0711 -exec chmod 0700 '{}' ';' \)
-    
 
 在日常的基础上，我们可能发现运行两个命令会比较容易一些，一个操作目录，另一个操作文件，
 而不是这一个长长的复合命令，但是很高兴知道，我们能这样执行命令。这里最重要的一点是要
 理解怎样把操作符和行为结合起来使用，来执行有用的任务。
+
 
 #### 选项
 
@@ -703,50 +708,34 @@ touch 了操练场中名为 file-B 的所有文件，所以现在它们“新于
 它们可能被其它的测试条件和行为包含：
 
 <table class="multi">
-<caption class="cap">Table 18-7: find Options</caption>
+<caption class="cap">表 18-7: find 命令选项</caption>
 <tr>
-<th class="title">Option</th>
-<th class="title">Description</th>
+<th class="title">选项</th>
+<th class="title">描述</th>
 </tr>
 <tr>
 <td valign="top" width="25%">-depth</td>
-<td valign="top">Direct find to process a directory’s files before the
-directory itself. This option is automatically applied
-when the -delete action is specified.</td>
+<td valign="top"> 指导 find 程序先处理目录中的文件，再处理目录自身。当指定-delete 行为时，会自动
+应用这个选项。</td>
 </tr>
 <tr>
 <td valign="top">-maxdepth levels </td>
-<td valign="top">Set the maximum number of levels that find will
-descend into a directory tree when performing tests and actions.</td>
+<td valign="top">当执行测试条件和行为的时候，设置 find 程序陷入目录树的最大级别数 </td>
 </tr>
 <tr>
 <td valign="top">-mindepth levels </td>
-<td valign="top">Set the minimum number of levels that find will
-descend into a directory tree before applying tests and actions.</td>
+<td valign="top">在应用测试条件和行为之前，设置 find 程序陷入目录数的最小级别数。 </td>
 </tr>
 <tr>
 <td valign="top">-mount </td>
-<td valign="top">Direct find not to traverse directories that are mounted
-on other file systems.</td>
+<td valign="top">指导 find 程序不要搜索挂载到其它文件系统上的目录。</td>
 </tr>
 <tr>
 <td valign="top">-noleaf </td>
-<td valign="top">Direct find not to optimize its search based on the
-assumption that it is searching a Unix-like file system.
-This is needed when scanning DOS/Windows file
-systems and CD-ROMs.</td>
+<td valign="top">指导 find 程序不要基于搜索类似于 Unix 的文件系统做出的假设，来优化它的搜索。</td>
 </tr>
 </table>
 
-<caption class="cap">表 18-7: find 命令选项</caption>
-<th class="title">选项</th>
-<th class="title">描述</th>
-<td valign="top"> 指导 find 程序先处理目录中的文件，再处理目录自身。当指定-delete 行为时，会自动
-应用这个选项。</td>
-<td valign="top">当执行测试条件和行为的时候，设置 find 程序陷入目录树的最大级别数 </td>
-<td valign="top">在应用测试条件和行为之前，设置 find 程序陷入目录数的最小级别数。 </td>
-<td valign="top">指导 find 程序不要搜索挂载到其它文件系统上的目录。</td>
-<td valign="top">指导 find 程序不要基于搜索类似于 Unix 的文件系统做出的假设，来优化它的搜索。</td>
 
 ### 拓展阅读
 

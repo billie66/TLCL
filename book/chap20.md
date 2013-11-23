@@ -1216,8 +1216,8 @@ the resulting list on the display:
     phonelist.txt
     (292) 108-518
     (129) 44-1379
-    [me@linuxbox ~]$ 
-    
+    [me@linuxbox ~]$
+
 Here we use the -v option to produce an inverse match so that we will only output the
 lines in the list that do not match the specified expression. The expression itself includes
 the anchor metacharacters at each end to ensure that the number has no extra characters at
@@ -1230,7 +1230,7 @@ number, unlike our earlier phone number example.
 
 #### Finding Ugly Filenames With find
 
-#### 用 find 查找丑陋的文件名 
+#### 用 find 查找丑陋的文件名
 
 The find command supports a test based on a regular expression. There is an important
 consideration to keep in mind when using regular expressions in find versus grep.
@@ -1252,11 +1252,11 @@ offensive characters:
 这样一种扫描会发现包含空格和其它潜在不规范字符的路径名：
 
     [me@linuxbox ~]$ find . -regex '.*[^-\_./0-9a-zA-Z].*'
-    
+
 Due to the requirement for an exact match of the entire pathname, we use .\* at both ends
 of the expression to match zero or more instances of any character. In the middle of the
 expression, we use a negated bracket expression containing our set of acceptable
-pathname characters.`
+pathname characters.
 
 由于要精确地匹配整个路径名，所以我们在表达式的两端使用了.\*，来匹配零个或多个字符。
 在表达式中间，我们使用了否定的中括号表达式，其包含了我们一系列可接受的路径名字符。
