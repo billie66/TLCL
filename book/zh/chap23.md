@@ -248,7 +248,7 @@ a2ps程序很有趣。单从名字上看，这是个格式转换程序，但它�
 
 这里我们用带 -t 参数（忽略页眉和页脚）的pr命令过滤数据流，然后用a2ps指定一个输出文件（-o 参数），并设定每页66行（-L 参数）来匹配pr的输出分页。用合适的文件查看器查看我们的输出文件，我们就会看到图22-1中显示的结果。
 
-<p style="text-align:center"><img src="../images/22-1.jpg" alt="Viewing a2ps output" /></p>
+<p style="text-align:center"><img src="../images/22-1.png" alt="Viewing a2ps output" /></p>
 <p class="figure">Figure 22-1: Viewing a2ps output</p>
 
 可以看到，默认的输出布局是一面两页的，这将导致两页的内容被打印到一张纸上。a2ps还能利用页眉和页脚。
