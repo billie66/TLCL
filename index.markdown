@@ -16,7 +16,8 @@ layout: default
 
 
 <p>
-<a href="contributors.html">翻译贡献者名单 </a>
+本书的翻译由[好奇猫团队](http://haoqicat.com/about/team)发起，并社区协同努力
+（<a href="contributors.html">翻译贡献者名单 </a>）
 </p>
 
 <p><br /><b>Contact Information:</b></p>
