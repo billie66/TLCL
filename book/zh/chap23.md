@@ -85,54 +85,54 @@ CUPS通过创建并维护打印队列来管理打印机。如前所述，Unix下
 </tr>
 <tr>
 <td valign="top">+first[:last]</td>
-<td valign="top">输出从first到last（默认为最后）范围内的页面</td>
+<td valign="top">输出从first到last（默认为最后）范围内的页面。</td>
 </tr>
 <tr>
 <td valign="top">-columns</td>
-<td valign="top">根据columns指定的列数排版页面内容</td>
+<td valign="top">根据columns指定的列数排版页面内容。</td>
 </tr>
 <tr>
 <td valign="top">-a</td>
-<td valign="top">默认多列输出为垂直，用-a (across)可使其水平输出</td>
+<td valign="top">默认多列输出为垂直，用-a (across)可使其水平输出。</td>
 </tr>
 <tr>
 <td valign="top">-d</td>
-<td valign="top">双空格输出</td>
+<td valign="top">双空格输出。</td>
 </tr>
 <tr>
 <td valign="top" >-D format</td>
-<td valign="top">用format指定的格式修改页眉中显示的日期，日期命令中format字符串的描述详见参考手册</td>
+<td valign="top">用format指定的格式修改页眉中显示的日期，日期命令中format字符串的描述详见参考手册。</td>
 </tr>
 <tr>
 <td valign="top">-f</td>
-<td valign="top">改用换页替换默认的回车来分割页面</td>
+<td valign="top">改用换页替换默认的回车来分割页面。</td>
 </tr>
 <tr>
 <td valign="top">-h header</td>
-<td valign="top">在页眉中部用header参数替换打印文件的名字</td>
+<td valign="top">在页眉中部用header参数替换打印文件的名字。</td>
 </tr>
 <tr>
 <td valign="top">-l length</td>
-<td valign="top">设置页长为length，默认为66行（每英寸6行的美国信纸）</td>
+<td valign="top">设置页长为length，默认为66行（每英寸6行的美国信纸）。</td>
 </tr>
 <tr>
 <td valign="top">-n</td>
-<td valign="top">输出行号</td>
+<td valign="top">输出行号。</td>
 </tr>
 <tr>
 <td valign="top">-o offset</td>
-<td valign="top">创建一个宽offset字符的左页边</td>
+<td valign="top">创建一个宽offset字符的左页边。</td>
 </tr>
 <tr>
 <td valign="top">-w width</td>
-<td valign="top">设置页宽为width，默认为72字符</td>
+<td valign="top">设置页宽为width，默认为72字符。</td>
 </tr>
 </table>
 
 我们通常用管道配合pr命令来做筛选。下面的例子中我们会列出目录/usr/bin并用pr将其格式化为3列输出的标题页：
 
 	[me@linuxbox ~]$ ls /usr/bin | pr -3 -w 65 | head
-	
+
 	2012-02-18 14:00 												Page 1
 	[						apturl					bsd-write
 	411toppm				ar						bsh
@@ -168,7 +168,7 @@ printer_name表示这台打印机的名称。若要查看系统已知的打印�
 </tr>
 <tr>
 <td valign="top">-# number</td>
-<td valign="top">设定打印份数为number</td>
+<td valign="top">设定打印份数为number。</td>
 </tr>
 <tr>
 <td valign="top">-p</td>
@@ -176,11 +176,11 @@ printer_name表示这台打印机的名称。若要查看系统已知的打印�
 </tr>
 <tr>
 <td valign="top">-P printer</td>
-<td valign="top">指定输出打印机的名称。未指定则使用系统默认打印机</td>
+<td valign="top">指定输出打印机的名称。未指定则使用系统默认打印机。</td>
 </tr>
 <tr>
 <td valign="top">-r</td>
-<td valign="top">打印后删除文件。对程序产生的临时打印文件较为有用</td>
+<td valign="top">打印后删除文件。对程序产生的临时打印文件较为有用。</td>
 </tr>
 </table>
 
@@ -196,39 +196,39 @@ printer_name表示这台打印机的名称。若要查看系统已知的打印�
 </tr>
 <tr>
 <td valign="top">-d printer</td>
-<td valign="top">设定目标（打印机）为printer。若d选项未指定，则使用系统默认打印机</td>
+<td valign="top">设定目标（打印机）为printer。若d选项未指定，则使用系统默认打印机。</td>
 </tr>
 <tr>
 <td valign="top">-n number</td>
-<td valign="top">设定的打印份数为number</td>
+<td valign="top">设定的打印份数为number。</td>
 </tr>
 <tr>
 <td valign="top">-o landscape</td>
-<td valign="top">设置输出为横向</td>
+<td valign="top">设置输出为横向。</td>
 </tr>
 <tr>
 <td valign="top">-o fitplot</td>
-<td valign="top">缩放文件以适应页面。打印图像时较为有用，如JPEG文件</td>
+<td valign="top">缩放文件以适应页面。打印图像时较为有用，如JPEG文件。</td>
 </tr>
 <tr>
 <td valign="top">-o scaling=number</td>
-<td valign="top">缩放文件至number。100表示填满页面，小于100表示缩小，大于100则会打印在多页上</td>
+<td valign="top">缩放文件至number。100表示填满页面，小于100表示缩小，大于100则会打印在多页上。</td>
 </tr>
 <tr>
 <td valign="top">-o cpi=number</td>
-<td valign="top">设定输出为number字符每英寸。默认为10</td>
+<td valign="top">设定输出为number字符每英寸，默认为10。</td>
 </tr>
 <tr>
 <td valign="top">-o lpi=number</td>
-<td valign="top">设定输出为number行每英寸，默认为6</td>
+<td valign="top">设定输出为number行每英寸，默认为6。</td>
 </tr>
 <tr>
 <td valign="top">-o page-bottom=points<br>-o page-left=points<br>-o page-right=points<br>-o page-top=points</td>
-<td valign="top">设置页边距，单位为点，一种印刷上的单位。一英寸=72点</td>
+<td valign="top">设置页边距，单位为点，一种印刷上的单位。一英寸=72点。</td>
 </tr>
 <tr>
 <td valign="top">-P pages</td>
-<td valign="top">指定打印的页面。pages可以是逗号分隔的列表或范围——例如 1,3,5,7-10</td>
+<td valign="top">指定打印的页面。pages可以是逗号分隔的列表或范围——例如 1,3,5,7-10。</td>
 </tr>
 </table>
 
@@ -262,35 +262,35 @@ a2ps有很多选项，总结在表22-4中。
 </tr>
 <tr>
 <td valign="top">--center-title text</td>
-<td valign="top">设置中心页标题为text</td>
+<td valign="top">设置中心页标题为text。</td>
 </tr>
 <tr>
 <td valign="top">--columns number</td>
-<td valign="top">将所有页面排列成number列。默认为2</td>
+<td valign="top">将所有页面排列成number列，默认为2。</td>
 </tr>
 <tr>
 <td valign="top">--footer text</td>
-<td valign="top">设置页脚为text</td>
+<td valign="top">设置页脚为text。</td>
 </tr>
 <tr>
 <td valign="top">--guess</td>
-<td valign="top">报告参数中文件的类型。由于a2ps会转换并格式化所有类型的数据，所以当给定文件类型后，这个选项可以很好的用来判断a2ps应该做什么</td>
+<td valign="top">报告参数中文件的类型。由于a2ps会转换并格式化所有类型的数据，所以当给定文件类型后，这个选项可以很好的用来判断a2ps应该做什么。</td>
 </tr>
 <tr>
 <td valign="top">--left-footer text</td>
-<td valign="top">设置左页脚为text</td>
+<td valign="top">设置左页脚为text。</td>
 </tr>
 <tr>
 <td valign="top">--left-title text</td>
-<td valign="top">设置页面左标题为text</td>
+<td valign="top">设置页面左标题为text。</td>
 </tr>
 <tr>
 <td valign="top">--line-numbers=interval</td>
-<td valign="top">每隔interval行输出行号</td>
+<td valign="top">每隔interval行输出行号。</td>
 </tr>
 <tr>
 <td valign="top">--list=defauls</td>
-<td valign="top">显示默认设置</td>
+<td valign="top">显示默认设置。</td>
 </tr>
 <tr>
 <td valign="top">--list=topic</td>
@@ -298,71 +298,71 @@ a2ps有很多选项，总结在表22-4中。
 </tr>
 <tr>
 <td valign="top">--pages range</td>
-<td valign="top">打印range范围内的页面</td>
+<td valign="top">打印range范围内的页面。</td>
 </tr>
 <tr>
 <td valign="top">--right-footer text</td>
-<td valign="top">设置右页脚为text</td>
+<td valign="top">设置右页脚为text。</td>
 </tr>
 <tr>
 <td valign="top">--right-title text</td>
-<td valign="top">设置页面右标题为text</td>
+<td valign="top">设置页面右标题为text。</td>
 </tr>
 <tr>
 <td valign="top">--rows number</td>
-<td valign="top">将所有页面排列成number排。默认为1</td>
+<td valign="top">将所有页面排列成number排，默认为1。</td>
 </tr>
 <tr>
 <td valign="top">-B</td>
-<td valign="top">没有页眉</td>
+<td valign="top">没有页眉。</td>
 </tr>
 <tr>
 <td valign="top">-b text</td>
-<td valign="top">设置页眉为text</td>
+<td valign="top">设置页眉为text。</td>
 </tr>
 <tr>
 <td valign="top">-f size</td>
-<td valign="top">使用字体大小为size号</td>
+<td valign="top">使用字体大小为size号。</td>
 </tr>
 <tr>
 <td valign="top">-l number</td>
-<td valign="top">设置每行字符数为number。此项和-L选项（见下方）可以给文件用其他程序来更准确的分页，如pr</td>
+<td valign="top">设置每行字符数为number。此项和-L选项（见下方）可以给文件用其他程序来更准确的分页，如pr。</td>
 </tr>
 <tr>
 <td valign="top">-L number</td>
-<td valign="top">设置每页行数为number</td>
+<td valign="top">设置每页行数为number。</td>
 </tr>
 <tr>
 <td valign="top">-M name</td>
-<td valign="top">使用打印媒介的名称——例如，A4</td>
+<td valign="top">使用打印媒介的名称——例如，A4。</td>
 </tr>
 <tr>
 <td valign="top">-n number</td>
-<td valign="top">每页输出number份</td>
+<td valign="top">每页输出number份。</td>
 </tr>
 <tr>
 <td valign="top">-o file</td>
-<td valign="top">输出到文件file。如果指定为 - ，则输出到标准输出</td>
+<td valign="top">输出到文件file。如果指定为 - ，则输出到标准输出。</td>
 </tr>
 <tr>
 <td valign="top">-P printer</td>
-<td valign="top">使用打印机printer。如果未指定，则使用系统默认打印机</td>
+<td valign="top">使用打印机printer。如果未指定，则使用系统默认打印机。</td>
 </tr>
 <tr>
 <td valign="top">-R</td>
-<td valign="top">纵向打印</td>
+<td valign="top">纵向打印。</td>
 </tr>
 <tr>
 <td valign="top">-r</td>
-<td valign="top">横向打印</td>
+<td valign="top">横向打印。</td>
 </tr>
 <tr>
 <td valign="top">-T number</td>
-<td valign="top">设置制表位为每number字符</td>
+<td valign="top">设置制表位为每number字符。</td>
 </tr>
 <tr>
 <td valign="top">-u text</td>
-<td valign="top">用text作为页面底图（水印）</td>
+<td valign="top">用text作为页面底图（水印）。</td>
 </tr>
 </table>
 
@@ -401,27 +401,27 @@ lpstat的常用选项列于表22-5。
 </tr>
 <tr>
 <td valign="top">-a [printer...]</td>
-<td valign="top">显示printer打印机的队列。这里显示的状态是打印机队列承受任务的能力，而不是实体打印机的状态。若未指定打印机，则显示所有打印队列</td>
+<td valign="top">显示printer打印机的队列。这里显示的状态是打印机队列承受任务的能力，而不是实体打印机的状态。若未指定打印机，则显示所有打印队列。</td>
 </tr>
 <tr>
 <td valign="top">-d</td>
-<td valign="top">显示系统默认打印机的名称</td>
+<td valign="top">显示系统默认打印机的名称。</td>
 </tr>
 <tr>
 <td valign="top">-p [printer...]</td>
-<td valign="top">显示printer指定的打印机的状态。若未指定打印机，则显示所有打印机状态</td>
+<td valign="top">显示printer指定的打印机的状态。若未指定打印机，则显示所有打印机状态。</td>
 </tr>
 <tr>
 <td valign="top">-r</td>
-<td valign="top">显示打印系统的状态</td>
+<td valign="top">显示打印系统的状态。</td>
 </tr>
 <tr>
 <td valign="top">-s</td>
-<td valign="top">显示汇总状态</td>
+<td valign="top">显示汇总状态。</td>
 </tr>
 <tr>
 <td valign="top">-t</td>
-<td valign="top">显示完整状态报告</td>
+<td valign="top">显示完整状态报告。</td>
 </tr>
 </table>
 
