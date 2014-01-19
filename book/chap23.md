@@ -482,7 +482,7 @@ Here we filter the stream with pr, using the -t option (omit headers and footers
 
 这里我们用带 -t 参数（忽略页眉和页脚）的 pr 命令过滤数据流，然后用 a2ps 指定一个输出文件（-o 参数），并设定每页66行（-L 参数）来匹配 pr 的输出分页。用合适的文件查看器查看我们的输出文件，我们就会看到图22-1中显示的结果。
 
-<p style="text-align:center"><img src="../images/22-1.png" alt="Viewing a2ps output" /></p>
+<p style="text-align:center"><img src="./images/22-1.png" alt="Viewing a2ps output" /></p>
 <p class="figure">Figure 22-1: Viewing a2ps output</p>
 
 As we can see, the default output layout is “two up” format. This causes the contents of two pages to be printed on each sheet of paper. a2ps applies nice page headers and footers, too.
