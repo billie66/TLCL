@@ -5,14 +5,21 @@
         
 */
 html {
-    background-color: burlywood;
+  background-color: burlywood;
 }
 
+body {
+  font-size: 16px;
+  line-height: 2.0em;
+  font-family: 'Georgia', "Hiragino Sans GB", serif;
+  color: #555;
+}
 #wrapper {
   margin: 5% 10%;
   padding: 3% 5%;
   min-width: 480px;
   background-color: white;
+  letter-spacing: 1px;
 }
 
 p.figure {
@@ -66,13 +73,14 @@ th.title {
 }
 
 .footer {
-    display: block;
-    text-align: right;
+  display: block;
+  text-align: right;
 }
-  
+
 .version {
-	font-size: 15px;
+  font-size: 15px;
 }
+
 .contents {
-	margin-top: 10px;
+  margin-top: 10px;
 }
