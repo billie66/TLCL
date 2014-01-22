@@ -53,7 +53,7 @@ music players, high definition television, or broadband Internet, owe their exis
 effective data compression techniques.
 
 纵观计算领域的发展历史，人们努力想把最多的数据存放到到最小的可用空间中，不管是内存，存储设备
-还是网络带宽。我们今天把许多数据服务都看作是理所当然的事情，但是诸如便携式音乐播放器，
+还是网络带宽。今天我们把许多数据服务都看作是理所当然的事情，但是诸如便携式音乐播放器，
 高清电视，或宽带网络之类的存在都应归功于高效的数据压缩技术。
 
 Data compression is the process of removing redundancy from data. Let’s consider an
@@ -95,7 +95,7 @@ tolerate any data loss.
 压缩算法（数学技巧被用来执行压缩任务）分为两大类，无损压缩和有损压缩。无损压缩保留了
 原始文件的所有数据。这意味着，当还原一个压缩文件的时候，还原的文件与原文件一模一样。
 而另一方面，有损压缩，执行压缩操作时会删除数据，允许更大的压缩。当一个有损文件被还原的时候，
-它与原文件不相匹配;相反，它是一个近似值。有损压缩的例子有 JPEG（图像）文件和 MP3（音频）文件。
+它与原文件不相匹配; 相反，它是一个近似值。有损压缩的例子有 JPEG（图像）文件和 MP3（音频）文件。
 在我们的讨论中，我们将看看完全无损压缩，因为计算机中的大多数数据是不能容忍丢失任何数据的。
 
 #### gzip
@@ -287,7 +287,7 @@ files:
 
     [me@linuxbox ~]$ zcat foo.txt.gz | less 
 
-<br />
+<br>
 
 ---
 
@@ -305,7 +305,7 @@ compressed with bzip2 is denoted with the extension .bz2:
 
 这个 bzip2 程序，由 Julian Seward 开发，与 gzip 程序相似，但是使用了不同的压缩算法，
 舍弃了压缩速度，而实现了更高的压缩级别。在大多数情况下，它的工作模式等同于 gzip。
-由 bzip2 压缩的文件，用扩展名.bz2来表示：
+由 bzip2 压缩的文件，用扩展名.bz2 来表示：
 
     [me@linuxbox ~]$ ls -l /etc > foo.txt
     [me@linuxbox ~]$ ls -l foo.txt
@@ -322,10 +322,10 @@ bzip2 comes with bunzip2 and bzcat for decompressing files.
 bzip2 also comes with the bzip2recover program, which will try to recover
 damaged .bz2 files.
 
-正如我们所看到的，bzip2程序使用起来和 gzip 程序一样。我们之前讨论的 gzip
-程序的所有选项(除了-r), bzip2 程序同样也支持。注意，然而，压缩级别选项（-number）对于 bzip2 程序来说，有少许不同的含义。
-伴随着 bzip2 程序，有 bunzip2 和 bzcat 程序来解压缩文件。bzip2 文件也带有 bzip2recover 程序, 其会
-试图恢复受损的 .bz2 文件。
+正如我们所看到的，bzip2 程序使用起来和 gzip 程序一样。我们之前讨论的 gzip 程序的所有选项（除了-r）
+，bzip2 程序同样也支持。注意，然而，压缩级别选项（-number）对于 bzip2 程序来说，有少许不同的含义。
+伴随着 bzip2 程序，有 bunzip2 和 bzcat 程序来解压缩文件。bzip2 文件也带有 bzip2recover 程序，其会
+试图恢复受损的.bz2 文件。
 
 <div class="single">
 
@@ -352,7 +352,7 @@ savings to offset the additional overhead.</p>
 此次压缩过程的信息。如果你试图压缩一个已经不包含多余信息的文件，那么再次压缩不会节省
 空间，以抵消额外的花费。</p>
 </div>
-<br />
+<br>
 
 ### Archiving Files
 
