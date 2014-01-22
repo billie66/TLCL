@@ -19,7 +19,7 @@ body {
   padding: 3% 5%;
   min-width: 480px;
   background-color: white;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 p.figure {

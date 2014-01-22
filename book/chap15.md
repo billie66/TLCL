@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 软件包管理 
+title: 软件包管理
 ---
 
 If we spend any time in the Linux community, we hear many opinions as to which of the
@@ -8,9 +8,9 @@ many Linux distributions is &quot;best.&quot; Often, these discussions get reall
 such things as the prettiness of the desktop background (some people won't use Ubuntu
 because its default color scheme is brown!) and other trivial matters.
 
-如果我们花些时间在 Linux 社区里，就会听到许多意见，在众多 Linux 发行版中哪个是最好的。 通常，
-这些讨论真是很愚蠢，集中于这些事情上，比方说最漂亮的桌面背景（一些人不会使用 Ubuntu，因为它
-默认的主题颜色是棕色！）和其它琐碎的东西。
+如果我们花些时间在 Linux 社区里，我们会得知很多针对, 类如在众多 Linux 发行版中哪个是最好的，（等问题的)看法。
+这些集中在像这些问题，比方说最漂亮的桌面背景（一些人不使用 Ubuntu，
+只是因为 Ubuntu 默认主题颜色是棕色的！）和其它的琐碎东西上的讨论，经常变得非常愚蠢。
 
 The most important determinant of distribution quality is the packaging system and the
 vitality of the distribution's support community. As we spend more time with Linux, we
