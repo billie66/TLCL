@@ -44,7 +44,7 @@ And the file synchronization program:
 
 ### Compressing Files
 
-### 压缩文件 
+### 压缩文件
 
 Throughout the history of computing, there has been a struggle to get the most data into
 the smallest available space, whether that space be memory, storage devices or network
@@ -52,9 +52,9 @@ bandwidth. Many of the data services that we take for granted today, such as por
 music players, high definition television, or broadband Internet, owe their existence to
 effective data compression techniques.
 
-纵观计算领域的发展历史，人们努力想把最多的数据放入到最小的可用空间中，这些空间不管是内存，存储设备
-或者是网络带宽。我们今天把许多数据服务看作是理所当然的事情，比如说可移动的音乐播放器，
-高清电视，或者网络，它们之所以存在都归功于高效的数据压缩技术。
+纵观计算领域的发展历史，人们努力想把最多的数据存放到到最小的可用空间中，不管是内存，存储设备
+还是网络带宽。我们今天把许多数据服务都看作是理所当然的事情，但是诸如便携式音乐播放器，
+高清电视，或宽带网络之类的存在都应归功于高效的数据压缩技术。
 
 Data compression is the process of removing redundancy from data. Let’s consider an
 imaginary example. Say we had an entirely black picture file with the dimensions of one
