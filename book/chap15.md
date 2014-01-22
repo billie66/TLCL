@@ -8,9 +8,9 @@ many Linux distributions is &quot;best.&quot; Often, these discussions get reall
 such things as the prettiness of the desktop background (some people won't use Ubuntu
 because its default color scheme is brown!) and other trivial matters.
 
-如果我们花些时间在 Linux 社区里，我们会得知很多针对, 类如在众多 Linux 发行版中哪个是最好的，（等问题的)看法。
-这些集中在像这些问题，比方说最漂亮的桌面背景（一些人不使用 Ubuntu，
-只是因为 Ubuntu 默认主题颜色是棕色的！）和其它的琐碎东西上的讨论，经常变得非常愚蠢。
+如果我们花些时间在 Linux 社区里，我们会得知很多针对, 类如在众多 Linux 发行版中哪个是最好的(等问题的)看法。
+这些集中在像这些事情上的讨论，比方说最漂亮的桌面背景（一些人不使用 Ubuntu，
+只是因为 Ubuntu 默认主题颜色是棕色的！）和其它的琐碎东西，经常变得非常无聊。
 
 The most important determinant of distribution quality is the packaging system and the
 vitality of the distribution's support community. As we spend more time with Linux, we
