@@ -141,7 +141,6 @@ valign="top">解压缩。正如 gunzip 命令一样。也可以用--decompress �
 
     [me@linuxbox ~]$ zcat foo.txt.gz | less 
 
-<br>
 
 ---
 
@@ -315,7 +314,6 @@ tar 命令经常结合 find 命令一起来制作归档文件。在这个例子�
 产生一个文件集合，然后这些文件被包含到归档文件中。
 
     [me@linuxbox ~]$ find playground -name 'file-A' -exec tar rf playground.tar '{}' '+' 
-    
 
 这里我们使用 find 命令来匹配 playground 目录中所有名为 file-A 的文件，然后使用-exec 行为，来
 唤醒带有追加模式（r）的 tar 命令，把匹配的文件添加到归档文件 playground.tar 里面。
@@ -329,7 +327,6 @@ tar 命令也可以利用标准输出和输入。这里是一个完整的例子:
     [me@linuxbox foo]$ cd
     [me@linuxbox ~]$ find playground -name 'file-A' | tar cf - --files-from=- 
        | gzip > playground.tgz 
-    
 
 在这个例子里面，我们使用 find 程序产生了一个匹配文件列表，然后把它们管道到 tar 命令中。
 如果指定了文件名“-”，则其被看作是标准输入或输出，正是所需（顺便说一下，使用“-”来表示
@@ -376,7 +373,6 @@ tar 命令也可以利用标准输出和输入。这里是一个完整的例子:
 例如，制作一个 playground 的 zip 版本的文件包，这样做：
 
     [me@linuxbox ~]$ zip -r playground.zip playground 
-    
 
 除非我们包含-r 选项，要不然只有 playground 目录（没有任何它的内容）被存储。虽然会自动添加
 .zip 扩展名，但为了清晰起见，我们还是包含文件扩展名。
@@ -406,17 +402,16 @@ tar 命令也可以利用标准输出和输入。这里是一个完整的例子:
     [me@linuxbox ~]$ unzip -l playground.zip playground/dir-87/file-Z
     Archive: ../playground.zip
         Length      Date    Time    Name
-        --------    ----    ----    ----
+
              0    10-05-08  09:25   playground/dir-87/file-Z
-        --------                    -------
+
              0                      1 file
     [me@linuxbox ~]$ cd foo
     [me@linuxbox foo]$ unzip ./playground.zip playground/dir-87/file-Z
     Archive: ../playground.zip
     replace playground/dir-87/file-Z? [y]es, [n]o, [A]ll, [N]one,
     [r]ename: y
-    extracting: playground/dir-87/file-Z 
-    
+    extracting: playground/dir-87/file-Z
 
 使用-l 选项，导致 unzip 命令只是列出文件包中的内容而没有抽取文件。如果没有指定文件，
 unzip 程序将会列出文件包中的所有文件。添加这个-v 选项会增加列表的冗余信息。注意当抽取的
@@ -446,7 +441,6 @@ zip 命令也支持把它的输出写入到标准输出，但是它的使用是�
 这个 unzip 程序允许它的输出发送到标准输出，当指定了-p 选项之后：
 
     [me@linuxbox ~]$ unzip -p ls-etc.zip | less 
-    
 
 我们讨论了一些 zip/unzip 可以完成的基本操作。它们两个都有许多选项，其增加了
 命令的灵活性，虽然一些选项只针对于特定的平台。zip 和 unzip 命令的说明手册都相当不错，

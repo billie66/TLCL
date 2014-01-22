@@ -287,8 +287,6 @@ files:
 
     [me@linuxbox ~]$ zcat foo.txt.gz | less 
 
-<br>
-
 ---
 
 <p><b>Tip:</b> There is a zless program, too. It performs the same function as the pipeline above.</p>
@@ -629,7 +627,7 @@ tar 命令也可以利用标准输出和输入。这里是一个完整的例子:
     [me@linuxbox foo]$ cd
     [me@linuxbox ~]$ find playground -name 'file-A' | tar cf - --files-from=- 
        | gzip > playground.tgz 
-    
+
 In this example, we used the find program to produce a list of matching files and piped
 them into tar. If the filename “-” is specified, it is taken to mean standard input or
 output, as needed (by the way, this convention of using “-” to represent standard
@@ -722,7 +720,7 @@ For example, to make a zip archive of our playground, we would do this:
 例如，制作一个 playground 的 zip 版本的文件包，这样做：
 
     [me@linuxbox ~]$ zip -r playground.zip playground 
-    
+
 Unless we include the -r option for recursion, only the playground directory (but
 none of its contents) is stored. Although the addition of the extension .zip is automatic
 a, we will include the file extension for clarity.
@@ -773,17 +771,17 @@ unzip:
     [me@linuxbox ~]$ unzip -l playground.zip playground/dir-87/file-Z
     Archive: ../playground.zip
         Length      Date    Time    Name
-        --------    ----    ----    ----
+
              0    10-05-08  09:25   playground/dir-87/file-Z
-        --------                    -------
+
              0                      1 file
     [me@linuxbox ~]$ cd foo
     [me@linuxbox foo]$ unzip ./playground.zip playground/dir-87/file-Z
     Archive: ../playground.zip
     replace playground/dir-87/file-Z? [y]es, [n]o, [A]ll, [N]one,
     [r]ename: y
-    extracting: playground/dir-87/file-Z 
-    
+    extracting: playground/dir-87/file-Z
+
 Using the -l option causes unzip to merely list the contents of the archive without
 extracting the file. If no file(s) are specified, unzip will list all files in the archive. The
 -v option can be added to increase the verbosity of the listing. Note that when the
@@ -887,7 +885,7 @@ where source and destination are one of the following:
 * A local file or directory
 
 * A remote file or directory in the form of [user@]host:path
-  
+
 * A remote rsync server specified with a URI of rsync://[user@]host[:port]/path
 
 
