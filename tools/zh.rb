@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby 
+#!/usr/bin/env ruby
 # coding: utf-8
 
 root = File.expand_path(File.dirname(__FILE__), '../book')
@@ -9,8 +9,8 @@ Dir.mkdir(tmpdir) if !Dir.exist?(tmpdir)
 Dir.mkdir(outdir) if !Dir.exist?(outdir)
 
 Dir.glob("#{root}/*.md") do |file|
-  flag  = false 
-  token = false 
+  flag  = false
+  token = false
   count = 0
 
   tmpfname = File.join(tmpdir, file.split('/').last)
@@ -19,25 +19,25 @@ Dir.glob("#{root}/*.md") do |file|
   out = File.open(tmpfname, 'w')
 
   File.open(file, 'r').each_line do |line|
-    case line 
+    case line
     when /^---$/, /^layout: book$/, /^title:/, /^<div/, /<\/div>/
       out << line
     when /<http:/, /^$/, /^\s{4}/, /<br \/>/
-      out << line 
+      out << line
     when /<img/, /class=\"figure\"/
-      out << line 
+      out << line
     when /<center>/
       token = true
-      out << line 
+      out << line
     when /<\/center>/
-      token = false 
-      out << line 
+      token = false
+      out << line
     when /^<table/
       count += 1 if !token
-      flag = true 
+      flag = true
       out << line if count % 2 == 0
     when /table>$/
-      flag = false 
+      flag = false
       out << line if count % 2 == 0
     else
       if !line.force_encoding("UTF-8").gsub(/[[:punct:]]/, '').ascii_only?

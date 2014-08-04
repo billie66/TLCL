@@ -3,10 +3,10 @@
 cd ../book
 
 if [ -d chinese ]; then
-    rm -r chinese 
+    rm -r chinese
 fi
 if [ -d zh ]; then
-    rm -r zh 
+    rm -r zh
 fi
 
 mkdir zh chinese
@@ -20,9 +20,9 @@ multi="<table class=\"multi\">"
 
 for file in *.md; do
   echo "It is processing $file, please wait..."
-  while IFS= read -r line; do 
+  while IFS= read -r line; do
     if [ -n "$line" ]; then
-      case "$line" in 
+      case "$line" in
         "---" | "layout: book" | "$single" | "</div>" )
           echo "$line" >>zh/$file
           continue
@@ -37,13 +37,13 @@ for file in *.md; do
         echo "$line" >>tmp
         continue
       elif [ "$flag" == "1" ]; then
-          echo "$line" >>tmp 
+          echo "$line" >>tmp
           if [[ "$line" =~ table\>$ ]]; then
             flag="0"
             con=$(echo $(cat tmp))
             local=$(echo "$con" | sed 's/[[:punct:]]//g' -e 's/\ //g')
             if [[ !( "$local" =~ ^[A-Za-z0-9]*$ ) ]]; then
-              cat tmp >>zh/$file 
+              cat tmp >>zh/$file
               echo >tmp
             else
               echo >tmp
@@ -52,13 +52,13 @@ for file in *.md; do
       else
         local=$(echo "$line" | sed -e 's/[[:punct:]]//g' -e 's/\ //g')
         if [[ !( "$local" =~ ^[A-Za-z0-9]*$ ) ]]; then
-          echo "$line" >>zh/$file 
+          echo "$line" >>zh/$file
         fi
       fi
     else
-        echo >>zh/$file 
+        echo >>zh/$file
     fi
-  done < $file 
+  done < $file
   uniq zh/$file > chinese/$file
 done
 

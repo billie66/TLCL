@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 疑难排解 
+title: 疑难排解
 ---
 
 As our scripts become more complex, it’s time to take a look at what happens when
@@ -13,7 +13,7 @@ techniques that can be used to track down and eradicate problems.
 
 ### Syntactic Errors
 
-### 语法错误 
+### 语法错误
 
 One general class of errors is syntactic. Syntactic errors involve mis-typing some
 element of shell syntax. In most cases, these kinds of errors will lead to the shell refusing

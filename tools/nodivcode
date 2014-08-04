@@ -3,9 +3,9 @@
 cd ../book
 
 if [ -d nodico ]; then
-    rm -r nodico 
+    rm -r nodico
 fi
-mkdir nodico 
+mkdir nodico
 
 flag="0"
 sin="<div class=\"single\">"
@@ -15,24 +15,24 @@ sin="<div class=\"single\">"
 
 for file in *.md; do
   echo "It is processing $file, please wait..."
-  while IFS= read -r line; do 
+  while IFS= read -r line; do
     if [[ "$line" =~ ^\<div && ("$line" != "$sin") ]]; then 
       flag="1"
       continue
     elif [ "$flag" == "1" ]; then
-      if [[ "$line" =~ div\>$ ]]; then 
+      if [[ "$line" =~ div\>$ ]]; then
         flag="0"
       fi
       code=$(echo "$line"|sed 's/<\/*[a-z]*>//g; s/\&lt;/\</g; s/\&gt;/\>/g')
       echo "    $code" >>nodico/$file
     else
       if [ "$line" =~ ^\<hr  ]; then
-        echo "---" >>nodico/$file 
+        echo "---" >>nodico/$file
       else
-        echo "$line" >>nodico/$file 
+        echo "$line" >>nodico/$file
       fi
     fi
-  done < $file 
+  done < $file
 done
 
 rm *.md
