@@ -7,9 +7,6 @@ body {
   line-height: 2.0em;
   font-family: 'Georgia', "Hiragino Sans GB", serif;
   color: #555;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
 }
 #wrapper {
   margin: 5% auto;
@@ -18,6 +15,9 @@ body {
   width: 960px;
   background-color: white;
   letter-spacing: 0.5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 p.figure {
