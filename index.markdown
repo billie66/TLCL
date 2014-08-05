@@ -1,10 +1,6 @@
 ---
 layout: default
 ---
-<br />
-<h2 style="text-align:center">The Linux Command Line</h2>
-<br />
-
 本书是[The Linux Command Line](http://linuxcommand.org/) 的中文版,
 为大家提供了两种不同的阅读方式。
 
