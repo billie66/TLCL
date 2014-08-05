@@ -346,7 +346,7 @@ variables created or assigned within the loop will be lost when the loop termina
 
 ### Summing Up
 
-### 总结归纳 
+### 总结
 
 With the introduction of loops, and our previous encounters with branching, subroutines
 and sequences, we have covered the major types of flow control used in programs. bash
