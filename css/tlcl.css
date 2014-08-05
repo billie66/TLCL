@@ -9,7 +9,7 @@ body {
   color: #555;
 }
 #wrapper {
-  margin: 5% auto;
+  margin: 0 auto;
   padding: 3% 5%;
   min-width: 480px;
   width: 960px;
