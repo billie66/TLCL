@@ -288,9 +288,9 @@ Running this script produces this:
 
 运行这个脚本，输出这些内容：
 
-[me@linuxbox ~]$ case4-1
-Type a character > a
-'a' is lower case.
+    [me@linuxbox ~]$ case4-1
+    Type a character > a
+    'a' is lower case.
 
 The script works for the most part, but fails if a character matches more than one of the
 POSIX characters classes. For example, the character "a" is both lower case and alphabetic,
