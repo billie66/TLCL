@@ -305,7 +305,7 @@ complete list of positional parameters, but differ in rather subtle ways. They a
 <table class="multi">
     <caption class="cap">Table 32-1: The * And @ Special Parameters</caption>
     <tr>
-        <th class="title">Parameter</th>
+        <th class="title" width="15%">Parameter</th>
         <th class="title">Description</th>
     </tr>
     <tr>
@@ -326,7 +326,7 @@ complete list of positional parameters, but differ in rather subtle ways. They a
 <table class="multi">
     <caption class="cap">表 32-1: * 和 @ 特殊参数</caption>
     <tr>
-        <th class="title">参数</th>
+        <th class="title" width="15%">参数</th>
         <th class="title">描述</th>
     </tr>
     <tr>
