@@ -22,9 +22,7 @@ shell 提供了一个称为位置参数的变量集合，这个集合包含了�
 可以以这种方式讲明白：
 
     #!/bin/bash
-
     # posit-param: script to view command line parameters
-
     echo "
     \$0 = $0
     \$1 = $1
@@ -44,7 +42,6 @@ with no command line arguments:
 一个非常简单的脚本，显示从 $0 到 $9 所有变量的值。当不带命令行参数执行该脚本时，输出结果如下：
 
     [me@linuxbox ~]$ posit-param
-
     $0 = /home/me/bin/posit-param
     $1 =
     $2 =
@@ -64,7 +61,6 @@ ments are provided, we see the results:
 当带参数执行脚本时，我们看看输出结果：
 
     [me@linuxbox ~]$ posit-param a b c d
-
     $0 = /home/me/bin/posit-param
     $1 = a
     $2 = b
@@ -93,9 +89,7 @@ mand line:
 另外 shell 还提供了一个名为 $#，可以得到命令行参数个数的变量:
 
     #!/bin/bash
-
     # posit-param: script to view command line parameters
-
     echo "
     Number of arguments: $#
     \$0 = $0
@@ -115,7 +109,6 @@ The result:
 结果是：
 
     [me@linuxbox ~]$ posit-param a b c d
-
     Number of arguments: 4
     $0 = /home/me/bin/posit-param
     $1 = a
@@ -137,7 +130,6 @@ But what happens when we give the program a large number of arguments such as th
 但是如果我们给一个程序添加大量的命令行参数，会怎么样呢？ 正如下面的例子：
 
     [me@linuxbox ~]$ posit-param *
-
     Number of arguments: 82
     $0 = /home/me/bin/posit-param
     $1 = addresses.ldif
@@ -162,15 +154,12 @@ which never changes):
 处理只有一个参数的情况（除了其值永远不会改变的变量 $0）：
 
     #!/bin/bash
-
     # posit-param2: script to display all arguments
-
     count=1
-
     while [[ $# -gt 0 ]]; do
-    echo "Argument $count = $1"
-    count=$((count + 1))
-    shift
+        echo "Argument $count = $1"
+        count=$((count + 1))
+        shift
     done
 
 Each time shift is executed, the value of $2 is moved to $1, the value of $3 is moved
@@ -205,11 +194,8 @@ By way of example, here is a simple file information program:
 即使没有 shift 命令，也可以用位置参数编写一个有用的应用。举例说明，这里是一个简单的输出文件信息的程序：
 
     #!/bin/bash
-
     # file_info: simple file information program
-
     PROGNAME=$(basename $0)
-
     if [[ -e $1 ]]; then
         echo -e "\nFile Type:"
         file $1
@@ -249,9 +235,7 @@ file_info script into a shell function:
 我们将把 file_info 脚本转变成一个 shell 函数：
 
     file_info () {
-
       # file_info: function to display file information
-
       if [[ -e $1 ]]; then
           echo -e "\nFile Type:"
           file $1
@@ -371,25 +355,21 @@ the special parameters $* and $@. When executed, the script reveals the differen
 使用了特殊参数 $* 和 $@ 提供的四种可用方法。脚本运行后，揭示了这两个特殊参数存在的差异：
 
     [me@linuxbox ~]$ posit-param3
-
      $* :
     $1 = word
     $2 = words
     $3 = with
     $4 = spaces
-
      "$*" :
     $1 = word words with spaces
     $2 =
     $3 =
     $4 =
-
      $@ :
     $1 = word
     $2 = words
     $3 = with
     $4 = spaces
-
      "$@" :
     $1 = word
     $2 = words with spaces
@@ -500,7 +480,6 @@ We next add the code to implement the interactive mode:
 我们下一步添加代码来实现交互模式：
 
     # interactive mode
-
     if [[ -n $interactive ]]; then
         while true; do
             read -p "Enter name of output file: " filename
@@ -558,9 +537,7 @@ page-writing code into a shell function, for reasons that will become clear in a
     _EOF_
     return
     }
-
     # output html page
-
     if [[ -n $filename ]]; then
         if touch $filename && [[ -f $filename ]]; then
             write_html_page > $filename
