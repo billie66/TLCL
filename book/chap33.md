@@ -346,9 +346,7 @@ Here is a script that shows these special paramaters in action:
 下面这个脚本用程序中展示了这些特殊参数：
 
     #!/bin/bash
-
     # posit-params3 : script to demonstrate $* and $@
-
     print_params () {
         echo "\$1 = $1"
         echo "\$2 = $2"
@@ -358,14 +356,10 @@ Here is a script that shows these special paramaters in action:
     pass_params () {
         echo -e "\n" '$* :';      print_params   $*
         echo -e "\n" '"$*" :';    print_params   "$*"
-    
-    
         echo -e "\n" '$@ :';      print_params   $@
         echo -e "\n" '"$@" :';    print_params   "$@"
     }  
-
     pass_params "word" "words with spaces"
-
 
 In this rather convoluted program, we create two arguments: “word” and “words with
 spaces”, and pass them to the pass_params function. That function, in turn, passes
@@ -456,26 +450,19 @@ Here is the code needed to implement the command line processing:
         echo "$PROGNAME: usage: $PROGNAME [-f file | -i]"
         return
     }
-
     # process command line options
-
     interactive=
-
     filename=
-
     while [[ -n $1 ]]; do
         case $1 in
         -f | --file)            shift
                                 filename=$1
                                 ;;
-
         -i | --interactive)     interactive=1
                                 ;;
-
         -h | --help)            usage
                                 exit
                                 ;;
-
         *)                      usage >&2
                                 exit 1
                                 ;;
