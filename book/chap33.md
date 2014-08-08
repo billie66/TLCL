@@ -21,40 +21,40 @@ demonstrated this way:
 shell 提供了一个称为位置参数的变量集合，这个集合包含了命令行中所有独立的单词。这些变量按照从0到9给予命名。
 可以以这种方式讲明白：
 
-  #!/bin/bash
+    #!/bin/bash
 
-  # posit-param: script to view command line parameters
+    # posit-param: script to view command line parameters
 
-  echo "
-  \$0 = $0
-  \$1 = $1
-  \$2 = $2
-  \$3 = $3
-  \$4 = $4
-  \$5 = $5
-  \$6 = $6
-  \$7 = $7
-  \$8 = $8
-  \$9 = $9
-  "
+    echo "
+    \$0 = $0
+    \$1 = $1
+    \$2 = $2
+    \$3 = $3
+    \$4 = $4
+    \$5 = $5
+    \$6 = $6
+    \$7 = $7
+    \$8 = $8
+    \$9 = $9
+    "
 
 A very simple script that displays the values of the variables $0-$9. When executed
 with no command line arguments:
 
 一个非常简单的脚本，显示从 $0 到 $9 所有变量的值。当不带命令行参数执行该脚本时，输出结果如下：
 
-  [me@linuxbox ~]$ posit-param
+    [me@linuxbox ~]$ posit-param
 
-  $0 = /home/me/bin/posit-param
-  $1 =
-  $2 =
-  $3 =
-  $4 =
-  $5 =
-  $6 =
-  $7 =
-  $8 =
-  $9 =
+    $0 = /home/me/bin/posit-param
+    $1 =
+    $2 =
+    $3 =
+    $4 =
+    $5 =
+    $6 =
+    $7 =
+    $8 =
+    $9 =
 
 Even when no arguments are provided, $0 will always contain the first item appearing on
 the command line, which is the pathname of the program being executed. When argu-
@@ -63,18 +63,18 @@ ments are provided, we see the results:
 即使不带命令行参数，位置参数 $0 总会包含命令行中出现的第一个单词，也就是已执行程序的路径名。
 当带参数执行脚本时，我们看看输出结果：
 
-  [me@linuxbox ~]$ posit-param a b c d
+    [me@linuxbox ~]$ posit-param a b c d
 
-  $0 = /home/me/bin/posit-param
-  $1 = a
-  $2 = b
-  $3 = c
-  $4 = d
-  $5 =
-  $6 =
-  $7 =
-  $8 =
-  $9 =
+    $0 = /home/me/bin/posit-param
+    $1 = a
+    $2 = b
+    $3 = c
+    $4 = d
+    $5 =
+    $6 =
+    $7 =
+    $8 =
+    $9 =
 
 Note: You can actually access more than nine parameters using parameter expan-
 sion. To specify a number greater than nine, surround the number in braces. For ex-
@@ -92,41 +92,41 @@ mand line:
 
 另外 shell 还提供了一个名为 $#，可以得到命令行参数个数的变量:
 
-  #!/bin/bash
+    #!/bin/bash
 
-  # posit-param: script to view command line parameters
+    # posit-param: script to view command line parameters
 
-  echo "
-  Number of arguments: $#
-  \$0 = $0
-  \$1 = $1
-  \$2 = $2
-  \$3 = $3
-  \$4 = $4
-  \$5 = $5
-  \$6 = $6
-  \$7 = $7
-  \$8 = $8
-  \$9 = $9
-  "
+    echo "
+    Number of arguments: $#
+    \$0 = $0
+    \$1 = $1
+    \$2 = $2
+    \$3 = $3
+    \$4 = $4
+    \$5 = $5
+    \$6 = $6
+    \$7 = $7
+    \$8 = $8
+    \$9 = $9
+    "
 
 The result:
 
 结果是：
 
-  [me@linuxbox ~]$ posit-param a b c d
+    [me@linuxbox ~]$ posit-param a b c d
 
-  Number of arguments: 4
-  $0 = /home/me/bin/posit-param
-  $1 = a
-  $2 = b
-  $3 = c
-  $4 = d
-  $5 =
-  $6 =
-  $7 =
-  $8 =
-  $9 =
+    Number of arguments: 4
+    $0 = /home/me/bin/posit-param
+    $1 = a
+    $2 = b
+    $3 = c
+    $4 = d
+    $5 =
+    $6 =
+    $7 =
+    $8 =
+    $9 =
 
 #### shift – Getting Access To Many Arguments
 
@@ -136,19 +136,19 @@ But what happens when we give the program a large number of arguments such as th
 
 但是如果我们给一个程序添加大量的命令行参数，会怎么样呢？ 正如下面的例子：
 
-  [me@linuxbox ~]$ posit-param *
+    [me@linuxbox ~]$ posit-param *
 
-  Number of arguments: 82
-  $0 = /home/me/bin/posit-param
-  $1 = addresses.ldif
-  $2 = bin
-  $3 = bookmarks.html
-  $4 = debian-500-i386-netinst.iso
-  $5 = debian-500-i386-netinst.jigdo
-  $6 = debian-500-i386-netinst.template
-  $7 = debian-cd_info.tar.gz
-  $8 = Desktop
-  $9 = dirlist-bin.txt
+    Number of arguments: 82
+    $0 = /home/me/bin/posit-param
+    $1 = addresses.ldif
+    $2 = bin
+    $3 = bookmarks.html
+    $4 = debian-500-i386-netinst.iso
+    $5 = debian-500-i386-netinst.jigdo
+    $6 = debian-500-i386-netinst.template
+    $7 = debian-cd_info.tar.gz
+    $8 = Desktop
+    $9 = dirlist-bin.txt
 
 On this example system, the wildcard * expands into 82 arguments. How can we process
 that many? The shell provides a method, albeit a clumsy one, to do this. The shift
@@ -161,17 +161,17 @@ which never changes):
 就会导致所有的位置参数 “向下移动一个位置”。事实上，用 shift 命令也可以
 处理只有一个参数的情况（除了其值永远不会改变的变量 $0）：
 
-  #!/bin/bash
+    #!/bin/bash
 
-  # posit-param2: script to display all arguments
+    # posit-param2: script to display all arguments
 
-  count=1
+    count=1
 
-  while [[ $# -gt 0 ]]; do
+    while [[ $# -gt 0 ]]; do
     echo "Argument $count = $1"
     count=$((count + 1))
     shift
-  done
+    done
 
 Each time shift is executed, the value of $2 is moved to $1, the value of $3 is moved
 to $2 and so on. The value of $# is also reduced by one.
@@ -189,11 +189,11 @@ $1 with the next argument. Here is the program at work:
 我们显示当前的位置参数，每次循环迭代变量 count 的值都会加1，用来计数处理的参数数量，
 最后，执行 shift 命令加载 $1，其值为下一个位置参数的值。这里是程序运行后的输出结果:
 
-  [me@linuxbox ~]$ posit-param2 a b c d
-  Argument 1 = a 
-  Argument 2 = b
-  Argument 3 = c
-  Argument 4 = d
+    [me@linuxbox ~]$ posit-param2 a b c d
+    Argument 1 = a 
+    Argument 2 = b
+    Argument 3 = c
+    Argument 4 = d
 
 #### Simple Applications
 
@@ -406,11 +406,11 @@ With our arguments, both $* and $@ produce a four word result:
 
 通过我们的参数，$* 和 $@ 两个都产生了一个有四个词的结果：
 
->word words with spaces
-"$*" produces a one word result:
-    "word words with spaces"
-"$@" produces a two word result:
-    "word" "words with spaces"
+    word words with spaces
+    "$*" produces a one word result:
+        "word words with spaces"
+    "$@" produces a two word result:
+        "word" "words with spaces"
 
 which matches our actual intent. The lesson to take from this is that even though the shell
 provides four different ways of getting the list of positional parameters, "$@" is by far
