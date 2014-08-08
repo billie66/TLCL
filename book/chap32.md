@@ -30,20 +30,16 @@ a user’s selection:
 如果我们看一下第28章中的读菜单程序，我们就知道了用来应对一个用户选项的逻辑流程：
 
     #!/bin/bash
-
     # read-menu: a menu driven system information program
-
     clear
     echo "
     Please Select:
-
     1. Display System Information
     2. Display Disk Space
     3. Display Home Space Utilization
     0. Quit
     "
     read -p "Enter selection [0-3] > "
-
     if [[ $REPLY =~ ^[0-3]$ ]]; then
         if [[ $REPLY == 0 ]]; then
             echo "Program terminated."
@@ -78,20 +74,16 @@ Using case, we can replace this logic with something simpler:
 使用 case 语句，我们可以用更简单的代码替换这种逻辑：
 
     #!/bin/bash
-
     # case-menu: a menu driven system information program
-
     clear
     echo "
     Please Select:
-
     1. Display System Information
     2. Display Disk Space
     3. Display Home Space Utilization
     0. Quit
     "
     read -p "Enter selection [0-3] > "
-
     case $REPLY in
         0)  echo "Program terminated."
             exit
@@ -196,11 +188,8 @@ Here is an example of patterns at work:
 这里是一个模式使用实例：
 
     #!/bin/bash
-
     read -p "enter word > "
-
     case $REPLY in
-
         [[:alpha:]])        echo "is a single alphabetic character." ;;
         [ABC][0-9])         echo "is A, B, or C followed by a digit." ;;
         ???)                echo "is three characters long." ;;
@@ -215,20 +204,16 @@ both upper- and lowercase characters. For example:
 还可以使用竖线字符作为分隔符，把多个模式结合起来。这就创建了一个 “或” 条件模式。这对于处理诸如大小写字符很有用处。例如：
 
     #!/bin/bash
-
     # case-menu: a menu driven system information program
-
     clear
     echo "
     Please Select:
-
     A. Display System Information
     B. Display Disk Space
     C. Display Home Space Utilization
     Q. Quit
     "
     read -p "Enter selection [A, B, C or Q] > "
-
     case $REPLY in
     q|Q) echo "Program terminated."
          exit
@@ -268,9 +253,7 @@ a script that tests a character:
 匹配成功之后，命令将会终止。这里我们看一个测试一个字符的脚本：
 
     #!/bin/bash
-
     # case4-1: test a character
-
     read -n 1 -p "Type a character > "
     echo
     case $REPLY in
@@ -303,9 +286,7 @@ terminate each action, so now we can do this:
 多个测试条件。现在的 bash 版本，添加 “;;&” 表达式来终止每个行动，所以现在我们可以做到这一点：
 
     #!/bin/bash
-
     # case4-2: test a character
-
     read -n 1 -p "Type a character > "
     echo
     case $REPLY in

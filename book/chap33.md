@@ -521,21 +521,21 @@ page-writing code into a shell function, for reasons that will become clear in a
 一会儿就会明白这样做的原因：
 
     write_html_page () {
-    cat <<- _EOF_
-        <HTML>
-            <HEAD>
-                <TITLE>$TITLE</TITLE>
-            </HEAD>
-            <BODY>
-                <H1>$TITLE</H1>
-                <P>$TIMESTAMP</P>
-                $(report_uptime)
-                $(report_disk_space)
-                $(report_home_space)
-            </BODY>
-        </HTML>
-    _EOF_
-    return
+        cat <<- _EOF_
+            <HTML>
+                <HEAD>
+                    <TITLE>$TITLE</TITLE>
+                </HEAD>
+                <BODY>
+                    <H1>$TITLE</H1>
+                    <P>$TIMESTAMP</P>
+                    $(report_uptime)
+                    $(report_disk_space)
+                    $(report_home_space)
+                </BODY>
+            </HTML>
+        _EOF_
+        return
     }
     # output html page
     if [[ -n $filename ]]; then
