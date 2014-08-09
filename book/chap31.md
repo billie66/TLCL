@@ -28,11 +28,8 @@ errors:
 在以下讨论中，我们将使用下面这个脚本，来说明常见的错误类型：
 
     #!/bin/bash
-
     # trouble: script to demonstrate common errors
-
     number=1
-
     if [ $number = 1 ]; then
         echo "Number is equal to 1."
     else
@@ -56,11 +53,8 @@ echo command:
 如果我们编辑我们的脚本，并从跟随第一个 echo 命令的参数中，删除其末尾的双引号：
 
     #!/bin/bash
-
     # trouble: script to demonstrate common errors
-
     number=1
-
     if [ $number = 1 ]; then
         echo "Number is equal to 1.
     else
@@ -109,11 +103,8 @@ command:
 我们删除 if 命令中测试之后的分号，会出现什么情况：
 
     #!/bin/bash
-
     # trouble: script to demonstrate common errors
-
     number=1
-
     if [ $number = 1 ] then
         echo "Number is equal to 1."
     else
@@ -164,9 +155,7 @@ demonstrate:
 
     #!/bin/bash
     # trouble: script to demonstrate common errors
-
     number=
-
     if [ $number = 1 ]; then
         echo "Number is equal to 1."
     else
@@ -593,11 +582,8 @@ bash 还提供了一种名为追踪的方法，这种方法可通过 -x 选项�
 拿我们之前的 trouble 脚本为例，给该脚本的第一行语句添加 -x 选项，我们就能追踪整个脚本。
 
     #!/bin/bash -x
-
     # trouble: script to demonstrate common errors
-
     number=1
-
     if [ $number = 1 ]; then
         echo "Number is equal to 1."
     else
@@ -640,11 +626,8 @@ use the set command with the -x option:
 我们可以使用 set 命令加上 -x 选项，为脚本中的一块选择区域，而不是整个脚本启用追踪。
 
     #!/bin/bash
-
     # trouble: script to demonstrate common errors
-
     number=1
-
     set -x # Turn on tracing
     if [ $number = 1 ]; then
         echo "Number is equal to 1."
@@ -671,11 +654,8 @@ usually do the trick:
 使用额外的 echo 语句通常会奏效。
 
     #!/bin/bash
-
     # trouble: script to demonstrate common errors
-
     number=1
-
     echo "number=$number" # DEBUG
     set -x # Turn on tracing
     if [ $number = 1 ]; then
