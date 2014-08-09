@@ -45,7 +45,8 @@ pre code {
 hr {
   height: 5px;
   width: 100%;
-  background: gray;
+  background-color: #ddd;
+  border: none;
 }
 
 div.single {
