@@ -20,6 +20,11 @@ body {
   box-sizing: border-box;
 }
 
+.contents .title {
+  margin: 30px auto;
+  text-align: center;
+}
+
 p.figure {
   font-style: italic;
   text-align: center;
