@@ -188,10 +188,10 @@ Here, we list all the variables in the environment with names that begin with BA
 这种展开会返回以 prefix 开头的已有变量名。根据 bash 文档，这两种展开形式的执行结果相同。
 这里，我们列出了所有以 BASH 开头的环境变量名：
 
-[me@linuxbox ~]$ echo ${!BASH*}
-BASH BASH_ARGC BASH_ARGV BASH_COMMAND BASH_COMPLETION
-BASH_COMPLETION_DIR BASH_LINENO BASH_SOURCE BASH_SUBSHELL
-BASH_VERSINFO BASH_VERSION
+    [me@linuxbox ~]$ echo ${!BASH*}
+    BASH BASH_ARGC BASH_ARGV BASH_COMMAND BASH_COMPLETION
+    BASH_COMPLETION_DIR BASH_LINENO BASH_SOURCE BASH_SUBSHELL
+    BASH_VERSINFO BASH_VERSION
 
 #### String Operations
 
@@ -211,9 +211,9 @@ positional parameters.
 展开成由 parameter 所包含的字符串的长度。通常，parameter 是一个字符串；然而，如果 parameter 是 @ 或者是 * 的话，
 则展开结果是位置参数的个数。
 
-[me@linuxbox ~]$ foo="This string is long."
-[me@linuxbox ~]$ echo "'$foo' is ${#foo} characters long."
-'This string is long.' is 20 characters long.
+    [me@linuxbox ~]$ foo="This string is long."
+    [me@linuxbox ~]$ echo "'$foo' is ${#foo} characters long."
+    'This string is long.' is 20 characters long.
 
 ${parameter:offset}
 
@@ -226,11 +226,11 @@ the end of the string, unless the length is specified.
 这些展开用来从 parameter 所包含的字符串中提取一部分字符。提取的字符始于
 第 offset 个字符（从字符串开头算起）直到字符串的末尾，除非指定提取的长度。
 
-[me@linuxbox ~]$ foo="This string is long."
-[me@linuxbox ~]$ echo ${foo:5}
-string is long.
-[me@linuxbox ~]$ echo ${foo:5:6}
-string
+    [me@linuxbox ~]$ foo="This string is long."
+    [me@linuxbox ~]$ echo ${foo:5}
+    string is long.
+    [me@linuxbox ~]$ echo ${foo:5:6}
+    string
 
 If the value of offset is negative, it is taken to mean it starts from the end of the string
 rather than the beginning. Note that negative values must be preceded by a space to pre-
@@ -245,11 +245,11 @@ starting at offset.
 
 如果 parameter 是 @，展开结果是 length 个位置参数，从第 offset 个位置参数开始。
 
-[me@linuxbox ~]$ foo="This string is long."
-[me@linuxbox ~]$ echo ${foo: -5}
-long.
-[me@linuxbox ~]$ echo ${foo: -5:2}
-lo
+    [me@linuxbox ~]$ foo="This string is long."
+    [me@linuxbox ~]$ echo ${foo: -5}
+    long.
+    [me@linuxbox ~]$ echo ${foo: -5:2}
+    lo
 
 ${parameter#pattern}
 
@@ -264,11 +264,11 @@ removes the longest match.
 通配符模式，就如那些用在路径名展开中的模式。这两种形式的差异之处是该 # 形式清除最短的匹配结果，
 而该 ## 模式清除最长的匹配结果。
 
-[me@linuxbox ~]$ foo=file.txt.zip
-[me@linuxbox ~]$ echo ${foo#*.}
-txt.zip
-[me@linuxbox ~]$ echo ${foo##*.}
-zip
+    [me@linuxbox ~]$ foo=file.txt.zip
+    [me@linuxbox ~]$ echo ${foo#*.}
+    txt.zip
+    [me@linuxbox ~]$ echo ${foo##*.}
+    zip
 
 ${parameter%pattern}
 
@@ -279,11 +279,11 @@ text from the end of the string contained in parameter rather than from the begi
 
 这些展开和上面的 # 和 ## 展开一样，除了它们清除的文本从 parameter 所包含字符串的末尾开始，而不是开头。
 
-[me@linuxbox ~]$ foo=file.txt.zip
-[me@linuxbox ~]$ echo ${foo%.*}
-file.txt
-[me@linuxbox ~]$ echo ${foo%%.*}
-file
+    [me@linuxbox ~]$ foo=file.txt.zip
+    [me@linuxbox ~]$ echo ${foo%.*}
+    file.txt
+    [me@linuxbox ~]$ echo ${foo%%.*}
+    file
 
 ${parameter/pattern/string}
 
@@ -511,6 +511,113 @@ supported by the parameter expansions. While this script uses the first position
 parameter my be any string, variable, or string expression.
 
 再次，我们处理了第一个命令行参数，输出了由参数展开支持的四种变体。尽管这个脚本使用了第一个位置参数，
-但参数可以是任意字符串，变量，或者字符串表达式。
+但参数可以是任意字符串，变量，或字符串表达式。
 
+### Arithmetic Evaluation And Expansion
+
+### 算术求值和展开
+
+We looked at arithmetic expansion in Chapter 7. It is used to perform various arithmetic
+operations on integers. Its basic form is:
+
+我们在第七章中已经接触过算术展开了。它被用来对整数执行各种算术运算。它的基本格式是：
+
+$((expression))
+
+where expression is a valid arithmetic expression.
+
+这里的 expression 是一个有效的算术表达式。
+
+This is related to the compound command (( )) used for arithmetic evaluation (truth
+tests) we encountered in Chapter 27.
+
+这个与复合命令 (( )) 有关，此命令用做算术求值（真测试），我们在第27章中遇到过。
+
+In previous chapters, we saw some of the common types of expressions and operators.
+Here, we will look at a more complete list.
+
+在之前的章节中，我们看到过一些类型的表达式和运算符。这里，我们将看到一个更完整的列表。
+
+#### Number Bases
+
+#### 数基
+
+Back in Chapter 9, we got a look at octal (base 8) and hexadecimal (base 16) numbers. In
+arithmetic expressions, the shell supports integer constants in any base.
+
+回到第9章，我们看过八进制（以8为底）和十六进制（以16为底）的数字。在算术表达式中，shell 支持任意进制的整形常量。
+
+<table class="multi">
+    <caption class="cap">Table 34-2: Specifying Different Number Bases</caption>
+    <tr>
+        <th class="title">Notation</th>
+        <th class="title">Description</th>
+    </tr>
+    <tr>
+        <td valign="top">number</td>
+        <td valign="top">By default, numbers without any notation are treated as decimal
+      (base 10) integers.</td>
+    </tr>
+    <tr>
+        <td valign="top">0number</td>
+        <td valign="top">In arithmetic expressions, numbers with a leading zero are
+       considered octal.</td>
+    </tr>
+    <tr>
+        <td valign="top">0xnumber</td>
+        <td valign="top">Hexadecimal notation</td>
+    </tr>
+    <tr>
+        <td valign="top">base#number</td>
+        <td valign="top">number is in base</td>
+    </tr>
+</table>
+
+<table class="multi">
+    <caption class="cap">表 34-2: 指定不同的数基</caption>
+    <tr>
+        <th class="title">表示法</th>
+        <th class="title">描述</th>
+    </tr>
+    <tr>
+        <td valign="top">number</td>
+        <td valign="top">默认情况下，没有任何表示法的数字被看做是十进制数（以10为底）。</td>
+    </tr>
+    <tr>
+        <td valign="top">0number</td>
+        <td valign="top">在算术表达式中，以零开头的数字被认为是八进制数。</td>
+    </tr>
+    <tr>
+        <td valign="top">0xnumber</td>
+        <td valign="top">十六进制表示法</td>
+    </tr>
+    <tr>
+        <td valign="top">base#number</td>
+        <td valign="top">number 以 base 为底</td>
+    </tr>
+</table>
+
+
+Some examples:
+
+一些例子：
+
+[me@linuxbox ~]$ echo $((0xff))
+255
+[me@linuxbox ~]$ echo $((2#11111111))
+255
+
+In the examples above, we print the value of the hexadecimal number ff (the largest
+two-digit number) and the largest eight-digit binary (base 2) number.
+
+在上面的示例中，我们打印出十六进制数 ff（最大的两位数）的值和最大的八位二进制数（以2为底）。
+
+#### Unary Operators
+
+#### 一元运算符
+
+There are two unary operators, the + and -, which are used to indicate if a number is pos-
+itive or negative, respectively. For example, -5.
+
+有两个二元运算符，+ 和 -，它们被分别用来表示一个数字是正数还是负数。例如，-5。
 
