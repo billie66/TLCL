@@ -863,33 +863,31 @@ signments:
     </tr>
     <tr>
         <td valign="top">parameter *= value</td>
-        <td valign="top">乘。等价于 parameter = parameter * value.</td>
+        <td valign="top">乘。等价于 parameter = parameter * value。</td>
     </tr>
     <tr>
         <td valign="top">parameter /= value</td>
-        <td valign="top">整除。等价于 parameter =
-                  parameter / value.</td>
+        <td valign="top">整除。等价于 parameter = parameter / value。</td>
     </tr>
     <tr>
         <td valign="top">parameter %= value</td>
-        <td valign="top"> 取模。等价于 parameter = parameter %
-                  value.</td>
+        <td valign="top"> 取模。等价于 parameter = parameter % value。</td>
     </tr>
     <tr>
         <td valign="top">parameter++ </td>
-        <td valign="top">后缀自增变量。等价于 parameter = parameter + 1 (但，要看下面的讨论).</td>
+        <td valign="top">后缀自增变量。等价于 parameter = parameter + 1 (但，要看下面的讨论)。</td>
     </tr>
     <tr>
         <td valign="top">parameter−− </td>
-        <td valign="top">后缀自减变量。等价于 parameter = parameter − 1.</td>
+        <td valign="top">后缀自减变量。等价于 parameter = parameter − 1。</td>
     </tr>
     <tr>
         <td valign="top">++parameter</td>
-        <td valign="top">前缀自增变量。等价于 parameter = parameter + 1.</td>
+        <td valign="top">前缀自增变量。等价于 parameter = parameter + 1。</td>
     </tr>
     <tr>
         <td valign="top">--parameter</td>
-        <td valign="top">前缀自减变量。等价于 parameter = parameter − 1.</td>
+        <td valign="top">前缀自减变量。等价于 parameter = parameter − 1。</td>
     </tr>
 </table>
  
@@ -1257,7 +1255,7 @@ thereby terminating the loop. Running the script gives this result:
 
 ### bc – An Arbitrary Precision Calculator Language
 
-### bc - 一种高精度计算器语言
+### bc — 一种高精度计算器语言
 
 We have seen how the shell can handle all types of integer arithmetic, but what if we
 need to perform higher math or even just use floating point numbers? The answer is, we
