@@ -602,10 +602,10 @@ Some examples:
 
 一些例子：
 
-[me@linuxbox ~]$ echo $((0xff))
-255
-[me@linuxbox ~]$ echo $((2#11111111))
-255
+    [me@linuxbox ~]$ echo $((0xff))
+    255
+    [me@linuxbox ~]$ echo $((2#11111111))
+    255
 
 In the examples above, we print the value of the hexadecimal number ff (the largest
 two-digit number) and the largest eight-digit binary (base 2) number.
@@ -620,4 +620,348 @@ There are two unary operators, the + and -, which are used to indicate if a numb
 itive or negative, respectively. For example, -5.
 
 有两个二元运算符，+ 和 -，它们被分别用来表示一个数字是正数还是负数。例如，-5。
+
+#### Simple Arithmetic
+
+#### 简单算术
+
+The ordinary arithmetic operators are listed in the table below:
+
+下表中列出了普通算术运算符：
+
+<table class="multi">
+    <caption class="cap">Table 34-3: Arithmetic Operators</caption>
+    <tr>
+        <th class="title">Operator</th>
+        <th class="title">Description</th>
+    </tr>
+    <tr>
+        <td valign="top">+</td>
+        <td valign="top">Addition</td>
+    </tr>
+    <tr>
+        <td valign="top">-</td>
+        <td valign="top">Subtraction</td>
+    </tr>
+    <tr>
+        <td valign="top">*</td>
+        <td valign="top">Multiplication</td>
+    </tr>
+    <tr>
+        <td valign="top">/</td>
+        <td valign="top">Integer division</td>
+    </tr>
+    <tr>
+        <td valign="top">**</td>
+        <td valign="top">Exponentiation</td>
+    </tr>
+    <tr>
+        <td valign="top">%</td>
+        <td valign="top">Modulo (remainder)</td>
+    </tr>
+</table>
+<table class="multi">
+    <caption class="cap">表 34-3: 算术运算符</caption>
+    <tr>
+        <th class="title">运算符</th>
+        <th class="title">描述</th>
+    </tr>
+    <tr>
+        <td valign="top">+</td>
+        <td valign="top">加</td>
+    </tr>
+    <tr>
+        <td valign="top">-</td>
+        <td valign="top">减</td>
+    </tr>
+    <tr>
+        <td valign="top">*</td>
+        <td valign="top">乘</td>
+    </tr>
+    <tr>
+        <td valign="top">/</td>
+        <td valign="top">整除</td>
+    </tr>
+    <tr>
+        <td valign="top">**</td>
+        <td valign="top">乘方</td>
+    </tr>
+    <tr>
+        <td valign="top">%</td>
+        <td valign="top">取模（余数）</td>
+    </tr>
+</table>
+
+Most of these are self-explanatory, but integer division and modulo require further discussion.
+
+其中大部分运算符是不言自明的，但是整除和取模运算符需要进一步解释一下。
+
+Since the shell’s arithmetic only operates on integers, the results of division are always
+whole numbers:
+
+因为 shell 算术只操作整形，所以除法运算的结果总是整数：
+
+    [me@linuxbox ~]$ echo $(( 5 / 2 ))
+    2
+
+This makes the determination of a remainder in a division operation more important:
+
+这使得确定除法运算的余数更为重要：
+
+    [me@linuxbox ~]$ echo $(( 5 % 2 ))
+    1
+
+By using the division and modulo operators, we can determine that 5 divided by 2 results
+in 2, with a remainder of 1.
+
+通过使用除法和取模运算符，我们能够确定5除以2得数是2，余数是1。
+
+Calculating the remainder is useful in loops. It allows an operation to be performed at
+specified intervals during the loop's execution. In the example below, we display a line of
+numbers, highlighting each multiple of 5:
+
+在循环中计算余数是很有用处的。在循环执行期间，它允许某一个操作在指定的间隔内执行。在下面的例子中，
+我们显示一行数字，并高亮显示5的倍数：
+
+    #!/bin/bash
+    # modulo : demonstrate the modulo operator
+    for ((i = 0; i <= 20; i = i + 1)); do
+        remainder=$((i % 5))
+        if (( remainder == 0 )); then
+            printf "<%d> " $i
+        else
+            printf "%d " $i
+        fi
+    done
+    printf "\n"
+
+When executed, the results look like this:
+
+当脚本执行后，输出结果看起来像这样：
+
+    [me@linuxbox ~]$ modulo
+    <0> 1 2 3 4 <5> 6 7 8 9 <10> 11 12 13 14 <15> 16 17 18 19 <20>
+
+#### Assignment
+
+#### 赋值运算符
+
+Although its uses may not be immediately apparent, arithmetic expressions may perform
+assignment. We have performed assignment many times, though in a different context.
+Each time we give a variable a value, we are performing assignment. We can also do it
+within arithmetic expressions:
+
+尽管它的使用不是那么明显，算术表达式可能执行赋值运算。虽然在不同的上下文中，我们已经执行了许多次赋值运算。
+每次我们给变量一个值，我们就执行了一次赋值运算。我们也能在算术表达式中执行赋值运算：
+
+    [me@linuxbox ~]$ foo=
+    [me@linuxbox ~]$ echo $foo
+    [me@linuxbox ~]$ if (( foo = 5 ));then echo "It is true."; fi
+    It is true.
+    [me@linuxbox ~]$ echo $foo
+    5
+
+In the example above, we first assign an empty value to the variable foo and verify that
+it is indeed empty. Next, we perform an if with the compound command (( foo = 5 )).
+This process does two interesting things: 1) it assigns the value of 5 to the variable
+foo, and 2) it evaluates to true because foo was assigned a nonzero value.
+
+在上面的例子中，首先我们给变量 foo 赋了一个空值，然后验证 foo 的确为空。下一步，我们执行一个 if 复合命令 (( foo = 5 ))。
+这个过程完成两件有意思的事情：1）它把5赋值给变量 foo，2）它计算测试条件为真，因为 foo 的值非零。
+
+---
+
+Note: It is important to remember the exact meaning of the = in the expression
+above. A single = performs assignment. foo = 5 says “make foo equal to 5,”
+while == evaluates equivalence. foo == 5 says “does foo equal 5?” This can
+be very confusing because the test command accepts a single = for string equiva-
+lence. This is yet another reason to use the more modern [[ ]] and (( )) com-
+pound commands in place of test.
+
+注意： 记住上面表达式中 = 符号的真正含义非常重要。单个 = 运算符执行赋值运算。foo = 5 是说“使得 foo 等于5”，
+而 == 运算符计算等价性。foo == 5 是说“是否 foo 等于5？”。这会让人感到非常迷惑，因为 test 命令接受单个 = 运算符
+来测试字符串等价性。这也是使用更现代的 [[ ]] 和 (( )) 复合命令来代替 test 命令的另一个原因。
+
+---
+
+In addition to the =, the shell also provides notations that perform some very useful as-
+signments:
+
+除了 = 运算符，shell 也提供了其它一些表示法，来执行一些非常有用的赋值运算：
+
+<table class="multi">
+    <caption class="cap">Table 34-4: Assignment Operators</caption>
+    <tr>
+        <th class="title">Notation</th>
+        <th class="title">Description</th>
+    </tr>
+    <tr>
+        <td valign="top">parameter = value</td>
+        <td valign="top">Simple assignment. Assigns value to parameter.</td>
+    </tr>
+    <tr>
+        <td valign="top">parameter += value</td>
+        <td valign="top">Addition. Equivalent to parameter = parameter + value.</td>
+    </tr>
+    <tr>
+        <td valign="top">parameter -= value</td>
+        <td valign="top">Subtraction. Equivalent to parameter = parameter – value.</td>
+    </tr>
+    <tr>
+        <td valign="top">parameter *= value</td>
+        <td valign="top">Multiplication. Equivalent to parameter = parameter * value.</td>
+    </tr>
+    <tr>
+        <td valign="top">parameter /= value</td>
+        <td valign="top">Integer division. Equivalent to parameter =
+                  parameter / value.</td>
+    </tr>
+    <tr>
+        <td valign="top">parameter %= value</td>
+        <td valign="top"> Modulo. Equivalent to parameter = parameter %
+                  value.</td>
+    </tr>
+    <tr>
+        <td valign="top">parameter++ </td>
+        <td valign="top">Variable post-increment. Equivalent to parameter =
+           parameter + 1 (however, see discussion below).</td>
+    </tr>
+    <tr>
+        <td valign="top">parameter−− </td>
+        <td valign="top">Variable post-decrement. Equivalent to parameter =
+               parameter − 1.</td>
+    </tr>
+    <tr>
+        <td valign="top">++parameter</td>
+        <td valign="top">Variable pre-increment. Equivalent to parameter =
+           parameter + 1.</td>
+    </tr>
+    <tr>
+        <td valign="top">--parameter</td>
+        <td valign="top">Variable pre-decrement. Equivalent to parameter =
+           parameter − 1.</td>
+    </tr>
+</table>
+
+<table class="multi">
+    <caption class="cap">表34-4: 赋值运算符</caption>
+    <tr>
+        <th class="title">表示法</th>
+        <th class="title">描述</th>
+    </tr>
+    <tr>
+        <td valign="top">parameter = value</td>
+        <td valign="top">简单赋值。给 parameter 赋值。</td>
+    </tr>
+    <tr>
+        <td valign="top">parameter += value</td>
+        <td valign="top">加。等价于 parameter = parameter + value。</td>
+    </tr>
+    <tr>
+        <td valign="top">parameter -= value</td>
+        <td valign="top">减。等价于 parameter = parameter – value。</td>
+    </tr>
+    <tr>
+        <td valign="top">parameter *= value</td>
+        <td valign="top">乘。等价于 parameter = parameter * value.</td>
+    </tr>
+    <tr>
+        <td valign="top">parameter /= value</td>
+        <td valign="top">整除。等价于 parameter =
+                  parameter / value.</td>
+    </tr>
+    <tr>
+        <td valign="top">parameter %= value</td>
+        <td valign="top"> 取模。等价于 parameter = parameter %
+                  value.</td>
+    </tr>
+    <tr>
+        <td valign="top">parameter++ </td>
+        <td valign="top">后缀自增变量。等价于 parameter = parameter + 1 (但，要看下面的讨论).</td>
+    </tr>
+    <tr>
+        <td valign="top">parameter−− </td>
+        <td valign="top">后缀自减变量。等价于 parameter = parameter − 1.</td>
+    </tr>
+    <tr>
+        <td valign="top">++parameter</td>
+        <td valign="top">前缀自增变量。等价于 parameter = parameter + 1.</td>
+    </tr>
+    <tr>
+        <td valign="top">--parameter</td>
+        <td valign="top">前缀自减变量。等价于 parameter = parameter − 1.</td>
+    </tr>
+</table>
+ 
+These assignment operators provide a convenient shorthand for many common arithmetic
+tasks. Of special interest are the increment (++) and decrement (−−) operators,
+which increase or decrease the value of their parameters by one. This style of notation is taken
+from the C programming language and has been incorporated by several other
+programming languages, including bash.
+
+这些赋值运算符为许多常见算术任务提供了快捷方式。特别关注一下自增（++）和自减（--）运算符，它们会把它们的参数值加1或减1。
+这种风格的表示法取自C 编程语言并且被其它几种编程语言吸收，包括 bash。
+
+The operators may appear either at the front of a parameter or at the end. While they both
+either increment or decrement the parameter by one, the two placements have a subtle
+difference. If placed at the front of the parameter, the parameter is incremented (or decre-
+mented) before the parameter is returned. If placed after, the operation is performed after
+the parameter is returned. This is rather strange, but it is the intended behavior. Here is a
+demonstration:
+
+自增和自减运算符可能会出现在参数的前面或者后面。然而它们都是把参数值加1或减1，这两个位置有个微小的差异。
+若运算符放置在参数的前面，参数值会在参数返回之前增加（或减少）。若放置在后面，则运算会在参数返回之后执行。
+这相当奇怪，但这是它预期的行为。这里是个演示的例子：
+
+    [me@linuxbox ~]$ foo=1
+    [me@linuxbox ~]$ echo $((foo++))
+    1
+    [me@linuxbox ~]$ echo $foo
+    2
+
+If we assign the value of one to the variable foo and then increment it
+with the ++ operator placed after the parameter name, foo is returned with the value of one.
+However, if we look at the value of the variable a second time, we see the incremented value. If we
+place the ++ operator in front of the parameter, we get the more expected behavior:
+
+如果我们把1赋值给变量 foo，然后通过把自增运算符 ++ 放到参数名 foo 之后来增加它，foo 返回1。
+然而，如果我们第二次查看变量 foo 的值，我们看到它的值增加了1。若我们把 ++ 运算符放到参数 foo 之前，
+我们得到更期望的行为：
+
+    [me@linuxbox ~]$ foo=1
+    [me@linuxbox ~]$ echo $((++foo))
+    2
+    [me@linuxbox ~]$ echo $foo
+    2
+
+For most shell applications, prefixing the operator will be the most useful.
+
+对于大多数 shell 应用来说，前缀运算符最有用。
+
+The ++ and -- operators are often used in conjunction with loops.
+We will make some improvements to our modulo script to tighten it up a bit:
+
+自增 ++ 和 自减 -- 运算符经常和循环操作结合使用。我们将改进我们的 modulo 脚本，让代码更紧凑些：
+
+    #!/bin/bash
+    # modulo2 : demonstrate the modulo operator
+    for ((i = 0; i <= 20; ++i )); do
+        if (((i % 5) == 0 )); then
+            printf "<%d> " $i
+        else
+            printf "%d " $i
+        fi
+    done
+    printf "\n"
+
+#### Bit Operations
+
+#### 位运算符
+
+One class of operators manipulates numbers in an unusual way. These operators work at
+the bit level. They are used for certain kinds of low level tasks, often involving setting or
+reading bit-flags.
+
+位运算符是一类以不寻常的方式操作数字的运算符。这些运算符工作在位级别的数字。它们被用在某类底层的任务中，
+经常涉及到设置或读取位标志。
 
