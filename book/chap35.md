@@ -965,3 +965,512 @@ reading bit-flags.
 位运算符是一类以不寻常的方式操作数字的运算符。这些运算符工作在位级别的数字。它们被用在某类底层的任务中，
 经常涉及到设置或读取位标志。
 
+<table class="multi">
+    <caption class="cap">Table 34-5: Bit Operators</caption>
+    <tr>
+        <th class="title">Operator</th>
+        <th class="title">Description</th>
+    </tr>
+    <tr>
+        <td valign="top">~ </td>
+        <td valign="top">Bitwise negation. Negate all the bits in a number.</td>
+    </tr>
+    <tr>
+        <td valign="top"><<</td>
+        <td valign="top">Left bitwise shift. Shift all the bits in a number to the left.</td>
+    </tr>
+    <tr>
+        <td valign="top">>></td>
+        <td valign="top">Right bitwise shift. Shift all the bits in a number to the right.</td>
+    </tr>
+    <tr>
+        <td valign="top">&</td>
+        <td valign="top">Bitwise AND. Perform an AND operation on all the bits in two numbers.</td>
+    </tr>
+    <tr>
+        <td valign="top">|</td>
+        <td valign="top">Bitwise OR. Perform an OR operation on all the bits in two numbers.</td>
+    </tr>
+    <tr>
+        <td valign="top">^</td>
+        <td valign="top">Bitwise XOR. Perform an exclusive OR operation on all the
+ bits in two numbers.</td>
+    </tr>
+</table>
+
+<table class="multi">
+    <caption class="cap">表34-5：位运算符</caption>
+    <tr>
+        <th class="title">运算符</th>
+        <th class="title">描述</th>
+    </tr>
+    <tr>
+        <td valign="top">~</td>
+        <td valign="top">按位取反。对一个数字所有位取反。</td>
+    </tr>
+    <tr>
+        <td valign="top"><<</td>
+        <td valign="top">位左移. 把一个数字的所有位向左移动。</td>
+    </tr>
+    <tr>
+        <td valign="top">>></td>
+        <td valign="top">位右移. 把一个数字的所有位向右移动。</td>
+    </tr>
+    <tr>
+        <td valign="top">&</td>
+        <td valign="top">位与。对两个数字的所有位执行一个 AND 操作。</td>
+    </tr>
+    <tr>
+        <td valign="top">|</td>
+        <td valign="top">位或。对两个数字的所有位执行一个 OR 操作。</td>
+    </tr>
+    <tr>
+        <td valign="top">^</td>
+        <td valign="top">位异或。对两个数字的所有位执行一个异或操作。</td>
+    </tr>
+</table>
+
+Note that there are also corresponding assignment operators (for example, <<=) for all
+but bitwise negation.
+
+注意除了按位取反运算符之外，其它所有位运算符都有相对应的赋值运算符（例如，<<=）。
+
+Here we will demonstrate producing a list of powers of 2, using the left bitwise shift operator:
+
+这里我们将演示产生2的幂列表的操作，使用位左移运算符：
+
+    [me@linuxbox ~]$ for ((i=0;i<8;++i)); do echo $((1<<i)); done
+    1
+    2
+    4
+    8
+    16
+    32
+    64
+    128
+
+#### Logic
+
+#### 逻辑运算符
+
+As we discovered in Chapter 27, the (( )) compound command supports a variety of
+comparison operators. There are a few more that can be used to evaluate logic. Here is
+the complete list:
+
+正如我们在第27章中所看到的，复合命令 (( )) 支持各种各样的比较运算符。还有一些可以用来计算逻辑运算。
+这里是比较运算符的完整列表：
+
+<table class="multi">
+    <caption class="cap">Table 34-6: Comparison Operators</caption>
+    <tr>
+        <th class="title">Operator</th>
+        <th class="title">Description</th>
+    </tr>
+    <tr>
+        <td valign="top"><=</td>
+        <td valign="top">Less than or equal to</td>
+    </tr>
+    <tr>
+        <td valign="top">>=</td>
+        <td valign="top">great than or equal to</td>
+    </tr>
+    <tr>
+        <td valign="top"><</td>
+        <td valign="top">less than</td>
+    </tr>
+    <tr>
+        <td valign="top">></td>
+        <td valign="top">greater than</td>
+    </tr>
+    <tr>
+        <td valign="top">==</td>
+        <td valign="top">Equal to</td>
+    </tr>
+    <tr>
+        <td valign="top">!=</td>
+        <td valign="top">Not equal to</td>
+    </tr>
+    <tr>
+        <td valign="top">&&</td>
+        <td valign="top">Logical AND</td>
+    </tr>
+    <tr>
+        <td valign="top">||</td>
+        <td valign="top">Logical OR</td>
+    </tr>
+     <tr>
+        <td valign="top">expr1?expr2:expr3</td>
+        <td valign="top">Comparison (ternary) operator. If expression expr1
+                 evaluates to be non-zero (arithmetic true) then expr2,
+                else expr3.</td>
+    </tr>
+</table>
+
+<table class="multi">
+    <caption class="cap">表34-6：比较运算符</caption>
+    <tr>
+        <th class="title">运算符</th>
+        <th class="title">描述</th>
+    </tr>
+    <tr>
+        <td valign="top"><=</td>
+        <td valign="top">小于或相等</td>
+    </tr>
+    <tr>
+        <td valign="top">>=</td>
+        <td valign="top">大于或相等</td>
+    </tr>
+    <tr>
+        <td valign="top"><</td>
+        <td valign="top">小于</td>
+    </tr>
+    <tr>
+        <td valign="top">></td>
+        <td valign="top">大于</td>
+    </tr>
+    <tr>
+        <td valign="top">==</td>
+        <td valign="top">相等</td>
+    </tr>
+    <tr>
+        <td valign="top">!=</td>
+        <td valign="top">不相等</td>
+    </tr>
+    <tr>
+        <td valign="top">&&</td>
+        <td valign="top">逻辑与</td>
+    </tr>
+    <tr>
+        <td valign="top">||</td>
+        <td valign="top">逻辑或</td>
+    </tr>
+     <tr>
+        <td valign="top">expr1?expr2:expr3</td>
+        <td valign="top">条件（三元）运算符。若表达式 expr1 的计算结果为非零值（算术真），则
+            执行表达式 expr2，否则执行表达式 expr3。</td>
+    </tr>
+</table>
+
+When used for logical operations, expressions follow the rules of arithmetic logic; that is,
+expressions that evaluate as zero are considered false, while non-zero expressions are
+considered true. The (( )) compound command maps the results into the shell’s normal
+exit codes:
+
+当表达式用于逻辑运算时，表达式遵循算术逻辑规则；也就是，表达式的计算结果是零，则认为假，而非零表达式认为真。
+该 (( )) 复合命令把结果映射成 shell 正常的退出码：
+
+
+    [me@linuxbox ~]$ if ((1)); then echo "true"; else echo "false"; fi
+    true
+    [me@linuxbox ~]$ if ((0)); then echo "true"; else echo "false"; fi
+    false
+
+The strangest of the logical operators is the ternary operator. This operator (which is
+modeled after the one in the C programming language) performs a standalone logical test.
+It can be used as a kind of if/then/else statement. It acts on three arithmetic expressions
+(strings won’t work), and if the first expression is true (or non-zero) the second
+expression is performed. Otherwise, the third expression is performed. We can try this on the
+command line:
+
+最陌生的逻辑运算符就是这个三元运算符了。这个运算符（仿照于 C 编程语言里的三元运算符）执行一个单独的逻辑测试。
+它用起来类似于 if/then/else 语句。它操作三个算术表达式（字符串不会起作用），并且若第一个表达式为真（或非零），
+则执行第二个表达式。否则，执行第三个表达式。我们可以在命令行中实验一下：
+
+    [me@linuxbox~]$ a=0
+    [me@linuxbox~]$ ((a<1?++a:--a))
+    [me@linuxbox~]$ echo $a
+    1
+    [me@linuxbox~]$ ((a<1?++a:--a))
+    [me@linuxbox~]$ echo $a
+    0
+
+Here we see a ternary operator in action. This example implements a toggle. Each time
+the operator is performed, the value of the variable a switches from zero to one or vice
+versa.
+
+这里我们看到一个实际使用的三元运算符。这个例子实现了一个切换。每次运算符执行的时候，变量 a 的值从零变为1，或反之亦然。
+
+Please note that performing assignment within the expressions is not straightforward.
+
+请注意在表达式内执行赋值却并非易事。
+
+When attempted, bash will declare an error:
+
+当企图这样做时，bash 会声明一个错误：
+
+    [me@linuxbox ~]$ a=0
+    [me@linuxbox ~]$ ((a<1?a+=1:a-=1))
+    bash: ((: a<1?a+=1:a-=1: attempted assignment to non-variable (error token is "-=1")
+
+This problem can be mitigated by surrounding the assignment expression with parentheses:
+
+通过把赋值表达式用括号括起来，可以解决这个错误：
+
+    [me@linuxbox ~]$ ((a<1?(a+=1):(a-=1)))
+
+Next, we see a more complete example of using arithmetic operators
+in a script that produces a simple table of numbers:
+
+下一步，我们看一个使用算术运算符更完备的例子，该示例产生一个简单的数字表格：
+
+    #!/bin/bash
+    # arith-loop: script to demonstrate arithmetic operators
+    finished=0
+    a=0
+    printf "a\ta**2\ta**3\n"
+    printf "=\t====\t====\n"
+    until ((finished)); do
+        b=$((a**2))
+        c=$((a**3))
+        printf "%d\t%d\t%d\n" $a $b $c
+        ((a<10?++a:(finished=1)))
+    done
+
+In this script, we implement an until loop based on the value of the finished variable.
+Initially, the variable is set to zero (arithmetic false) and we continue
+the loop until it becomes non-zero. Within the loop, we calculate the square 
+and cube of the counter variable __a__. At the end of the loop, the value of the
+counter variable is evaluated. If it is less than
+10 (the maximum number of iterations), it is incremented by one, else the
+variable __finished__ is given the value of one, making finished arithmetically true,
+thereby terminating the loop. Running the script gives this result:
+
+在这个脚本中，我们基于变量 finished 的值实现了一个 until 循环。首先，把变量 finished 的值设为零（算术假），
+继续执行循环之道它的值变为非零。在循环体内，我们计算计数器 a 的平方和立方。在循环末尾，计算计数器变量 a 的值。
+若它小于10（最大迭代次数），则 a 的值加1，否则给变量 finished 赋值为1，使得变量 finished 算术为真，
+从而终止循环。运行该脚本得到这样的结果：
+
+    [me@linuxbox ~]$ arith-loop
+    a    a**2     a**3
+    =    ====     ====
+    0    0        0
+    1    1        1
+    2    4        8
+    3    9        27
+    4    16       64
+    5    25       125
+    6    36       216
+    7    49       343
+    8    64       512
+    9    81       729
+    10   100      1000
+
+### bc – An Arbitrary Precision Calculator Language
+
+### bc - 一种高精度计算器语言
+
+We have seen how the shell can handle all types of integer arithmetic, but what if we
+need to perform higher math or even just use floating point numbers? The answer is, we
+can’t. At least not directly with the shell. To do this, we need to use an external program.
+There are several approaches we can take. Embedding Perl or AWK programs is
+one possible solution, but unfortunately, outside the scope of this book.
+Another approach is to use a specialized calculator program. One such program found on
+most Linux systems is called bc.
+
+我们已经看到 shell 是可以处理所有类型的整形算术的，但是如果我们需要执行更高级的数学运算或仅使用浮点数，该怎么办？
+答案是，我们不能这样做。至少不能直接用 shell 完成此类运算。为此，我们需要使用外部程序。
+有几种途径可供我们采用。嵌入的 Perl 或者 AWK 程序是一种可能的方案，但是不幸的是，超出了本书的内容大纲。
+另一种方式就是使用一种专业的计算器程序。这样一个程序叫做 bc，在大多数 Linux 系统中都可以找到。
+
+The bc program reads a file written in its own C-like language and executes it. A bc
+script may be a separate file or it may be read from standard input. The bc language
+supports quite a few features including variables, loops, and programmer-defined functions.
+We won’t cover bc entirely here, just enough to get a taste. bc is well documented by its
+man page.
+
+该 bc 程序读取一个用它自己的类似于 C 语言的语法编写的脚本文件。一个 bc 脚本可能是一个分离的文件或者是读取
+标准输入。bc 语言支持相当少的功能，包括变量，循环和程序员定义的函数。这里我们不会讨论整个 bc 语言，
+仅仅体验一下。查看 bc 的手册页，其文档整理非常好。
+
+Let’s start with a simple example. We’ll write a bc script to add 2 plus 2:
+
+让我们从一个简单的例子开始。我们将编写一个 bc 脚本来执行2加2运算：
+
+    /* A very simple bc script */
+    2 + 2
+
+The first line of the script is a comment. bc uses the same syntax for comments as the C
+programming language. Comments, which may span multiple lines, begin with /* and
+end with */.
+
+脚本的第一行是一行注释。bc 使用和 C编程语言一样的注释语法。注释，可能会跨越多行，开始于 /* 结束于 */。
+
+#### Using bc
+
+#### 使用 bc
+
+If we save the bc script above as foo.bc, we can run it this way:
+
+如果我们把上面的 bc 脚本保存为 foo.bc，然后我们就能这样运行它：
+
+    [me@linuxbox ~]$ bc foo.bc
+    bc 1.06.94
+    Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006 Free Software
+    Foundation, Inc.
+    This is free software with ABSOLUTELY NO WARRANTY.
+    For details type `warranty'.
+    4
+
+If we look carefully, we can see the result at the very bottom, after the copyright message.
+This message can be suppressed with the -q (quiet) option.
+bc can also be used interactively:
+
+如果我们仔细观察，我们看到算术结果在最底部，版权信息之后。可以通过 -q（quiet）选项禁止这些版权信息。
+bc 也能够交互使用：
+
+    [me@linuxbox ~]$ bc -q
+    2 + 2
+    4
+    quit
+
+When using bc interactively, we simply type the calculations we wish to perform, and
+the results are immediately displayed. The bc command quit ends the interactive session.
+
+当使用 bc 交互模式时，我们简单地输入我们希望执行的运算，结果就立即显示出来。bc 的 quit 命令结束交互会话。
+
+It is also possible to pass a script to bc via standard input:
+
+也可能通过标准输入把一个脚本传递给 bc 程序：
+
+    [me@linuxbox ~]$ bc < foo.bc
+    4
+
+The ability to take standard input means that we can use here documents, here strings,
+and pipes to pass scripts. This is a here string example:
+
+这种接受标准输入的能力，意味着我们可以使用 here 文档，here字符串，和管道来传递脚本。这里是一个使用 here 字符串的例子：
+
+    [me@linuxbox ~]$ bc <<< "2+2"
+    4
+
+#### An Example Script
+
+#### 一个脚本实例
+
+As a real-world example, we will construct a script that performs a common calculation,
+monthly loan payments. In the script below, we use a here document to pass a script to bc:
+
+作为一个真实世界的例子，我们将构建一个脚本，用于计算每月的还贷金额。在下面的脚本中，
+我们使用了 here 文档把一个脚本传递给 bc：
+
+
+    #!/bin/bash
+    # loan-calc : script to calculate monthly loan payments
+    PROGNAME=$(basename $0)
+    usage () {
+        cat <<- EOF
+        Usage: $PROGNAME PRINCIPAL INTEREST MONTHS
+        Where:
+        PRINCIPAL is the amount of the loan.
+        INTEREST is the APR as a number (7% = 0.07).
+        MONTHS is the length of the loan's term.
+        EOF
+    }
+    if (($# != 3)); then
+        usage
+        exit 1
+    fi
+    principal=$1
+    interest=$2
+    months=$3
+    bc <<- EOF
+        scale = 10
+        i = $interest / 12
+        p = $principal
+        n = $months
+        a = p * ((i * ((1 + i) ^ n)) / (((1 + i) ^ n) - 1))
+        print a, "\n"
+    EOF
+
+When executed, the results look like this:
+
+当脚本执行后，输出结果像这样：
+
+    [me@linuxbox ~]$ loan-calc 135000 0.0775 180
+    475
+    1270.7222490000
+
+This example calculates the monthly payment for a $135,000 loan at 7.75% APR for 180
+months (15 years). Notice the precision of the answer. This is determined by the value
+given to the special __scale__ variable in the bc script. A full description of
+the bc scripting language is provided by the bc man page. While its mathematical notation is slightly
+different from that of the shell (bc more closely resembles C), most of it will
+be quite familiar, based on what we have learned so far.
+
+若贷款 135,000 美金，年利率为 7.75%，借贷180个月（15年），这个例子计算出每月需要还贷的金额。
+注意这个答案的精确度。这是由脚本中变量 scale 的值决定的。bc 的手册页提供了对 bc 脚本语言的详尽描述。
+虽然 bc 的数学符号与 shell 的略有差异（bc 与 C 更相近），但是基于目前我们所学的内容，
+大多数符号是我们相当熟悉的。
+
+### Summing Up
+
+### 总结
+
+In this chapter, we have learned about many of the little things that can be used to get the
+“real work” done in scripts. As our experience with scripting grows,
+the ability to effectively manipulate strings and numbers will prove extremely valuable.
+Our loan-calc script demonstrates that even simple scripts can be created to do some really useful things.
+
+在这一章中，我们学习很多小东西，在脚本中这些小零碎可以完成“真正的工作”。随着我们编写脚本经验的增加，
+能够有效地操作字符串和数字的能力将具有极为重要的价值。我们的 loan-calc 脚本表明，
+即使简单脚本也能完成一些真正有用的事情。
+
+### Extra Credit
+
+### 额外加分
+
+While the basic functionality of the loan-calc script is in place, the script is far from
+complete. For extra credit, try improving the loan-calc script with the following features:
+
+虽然该 loan-calc 脚本的基本功能已经很到位了，但脚本还远远不够完善。为了额外加分，试着
+给脚本 loan-calc 添加以下功能：
+
+* Full verification of the command line arguments
+
+* A command line option to implement an “interactive” mode that will prompt the
+user to input the principal, interest rate, and term of the loan.
+
+* A better format for the output.
+
+* 完整的命令行参数验证
+
+* 用一个命令行选项来实现“交互”模式，提示用户输入本金、利率和贷款期限
+
+* 输出格式美化
+
+### Further Reading
+
+### 拓展阅读
+
+* The Bash Hackers Wiki has a good discussion of parameter expansion:
+
+* 《Bash Hackers Wiki》对参数展开有一个很好的论述：
+
+<http://wiki.bash-hackers.org/syntax/pe>
+
+* The Bash Reference Manual covers this, too:
+
+* 《Bash 参考手册》也介绍了这个：
+
+<http://www.gnu.org/software/bash/manual/bashref.html#Shell-Parameter-Expansion>
+
+* The Wikipedia has a good article describing bit operations:
+
+* Wikipedia 上面有一篇很好的文章描述了位运算：
+
+<http://en.wikipedia.org/wiki/Bit_operation>
+
+* and an article on ternary operations:
+
+* 和一篇关于三元运算的文章：
+
+<http://en.wikipedia.org/wiki/Ternary_operation>
+
+* as well as a description of the formula for calculating loan payments used in our
+  loan-calc script:
+
+* 还有一个对计算还贷金额公式的描述，我们的 loan-calc 脚本中用到了这个公式：
+
+<http://en.wikipedia.org/wiki/Amortization_calculator>
+
+
