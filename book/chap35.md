@@ -792,7 +792,7 @@ signments:
 <table class="multi">
     <caption class="cap">Table 34-4: Assignment Operators</caption>
     <tr>
-        <th class="title">Notation</th>
+        <th class="title" width="25%">Notation</th>
         <th class="title">Description</th>
     </tr>
     <tr>
@@ -846,7 +846,7 @@ signments:
 <table class="multi">
     <caption class="cap">表34-4: 赋值运算符</caption>
     <tr>
-        <th class="title">表示法</th>
+        <th class="title" width="25%">表示法</th>
         <th class="title">描述</th>
     </tr>
     <tr>
@@ -1411,7 +1411,7 @@ Our loan-calc script demonstrates that even simple scripts can be created to do 
 
 在这一章中，我们学习很多小东西，在脚本中这些小零碎可以完成“真正的工作”。随着我们编写脚本经验的增加，
 能够有效地操作字符串和数字的能力将具有极为重要的价值。我们的 loan-calc 脚本表明，
-即使简单脚本也能完成一些真正有用的事情。
+甚至可以创建简单的脚本来完成一些真正有用的事情。
 
 ### Extra Credit
 
