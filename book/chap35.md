@@ -1409,7 +1409,7 @@ In this chapter, we have learned about many of the little things that can be use
 the ability to effectively manipulate strings and numbers will prove extremely valuable.
 Our loan-calc script demonstrates that even simple scripts can be created to do some really useful things.
 
-在这一章中，我们学习很多小东西，在脚本中这些小零碎可以完成“真正的工作”。随着我们编写脚本经验的增加，
+在这一章中，我们学习了很多小东西，在脚本中这些小零碎可以完成“真正的工作”。随着我们编写脚本经验的增加，
 能够有效地操作字符串和数字的能力将具有极为重要的价值。我们的 loan-calc 脚本表明，
 甚至可以创建简单的脚本来完成一些真正有用的事情。
 
