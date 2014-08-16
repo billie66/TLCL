@@ -317,8 +317,8 @@ bit patterns. Take for example an RGB color. On most computer displays, each
 pixel is composed of three color components: eight bits of red, eight bits of green,
 and eight bits of blue. A lovely medium blue would be a twenty-four digit
 number:</p>
-<p>虽然我们能知道二进制的意义（因为计算机只有一个手指），但是八进制和十六进制有什么
-用处呢？ 答案是为了人类的便利。许多时候，在计算机中，一小部分数据以二进制的形式表示。
+<p>虽然我们能知道二进制的意义（因为计算机只有一个手指），但是八进制和十六进制对什么
+好处呢？ 答案是为了人类的便利。许多时候，在计算机中，一小部分数据以二进制的形式表示。
 以 RGB 颜色为例来说明。大多数的计算机显示器，每个像素由三种颜色组成：8位红色，8位绿色，
 8位蓝色。这样，一种可爱的中蓝色就由24位数字来表示：</p>
 

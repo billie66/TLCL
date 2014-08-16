@@ -130,7 +130,7 @@ value:
 So what are arrays good for? Just as many data-management tasks can be performed with
 a spreadsheet program, many programming tasks can be performed with arrays.
 
-那么数组有什么好处呢？ 就像许多数据管理任务一样，可以用电子表格程序来完成，许多编程任务则可以用数组完成。
+那么数组对什么有好处呢？ 就像许多数据管理任务一样，可以用电子表格程序来完成，许多编程任务则可以用数组完成。
 
 Let’s consider a simple data-gathering and presentation example. We will construct a
 script that examines the modification times of the files in a specified directory. From this

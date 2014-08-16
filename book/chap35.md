@@ -382,7 +382,7 @@ It's possible the user will enter the value in all uppercase letters or lowercas
 or a combination of both. We certainly don't want to populate our database with every
 possible permutation of upper and lower case spellings. What to do?
 
-那么大小写转换有什么好处呢？ 除了明显的审美价值，它在编程领域还有一个重要的角色。
+那么大小写转换对什么有好处呢？ 除了明显的审美价值，它在编程领域还有一个重要的角色。
 让我们考虑一个数据库查询的案例。假设一个用户已经敲写了一个字符串到数据输入框中，
 而我们想要在一个数据库中查找这个字符串。该用户输入的字符串有可能全是大写字母或全是小写或是两者的结合。
 我们当然不希望把每个可能的大小写拼写排列填充到我们的数据库中。那怎么办？
