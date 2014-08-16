@@ -52,9 +52,9 @@ Let’s consider a script segment that performs redirections on multiple command
 那么组命令和子 shell 命令对什么有好处呢？ 尽管它们有一个很重要的差异（我们马上会接触到），但它们都是用来管理重定向的。
 让我们考虑一个对多个命令执行重定向的脚本片段。
 
-ls -l > output.txt
-echo "Listing of foo.txt" >> output.txt
-cat foo.txt >> output.txt
+    ls -l > output.txt
+    echo "Listing of foo.txt" >> output.txt
+    cat foo.txt >> output.txt
 
 This is pretty straightforward. Three commands with their output redirected to a file
 named output.txt. Using a group command, we could code this as follows:
@@ -62,13 +62,13 @@ named output.txt. Using a group command, we could code this as follows:
 这些代码相当简洁明了。三个命令的输出都重定向到一个名为 output.txt 的文件中。
 使用一个组命令，我们可以重新编 写这些代码，如下所示：
 
-{ ls -l; echo "Listing of foo.txt"; cat foo.txt; } > output.txt
+    { ls -l; echo "Listing of foo.txt"; cat foo.txt; } > output.txt
 
 Using a subshell is similar:
 
 使用一个子 shell 是相似的：
 
-(ls -l; echo "Listing of foo.txt"; cat foo.txt) > output.txt
+    (ls -l; echo "Listing of foo.txt"; cat foo.txt) > output.txt
 
 Using this technique we have saved ourselves some typing, but where a group command
 or subshell really shines is with pipelines. When constructing a pipeline of commands, it
@@ -79,7 +79,7 @@ commands and subshells make this easy:
 当构建一个管道线命令的时候，通常把几个命令的输出结果合并成一个流是很有用的。
 组命令和子 shell 使这种操作变得很简单：
 
-{ ls -l; echo "Listing of foo.txt"; cat foo.txt; } | lpr
+    { ls -l; echo "Listing of foo.txt"; cat foo.txt; } | lpr
 
 Here we have combined the output of our three commands and piped them into the input
 of lpr to produce a printed report.
@@ -517,7 +517,7 @@ non-predictable (but still descriptive) name is to do something like this:
 给临时文件一个不可预测的文件名是很重要的。这就避免了一种为大众所知的 temp race 攻击。
 一种创建一个不可预测的（但是仍有意义的）临时文件名的方法是，做一些像这样的事情：
 
-tempfile=/tmp/$(basename $0).$$.$RANDOM
+    tempfile=/tmp/$(basename $0).$$.$RANDOM
 
 This will create a filename consisting of the program’s name, followed by its
 process ID (PID), followed by a random integer. Note, however, that the $RANDOM
@@ -540,7 +540,7 @@ of “X” characters, the longer the series of random characters. Here is an ex
 随后这些字符会被相应数量的随机字母和数字替换掉。一连串的 “X” 字符越长，则一连串的随机字符也就越长。
 这里是一个例子：
 
-tempfile=$(mktemp /tmp/foobar.$$.XXXXXXXXXX)
+    tempfile=$(mktemp /tmp/foobar.$$.XXXXXXXXXX)
 
 This creates a temporary file and assigns its name to the variable tempfile.
 The “X” characters in the template are replaced with random letters and numbers
@@ -550,7 +550,7 @@ value of the special parameter $$ to obtain the PID) might be something like:
 这里创建了一个临时文件，并把临时文件的名字赋值给变量 tempfile。因为模板中的 “X” 字符会被随机字母和
 数字代替，所以最终的文件名（在这个例子中，文件名也包含了特殊参数 $$ 的展开值，进程的 PID）可能像这样：
 
-/tmp/foobar.6593.UOZuvM6654
+    /tmp/foobar.6593.UOZuvM6654
 
 For scripts that are executed by regular users, it may be wise to avoid the use of
 the /tmp directory and create a directory for temporary files within the user’s
@@ -559,7 +559,7 @@ home directory, with a line of code such as this:
 对于那些由普通用户操作执行的脚本，避免使用 /tmp 目录，而是在用户主目录下为临时文件创建一个目录，
 通过像这样的一行代码：
 
-[[ -d $HOME/tmp ]] || mkdir $HOME/tmp
+    [[ -d $HOME/tmp ]] || mkdir $HOME/tmp
 
 ### Asynchronous Execution
 
@@ -687,19 +687,19 @@ pipes, it is possible to set up something like this:
 命令管道的行为类似于文件，但实际上形成了先入先出（FIFO）的缓冲。和普通（未命令的）管道一样，
 数据从一端进入，然后从另一端出现。通过命令管道，有可能像这样设置一些东西：
 
-process1 > named_pipe
+    process1 > named_pipe
 
 and
 
 和
 
-process2 < named_pipe
+    process2 < named_pipe
 
 and it will behave as if:
 
 表现出来就像这样：
 
-process1 | process2
+    process1 | process2
 
 #### Setting Up A Named Pipe
 
