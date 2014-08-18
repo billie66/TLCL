@@ -494,12 +494,12 @@ this:
     Iteration 2 of 5
     Script interrupted.
 
+<div class="single">
+<h3>Temporary Files</h3>
 
-Temporary Files
+<h3>临时文件</h3>
 
-临时文件
-
-One reason signal handlers are included in scripts is to remove temporary files
+<p>One reason signal handlers are included in scripts is to remove temporary files
 that the script may create to hold intermediate results during execution. There is
 something of an art to naming temporary files. Traditionally, programs on Unix-like
 systems create their temporary files in the /tmp directory, a shared directory
@@ -508,58 +508,59 @@ security concerns, particularly for programs running with superuser privileges.
 Aside from the obvious step of setting proper permissions for files exposed to all
 users of the system, it is important to give temporary files non-predictable filenames.
 This avoids an exploit known as a temp race attack. One way to create a
-non-predictable (but still descriptive) name is to do something like this:
+non-predictable (but still descriptive) name is to do something like this:</p>
 
-把信号处理程序包含在脚本中的一个原因是删除临时文件，在脚本执行期间，脚本可能会创建临时文件来存放中间结果。
-命令临时文件有点儿艺术性。传统上，在类似于 unix 系统中的程序会在 /tmp 目录下创建它们的临时文件，/tmp 是
+<p>把信号处理程序包含在脚本中的一个原因是删除临时文件，在脚本执行期间，脚本可能会创建临时文件来存放中间结果。
+命名临时文件是一种艺术。传统上，在类似于 unix 系统中的程序会在 /tmp 目录下创建它们的临时文件，/tmp 是
 一个服务于临时文件的共享目录。然而，因为这个目录是共享的，这会引起一定的安全顾虑，尤其对那些用
 超级用户特权运行的程序。除了为暴露给系统中所有用户的文件设置合适的权限，这一明显步骤之外，
 给临时文件一个不可预测的文件名是很重要的。这就避免了一种为大众所知的 temp race 攻击。
-一种创建一个不可预测的（但是仍有意义的）临时文件名的方法是，做一些像这样的事情：
+一种创建一个不可预测的（但是仍有意义的）临时文件名的方法是，做一些像这样的事情：</p>
 
-    tempfile=/tmp/$(basename $0).$$.$RANDOM
+<pre><code>tempfile=/tmp/$(basename $0).$$.$RANDOM</code></pre>
 
-This will create a filename consisting of the program’s name, followed by its
+<p>This will create a filename consisting of the program’s name, followed by its
 process ID (PID), followed by a random integer. Note, however, that the $RANDOM
 shell variable only returns a value in the range of 1-32767, which is not a
 very large range in computer terms, so a single instance of the variable is not
-sufficient to overcome a determined attacker.
+sufficient to overcome a determined attacker.</p>
 
-这将创建一个由程序名字，程序进程的 ID（PID）文件名，和一个随机整数组成。注意，然而，该 $RANDOM shell 变量
-只能返回一个范围在1-32767内的整数值，这在计算机术语中不是一个很大的范围，所以一个单一的该变量实例是不足以克服一个坚定的攻击者的。
+<p>这将创建一个由程序名字，程序进程的 ID（PID）文件名，和一个随机整数组成。注意，然而，该 $RANDOM shell 变量
+只能返回一个范围在1-32767内的整数值，这在计算机术语中不是一个很大的范围，所以一个单一的该变量实例是不足以克服一个坚定的攻击者的。</p>
 
-A better way is to use the mktemp program (not to be confused with the mktemp
+<p>A better way is to use the mktemp program (not to be confused with the mktemp
 standard library function) to both name and create the temporary file.
 The mktemp program accepts a template as an argument that is used to build the filename.
 The template should include a series of “X” characters, which are replaced
 by a corresponding number of random letters and numbers. The longer the series
-of “X” characters, the longer the series of random characters. Here is an example:
+of “X” characters, the longer the series of random characters. Here is an example:</p>
 
-一个比较好的方法是使用 mktemp 程序（不要和 mktemp 标准库函数相混淆）来命名和创建临时文件。
+<p>一个比较好的方法是使用 mktemp 程序（不要和 mktemp 标准库函数相混淆）来命名和创建临时文件。
 这个 mktemp 程序接受一个用于创建文件名的模板作为参数。这个模板应该包含一系列的 “X” 字符，
 随后这些字符会被相应数量的随机字母和数字替换掉。一连串的 “X” 字符越长，则一连串的随机字符也就越长。
-这里是一个例子：
+这里是一个例子：</p>
 
-    tempfile=$(mktemp /tmp/foobar.$$.XXXXXXXXXX)
+<pre><code>tempfile=$(mktemp /tmp/foobar.$$.XXXXXXXXXX)</code></pre>
 
-This creates a temporary file and assigns its name to the variable tempfile.
+<p>This creates a temporary file and assigns its name to the variable tempfile.
 The “X” characters in the template are replaced with random letters and numbers
 so that the final filename (which, in this example, also includes the expanded
-value of the special parameter $$ to obtain the PID) might be something like:
+value of the special parameter $$ to obtain the PID) might be something like:</p>
 
-这里创建了一个临时文件，并把临时文件的名字赋值给变量 tempfile。因为模板中的 “X” 字符会被随机字母和
-数字代替，所以最终的文件名（在这个例子中，文件名也包含了特殊参数 $$ 的展开值，进程的 PID）可能像这样：
+<p>这里创建了一个临时文件，并把临时文件的名字赋值给变量 tempfile。因为模板中的 “X” 字符会被随机字母和
+数字代替，所以最终的文件名（在这个例子中，文件名也包含了特殊参数 $$ 的展开值，进程的 PID）可能像这样：</p>
 
-    /tmp/foobar.6593.UOZuvM6654
+<pre><code>/tmp/foobar.6593.UOZuvM6654</code></pre>
 
-For scripts that are executed by regular users, it may be wise to avoid the use of
+<p>For scripts that are executed by regular users, it may be wise to avoid the use of
 the /tmp directory and create a directory for temporary files within the user’s
-home directory, with a line of code such as this:
+home directory, with a line of code such as this:</p>
 
-对于那些由普通用户操作执行的脚本，避免使用 /tmp 目录，而是在用户主目录下为临时文件创建一个目录，
-通过像这样的一行代码：
+<p>对于那些由普通用户操作执行的脚本，避免使用 /tmp 目录，而是在用户主目录下为临时文件创建一个目录，
+通过像这样的一行代码：</p>
 
-    [[ -d $HOME/tmp ]] || mkdir $HOME/tmp
+<pre><code>[[ -d $HOME/tmp ]] || mkdir $HOME/tmp</code></pre>
+</div>
 
 ### Asynchronous Execution
 
