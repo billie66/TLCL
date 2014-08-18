@@ -130,9 +130,9 @@ The final result of this process is the executable program file, ready for use.
 一个叫做链接器的程序用来在编译器的输出结果和要编译的程序所需的库之间建立连接。这个过程的最终结果是
 一个可执行程序文件，准备使用。
 
-### Are All Programs Compiled?
+#### Are All Programs Compiled?
 
-### 所有的程序都是可编译的吗？
+#### 所有的程序都是可编译的吗？
 
 No. As we have seen, there are programs such as shell scripts that do not require compiling.
 They are executed directly. These are written in what are known as scripting or
@@ -175,3 +175,8 @@ tools like the compiler, the linker, and make. The C compiler used almost
 universally in the Linux environment is called gcc (GNU C Compiler), originally
 written by Richard Stallman. Most distributions do not install gcc by default.
 We can check to see if the compiler is present like this:
+
+让我们编译一些东西。在我们行动之前，然而我们需要一些工具，像编译器，链接器，还有 make。
+在 Linux 环境中，普遍使用的 C 编译器叫做 gcc（GNU C 编译器），最初由 Richard Stallman 写出来的。
+大多数 Linux 系统发行版默认不安装 gcc。我们可以这样查看该编译器是否存在：
+
