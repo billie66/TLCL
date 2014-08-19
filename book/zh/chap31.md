@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: book-zh
 title: 疑难排解
 ---
 
