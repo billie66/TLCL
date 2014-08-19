@@ -986,7 +986,7 @@ create a new symbolic link pointing to the old version.
 现在，每个人都很高兴。依赖于 “foo” 文件的程序能找到这个文件，并且我们能知道安装了哪个文件版本。
 当升级到 “foo-2.7” 版本的时候，仅添加这个文件到文件系统中，删除符号链接 “foo”，
 创建一个指向新版本的符号链接。这不仅解决了版本升级问题，而且还允许在系统中保存两个不同的文件版本。
-假想 “foo-2.7” 有个错误（该死的开发者！）,那我们得回到原来的版本。
+假想 “foo-2.7” 有个错误（该死的开发者！），那我们得回到原来的版本。
 一样的操作，我们只需要删除指向新版本的符号链接，然后创建指向旧版本的符号链接就可以了。
 
 The directory listing above (from the /lib directory of a Fedora system) shows a
