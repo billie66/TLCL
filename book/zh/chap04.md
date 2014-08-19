@@ -18,25 +18,25 @@ Linux 系统有帮助的命令。
 属性。正如我们所知道的，只简单的输入 ls 就能看到在当前目录下所包含的文件和子目录列表。
 
     [me@linuxbox ~]$ ls
-    Desktop Documents Music Pictures Publica Templates Videos 
+    Desktop Documents Music Pictures Publica Templates Videos
 
 除了当前工作目录以外，也可以列出指定目录的内容，就像这样：
 
     me@linuxbox ~]$ ls /usr
     bin games   kerberos    libexec  sbin   src
-    etc include lib         local    share  tmp 
-    
+    etc include lib         local    share  tmp
+
 
 甚至可以列出多个指定目录的内容。在这个例子中，将会列出用户主目录（用字符“~”代表）和/usr 目录的内容：
 
     [me@linuxbox ~]$ ls ~ /usr
     /home/me:
     Desktop  Documents  Music  Pictures  Public  Templates  Videos
-    
+
     /usr:
     bin  games      kerberos  libexec  sbin   src
-    etc  include    lib       local    share  tmp 
-    
+    etc  include    lib       local    share  tmp
+
 
 我们也可以改变输出格式，来得到更多的细节：
 
@@ -49,7 +49,7 @@ Linux 系统有帮助的命令。
     drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Public
     drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Templates
     drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Videos
-    
+
 
 使用 ls 命令的“-l”选项，则结果以长模式输出。
 
@@ -59,7 +59,7 @@ Linux 系统有帮助的命令。
 更进一步，选项后面会带有一个或多个参数，这些参数是命令作用的对象。所以大多数命令看起来像这样：
 
     command -options arguments
-    
+
 
 大多数命令使用的选项，是由一个中划线加上一个字符组成，例如，“-l”，但是许多命令，包括来自于
 GNU 项目的命令，也支持长选项，长选项由两个中划线加上一个字组成。当然，
@@ -67,12 +67,12 @@ GNU 项目的命令，也支持长选项，长选项由两个中划线加上一�
 “l” 选项产生长格式输出，“t”选项按文件修改时间的先后来排序。
 
     [me@linuxbox ~]$ ls -lt
-    
+
 
 加上长选项 “--reverse”，则结果会以相反的顺序输出：
 
     [me@linuxbox ~]$ ls -lt --reverse
-    
+
 
 ls 命令有大量的选项。表4-1列出了最常使用的选项。
 
@@ -89,7 +89,7 @@ ls 命令有大量的选项。表4-1列出了最常使用的选项。
 <td>列出所有文件，甚至包括文件名以圆点开头的隐藏文件。</td>
 </tr>
 <tr>
-<td valign="top">-d</td>    
+<td valign="top">-d</td>
 <td>--directory</td>
 <td>通常，如果指定了目录名，ls 命令会列出这个目录中的内容，而不是目录本身。
 把这个选项与-l 选项结合使用，可以看到所指定目录的详细信息，而不是目录中的内容。</td>
@@ -133,8 +133,8 @@ ls 命令有大量的选项。表4-1列出了最常使用的选项。
 于 Ubuntu 系统：
 
     -rw-r--r-- 1 root root 3576296 2007-04-03 11:05 Experience ubuntu.ogg
-    -rw-r--r-- 1 root root 1186219 2007-04-03 11:05 kubuntu-leaflet.png 
-    -rw-r--r-- 1 root root   47584 2007-04-03 11:05 logo-Edubuntu.png 
+    -rw-r--r-- 1 root root 1186219 2007-04-03 11:05 kubuntu-leaflet.png
+    -rw-r--r-- 1 root root   47584 2007-04-03 11:05 logo-Edubuntu.png
     -rw-r--r-- 1 root root   44355 2007-04-03 11:05 logo-Kubuntu.png
     -rw-r--r-- 1 root root   34391 2007-04-03 11:05 logo-Ubuntu.png
     -rw-r--r-- 1 root root   32059 2007-04-03 11:05 oo-cd-cover.odf
@@ -142,8 +142,8 @@ ls 命令有大量的选项。表4-1列出了最常使用的选项。
     -rw-r--r-- 1 root root   27837 2007-04-03 11:05 oo-maxwell.odt
     -rw-r--r-- 1 root root   98816 2007-04-03 11:05 oo-trig.xls
     -rw-r--r-- 1 root root  453764 2007-04-03 11:05 oo-welcome.odt
-    -rw-r--r-- 1 root root  358374 2007-04-03 11:05 ubuntu Sax.ogg 
-    
+    -rw-r--r-- 1 root root  358374 2007-04-03 11:05 ubuntu Sax.ogg
+
 
 选一个文件，来看一下各个输出字段的含义：
 
@@ -198,7 +198,7 @@ JPEG 压缩图像，但 Linux 却不这样要求它。可以这样调用 file �
 
     [me@linuxbox ~]$ file picture.jpg
     picture.jpg: JPEG image data, JFIF standard 1.01
-    
+
 
 有许多类型的文件。事实上，在类似于 Unix 操作系统中比如说 Linux，有个普遍的观念就是“任何东西都是一个文件”。
 随着课程的进行，我们将会明白这句话的真谛。
@@ -239,12 +239,12 @@ OpenOffice.org 文档 编辑器创建的文件。这些文件，和简单的 ASC
 less 命令是这样使用的：
 
     less filename
-    
+
 
 一旦运行起来，less 程序允许你前后滚动文件。例如，要查看一个定义了系统中全部用户身份的文件，输入以下命令：
 
     [me@linuxbox ~]$ less /etc/passwd
-    
+
 
 一旦 less 程序运行起来，我们就能浏览文件内容了。如果文件内容多于一页，那么我们可以上下滚动文件。按下“q”键，
 退出 less 程序。
@@ -329,7 +329,7 @@ Linux 系统中，文件系统布局与类似 Unix 系统的文件布局很相�
 
 在系统中游玩时，不要害怕粘花惹草。普通用户是很难把东西弄乱的。那是系统管理员的工作！
 如果一个命令抱怨一些事情，不要管它，尽管去玩别的东西。花一些时间四处走走。
-系统是我们自己的，尽情地探究吧。记住在 Linux 中，没有秘密存在！ 
+系统是我们自己的，尽情地探究吧。记住在 Linux 中，没有秘密存在！
 表4-4仅仅列出了一些我们可以浏览的目录。闲暇时试试看！
 
 <table class="multi">
@@ -479,12 +479,10 @@ Linux 系统中，文件系统布局与类似 Unix 系统的文件布局很相�
 
 在我们到处查看时，我们可能会看到一个目录，列出像这样的一条信息：
 
-    lrwxrwxrwx 1 root root 11 2007-08-11 07:34 libc.so.6 -> libc-2.6.so 
-    
+    lrwxrwxrwx 1 root root 11 2007-08-11 07:34 libc.so.6 -> libc-2.6.so
 
-注意，这条信息第一个字符是“l”，并且看起来像有两个文件名？
-这是一个特殊文件，叫做符号链接（也称为软链接或者 symlink）。 在大多数类似 Unix
-系统中，有可能一个文件被多个文件名参考。虽然这种特性的意义并不明显，但它真地很有用。
+注意看，为何这条信息第一个字符是“l”，并且有两个文件名呢？
+这是一个特殊文件，叫做符号链接（也称为软链接或者 symlink ）。 在大多数”类 Unix“ 系统中，有可能一个文件被多个文件名所指向。虽然这种特性的意义并不明显，但它真地很有用。
 
 描绘一下这样的情景：一个程序要求使用某个包含在名为“foo”文件中的共享资源，但是“foo”经常改变版本号。
 这样，在文件名中包含版本号，会是一个好主意，因此管理员或者其它相关方，会知道安装了哪个“foo”版本。

@@ -35,7 +35,7 @@ subdirectories contained in the current working directory:
 属性。正如我们所知道的，只简单的输入 ls 就能看到在当前目录下所包含的文件和子目录列表。
 
     [me@linuxbox ~]$ ls
-    Desktop Documents Music Pictures Publica Templates Videos 
+    Desktop Documents Music Pictures Publica Templates Videos
 
 Besides the current working directory, we can specify the directory to list, like so:
 
@@ -43,8 +43,8 @@ Besides the current working directory, we can specify the directory to list, lik
 
     me@linuxbox ~]$ ls /usr
     bin games   kerberos    libexec  sbin   src
-    etc include lib         local    share  tmp 
-    
+    etc include lib         local    share  tmp
+
 Or even specify multiple directories. In this example we will list both the user's home
 directory (symbolized by the “~” character) and the /usr directory:
 
@@ -53,11 +53,11 @@ directory (symbolized by the “~” character) and the /usr directory:
     [me@linuxbox ~]$ ls ~ /usr
     /home/me:
     Desktop  Documents  Music  Pictures  Public  Templates  Videos
-    
+
     /usr:
     bin  games      kerberos  libexec  sbin   src
-    etc  include    lib       local    share  tmp 
-    
+    etc  include    lib       local    share  tmp
+
 We can also change the format of the output to reveal more detail:
 
 我们也可以改变输出格式，来得到更多的细节：
@@ -71,7 +71,7 @@ We can also change the format of the output to reveal more detail:
     drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Public
     drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Templates
     drwxrwxr-x 2  me  me  4096  2007-10-26  17:20  Videos
-    
+
 By adding “-l” to the command, we changed the output to the long format.
 
 使用 ls 命令的“-l”选项，则结果以长模式输出。
@@ -80,19 +80,19 @@ Options And Arguments
 
 ### 选项和参数
 
-This brings us to a very important point about how most commands work. Commands are often 
-followed by one or more options that modify their behavior, and further, by one or more arguments, 
+This brings us to a very important point about how most commands work. Commands are often
+followed by one or more options that modify their behavior, and further, by one or more arguments,
 the items upon which the command acts. So most commands look kind of like this:
 
 我们将学习一个非常重要的知识点，大多数命令是如何工作的。命令名经常会带有一个或多个用来更正命令行为的选项，
 更进一步，选项后面会带有一个或多个参数，这些参数是命令作用的对象。所以大多数命令看起来像这样：
 
     command -options arguments
-    
-Most commands use options consisting of a single character preceded by a dash, 
-for example, “-l”, but many commands, including those from the GNU Project, also support long options, 
+
+Most commands use options consisting of a single character preceded by a dash,
+for example, “-l”, but many commands, including those from the GNU Project, also support long options,
 consisting of a word preceded by two dashes. Also, many commands allow multiple short options
- to be strung together. In this example, the ls command is given two options, the “l” option 
+ to be strung together. In this example, the ls command is given two options, the “l” option
 to produce long format output, and the “t” option to sort the result by the file's modification time.
 
 大多数命令使用的选项，是由一个中划线加上一个字符组成，例如，“-l”，但是许多命令，包括来自于
@@ -101,13 +101,13 @@ GNU 项目的命令，也支持长选项，长选项由两个中划线加上一�
 “l” 选项产生长格式输出，“t”选项按文件修改时间的先后来排序。
 
     [me@linuxbox ~]$ ls -lt
-    
+
 We'll add the long option “--reverse” to reverse the order of the sort:
 
 加上长选项 “--reverse”，则结果会以相反的顺序输出：
 
     [me@linuxbox ~]$ ls -lt --reverse
-    
+
 The ls command has a large number of possible options. The most common are listed in
 the Table 4-1.
 
@@ -124,15 +124,15 @@ ls 命令有大量的选项。表4-1列出了最常使用的选项。
 <tr>
 <td>-a</td>
 <td>--all</td>
-<td>List all files, even those with names that 
+<td>List all files, even those with names that
 begin with a period, which are normally not listed(i.e.,hidden).</td>
 </tr>
 <tr>
 <td>-d</td>
 <td>--directory</td>
 <td>Ordinaryly,if a directory is specified, ls
-will list the contents of the directory, not the directory 
-itself. Use this option in conjunction with the -l option 
+will list the contents of the directory, not the directory
+itself. Use this option in conjunction with the -l option
 to see details about the directory rather than its contents.</td>
 </tr>
 <tr>
@@ -155,7 +155,7 @@ human readable format rather than in bytes.  </td>
 <tr>
 <td>-r</td>
 <td>--reverse</td>
-<td>Display the results in reverse order. Normally, 
+<td>Display the results in reverse order. Normally,
 ls display its results in ascending alphabetical order.  </td>
 </tr>
 <tr>
@@ -183,7 +183,7 @@ ls display its results in ascending alphabetical order.  </td>
 <td>列出所有文件，甚至包括文件名以圆点开头的默认会被隐藏的隐藏文件。</td>
 </tr>
 <tr>
-<td valign="top">-d</td>    
+<td valign="top">-d</td>
 <td>--directory</td>
 <td>通常，如果指定了目录名，ls 命令会列出这个目录中的内容，而不是目录本身。
 把这个选项与-l 选项结合使用，可以看到所指定目录的详细信息，而不是目录中的内容。</td>
@@ -233,8 +233,8 @@ from an Ubuntu system:
 于 Ubuntu 系统：
 
     -rw-r--r-- 1 root root 3576296 2007-04-03 11:05 Experience ubuntu.ogg
-    -rw-r--r-- 1 root root 1186219 2007-04-03 11:05 kubuntu-leaflet.png 
-    -rw-r--r-- 1 root root   47584 2007-04-03 11:05 logo-Edubuntu.png 
+    -rw-r--r-- 1 root root 1186219 2007-04-03 11:05 kubuntu-leaflet.png
+    -rw-r--r-- 1 root root   47584 2007-04-03 11:05 logo-Edubuntu.png
     -rw-r--r-- 1 root root   44355 2007-04-03 11:05 logo-Kubuntu.png
     -rw-r--r-- 1 root root   34391 2007-04-03 11:05 logo-Ubuntu.png
     -rw-r--r-- 1 root root   32059 2007-04-03 11:05 oo-cd-cover.odf
@@ -242,8 +242,8 @@ from an Ubuntu system:
     -rw-r--r-- 1 root root   27837 2007-04-03 11:05 oo-maxwell.odt
     -rw-r--r-- 1 root root   98816 2007-04-03 11:05 oo-trig.xls
     -rw-r--r-- 1 root root  453764 2007-04-03 11:05 oo-welcome.odt
-    -rw-r--r-- 1 root root  358374 2007-04-03 11:05 ubuntu Sax.ogg 
-    
+    -rw-r--r-- 1 root root  358374 2007-04-03 11:05 ubuntu Sax.ogg
+
 Let's look at the different fields from one of the files and examine their meanings:
 
 选一个文件，来看一下各个输出字段的含义：
@@ -352,7 +352,7 @@ contents. For example:
 
     [me@linuxbox ~]$ file picture.jpg
     picture.jpg: JPEG image data, JFIF standard 1.01
-    
+
 There are many kinds of files. In fact, one of the common ideas in Unix-like operating
 systems such as Linux is that “everything is a file.” As we proceed with our lessons, we
 will see just how true that statement is.
@@ -439,7 +439,7 @@ The less command is used like this:
 less 命令是这样使用的：
 
     less filename
-    
+
 Once started, the less program allows you to scroll forward and backward through a
 text file. For example, to examine the file that defines all the system's user accounts,
 enter the following command:
@@ -447,7 +447,7 @@ enter the following command:
 一旦运行起来，less 程序允许你前后滚动文件。例如，要查看一个定义了系统中全部用户身份的文件，输入以下命令：
 
     [me@linuxbox ~]$ less /etc/passwd
-    
+
 Once the less program starts, we may view the contents of the file. If the file is longer
 than one page, we can scroll up and down. To exit less, press the “q” key.
 The table below lists the most common keyboard commands used by less.
@@ -620,7 +620,7 @@ Table 4-4 lists just a few of the directories we can explore. Feel free to try m
 
 在系统中游玩时，不要害怕粘花惹草。普通用户是很难把东西弄乱的。那是系统管理员的工作！
 如果一个命令抱怨一些事情，不要管它，尽管去玩别的东西。花一些时间四处走走。
-系统是我们自己的，尽情地探究吧。记住在 Linux 中，没有秘密存在！ 
+系统是我们自己的，尽情地探究吧。记住在 Linux 中，没有秘密存在！
 表4-4仅仅列出了一些我们可以浏览的目录。闲暇时试试看！
 
 <table class="multi">
@@ -698,7 +698,7 @@ this directory will remain empty.  </td>
 <tr>
 <td valign="top">/media </td>
 <td valign="top">On modern Linux systems the /media directory will
-contain the mount points for removable media such USB drives, CD-ROMs, etc. 
+contain the mount points for removable media such USB drives, CD-ROMs, etc.
 that are mounted automatically at insertion.  </td>
 </tr>
 <tr>
@@ -715,7 +715,7 @@ that may be installed on your system.  </td>
 <tr>
 <td valign="top">/proc</td>
 <td valign="top">The /proc directory is special. It's not a real file system in
-the sense of files stored on your hard drive. Rather, it is a virtual file 
+the sense of files stored on your hard drive. Rather, it is a virtual file
 system maintained by the Linux kernel. The “files” it contains are peepholes
 into the kernel itself. The files are readable and will give you a picture of how the
 kernel sees your computer.  </td>
@@ -944,16 +944,15 @@ As we look around, we are likely to see a directory listing with an entry like t
 
 在我们到处查看时，我们可能会看到一个目录，列出像这样的一条信息：
 
-    lrwxrwxrwx 1 root root 11 2007-08-11 07:34 libc.so.6 -> libc-2.6.so 
-    
+    lrwxrwxrwx 1 root root 11 2007-08-11 07:34 libc.so.6 -> libc-2.6.so
+
 Notice how the first letter of the listing is “l” and the entry seems to have two filenames?
 This is a special kind of a file called a symbolic link (also known as a soft link or
 symlink.) In most Unix-like systems it is possible to have a file referenced by multiple
 names. While the value of this may not be obvious, it is really a useful feature.
 
-注意，这条信息第一个字符是“l”，并且看起来像有两个文件名？
-这是一个特殊文件，叫做符号链接（也称为软链接或者 symlink）。 在大多数类似 Unix
-系统中，有可能一个文件被多个文件名参考。虽然这种特性的意义并不明显，但它真地很有用。
+注意看，为何这条信息第一个字符是“l”，并且有两个文件名呢？
+这是一个特殊文件，叫做符号链接（也称为软链接或者 symlink ）。 在大多数”类 Unix“ 系统中，有可能一个文件被多个文件名所指向。虽然这种特性的意义并不明显，但它真地很有用。
 
 Picture this scenario: a program requires the use of a shared resource of some kind
 contained in a file named “foo,” but “foo” has frequent version changes. It would be
