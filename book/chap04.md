@@ -1007,7 +1007,7 @@ link called a hard link. Hard links also allow files to have multiple names, but
 in a different way. We’ll talk more about the differences between symbolic and hard
 links in the next chapter.
 
-尽然在讨论链接问题，我们需要提一下，还有一种链接类型，叫做硬链接。硬链接同样允许文件有多个名字，
+讨论到链接问题，我们需要提一下，还有一种链接类型，叫做硬链接。硬链接同样允许文件有多个名字，
 但是硬链接以不同的方法来创建多个文件名。在下一章中，我们会谈到更多符号链接与硬链接之间的差异问题。
 
 Further Reading
@@ -1016,7 +1016,7 @@ Further Reading
 
 * The full version of the Linux Filesystem Hierarchy Standard can be found here:
 
-* 完整的 Linux 文件系统层次标准可通过以下链接找到：
+* 完整的 Linux 文件系统层次体系标准可通过以下链接找到：
 
   <http://www.pathname.com/fhs/>
 
