@@ -64,7 +64,7 @@ file’s permissions to allow execution.
 certain directories for executable files when no explicit pathname is specified.
 For maximum convenience, we will place our scripts in these directories.
 
-<ol><li><p></b> 编写一个脚本。</b> Shell 脚本就是普通的文本文件。所以我们需要一个文本编辑器来书写它们。最好的文本
+<ol><li><p><b> 编写一个脚本。</b> Shell 脚本就是普通的文本文件。所以我们需要一个文本编辑器来书写它们。最好的文本
    编辑器都会支持语法高亮，这样我们就能够看到一个脚本关键字的彩色编码视图。语法高亮会帮助我们查看某种常见
    错误。为了编写脚本文件，vim，gedit，kate，和许多其它编辑器都是不错的候选者。</p></li>
 
