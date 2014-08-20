@@ -585,7 +585,7 @@ complete listing, with the most recent changes highlighted:
 
     #!/bin/bash
     # sys_info_page: program to output a system information page
-    <b>PROGNAME=$(basename $0)</b>
+    PROGNAME=$(basename $0)
     TITLE="System Information Report For $HOSTNAME"
     CURRENT_TIME=$(date +"%x %r %Z")
     TIMESTAMP="Generated $CURRENT_TIME, by $USER"
@@ -617,7 +617,7 @@ complete listing, with the most recent changes highlighted:
         fi
         return
     }
-    <b>usage () {
+    usage () {
         echo "$PROGNAME: usage: $PROGNAME [-f file | -i]"
         return
     }
@@ -637,9 +637,9 @@ complete listing, with the most recent changes highlighted:
             </HTML>
         _EOF_
         return
-    }</b>
+    }
     # process command line options
-    <b>interactive=
+    interactive=
     filename=
     while [[ -n $1 ]]; do
         case $1 in
@@ -656,9 +656,9 @@ complete listing, with the most recent changes highlighted:
                                   ;;
         esac
         shift
-    done</b>
+    done
     # interactive mode
-    <b>if [[ -n $interactive ]]; then
+    if [[ -n $interactive ]]; then
         while true; do
             read -p "Enter name of output file: " filename
             if [[ -e $filename ]]; then
@@ -674,9 +674,9 @@ complete listing, with the most recent changes highlighted:
                 esac
             fi
         done
-    fi</b>
+    fi
     # output html page
-    <b>if [[ -n $filename ]]; then
+    if [[ -n $filename ]]; then
         if touch $filename && [[ -f $filename ]]; then
             write_html_page > $filename
         else
@@ -685,7 +685,7 @@ complete listing, with the most recent changes highlighted:
         fi
     else
         write_html_page
-    fi</b>
+    fi
 
 We’re not done yet. There are still more things we can do and improvements we can make.
 
