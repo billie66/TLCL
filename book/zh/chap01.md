@@ -150,24 +150,18 @@ Linux 不仅是一款软件，也是 Unix 文化的一小部分，它有自己�
 <br />
 
 ### 拓展阅读
+Wikipedia 网站上有些介绍本章提到的名人的文章，以下是链接地址：
 
-* Wikipedia 网站上有些介绍本章提到的名人的文章，以下是链接地址：
+  - <http://en.wikipedia.org/wiki/Linux_Torvalds>
+  - <http://en.wikipedia.org/wiki/Richard_Stallman>
 
-    <http://en.wikipedia.org/wiki/Linux_Torvalds>
+介绍自由软件基金会及 GNU 项目的网站和文章：
 
-    <http://en.wikipedia.org/wiki/Richard_Stallman>
+  - <http://en.wikipedia.org/wiki/Free_Software_Foundation>
+  - <http://www.fsf.org>
+  - <http://www.gnu.org>
 
-* 介绍自由软件基金会及 GNU 项目的网站和文章：
+Richard Stallman 用了大量的文字来叙述“GNU/Linux”的命名问题，可以浏览以下网页：
 
-    <http://en.wikipedia.org/wiki/Free_Software_Foundation>
-
-    <http://www.fsf.org>
-
-    <http://www.gnu.org>
-
-* Richard Stallman 用了大量的文字来叙述“GNU/Linux”的命名问题，可以浏览以下网页：
-
-    <http://www.gnu.org/gnu/why-gnu-linux.html>
-
-    <http://www.gnu.org/gnu/gnu-linux-faq.html#tools>
-
+  - <http://www.gnu.org/gnu/why-gnu-linux.html>
+  - <http://www.gnu.org/gnu/gnu-linux-faq.html#tools>
