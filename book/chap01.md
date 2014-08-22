@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 引言 
+title: 引言
 ---
 
 I want to tell you a story.
@@ -64,7 +64,7 @@ known if you care enough to find out.
 
 ### 为什么使用命令行
 
-Have you ever noticed in the movies when the “super hacker,”— you know, the guy who 
+Have you ever noticed in the movies when the “super hacker,”— you know, the guy who
 can break into the ultra-secure military computer in under thirty seconds —sits down at
 the computer, he never touches a mouse? It's because movie makers realize that we, as
 human beings, instinctively know the only way to really get anything done on a computer
@@ -359,9 +359,8 @@ Here are some Wikipedia articles on the famous people mentioned in this chapter:
 
 * Wikipedia 网站上有些介绍本章提到的名人的文章，以下是链接地址：
 
-    <http://en.wikipedia.org/wiki/Linux_Torvalds>
-
-    <http://en.wikipedia.org/wiki/Richard_Stallman>
+  - <http://en.wikipedia.org/wiki/Linux_Torvalds>
+  - <http://en.wikipedia.org/wiki/Richard_Stallman>
 
 The Free Software Foundation and the GNU Project:
 
