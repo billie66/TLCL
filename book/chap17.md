@@ -272,7 +272,7 @@ example, we see that the gateway is defined as a router with the address of
 The netstat program has many options and we have only looked at a couple.
 Check out the netstat man page for a complete list.
 
-这个 netstat 程序有许多选项，我们仅仅讨论了几个。查看 netstat 命令的手册，可以
+netstat 程序有许多选项，我们仅仅讨论了几个。查看 netstat 命令的手册，可以
 得到所有选项的完整列表。
 
 ### Transporting Files Over A Network
@@ -427,7 +427,7 @@ The commands quit and exit may also be used. </td>
 这个命令把工作目录改为~/Desktop </td>
 </tr>
 <tr>
-<td valign="top">get ubuntu-8.04-desktop- i386.iso </td>
+<td valign="top">get ubuntu-8.04-desktop-i386.iso </td>
 <td valign="top">告诉远端系统传送文件到本地。因为本地系统的工作目录
 已经更改到了~/Desktop，所以文件会被下载到此目录。 </td>
 </tr>
