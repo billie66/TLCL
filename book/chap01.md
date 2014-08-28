@@ -31,7 +31,7 @@ all the computers. Let's just say, you couldn't get much done.
 在20世纪70年代末，我刚开始和计算机打交道时，正进行着一场革命，那时的我还是一名大学生。
 微处理器的发明，使普通老百姓（就如你和我）真正拥有一台计算机成为可能。今天，
 人们难以想象，只有大企业和强大的政府才能够拥有计算机的世界，是怎样的一个世界。
-让我说，你想不出多少来。
+简单说，你做不了多少事情。
 
 Today, the world is very different. Computers are everywhere, from tiny wristwatches to
 giant data centers to everything in between. In addition to ubiquitous computers, we also
@@ -83,8 +83,8 @@ easy tasks easy, while command line interfaces make difficult tasks possible” 
 still very true today.
 
 现在，大多数的计算机用户只是熟悉图形用户界面（GUI），并且产品供应商和此领域的学者会灌输给用户这样的思想，
-命令行界面（CLI）是过去使用的一种很恐怖的东西。这就很不幸，因为一个友好的命令行界面，
-是用来和计算机进行交流沟通的，正像人类社会使用文字互通信息一样。据说，“图形用户界面让简单的任务更容易完成，
+命令行界面（CLI）是过去使用的一种很恐怖的东西。这就很不幸，因为一个好的命令行界面，
+是用来和计算机进行交流沟通的非常有效的方式，正像人类社会使用文字互通信息一样。人们说，“图形用户界面让简单的任务更容易完成，
 而命令行界面使完成复杂的任务成为可能”，到现在这句话仍然很正确。
 
 Since Linux is modeled after the Unix family of operating systems, it shares the same
@@ -97,8 +97,7 @@ over, say, Windows NT was the powerful command line interface which made the
 
 因为 Linux 是以 Unix 家族的操作系统为模型写成的，所以它分享了 Unix 丰富的命令行工具。
 Unix 在20世纪80年代初显赫一时(虽然，开发它在更早之前），结果，在普遍地使用图形界面之前，
-开发了一种广泛的命令行界面。事实上，一个主要的原因，Linux 开发者优先采用命令行界面
-而不是其他的系统，比如说 Windows NT，是因为其强大的命令行界面，可以使“完成复杂的任务成为可能”。
+开发了一种广泛的命令行界面。事实上，很多人选择 Linux（而不是其他的系统，比如说 Windows NT）是因为其强大的命令行界面，可以使“完成复杂的任务成为可能”。
 
 What This Book Is About
 
@@ -110,8 +109,8 @@ program, bash, this book will try to convey how to get along with the command
 line interface in a larger sense. How does it all work? What can it do? What's
 the best way to use it?
 
-这本书对 Linux 命令行进行了综述。不像一些书籍仅仅涉及一个程序，比如像 shell 程序，bash。
-从更广泛的意义上来说，这本书将试着向你传授如何与命令行界面友好相处。
+这本书介绍如何生存在 Linux 命令行的世界。不像一些书籍仅仅涉及一个程序，比如像 shell 程序，bash。
+这本书将试着向你传授如何与命令行界面友好相处。
 它是怎样工作的？ 它能做什么？ 使用它的最好方法是什么？
 
 This is not a book about Linux system administration. While any serious
@@ -121,9 +120,9 @@ however, prepare the reader for additional study by providing a solid
 foundation in the use of the command line, an essential tool for any serious
 system administration task.
 
-__这不是一本关于 Linux 系统管理的书__。然而任何一个关于命令行的重要讨论，都一定会牵涉到
-系统管理方面的内容，这本书仅仅提到一点儿管理方面的问题。这本书为读者准备好了其它的学习内容，
-帮助你为使用命令行打下坚实的基础，这可是完成任一个系统管理任务所必需的至关重要的工具。
+__这不是一本关于 Linux 系统管理的书__。然而任何一个关于命令行的深入讨论，都一定会牵涉到
+系统管理方面的内容，这本书仅仅提到一点儿管理方面的知识。但是这本书为读者准备好了学习更多内容的坚实基础，
+毕竟要胜任系统管理工作也需要良好的命令行使用基本功。
 
 This book is very Linux-centric. Many other books try to broaden their appeal
 by including other platforms such as generic Unix and MacOS X. In doing so,
@@ -133,7 +132,7 @@ percent of the content is useful for users of other Unix-like systems, but
 this book is highly targeted at the modern Linux command line user.
 
 __这本书是围绕 Linux 而写的__。许多书籍，为了扩大自身的影响力，会包含一些其它平台的知识，
-比如一般的 Unix, MacOS X 等。这样做，书本中针对普遍话题的内容就减少了。另一方面，
+比如 Unix, MacOS X 等。这样做，很多内容只能比较空泛的去讲了。另一方面，
 这本书只研究了当代 Linux 发行版。虽然，对于使用其它类似于 Unix 系统的用户来说，
 书中95％的内容是有用的，但这本书主要面向的对象是现代 Linux 命令行用户。
 
@@ -279,7 +278,7 @@ having Linux installed on your hard drive.  Both Ubuntu and Fedora (among
 others) have live CD versions.</p></li>
 </ol>
 
-1. 在一台（不是很新）的电脑上安装 Linux。你选择哪个 Linux 发行版安装，是无关紧要的事。
+1. 在一台（不用很新）的电脑上安装 Linux。你选择哪个 Linux 发行版安装，是无关紧要的事。
    虽然大多数人一开始选择安装 Ubuntu, Fedora, 或者 OpenSUSE。如果你拿不定主意，那就先试试 Ubuntu。
    由于主机硬件配置不同，安装 Linux 时，你可能不费吹灰之力就装上了，也可能费了九牛二虎之力还装不上。
    所以我建议，一台使用了几年的台式机，至少要有256M 的内存，6G 的硬盘可用空间。尽可能避免使用
@@ -315,7 +314,7 @@ is the name of the operating system's kernel, nothing more.  The kernel is
 very important of course, since it makes the operating system go, but it's not
 enough to form a complete operating system.</p>
 
-<p>在某些领域，把 Linux 操作系统称为“GNU/Linux 操作系统.”， 则政治立场正确。但“Linux”的问题是，
+<p>在某些领域，把 Linux 操作系统称为“GNU/Linux 操作系统”， 则政治立场正确。但“Linux”的问题是，
 没有一个完全正确的方式能命名它，因为它是由许许多多，分布在世界各地的贡献者们，合作开发而成的。
 从技术层面讲，Linux 只是操作系统的内核名字，没别的含义。当然内核非常重要，因为有它，
 操作系统才能运行起来，但它并不能构成一个完备的操作系统。</p>
@@ -328,13 +327,13 @@ properly reflect the contributions of the GNU Project. While the GNU Project
 predates the Linux kernel, and the project's contributions are extremely deserving
 of recognition, placing them in the name is unfair to everyone else who made
 significant contributions. Besides, I think “Linux/GNU” would be more
-technically accurate since the kernel boots first and everything else runs on top ofit.</p>
+technically accurate since the kernel boots first and everything else runs on top of it.</p>
 
 <p>Richard Stallman 是一个天才的哲学家，自由软件运动创始人，自由软件基金会创办者，他创建了 GNU 工程，
 编写了第一版 GNU C 编译器（gcc），创立了 GNU 通用公共协议（the GPL)等等。
 他坚持把 Linux 称为“GNU/Linux”，为的是准确地反映 GNU 工程对 Linux 操作系统的贡献。
-然而，GNU 项目早于 Linux 内核，而 GNU 项目的贡献得到了极高的赞誉，再把 GNU 用在 Linux 名字里，
-这对其他每个为 Linux 的发展做出重大贡献的程序员来说，就不公平了。</p>
+然而，尽管 GNU 项目早于 Linux 内核，项目的贡献应该得到极高的赞誉，但是把 GNU 用在 Linux 名字里，
+这对其他为 Linux 的发展做出重大贡献的程序员来说，就不公平了。而且，我觉得要是叫也要叫 “Linux/GNU" 比较准确一些，因为系统系统时候会先启动内核，后启动其他的</p>
 
 <p>In popular usage, “Linux” refers to the kernel and all the other free and open
 source software found in the typical Linux distribution; that is, the entire Linux
@@ -346,7 +345,7 @@ AIX. I have chosen to use the popular format. If, however, you prefer to use
 <p>在目前流行的用法中，“Linux”指的是内核以及在一个典型的 Linux 发行版中所包含的所有免费及开源软件；
 也就是说，整个 Linux 生态系统，不只有 GNU 项目软件。在操作系统商界，好像喜欢使用单个词的名字，
 比如说 DOS, Windows, MacOS, Solaris, Irix, AIX. 所以我选择用流行的命名规则。然而，
-如果你喜欢用“GNU/Linux”，当你读这本书时，可以搜索并代替“Linux”。我不介意。</p>
+如果你喜欢用“GNU/Linux”，当你读这本书时，可以在脑子里搜索并替换“Linux”。我不介意。</p>
 
 </div>
 <br />
