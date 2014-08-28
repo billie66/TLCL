@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 网络系统 
+title: 网络系统
 ---
 
 When it comes to networking, there is probably nothing that cannot be done
@@ -17,13 +17,13 @@ to monitor networks and those used to transfer files. In addition, we are going
 to explore the ssh program that is used to perform remote logins. This chapter will
 cover:
 
-被用来配置和操作网络系统的命令数目，就如网络系统主题一样巨大。我们仅仅会关注一些最经常
-使用到的命令。这些被选中用来测试的命令包括那些被用来监测网络和传输文件的命令。另外，我们
+被用来配置和操作网络系统的命令数目，就如网络系统一样巨大。我们仅仅会关注一些最经常
+使用到的命令。我们要研究的命令包括那些被用来监测网络和传输文件的命令。另外，我们
 还会探讨用来远端登录的 ssh 程序。这章会介绍：
 
 * ping - Send an ICMP ECHO\_REQUEST to network hosts
 
-* ping - 发送 ICMP ECHO\_REQUEST 软件包到网络主机 
+* ping - 发送 ICMP ECHO\_REQUEST 软件包到网络主机
 
 * traceroute - Print the route packets trace to a network host
 
@@ -36,22 +36,22 @@ cover:
 
 * ftp - Internet file transfer program
 
-* ftp - 因特网文件传输程序 
+* ftp - 因特网文件传输程序
 
 * wget - Non-interactive network downloader
 
-* wget - 非交互式网络下载器 
+* wget - 非交互式网络下载器
 
 * ssh - OpenSSH SSH client (remote login program)
 
-* ssh - OpenSSH SSH 客户端（远程登录程序） 
+* ssh - OpenSSH SSH 客户端（远程登录程序）
 
 We’re going to assume a little background in networking. In this, the Internet age,
 everyone using a computer needs a basic understanding of networking concepts. To
 make full use of this chapter we should be familiar with the following terms:
 
-我们假定你已经知道了一点网络系统背景知识。在这个因特网时代，每个计算机用户需要基本的网络
-系统概念理解。为了能够充分利用这一章节的内容，我们应该熟悉以下术语：
+我们假定你已经知道了一点网络系统背景知识。在这个因特网时代，每个计算机用户需要理解基本的网络
+系统概念。为了能够充分利用这一章节的内容，我们应该熟悉以下术语：
 
 * IP (Internet Protocol) address
 
@@ -107,7 +107,7 @@ ignore these packets. This is usually done for security reasons, to partially ob
 a host from a potential attacker. It is also common for firewalls to be configured to
 block IMCP traffic.
 
-注意：有可能配置大多数网络设备（包括 Linux 主机）来忽略这些数据包。通常，这样做是出于网络安全
+注意：大多数网络设备（包括 Linux 主机）都可以被配置为忽略这些数据包。通常，这样做是出于网络安全
 原因，部分地遮蔽一台主机免受一个潜在攻击者地侵袭。配置防火墙来阻塞 IMCP 流量也很普遍。
 
 ---
@@ -115,7 +115,7 @@ block IMCP traffic.
 For example, to see if we can reach linuxcommand.org (one of our favorite sites ;-),
 we can use use ping like this:
 
-例如，看看我们能否连接到网站 linuxcommand.org（我喜欢的网站之一），
+例如，看看我们能否连接到网站 linuxcommand.org（我们最喜欢的网站之一），
 我们可以这样使用 ping 命令：
 
     [me@linuxbox ~]$ ping linuxcommand.org
@@ -145,8 +145,8 @@ packet loss. A successful “ping” will indicate that the elements of the netw
 interface cards, cabling, routing and gateways) are in generally good working order.
 
 按下组合键 Ctrl-c，中断这个命令之后，ping 打印出运行统计信息。一个正常工作的网络会报告
-零个数据包丢失。一个成功执行的“ping”命令会显示网络的各个元素（网卡，电缆，路由，网关）
-一般都处于正常的工作秩序。
+零个数据包丢失。一个成功执行的“ping”命令会意味着网络的各个部件（网卡，电缆，路由，网关）
+都处于正常的工作状态。
 
 #### traceroute
 
@@ -160,7 +160,7 @@ taken to reach slashdot.org, we would do this:
 器，我们将这样做：
 
     [me@linuxbox ~]$ traceroute slashdot.org
-    
+
 The output looks like this:
 
 命令输出看起来像这样：
@@ -196,7 +196,7 @@ The netstat program is used to examine various network settings and statistics.
 Through the use of its many options, we can look at a variety of features in our network
 setup. Using the “-ie” option, we can examine the network interfaces in our system:
 
-这个 netstat 程序被用来检查各种各样的网络设置和统计数据。通过此命令的许多选项，我们
+netstat 程序被用来检查各种各样的网络设置和统计数据。通过此命令的许多选项，我们
 可以看看网络设置中的各种特性。使用“-ie”选项，我们能够查看系统中的网络接口：
 
     [me@linuxbox ~]$ netstat -ie
@@ -208,7 +208,7 @@ setup. Using the “-ie” option, we can examine the network interfaces in our 
             TX packets:403217 errors:0 dropped:0 overruns:0 carrier:0
             collisions:0 txqueuelen:100 RX bytes:153098921 (146.0 MB) TX
             bytes:261035246 (248.9 MB) Memory:fdfc0000-fdfe0000
-    
+
     lo      Link encap:Local Loopback
             inet addr:127.0.0.1 Mask:255.0.0.0
     ...
@@ -219,7 +219,7 @@ is the loopback interface, a virtual interface that the system uses to “talk
 to itself.”
 
 在上述实例中，我们看到我们的测试系统有两个网络接口。第一个，叫做 eth0，是
-因特网接口，和第二个，叫做 lo，是内部循环网络接口，它是一个虚拟接口，系统用它来
+因特网接口，和第二个，叫做 lo，是内部回环网络接口，它是一个虚拟接口，系统用它来
 “自言自语”。
 
 When performing causal network diagnostics, the important things to look for
@@ -229,24 +229,23 @@ of a valid IP address in the inet addr field on the second line. For systems
 using DHCP (Dynamic Host Configuration Protocol), a valid IP address in this
 field will verify that the DHCP is working.
 
-当执行因果网络诊断程序时，要查看的重要信息是每个网络接口第四行开头出现的单词
+当执行日常网络诊断时，要查看的重要信息是每个网络接口第四行开头出现的单词
 “UP”，说明这个网络接口已经生效，还要查看第二行中 inet
 addr 字段出现的有效 IP 地址。对于使用 DHCP（动态主机配置协议）的系统，在
-这个字段中的一个有效 IP 地址则验证了 DHCP 正在工作。
+这个字段中的一个有效 IP 地址则证明了 DHCP 工作正常。
 
 Using the “-r” option will display the kernel’s network routing table. This
 shows how the network is configured to send packets from network to network:
 
-使用这个“-r”选项会显示内核的网络路由表。这展示了如何配置系统网络，使其能够在
-网络之间发送数据包。
+使用这个“-r”选项会显示内核的网络路由表。这展示了系统是如何配置网络之间发送数据包的。
 
     [me@linuxbox ~]$ netstat -r
     Kernel IP routing table
     Destination     Gateway     Genmask         Flags    MSS  Window  irtt Iface
-    
+
     192.168.1.0     *           255.255.255.0   U        0    0          0 eth0
     default         192.168.1.1 0.0.0.0         UG       0    0          0 eth0
-    
+
 In this simple example, we see a typical routing table for a client machine on
 a LAN (Local Area Network) behind a firewall/router. The first line of the
 listing shows the destination 192.168.1.0. IP addresses that end in zero refer
@@ -255,7 +254,7 @@ on the LAN. The next field, Gateway, is the name or IP address of the gateway
 (router) used to go from the current host to the destination network. An
 asterisk in this field indicates that no gateway is needed.
 
-在这个简单的例子里面，我们看到了，位于防火墙之后的局域网中，一台客户端计算机的典型路由表。
+在这个简单的例子里面，我们看到了，位于防火墙之内的局域网中，一台客户端计算机的典型路由表。
 第一行显示了目的地192.168.1.0。IP 地址以零结尾是指网络，而不是个人主机，
 所以这个目的地意味着局域网中的任何一台主机。下一个字段，Gateway，
 是网关（路由器）的名字或 IP 地址，用它来连接当前的主机和目的地的网络。
@@ -266,8 +265,8 @@ destined for a network that is not otherwise listed in the table. In our
 example, we see that the gateway is defined as a router with the address of
 192.168.1.1, which presumably knows what to do with the destination traffic.
 
-最后一行包含目的地 default。这意味着发往网络的任何流量没有在表中列出。
-在我们的实例中，我们看到网关被定义为拥有地址192.168.1.1的路由器，它大概能
+最后一行包含目的地 default。指的是发往任何表上没有列出的目的地网络的流量。
+在我们的实例中，我们看到网关被定义为地址192.168.1.1的路由器，它应该能
 知道怎样来处理目的地流量。
 
 The netstat program has many options and we have only looked at a couple.
@@ -346,8 +345,8 @@ anonymous FTP server fileserver:
     226 File send OK.
     733079552 bytes received in 68.56 secs (10441.5 kB/s)
     ftp> bye
-    
-    
+
+
 Here is an explanation of the commands entered during this session:
 
 这里是对会话期间所输入命令的解释说明：
@@ -477,9 +476,9 @@ we could do this:
     Connecting to linuxcommand.org|66.35.250.210|:80... connected.
     HTTP request sent, awaiting response... 200 OK
     Length: unspecified [text/html]
-    
+
       [ <                        => ]        3,120       --.--K/s
-    
+
     11:02:51 (161.75 MB/s) - 'index.php' saved [3120]
 
 The program's many options allow wget to recursively download, download files in the
@@ -492,7 +491,7 @@ better-than-average man page.
 
 ### Secure Communication With Remote Hosts
 
-### 与远程主机安全通信 
+### 与远程主机安全通信
 
 For many years, Unix-like operating systems have had the ability to be administered
 remotely via a network. In the early days, before the general adoption of the Internet,
@@ -565,7 +564,7 @@ client program like so:
     RSA key fingerprint is
     41:ed:7a:df:23:19:bf:3c:a5:17:bc:61:b3:7f:d9:bb.
     Are you sure you want to continue connecting (yes/no)?
-    
+
 The first time the connection is attempted, a message is displayed indicating that the
 authenticity of the remote host cannot be established. This is because the client program
 has never seen this remote host before. To accept the credentials of the remote host, enter
@@ -579,7 +578,7 @@ his/her password:
     Warning: Permanently added 'remote-sys,192.168.1.4' (RSA) to the list
     of known hosts.
     me@remote-sys's password:
-    
+
 After the password is successfully entered, we receive the shell prompt from the remote
 system:
 
@@ -622,7 +621,7 @@ not successfully authenticate, the following message appears:
     Someone could be eavesdropping on you right now (man-in-the-middle
     attack)!
     ...
-    
+
 This message is caused by one of two possible situations. First, an attacker may be
 attempting a “man-in-the-middle” attack. This is rare, since everybody knows that ssh
 alerts the user to this. The more likely culprit is that the remote system has been changed
@@ -664,15 +663,15 @@ shell 会话中。
 
     [me@linuxbox ~]$ ssh remote-sys free
     me@twin4's password:
-                total   used       free     shared buffers cached 
-    
+                total   used       free     shared buffers cached
+
     Mem:        775536  507184   268352          0  110068 154596
-    
+
     -/+ buffers/cache: 242520  533016
     Swap: 0 1572856 0 110068 154596
-    
+
     [me@linuxbox ~]$
-    
+
 It’s possible to use this technique in more interesting ways, such as this example in which
 we perform an ls on the remote system and redirect the output to a file on the local
 system:
@@ -683,7 +682,7 @@ system:
     [me@linuxbox ~]$ ssh remote-sys 'ls \*' > dirlist.txt
     me@twin4's password:
     [me@linuxbox ~]$
-    
+
 Notice the use of the single quotes in the command above. This is done because we do
 not want the pathname expansion performed on the local machine; rather, we want it to
 be performed on the remote system. Likewise, if we had wanted the output redirected to
@@ -695,7 +694,7 @@ filename within the single quotes:
 把重定向操作符和文件名都放到单引号里面。
 
     [me@linuxbox ~]$ ssh remote-sys 'ls * > dirlist.txt'
-    
+
 <br />
 
 <div class="single">
@@ -773,7 +772,7 @@ the desired remote host account name does not match that of the local system:
 则可以把用户名添加到远端主机名的开头。
 
     [me@linuxbox ~]$ scp bob@remote-sys:document.txt .
-    
+
 The second SSH file copying program is sftp which, as its name implies, is a secure
 replacement for the ftp program. sftp works much like the original ftp program that
 we used earlier; however, instead of transmitting everything in cleartext, it uses an SSH
@@ -799,7 +798,7 @@ also be used as a FTP-like server. Here is a sample session:
     desktop-i386.iso
     /home/me/ubuntu-8.04-desktop-i386.iso 100% 699MB 7.4MB/s 01:35
     sftp> bye
-    
+
 <br />
 
 ---
@@ -852,7 +851,7 @@ for the scp and sftp programs.</p>
   Linux 文档项目提供了 Linux 网络管理指南，可以广泛地（虽然过时了）了解网络管理方面的知识。
 
   <http://tldp.org/LDP/nag2/index.html>
-       
+
 * Wikipedia contains many good networking articles. Here are some of the basics:
 
 * Wikipedia 上包含了许多网络方面的优秀文章。这里有一些基础的：
