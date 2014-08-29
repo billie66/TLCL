@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 文件系统中跳转 
+title: 文件系统中跳转
 ---
 
 The first thing we need to learn to do (besides just typing) is how to
@@ -35,7 +35,7 @@ directory in the file system is called the root directory. The root directory
 contains files and subdirectories, which contain more files and subdirectories
 and so on and so on.
 
-正如 Windows，一个类似于 Unix 的操作系统，比如说 Linux，以分层目录结构来组织所有文件。
+类似于 Windows，一个“类 Unix” 的操作系统，比如说 Linux，以分层目录结构来组织所有文件。
 这就意味着所有文件组成了一棵树型目录（有时候在其它系统中叫做文件夹），
 这个目录树可能包含文件和其它的目录。文件系统中的第一级目录称为根目录。
 根目录包含文件和子目录，子目录包含更多的文件和子目录，依此类推。
@@ -47,8 +47,8 @@ the computer. Storage devices are attached (or more correctly, mounted) at
 various points on the tree according to the whims of the system administrator,
 the person (or persons) responsible for the maintenance of the system.
 
-注意不同于 Windows，Windows 每个存储设备都有一个独自的文件系统，类似于 Unix 的操作系统，
-比如说 Linux，总是有一个单一的文件系统树，不管有多少个磁盘或者存储设备连接到计算机上。
+不同于 Windows 的是，Windows 每个存储设备都有一个独自的文件系统，类似于 Unix 的操作系统，
+比如 Linux，总是有一个单一的文件系统树，不管有多少个磁盘或者存储设备连接到计算机上。
 根据系统管理员的兴致，存储设备连接到（或着更精确些，是挂载到）目录树的各个节点上。
 系统管理员负责维护系统安全。
 
@@ -93,7 +93,7 @@ current working directory is set to our home directory. Each user account is
 given its own home directory and when operating as a regular user, the home
 directory is the only place the user is allowed to write files.
 
-当我们首次登录系统后，（或者启动终端仿真器会话后），当前工作目录设置成主目录。
+当我首次登录系统后，（或者启动终端仿真器会话后），当前工作目录是我的主目录。
 每个用户都有他自己的主目录，当用户以普通用户的身份操控系统时，主目录是唯一
 允许用户编写文件的地方。
 
@@ -127,7 +127,7 @@ branches of the tree to get to the directory we want. Pathnames can be
 specified in one of two different ways; as absolute pathnames or as relative
 pathnames. Let's deal with absolute pathnames first.
 
-要更改工作目录（此刻，我们站在树形迷宫里面），我们用 cd 命令。输入 cd, 
+要更改工作目录（此刻，我们站在树形迷宫里面），我们用 cd 命令。输入 cd,
 然后输入你想要的工作目录的路径名，就能实现愿望。路径名就是沿着目录树的分支
 到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，
 另一个是相对路径。首先处理绝对路径。
@@ -187,7 +187,7 @@ the working directory to /usr/bin again:
     /usr/bin
 
 Okay, now let's say that we wanted to change the working directory to the
-parent of /usr/bin which is /usr. We could do that two different ways. 
+parent of /usr/bin which is /usr. We could do that two different ways.
 Either with an absolute pathname:
 
 好的，比方说更改工作目录到 /usr/bin 的父目录 /usr。可以通过两种方法来实现。或者使用绝对路径名：
@@ -212,7 +212,7 @@ that requires the least typing!
 Likewise, we can change the working directory from /usr to /usr/bin in two
 different ways. Either using an absolute pathname:
 
-同样地，从目录/usr/到/usr/bin 也有两种途径。或者使用绝对路径：
+同样地，从目录 /usr/ 到 /usr/bin 也有两种途径。或者使用绝对路径：
 
     [me@linuxbox usr]$ cd /usr/bin
     [me@linuxbox bin]$ pwd
@@ -302,7 +302,7 @@ the home directory of user “bob.” </td>
 
 <h3>Important Facts About Filenames</h3>
 
-<h3> 关于文件名的重要规则</h3>
+<h3>关于文件名的重要规则</h3>
 
 <ol>
 <li><p>
