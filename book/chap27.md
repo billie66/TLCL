@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 自顶向下设计 
+title: 自顶向下设计
 ---
 
 As programs get larger and more complex, they become more difficult to design, code
@@ -116,7 +116,7 @@ Our script currently performs the following steps to generate the HTML document:
 * Output time stamp.
 
 * Close page body.
-  
+
 * Close page.
 
 * 打开网页
@@ -163,13 +163,10 @@ through command substitution:
 如果对于每一个任务，我们都有相应的命令，那么通过命令替换，我们就能很容易地把它们添加到我们的脚本中：
 
     #!/bin/bash
-
     # Program to output a system information page
-
     TITLE="System Information Report For $HOSTNAME"
     CURRENT_TIME=$(date +"%x %r %Z")
     TIME_STAMP="Generated $CURRENT_TIME, by $USER"
-
     cat << _EOF_
     <HTML>
             <HEAD>
@@ -185,7 +182,6 @@ through command substitution:
     </HTML>
     _EOF_
 
-
 We could create these additional commands two ways. We could write three separate
 scripts and place them in a directory listed in our PATH, or we could embed the scripts
 within our program as shell functions. As we have mentioned before, shell functions are
@@ -200,9 +196,7 @@ Shell functions have two syntactic forms:
         commands
         return
     }
-
     and
-
     name () {
         commands
         return
@@ -228,7 +222,7 @@ Below we see a script that demonstrates the use of a shell function:
        8     }
        9
        10     # Main program starts here
-       11    
+       11
        12     echo "Step 1"
        13     funct
        14     echo "Step 3"
@@ -256,25 +250,19 @@ We’ll add minimal shell function definitions to our script:
 我们将给脚本添加最小的 shell 函数定义：
 
     #!/bin/bash
-
     # Program to output a system information page
-
     TITLE="System Information Report For $HOSTNAME"
     CURRENT_TIME=$(date +"%x %r %Z")
     TIME_STAMP="Generated $CURRENT_TIME, by $USER"
-
     report_uptime () {
         return
     }
-
     report_disk_space () {
         return
     }
-
     report_home_space () {
         return
     }
-
     cat << _EOF_
     <HTML>
           <HEAD>
@@ -322,30 +310,18 @@ Here is an example script that demonstrates how local variables are defined and 
 这里有一个实例脚本，其说明了怎样来定义和使用局部变量：
 
     #!/bin/bash
-
     # local-vars: script to demonstrate local variables
-
     foo=0 # global variable foo
-    
     funct_1 () {
-
         local foo  # variable foo local to funct_1
-        
         foo=1
-
         echo "funct_1: foo = $foo"
     }
-
     funct_2 () {
-
         local foo  # variable foo local to funct_2
-        
         foo=2
-
         echo "funct_2: foo = $foo"
-
     }
-
     echo "global:  foo = $foo"
     funct_1
     echo "global: foo = $foo"
@@ -412,7 +388,6 @@ If we look at the output of our script now:
     <BODY>
     <H1>System Information Report For linuxbox</H1>
     <P>Generated 03/19/2009 04:02:10 PM EDT, by me</P>
-
     </BODY>
     </HTML>
 
@@ -540,7 +515,7 @@ df -h
 
 ### Summing Up
 
-### 总结归纳 
+### 总结归纳
 
 In this chapter, we have introduced a common method of program design called top-
 down design, and we have seen how shell functions are used to build the stepwise
@@ -556,7 +531,7 @@ to be reusable by allowing them to be placed in multiple programs; a great time 
 
 ### Further Reading
 
-### 拓展阅读 
+### 拓展阅读
 
 * The Wikipedia has many articles on software design philosophy. Here are a
   couple of good ones:

@@ -1,6 +1,6 @@
 ---
 layout: book-zh
-title: 自顶向下设计 
+title: 自顶向下设计
 ---
 
 随着程序变得更加庞大和复杂，设计，编码和维护它们也变得更加困难。对于任意一个大项目而言，
@@ -76,13 +76,10 @@ title: 自顶向下设计
 如果对于每一个任务，我们都有相应的命令，那么通过命令替换，我们就能很容易地把它们添加到我们的脚本中：
 
     #!/bin/bash
-
     # Program to output a system information page
-
     TITLE="System Information Report For $HOSTNAME"
     CURRENT_TIME=$(date +"%x %r %Z")
     TIME_STAMP="Generated $CURRENT_TIME, by $USER"
-
     cat << _EOF_
     <HTML>
             <HEAD>
@@ -106,9 +103,7 @@ title: 自顶向下设计
         commands
         return
     }
-
     and
-
     name () {
         commands
         return
@@ -128,7 +123,7 @@ title: 自顶向下设计
        8     }
        9
        10     # Main program starts here
-       11    
+       11
        12     echo "Step 1"
        13     funct
        14     echo "Step 3"
@@ -143,25 +138,19 @@ echo 命令。注意为了使函数调用被识别出是 shell 函数，而不�
 我们将给脚本添加最小的 shell 函数定义：
 
     #!/bin/bash
-
     # Program to output a system information page
-
     TITLE="System Information Report For $HOSTNAME"
     CURRENT_TIME=$(date +"%x %r %Z")
     TIME_STAMP="Generated $CURRENT_TIME, by $USER"
-
     report_uptime () {
         return
     }
-
     report_disk_space () {
         return
     }
-
     report_home_space () {
         return
     }
-
     cat << _EOF_
     <HTML>
           <HEAD>
@@ -191,30 +180,18 @@ Shell 函数的命名规则和变量一样。一个函数必须至少包含一�
 这里有一个实例脚本，其说明了怎样来定义和使用局部变量：
 
     #!/bin/bash
-
     # local-vars: script to demonstrate local variables
-
     foo=0 # global variable foo
-    
     funct_1 () {
-
         local foo  # variable foo local to funct_1
-        
         foo=1
-
         echo "funct_1: foo = $foo"
     }
-
     funct_2 () {
-
         local foo  # variable foo local to funct_2
-        
         foo=2
-
         echo "funct_2: foo = $foo"
-
     }
-
     echo "global:  foo = $foo"
     funct_1
     echo "global: foo = $foo"
@@ -346,14 +323,14 @@ df -h
 </div>
 <br />
 
-### 总结归纳 
+### 总结归纳
 
 这一章中，我们介绍了一种常见的程序设计方法，叫做自顶向下设计，并且我们知道了怎样
 使用 shell 函数按照要求来完成逐步细化的任务。我们也知道了怎样使用局部变量使 shell 函数
 独立于其它函数，以及其所在程序的其它部分。这就有可能使 shell 函数以可移植的方式编写，
 并且能够重复使用，通过把它们放置到多个程序中；节省了大量的时间。
 
-### 拓展阅读 
+### 拓展阅读
 
 * Wikipedia 上面有许多关于软件设计原理的文章。这里是一些好文章：
 
