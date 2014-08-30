@@ -1,12 +1,18 @@
 html {
   background-color: #F5F5F5;
+  -webkit-text-size-adjust: 100%;
+  background-image: -moz-linear-gradient(rgba(255, 255, 128, 0.1), rgba(255, 255, 128, 0.1)), url("/images/bg.png");
+  background-image: -webkit-linear-gradient(rgba(255, 255, 128, 0.1), rgba(255, 255, 128, 0.1)), url("/images/bg.png");
+  background-image: -o-linear-gradient(rgba(255, 255, 128, 0.1), rgba(255, 255, 128, 0.1)), url("/images/bg.png");
+  background-image: -ms-linear-gradient(rgba(255, 255, 128, 0.1), rgba(255, 255, 128, 0.1)), url("/images/bg.png");
+  background-image: linear-gradient(rgba(255, 255, 128, 0.1), rgba(255, 255, 128, 0.1)), url("/images/bg.png");
 }
 
 body {
   font-size: 16px;
   line-height: 2.0em;
   font-family: 'Georgia', "Hiragino Sans GB", serif;
-  color: #555;
+  color: #3C3C3C;
 }
 #wrapper {
   margin: 0 auto;
