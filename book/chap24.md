@@ -245,13 +245,13 @@ src and then download the source code into it using ftp:
     diction-1.11.tar.gz
 
 ---
+
 Note: Since we are the “maintainer” of this source code while we compile it, we
-will keep it in ~/src. Source code installed by your distribution will be installed
-in /usr/src, while source code intended for use by multiple users is usually installed in /usr/local/src.
+will keep it in ~/src. Source code installed by your distribution will be installed in /usr/src, while source code intended for use by multiple users is usually installed in /usr/local/src.
 
 注意：因为我们是这个源码的“维护者”，当我们编译它的时候，我们把它保存在 ~/src 目录下。
-由你的系统发行版源码会把源码安装在 /usr/src 目录下，而供多个用户使用的源码，
-通常安装在 /usr/local/src 目录下。
+由你的系统发行版源码会把源码安装在 /usr/src 目录下，而供多个用户使用的源码，通常安装在 /usr/local/src 目录下。
+
 ---
 
 As we can see, source code is usually supplied in the form of a compressed tar file.
