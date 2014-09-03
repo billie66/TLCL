@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 查找文件 
+title: 查找文件
 ---
 
 As we have wandered around our Linux system, one thing has become abundantly clear:
@@ -18,7 +18,7 @@ tools are:
 
 * locate – Find files by name
 
-* locate – 通过名字来查找文件 
+* locate – 通过名字来查找文件
 
 * find – Search for files in a directory hierarchy
 
@@ -43,11 +43,11 @@ In addition, we will introduce a couple of commands to assist us in or explorati
 
 * stat – Display file or file system status
 
-* stat – 显示文件或文件系统状态 
+* stat – 显示文件或文件系统状态
 
 ### locate – Find Files The Easy Way
 
-### locate – 查找文件的简单方法 
+### locate – 查找文件的简单方法
 
 The locate program performs a rapid database search of pathnames and outputs every
 name that matches a given substring. Say, for example, we want to find all the programs
@@ -60,7 +60,7 @@ try to use locate this way to find our files:
 匹配程序的目录以"bin/"结尾。因此，我们试着以这种方式使用 locate 命令，来找到我们的文件：
 
     [me@linuxbox ~]$ locate bin/zip
-    
+
 locate will search its database of pathnames and output any that contain the string “bin/zip”:
 
 locate 命令将会搜索它的路径名数据库，输出任一个包含字符串“bin/zip”的路径名：
@@ -125,7 +125,7 @@ performed at regular intervals by the cron daemon. Most systems equipped
 with locate run updatedb once a day. Since the database is not updated
 continuously, you will notice that very recent files do not show up when using
 locate. To overcome this, it’s possible to run the updatedb program manually
-by becoming the superuser and running updatedb at the prompt.  </p> 
+by becoming the superuser and running updatedb at the prompt.  </p>
 
 <p>你可能注意到了，在一些发行版中，仅仅在系统安装之后，locate 不能工作，
 但是如果你第二天再试一下，它就工作正常了。怎么回事呢？locate 数据库由另一个叫做 updatedb
@@ -140,7 +140,7 @@ updatedb 程序。因为数据库不能被持续地更新，所以当使用 loca
 
 ### find – Find Files The Hard Way
 
-### find – 查找文件的复杂方式 
+### find – 查找文件的复杂方式
 
 While the locate program can find a file based solely on its name, the find program
 searches a given directory (and its subdirectories) for files based on a variety of
@@ -158,7 +158,7 @@ example, to produce a list of our home directory:
 find 命令的最简单使用是，搜索一个或多个目录。例如，输出我们的主目录列表。
 
     [me@linuxbox ~]$ find ~
-    
+
 On most active user accounts, this will produce a large list. Since the list is sent to
 standard output, we can pipe the list into other programs. Let’s use wc to count the
 number of files:
@@ -185,7 +185,7 @@ following test:
 
     [me@linuxbox ~]$ find ~ -type d | wc -l
     1695
-    
+
 Adding the test -type d limited the search to directories. Conversely, we could have
 limited the search to regular files with this test:
 
@@ -193,7 +193,7 @@ limited the search to regular files with this test:
 
     [me@linuxbox ~]$ find ~ -type f | wc -l
     38737
-    
+
 Here are the common file type tests supported by find:
 
 这里是 find 命令支持的普通文件类型测试条件：
@@ -273,8 +273,8 @@ the meaning of the string to be smaller than the specified number. No sign means
 “match the value exactly.” The trailing letter “M” indicates that the unit of measurement
 is megabytes. The following characters may be used to specify units:
 
-在这个例子里面，我们加入了-name 测试条件，后跟通配符模式。注意，我们把它用双引号引起来，
-从而阻止 shell 展开路径名。紧接着，我们加入-size 测试条件，后跟字符串“+1M”。开头的加号表明
+在这个例子里面，我们加入了 -name 测试条件，后面跟通配符模式。注意，我们把它用双引号引起来，
+从而阻止 shell 展开路径名。紧接着，我们加入 -size 测试条件，后跟字符串“+1M”。开头的加号表明
 我们正在寻找文件大小大于指定数的文件。若字符串以减号开头，则意味着查找小于指定数的文件。
 若没有符号意味着“精确匹配这个数”。结尾字母“M”表明测量单位是兆字节。下面的字符可以
 被用来指定测量单位：
@@ -462,7 +462,7 @@ ID.</td>
 <tr>
 <td valign="top" width="25%">-cmin n </td>
 <td valign="top">匹配的文件和目录的内容或属性最后修改时间正好在 n 分钟之前。
-指定少于 n 分钟之前，使用-n，指定多于 n 分钟之前，使用+n。 </td>
+指定少于 n 分钟之前，使用 -n，指定多于 n 分钟之前，使用 +n。 </td>
 </tr>
 <tr>
 <td valign="top">-cnewer file </td>
@@ -566,7 +566,7 @@ could do this:
 Yikes! That sure looks weird. What is all this stuff? Actually, the operators are not that
 complicated once you get to know them. Here is the list:
 
-呀！这的确看起来很奇怪。这些是什么东西？实际上，这些操作符没有那么复杂，一旦你知道了它们。
+呀！这的确看起来很奇怪。这些是什么东西？实际上，这些操作符没有那么复杂，一旦你知道了它们的原理。
 这里是操作符列表：
 
 <table class="multi">
@@ -577,12 +577,12 @@ complicated once you get to know them. Here is the list:
 </tr>
 <tr>
 <td valign="top" width="25%">-and</td>
-<td valign="top">匹配如果操作符两边的测试条件都是真。可以简写为-a。
-注意若没有使用操作符，则默认使用-and。</td>
+<td valign="top">匹配如果操作符两边的测试条件都是真。可以简写为 -a。
+注意若没有使用操作符，则默认使用 -and。</td>
 </tr>
 <tr>
 <td valign="top">-or</td>
-<td valign="top">匹配若操作符两边的任一个测试条件为真。可以简写为-o。</td>
+<td valign="top">匹配若操作符两边的任一个测试条件为真。可以简写为 -o。</td>
 </tr>
 <tr>
 <td valign="top">-not</td>
@@ -616,7 +616,7 @@ can’t be both at the same time. So if we expand the grouped expressions, we ca
 this way:
 
 这很有意义，因为我们正在搜索具有不同权限集合的文件和目录。如果我们文件和目录两者都查找，
-那为什么要用-or 来代替-and 呢？因为 find 命令扫描文件和目录时，会计算每一个对象，看看它是否
+那为什么要用 -or 来代替 -and 呢？因为 find 命令扫描文件和目录时，会计算每一个对象，看看它是否
 匹配指定的测试条件。我们想要知道它是具有错误权限的文件还是有错误权限的目录。它不可能同时符合这
 两个条件。所以如果展开组合起来的表达式，我们能这样解释它：
 
@@ -627,7 +627,7 @@ we don’t. What we will test for is “not good permissions,” since we know w
 permissions” are. In the case of files, we define good as 0600 and for directories, as
 0711. The expression that will test files for “not good” permissions is:
 
-下一个挑战是怎样来检查“错误权限”。我们怎样做呢？实际上我们没有那么做。我们将测试
+下一个挑战是怎样来检查“错误权限”，这个怎样做呢？我们不从这个角度做。我们将测试
 “不是正确权限”，因为我们知道什么是“正确权限”。对于文件，我们定义正确权限为0600，
 目录则为0711。测试具有“不正确”权限的文件表达式为：
 
@@ -699,7 +699,7 @@ expr2 is performed. Here’s how it works:
 <table class="multi">
 <caption class="cap">表18-5: find AND/OR 逻辑</caption>
 <tr>
-<th class="title" width="%30">expr1的结果</th>
+<th class="title" width="%30">expr1 的结果</th>
 <th class="title" width="%30">操作符</th>
 <th class="title">expr2 is...</th>
 </tr>
@@ -733,15 +733,15 @@ expr2, as we already know that the expression expr1 -or expr2 is true.
 OK, so it helps it go faster. Why is this important? It’s important because we can rely on
 this behavior to control how actions are performed, as we shall soon see..
 
-为什么这会发生呢？这样做是为了提高性能。以-and 为例，我们知道表达式 expr1 -and expr2
+为什么这会发生呢？这样做是为了提高性能。以 -and 为例，我们知道表达式 expr1 -and expr2
 不能为真，如果表达式 expr1的结果为假，所以没有必要执行 expr2。同样地，如果我们有表达式
 expr1 -or expr2，并且表达式 expr1的结果为真，那么就没有必要执行 expr2，因为我们已经知道
-表达式 expr1 -or expr2为真。好，这样会执行快一些。为什么这个很重要？
+表达式 expr1 -or expr2 为真。好，这样会执行快一些。为什么这个很重要？
 它很重要是因为我们能依靠这种行为来控制怎样来执行操作。我们会很快看到...
 
 ### Predefined Actions
 
-### 预定义的操作 
+### 预定义的操作
 
 Let’s get some work done! Having a list of results from our find command is useful,
 but what we really want to do is act on the items on the list. Fortunately, find allows
@@ -813,7 +813,7 @@ In our very first example, we did this:
 我们这样做：
 
     find ~
-    
+
 which produced a list of every file and subdirectory contained within our home directory.
 It produced a list because the -print action is implied if no other action is specified.
 Thus our command could also be expressed as:
@@ -869,7 +869,7 @@ relationships easier to see:
 我们也可以这样表达这个命令，使逻辑关系更容易看出：
 
     find ~ -type f -and -name '*.BAK' -and -print
-    
+
 With our command fully expressed, let’s look at how the logical operators affect its
 execution:
 
@@ -902,15 +902,15 @@ execution:
 </tr>
 <tr>
 <td valign="top" width="25%">-print</td>
-<td valign="top">只有-type f and -name '*.BAK'为真的时候</td>
+<td valign="top">只有 -type f and -name '*.BAK'为真的时候</td>
 </tr>
 <tr>
 <td valign="top">-name ‘*.BAK’ </td>
-<td valign="top">只有-type f 为真的时候</td>
+<td valign="top">只有 -type f 为真的时候</td>
 </tr>
 <tr>
 <td valign="top">-type f </td>
-<td valign="top">总是被执行，因为它是与-and 关系中的第一个测试／行为。</td>
+<td valign="top">总是被执行，因为它是与 -and 关系中的第一个测试／行为。</td>
 </tr>
 </table>
 
@@ -920,10 +920,10 @@ we were to reorder the tests and actions so that the -print action was the first
 command would behave much differently:
 
 因为测试和行为之间的逻辑关系决定了哪一个会被执行，我们知道测试和行为的顺序很重要。例如，
-如果我们重新安排测试和行为之间的顺序，让-print 行为是第一个，那么这个命令执行起来会截然不同：
+如果我们重新安排测试和行为之间的顺序，让 -print 行为是第一个，那么这个命令执行起来会截然不同：
 
     find ~ -print -and -type f -and -name '*.BAK'
-    
+
 This version of the command will print each file (the -print action always evaluates to
 true) and then test for file type and the specified file extension.
 
@@ -936,7 +936,7 @@ true) and then test for file type and the specified file extension.
 In addition to the predefined actions, we can also invoke arbitrary commands. The
 traditional way of doing this is with the -exec action. This action works like this:
 
-除了预定义的行为之外，我们也可以唤醒随意的命令。传统方式是通过-exec 行为。这个
+除了预定义的行为之外，我们也可以唤醒随意的命令。传统方式是通过 -exec 行为。这个
 行为像这样工作：
 
     -exec command {} ;
@@ -946,7 +946,7 @@ pathname and the semicolon is a required delimiter indicating the end of the com
 Here’s an example of using -exec to act like the -delete action discussed earlier:
 
 这里的 command 就是指一个命令的名字，{}是当前路径名的符号表示，分号是要求的界定符
-表明命令结束。这里是一个使用-exec 行为的例子，其作用如之前讨论的-delete 行为：
+表明命令结束。这里是一个使用 -exec 行为的例子，其作用如之前讨论的 -delete 行为：
 
     -exec rm '{}' ';'
 
@@ -958,32 +958,32 @@ must be quoted or escaped.
 It’s also possible to execute a user defined action interactively. By using the -ok action
 in place of -exec, the user is prompted before execution of each specified command:
 
-也有可能交互式地执行一个用户定义的行为。通过使用-ok 行为来代替-exec，在执行每个指定的命令之前，
+也有可能交互式地执行一个用户定义的行为。通过使用 -ok 行为来代替 -exec，在执行每个指定的命令之前，
 会提示用户：
 
     find ~ -type f -name 'foo*' -ok ls -l '{}' ';'
     < ls ... /home/me/bin/foo > ? y
     -rwxr-xr-x 1 me    me 224 2007-10-29 18:44 /home/me/bin/foo
     < ls ... /home/me/foo.txt > ? y
-    -rw-r--r-- 1 me    me 0 2008-09-19 12:53 /home/me/foo.txt 
-    
+    -rw-r--r-- 1 me    me 0 2008-09-19 12:53 /home/me/foo.txt
+
 In this example, we search for files with names starting with the string “foo” and execute
 the command ls -l each time one is found. Using the -ok action prompts the user
 before the ls command is executed.
 
 在这个例子里面，我们搜索以字符串“foo”开头的文件名，并且对每个匹配的文件执行 ls -l 命令。
-使用-ok 行为，会在 ls 命令执行之前提示用户。
+使用 -ok 行为，会在 ls 命令执行之前提示用户。
 
 ### Improving Efficiency
 
-### 提高效率 
+### 提高效率
 
 When the -exec action is used, it launches a new instance of the specified command
 each time a matching file is found. There are times when we might prefer to combine all
 of the search results and launch a single instance of the command. For example, rather
 than executing the commands like this:
 
-当-exec 行为被使用的时候，若每次找到一个匹配的文件，它会启动一个新的指定命令的实例。
+当 -exec 行为被使用的时候，若每次找到一个匹配的文件，它会启动一个新的指定命令的实例。
 我们可能更愿意把所有的搜索结果结合起来，再运行一个命令的实例。例如，而不是像这样执行命令：
 
     ls -l file1
@@ -1012,7 +1012,7 @@ the desired command. Going back to our example, this:
 
     find ~ -type f -name 'foo*' -exec ls -l '{}' ';'
     -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
-    -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt 
+    -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt
 
 will execute ls each time a matching file is found. By changing the command to:
 
@@ -1020,8 +1020,8 @@ will execute ls each time a matching file is found. By changing the command to:
 
     find ~ -type f -name 'foo*' -exec ls -l '{}' +
     -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
-    -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt 
-    
+    -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt
+
 we get the same results, but the system only has to execute the ls command once.
 
 虽然我们得到一样的结果，但是系统只需要执行一次 ls 命令。
@@ -1037,7 +1037,7 @@ we would use it like this:
 
     find ~ -type f -name 'foo\*' -print | xargs ls -l
     -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
-    -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt 
+    -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt
 
 Here we see the output of the find command piped into xargs which, in turn,
 constructs an argument list for ls command and then executes it.
@@ -1067,7 +1067,7 @@ execute xargs with the --show-limits option.
 <div class="single">
 <h3>Dealing With Funny Filenames</h3>
 
-<h3>处理有趣的文件名</h3>
+<h3>处理古怪的文件名</h3>
 
 <p>Unix-like systems allow embedded spaces (and even newlines!) in filenames.
 This causes problems for programs like xargs that construct argument lists for
@@ -1113,7 +1113,7 @@ First, let’s create a playground with lots of subdirectories and files:
 
     [me@linuxbox ~]$ mkdir -p playground/dir-{00{1..9},0{10..99},100}
     [me@linuxbox ~]$ touch playground/dir-{00{1..9},0{10..99},100}/file-{A..Z}
-    
+
 Marvel in the power of the command line! With these two lines, we created a playground
 directory containing one hundred subdirectories each containing twenty-six empty files.
 Try that with the GUI!
@@ -1144,7 +1144,7 @@ them:
 在我们的操练场中，我们创建了一百个名为 file-A 的文件实例。让我们找到它们：
 
     [me@linuxbox ~]$ find playground -type f -name 'file-A'
-    
+
 Note that unlike ls, find does not produce results in sorted order. Its order is
 determined by the layout of the storage device. To confirm that we actually have one
 hundred instances of the file we can confirm it this way:
@@ -1152,7 +1152,7 @@ hundred instances of the file we can confirm it this way:
 注意不同于 ls 命令，find 命令的输出结果是无序的。其顺序由存储设备的布局决定。为了确定实际上
 我们拥有一百个此文件的实例，我们可以用这种方式来确认：
 
-    [me@linuxbox ~]$ find playground -type f -name 'file-A' | wc -l 
+    [me@linuxbox ~]$ find playground -type f -name 'file-A' | wc -l
 
 Next, let’s look at finding files based on their modification times. This will be helpful
 when creating backups or organizing files in chronological order. To do this, we will first
@@ -1180,7 +1180,7 @@ understands about a file and its attributes:
     Access: 2008-10-08 15:15:39.000000000 -0400
     Modify: 2008-10-08 15:15:39.000000000 -0400
     Change: 2008-10-08 15:15:39.000000000 -0400
-    
+
 If we touch the file again and then examine it with stat, we will see that the file’s
 times have been updated.
 
@@ -1194,14 +1194,14 @@ times have been updated.
     Access: (0644/-rw-r--r--) Uid: ( 1001/ me) Gid: ( 1001/ me)
     Access: 2008-10-08 15:23:33.000000000 -0400
     Modify: 2008-10-08 15:23:33.000000000 -0400
-    Change: 2008-10-08 15:23:33.000000000 -0400 
-    
+    Change: 2008-10-08 15:23:33.000000000 -0400
+
 Next, let’s use find to update some of our playground files:
 
 下一步，让我们使用 find 命令来更新一些操练场中的文件：
 
-    [me@linuxbox ~]$ find playground -type f -name 'file-B' -exec touch '{}' ';' 
-    
+    [me@linuxbox ~]$ find playground -type f -name 'file-B' -exec touch '{}' ';'
+
 This updates all files in the playground named file-B. Next we’ll use find to identify
 the updated files by comparing all the files to the reference file timestamp:
 
@@ -1209,7 +1209,7 @@ the updated files by comparing all the files to the reference file timestamp:
 通过把所有文件与参考文件 timestamp 做比较：
 
     [me@linuxbox ~]$ find playground -type f -newer playground/timestamp
-    
+
 The results contain all one hundred instances of file-B. Since we performed a touch
 on all the files in the playground named file-B after we updated timestamp, they
 are now “newer” than timestamp and thus can be identified with the -newer test.
@@ -1224,7 +1224,7 @@ playground:
 最后，让我们回到之前那个错误权限的例子中，把它应用于操练场里：
 
     [me@linuxbox ~]$ find playground \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)
-    
+
 This command lists all one hundred directories and twenty-six hundred files in
 playground (as well as timestamp and playground itself, for a total of 2702)
 because none of them meets our definition of “good permissions.” With our knowledge
@@ -1235,9 +1235,9 @@ to the files and directories in our playground:
 ，因为没有一个符合我们“正确权限”的定义。通过对运算符和行为知识的了解，我们可以给这个命令
 添加行为，对实战场中的文件和目录应用新的权限。
 
-    [me@linuxbox ~]$ find playground \( -type f -not -perm 0600 -exec chmod 0600 '{}' ';' \) 
+    [me@linuxbox ~]$ find playground \( -type f -not -perm 0600 -exec chmod 0600 '{}' ';' \)
        -or \( -type d -not -perm 0711 -exec chmod 0700 '{}' ';' \)
-    
+
 On a day-to-day basis, we might find it easier to issue two commands, one for the
 directories and one for the files, rather than this one large compound command, but it’s
 nice to know that we can do it this way. The important point here is to understand how

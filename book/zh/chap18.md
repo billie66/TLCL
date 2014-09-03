@@ -26,7 +26,7 @@ title: 查找文件
 * touch – 更改文件时间
 
 
-* stat – 显示文件或文件系统状态 
+* stat – 显示文件或文件系统状态
 
 
 ### locate – 查找文件的简单方法
@@ -157,8 +157,8 @@ find 命令的最简单使用是，搜索一个或多个目录。例如，输出
     [me@linuxbox ~]$ find ~ -type f -name "\*.JPG" -size +1M | wc -l
     840
 
-在这个例子里面，我们加入了-name 测试条件，后跟通配符模式。注意，我们把它用双引号引起来，
-从而阻止 shell 展开路径名。紧接着，我们加入-size 测试条件，后跟字符串“+1M”。开头的加号表明
+在这个例子里面，我们加入了 -name 测试条件，后面跟通配符模式。注意，我们把它用双引号引起来，
+从而阻止 shell 展开路径名。紧接着，我们加入 -size 测试条件，后跟字符串“+1M”。开头的加号表明
 我们正在寻找文件大小大于指定数的文件。若字符串以减号开头，则意味着查找小于指定数的文件。
 若没有符号意味着“精确匹配这个数”。结尾字母“M”表明测量单位是兆字节。下面的字符可以
 被用来指定测量单位：
@@ -207,7 +207,7 @@ find 命令支持大量不同的测试条件。下表是列出了一些常见的
 <tr>
 <td valign="top" width="25%">-cmin n </td>
 <td valign="top">匹配的文件和目录的内容或属性最后修改时间正好在 n 分钟之前。
-指定少于 n 分钟之前，使用-n，指定多于 n 分钟之前，使用+n。 </td>
+指定少于 n 分钟之前，使用 -n，指定多于 n 分钟之前，使用 +n。 </td>
 </tr>
 <tr>
 <td valign="top">-cnewer file </td>
@@ -298,7 +298,7 @@ This is not a complete list. The find man page has all the details.
 
     [me@linuxbox ~]$ find ~ \( -type f -not -perm 0600 \) -or \( -type d -not -perm 0700 \)
 
-呀！这的确看起来很奇怪。这些是什么东西？实际上，这些操作符没有那么复杂，一旦你知道了它们。
+呀！这的确看起来很奇怪。这些是什么东西？实际上，这些操作符没有那么复杂，一旦你知道了它们的原理。
 这里是操作符列表：
 
 <table class="multi">
@@ -309,12 +309,12 @@ This is not a complete list. The find man page has all the details.
 </tr>
 <tr>
 <td valign="top" width="25%">-and</td>
-<td valign="top">匹配如果操作符两边的测试条件都是真。可以简写为-a。
-注意若没有使用操作符，则默认使用-and。</td>
+<td valign="top">匹配如果操作符两边的测试条件都是真。可以简写为 -a。
+注意若没有使用操作符，则默认使用 -and。</td>
 </tr>
 <tr>
 <td valign="top">-or</td>
-<td valign="top">匹配若操作符两边的任一个测试条件为真。可以简写为-o。</td>
+<td valign="top">匹配若操作符两边的任一个测试条件为真。可以简写为 -o。</td>
 </tr>
 <tr>
 <td valign="top">-not</td>
@@ -341,14 +341,14 @@ by an -or operator:
 
 
 这很有意义，因为我们正在搜索具有不同权限集合的文件和目录。如果我们文件和目录两者都查找，
-那为什么要用-or 来代替-and 呢？因为 find 命令扫描文件和目录时，会计算每一个对象，看看它是否
+那为什么要用 -or 来代替 -and 呢？因为 find 命令扫描文件和目录时，会计算每一个对象，看看它是否
 匹配指定的测试条件。我们想要知道它是具有错误权限的文件还是有错误权限的目录。它不可能同时符合这
 两个条件。所以如果展开组合起来的表达式，我们能这样解释它：
 
     ( file with bad perms ) -or ( directory with bad perms )
 
 
-下一个挑战是怎样来检查“错误权限”。我们怎样做呢？实际上我们没有那么做。我们将测试
+下一个挑战是怎样来检查“错误权限”，这个怎样做呢？我们不从这个角度做。我们将测试
 “不是正确权限”，因为我们知道什么是“正确权限”。对于文件，我们定义正确权限为0600，
 目录则为0711。测试具有“不正确”权限的文件表达式为：
 
@@ -381,7 +381,7 @@ by an -or operator:
 <table class="multi">
 <caption class="cap">表18-5: find AND/OR 逻辑</caption>
 <tr>
-<th class="title" width="%30">expr1的结果</th>
+<th class="title" width="%30">expr1 的结果</th>
 <th class="title" width="%30">操作符</th>
 <th class="title">expr2 is...</th>
 </tr>
@@ -408,10 +408,10 @@ by an -or operator:
 </table>
 
 
-为什么这会发生呢？这样做是为了提高性能。以-and 为例，我们知道表达式 expr1 -and expr2
-不能为真，如果表达式 expr1的结果为假，所以没有必要执行 expr2。同样地，如果我们有表达式
-expr1 -or expr2，并且表达式 expr1的结果为真，那么就没有必要执行 expr2，因为我们已经知道
-表达式 expr1 -or expr2为真。好，这样会执行快一些。为什么这个很重要？
+为什么这会发生呢？这样做是为了提高性能。以 -and 为例，我们知道表达式 expr1 -and expr2
+不能为真，如果表达式 expr1 的结果为假，所以没有必要执行 expr2。同样地，如果我们有表达式
+expr1 -or expr2，并且表达式 expr1 的结果为真，那么就没有必要执行 expr2，因为我们已经知道
+表达式 expr1 -or expr2 为真。好，这样会执行快一些。为什么这个很重要？
 它很重要是因为我们能依靠这种行为来控制怎样来执行操作。我们会很快看到...
 
 
@@ -491,11 +491,11 @@ expr1 -or expr2，并且表达式 expr1的结果为真，那么就没有必要�
 </tr>
 <tr>
 <td valign="top" width="25%">-print</td>
-<td valign="top">只有-type f and -name '*.BAK'为真的时候</td>
+<td valign="top">只有 -type f and -name '*.BAK'为真的时候</td>
 </tr>
 <tr>
 <td valign="top">-name ‘*.BAK’ </td>
-<td valign="top">只有-type f 为真的时候</td>
+<td valign="top">只有 -type f 为真的时候</td>
 </tr>
 <tr>
 <td valign="top">-type f </td>
@@ -504,35 +504,34 @@ expr1 -or expr2，并且表达式 expr1的结果为真，那么就没有必要�
 </table>
 
 因为测试和行为之间的逻辑关系决定了哪一个会被执行，我们知道测试和行为的顺序很重要。例如，
-如果我们重新安排测试和行为之间的顺序，让-print 行为是第一个，那么这个命令执行起来会截然不同：
+如果我们重新安排测试和行为之间的顺序，让 -print 行为是第一个，那么这个命令执行起来会截然不同：
 
     find ~ -print -and -type f -and -name '*.BAK'
 
 这个版本的命令会打印出每个文件（-print 行为总是为真），然后测试文件类型和指定的文件扩展名。
 
-
 ### 用户定义的行为
 
-除了预定义的行为之外，我们也可以唤醒随意的命令。传统方式是通过-exec 行为。这个
+除了预定义的行为之外，我们也可以唤醒随意的命令。传统方式是通过 -exec 行为。这个
 行为像这样工作：
 
     -exec command {} ;
 
 这里的 command 就是指一个命令的名字，{}是当前路径名的符号表示，分号是要求的界定符
-表明命令结束。这里是一个使用-exec 行为的例子，其作用如之前讨论的-delete 行为：
+表明命令结束。这里是一个使用 -exec 行为的例子，其作用如之前讨论的 -delete 行为：
 
     -exec rm '{}' ';'
 
 重述一遍，因为花括号和分号对于 shell 有特殊含义，所以它们必须被引起来或被转义。
 
-也有可能交互式地执行一个用户定义的行为。通过使用-ok 行为来代替-exec，在执行每个指定的命令之前，
+也有可能交互式地执行一个用户定义的行为。通过使用 -ok 行为来代替 -exec，在执行每个指定的命令之前，
 会提示用户：
 
     find ~ -type f -name 'foo*' -ok ls -l '{}' ';'
     < ls ... /home/me/bin/foo > ? y
     -rwxr-xr-x 1 me    me 224 2007-10-29 18:44 /home/me/bin/foo
     < ls ... /home/me/foo.txt > ? y
-    -rw-r--r-- 1 me    me 0 2008-09-19 12:53 /home/me/foo.txt 
+    -rw-r--r-- 1 me    me 0 2008-09-19 12:53 /home/me/foo.txt
 
 在这个例子里面，我们搜索以字符串“foo”开头的文件名，并且对每个匹配的文件执行 ls -l 命令。
 使用-ok 行为，会在 ls 命令执行之前提示用户。
@@ -540,7 +539,7 @@ expr1 -or expr2，并且表达式 expr1的结果为真，那么就没有必要�
 
 ### 提高效率
 
-当-exec 行为被使用的时候，若每次找到一个匹配的文件，它会启动一个新的指定命令的实例。
+当 -exec 行为被使用的时候，若每次找到一个匹配的文件，它会启动一个新的指定命令的实例。
 我们可能更愿意把所有的搜索结果结合起来，再运行一个命令的实例。例如，而不是像这样执行命令：
 
     ls -l file1
@@ -559,13 +558,13 @@ xargs，另一种方法是，使用 find 命令自己的一个新功能。我们
 
     find ~ -type f -name 'foo*' -exec ls -l '{}' ';'
     -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
-    -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt 
+    -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt
 
 会执行 ls 命令，每次找到一个匹配的文件。把命令改为：
 
     find ~ -type f -name 'foo*' -exec ls -l '{}' +
     -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
-    -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt 
+    -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt
 
 虽然我们得到一样的结果，但是系统只需要执行一次 ls 命令。
 
@@ -576,7 +575,7 @@ xargs，另一种方法是，使用 find 命令自己的一个新功能。我们
 
     find ~ -type f -name 'foo\*' -print | xargs ls -l
     -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
-    -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt 
+    -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt
 
 这里我们看到 find 命令的输出被管道到 xargs 命令，反过来，xargs 会为 ls 命令构建
 参数列表，然后执行 ls 命令。
@@ -594,7 +593,7 @@ xargs，另一种方法是，使用 find 命令自己的一个新功能。我们
 
 <div class="single">
 
-<h3>处理有趣的文件名</h3>
+<h3>处理古怪的文件名</h3>
 
 <p>类似于 Unix 的系统允许在文件名中嵌入空格（甚至换行符）。这就给一些程序，如为其它
 程序构建参数列表的 xargs 程序，造成了问题。一个嵌入的空格会被看作是一个界定符，生成的
@@ -614,7 +613,6 @@ xargs，另一种方法是，使用 find 命令自己的一个新功能。我们
 ### 返回操练场
 
 到实际使用 find 命令的时候了。我们将会创建一个操练场，来实践一些我们所学到的知识。
-
 
 首先，让我们创建一个包含许多子目录和文件的操练场：
 
@@ -638,7 +636,7 @@ xargs，另一种方法是，使用 find 命令自己的一个新功能。我们
 注意不同于 ls 命令，find 命令的输出结果是无序的。其顺序由存储设备的布局决定。为了确定实际上
 我们拥有一百个此文件的实例，我们可以用这种方式来确认：
 
-    [me@linuxbox ~]$ find playground -type f -name 'file-A' | wc -l 
+    [me@linuxbox ~]$ find playground -type f -name 'file-A' | wc -l
 
 下一步，让我们看一下基于文件的修改时间来查找文件。当创建备份文件或者以年代顺序来
 组织文件的时候，这会很有帮助。为此，首先我们将创建一个参考文件，我们将与其比较修改时间：
@@ -668,11 +666,11 @@ xargs，另一种方法是，使用 find 命令自己的一个新功能。我们
     Access: (0644/-rw-r--r--) Uid: ( 1001/ me) Gid: ( 1001/ me)
     Access: 2008-10-08 15:23:33.000000000 -0400
     Modify: 2008-10-08 15:23:33.000000000 -0400
-    Change: 2008-10-08 15:23:33.000000000 -0400 
+    Change: 2008-10-08 15:23:33.000000000 -0400
 
 下一步，让我们使用 find 命令来更新一些操练场中的文件：
 
-    [me@linuxbox ~]$ find playground -type f -name 'file-B' -exec touch '{}' ';' 
+    [me@linuxbox ~]$ find playground -type f -name 'file-B' -exec touch '{}' ';'
 
 这会更新操练场中所有名为 file-B 的文件。接下来我们会使用 find 命令来识别已更新的文件，
 通过把所有文件与参考文件 timestamp 做比较：
@@ -691,7 +689,7 @@ touch 了操练场中名为 file-B 的所有文件，所以现在它们“新于
 ，因为没有一个符合我们“正确权限”的定义。通过对运算符和行为知识的了解，我们可以给这个命令
 添加行为，对实战场中的文件和目录应用新的权限。
 
-    [me@linuxbox ~]$ find playground \( -type f -not -perm 0600 -exec chmod 0600 '{}' ';' \) 
+    [me@linuxbox ~]$ find playground \( -type f -not -perm 0600 -exec chmod 0600 '{}' ';' \)
        -or \( -type d -not -perm 0711 -exec chmod 0700 '{}' ';' \)
 
 在日常的基础上，我们可能发现运行两个命令会比较容易一些，一个操作目录，另一个操作文件，
