@@ -78,7 +78,7 @@ bash 允许把命令组合在一起。可以通过两种方式完成；要么用
     crontab : 1 file(s)
     daemon  : 1 file(s)
     lpadmin : 1 file(s)
-    mail    : 4 file(s) 
+    mail    : 4 file(s)
     mlocate : 1 file(s)
     root    : 1380 file(s)
     shadow  : 2 file(s)

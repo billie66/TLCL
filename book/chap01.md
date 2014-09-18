@@ -345,7 +345,7 @@ AIX. I have chosen to use the popular format. If, however, you prefer to use
 也就是说，整个 Linux 生态系统，不只有 GNU 项目软件。在操作系统商界，好像喜欢使用单个词的名字，
 比如说 DOS, Windows, MacOS, Solaris, Irix, AIX. 所以我选择用流行的命名规则。然而，
 如果你喜欢用“GNU/Linux”，当你读这本书时，可以在脑子里搜索并替换“Linux”。我不介意。
-
+{: .single}
 
 ### Further Reading
 

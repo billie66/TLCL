@@ -59,9 +59,9 @@ hr {
   border: none;
 }
 
-div.single {
+.single {
   border: 2px solid #E7E5DC;
-  padding: 3% 2% 1%;
+  margin: 20px 0;
   background-color: #f8f8f8;
 }
 

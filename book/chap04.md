@@ -375,30 +375,29 @@ convenient way to examine them.
 
 less 命令是一个用来浏览文本文件的程序。纵观 Linux 系统，有许多人类可读的文本文件。less 程序为我们检查文本文件 提供了方便。
 
-<div class="single">
-<h3>What Is "Text"</h3>
-
-<h3> 什么是“文本”</h3>
-
-<p>There are many ways to represent information on a computer. All methods
+>What Is "Text"
+>
+> 什么是“文本”
+>
+> There are many ways to represent information on a computer. All methods
 involve defining a relationship between the information and some numbers that
 will be used to represent it. Computers, after all, only understand numbers and all
-data is converted to numeric representation.</p>
-
-<p>在计算机中，有许多方法可以表达信息。所有的方法都涉及到，在信息与一些数字之间确立一种关系，而这些数字可以
-用来表达信息。毕竟，计算机只能理解数字，这样所有的数据都被转换成数值表示法。</p>
-
-<p> Some of these representation systems are very complex (such as compressed
+data is converted to numeric representation.
+>
+> 在计算机中，有许多方法可以表达信息。所有的方法都涉及到，在信息与一些数字之间确立一种关系，而这些数字可以
+用来表达信息。毕竟，计算机只能理解数字，这样所有的数据都被转换成数值表示法。
+>
+> Some of these representation systems are very complex (such as compressed
 video files), while others are rather simple. One of the earliest and simplest is
 called ASCII text. ASCII (pronounced "As-Key") is short for American Standard
 Code for Information Interchange. This is a simple encoding scheme that was first
-used on Teletype machines to map keyboard characters to numbers. </p>
-
-<p>有些数值表达法非常复杂（例如压缩的视频文件），而其它的就相当简单。最早也是最简单的一种表达法，叫做
+used on Teletype machines to map keyboard characters to numbers.
+>
+> 有些数值表达法非常复杂（例如压缩的视频文件），而其它的就相当简单。最早也是最简单的一种表达法，叫做
 ASCII 文本。ASCII（发音是"As-Key"）是美国信息交换标准码的简称。这是一个简单的编码方法，它首先
-被用在电传打字机上，用来实现键盘字符到数字的映射。</p>
-
-<p>Text is a simple one-to-one mapping of characters to numbers. It is very
+被用在电传打字机上，用来实现键盘字符到数字的映射。
+>
+> Text is a simple one-to-one mapping of characters to numbers. It is very
 compact.  Fifty characters of text translates to fifty bytes of data. It is
 important to understand that text only contains a simple mapping of characters
 to numbers. It is not the same as a word processor document such as one
@@ -409,19 +408,17 @@ characters themselves and a few rudimentary control codes like tabs, carriage
 returns and line feeds.  Throughout a Linux system, many files are stored in
 text format and there are many Linux tools that work with text files. Even
 Windows recognizes the importance of this format. The well-known NOTEPAD.EXE
-program is an editor for plain ASCII text files.  </p>
-
-<p>文本是简单的字符与数字之间的一对一映射。它非常紧凑。五十个字符的文本翻译成五十个字节的数据。文本只是包含
+program is an editor for plain ASCII text files.
+>
+> 文本是简单的字符与数字之间的一对一映射。它非常紧凑。五十个字符的文本翻译成五十个字节的数据。文本只是包含
 简单的字符到数字的映射，理解这点很重要。它和一些文字处理器文档不一样，比如说由微软和
 OpenOffice.org 文档 编辑器创建的文件。这些文件，和简单的 ASCII
 文件形成鲜明对比，它们包含许多非文本元素，来描述它的结构和格式。 普通的 ASCII
 文件，只包含字符本身，和一些基本的控制符，像制表符，回车符及换行符。纵观 Linux
 系统，许多文件 以文本格式存储，也有许多 Linux 工具来处理文本文件。甚至 Windows
 也承认这种文件格式的重要性。著名的 NOTEPAD.EXE 程序就是一个 ASCII
-文本文件编辑器。 </p>
-
-</div>
-<br />
+文本文件编辑器。
+{: .single}
 
 Why would we want to examine text files? Because many of the files that contain system
 settings (called configuration files) are stored in this format, and being able to read them
@@ -598,10 +595,11 @@ readable text. As we go about our tour, try the following:
 3. If you see an interesting file, determine its contents with file
 4. If it looks like it might be text, try viewing it with less
 
-<ol><li>cd 到给定目录</li>
-<li>列出目录内容 ls -l</li>
-<li>如果看到一个有趣的文件，用 file 命令确定文件内容</li>
-<li>如果文件看起来像文本，试着用 less 命令浏览它</li></ol>
+^
+1. cd 到给定目录
+2. 列出目录内容 ls -l
+3. 如果看到一个有趣的文件，用 file 命令确定文件内容
+4. 如果文件看起来像文本，试着用 less 命令浏览它
 
 ---
 
@@ -952,7 +950,8 @@ symlink.) In most Unix-like systems it is possible to have a file referenced by 
 names. While the value of this may not be obvious, it is really a useful feature.
 
 注意看，为何这条信息第一个字符是“l”，并且有两个文件名呢？
-这是一个特殊文件，叫做符号链接（也称为软链接或者 symlink ）。 在大多数”类 Unix“ 系统中，有可能一个文件被多个文件名所指向。虽然这种特性的意义并不明显，但它真地很有用。
+这是一个特殊文件，叫做符号链接（也称为软链接或者 symlink ）。 在大多数”类 Unix“ 系统中，
+有可能一个文件被多个文件名所指向。虽然这种特性的意义并不明显，但它真地很有用。
 
 Picture this scenario: a program requires the use of a shared resource of some kind
 contained in a file named “foo,” but “foo” has frequent version changes. It would be
@@ -1018,5 +1017,5 @@ Further Reading
 
 * 完整的 Linux 文件系统层次体系标准可通过以下链接找到：
 
-  <http://www.pathname.com/fhs/>
+    <http://www.pathname.com/fhs/>
 
