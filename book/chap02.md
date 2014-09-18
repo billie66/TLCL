@@ -11,8 +11,7 @@ program from the GNU Project called bash. The name “bash” is an acronym for
 for sh, the original Unix shell program written by Steve Bourne.
 
 一说到命令行，我们真正指的是 shell。shell 就是一个程序，它接受从键盘输入的命令，
-然后把命令传递给操作系统去执行。几乎所有的 Linux 发行版都提供lop
-;一个名为 bash 的程序，
+然后把命令传递给操作系统去执行。几乎所有的 Linux 发行版都提供一个名为 bash 的程序，
 bash 是 shell 的一种，来自于 GNU 项目。“bash”是“Bourne Again SHell”的首字母缩写，
 所指的是这样一个事实，bash 是 sh 的增强版，sh 是最初 Unix 的 shell 程序，由 Steve Bourne 写成。
 
@@ -34,7 +33,6 @@ whistles it has.
 被简单地称为“terminal”，但是 KDE 用的是 konsole 程序, 而 GNOME 则使用 gnome-terminal。
 还有其他一些终端仿真器可供 Linux 使用，但基本上，它们都是为了完成同样的事情，
 让我们能访问 shell。也许，你会喜欢上这个或那个终端，由于它所附加的一系列花俏功能。
-u8
 
 好，开始吧。启动终端仿真器！一旦它运行起来，我们应该能够看到一行类似下面文字的输出：
 
@@ -226,11 +224,10 @@ Wikipedia article:
 
 *  想了解更多关于 Steve Bourne 的故事，Bourne Shell 之父，读一下这篇文章：
 
-   <http://en.wikipedia.org/wiki/Steve_Bourne>
+    <http://en.wikipedia.org/wiki/Steve_Bourne>
 
 Here is an article about the concept of shells in computing:
 
 *  这是一篇关于在计算机领域里，shells 概念的文章：
 
-   <http://en.wikipedia.org/wiki/Shell_(computing)>
-
+    <http://en.wikipedia.org/wiki/Shell_(computing)>

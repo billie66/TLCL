@@ -99,3 +99,7 @@ th.title {
 .contents {
   margin-top: 10px;
 }
+
+blockquote {
+  margin: 0;
+}

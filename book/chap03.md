@@ -61,8 +61,9 @@ represents the file system tree as in Figure 1. Notice that the tree is
 usually shown upended, that is, with the root at the top and the various
 branches descending below.
 
-<p style="text-align:center"><img src="./images/3.png" alt="file tree" /></p>
-<p class="figure">Figure 1: File system tree as shown by a graphical file manager</p>
+![](images/3.png) \\
+Figure 1: File system tree as shown by a graphical file manager
+{: .figure}
 
 大多数人都可能熟悉图形文件管理器，它描述了文件系统树的结构，正如图1所示。
 注意通常，这是一棵倒置的树，也就是说，树根在最上面，而各个枝干在下面展开。
@@ -297,54 +298,45 @@ the home directory of user “bob.” </td>
 </tbody>
 </table>
 
-
-<div class="single">
-
-<h3>Important Facts About Filenames</h3>
-
-<h3>关于文件名的重要规则</h3>
-
-<ol>
-<li><p>
-Filenames that begin with a period character are hidden. This only means that
+> Important Facts About Filenames
+>
+> 1. Filenames that begin with a period character are hidden. This only means that
 ls will not list them unless you say ls -a. When your account was created,
 several hidden files were placed in your home directory to configure things
 for your account. Later on we will take a closer look at some of these files to
 see how you can customize your environment. In addition, some applications
 place their configuration and settings files in your home directory as hidden
-files.</p></li>
-
-<li><p>Filenames and commands in Linux, like Unix, are case sensitive. The
-filenames “File1” and “file1” refer to different files.</p></li>
-
-<li><p>Linux has no concept of a “file extension” like some other operating systems.
+files.
+>
+> 2. Filenames and commands in Linux, like Unix, are case sensitive. The
+filenames “File1” and “file1” refer to different files.
+>
+> 3. Linux has no concept of a “file extension” like some other operating systems.
 You may name files any way you like. The contents and/or purpose of a file is
 determined by other means. Although Unix-like operating system don’t use
 file extensions to determine the contents/purpose of files, some application
-programs do.</p></li>
-
-<li><p>Though Linux supports long filenames which may contain embedded spaces
+programs do.
+>
+> 4. Though Linux supports long filenames which may contain embedded spaces
 and punctuation characters, limit the punctuation characters in the names of
 files you create to period, dash, and underscore. Most importantly, do not
 embed spaces in filenames. If you want to represent spaces between words in
 a filename, use underscore characters. You will thank yourself
-later.</p></li>
-</ol>
-
-<ol><li><p>以 "." 字符开头的文件名是隐藏文件。这仅表示，ls 命令不能列出它们，
+later.
+>
+>关于文件名的重要规则
+>
+>1. 以 "." 字符开头的文件名是隐藏文件。这仅表示，ls 命令不能列出它们，
 除非使用 ls -a 命令。当你创建帐号后，几个配置帐号的隐藏文件被放置在
 你的主目录下。稍后，我们会仔细研究一些隐藏文件，来定制你的系统环境。
-另外，一些应用程序也会把它们的配置文件以隐藏文件的形式放在你的主目录下面。</p></li>
-
-<li><p>文件名和命令名是大小写敏感的。文件名 “File1” 和 “file1” 是指两个不同的文件名。</p></li>
-
-<li><p>Linux 没有“文件扩展名”的概念，不像其它一些系统。可以用你喜欢的任何名字
+另外，一些应用程序也会把它们的配置文件以隐藏文件的形式放在你的主目录下面。
+>
+>2. 文件名和命令名是大小写敏感的。文件名 “File1” 和 “file1” 是指两个不同的文件名。
+>
+>3. Linux 没有“文件扩展名”的概念，不像其它一些系统。可以用你喜欢的任何名字
 来给文件起名。文件内容或用途由其它方法来决定。虽然类似 Unix 的操作系统，
-不用文件扩展名来决定文件的内容或用途，但是应用程序会。</p></li>
-
-<li><p>虽然 Linux 支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限
+不用文件扩展名来决定文件的内容或用途，但是应用程序会。
+>
+>4. 虽然 Linux 支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限
 使用 “.”，“－”，下划线。最重要的是，不要在文件名中使用空格。如果你想表示词与
-词间的空格，用下划线字符来代替。过些时候，你会感激自己这样做。</p></li></ol>
-
-</div>
-
+词间的空格，用下划线字符来代替。过些时候，你会感激自己这样做。

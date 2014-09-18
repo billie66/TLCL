@@ -45,8 +45,6 @@ bash 是 shell 的一种，来自于 GNU 项目。“bash”是“Bourne Again S
 这就叫做命令历史。许多 Linux 发行版默认保存最后输入的500个命令。
 按下下箭头按键，先前输入的命令就消失了。
 
-
-
 ### 移动光标
 
 可借助上箭头按键，来获得上次输入的命令。现在试着使用左右箭头按键。
@@ -117,7 +115,6 @@ bash 是 shell 的一种，来自于 GNU 项目。“bash”是“Bourne Again S
 
     [me@linuxbox ~]$ exit
 
-
 ### 幕后控制台
 
 即使，终端仿真器没有运行，几个终端会话仍然在后台运行着。它们叫做虚拟终端
@@ -130,9 +127,9 @@ bash 是 shell 的一种，来自于 GNU 项目。“bash”是“Bourne Again S
 
 *  想了解更多关于 Steve Bourne 的故事，Bourne Shell 之父，读一下这篇文章：
 
-   <http://en.wikipedia.org/wiki/Steve_Bourne>
+    <http://en.wikipedia.org/wiki/Steve_Bourne>
 
 *  这是一篇关于在计算机领域里，shells 概念的文章：
 
-   <http://en.wikipedia.org/wiki/Shell_(computing)>
+    <http://en.wikipedia.org/wiki/Shell_(computing)>
 
