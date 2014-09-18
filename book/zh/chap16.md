@@ -1,6 +1,6 @@
 ---
 layout: book-zh
-title: 存储媒介 
+title: 存储媒介
 ---
 
 在前面章节中，我们已经从文件级别看了操作数据。在这章里，我们将从设备级别来考虑数据。
@@ -21,7 +21,7 @@ Linux 有着令人惊奇的能力来处理存储设备，不管是物理设备�
 
 * fsck – 检查和修复一个文件系统
 
-* fdisk – 分区表控制器 
+* fdisk – 分区表控制器
 
 * mkfs – 创建文件系统
 
@@ -57,8 +57,8 @@ Linux 桌面系统的最新进展已经使存储设备管理对于桌面用户�
     devpts                  /dev/pts        devpts      gid=5,mode=620  0   0
     sysfs                   /sys            sysfs       defaults        0   0
     proc                    /proc           proc        defaults        0   0
-    LABEL=SWAP-sda3         /swap           swap        defaults        0   0        
-    
+    LABEL=SWAP-sda3         /swap           swap        defaults        0   0
+
 
 在这个实例中所列出的大多数文件系统是虚拟的，并不适用于我们的讨论。就我们的目的而言，
 前三个是我们感兴趣的：
@@ -66,7 +66,7 @@ Linux 桌面系统的最新进展已经使存储设备管理对于桌面用户�
     LABEL=/12               /               ext3        defaults        1   1
     LABEL=/home             /home           ext3        defaults        1   2
     LABEL=/boot             /boot           ext3        defaults        1   2
-    
+
 
 这些是硬盘分区。每行由六个字段组成，如下所示：
 
@@ -171,7 +171,7 @@ Linux 桌面系统的最新进展已经使存储设备管理对于桌面用户�
     sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw)
     /dev/hdc on /media/live-1.0.10-8 type iso9660 (ro,noexec,nosuid,
     nodev,uid=500)
-    
+
 
 当我们插入光盘后，除了额外的一行之外，我们看到和原来一样的列表。在列表的末尾，我们
 看到 CD-ROW 已经挂载到了/media/live-1.0.10-8上，它的文件类型是 iso9660（CD-ROW）。
@@ -196,12 +196,12 @@ umount（注意这个命令的拼写）来卸载光盘：
 这个目录中原来的内容，直到你卸载这个设备。就我们的目的而言，我们将创建一个新目录：
 
     [root@linuxbox ~]# mkdir /mnt/cdrom
-    
+
 
 最后，我们把这个 CD-ROW 挂载到一个新的挂载点上。这个-t 选项用来指定文件系统类型：
 
     [root@linuxbox ~]# mount -t iso9660 /dev/hdc /mnt/cdrom
-    
+
 
 之后，我们可以通过这个新挂载点来查看 CD-ROW 的内容：
 
@@ -266,7 +266,7 @@ Linux 已经发展地比其祖先更加灵活。在以上事例中，我们利�
 会看到许许多多的设备：
 
     [me@linuxbox ~]$ ls /dev
-    
+
 
 这个列表的内容揭示了一些设备命名的模式。这里有几个：
 
@@ -312,7 +312,7 @@ SCSI 磁盘。在最近的 Linux 系统中，内核把所有类似于磁盘的�
 （你可能需要超级用户权限）：
 
     [me@linuxbox ~]$ sudo tail -f /var/log/messages
-    
+
 
 这个文件的最后几行会被显示，然后停止。下一步，插入这个可移动的设备。在
 这个例子里，我们将使用一个16MB 闪存。瞬间，内核就会发现这个设备，
@@ -326,7 +326,7 @@ SCSI 磁盘。在最近的 Linux 系统中，内核把所有类似于磁盘的�
     Storage devices
     Jul 23 10:07:58 linuxbox kernel: scsi scan: INQUIRY result too short
     (5), using 36
-    Jul 23 10:07:58 linuxbox kernel: scsi 3:0:0:0: Direct-Access Easy 
+    Jul 23 10:07:58 linuxbox kernel: scsi 3:0:0:0: Direct-Access Easy
     Disk 1.00 PQ: 0 ANSI: 2
     Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] 31263 512-byte
     hardware sectors (16 MB)
@@ -345,7 +345,7 @@ SCSI 磁盘。在最近的 Linux 系统中，内核把所有类似于磁盘的�
     removable disk
     Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: Attached scsi generic
     sg3 type 0
-    
+
 
 显示再次停止之后，输入 Ctrl-c，重新得到提示符。输出结果的有趣部分是一再提及“[sdb]”，
 这正好符和我们期望的 SCSI 磁盘设备名称。知道这一点后，有两行输出变得颇具启发性：
@@ -371,7 +371,7 @@ SCSI 磁盘。在最近的 Linux 系统中，内核把所有类似于磁盘的�
     /dev/sda1       147764      17277       122858      13%     /boot
     tmpfs           776808      0           776808      0%      /dev/shm
     /dev/sdb1       15560       0           15560       0%      /mnt/flash
-    
+
 
 这个设备名称会保持不变只要设备与计算机保持连接并且计算机不会重新启动。
 
@@ -408,11 +408,11 @@ SCSI 磁盘。在最近的 Linux 系统中，内核把所有类似于磁盘的�
 我们想要做的第一件事情是检查已存在的分区布局。输入"p"会打印出这个设备的分区表：
 
     Command (m for help): p
-    
+
     Disk /dev/sdb: 16 MB, 16006656 bytes
     1 heads, 31 sectors/track, 1008 cylinders
     Units = cylinders of 31 * 512 = 15872 bytes
-    
+
     Device Boot     Start        End     Blocks   Id        System
     /dev/sdb1           2       1008      15608+   b       w95 FAT32
 
@@ -431,7 +431,7 @@ SCSI 磁盘。在最近的 Linux 系统中，内核把所有类似于磁盘的�
 回到之前的菜单，看到这个选项来更改分区 ID 号：
 
     t   change a partition's system id
-    
+
 
 我们先输入“t”，再输入新的 ID 号：
 
@@ -439,7 +439,7 @@ SCSI 磁盘。在最近的 Linux 系统中，内核把所有类似于磁盘的�
     Selected partition 1
     Hex code (type L to list codes): 83
     Changed system type of partition 1 to 83 (Linux)
-    
+
 
 这就完成了我们需要做得所有修改。到目前为止，还没有接触这个设备（所有修改都存储在内存中，
 而不是在此物理设备中），所以我们将会把修改过的分区表写入此设备，再退出。为此，我们输入
@@ -513,7 +513,7 @@ check"的简写）完成。每个 fstab 项中的最后一个数字指定了设�
     fsck 1.40.8 (13-Mar-2008)
     e2fsck 1.40.8 (13-Mar-2008)
     /dev/sdb1: clean, 11/3904 files, 1661/15608 blocks
-    
+
 
 以我的经验，文件系统损坏情况相当罕见，除非硬件存在问题，如磁盘驱动器故障。
 在大多数系统中，系统启动阶段若探测到文件系统已经损坏了，则会导致系统停止下来，
@@ -538,7 +538,7 @@ check"的简写）完成。每个 fstab 项中的最后一个数字指定了设�
     Double-sided, 80 tracks, 18 sec/track. Total capacity 1440 kB.
     Formatting ... done
     Verifying ... done
-    
+
 
 接下来，通过 mkfs 命令，给这个软盘创建一个 FAT 文件系统：
 
@@ -603,7 +603,7 @@ CD，用它来制作一个 iso 文件，以后我们可以用它来制作更多�
 填充此目录，再通过下面的命令来创建一个叫做 cd-rom.iso 映像文件：
 
     genisoimage -o cd-rom.iso -R -J ~/cd-rom-files
-    
+
 
 "-R"选项添加元数据为 Rock Ridge 扩展，这允许使用长文件名和 POSIX 风格的文件权限。
 同样地，这个"-J"选项使 Joliet 扩展生效，这样 Windows 中就支持长文件名了。
@@ -631,7 +631,7 @@ CD，用它来制作一个 iso 文件，以后我们可以用它来制作更多�
 
     mkdir /mnt/iso_image
     mount -t iso9660 -o loop image.iso /mnt/iso_image
-    
+
 
 上面的示例中，我们创建了一个挂载点叫做/mnt/iso_image，然后把此映像文件
 image.iso 挂载到挂载点上。映像文件被挂载之后，可以把它当作，就好像它是一张
@@ -649,7 +649,7 @@ image.iso 挂载到挂载点上。映像文件被挂载之后，可以把它当�
 写入一个映像文件，我们再次使用 wodim 命令，指定光盘设备名称和映像文件名：
 
     wodim dev=/dev/cdrw image.iso
-    
+
 
 除了设备名称和映像文件之外，wodim 命令还支持非常多的选项。常见的两个选项是，"-v" 可详细输出，
 和 "－dao" 以 disk-at-once 模式写入光盘。如果你正在准备一张光盘为的是商业复制，那么应该使用这种模式。
@@ -671,11 +671,11 @@ wodim 命令的默认模式是 track-at-once，这对于录制音乐很有用。
 
     md5sum image.iso
     34e354760f9bb7fbf85c96f6a3f94ece    image.iso
-    
+
 
 当你下载完映像文件之后，你应该对映像文件执行 md5sum 命令，然后把运行结果与发行商提供的 md5sum 数值作比较。
 
-除了检查下载文件的完整性之外，我们也可以使用 md5sum 程序验证新写入的光学存储介质。 
+除了检查下载文件的完整性之外，我们也可以使用 md5sum 程序验证新写入的光学存储介质。
 为此，首先我们计算映像文件的 checksum 数值，然后计算此光学存储介质的 checksum 数值。
 这种验证光学介质的技巧是限定只对 光学存储介质中包含映像文件的部分计算 checksum 数值。
 通过确定映像文件所包含的 2048 个字节块的数目（光学存储介质总是以 2048 个字节块的方式写入）
@@ -689,5 +689,5 @@ wodim 命令的默认模式是 track-at-once，这对于录制音乐很有用。
 以及 DVD 光驱中磁盘 /dev/dvd 文件的完整性。你能弄明白这是怎么回事吗？
 
     md5sum dvd-image.iso; dd if=/dev/dvd bs=2048 count=$(( $(stat -c "%s" dvd-image.iso) / 2048 )) | md5sum
-    
+
 

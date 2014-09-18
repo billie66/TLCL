@@ -208,33 +208,33 @@ contains:
 这本书共分为五部分，每一部分讲述了不同方面的命令行知识。除了第一部分，
 也就是你正在阅读的这一部分，这本书还包括：
 
-Part 2 – Learning The Shell starts our exploration of the basic language of
+* Part 2 – Learning The Shell starts our exploration of the basic language of
 the command line including such things as the structure of commands, file
 system navigation, command line editing, and finding help and documentation
 for commands.
 
-* 第二部分 — 学习 shell 开始探究命令行基本语言，包括命令组成结构，
-  文件系统浏览，编写命令行，查找命令帮助文档。
-
-Part 3 – Configuration And The Environment covers editing configuration files
+* Part 3 – Configuration And The Environment covers editing configuration files
 that control the computer's operation from the command line.
 
-<ul><li><p>第三部分 — 配置文件及环境 讲述了如何编写配置文件，通过配置文件，用命令行来
-  操控计算机。</p></li></ul>
-
-Part 4 – Common Tasks And Essential Tools explores many of the ordinary tasks
+* Part 4 – Common Tasks And Essential Tools explores many of the ordinary tasks
 that are commonly performed from the command line. Unix-like operating
 systems, such as Linux, contain many “classic” command line programs that are
 used to perform powerful operations on data.
 
-<ul><li><p> 第四部分 — 常见任务及主要工具  探究了许多命令行经常执行的普通任务。类似于
-  Unix 的操作系统，例如 Linux, 包括许多经典的命令行程序，这些程序可以用来对数据进行
-  强大的操作。</p></li></ul>
-
-Part 5 – Writing Shell Scripts introduces shell programming, an admittedly
+* Part 5 – Writing Shell Scripts introduces shell programming, an admittedly
 rudimentary, but easy to learn, technique for automating many common
 computing tasks. By learning shell programming, you will become familiar with
 concepts that can be applied to many other programming languages.
+
+* 第二部分 — 学习 shell 开始探究命令行基本语言，包括命令组成结构，
+  文件系统浏览，编写命令行，查找命令帮助文档。
+
+* 第三部分 — 配置文件及环境 讲述了如何编写配置文件，通过配置文件，用命令行来
+  操控计算机。
+
+* 第四部分 — 常见任务及主要工具  探究了许多命令行经常执行的普通任务。类似于
+  Unix 的操作系统，例如 Linux, 包括许多经典的命令行程序，这些程序可以用来对数据进行
+  强大的操作。
 
 * 第五部分 — 编写 Shell 脚本  介绍了 shell 编程，一个无可否认的基本技能，能够自动化许多
   常见的计算任务，很容易学。通过学习 shell 编程，你会逐渐熟悉一些关于编程语言方面的概念，
@@ -258,26 +258,24 @@ one of two ways:
 
 为了使用这本书，你需要安装 Linux 操作系统。你可以通过两种方式，来完成安装。
 
-<ol>
-<li><p>Install Linux on a (not so new) computer. It doesn't matter which
+1. Install Linux on a (not so new) computer. It doesn't matter which
 distribution you choose, though most people today start out with either
 Ubuntu, Fedora, or . If in doubt, try Ubuntu first. Installing a modern
 Linux distribution can be ridiculously easy or ridiculously difficult
 depending on your hardware. I suggest a desktop computer that is a couple
 of years old and has at least 256 megabytes of RAM and 6 gigabytes of free
 hard disk space. Avoid laptops and wireless networks if at all possible, as
-these are often more difficult to get working.</p></li>
+these are often more difficult to get working.
 
-<li><p>Use a “Live CD.” One of the cool things you can do with many Linux
+2. Use a “Live CD.” One of the cool things you can do with many Linux
 distributions is run them directly from a CDROM without installing them at
 all.  Just go into your BIOS setup and set your computer to “Boot from
 CDROM,” insert the live CD, and reboot. Using a live CD is a great way to
 test a computer for Linux compatibility prior to installation. The
 disadvantage of using a live CD is that it may be very slow compared to
 having Linux installed on your hard drive.  Both Ubuntu and Fedora (among
-others) have live CD versions.</p></li>
-</ol>
-
+others) have live CD versions.
+^
 1. 在一台（不用很新）的电脑上安装 Linux。你选择哪个 Linux 发行版安装，是无关紧要的事。
    虽然大多数人一开始选择安装 Ubuntu, Fedora, 或者 OpenSUSE。如果你拿不定主意，那就先试试 Ubuntu。
    由于主机硬件配置不同，安装 Linux 时，你可能不费吹灰之力就装上了，也可能费了九牛二虎之力还装不上。
@@ -286,6 +284,7 @@ others) have live CD versions.</p></li>
 
 2. 使用“Live CD.” 许多 Linux 发行版都自带一个比较酷的功能，你可以直接从系统安装盘 CDROM 中运行 Linux，
    而不必安装 Linux。开机进入 BIOS 设置界面，更改引导项，设置为“从 CDROM 启动”。
+
 
 Regardless of how you install Linux, you will need to have occasional
 superuser (i.e., administrative) privileges to carry out the lessons in this
@@ -300,26 +299,18 @@ down and get typing!
 当你在自己的电脑上安装了 Linux 系统之后，就开始一边阅读本书，一边练习吧。本书大部分内容
 都可以自己动手练习，坐下来，敲入命令，体验一下吧。
 
-<div class="single">
 
-<h3>Why I Don't Call It “GNU/Linux”</h3>
-
-<h3>为什么我不叫它“GNU/Linux”</h3>
-
-<p>In some quarters, it's politically correct to call the Linux operating system
+> Why I Don't Call It “GNU/Linux”
+>
+> In some quarters, it's politically correct to call the Linux operating system
 the “GNU/Linux operating system.” The problem with “Linux” is that there is no
 completely correct way to name it because it was written by many different
 people in a vast, distributed development effort. Technically speaking, Linux
 is the name of the operating system's kernel, nothing more.  The kernel is
 very important of course, since it makes the operating system go, but it's not
-enough to form a complete operating system.</p>
-
-<p>在某些领域，把 Linux 操作系统称为“GNU/Linux 操作系统”， 则政治立场正确。但“Linux”的问题是，
-没有一个完全正确的方式能命名它，因为它是由许许多多，分布在世界各地的贡献者们，合作开发而成的。
-从技术层面讲，Linux 只是操作系统的内核名字，没别的含义。当然内核非常重要，因为有它，
-操作系统才能运行起来，但它并不能构成一个完备的操作系统。</p>
-
-<p>Enter Richard Stallman, the genius-philosopher who founded the Free Software
+enough to form a complete operating system.
+>
+> Enter Richard Stallman, the genius-philosopher who founded the Free Software
 movement, started the Free Software Foundation, formed the GNU Project, wrote
 the first version of the GNU C Compiler (gcc), created the GNU General Public
 License (the GPL), etc., etc., etc. He insists that you call it “GNU/Linux” to
@@ -327,28 +318,34 @@ properly reflect the contributions of the GNU Project. While the GNU Project
 predates the Linux kernel, and the project's contributions are extremely deserving
 of recognition, placing them in the name is unfair to everyone else who made
 significant contributions. Besides, I think “Linux/GNU” would be more
-technically accurate since the kernel boots first and everything else runs on top of it.</p>
-
-<p>Richard Stallman 是一个天才的哲学家，自由软件运动创始人，自由软件基金会创办者，他创建了 GNU 工程，
-编写了第一版 GNU C 编译器（gcc），创立了 GNU 通用公共协议（the GPL)等等。
-他坚持把 Linux 称为“GNU/Linux”，为的是准确地反映 GNU 工程对 Linux 操作系统的贡献。
-然而，尽管 GNU 项目早于 Linux 内核，项目的贡献应该得到极高的赞誉，但是把 GNU 用在 Linux 名字里，
-这对其他为 Linux 的发展做出重大贡献的程序员来说，就不公平了。而且，我觉得要是叫也要叫 “Linux/GNU" 比较准确一些，因为系统系统时候会先启动内核，后启动其他的</p>
-
-<p>In popular usage, “Linux” refers to the kernel and all the other free and open
+technically accurate since the kernel boots first and everything else runs on top of it.
+>
+> In popular usage, “Linux” refers to the kernel and all the other free and open
 source software found in the typical Linux distribution; that is, the entire Linux
 ecosystem, not just the GNU components. The operating system marketplace
 seems to prefer one-word names such as DOS, Windows, MacOS, Solaris, Irix,
 AIX. I have chosen to use the popular format. If, however, you prefer to use
-“GNU/Linux” instead, please perform a mental search and replace while reading this book. I won't mind.</p>
-
-<p>在目前流行的用法中，“Linux”指的是内核以及在一个典型的 Linux 发行版中所包含的所有免费及开源软件；
+“GNU/Linux” instead, please perform a mental search and replace while reading this book. I won't mind.
+>
+> 为什么我不叫它“GNU/Linux”
+>
+> 在某些领域，把 Linux 操作系统称为“GNU/Linux 操作系统”， 则政治立场正确。但“Linux”的问题是，
+没有一个完全正确的方式能命名它，因为它是由许许多多，分布在世界各地的贡献者们，合作开发而成的。
+从技术层面讲，Linux 只是操作系统的内核名字，没别的含义。当然内核非常重要，因为有它，
+操作系统才能运行起来，但它并不能构成一个完备的操作系统。
+>
+> Richard Stallman 是一个天才的哲学家，自由软件运动创始人，自由软件基金会创办者，他创建了 GNU 工程，
+编写了第一版 GNU C 编译器（gcc），创立了 GNU 通用公共协议（the GPL)等等。
+他坚持把 Linux 称为“GNU/Linux”，为的是准确地反映 GNU 工程对 Linux 操作系统的贡献。
+然而，尽管 GNU 项目早于 Linux 内核，项目的贡献应该得到极高的赞誉，但是把 GNU 用在 Linux 名字里，
+这对其他为 Linux 的发展做出重大贡献的程序员来说，就不公平了。而且，我觉得要是叫也要叫 “Linux/GNU" 比较准确一些，
+因为内核会先启动，其他一切都运行在内核之上。
+>
+>在目前流行的用法中，“Linux”指的是内核以及在一个典型的 Linux 发行版中所包含的所有免费及开源软件；
 也就是说，整个 Linux 生态系统，不只有 GNU 项目软件。在操作系统商界，好像喜欢使用单个词的名字，
 比如说 DOS, Windows, MacOS, Solaris, Irix, AIX. 所以我选择用流行的命名规则。然而，
-如果你喜欢用“GNU/Linux”，当你读这本书时，可以在脑子里搜索并替换“Linux”。我不介意。</p>
+如果你喜欢用“GNU/Linux”，当你读这本书时，可以在脑子里搜索并替换“Linux”。我不介意。
 
-</div>
-<br />
 
 ### Further Reading
 
