@@ -1,6 +1,6 @@
 ---
 layout: book-zh
-title: shell&nbsp;环&nbsp;境
+title: shell 环境
 ---
 
 正如我们之前所讨论到的，shell 在 shell 会话中维护着大量的信息，这些信息称为 (shell) 环境。
@@ -10,12 +10,13 @@ title: shell&nbsp;环&nbsp;境
 
 在这一章，我们将用到以下命令：
 
-* printenv – Print part or all of the environment 打印部分或所有的环境变量
+* printenv – 打印部分或所有的环境变量
 
-* set – Set shell options 设置 shell 选项
+* set – 设置 shell 选项
 
 * export — 导出环境变量，让随后执行的程序知道。
-* alias – Create an alias for a command 创建命令别名
+
+* alias – 创建命令别名
 
 ### 什么存储在环境变量中？
 
@@ -31,7 +32,6 @@ shell 在环境中存储了两种基本类型的数据，虽然对于 bash 来�
 把每个命令的输出结果管道到 less 命令：
 
     [me@linuxbox ~]$ printenv | less
-    
 
 执行以上命令之后，我们应该能得到类似以下内容：
 
@@ -40,7 +40,6 @@ shell 在环境中存储了两种基本类型的数据，虽然对于 bash 来�
 
     [me@linuxbox ~]$ printenv USER
     me
-    
 
 当使用没有带选项和参数的 set 命令时，shell 和环境变量二者都会显示，同时也会显示定义的
 shell 函数。不同于 printenv 命令，set 命令的输出结果很礼貌地按照字母顺序排列：
@@ -51,7 +50,6 @@ shell 函数。不同于 printenv 命令，set 命令的输出结果很礼貌地
 
     [me@linuxbox ~]$ echo $HOME
     /home/me
-    
 
 如果 shell 环境中的一个成员既不可用 set 命令也不可用 printenv 命令显示，则这个变量是别名。
 输入不带参数的 alias 命令来查看它们:
@@ -83,9 +81,9 @@ shell 环境中包含相当多的变量，虽然你的 shell 环境可能不同�
     USER=me
     LS_COLORS=no=00:fi=00:di=00;34:ln=00;36:pi=40;33:so=00;35:bd=40;33;01
     :cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=00;32:\*.cmd=00;32:\*.exe:
-    
 
-我们所看到的是环境变量及其数值的列表。例如，我们看到一个叫做 USER 的变量，这个变量值是 
+
+我们所看到的是环境变量及其数值的列表。例如，我们看到一个叫做 USER 的变量，这个变量值是
 "me"。printenv 命令也能够列出特定变量的数值：
 
     [me@linuxbox ~]$ printenv USER
@@ -100,7 +98,7 @@ shell 函数。不同于 printenv 命令，set 命令的输出结果很礼貌地
 
     [me@linuxbox ~]$ echo $HOME
     /home/me
-    
+
 
 如果 shell 环境中的一个成员既不可用 set 命令也不可用 printenv 命令显示，则这个变量是别名。
 输入不带参数的 alias 命令来查看它们:
@@ -111,7 +109,7 @@ shell 函数。不同于 printenv 命令，set 命令的输出结果很礼貌地
     alias ls='ls --color=tty'
     alias vi='vim'
     alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
-    
+
 
 ### 一些有趣的变量
 
@@ -151,7 +149,7 @@ shell 环境中包含相当多的变量，虽然你的 shell 环境可能不同�
 </tr>
 <tr>
 <td valign="top">PAGER</td>
-<td valign="top">页输出程序的名字。这经常设置为/usr/bin/less。 
+<td valign="top">页输出程序的名字。这经常设置为/usr/bin/less。
 </td>
 </tr>
 <tr>
@@ -270,7 +268,7 @@ valign="top">如果文件 ~/.bash_profile 或文件 ~/.bash_login 都没有找�
 
     PATH=$PATH:$HOME/bin
     export PATH
-    
+
 
 以"#"开头的行是注释，shell 不会读取它们。它们在那里是为了方便人们阅读。第一件有趣的事情
 发生在第四行，伴随着以下代码：
@@ -282,8 +280,7 @@ valign="top">如果文件 ~/.bash_profile 或文件 ~/.bash_login 都没有找�
 这叫做一个 if 复合命令，我们将会在第五部分详细地介绍它，现在我们对它翻译一下：
 
     If the file ~/.bashrc exists, then
-          read the ~/.bashrc file. 
-    
+          read the ~/.bashrc file.
 
 我们可以看到这一小段代码就是一个登录 shell 得到 .bashrc 文件内容的方式。在我们启动文件中，
 下一件有趣的事与 PATH 变量有关系。
@@ -295,7 +292,6 @@ shell 不会查找整个计算机系统，来找到 /bin/ls（ls 命令的绝对
 PATH 变量经常（但不总是，依赖于发行版）在 /etc/profile 启动文件中设置，通过这些代码：
 
     PATH=$PATH:$HOME/bin
-    
 
 修改 PATH 变量，添加目录 $HOME/bin 到目录列表的末尾。这是一个参数展开的实例，
 参数展开我们在第八章中提到过。为了说明这是怎样工作的，试试下面的例子：
@@ -318,7 +314,6 @@ PATH 变量经常（但不总是，依赖于发行版）在 /etc/profile 启动�
 最后，有下面一行代码：
 
     export PATH
-    
 
 这个 export 命令告诉 shell 让这个 shell 的子进程可以使用 PATH 变量的内容。
 
@@ -337,11 +332,11 @@ PATH 变量经常（但不总是，依赖于发行版）在 /etc/profile 启动�
 
 ### 文本编辑器
 
-<p>为了编辑（例如，修改）shell 的启动文件，还有系统中大多数其它配置文件，我们使用一个叫做文本
+为了编辑（例如，修改）shell 的启动文件，还有系统中大多数其它配置文件，我们使用一个叫做文本
 编辑器的程序。文件编辑器是一个，在某些方面，类似于文字处理器的程序，比如说随着鼠标的移动，
 它允许你在屏幕上编辑文字。只有一点，文本编辑器不同于文字处理器，就是它只能支持纯文本，并且
 经常包含为便于写程序而设计的特性。文本编辑器是软件开发人员用来写代码，和系统管理原员用来管理
-系统配置文件的重要工具。</p>
+系统配置文件的重要工具。
 
 Linux 系统有许多不同类型的文本编辑器可用；你的系统中可能已经安装了几个。为什么会有这么
 多种呢？可能因为程序员喜欢编写它们，又因为程序员们会频繁地使用它们，所以程序员编写编辑器让
@@ -372,7 +367,7 @@ vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stal
 总是一个不错的主意。这样能避免我们在编辑文件时弄乱文件。创建文件 .bashrc 的备份文件，这样做：
 
     [me@linuxbox ~]$ cp .bashrc .bashrc.bak
-    
+
 
 备份文件的名字无关紧要，只要选择一个容易理解的文件名。扩展名 ".bak"，".sav"，
 ".old"，和 ".orig" 都是用来指示备份文件的流行方法。哦，记住 cp 命令会默默地重写存在的文件。
@@ -402,7 +397,7 @@ vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stal
     export HISTSIZE=1000
     alias l.='ls -d .* --color=auto'
     alias ll='ls -l --color=auto'
-    
+
 
 注意：你的发行版可能已经包含其中的一些行，但是复制没有任何伤害。
 
@@ -417,12 +412,12 @@ vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stal
 <td valign="top" width="25%">umask 0002 </td>
 <td valign="top">设置掩码来解决共享目录的问题。</td>
 </tr>
-<tr> 
-<td valign="top">export HISTCONTROL=ignoredups </td> 
+<tr>
+<td valign="top">export HISTCONTROL=ignoredups </td>
 <td valign="top">使得 shell 的历史记录功能忽略一个命令，如果相同的命令已被记录。</td>
 </tr>
 <tr>
-<td valign="top" width="25%">export HISTSIZE=1000 
+<td valign="top" width="25%">export HISTSIZE=1000
 </td>
 <td valign="top">增加命令历史的大小，从默认的 500 行扩大到 1000 行。</td>
 </tr>
@@ -432,13 +427,12 @@ vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stal
 valign="top">创建一个新命令，叫做'l.'，这个命令会显示所有以点开头的目录名。</td>
 </tr>
 <tr>
-<td valign="top" width="25%">alias ll='ls -l --color=auto' 
+<td valign="top" width="25%">alias ll='ls -l --color=auto'
 </td>
 <td valign="top">创建一个叫做'll'的命令，这个命令会显示长格式目录列表。</td>
 </tr>
 </table>
 
-<br />
 
 正如我们所看到的，我们的许多附加物意思直觉上并不是明显的，所以添加注释到我们的文件 .bashrc 中是
 一个好主意，可以帮助人们理解。使用编辑器，更改我们的附加物，让它们看起来像这样：
@@ -452,35 +446,35 @@ valign="top">创建一个新命令，叫做'l.'，这个命令会显示所有以
      # Add some helpful aliases
     alias l.='ls -d .* --color=auto'
     alias ll='ls -l --color=auto'
-    
+
 
 啊，看起来好多了! 当我们完成修改后，输入 Ctrl-o 来保存我们修改的 .bashrc 文件，输入 Ctrl-x 退出 nano。
 
-<div class="single">
-
-<h3>为什么注释很重要？</h3>
-
-<p>不管什么时候你修改配置文件时，给你所做的更改加上注释都是一个好主意。的确，明天你会
+> 为什么注释很重要？
+>
+> 不管什么时候你修改配置文件时，给你所做的更改加上注释都是一个好主意。的确，明天你会
 记得你修改了的内容，但是六个月之后会怎样呢？帮自己一个忙，加上一些注释吧。当你意识
-到这一点后，对你所做的修改做个日志是个不错的主意。</p>
-
-<p>Shell 脚本和 bash 启动文件都使用 "#" 符号来开始注释。其它配置文件可能使用其它的符号。
-大多数配置文件都有注释。把它们作为指南。</p>
-
-<p>你会经常看到配置文件中的一些行被注释掉，以此防止它们被受影响的程序使用。这样做
-是为了给读者在可能的配置选项方面一些建议，或者给出正确的配置语法实例。例如，Ubuntu 8.04 
-中的 .bashrc 文件包含这些行：</p>
-
-    <p># some more ls aliases</p>
-    <p>#alias ll='ls -l'</p>
-    <p>#alias la='ls -A'</p>
-    <p>#alias l='ls -CF'</p>
-
-<p>最后三行是有效的被注释掉的别名定义。如果你删除这三行开头的 "#" 符号，此技术程称为
+到这一点后，对你所做的修改做个日志是个不错的主意。
+>
+> Shell 脚本和 bash 启动文件都使用 "#" 符号来开始注释。其它配置文件可能使用其它的符号。
+大多数配置文件都有注释。把它们作为指南。
+>
+> 你会经常看到配置文件中的一些行被注释掉，以此防止它们被受影响的程序使用。这样做
+是为了给读者在可能的配置选项方面一些建议，或者给出正确的配置语法实例。例如，Ubuntu 8.04
+中的 .bashrc 文件包含这些行：
+>
+> # some more ls aliases
+>
+> #alias ll='ls -l'
+>
+> #alias la='ls -A'
+>
+> #alias l='ls -CF'
+>
+> 最后三行是有效的被注释掉的别名定义。如果你删除这三行开头的 "#" 符号，此技术程称为
 uncommenting (不注释)，这样你就会激活这些别名。相反地，如果你在一行的开头加上 "#" 符号，
-你可以注销掉这一行，但会保留它所包含的信息。</p>
-</div>
-<br />
+你可以注销掉这一行，但会保留它所包含的信息。
+{: .single}
 
 ### 激活我们的修改
 
@@ -489,12 +483,10 @@ uncommenting (不注释)，这样你就会激活这些别名。相反地，如�
  .bashrc 文件，使用下面的命令：
 
     [me@linuxbox ~]$ source .bashrc
-    
 
 运行上面命令之后，我们就应该能够看到所做修改的效果了。试试其中一个新的别名：
 
     [me@linuxbox ~]$ ll
-    
 
 ### 总结
 

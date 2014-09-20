@@ -1,6 +1,6 @@
 ---
 layout: book-zh
-title: 进&nbsp;程
+title: 进程
 ---
 
 通常，现在的操作系统都支持多任务，意味着操作系统（给用户）造成了一种假象，(让用户觉得)
@@ -62,9 +62,9 @@ TTY 是 "Teletype" 的简写，是指进程的控制终端。这里，Unix 展�
     PID TTY   STAT   TIME COMMAND
     2799 ?    Ssl    0:00 /usr/libexec/bonobo-activation-server –ac
     2820 ?    Sl     0:01 /usr/libexec/evolution-data-server-1.10 --
-    
+
     and many more...
-    
+
 
 加上 "x" 选项（注意没有开头的 "-" 字符），告诉 ps 命令，展示所有进程，不管它们由什么
 终端（如果有的话）控制。在 TTY 一栏中出现的 "?" ，表示没有控制终端。使用这个 "x" 选项，可以
@@ -111,7 +111,7 @@ valign="top">一个死进程或“僵尸”进程。这是一个已经终止的�
 （父进程没有把子进程从进程表中删除）</td>
 </tr>
 <tr>
-<td valign="top">&lt;</td>
+<td valign="top"><</td>
 <td
 valign="top">一个高优先级进程。这可能会授予一个进程更多重要的资源，给它更多的 CPU 时间。
 进程的这种属性叫做 niceness。具有高优先级的进程据说是不好的（less nice），
@@ -372,7 +372,7 @@ fg 命令，让一个进程返回前台执行：
 
     [me@linuxbox ~]$ jobs
     [1]+ Running        xlogo &
-    [me@linuxbox ~]$ fg %1 
+    [me@linuxbox ~]$ fg %1
     xlogo
 
 fg 命令之后，跟随着一个百分号和工作序号（叫做 jobspec）。如果我们只有一个后台任务，那么
@@ -394,7 +394,7 @@ jobspec 是可有可无的。输入 Ctrl-c 来终止 xlogo 程序。
     [me@linuxbox ~]$ bg %1
     [1]+ xlogo &
     [me@linuxbox ~]$
-    
+
 
 和 fg 命令一样，如果只有一个任务的话，jobspec 参数是可选的。
 
@@ -413,7 +413,7 @@ kill 命令被用来“杀死”程序。这样我们就可以终止需要杀死
     [1] 28401
     [me@linuxbox ~]$ kill 28401
     [1]+ Terminated               xlogo
-    
+
 
 首先，我们在后台启动 xlogo 程序。shell 打印出 jobspec 和这个后台进程的 PID。下一步，我们使用
 kill 命令，并且指定我们想要终止的进程 PID。也可以用 jobspec（例如，“％1”）来代替 PID。
@@ -495,7 +495,7 @@ valign="top">停止。这个信号导致进程停止运行，而没有终止。�
     [1] 13546
     [me@linuxbox ~]$ kill -1 13546
     [1]+ Hangup         xlogo
-    
+
 
 在这个例子里，我们在后台启动 xlogo 程序，然后通过 kill 命令，发送给它一个 HUP 信号。
 这个 xlogo 程序终止运行，并且 shell 指示这个后台进程已经接受了一个挂起信号。在看到这条
@@ -506,7 +506,7 @@ valign="top">停止。这个信号导致进程停止运行，而没有终止。�
     [1] 13546
     [me@linuxbox ~]$ kill -1 13546
     [1]+ Hangup                    xlogo
-    
+
 
 重复上面的例子，试着使用其它的信号。记住，你也可以用 jobspecs 来代替 PID。
 
@@ -545,7 +545,7 @@ TSTP 信号由目标进程接收，且可能被忽略。</td>
 <tr>
 <td valign="top">28</td>
 <td valign="top">WINCH</td>
-<td valign="top">改变窗口大小。当改变窗口大小时，系统会发送这个信号。 
+<td valign="top">改变窗口大小。当改变窗口大小时，系统会发送这个信号。
 一些程序，像 top 和 less 程序会响应这个信号，按照新窗口的尺寸，刷新显示的内容。
 </td>
 </tr>
@@ -554,14 +554,14 @@ TSTP 信号由目标进程接收，且可能被忽略。</td>
 为了满足读者的好奇心，通过下面的命令可以得到一个完整的信号列表：
 
     [me@linuxbox ~]$ kill -l
-    
+
 
 ### 通过 killall 命令给多个进程发送信号
 
 也有可能通过 killall 命令，给匹配特定程序或用户名的多个进程发送信号。下面是 killall 命令的语法形式：
 
     killall [-u user] [-signal] name...
-    
+
 
 为了说明情况，我们将启动一对 xlogo 程序的实例，然后再终止它们：
 
@@ -572,7 +572,7 @@ TSTP 信号由目标进程接收，且可能被忽略。</td>
     [me@linuxbox ~]$ killall xlogo
     [1]- Terminated                xlogo
     [2]+ Terminated                xlogo
-    
+
 
 记住，和 kill 命令一样，你必须拥有超级用户权限才能给不属于你的进程发送信号。
 

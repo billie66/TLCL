@@ -1,6 +1,6 @@
 ---
 layout: book
-title: shell&nbsp;环&nbsp;境
+title: shell 环境
 ---
 
 As we discussed earlier, the shell maintains a body of information during our shell
@@ -24,9 +24,9 @@ In this chapter, we will work with the following commands:
 * set – Set shell options 设置 shell 选项
 
 * export – Export environment to subsequently executed programs
-  
+
 * export — 导出环境变量，让随后执行的程序知道。
-  
+
 * alias – Create an alias for a command 创建命令别名
 
 What Is Stored In The Environment?
@@ -59,7 +59,7 @@ contents will be fairly long, it is best to pipe the output of either command in
 把每个命令的输出结果管道到 less 命令：
 
     [me@linuxbox ~]$ printenv | less
-    
+
 Doing so, we should get something that looks like this:
 
 执行以上命令之后，我们应该能得到类似以下内容：
@@ -73,7 +73,7 @@ also list the value of a specific variable:
 
     [me@linuxbox ~]$ printenv USER
     me
-    
+
 The set command, when used without options or arguments, will display both the shell
 and environment variables, as well as any defined shell functions. Unlike printenv,
 its output is courteously sorted in alphabetical order:
@@ -89,7 +89,7 @@ It is also possible to view the contents of a variable using the echo command, l
 
     [me@linuxbox ~]$ echo $HOME
     /home/me
-    
+
 One element of the environment that neither set nor printenv displays is aliases. To
 see them, enter the alias command without arguments:
 
@@ -129,12 +129,12 @@ shell 环境中包含相当多的变量，虽然你的 shell 环境可能不同�
     USER=me
     LS_COLORS=no=00:fi=00:di=00;34:ln=00;36:pi=40;33:so=00;35:bd=40;33;01
     :cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=00;32:\*.cmd=00;32:\*.exe:
-    
+
 What we see is a list of environment variables and their values. For example, we see a
 variable called USER, which contains the value "me". The printenv command can
 also list the value of a specific variable:
 
-我们所看到的是环境变量及其数值的列表。例如，我们看到一个叫做 USER 的变量，这个变量值是 
+我们所看到的是环境变量及其数值的列表。例如，我们看到一个叫做 USER 的变量，这个变量值是
 "me"。printenv 命令也能够列出特定变量的数值：
 
     [me@linuxbox ~]$ printenv USER
@@ -155,7 +155,7 @@ It is also possible to view the contents of a variable using the echo command, l
 
     [me@linuxbox ~]$ echo $HOME
     /home/me
-    
+
 One element of the environment that neither set nor printenv displays is aliases. To
 see them, enter the alias command without arguments:
 
@@ -168,7 +168,7 @@ see them, enter the alias command without arguments:
     alias ls='ls --color=tty'
     alias vi='vim'
     alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
-    
+
 Some Interesting Variables
 
 ### 一些有趣的变量
@@ -286,7 +286,7 @@ this variable.</td>
 </tr>
 <tr>
 <td valign="top">PAGER</td>
-<td valign="top">页输出程序的名字。这经常设置为/usr/bin/less。 
+<td valign="top">页输出程序的名字。这经常设置为/usr/bin/less。
 </td>
 </tr>
 <tr>
@@ -449,8 +449,8 @@ In addition to reading the startup files above, non-login shells also inherit th
 environment from their parent process, usually a login shell.
 
 除了读取以上启动文件之外，非登录 shell 会话也会继承它们父进程的环境设置，通常是一个登录 shell。
- 
-Take a look at your system and see which of these startup files you have. Remember— 
+
+Take a look at your system and see which of these startup files you have. Remember—
 since most of the filenames listed above start with a period (meaning that they are
 hidden), you will need to use the "-a" option when using ls.
 
@@ -485,7 +485,7 @@ looks something like this:
 
     PATH=$PATH:$HOME/bin
     export PATH
-    
+
 Lines that begin with a "#" are comments and are not read by the shell. These are there
 for human readability. The first interesting thing occurs on the fourth line, with the
 following code:
@@ -503,8 +503,8 @@ scripting in Part 5, but for now we will translate:
 这叫做一个 if 复合命令，我们将会在第五部分详细地介绍它，现在我们对它翻译一下：
 
     If the file ~/.bashrc exists, then
-          read the ~/.bashrc file. 
-    
+          read the ~/.bashrc file.
+
 We can see that this bit of code is how a login shell gets the contents of .bashrc. The
 next thing in our startup file has to do with the PATH variable.
 
@@ -526,7 +526,7 @@ The PATH variable is often (but not always, depending on the distribution) set b
 PATH 变量经常（但不总是，依赖于发行版）在 /etc/profile 启动文件中设置，通过这些代码：
 
     PATH=$PATH:$HOME/bin
-    
+
 PATH is modified to add the directory $HOME/bin to the end of the list. This is an
 example of parameter expansion, which we touched on in Chapter 8. To demonstrate
 how this works, try the following:
@@ -541,12 +541,12 @@ how this works, try the following:
     [me@linuxbox ~]$ echo $foo
     This is some text.
 
-<p>Using this technique, we can append text to the end of a variable's contents.
+Using this technique, we can append text to the end of a variable's contents.
 By adding the string $HOME/bin to the end of the PATH variable's contents, the
 directory $HOME/bin is added to the list of directories searched when a command is
 entered. This means that when we want to create a directory within our home directory
 for storing our own private programs, the shell is ready to accommodate us. All we have
-to do is call it bin, and we're ready to go.</p>
+to do is call it bin, and we're ready to go.
 
 使用这种技巧，我们可以把文本附加到一个变量值的末尾。通过添加字符串 $HOME/bin 到 PATH 变量值
 的末尾，则目录 $HOME/bin 就添加到了命令搜索目录列表中。这意味着当我们想要在自己的主目录下，
@@ -565,7 +565,7 @@ Lastly, we have:
 最后，有下面一行代码：
 
     export PATH
-    
+
 The export command tells the shell to make the contents of PATH available to child
 processes of this shell.
 
@@ -603,19 +603,19 @@ Text Editors
 
 ### 文本编辑器
 
-<p>To edit (i.e., modify) the shell's startup files, as well as most of the other configuration
+To edit (i.e., modify) the shell's startup files, as well as most of the other configuration
 files on the system, we use a program called a text editor. A text editor is a program that
 is, in some ways, like a word processor in that it allows you to edit the words on the
 screen with a moving cursor. It differs from a word processor by only supporting pure
 text, and often contains features designed for writing programs. Text editors are the
 central tool used by software developers to write code, and by system administrators to
-manage the configuration files that control the system.</p>
+manage the configuration files that control the system.
 
-<p>为了编辑（例如，修改）shell 的启动文件，还有系统中大多数其它配置文件，我们使用一个叫做文本
+为了编辑（例如，修改）shell 的启动文件，还有系统中大多数其它配置文件，我们使用一个叫做文本
 编辑器的程序。文件编辑器是一个，在某些方面，类似于文字处理器的程序，比如说随着鼠标的移动，
 它允许你在屏幕上编辑文字。只有一点，文本编辑器不同于文字处理器，就是它只能支持纯文本，并且
 经常包含为便于写程序而设计的特性。文本编辑器是软件开发人员用来写代码，和系统管理原员用来管理
-系统配置文件的重要工具。</p>
+系统配置文件的重要工具。
 
 There are a lot of different text editors available for Linux; your system probably has
 several installed. Why so many different ones? Probably because programmers like
@@ -635,14 +635,14 @@ with three which are (in order of increasing complexity) kedit, kwrite, and kate
 图形编辑器。GNOME 自带了一个叫做 gedit 的编辑器，这个编辑器通常在 GNOME 菜单中称为"文本编辑器"。
 KDE 通常自带了三种编辑器，分别是（按照复杂度递增的顺序排列）kedit，kwrite，kate。
 
-<p>There are many text-based editors. The popular ones you will encounter are nano, vi,
+There are many text-based editors. The popular ones you will encounter are nano, vi,
 and emacs. The nano editor is a simple, easy-to-use editor designed as a replacement
 for the pico editor supplied with the PINE email suite. The vi editor (on most Linux
 systems replaced by a program named vim, which is short for "Vi IMproved") is the
 traditional editor for Unix-like systems. It will be the subject of our next chapter. The
 emacs editor was originally written by Richard Stallman. It is a gigantic, all-purpose,
 does-everything programming environment. While readily available, it is seldom
-installed on most Linux systems by default.</p>
+installed on most Linux systems by default.
 
 有许多基于文本的编辑器。你将会遇到一些流行的编辑器，它们是 nano，vi，和 emacs。这个 nano 编辑器
 是一个简单的，容易使用的编辑器，它是 pico 编辑器的替代物，pico 编辑器由 PINE 邮件套件提供。vi 编辑器
@@ -681,9 +681,9 @@ To create a backup of the .bashrc file, do this:
 总是一个不错的主意。这样能避免我们在编辑文件时弄乱文件。创建文件 .bashrc 的备份文件，这样做：
 
     [me@linuxbox ~]$ cp .bashrc .bashrc.bak
-    
+
 It doesn't matter what you call the backup file, just pick an understandable name. The
-extensions ".bak", ".sav", ".old", and ".orig" 
+extensions ".bak", ".sav", ".old", and ".orig"
 are all popular ways of indicating a backup
 file. Oh, and remember that cp will overwrite existing files silently.
 
@@ -735,7 +735,7 @@ following lines to the .bashrc file:
     export HISTSIZE=1000
     alias l.='ls -d .* --color=auto'
     alias ll='ls -l --color=auto'
-    
+
 Note: Your distribution may already include some of these, but duplicates won't
 hurt anything.
 
@@ -755,13 +755,13 @@ Here is the meaning of our additions:
 <td valign="top">Sets the umask to solve the
 problem with shared directories</td>
 </tr>
-<tr> 
-<td valign="top">export HISTCONTROL=ignoredups </td> 
+<tr>
+<td valign="top">export HISTCONTROL=ignoredups </td>
 <td valign="top">Causes the shell's history recording feature to ignore a command
 if the same command was just recorded.</td>
 </tr>
 <tr>
-<td valign="top" width="25%">export HISTSIZE=1000 
+<td valign="top" width="25%">export HISTSIZE=1000
 </td>
 <td valign="top">Increases the size of the command history from the default of
 500 lines to 1000 lines.</td>
@@ -772,7 +772,7 @@ if the same command was just recorded.</td>
 directory entries that begin with a dot.</td>
 </tr>
 <tr>
-<td valign="top" width="25%">alias ll='ls -l --color=auto' 
+<td valign="top" width="25%">alias ll='ls -l --color=auto'
 </td>
 <td valign="top">Creates a new command called “ll” which displays a long
 format directory listing.</td>
@@ -788,12 +788,12 @@ format directory listing.</td>
 <td valign="top" width="25%">umask 0002 </td>
 <td valign="top">设置掩码来解决共享目录的问题。</td>
 </tr>
-<tr> 
-<td valign="top">export HISTCONTROL=ignoredups </td> 
+<tr>
+<td valign="top">export HISTCONTROL=ignoredups </td>
 <td valign="top">使得 shell 的历史记录功能忽略一个命令，如果相同的命令已被记录。</td>
 </tr>
 <tr>
-<td valign="top" width="25%">export HISTSIZE=1000 
+<td valign="top" width="25%">export HISTSIZE=1000
 </td>
 <td valign="top">增加命令历史的大小，从默认的 500 行扩大到 1000 行。</td>
 </tr>
@@ -803,13 +803,11 @@ format directory listing.</td>
 valign="top">创建一个新命令，叫做'l.'，这个命令会显示所有以点开头的目录名。</td>
 </tr>
 <tr>
-<td valign="top" width="25%">alias ll='ls -l --color=auto' 
+<td valign="top" width="25%">alias ll='ls -l --color=auto'
 </td>
 <td valign="top">创建一个叫做'll'的命令，这个命令会显示长格式目录列表。</td>
 </tr>
 </table>
-
-<br />
 
 As we can see, many of our additions are not intuitively obvious, so it would be a good
 idea to add some comments to our .bashrc file to help explain things to the humans.
@@ -827,61 +825,62 @@ Using the editor, change our additions to look like this:
      # Add some helpful aliases
     alias l.='ls -d .* --color=auto'
     alias ll='ls -l --color=auto'
-    
-    
+
+
 Ah, much better! With our changes complete, type Ctrl-o to save our modified
 .bashrc file, and Ctrl-x to exit nano.
 
 啊，看起来好多了! 当我们完成修改后，输入 Ctrl-o 来保存我们修改的 .bashrc 文件，输入 Ctrl-x 退出 nano。
 
-<div class="single">
-<h3>Why Comments Are Important</h3>
-
-<h3>为什么注释很重要？</h3>
-
-<p> Whenever you modify configuration files it's a good idea to add some comments
+> Why Comments Are Important
+>
+> 为什么注释很重要？
+>
+>  Whenever you modify configuration files it's a good idea to add some comments
 to document your changes. Sure, you will remember what you changed
 tomorrow, but what about six months from now? Do yourself a favor and add
 some comments. While you're at it, it’s not a bad idea to keep a log of what
-changes you make.</p>
-
-<p>不管什么时候你修改配置文件时，给你所做的更改加上注释都是一个好主意。的确，明天你会
+changes you make.
+>
+> 不管什么时候你修改配置文件时，给你所做的更改加上注释都是一个好主意。的确，明天你会
 记得你修改了的内容，但是六个月之后会怎样呢？帮自己一个忙，加上一些注释吧。当你意识
-到这一点后，对你所做的修改做个日志是个不错的主意。</p>
-
-<p>Shell scripts and bash startup files use a "#" symbol to begin a comment. Other
+到这一点后，对你所做的修改做个日志是个不错的主意。
+>
+> Shell scripts and bash startup files use a "#" symbol to begin a comment. Other
 configuration files may use other symbols. Most configuration files will have
-comments. Use them as a guide.</p>
-
-<p>Shell 脚本和 bash 启动文件都使用 "#" 符号来开始注释。其它配置文件可能使用其它的符号。
-大多数配置文件都有注释。把它们作为指南。</p>
-
-<p>You will often see lines in configuration files that are commented out to prevent
+comments. Use them as a guide.
+>
+> Shell 脚本和 bash 启动文件都使用 "#" 符号来开始注释。其它配置文件可能使用其它的符号。
+大多数配置文件都有注释。把它们作为指南。
+>
+> You will often see lines in configuration files that are commented out to prevent
 them from being used by the affected program. This is done to give the reader
 suggestions for possible configuration choices or examples of correct
 configuration syntax. For example, the .bashrc file of Ubuntu 8.04 contains
-these lines:</p>
-
-<p>你会经常看到配置文件中的一些行被注释掉，以此防止它们被受影响的程序使用。这样做
-是为了给读者在可能的配置选项方面一些建议，或者给出正确的配置语法实例。例如，Ubuntu 8.04 
-中的 .bashrc 文件包含这些行：</p>
-
-    <p># some more ls aliases</p>
-    <p>#alias ll='ls -l'</p>
-    <p>#alias la='ls -A'</p>
-    <p>#alias l='ls -CF'</p>
-
-<p>The last three lines are valid alias definitions that have been commented out. If
+these lines:
+>
+> 你会经常看到配置文件中的一些行被注释掉，以此防止它们被受影响的程序使用。这样做
+是为了给读者在可能的配置选项方面一些建议，或者给出正确的配置语法实例。例如，Ubuntu 8.04
+中的 .bashrc 文件包含这些行：
+>
+> # some more ls aliases
+>
+> #alias ll='ls -l'
+>
+> #alias la='ls -A'
+>
+> #alias l='ls -CF'
+>
+> The last three lines are valid alias definitions that have been commented out. If
 you remove the leading "#" symbols from these three lines, a technique called
 uncommenting, you will activate the aliases. Conversely, if you add a "#"
 symbol to the beginning of a line, you can deactivate a configuration line while
-preserving the information it contains.</p>
-
-<p>最后三行是有效的被注释掉的别名定义。如果你删除这三行开头的 "#" 符号，此技术程称为
+preserving the information it contains.
+>
+> 最后三行是有效的被注释掉的别名定义。如果你删除这三行开头的 "#" 符号，此技术程称为
 uncommenting (不注释)，这样你就会激活这些别名。相反地，如果你在一行的开头加上 "#" 符号，
-你可以注销掉这一行，但会保留它所包含的信息。</p>
-</div>
-<br />
+你可以注销掉这一行，但会保留它所包含的信息。
+{: .single}
 
 Activating Our Changes
 
@@ -897,14 +896,14 @@ file with the following command:
  .bashrc 文件，使用下面的命令：
 
     [me@linuxbox ~]$ source .bashrc
-    
+
 After doing this, we should be able to see the effect of our changes. Try out one of the
 new aliases:
 
 运行上面命令之后，我们就应该能够看到所做修改的效果了。试试其中一个新的别名：
 
     [me@linuxbox ~]$ ll
-    
+
 Summing Up
 
 ### 总结

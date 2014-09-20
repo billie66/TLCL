@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 进&nbsp;程
+title: 进程
 ---
 
 Modern operating systems are usually multitasking, meaning that they create the illusion
@@ -23,21 +23,21 @@ This chapter will introduce the following commands:
 
 这一章将介绍以下命令：
 
-* ps – Report a snapshot of current processes 
+* ps – Report a snapshot of current processes
 
-* top – Display tasks 
+* top – Display tasks
 
-* jobs – List active jobs 
+* jobs – List active jobs
 
-* bg – Place a job in the background 
+* bg – Place a job in the background
 
-* fg – Place a job in the foreground 
+* fg – Place a job in the foreground
 
-* kill – Send a signal to a process 
+* kill – Send a signal to a process
 
-* killall – Kill processes by name 
+* killall – Kill processes by name
 
-* shutdown – Shutdown or reboot the system 
+* shutdown – Shutdown or reboot the system
 
 * ps – 报告当前进程快照
 
@@ -123,9 +123,9 @@ If we add an option, we can get a bigger picture of what the system is doing:
     PID TTY   STAT   TIME COMMAND
     2799 ?    Ssl    0:00 /usr/libexec/bonobo-activation-server –ac
     2820 ?    Sl     0:01 /usr/libexec/evolution-data-server-1.10 --
-    
+
     and many more...
-    
+
 Adding the “x” option (note that there is no leading dash) tells ps to show all of our
 processes regardless of what terminal (if any) they are controlled by. The presence of a
 “?” in the TTY column indicates no controlling terminal. Using this option, we see a list
@@ -183,7 +183,7 @@ such as a keystroke or network packet.
 terminated, but has not been cleaned up by its parent.</td>
 </tr>
 <tr>
-<td valign="top">&lt;</td>
+<td valign="top"><</td>
 <td valign="top">A high priority process. It's possible to grant more importance to a
 process, giving it more time on the CPU. This property of a process
 is called niceness. A process with high priority is said to be less
@@ -234,7 +234,7 @@ valign="top">一个死进程或“僵尸”进程。这是一个已经终止的�
 （父进程没有把子进程从进程表中删除）</td>
 </tr>
 <tr>
-<td valign="top">&lt;</td>
+<td valign="top"><</td>
 <td
 valign="top">一个高优先级进程。这可能会授予一个进程更多重要的资源，给它更多的 CPU 时间。
 进程的这种属性叫做 niceness。具有高优先级的进程据说是不好的（less nice），
@@ -736,7 +736,7 @@ fg 命令，让一个进程返回前台执行：
 
     [me@linuxbox ~]$ jobs
     [1]+ Running        xlogo &
-    [me@linuxbox ~]$ fg %1 
+    [me@linuxbox ~]$ fg %1
     xlogo
 
 The command fg followed by a percent sign and the job number (called a jobspec) does
@@ -774,7 +774,7 @@ background with the bg command:
     [me@linuxbox ~]$ bg %1
     [1]+ xlogo &
     [me@linuxbox ~]$
-    
+
 As with the fg command, the jobspec is optional if there is only one job.
 
 和 fg 命令一样，如果只有一个任务的话，jobspec 参数是可选的。
@@ -812,7 +812,7 @@ kill 命令被用来“杀死”程序。这样我们就可以终止需要杀死
     [1] 28401
     [me@linuxbox ~]$ kill 28401
     [1]+ Terminated               xlogo
-    
+
 We first launch xlogo in the background. The shell prints the jobspec and the PID of
 the background process. Next, we use the kill command and specify the PID of the
 process we want to terminate. We could have also specified the process using a jobspec
@@ -977,7 +977,7 @@ Let's try out the kill command:
     [1] 13546
     [me@linuxbox ~]$ kill -1 13546
     [1]+ Hangup         xlogo
-    
+
 In this example, we start the xlogo program in the background and then send it a HUP
 signal with kill. The xlogo program terminates and the shell indicates that the
 background process has received a hangup signal. You may need to press the enter key a
@@ -993,7 +993,7 @@ number or by name, including the name prefixed with the letters “SIG”:
     [1] 13546
     [me@linuxbox ~]$ kill -1 13546
     [1]+ Hangup                    xlogo
-    
+
 Repeat the example above and try out the other signals. Remember, you can also use
 jobspecs in place of PIDs.
 
@@ -1075,7 +1075,7 @@ TSTP 信号由目标进程接收，且可能被忽略。</td>
 <tr>
 <td valign="top">28</td>
 <td valign="top">WINCH</td>
-<td valign="top">改变窗口大小。当改变窗口大小时，系统会发送这个信号。 
+<td valign="top">改变窗口大小。当改变窗口大小时，系统会发送这个信号。
 一些程序，像 top 和 less 程序会响应这个信号，按照新窗口的尺寸，刷新显示的内容。
 </td>
 </tr>
@@ -1086,7 +1086,7 @@ For the curious, a complete list of signals can be seen with the following comma
 为了满足读者的好奇心，通过下面的命令可以得到一个完整的信号列表：
 
     [me@linuxbox ~]$ kill -l
-    
+
 ### Sending Signals To Multiple Processes With killall
 
 ### 通过 killall 命令给多个进程发送信号
@@ -1097,7 +1097,7 @@ user name by using the killall command. Here is the syntax:
 也有可能通过 killall 命令，给匹配特定程序或用户名的多个进程发送信号。下面是 killall 命令的语法形式：
 
     killall [-u user] [-signal] name...
-    
+
 To demonstrate, we will start a couple of instances of the xlogo program and then
 terminate them:
 
@@ -1110,7 +1110,7 @@ terminate them:
     [me@linuxbox ~]$ killall xlogo
     [1]- Terminated                xlogo
     [2]+ Terminated                xlogo
-    
+
 Remember, as with kill, you must have superuser privileges to send signals to
 processes that do not belong to you.
 
