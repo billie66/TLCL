@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 重&nbsp;定&nbsp;向 
+title: 重定向
 ---
 
 In this lesson we are going to unleash what may be the coolest feature of the command
@@ -89,7 +89,7 @@ the name of the file. Why would we want to do this? It's often useful to store t
 of a command in a file. For example, we could tell the shell to send the output of the ls
 command to the file ls-output.txt instead of the screen:
 
-I/O 重定向允许我们来重定义标准输出送到哪里。重定向标准输出到另一个文件除了屏幕，我们使用 
+I/O 重定向允许我们来重定义标准输出送到哪里。重定向标准输出到另一个文件除了屏幕，我们使用
 ">" 重定向符，其后跟着文件名。为什么我们要这样做呢？因为有时候把一个命令的运行结果存储到
 一个文件很有用处。例如，我们可以告诉 shell 把 ls 命令的运行结果输送到文件 ls-output.txt 中去，
 由文件代替屏幕。
@@ -104,15 +104,15 @@ ls-output.txt. Let's examine the redirected output of the command:
 
     [me@linuxbox ~]$ ls -l ls-output.txt
     -rw-rw-r-- 1   me   me    167878 2008-02-01 15:07 ls-output.txt
-    
+
 Good; a nice, large, text file. If we look at the file with less, we will see that the file
 ls-output.txt does indeed contain the results from our ls command:
 
-好；一个不错的大型文本文件。如果我们用 less 阅读器来查看这个文件，我们会看到文件 
+好；一个不错的大型文本文件。如果我们用 less 阅读器来查看这个文件，我们会看到文件
 ls-output.txt 的确包含 ls 命令的执行结果。
 
     [me@linuxbox ~]$ less ls-output.txt
-    
+
 Now, let's repeat our redirection test, but this time with a twist. We'll change the name of
 the directory to one that does not exist:
 
@@ -120,7 +120,7 @@ the directory to one that does not exist:
 
     [me@linuxbox ~]$ ls -l /bin/usr > ls-output.txt
     ls: cannot access /bin/usr: No such file or directory
-    
+
 We received an error message. This makes sense since we specified the non-existent
 directory /bin/usr, but why was the error message displayed on the screen rather than
 being redirected to the file ls-output.txt? The answer is that the ls program does
@@ -139,7 +139,7 @@ ls 程序不把它的错误信息输送到标准输出。反而，像许多写�
 
     me@linuxbox ~]$ ls -l ls-output.txt
     -rw-rw-r-- 1 me   me    0 2008-02-01 15:08 ls-output.txt
-    
+
 The file now has zero length! This is because, when we redirect output with the “>”
 redirection operator, the destination file is always rewritten from the beginning. Since
 our ls command generated no results and only an error message, the redirection
@@ -167,7 +167,7 @@ beginning? For that, we use the “>>” redirection operator, like so:
 我们使用">>"重定向符，像这样：
 
     [me@linuxbox ~]$ ls -l /usr/bin >> ls-output.txt
-    
+
 Using the “>>” operator will result in the output being appended to the file. If the file
 does not already exist, it is created just as though the “>” operator had been used. Let's
 put it to the test:
@@ -180,7 +180,7 @@ put it to the test:
     [me@linuxbox ~]$ ls -l /usr/bin >> ls-output.txt
     [me@linuxbox ~]$ ls -l ls-output.txt
     -rw-rw-r-- 1 me   me    503634 2008-02-01 15:45 ls-output.txt
-    
+
 We repeated the command three times resulting in an output file three times as large.
 
 我们重复执行命令三次，导致输出文件大小是原来的三倍。
@@ -204,7 +204,7 @@ number two, we can redirect standard error with this notation:
 表示法来重定向标准错误：
 
     [me@linuxbox ~]$ ls -l /bin/usr 2> ls-error.txt
-    
+
 The file descriptor “2” is placed immediately before the redirection operator to perform
 the redirection of standard error to the file ls-error.txt.
 
@@ -224,7 +224,7 @@ old versions of the shell:
 在旧版本 shell 中也有效：
 
     [me@linuxbox ~]$ ls -l /bin/usr > ls-output.txt 2>&1
-    
+
 Using this method, we perform two redirections. First we redirect standard output to the
 file ls-output.txt and then we redirect file descriptor two (standard error) to file
 descriptor one (standard output) using the notation 2>&1.
@@ -260,8 +260,8 @@ combined redirection:
 
 现在的 bash 版本提供了第二种方法，更精简合理的方法来执行这种联合的重定向。
 
-    [me@linuxbox ~]$ ls -l /bin/usr &> ls-output.txt 
-    
+    [me@linuxbox ~]$ ls -l /bin/usr &> ls-output.txt
+
 In this example, we use the single notation &> to redirect both standard output and
 standard error to the file ls-output.txt.
 
@@ -284,21 +284,20 @@ To suppress error messages from a command, we do this:
 
     [me@linuxbox ~]$ ls -l /bin/usr 2> /dev/null
 
-<div class="single">
-<h3>/dev/null in Unix Culture</h3>
 
-<h3>Unix 文化中的/dev/null</h3>
-
-<p>The bit bucket is an ancient Unix concept and due to its universality, has appeared
+> /dev/null in Unix Culture
+>
+> Unix 文化中的/dev/null
+>
+> The bit bucket is an ancient Unix concept and due to its universality, has appeared
 in many parts of Unix culture. When someone says he/she is sending your
 comments to /dev/null, now you know what it means. For more examples,
-see the Wikipedia article on “/dev/null”.  </p>
-
-<p>位存储桶是个古老的 Unix 概念，由于它的普遍性，它的身影出现在 Unix 文化的
+see the Wikipedia article on “/dev/null”.
+>
+> 位存储桶是个古老的 Unix 概念，由于它的普遍性，它的身影出现在 Unix 文化的
 许多部分。当有人说他/她正在发送你的评论到/dev/null，现在你应该知道那是
-什么意思了。更多的例子，可以阅读 Wikipedia 关于"/dev/null"的文章。 </p>
-</div>
-<br />
+什么意思了。更多的例子，可以阅读 Wikipedia 关于"/dev/null"的文章。
+{: .single}
 
 ### Redirecting Standard Input
 
@@ -320,7 +319,7 @@ The cat command reads one or more files and copies them to standard output like 
 cat 命令读取一个或多个文件，然后复制它们到标准输出，就像这样:
 
     cat [file]
-    
+
 In most cases, you can think of cat as being analogous to the TYPE command in DOS.
 You can use it to display files without paging, for example:
 
@@ -347,7 +346,7 @@ we could join them back together with this command:
 我们能用这个命令把它们连接起来：
 
     cat movie.mpeg.0* > movie.mpeg
-    
+
 Since wildcards always expand in sorted order, the arguments will be arranged in the
 correct order.
 
@@ -360,7 +359,7 @@ but let's try something else. What happens if we type “cat” with no argument
 如果我们输入不带参数的"cat"命令，会发生什么呢：
 
     [me@linuxbox ~]$ cat
-    
+
 Nothing happens, it just sits there like it's hung. It may seem that way, but it's really
 doing exactly what it's supposed to.
 
@@ -374,7 +373,7 @@ is, by default, attached to the keyboard, it's waiting for us to type something!
 
     [me@linuxbox ~]$ cat
     The quick brown fox jumped over the lazy dog.
-    
+
 Next, type a Ctrl-d (i.e., hold down the Ctrl key and press “d”) to tell cat that it has
 reached end of file (EOF) on standard input:
 
@@ -396,7 +395,7 @@ example. We would do this:
 
     [me@linuxbox ~]$ cat > lazy_dog.txt
     The quick brown fox jumped over the lazy dog.
-    
+
 Type the command followed by the text we want in to place in the file. Remember to
 type Ctrl-d at the end. Using the command line, we have implemented the world's
 dumbest word processor! To see our results, we can use cat to copy the file to stdout
@@ -408,7 +407,7 @@ again:
 
     [me@linuxbox ~]$ cat lazy_dog.txt
     The quick brown fox jumped over the lazy dog.
-    
+
 
 Now that we know how cat accepts standard input, in addition to filename arguments,
 let's try redirecting standard input:
@@ -417,8 +416,8 @@ let's try redirecting standard input:
 
     [me@linuxbox ~]$ cat < lazy_dog.txt
     The quick brown fox jumped over the lazy dog.
-    
-    
+
+
 Using the “<” redirection operator, we change the source of standard input from the
 keyboard to the file lazy_dog.txt. We see that the result is the same as passing a
 single filename argument. This is not particularly useful compared to passing a filename
@@ -446,7 +445,7 @@ standard output of one command can be piped into the standard input of another:
 标准输出可以管道到另一个命令的标准输入：
 
     command1 | command2
-    
+
 To fully demonstrate this, we are going to need some commands. Remember how we
 said there was one we already knew that accepts standard input? It's less. We can use
 less to display, page-by-page, the output of any command that sends its results to
@@ -457,7 +456,7 @@ standard output:
 它的运行结果输送到标准输出：
 
     [me@linuxbox ~]$ ls -l /usr/bin | less
-    
+
 This is extremely handy! Using this technique, we can conveniently examine the output
 of any command that produces standard output.
 
@@ -479,7 +478,7 @@ executable programs in /bin and /usr/bin, put them in sorted order and view it:
 的可执行程序都联合在一起，再把它们排序，然后浏览执行结果：
 
     [me@linuxbox ~]$ ls /bin /usr/bin | sort | less
-    
+
 Since we specified two directories (/bin and /usr/bin), the output of ls would have
 consisted of two sorted lists, one for each directory. By including sort in our pipeline,
 we changed the data to produce a single, sorted list.
@@ -504,7 +503,7 @@ uniq 命令经常和 sort 命令结合在一起使用。uniq 从标准输入或�
 uniq 到我们的管道线中：
 
     [me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq | less
-    
+
 In this example, we use uniq to remove any duplicates from the output of the sort
 command. If we want to see the list of duplicates instead, we add the “-d” option to
 uniq like so:
@@ -525,7 +524,7 @@ wc（字计数）命令是用来显示文件所包含的行，字和字节数。
 
     [me@linuxbox ~]$ wc ls-output.txt
     7902 64566 503634 ls-output.txt
-    
+
 In this case it prints out three numbers: lines, words, and bytes contained in ls-
 output.txt. Like our previous commands, if executed without command line
 arguments, wc accepts standard input. The “-l” option limits its output to only report
@@ -539,7 +538,7 @@ programs we have in our sorted list, we can do this:
 
     [me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq | wc -l
     2728
-    
+
 ### grep – Print Lines Matching A Pattern
 
 ### grep －打印匹配行
@@ -549,7 +548,7 @@ grep is a powerful program used to find text patterns within files. It's used li
 grep 是个很强大的程序，用来找到文件中的匹配文本。这样使用 grep 命令：
 
     grep pattern [file...]
-    
+
 When grep encounters a “pattern” in the file, it prints out the lines containing it. The
 patterns that grep can match can be very complex, but for now we will concentrate on
 simple text matches. We'll cover the advanced patterns, called regular expressions in a
@@ -571,7 +570,7 @@ our system that had something to do with file compression. We would do this:
     bzip2
     gunzip
     ...
-    
+
 There are a couple of handy options for grep: “-i” which causes grep to ignore case
 when performing the search (normally searches are case sensitive) and “-v” which tells
 grep to only print lines that do not match the pattern.
@@ -597,7 +596,7 @@ head 命令打印文件的前十行，而 tail 命令打印文件的后十行。
     ...
     [me@linuxbox ~]$ tail -n 5 ls-output.txt
     ...
-    
+
 These can be used in pipelines as well:
 
 它们也能用在管道线中：
@@ -620,7 +619,7 @@ tail 有一个选项允许你实时的浏览文件。当观察日志文件的进
     [me@linuxbox ~]$ tail -f /var/log/messages
     Feb 8 13:40:05 twin4 dhclient: DHCPACK from 192.168.1.1
     ....
-    
+
 Using the “-f” option, tail continues to monitor the file and when new lines are
 appended, they immediately appear on the display. This continues until you type Ctrl-c.
 
@@ -649,7 +648,7 @@ contents:
     bunzip2
     bzip2
     ....
-    
+
 ### Summing Up
 
 ### 总结归纳
@@ -666,16 +665,16 @@ line programs use standard error to display their informative messages.
 在解决特殊问题时非常有用处。有许多命令利用标准输入和输出，而几乎所有的命令行
 程序都使用标准错误来显示它们的详细信息。
 
-<div class="single">
-<h3>Linux Is About Imagination</h3>
-<h3>Linux 可以激发我们的想象</h3>
 
-<p> When I am asked to explain the difference between Windows and Linux, I often
-use a toy analogy.  </p>
-
-<p>当我被要求解释 Windows 与 Linux 之间的差异时，我经常拿玩具来作比喻。</p>
-
-<p> Windows is like a Game Boy. You go to the store and buy one all shiny new in
+> Linux Is About Imagination
+> Linux 可以激发我们的想象
+>
+>  When I am asked to explain the difference between Windows and Linux, I often
+use a toy analogy.
+>
+> 当我被要求解释 Windows 与 Linux 之间的差异时，我经常拿玩具来作比喻。
+>
+>  Windows is like a Game Boy. You go to the store and buy one all shiny new in
 the box. You take it home, turn it on and play with it. Pretty graphics, cute
 sounds. After a while though, you get tired of the game that came with it so you
 go back to the store and buy another one. This cycle repeats over and over.
@@ -684,33 +683,32 @@ a game that does this!” only to be told that no such game exists because there
 no “market demand” for it. Then you say, “But I only need to change this one
 thing!” The person behind the counter says you can't change it. The games are
 all sealed up in their cartridges. You discover that your toy is limited to the games
-that others have decided that you need and no more.  </p>
-
-<p>Windows 就像一个游戏机。你去商店，买了一个包装在盒子里面的全新的游戏机。
+that others have decided that you need and no more.
+>
+> Windows 就像一个游戏机。你去商店，买了一个包装在盒子里面的全新的游戏机。
 你把它带回家，打开盒子，开始玩游戏。精美的画面，动人的声音。玩了一段时间之后，
 你厌倦了它自带的游戏，所以你返回商店，又买了另一个游戏机。这个过程反复重复。
 最后，你玩腻了游戏机自带的游戏，你回到商店，告诉售货员，“我想要一个这样的游戏！”
 但售货员告诉你没有这样的游戏存在，因为它没有“市场需求”。然后你说，“但是我只
 需要修改一下这个游戏！“，售货员又告诉你不能修改它。所有游戏都被封装在它们的
-存储器中。到头来，你发现你的玩具只局限于别人为你规定好的游戏。 </p>
-
-<p>Linux, on the other hand, is like the world's largest Erector Set. You open it up
+存储器中。到头来，你发现你的玩具只局限于别人为你规定好的游戏。
+>
+> Linux, on the other hand, is like the world's largest Erector Set. You open it up
 and it's just a huge collection of parts. A lot of steel struts, screws, nuts, gears,
 pulleys, motors, and a few suggestions on what to build. So you start to play with
 it. You build one of the suggestions and then another. After a while you discover
 that you have your own ideas of what to make. You don't ever have to go back to
 the store, as you already have everything you need. The Erector Set takes on the
-shape of your imagination. It does what you want.  </p>
-
-<p>另一方面，Linux 就像一个全世界上最大的建造模型。你打开它，发现它只是一个巨大的
+shape of your imagination. It does what you want.
+>
+> 另一方面，Linux 就像一个全世界上最大的建造模型。你打开它，发现它只是一个巨大的
 部件集合。有许多钢支柱，螺钉，螺母，齿轮，滑轮，发动机，和一些怎样来建造它的说明书。
 然后你开始摆弄它。你建造了一个又一个样板模型。过了一会儿，你发现你要建造自己的模型。
 你不必返回商店，因为你已经拥有了你需要的一切。建造模型以你构想的形状为模板，搭建
-你想要的模型。 </p>
-
-<p>Your choice of toys is, of course, a personal thing, so which toy would you find
-more satisfying?  </p>
-
-<p>当然，选择哪一个玩具，是你的事情，那么你觉得哪个玩具更令人满意呢？</p>
-</div>
-
+你想要的模型。
+>
+> Your choice of toys is, of course, a personal thing, so which toy would you find
+more satisfying?
+>
+> 当然，选择哪一个玩具，是你的事情，那么你觉得哪个玩具更令人满意呢？
+{: .single}

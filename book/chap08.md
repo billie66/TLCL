@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 从 shell 眼中看世界 
+title: 从 shell 眼中看世界
 ---
 
 In this chapter we are going to look at some of the "magic" that occurs on the command
@@ -86,7 +86,7 @@ we could carry out the following expansions:
     [me@linuxbox ~]$ echo D*
     Desktop  Documents
 
-and: 
+and:
 
 和：
 
@@ -105,7 +105,7 @@ and looking beyond our home directory:
 查看主目录之外的目录：
 
     [me@linuxbox ~]$ echo /usr/*/share
-    /usr/kerberos/share  /usr/local/share 
+    /usr/kerberos/share  /usr/local/share
 
 <div class="single">
 <h3>Pathname Expansion Of Hidden Files</h3>
@@ -543,7 +543,7 @@ how word-splitting appears to remove extra spaces in our text:
 是怎样工作的。在之前的范例中，我们已经看到单词分割机制是怎样来删除文本中额外空格的：
 
     [me@linuxbox ~]$ echo this is a   test
-    this is a test 
+    this is a test
 
 By default, word-splitting looks for the presence of spaces, tabs, and newlines (linefeed
 characters) and treats them as delimiters between words. This means that unquoted
@@ -557,7 +557,7 @@ double quotes:
 命令行包含一个带有四个不同参数的命令。如果我们加上双引号：
 
     [me@linuxbox ~]$ echo "this is a    test"
-    this is a    test 
+    this is a    test
 
 word-splitting is suppressed and the embedded spaces are not treated as delimiters, rather
 they become part of the argument. Once the double quotes are added, our command line
@@ -762,5 +762,5 @@ be a source of mystery and confusion, and much of it potential power wasted.
 
 * Bash 参考手册也包含章节，介绍展开和引用：
 
-  <http://www.gnu.org/software/bash/manual/bashref.html>
+    <http://www.gnu.org/software/bash/manual/bashref.html>
 
