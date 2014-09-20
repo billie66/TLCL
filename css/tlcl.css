@@ -62,7 +62,7 @@ hr {
 .single {
   border: 2px solid #E7E5DC;
   margin: 20px 0;
-  background-color: #f8f8f8;
+  padding: 0.6em, 1em;
 }
 
 table.multi {
