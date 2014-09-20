@@ -578,8 +578,9 @@ Here is an example from KDE 3.5:
 权限对话框。在 Nautilus (GNOME)和 Konqueror
 (KDE)中，右击一个文件或目录图标将会弹出一个属性对话框。下面这个例子来自 KDE 3.5：
 
-<p style="text-align:center"><img src="./images/102.png" alt="file properties" /></p>
-<p class="figure">Figure 2: KDE 3.5 File properties Dialog</p>
+![](images/102.png) \\
+Figure 2: KDE 3.5 File properties Dialog
+{: .figure}
 
 Here we can see the settings for the owner, group, and world. In KDE, clicking on the
 “Advanced Permissions” button brings up another dialog that allows you to set each of

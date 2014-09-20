@@ -46,7 +46,6 @@ Linux 系统的多用户性能，不是最近的“创新”，而是一种特�
     [me@linuxbox ~]$ less /etc/shadow
     /etc/shadow:  Permission denied
 
-
 产生这种错误信息的原因是，作为一个普通用户，我们没有权限来读取这个文件。
 
 在 Unix 安全模型中，一个用户可能拥有文件和目录。当一个用户拥有一个文件或目录时，
@@ -58,7 +57,6 @@ Linux 系统的多用户性能，不是最近的“创新”，而是一种特�
     [me@linuxbox ~]$ id
     uid=500(me) gid=500(me) groups=500(me)
 
-
 让我们看一下输出结果。当用户创建帐户之后，系统会给用户分配一个号码，叫做用户 ID
 或者 uid，然后，为了符合人类的习惯，这个 ID 映射到一个用户名。系统又会给这个用户
 分配一个原始的组 ID 或者是 gid，这个 gid 可能属于另外的组。上面的例子来自于 Fedora 系统，
@@ -68,7 +66,6 @@ Linux 系统的多用户性能，不是最近的“创新”，而是一种特�
     uid=1000(me) gid=1000(me)
     groups=4(adm),20(dialout),24(cdrom),25(floppy),29(audio),30(dip),44(v
     ideo),46(plugdev),108(lpadmin),114(admin),1000(me)
-
 
 正如我们能看到的，两个系统中用户的 uid 和 gid 号码是不同的。原因很简单，因为 Fedora 系统
 从500开始进行普通用户帐户的编号，而 Ubuntu 从1000开始。我们也能看到 Ubuntu 的用户属于
@@ -95,7 +92,6 @@ Linux 系统的多用户性能，不是最近的“创新”，而是一种特�
     [me@linuxbox ~]$ > foo.txt
     [me@linuxbox ~]$ ls -l foo.txt
     -rw-rw-r-- 1 me   me   0 2008-03-06 14:52 foo.txt
-
 
 列表的前十个字符是文件的属性。这十个字符的第一个字符表明文件类型。下表是你可能经常看到
 的文件类型（还有其它的，不常见类型）：
@@ -304,8 +300,9 @@ chmod 命令支持一种符号表示法，来指定文件模式。符号表示�
 权限对话框。在 Nautilus (GNOME)和 Konqueror
 (KDE)中，右击一个文件或目录图标将会弹出一个属性对话框。下面这个例子来自 KDE 3.5：
 
-<p style="text-align:center"><img src="../images/102.png" alt="file properties" /></p>
-<p class="figure">Figure 2: KDE 3.5 File properties Dialog</p>
+![](../images/102.png) \\
+Figure 2: KDE 3.5 File properties Dialog
+{: .figure}
 
 从这个对话框中，我们看到可以设置文件所有者，用户组，和其他人的访问权限。
 在 KDE 中，右击"Advanced Permissions"按钮，会打开另一个对话框，这个对话框允许
@@ -337,12 +334,10 @@ chmod 命令支持一种符号表示法，来指定文件模式。符号表示�
     [me@linuxbox ~]$ ls -l foo.txt
     -rw-rw-rw- 1 me   me    0 2008-03-06 14:58 foo.txt
 
-
 当掩码设置为0000（实质上是关掉它）之后，我们看到其他人能够读写文件。为了弄明白这是
 怎么回事，我们需要看一下掩码的八进制形式。把掩码展开成二进制形式，然后与文件属性
 相比较，看看有什么区别：
 
-<center>
 <table class="multi">
 <tr>
 <td valign="top">Original file mode </td>
@@ -357,14 +352,12 @@ chmod 命令支持一种符号表示法，来指定文件模式。符号表示�
 <td valign="top">--- rw- rw- r--</td>
 </tr>
 </table>
-</center>
 
 此刻先忽略掉开头的三个零（我们一会儿再讨论），注意掩码中若出现一个数字1，则
 删除文件模式中和这个1在相同位置的属性，在这是指其他人的写权限。这就是掩码要完成的
 任务。掩码的二进制形式中，出现数字1的位置，相应地关掉一个文件模式属性。看一下
 掩码0022的作用：
 
-<center>
 <table class="multi">
 <tr>
 <td valign="top">Original file mode </td>
@@ -379,13 +372,11 @@ chmod 命令支持一种符号表示法，来指定文件模式。符号表示�
 <td valign="top">--- rw- r-- r--</td>
 </tr>
 </table>
-</center>
 
 又一次，二进制中数字1出现的位置，相对应的属性被删除。再试一下其它的掩码值（一些带数字7的）
 ，习惯于掩码的工作原理。当你实验完成之后，要记得清理现场：
 
     [me@linuxbox ~]$ rm foo.txt; umask 0002
-
 
 大多数情况下，你不必修改掩码值，系统提供的默认掩码值就很好了。然而，在一些高
 安全级别下，你要能控制掩码值。
@@ -454,7 +445,6 @@ su 命令用来以另一个用户的身份来启动 shell。这个命令语法�
 
     su [-[l]] [user]
 
-
 如果包含"-l"选项，那么会为指定用户启动一个需要登录的 shell。这意味着会加载此用户的 shell 环境，
 并且工作目录会更改到这个用户的主目录。这通常是我们所需要的。如果不指定用户，那么就假定是
 超级用户。注意（不可思议地），选项"-l"可以缩写为"-"，这是经常用到的形式。启动超级用户的 shell，
@@ -464,7 +454,6 @@ su 命令用来以另一个用户的身份来启动 shell。这个命令语法�
     Password:
     [root@linuxbox ~]#
 
-
 按下回车符之后，shell 提示我们输入超级用户的密码。如果密码输入正确，出现一个新的 shell 提示符，
 这表明这个 shell 具有超级用户特权（提示符的末尾字符是"#"而不是"$"），并且当前工作目录是超级用户的主目录
 （通常是/root）。一旦进入一个新的 shell，我们能执行超级用户所使用的命令。当工作完成后，
@@ -473,11 +462,9 @@ su 命令用来以另一个用户的身份来启动 shell。这个命令语法�
     [root@linuxbox ~]# exit
     [me@linuxbox ~]$
 
-
 以这样的方式使用 su 命令，也可以只执行单个命令，而不是启动一个新的可交互的 shell：
 
     su -c 'command'
-
 
 使用这种模式，命令传递到一个新 shell 中执行。把命令用单引号引起来很重要，因为我们不想
 命令在我们的 shell 中展开，但需要在新 shell 中展开。
@@ -489,7 +476,6 @@ su 命令用来以另一个用户的身份来启动 shell。这个命令语法�
     /root/Mail:
     total 0
     [me@linuxbox ~]$
-
 
 ### sudo－以另一个用户身份执行命令
 
@@ -503,7 +489,6 @@ sudo 命令，从而允许一个普通用户以不同的身份（通常是超级
     [me@linuxbox ~]$ sudo backup_script
     Password:
     System Backup Starting...
-
 
 按下回车键之后，shell 提示我们输入我们的密码（不是超级用户的）。一旦认证完成，则执行
 具体的命令。su 和 sudo 之间的一个重要区别是 sudo 不会重新启动一个 shell，也不会加载另一个
@@ -585,7 +570,6 @@ janet 把这个文件的所有者更改为 tony:
     [janet@linuxbox ~]$ sudo ls -l ~tony/myfile.txt
     -rw-r--r-- 1 tony  tony 8031 2008-03-20 14:30 /home/tony/myfile.txt
 
-
 这里，我们看到用户 janet 把文件从她的目录复制到 tony 的主目录。下一步，janet 把文件所有者
 从 root（使用 sudo 命令的原因）改到 tony。通过在第一个参数中使用末尾的":"字符，janet 同时把
 文件用户组改为 tony 登录系统时，所属的用户组，碰巧是用户组 tony。
@@ -609,7 +593,7 @@ janet 把这个文件的所有者更改为 tony:
 我们需要做的第一件事，是创建一个以 bill 和 karen 为成员的用户组。使用图形化的用户管理工具，
 bill 创建了一个叫做 music 的用户组，并且把用户 bill 和 karen 添加到用户组 music 中：
 
-![](images/103.png) \\
+![](../images/103.png) \\
 Figure 3: Creating A New Group With GNOME
 {: .figure}
 
@@ -618,13 +602,11 @@ Figure 3: Creating A New Group With GNOME
     [bill@linuxbox ~]$ sudo mkdir /usr/local/share/Music
     password:
 
-
 因为 bill 正在他的主目录之外操作文件，所以需要超级用户权限。这个目录创建之后，它具有
 以下所有权和权限：
 
     [bill@linuxbox ~]$ ls -ld /usr/local/share/Music
     drwxr-xr-x 2 root root 4096 2008-03-21 18:05 /usr/local/share/Music
-
 
 正如我们所见到的，这个目录由 root 用户拥有，并且具有权限755。为了使这个目录共享，允许（用户
 karen）写入，bill 需要更改目录用户组所有权和权限：
@@ -633,7 +615,6 @@ karen）写入，bill 需要更改目录用户组所有权和权限：
     [bill@linuxbox ~]$ sudo chmod 775 /usr/local/share/Music
     [bill@linuxbox ~]$ ls -ld /usr/local/share/Music
     drwxrwxr-x 2 root music 4096 2008-03-21 18:05 /usr/local/share/Music
-
 
 那么这是什么意思呢？
 它的意思是，现在我们拥有一个目录，/usr/local/share/Music，这个目录由 root 用户拥有，并且
@@ -647,7 +628,6 @@ karen）写入，bill 需要更改目录用户组所有权和权限：
     [bill@linuxbox ~]$ ls -l /usr/local/share/Music
     -rw-r--r-- 1 bill    bill    0 2008-03-24 20:03 test_file
 
-
 实际上，存在两个问题。第一个，系统中默认的掩码值是0022，这会禁止用户组成员编辑属于同
 组成员的文件。如果共享目录中只包含文件，这就不是个问题，但是因为这个目录将会存储音乐，
 通常音乐会按照艺术家和唱片的层次结构来组织分类。所以用户组成员需要在同组其他成员创建的
@@ -659,7 +639,6 @@ karen）写入，bill 需要更改目录用户组所有权和权限：
     [bill@linuxbox ~]$ sudo chmod g+s /usr/local/share/Music
     [bill@linuxbox ~]$ ls -ld /usr/local/share/Music
     drwxrwsr-x 2 root music 4096 2008-03-24 20:03 /usr/local/share/Music
-
 
 现在测试一下，看看是否新的权限解决了这个问题。bill 把他的掩码值设为0002，删除
 先前的测试文件，并创建了一个新的测试文件和目录：
@@ -675,7 +654,6 @@ karen）写入，bill 需要更改目录用户组所有权和权限：
     -rw-rw-r-- 1 bill   music 0 2008-03-24 20:22 test_file
     [bill@linuxbox ~]$
 
-
 现在，创建的文件和目录都具有正确的权限，允许用户组 music 的所有成员在目录 Music 中创建
 文件和目录。
 
@@ -689,13 +667,11 @@ karen）写入，bill 需要更改目录用户组所有权和权限：
 
     passwd [user]
 
-
 只要输入 passwd 命令，就能更改你的密码。shell 会提示你输入你的旧密码和你的新密码：
 
     [me@linuxbox ~]$ passwd
     (current) UNIX password:
     New UNIX password:
-
 
 passwd 命令将会试着强迫你使用“强”密码。这意味着，它会拒绝接受太短的密码，与先前相似的密码，
 字典中的单词作为密码，或者是太容易猜到的密码：
@@ -708,7 +684,6 @@ passwd 命令将会试着强迫你使用“强”密码。这意味着，它会�
     BAD PASSWORD: it is WAY too short
     New UNIX password:
     BAD PASSWORD: it is based on a dictionary word
-
 
 如果你具有超级用户权限，你可以指定一个用户名作为 passwd 命令的参数，这样可以设置另一个
 用户的密码。还有其它的 passwd 命令选项对超级用户有效，允许帐号锁定，密码失效，等等。
