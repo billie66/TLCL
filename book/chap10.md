@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 权&nbsp;限 
+title: 权限
 ---
 
 Operating systems in the Unix tradition differ from those in the MS-DOS tradition in
@@ -91,7 +91,7 @@ problem when trying to examine a file such as /etc/shadow:
     /etc/shadow:  regular file, no read permission
     [me@linuxbox ~]$ less /etc/shadow
     /etc/shadow:  Permission denied
-    
+
 The reason for this error message is that, as regular users, we do not have permission to
 read this file.
 
@@ -112,7 +112,7 @@ information about your identity, use the id command:
 
     [me@linuxbox ~]$ id
     uid=500(me) gid=500(me) groups=500(me)
-    
+
 Let's look at the output. When user accounts are created, users are assigned a number
 called a user ID or uid which is then, for the sake of the humans, mapped to a user name.
 The user is assigned a primary group ID or gid and may belong to additional groups. The
@@ -128,7 +128,7 @@ may look a little different:
     uid=1000(me) gid=1000(me)
     groups=4(adm),20(dialout),24(cdrom),25(floppy),29(audio),30(dip),44(v
     ideo),46(plugdev),108(lpadmin),114(admin),1000(me)
-    
+
 As we can see, the uid and gid numbers are different. This is simply because Fedora
 starts its numbering of regular user accounts at 500, while Ubuntu starts at 1000. We can
 also see that the Ubuntu user belongs to a lot more groups. This has to do with the way
@@ -181,7 +181,7 @@ to how this is implemented:
     [me@linuxbox ~]$ > foo.txt
     [me@linuxbox ~]$ ls -l foo.txt
     -rw-rw-r-- 1 me   me   0 2008-03-06 14:52 foo.txt
-    
+
 The first ten characters of the listing are the file attributes. The first of these characters is
 the file type. Here are the file types you are most likely to see (there are other, less
 common types too):
@@ -276,79 +276,79 @@ first.
 能更改文件或目录的模式。chmod 命令支持两种不同的方法来改变文件模式：八进制数字表示法，或
 符号表示法。首先我们讨论一下八进制数字表示法。
 
-<div class="single">
 
-<h3>What The Heck Is Octal?</h3>
-
-<h3>究竟什么是八进制？</h3>
-
-<p>Octal (base 8), and its cousin, hexadecimal (base 16) are number systems often
-used to express numbers on computers. We humans, owing to the fact that we (or
+> What The Heck Is Octal?
+>
+> 究竟什么是八进制？
+>
+> Octal (base 8), and its cousin, hexadecimal (base 16) are number systems
+often used to express numbers on computers. We humans, owing to the fact that we (or
 at least most of us) were born with ten fingers, count using a base 10 number
 system. Computers, on the other hand, were born with only one finger
 and thus do all their counting in binary (base 2). Their number system only
 has two numerals, zero and one. So in binary, counting looks like this:
-</p>
-<p>八进制（以8为基数），和她的亲戚，十六进制（以16为基数）都是数字系统，通常
+>
+> 八进制（以8为基数），和她的亲戚，十六进制（以16为基数）都是数字系统，通常
 被用来表示计算机中的数字。我们人类，因为这个事实（或者至少大多数人）天生具有
 十个手指，利用以10为基数的数字系统来计数。计算机，从另一方面讲，生来只有一个
 手指，因此它以二进制（以2为基数）来计数。它们的数字系统只有两个数值，0和1。
-因此在二进制中，计数看起来像这样：</p>
-
-<p>0, 1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, 1011...</p>
-
-<p>In octal, counting is done with the numerals zero through seven, like
-so:</p>
-
-<p>在八进制中，逢八进一，用数字0到7来计数，像这样：</p>
-
-<p>0, 1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 20, 21...</p>
-
-<p>Hexadecimal counting uses the numerals zero through nine plus the letters “A”
-through “F”:</p>
-<p>十六进制中，使用数字0到9，加上大写字母"A"到"F"来计数，逢16进一：</p>
-
-<p>0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, 10, 11, 12, 13...</p>
-
-<p>While we can see the sense in binary (since computers only have one finger),
+因此在二进制中，计数看起来像这样：
+>
+> 0, 1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, 1011...
+>
+> In octal, counting is done with the numerals zero through seven, like so:
+>
+> 在八进制中，逢八进一，用数字0到7来计数，像这样：
+>
+> 0, 1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 20, 21...
+>
+> Hexadecimal counting uses the numerals zero through nine plus the letters “A” through “F”:
+>
+> 十六进制中，使用数字0到9，加上大写字母"A"到"F"来计数，逢16进一：
+>
+> 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, 10, 11, 12, 13...
+>
+> While we can see the sense in binary (since computers only have one finger),
 what are octal and hexadecimal good for? The answer has to do with human
-convenience. Many times, small portions of data are represented on computers as
-bit patterns. Take for example an RGB color. On most computer displays, each
-pixel is composed of three color components: eight bits of red, eight bits of green,
-and eight bits of blue. A lovely medium blue would be a twenty-four digit
-number:</p>
-<p>虽然我们能知道二进制的意义（因为计算机只有一个手指），但是八进制和十六进制对什么
+convenience. Many times, small portions of data are represented on computers
+as bit patterns. Take for example an RGB color. On most computer displays, each
+pixel is composed of three color components: eight bits of red, eight bits of
+green, and eight bits of blue. A lovely medium blue would be a twenty-four digit
+number:
+>
+> 虽然我们能知道二进制的意义（因为计算机只有一个手指），但是八进制和十六进制对什么
 好处呢？ 答案是为了人类的便利。许多时候，在计算机中，一小部分数据以二进制的形式表示。
 以 RGB 颜色为例来说明。大多数的计算机显示器，每个像素由三种颜色组成：8位红色，8位绿色，
-8位蓝色。这样，一种可爱的中蓝色就由24位数字来表示：</p>
-
-<p>010000110110111111001101</p>
-
-<p>How would you like to read and write those kinds of numbers all day? I didn't
-think so. Here's where another number system would help. Each digit in a
+8位蓝色。这样，一种可爱的中蓝色就由24位数字来表示：
+>
+> 010000110110111111001101
+>
+> How would you like to read and write those kinds of numbers all day? I
+didn't think so. Here's where another number system would help. Each digit in a
 hexadecimal number represents four digits in binary. In octal, each digit
 represents three binary digits. So our twenty-four digit medium blue could be
-condensed down to a six digit hexadecimal number:</p>
-<p>我不认为你每天都喜欢读写这类数字。另一种数字系统对我们更有帮助。每个十六进制
+condensed down to a six digit hexadecimal number:
+>
+> 我不认为你每天都喜欢读写这类数字。另一种数字系统对我们更有帮助。每个十六进制
 数字代表四个二进制。在八进制中，每个数字代表三个二进制数字。那么代表中蓝色的24位
-二进制能够压缩成6位十六进制数：</p>
-
-<p>436FCD</p>
-
-<p>Since the digits in the hexadecimal number “line up” with the bits in the binary
-number we can see that the red component of our color is “43”, the green “6F”,
-and the blue “CD”.</p>
-
-<p>因为十六进制中的两个数字对应二进制的8位数字，我们可以看到”43“代表红色，“6F”
-代表绿色，“CD”代表蓝色。</p>
-
-<p>These days, hexadecimal notation (often spoken as “hex”) is more common than
+二进制能够压缩成6位十六进制数：
+>
+> 436FCD
+>
+> Since the digits in the hexadecimal number “line up” with the bits in the binary
+number we can see that the red component of our color is “43”, the green “6F”, and the blue “CD”.
+>
+> 因为十六进制中的两个数字对应二进制的8位数字，我们可以看到”43“代表红色，“6F”
+代表绿色，“CD”代表蓝色。
+>
+> These days, hexadecimal notation (often spoken as “hex”) is more common than
 octal, but as we shall soon see, octal's ability to express three bits of binary will
-be very useful...</p>
-<p>现在，十六进制表示法（经常叫做“hex”）比八进制更普遍，但是我们很快会看到，用八进制
-来表示3个二进制数非常有用处...</p>
-</div>
-<br />
+be very useful...
+>
+> 现在，十六进制表示法（经常叫做“hex”）比八进制更普遍，但是我们很快会看到，用八进制
+来表示3个二进制数非常有用处...
+{: .single}
+
 
 With octal notation we use octal numbers to set the pattern of desired permissions. Since
 each digit in an octal number represents three binary digits, this maps nicely to the
@@ -358,7 +358,6 @@ scheme used to store the file mode. This table shows what we mean:
 3个二进制数字，这种对应关系，正好映射到用来存储文件模式所使用的方案上。下表展示了
 我们所要表达的意思：
 
-<center>
 <table class="multi">
 <tr>
 <th class="title">Octal</th>
@@ -406,7 +405,6 @@ scheme used to store the file mode. This table shows what we mean:
 <td valign="top">rwx</td>
 </tr>
 </table>
-</center>
 
 By using three octal digits, we can set the file mode for the owner, group owner, and
 world:
@@ -419,7 +417,7 @@ world:
     [me@linuxbox ~]$ chmod 600 foo.txt
     [me@linuxbox ~]$ ls -l foo.txt
     -rw------- 1 me    me    0  2008-03-06 14:52 foo.txt
-    
+
 By passing the argument “600”, we were able to set the permissions of the owner to read
 and write while removing all permissions from the group owner and world. Though
 remembering the octal to binary mapping may seem inconvenient, you will usually only
@@ -609,7 +607,7 @@ attributes. Let's take a look:
     [me@linuxbox ~]$ > foo.txt
     [me@linuxbox ~]$ ls -l foo.txt
     -rw-rw-r-- 1 me   me   0 2008-03-06 14:53 foo.txt
-    
+
 We first removed any old copy of foo.txt to make sure we were starting fresh. Next,
 we ran the umask command without an argument to see the current value. It responded
 with the value 0002 (the value 0022 is another common default value), which is the
@@ -633,7 +631,7 @@ setting the mask ourselves:
     [me@linuxbox ~]$ > foo.txt
     [me@linuxbox ~]$ ls -l foo.txt
     -rw-rw-rw- 1 me   me    0 2008-03-06 14:58 foo.txt
-    
+
 When we set the mask to 0000 (effectively turning it off), we see that the file is now
 world writable. To understand how this works, we have to look at octal numbers again.
 If we take the mask and expand it into binary, then compare it to the attributes we can see
@@ -661,7 +659,7 @@ what happens:
 </center>
 
 Ignore for the moment the leading zeros (we'll get to those in a minute) and observe that
-where the 1 appears in our mask, an attribute was removed—in this case, the world   
+where the 1 appears in our mask, an attribute was removed—in this case, the world
 write permission. That's what the mask does. Everywhere a 1 appears in the binary value
 of the mask, an attribute is unset. If we look at a mask value of 0022, we can see what it
 does:
@@ -696,7 +694,7 @@ remember to clean up:
 ，习惯于掩码的工作原理。当你实验完成之后，要记得清理现场：
 
     [me@linuxbox ~]$ rm foo.txt; umask 0002
-    
+
 Most of the time you won't have to change the mask; the default provided by your
 distribution will be fine. In some high-security situations, however, you will want to
 control it.
@@ -704,20 +702,20 @@ control it.
 大多数情况下，你不必修改掩码值，系统提供的默认掩码值就很好了。然而，在一些高
 安全级别下，你要能控制掩码值。
 
-<div class="single">
-
-<h3>Some Special Permissions</h3>
-<h3>一些特殊权限</h3>
-
-<p>Though we usually see an octal permission mask expressed as a three digit
+> Some Special Permissions
+>
+> 一些特殊权限
+>
+> Though we usually see an octal permission mask expressed as a three digit
 number, it is more technically correct to express it in four digits. Why? Because,
 in addition to read, write, and execute permission, there are some other, less used,
-permission settings.</p>
-<p>虽然我们通常看到一个八进制的权限掩码用三位数字来表示，但是从技术层面上来讲，
+permission settings.
+>
+> 虽然我们通常看到一个八进制的权限掩码用三位数字来表示，但是从技术层面上来讲，
 用四位数字来表示它更确切些。为什么呢？因为，除了读取，写入，和执行权限之外，还有
-其它的，较少用到的权限设置。</p>
-
-<p>The first of these is the setuid bit (octal 4000). When applied to an executable
+其它的，较少用到的权限设置。
+>
+> The first of these is the setuid bit (octal 4000). When applied to an executable
 file, it sets the effective user ID from that of real user (the user actually running
 the program) to that of the program's owner. Most often this is given to a few
 programs owned by the superuser. When an ordinary user runs a program that is
@@ -725,76 +723,81 @@ programs owned by the superuser. When an ordinary user runs a program that is
 This allows the program to access files and directories that an ordinary user
 would normally be prohibited from accessing. Clearly, because this raises
 security concerns, number of setuid programs must be held to an absolute
-minimum.</p>
-<p>其中之一是 setuid 位（八进制4000)。当应用到一个可执行文件时，它把有效用户 ID
+minimum.
+>
+> 其中之一是 setuid 位（八进制4000)。当应用到一个可执行文件时，它把有效用户 ID
 从真正的用户（实际运行程序的用户）设置成程序所有者的 ID。这种操作通常会应用到
 一些由超级用户所拥有的程序。当一个普通用户运行一个程序，这个程序由根用户(root)
 所有，并且设置了 setuid 位，这个程序运行时具有超级用户的特权，这样程序就可以
 访问普通用户禁止访问的文件和目录。很明显，因为这会引起安全方面的问题，所有可以
-设置 setuid 位的程序个数，必须控制在绝对小的范围内。</p>
-
-<p>The second is the setgid bit (octal 2000) which, like the setuid bit, changes the
+设置 setuid 位的程序个数，必须控制在绝对小的范围内。
+>
+> The second is the setgid bit (octal 2000) which, like the setuid bit, changes the
 effective group ID from the real group ID of the user to that of the file owner. If
 the setgid bit is set on a directory, newly created files in the directory will be
 given the group ownership of the directory rather the group ownership of the file's
 creator. This is useful in a shared directory when members of a common group
 need access to all the files in the directory, regardless of the file owner's primary
-group.</p>
-
-<p>第二个是 setgid 位（八进制2000），这个相似于 setuid 位，把有效用户组 ID 从真正的
+group.
+>
+> 第二个是 setgid 位（八进制2000），这个相似于 setuid 位，把有效用户组 ID 从真正的
 用户组 ID 更改为文件所有者的组 ID。如果设置了一个目录的 setgid 位，则目录中新创建的文件
 具有这个目录用户组的所有权，而不是文件创建者所属用户组的所有权。对于共享目录来说，
 当一个普通用户组中的成员，需要访问共享目录中的所有文件，而不管文件所有者的主用户组时，
-那么设置 setgid 位很有用处。</p>
-
-<p>The third is called the sticky bit (octal 1000). This is a holdover from ancient
+那么设置 setgid 位很有用处。
+>
+> The third is called the sticky bit (octal 1000). This is a holdover from ancient
 Unix, where it was possible to mark an executable file as “not swappable.” On
 files, Linux ignores the sticky bit, but if applied to a directory, it prevents users
 from deleting or renaming files unless the user is either the owner of the directory,
 the owner of the file, or the superuser. This is often used to control access to a
-shared directory, such as /tmp.</p>
-
-<p>第三个是 sticky 位（八进制1000）。这个继承于 Unix，在 Unix 中，它可能把一个可执行文件
+shared directory, such as /tmp.
+>
+> 第三个是 sticky 位（八进制1000）。这个继承于 Unix，在 Unix 中，它可能把一个可执行文件
 标志为“不可交换的”。在 Linux 中，会忽略文件的 sticky 位，但是如果一个目录设置了 sticky 位，
 那么它能阻止用户删除或重命名文件，除非用户是这个目录的所有者，或者是文件所有者，或是
-超级用户。这个经常用来控制访问共享目录，比方说/tmp。</p>
+超级用户。这个经常用来控制访问共享目录，比方说/tmp。
+>
+> Here are some examples of using chmod with symbolic notation to set these
+special permissions. First assigning setuid to a program:
+>
+> 这里有一些例子，使用 chmod 命令和符号表示法，来设置这些特殊的权限。首先，
+授予一个程序 setuid 权限。
+>
+> chmod u+s program
+>
+> Next, assigning setgid to a directory:
+>
+> 下一步，授予一个目录 setgid 权限：
+>
+> chmod g+s dir
+>
+> Finally, assigning the sticky bit to a directory:
+>
+> 最后，授予一个目录 sticky 权限：
+>
+> chmod +t dir
+>
+> When viewing the output from ls, you can determine the special permissions.
+Here are some examples. First, a program that is setuid:
+>
+> 当浏览 ls 命令的输出结果时，你可以确认这些特殊权限。这里有一些例子。首先，一个程序被设置为setuid属性：
+>
+> -rwsr-xr-x
+>
+> A directory that has the setgid attribute:
+>
+> 具有 setgid 属性的目录：
+>
+> drwxrwsr-x
+>
+> A directory with the sticky bit set:
+>
+> 设置了 sticky 位的目录：
+>
+> drwxrwxrwt
+{: .single}
 
-<p>Here are some examples of using chmod with symbolic notation to set these
-special permissions. First assigning setuid to a program:</p>
-<p>这里有一些例子，使用 chmod 命令和符号表示法，来设置这些特殊的权限。首先，
-授予一个程序 setuid 权限。</p>
-
-<p>chmod u+s program</p>
-
-<p>Next, assigning setgid to a directory:</p>
-
-<p>下一步，授予一个目录 setgid 权限：</p>
-
-<p>chmod g+s dir</p>
-
-<p>Finally, assigning the sticky bit to a directory:</p>
-<p>最后，授予一个目录 sticky 权限：</p>
-
-<p>chmod +t dir</p>
-
-<p>When viewing the output from ls, you can determine the special permissions.
-Here are some examples. First, a program that is setuid:</p>
-<p>当浏览 ls 命令的输出结果时，你可以确认这些特殊权限。这里有一些例子。首先，一个程序被设置为setuid属性：</p>
-
-<p>-rwsr-xr-x</p>
-
-<p>A directory that has the setgid attribute:</p>
-<p>具有 setgid 属性的目录：</p>
-
-<p>drwxrwsr-x</p>
-
-<p>A directory with the sticky bit set:</p>
-<p>设置了 sticky 位的目录：</p>
-
-<p>drwxrwxrwt</p>
-
-</div>
-<br />
 
 ### Changing Identities
 
@@ -842,7 +845,7 @@ this:
 su 命令用来以另一个用户的身份来启动 shell。这个命令语法看起来像这样：
 
     su [-[l]] [user]
-    
+
 
 If the “-l” option is included, the resulting shell session is a login shell for the specified
 user. This means that the user's environment is loaded and the working directory is
@@ -859,7 +862,7 @@ this:
     [me@linuxbox ~]$ su -
     Password:
     [root@linuxbox ~]#
-    
+
 
 After entering the command, we are prompted for the superuser's password. If it is
 successfully entered, a new shell prompt appears indicating that this shell has superuser
@@ -875,7 +878,7 @@ shell:
 
     [root@linuxbox ~]# exit
     [me@linuxbox ~]$
-    
+
 
 It is also possible to execute a single command rather than starting a new interactive
 command by using su this way:
@@ -883,7 +886,7 @@ command by using su this way:
 以这样的方式使用 su 命令，也可以只执行单个命令，而不是启动一个新的可交互的 shell：
 
     su -c 'command'
-    
+
 
 Using this form, a single command line is passed to the new shell for execution. It is
 important to enclose the command in quotes, as we do not want expansion to occur in our
@@ -895,11 +898,11 @@ shell, but rather in the new shell:
     [me@linuxbox ~]$ su -c 'ls -l /root/*'
     Password:
     -rw------- 1 root root    754 2007-08-11 03:19 /root/anaconda-ks.cfg
-    
+
     /root/Mail:
     total 0
     [me@linuxbox ~]$
-    
+
 
 ### sudo – Execute A Command As Another User
 
@@ -925,7 +928,7 @@ sudo 命令，从而允许一个普通用户以不同的身份（通常是超级
     [me@linuxbox ~]$ sudo backup_script
     Password:
     System Backup Starting...
-    
+
 
 After entering the command, we are prompted for our password (not the superuser's) and
 once the authentication is complete, the specified command is carried out. One important
@@ -946,65 +949,59 @@ To see what privileges are granted by sudo, use the “-l” option to list them
     [me@linuxbox ~]$ sudo -l
     User me may run the following commands on this host:
     (ALL) ALL
-    
 
-<br />
-
-<div class="single">
-
-<h3>Ubuntu And sudo</h3>
-<h3>Ubuntu 与 sudo</h3>
-
-<p>One of the recurrent problems for regular users is how to perform certain tasks
+> Ubuntu And sudo
+>
+> Ubuntu 与 sudo
+>
+> One of the recurrent problems for regular users is how to perform certain tasks
 that require superuser privileges. These tasks include installing and updating
 software, editing system configuration files, and accessing devices. In the
 Windows world, this is often done by giving users administrative privileges. This
 allows users to perform these tasks. However, it also enables programs executed
 by the user to have the same abilities. This is desirable in most cases, but it also
 permits malware (malicious software) such as viruses to have free reign of the
-computer.</p>
-
-<p>普通用户经常会遇到这样的问题，怎样完成某些需要超级用户权限的任务。这些任务
+computer.
+>
+> 普通用户经常会遇到这样的问题，怎样完成某些需要超级用户权限的任务。这些任务
 包括安装和更新软件，编辑系统配置文件，和访问设备。在 Windows 世界里，这些任务是
 通过授予用户管理员权限来完成的。这允许用户执行这些任务。然而，这也会导致用户所
 执行的程序拥有同样的能力。在大多数情况下，这是我们所期望的，但是它也允许 malware
-（恶意软件），比方说电脑病毒，自由地支配计算机。</p>
-
-<p>In the Unix world, there has always been a larger division between regular users
+（恶意软件），比方说电脑病毒，自由地支配计算机。
+>
+> In the Unix world, there has always been a larger division between regular users
 and administrators, owing to the multi-user heritage of Unix. The approach taken
 in Unix is to grant superuser privileges only when needed. To do this, the su and
-sudo commands are commonly used.</p>
-
-<p>在 Unix 世界中，由于 Unix 是多用户系统，所以在普通用户和管理员之间总是存在很大的
+sudo commands are commonly used.
+>
+> 在 Unix 世界中，由于 Unix 是多用户系统，所以在普通用户和管理员之间总是存在很大的
 差别。Unix 采取的方法是只有在需要的时候，才授予普通用户超级用户权限。这样，普遍会
-用到 su 和 sudo 命令。</p>
-
-<p>Up until a couple of years ago, most Linux distributions relied on su for this
+用到 su 和 sudo 命令。
+>
+> Up until a couple of years ago, most Linux distributions relied on su for this
 purpose. su didn't require the configuration that sudo required, and having a
 root account is traditional in Unix. This introduced a problem. Users were
 tempted to operate as root unnecessarily. In fact, some users operated their
 systems as the root user exclusively, since it does away with all those annoying
 “permission denied” messages. This is how you reduce the security of a Linux
-system to that of a Windows system. Not a good idea.</p>
-
-<p>几年前，大多数的 Linux 发行版都依赖于 su 命令，来达到目的。su 命令不需要 sudo 命令
+system to that of a Windows system. Not a good idea.
+>
+> 几年前，大多数的 Linux 发行版都依赖于 su 命令，来达到目的。su 命令不需要 sudo 命令
 所要求的配置，su 命令拥有一个 root 帐号，是 Unix 中的传统。但这会引起问题。所有用户
 会企图以 root 用户帐号来操纵系统。事实上，一些用户专门以 root 用户帐号来操作系统，
 因为这样做，的确消除了所有那些讨厌的“权限被拒绝”的消息。相比于 Windows 系统安全性而言，
-这样做，你就削弱了 Linux 系统安全性能。不是一个好主意。</p>
-
-<p>When Ubuntu was introduced, its creators took a different tack. By default,
+这样做，你就削弱了 Linux 系统安全性能。不是一个好主意。
+>
+> When Ubuntu was introduced, its creators took a different tack. By default,
 Ubuntu disables logins to the root account (by failing to set a password for the
 account), and instead uses sudo to grant superuser privileges. The initial user
 account is granted full access to superuser privileges via sudo and may grant
-similar powers to subsequent user accounts.</p>
-
-<p>当引进 Ubuntu 的时候，它的创作者们采取了不同的策略。默认情况下，Ubuntu 不允许用户登录
+similar powers to subsequent user accounts.
+>
+> 当引进 Ubuntu 的时候，它的创作者们采取了不同的策略。默认情况下，Ubuntu 不允许用户登录
 到 root 帐号（因为不能为 root 帐号设置密码），而是使用 sudo 命令授予普通用户超级用户权限。
-通过 sudo 命令，最初的用户可以拥有超级用户权限，也可以授予随后的用户帐号相似的权力。</p>
-
-</div>
-<br />
+通过 sudo 命令，最初的用户可以拥有超级用户权限，也可以授予随后的用户帐号相似的权力。
+{: .single}
 
 ### chown – Change File Owner And Group
 
@@ -1018,7 +1015,7 @@ chown 命令被用来更改文件或目录的所有者和用户组。使用这�
 的语法看起来像这样：
 
     chown [owner][:[group]] file...
-    
+
 
 chown can change the file owner and/or the file group owner depending on the first
 argument of the command. Here are some examples:
@@ -1091,7 +1088,7 @@ janet 把这个文件的所有者更改为 tony:
     [janet@linuxbox ~]$ sudo chown tony: ~tony/myfile.txt
     [janet@linuxbox ~]$ sudo ls -l ~tony/myfile.txt
     -rw-r--r-- 1 tony  tony 8031 2008-03-20 14:30 /home/tony/myfile.txt
-    
+
 Here we see user janet copy the file from her directory to the home directory of user
 tony. Next, janet changes the ownership of the file from root (a result of using
 sudo) to tony. Using the trailing colon in the first argument, janet also changed the
@@ -1122,7 +1119,7 @@ same way as chown, except for being more limited.
 
 ### Exercising Our Privileges
 
-### 练习使用权限 
+### 练习使用权限
 
 Now that we have learned how this permissions thing works, it's time to show
 it off. We are going to demonstrate the solution to a common problem — setting
@@ -1144,8 +1141,9 @@ called music and adds users bill and karen to it:
 我们需要做的第一件事，是创建一个以 bill 和 karen 为成员的用户组。使用图形化的用户管理工具，
 bill 创建了一个叫做 music 的用户组，并且把用户 bill 和 karen 添加到用户组 music 中：
 
-<p style="text-align:center"><img src="./images/103.png" alt="file properties" /></p>
-<p class="figure">Figure 3: Creating A New Group With GNOME</p>
+![](images/103.png) \\
+Figure 3: Creating A New Group With GNOME
+{: .figure}
 
 Next, bill creates the directory for the music files:
 
@@ -1153,7 +1151,7 @@ Next, bill creates the directory for the music files:
 
     [bill@linuxbox ~]$ sudo mkdir /usr/local/share/Music
     password:
-    
+
 Since bill is manipulating files outside his home directory, superuser privileges are
 required. After the directory is created, it has the following ownerships and permissions:
 
@@ -1162,7 +1160,7 @@ required. After the directory is created, it has the following ownerships and pe
 
     [bill@linuxbox ~]$ ls -ld /usr/local/share/Music
     drwxr-xr-x 2 root root 4096 2008-03-21 18:05 /usr/local/share/Music
-    
+
 As we can see, the directory is owned by root and has 755 permissions. To make this
 directory sharable, bill needs to change the group ownership and the group permissions
 to allow writing:
@@ -1174,7 +1172,7 @@ karen）写入，bill 需要更改目录用户组所有权和权限：
     [bill@linuxbox ~]$ sudo chmod 775 /usr/local/share/Music
     [bill@linuxbox ~]$ ls -ld /usr/local/share/Music
     drwxrwxr-x 2 root music 4096 2008-03-21 18:05 /usr/local/share/Music
-    
+
 So what does this all mean? It means that we now have a directory,
 /usr/local/share/Music that is owned by root and allows read and write
 access to group music. Group music has members bill and karen, thus bill and
@@ -1196,7 +1194,7 @@ karen:
     [bill@linuxbox ~]$ > /usr/local/share/Music/test_file
     [bill@linuxbox ~]$ ls -l /usr/local/share/Music
     -rw-r--r-- 1 bill    bill    0 2008-03-24 20:03 test_file
-    
+
 Actually there are two problems. First, the default umask on this system is 0022 which
 prevents group members from writing files belonging to other members of the group.
 This would not be a problem if the shared directory only contained files, but since this
@@ -1220,7 +1218,7 @@ directory:
     [bill@linuxbox ~]$ sudo chmod g+s /usr/local/share/Music
     [bill@linuxbox ~]$ ls -ld /usr/local/share/Music
     drwxrwsr-x 2 root music 4096 2008-03-24 20:03 /usr/local/share/Music
-    
+
 Now we test to see if the new permissions fix the problem. bill sets his umask to
 0002, removes the previous test file, creates a new test file and directory:
 
@@ -1228,16 +1226,16 @@ Now we test to see if the new permissions fix the problem. bill sets his umask t
 先前的测试文件，并创建了一个新的测试文件和目录：
 
     [bill@linuxbox ~]$ umask 0002
-    
+
     [bill@linuxbox ~]$ rm /usr/local/share/Music/test_file
-    
+
     [bill@linuxbox ~]$ > /usr/local/share/Music/test_file
     [bill@linuxbox ~]$ mkdir /usr/local/share/Music/test_dir
     [bill@linuxbox ~]$ ls -l /usr/local/share/Music
     drwxrwsr-x 2 bill   music 4096 2008-03-24 20:24 test_dir
     -rw-rw-r-- 1 bill   music 0 2008-03-24 20:22 test_file
     [bill@linuxbox ~]$
-    
+
 Both files and directories are now created with the correct permissions to allow all
 members of the group music to create files and directories inside the Music directory.
 
@@ -1263,7 +1261,7 @@ passwd command is used. The command syntax looks like this:
 使用 passwd 命令，来设置或更改用户密码。命令语法如下所示：
 
     passwd [user]
-    
+
 To change your password, just enter the passwd command. You will be prompted for
 your old password and your new password:
 
@@ -1272,7 +1270,7 @@ your old password and your new password:
     [me@linuxbox ~]$ passwd
     (current) UNIX password:
     New UNIX password:
-    
+
 The passwd command will try to enforce use of “strong” passwords. This means the it
 will refuse to accept passwords that are too short, too similar to previous passwords, are
 dictionary words, or too easily guessed:
@@ -1288,7 +1286,7 @@ passwd 命令将会试着强迫你使用“强”密码。这意味着，它会�
     BAD PASSWORD: it is WAY too short
     New UNIX password:
     BAD PASSWORD: it is based on a dictionary word
-    
+
 If you have superuser privileges, you can specify a user name as an argument to the
 passwd command to set the password for another user. There are other options
 available to the superuser to allow account locking, password expiration, etc. See the
@@ -1306,7 +1304,7 @@ passwd man page for details.
 
 * Wikipedia 上面有一篇关于 malware（恶意软件）好文章：
 
-  <http://en.wikipedia.org/wiki/Malware>
+    <http://en.wikipedia.org/wiki/Malware>
 
 There are number of command line programs used to create and maintain users and
 groups. For more information, see the man pages for the following commands:
