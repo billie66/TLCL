@@ -638,101 +638,63 @@ quotes, the backslash loses its special meaning and is treated as an ordinary ch
 为了允许反斜杠字符出现，输入"\\"来转义。注意在单引号中，反斜杠失去它的特殊含义，它
 被看作普通字符。
 
-<div class="single">
-<h3>Backslash Escape Sequences</h3>
-<h3>反斜杠转义字符序列</h3>
-
-<p>In addition to its role as the escape character, the backslash is also used as part of
+> Backslash Escape Sequences
+>
+> 反斜杠转义字符序列
+>
+> In addition to its role as the escape character, the backslash is also used as part of
 a notation to represent certain special characters called control codes. The first
 thirty-two characters in the ASCII coding scheme are used to transmit commands
 to teletype-like devices. Some of these codes are familiar (tab, backspace,
 linefeed, and carriage return), while others are not (null, end-of-transmission, and
-acknowledge).</p>
-<p>反斜杠除了作为转义字符外，反斜杠也是一种表示法的一部分，这种表示法代表某种
+acknowledge).
+>
+> 反斜杠除了作为转义字符外，反斜杠也是一种表示法的一部分，这种表示法代表某种
 特殊字符，叫做控制码。ASCII 编码表中前32个字符被用来把命令转输到像电报机
 一样的设备。一些编码是众所周知的（制表符，退格符，换行符，和回车符），其它
-一些编码就不熟悉了（空值，传输结束码，和确认）。</p>
-
-<table class="multi">
-<tr>
-<th class="title">Escape Sequence</th>
-<th class="title">Meaning</th>
-</tr>
-<tr>
-<td valign="top" width="25%">\a</td>
-<td valign="top">Bell("Alert"-causes the computer to beep)</td>
-</tr>
-<tr>
-<td valign="top">\b</td>
-<td valign="top">Backspace</td>
-</tr>
-<tr>
-<td valign="top">\n</td>
-<td valign="top">Newline. On Unix-like systems, this produces a linefeed.</td>
-</tr>
-<tr>
-<td valign="top">\r</td>
-<td valign="top">Carriage return</td>
-</tr>
-<tr>
-<td valign="top">\t</td>
-<td valign="top">Tab</td>
-</tr>
-</table>
-
-<table class="multi">
-<tr>
-<th class="title"> 转义序列</th>
-<th class="title"> 意思</th>
-</tr>
-<tr>
-<td valign="top" width="25%">\a</td>
-<td valign="top"> 响铃（"警告"－导致计算机嘟嘟响）</td>
-</tr>
-<tr>
-<td valign="top">\b</td>
-<td valign="top"> 退格符</td>
-</tr>
-<tr>
-<td valign="top">\n</td>
-<td valign="top"> 新的一行。在类似 Unix 系统中，产生换行。</td>
-</tr>
-<tr>
-<td valign="top">\r</td>
-<td valign="top"> 回车符</td>
-</tr>
-<tr>
-<td valign="top">\t</td>
-<td valign="top"> 制表符</td>
-</tr>
-</table>
-
-<p> The table above lists some of the common backslash escape sequences. The idea
+一些编码就不熟悉了（空值，传输结束码，和确认）。
+>
+> |---
+> |Escape Sequence|Meaning
+> |:-|:-
+> |\a|Bell("Alert"-causes the computer to beep)
+> |\b|Backspace
+> |\n|Newline. On Unix-like systems, this produces a linefeed.
+> |\r|Carriage return
+> |\t|Tab
+>
+> |---
+> |转义序列|意思
+> |:-:|:-:
+> |\a|响铃（"警告"－导致计算机嘟嘟响
+> |\b|退格符
+> |\n|新的一行。在类似 Unix 系统中，产生换行。
+> |\r|回车符
+> |\t|制表符
+>
+> The table above lists some of the common backslash escape sequences. The idea
 behind this representation using the backslash originated in the C programming
 language and has been adopted by many others, including the shell.
-</p>
-
-<p>上表列出了一些常见的反斜杠转义字符。反斜杠表示法背后的思想来源于 C 编程语言，
-许多其它语言也采用了这种表示方法，包括 shell。</p>
-
-<p>Adding the “-e” option to echo will enable interpretation of escape sequences.
-You may also place them inside $' '. Here, using the sleep command, a
+>
+> 上表列出了一些常见的反斜杠转义字符。反斜杠表示法背后的思想来源于 C 编程语言，
+许多其它语言也采用了这种表示方法，包括 shell。
+>
+> Adding the '-e' option to echo will enable interpretation of escape sequences.
+You may also place them inside $\' \'. Here, using the sleep command, a
 simple program that just waits for the specified number of seconds and then exits,
 we can create a primitive countdown timer:
-</p>
-<p>echo 命令带上"-e"选项，能够解释转义序列。你可以把转义序列放在$' '里面。
+>
+> echo 命令带上 '-e' 选项，能够解释转义序列。你可以把转义序列放在 $\' \' 里面。
 以下例子，使用 sleep 命令，一个简单的程序，它会等待指定的秒数，然后退出。
-我们可以创建一个简单的倒数计数器：</p>
-
-<p><b>sleep 10; echo -e  "Time's up\a"</b></p>
-
-<p>We could also do this:</p>
-<p>我们也可以这样做：</p>
-
-<p><b>sleep 10; echo "Time's up" $'\a'</b></p>
-
-</div>
-<br />
+我们可以创建一个简单的倒数计数器：
+>
+> _sleep 10; echo -e  "Time's up\a"_
+>
+> We could also do this:
+> 我们也可以这样做：
+>
+> _sleep 10; echo "Time's up" $\'\a\'_
+{: .single}
 
 ### Summing Up
 
