@@ -251,7 +251,7 @@ arithmetic, results are integers.)</td>
 </tr>
 <tr>
 <td valign="top">-</td>
-<td valign="top"> &nbsp; 减</td>
+<td valign="top"> 减</td>
 </tr>
 <tr>
 <td valign="top">*</td>
