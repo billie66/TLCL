@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 键盘高级操作技巧 
+title: 键盘高级操作技巧
 ---
 
 I often kiddingly describe Unix as “the operating system for people who like to type.” Of
@@ -266,36 +266,35 @@ word. If the cursor is at the beginning of a word, kill the previous word.</td>
 </tr>
 </table>
 
-<div class="single">
-<h3>The Meta Key</h3>
-<h3>元键</h3>
-
-<p> If you venture into the Readline documentation, which can be found in the
+> The Meta Key
+>
+> 元键
+>
+>  If you venture into the Readline documentation, which can be found in the
 READLINE section of the bash man page, you will encounter the term “meta
 key.” On modern keyboards this maps to the Alt key but it wasn't always so.
-</p>
-
-<p> 如果你冒险进入到 Readline 的文档中，你会在 bash 手册页的 READLINE 段落，
+>
+>  如果你冒险进入到 Readline 的文档中，你会在 bash 手册页的 READLINE 段落，
 遇到一个术语"元键"（meta key）。在当今的键盘上，这个元键是指 Alt 键，但
-并不总是这样。</p>
-<p>Back in the dim times (before PCs but after Unix) not everybody had their own
+并不总是这样。
+>
+> Back in the dim times (before PCs but after Unix) not everybody had their own
 computer. What they might have had was a device called a terminal. A terminal
 was a communication device that featured a text display screen and a keyboard
-and just enough electronics inside to display text characters and move the cursor
-around. It was attached (usually by serial cable) to a larger computer or the
+and just enough electronics inside to display text characters and move the
+cursor around. It was attached (usually by serial cable) to a larger computer or the
 communication network of a larger computer. There were many different brands
-of terminals and they all had different keyboards and display feature sets. Since
-they all tended to at least understand ASCII, software developers wanting
+of terminals and they all had different keyboards and display feature sets.
+Since they all tended to at least understand ASCII, software developers wanting
 portable applications wrote to the lowest common denominator. Unix systems
-have a very elaborate way of dealing with terminals and their different display
-features. Since the developers of Readline could not be sure of the presence of a
-dedicated extra control key, they invented one and called it “meta.” While the
+have a very elaborate way of dealing with terminals and their different
+display features. Since the developers of Readline could not be sure of the presence
+of a dedicated extra control key, they invented one and called it “meta.” While the
 Alt key serves as the meta key on modern keyboards, you can also press and
-release the Esc key to get the same effect as holding down the Alt key if you're
-still using a terminal (which you can still do in Linux!).
-</p>
-
-<p>回到昏暗的年代（在 PC 之前 Unix 之后），并不是每个人都有他们自己的计算机。
+release the Esc key to get the same effect as holding down the Alt key if
+you're still using a terminal (which you can still do in Linux!).
+>
+> 回到昏暗的年代（在 PC 之前 Unix 之后），并不是每个人都有他们自己的计算机。
 他们可能有一个叫做终端的设备。一个终端是一种通信设备，它以一个文本显示
 屏幕和一个键盘作为其特色，它里面有足够的电子器件来显示文本字符和移动光标。
 它连接到（通常通过串行电缆）一个更大的计算机或者是一个大型计算机的通信
@@ -305,9 +304,8 @@ Unix 系统有一个非常精巧的方法来处理各种终端产品和它们不
 Readline 程序的开发者们，不能确定一个专用多余的控制键的存在，他们发明了一个
 控制键，并把它叫做"元"（"meta"）。然而在现代的键盘上，Alt 键作为元键来服务。
 如果你仍然在使用终端（在 Linux 中，你仍然可以得到一个终端），你也可以按下和
-释放 Esc 键来得到如控制 Alt 键一样的效果。</p>
-</div>
-<br />
+释放 Esc 键来得到如控制 Alt 键一样的效果。
+{: .single}
 
 ### Completion
 
@@ -393,7 +391,7 @@ completion:
 </tr>
 <tr>
 <td valign="top" width="25%">Alt-?</td>
-<td valign="top">Display list of possible completions. On most systems you can 
+<td valign="top">Display list of possible completions. On most systems you can
 also do this by pressing the tab key a second time, which is much easier.</td>
 </tr>
 <tr>
@@ -420,31 +418,32 @@ to use more than one possible match.</td>
 </tr>
 </table>
 
-
-<div class="single">
-<h3>Programmable Completion</h3>
-<h3>可编程自动补全</h3>
-
-<p>Recent versions of bash have a facility called programmable completion.
-Programmable completion allows you (or more likely, your distribution provider)
-to add additional completion rules. Usually this is done to add support for
-specific applications. For example it is possible to add completions for the option
-list of a command or match particular file types that an application supports.
+> Programmable Completion
+>
+> 可编程自动补全
+>
+> Recent versions of bash have a facility called programmable completion.
+Programmable completion allows you (or more likely, your distribution
+provider) to add additional completion rules. Usually this is done to add support for
+specific applications. For example it is possible to add completions for the
+option list of a command or match particular file types that an application supports.
 Ubuntu has a fairly large set defined by default. Programmable completion is
-implemented by shell functions, a kind of mini shell script that we will cover in
-later chapters. If you are curious, try:
-</p>
-<p>目前的 bash 版本有一个叫做可编程自动补全工具。可编程自动补全允许你（更可能是，你的
+implemented by shell functions, a kind of mini shell script that we will cover
+in later chapters. If you are curious, try:
+>
+> 目前的 bash 版本有一个叫做可编程自动补全工具。可编程自动补全允许你（更可能是，你的
 发行版提供商）来加入额外的自动补全规则。通常需要加入对特定应用程序的支持，来完成这个
 任务。例如，有可能为一个命令的选项列表，或者一个应用程序支持的特殊文件类型加入自动补全。
-默认情况下，Ubuntu 已经定义了一个相当大的规则集合。可编程自动补全是由 shell 函数实现的，
-shell 函数是一种小巧的 shell 脚本，我们会在后面的章节中讨论到。如果你感到好奇，试一下：</p>
+默认情况下，Ubuntu 已经定义了一个相当大的规则集合。可编程自动补全是由 shell
+函数实现的，shell 函数是一种小巧的 shell 脚本，我们会在后面的章节中讨论到。如果你感到好奇，试一下：
+>
+> _set | less_
+>
+> and see if you can find them. Not all distributions include them by default.
+>
+> 查看一下如果你能找到它们的话。默认情况下，并不是所有的发行版都包括它们。
+{: .single}
 
-<p><b>set | less</b></p>
-<p>and see if you can find them. Not all distributions include them by default.  </p>
-<p>查看一下如果你能找到它们的话。默认情况下，并不是所有的发行版都包括它们。</p>
-</div>
-<br />
 
 ### Using History
 
@@ -570,7 +569,7 @@ command line.</td>
 </tr>
 <tr>
 <td valign="top">Ctrl-r </td>
-<td valign="top">Reverse incremental search. Searches incrementally from the 
+<td valign="top">Reverse incremental search. Searches incrementally from the
 current command line up the history list.</td>
 </tr>
 <tr>
@@ -703,25 +702,28 @@ explore!
 如果我们再继续讨论的话，我们的头可能要爆炸了。bash 手册页的 HISTORY EXPANSION
 部分详尽地讲述了所有要素。
 
-<div class="single">
-<h3>script</h3>
-<h3>脚本</h3>
-
-<p> In addition to the command history feature in bash, most Linux distributions
+> script
+>
+> 脚本
+>
+> In addition to the command history feature in bash, most Linux distributions
 include a program called script that can be used to record an entire shell
 session and store it in a file. The basic syntax of the command is:
-</p>
-<p>除了 bash 中的命令历史特性，许多 Linux 发行版包括一个叫做 script 的程序，
-这个程序可以记录整个 shell 会话，并把 shell 会话存在一个文件里面。这个命令的基本语法是：</p>
-<p>script [file] </p>
-<p>where file is the name of the file used for storing the recording. If no file is
-specified, the file typescript is used. See the script man page for a
+>
+> 除了 bash 中的命令历史特性，许多 Linux 发行版包括一个叫做 script 的程序，
+这个程序可以记录整个 shell 会话，并把 shell
+会话存在一个文件里面。这个命令的基本语法是：
+>
+> script [file]
+>
+> where file is the name of the file used for storing the recording. If no
+file is specified, the file typescript is used. See the script man page for a
 complete list of the program’s options and features.
-</p>
-<p>命令中的 file 是指用来存储 shell 会话记录的文件名。如果没有指定文件名，则使用文件
-typescript。查看脚本的手册页，可以得到一个关于 script 程序选项和特点的完整列表。</p>
-</div>
-<br />
+>
+> 命令中的 file 是指用来存储 shell 会话记录的文件名。如果没有指定文件名，则使用文件
+typescript。查看脚本的手册页，可以得到一个关于 script 程序选项和特点的完整列表。
+{: .single}
+
 
 ### Summing Up
 
@@ -744,5 +746,5 @@ up more of these tricks. For now, consider them optional and potentially helpful
 
 * Wikipedia 上有一篇关于计算机终端的好文章：
 
-  <http://en.wikipedia.org/wiki/Computer_terminal>
+    <http://en.wikipedia.org/wiki/Computer_terminal>
 
