@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 使用命令 
+title: 使用命令
 ---
 
 Up to this point, we have seen a series of mysterious commands, each with its own
@@ -48,34 +48,33 @@ A command can be one of four different things:
 
 命令可以是下面四种形式之一：
 
-<ol>
-<li> An executable program like all those files we saw in /usr/bin. Within this
+1. An executable program like all those files we saw in /usr/bin. Within this
 category, programs can be compiled binaries such as programs written in C and
 C++, or programs written in scripting languages such as the shell, perl, python,
-ruby, etc.</li>
+ruby, etc.
 
-<li> A command built into the shell itself. bash supports a number of commands
-internally called shell builtins. The cd command, for example, is a shell builtin.</li>
+2. A command built into the shell itself. bash supports a number of commands
+internally called shell builtins. The cd command, for example, is a shell builtin.
 
-<li> A shell function. These are miniature shell scripts incorporated into
+3. A shell function. These are miniature shell scripts incorporated into
 the environment. We will cover configuring the environment and writing shell
-functions in later chapters, but for now, just be aware that they exist.</li>
+functions in later chapters, but for now, just be aware that they exist.
 
-<li> An alias. Commands that we can define ourselves, built from other commands.</li>
-</ol>
+4. An alias. Commands that we can define ourselves, built from other commands.
 
-<ol><li>是一个可执行程序，就像我们所看到的位于目录/usr/bin 中的文件一样。
+^
+1. 是一个可执行程序，就像我们所看到的位于目录/usr/bin 中的文件一样。
 属于这一类的程序，可以编译成二进制文件，诸如用 C 和 C++语言写成的程序,
-也可以是由脚本语言写成的程序，比如说 shell，perl，python，ruby，等等。</li>
+也可以是由脚本语言写成的程序，比如说 shell，perl，python，ruby，等等。
 
-<li>是一个内建于 shell 自身的命令。bash 支持若干命令，内部叫做 shell 内部命令
-(builtins)。例如，cd 命令，就是一个 shell 内部命令。</li>
+1. 是一个内建于 shell 自身的命令。bash 支持若干命令，内部叫做 shell 内部命令
+(builtins)。例如，cd 命令，就是一个 shell 内部命令。
 
-<li>是一个 shell 函数。这些是小规模的 shell 脚本，它们混合到环境变量中。
+1. 是一个 shell 函数。这些是小规模的 shell 脚本，它们混合到环境变量中。
 在后续的章节里，我们将讨论配置环境变量以及书写 shell 函数。但是现在，
-仅仅意识到它们的存在就可以了。</li>
+仅仅意识到它们的存在就可以了。
 
-<li>是一个命令别名。我们可以定义自己的命令，建立在其它命令之上。</li></ol>
+1. 是一个命令别名。我们可以定义自己的命令，建立在其它命令之上。
 
 ### Identifying Commands
 
@@ -356,7 +355,7 @@ this:
 
     man section search_term
 
-For example: 
+For example:
 
 例如：
 
@@ -397,33 +396,32 @@ matching a specified keyword:
 
 whatis 程序显示匹配特定关键字的手册页的名字和一行命令说明：
 
-<div class="single">
 
-<h3>The Most Brutal Man Page Of Them All</h3>
-<h3>最晦涩难懂的手册页</h3>
-
-<p> As we have seen, the manual pages supplied with Linux and other Unix-like
+> The Most Brutal Man Page Of Them All
+>
+> 最晦涩难懂的手册页
+>
+> As we have seen, the manual pages supplied with Linux and other Unix-like
 systems are intended as reference documentation and not as tutorials. Many man
 pages are hard to read, but I think that the grand prize for difficulty has got to go
 to the man page for bash. As I was doing my research for this book, I gave it
 careful review to ensure that I was covering most of its topics. When printed, it's
 over eighty pages long and extremely dense, and its structure makes absolutely no
-sense to a new user. </p>
-
-<p>正如我们所看到的，Linux 和类似于 Unix 的系统提供的手册页，只是打算作为参考手册使用，
+sense to a new user.
+>
+> 正如我们所看到的，Linux 和类似于 Unix 的系统提供的手册页，只是打算作为参考手册使用，
 而不是教材。许多手册页都很难阅读，但是我认为由于阅读难度而能拿到特等奖的手册页应该是 bash
 手册页。因为我正在为这本书做我的研究，所以我很仔细地浏览了整个 bash 手册，为的是确保我讲述了
 大部分的 bash 主题。当把 bash 参考手册整个打印出来，其篇幅有八十多页且内容极其紧密，
-但对于初学者来说，其结构安排毫无意义。</p>
-
-<p> On the other hand, it is very accurate and concise, as well as being extremely
+但对于初学者来说，其结构安排毫无意义。
+>
+> On the other hand, it is very accurate and concise, as well as being extremely
 complete. So check it out if you dare and look forward to the day when you can
-read it and it all makes sense. </p>
-
-<p>另一方面，bash 参考手册的内容非常简明精确，同时也非常完善。所以，如果你有胆量就查看一下，
-并且期望有一天你能读懂它。</p>
-
-</div>
+read it and it all makes sense.
+>
+> 另一方面，bash 参考手册的内容非常简明精确，同时也非常完善。所以，如果你有胆量就查看一下，
+并且期望有一天你能读懂它。
+{: .single}
 
 ### info – Display A Program's Info Entry
 
@@ -591,7 +589,7 @@ each command with a semicolon character. It works like this:
 用";"分开。它像这样工作：
 
     command1; command2; command3...
-    
+
 Here's the example we will use:
 
 我们会用到下面的例子：
@@ -622,7 +620,7 @@ Oops! The name “test” is already taken. Let's try “foo”:
 哦！"test"名字已经被使用了。试一下"foo":
 
     [me@linuxbox ~]$ type foo
-    bash: type: foo: not found 
+    bash: type: foo: not found
 
 Great! “foo” is not taken. So let's create our alias:
 
@@ -719,21 +717,21 @@ additional options are available and try them out!
 
 * The Bash Reference Manual is a reference guide to the bash shell. It’s still a
   reference work but contains examples and is easier to read than the bash man
-  page. 
+  page.
 
 * Bash 参考手册是一本 bash shell 的参考指南。它仍然是一本参考书，但是包含了很多
   实例，而且它比 bash 手册页容易阅读。
 
-  <http://www.gnu.org/software/bash/manual/bashref.html>
+    <http://www.gnu.org/software/bash/manual/bashref.html>
 
 * The Bash FAQ contains answers to frequently asked questions regarding bash.
   This list is aimed at intermediate to advanced users, but contains a lot of
-  good information. 
+  good information.
 
 * Bash FAQ 包含关于 bash，而经常提到的问题的答案。这个列表面向 bash 的中高级用户，
   但它包含了许多有帮助的信息。
 
-  <http://mywiki.wooledge.org/BashFAQ>
+    <http://mywiki.wooledge.org/BashFAQ>
 
 * The GNU Project provides extensive documentation for its programs, which form
   the core of the Linux command line experience. You can see a complete list
@@ -742,11 +740,11 @@ additional options are available and try them out!
 * GUN 项目为它的程序提供了大量的文档，这些文档组成了 Linux 命令行实验的核心。
   这里你可以看到一个完整的列表：
 
-  <http://www.gnu.org/manual/manual.html>
+    <http://www.gnu.org/manual/manual.html>
 
 * Wikipedia has an interesting article on man pages:
-  
-* Wikipedia 有一篇关于手册页的有趣文章：  
 
-  <http://en.wikipedia.org/wiki/Man_page>
+* Wikipedia 有一篇关于手册页的有趣文章：
+
+    <http://en.wikipedia.org/wiki/Man_page>
 

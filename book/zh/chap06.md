@@ -1,6 +1,6 @@
 ---
 layout: book-zh
-title: 使用命令 
+title: 使用命令
 ---
 
 在这之前，我们已经知道了一系列神秘的命令，每个命令都有自己奇妙的
@@ -208,20 +208,19 @@ man 所显示的参考手册，被分成几个章节，它们不仅仅包括用�
 
 whatis 程序显示匹配特定关键字的手册页的名字和一行命令说明：
 
-<div class="single">
 
-<h3>最晦涩难懂的手册页</h3>
-
-<p>正如我们所看到的，Linux 和类似于 Unix 的系统提供的手册页，只是打算作为参考手册使用，
+> 最晦涩难懂的手册页
+>
+> 正如我们所看到的，Linux 和类似于 Unix 的系统提供的手册页，只是打算作为参考手册使用，
 而不是教材。许多手册页都很难阅读，但是我认为由于阅读难度而能拿到特等奖的手册页应该是 bash
 手册页。因为我正在为这本书做我的研究，所以我很仔细地浏览了整个 bash 手册，为的是确保我讲述了
 大部分的 bash 主题。当把 bash 参考手册整个打印出来，其篇幅有八十多页且内容极其紧密，
-但对于初学者来说，其结构安排毫无意义。</p>
+但对于初学者来说，其结构安排毫无意义。
+>
+> 另一方面，bash 参考手册的内容非常简明精确，同时也非常完善。所以，如果你有胆量就查看一下，
+并且期望有一天你能读懂它。
+{: .single}
 
-<p>另一方面，bash 参考手册的内容非常简明精确，同时也非常完善。所以，如果你有胆量就查看一下，
-并且期望有一天你能读懂它。</p>
-
-</div>
 
 ### info －显示程序 Info 条目
 
@@ -307,7 +306,6 @@ gzip 压缩的文本文件的内容。
 用";"分开。它像这样工作：
 
     command1; command2; command3...
-    
 
 我们会用到下面的例子：
 
@@ -328,7 +326,7 @@ gzip 压缩的文本文件的内容。
 哦！"test"名字已经被使用了。试一下"foo":
 
     [me@linuxbox ~]$ type foo
-    bash: type: foo: not found 
+    bash: type: foo: not found
 
 太棒了！"foo"还没被占用。创建命令别名：
 
@@ -388,19 +386,19 @@ gzip 压缩的文本文件的内容。
 * Bash 参考手册是一本 bash shell 的参考指南。它仍然是一本参考书，但是包含了很多
   实例，而且它比 bash 手册页容易阅读。
 
-  <http://www.gnu.org/software/bash/manual/bashref.html>
+    <http://www.gnu.org/software/bash/manual/bashref.html>
 
 * Bash FAQ 包含关于 bash，而经常提到的问题的答案。这个列表面向 bash 的中高级用户，
   但它包含了许多有帮助的信息。
 
-  <http://mywiki.wooledge.org/BashFAQ>
+    <http://mywiki.wooledge.org/BashFAQ>
 
 * GUN 项目为它的程序提供了大量的文档，这些文档组成了 Linux 命令行实验的核心。
   这里你可以看到一个完整的列表：
 
-  <http://www.gnu.org/manual/manual.html>
+    <http://www.gnu.org/manual/manual.html>
 
-* Wikipedia 有一篇关于手册页的有趣文章：  
+* Wikipedia 有一篇关于手册页的有趣文章：
 
-  <http://en.wikipedia.org/wiki/Man_page>
+    <http://en.wikipedia.org/wiki/Man_page>
 
