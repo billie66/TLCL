@@ -1,6 +1,6 @@
 ---
 layout: book
-title: vi 简介 
+title: vi 简介
 ---
 
 There is an old joke about a visitor to New York City asking a passerby for directions to
@@ -86,7 +86,7 @@ use line editing commands while using vi.
 有一次只能操作一行文本的行编辑器。为了指定一个修改，我们告诉行编辑器到一个特殊行并且
 说明做什么修改，比方说添加或删除文本。视频终端（而不是基于打印机的终端，像电传打印机）的出现
 ，可视化编辑成为可能。vi 实际上整合了一个强大的叫做 ex 行编辑器,
-所以我们在使用 vi 时能运行行编辑命令。 
+所以我们在使用 vi 时能运行行编辑命令。
 
 Most Linux distributions don't include real vi; rather, they ship with an enhanced
 replacement called vim (which is short for “vi improved”) written by Bram Moolenaar.
@@ -131,48 +131,49 @@ shell 提示符应该返回。如果由于某种原因，vi 不能退出（通�
 通过给命令加上叹号，我们可以告诉 vi 我们真要退出 vi。
 
     :q!
-    
+
 Tip: If you get “lost” in vi, try pressing the Esc key twice to find your way again.
 
 小贴示：如果你在 vi 中“迷失”了，试着按下 Esc 键两次来找到路（回到普通模式）。
 
-<div class="single">
-<h3>Compatibility Mode</h3>
-<p>In the example startup screen above (taken from Ubuntu 8.04), we see the text
+> Compatibility Mode
+>
+> 兼容模式
+>
+> In the example startup screen above (taken from Ubuntu 8.04), we see the text
 “Running in Vi compatible mode.” This means that vim will run in a mode that
 is closer to the normal behavior of vi rather than the enhanced behavior of vim.
 For purposes of this chapter, we will want to run vim with its enhanced behavior.
-To do this, you have a few options: </p>
-
-<P>上面实例中的启动屏幕（来自于 Ubuntu
+To do this, you have a few options:
+>
+>上面实例中的启动屏幕（来自于 Ubuntu
 8.04），我们看到一行文字“以 Vi 兼容的模式运行”。这意味着 vim 将以近似于 vi 常规的模式
 运行，而不是 vim 的高级规范。为了这章的目的，我们想要使用 vim 的高级规范。要想这样做，
-你有几个选择：</P>
-
-<p>Try running vim instead of vi.</p>
-
-<p>用 vim 来代替 vi。</p>
-
-<p>If that works, consider adding alias vi='vim' to your .bashrc file. </p>
-
-<p>如果命令生效，考虑在你的.bashrc 文件中添加别名 vi='vim'。</p>
-
-<p>Alternately, use this command to add a line to your vim configuration file: </p>
-
-<p>或者，使用这个命令在你的 vim 配置文件中添加一行：</p>
-
-<p>echo "set nocp" &gt;&gt; ~/.vimrc </p>
-
-<p>Different Linux distributions package vim in different ways. Some distributions
+你有几个选择：
+>
+> Try running vim instead of vi.
+>
+> 用 vim 来代替 vi。
+>
+> If that works, consider adding alias vi='vim' to your .bashrc file.
+>
+> 如果命令生效，考虑在你的.bashrc 文件中添加别名 vi='vim'。
+>
+> Alternately, use this command to add a line to your vim configuration file:
+>
+> 或者，使用这个命令在你的 vim 配置文件中添加一行：
+>
+> echo "set nocp" >> ~/.vimrc
+>
+> Different Linux distributions package vim in different ways. Some distributions
 install a minimal version of vim by default that only supports a limiting set of
 vim features. While preforming the lessons that follow, you may encounter
-missing features. If this is the case, install the full version of vim.</p>
-
-<p>不同的 Linux 发行版其 vim 软件包也迥然不同。一些发行版只是安装了 vim 的最小版本，
+missing features. If this is the case, install the full version of vim.
+>
+> 不同的 Linux 发行版其 vim 软件包也迥然不同。一些发行版只是安装了 vim 的最小版本，
 其默认只支持有限的 vim 特性。当练习随后的课程时，你可能会遇到缺失的功能。
-如果是这种情况，就安装 vim 的完整版。</p>
-</div>
-<br />
+如果是这种情况，就安装 vim 的完整版。
+{: .single}
 
 Editing Modes
 
@@ -192,7 +193,7 @@ If all goes well, we should get a screen like this:
 
     ....
     "foo.txt" [New File]
-    
+
 The leading tilde characters (”~”) indicate that no text exists on that line. This shows that
 we have an empty file. Do not type anything yet!
 
@@ -218,13 +219,13 @@ running in its usual enhanced mode (this will not appear in vi compatible mode):
 在屏幕底部看到下面一行，如果 vi 运行在高级模式下（这不会出现在 vi 兼容模式下）：
 
     -- INSERT --
-    
+
 Now we can enter some text. Try this:
 
 现在我们能输入一些文本了。试着输入这些文本：
 
     The quick brown fox jumped over the lazy dog.
-    
+
 To exit insert mode and return to command mode, press the Esc key.
 
 按下 Esc 按键，退出插入模式并返回命令模式。
@@ -455,7 +456,7 @@ Let's go back to our foo.txt file for a moment:
 让我们返回到我们的 foo.txt 文件中，呆一会儿：
 
     The quick brown fox jumped over the lazy dog.
-    
+
 If we wanted to add some text to the end of this sentence, we would discover that the i
 command will not do it, since we can't move the cursor beyond the end of the line. vi
 provides a command to append text, the sensibly named “a” command. If we move the
@@ -548,10 +549,10 @@ We can demonstrate this as follows: place the cursor on “Line 3” then press 
     The quick brown fox jumped over the lazy dog. It was cool.
     Line 2
     Line 3
-    
+
     line 4
     line 5
-    
+
 A new line was opened below the third line and we entered insert mode. Exit insert mode
 by pressing the Esc key. Press the u key to undo our change.
 
@@ -563,7 +564,7 @@ Press the O key to open the line above the cursor:
 
     The quick brown fox jumped over the lazy dog. It was cool.
     Line 2
-    
+
     Line 3
     Line 4
     Line 5
@@ -705,7 +706,7 @@ the word “It” and press dW to delete the word:
     Line 3
     Line 4
     Line 5
-    
+
 Press d$ to delete from the cursor position to the end of the line:
 
 按下 d$删除从光标位置到行尾的文本：
@@ -720,8 +721,8 @@ Press dG to delete from the current line to the end of the file:
 
 按下 dG 按键删除从当前行到文件末尾的所有行：
 
-    
-    ~ 
+
+    ~
     ....
 
 Press u three times to undo the deletion.
@@ -886,7 +887,7 @@ If we place the cursor on line 3 and type the J command, here's what happens:
     Line 2
     Line 3 Line 4
     Line 5
-    
+
 Search And Replace
 
 ### 查找和替换
@@ -931,13 +932,13 @@ string with the n command. Here's an example:
     Line 3
     Line 4
     Line 5
-    
+
 Place the cursor on the first line of the file. Type:
 
 把光标移动到文件的第一行。输入：
 
     /Line
-    
+
 followed by the Enter key. The cursor will move to line 2. Next, type n and the cursor
 will move to line 3. Repeating the n command will move the cursor down the file until it
 runs out of matches. While we have so far only used words and phrases for our search
@@ -961,7 +962,7 @@ vi 使用 ex 命令来执行查找和替代操作（vi 中叫做“替换”）�
 我们输入以下命令：
 
     :%s/Line/line/g
-    
+
 Let's break this command down into separate items and see what each one does:
 
 我们把这个命令分解为几个单独的部分，看一下每部分的含义：
@@ -997,7 +998,7 @@ replace).</td>
 <tr>
 <td valign="top">g</td>
 <td valign="top">This means “global” in the sense that the search and replace is
-performed on every instance of the search string in the line. If omitted, 
+performed on every instance of the search string in the line. If omitted,
 only the first instance of the search string on each line is replaced.</td>
 </tr>
 </table>
@@ -1145,7 +1146,7 @@ can open multiple files for editing by specifying them on the command line:
 另一个文件。通过 vi，我们可以打开多个文件来编辑，只要在命令行中指定要编辑的文件名。
 
     vi file1 file2 file3...
-    
+
 Let's exit our existing vi session and create a new file for editing. Type :wq to exit vi
 saving our modified text. Next, we'll create an additional file in our home directory that
 we can play with. We'll create the file by capturing some output from the ls command:
@@ -1154,7 +1155,7 @@ we can play with. We'll create the file by capturing some output from the ls com
 下一步，我们将在主目录下创建一个额外的用来玩耍的文件。通过获取从 ls 命令的输出，来创建这个文件。
 
     [me@linuxbox ~]$ ls -l /usr/bin > ls-output.txt
-    
+
 Let's edit our old file and our new one with vi:
 
 用 vi 来编辑我们的原文件和新创建的文件：
@@ -1170,7 +1171,7 @@ vi 启动，我们会看到第一个文件显示出来：
     Line 3
     Line 4
     Line 5
-    
+
 Switching Between Files
 
 #### 文件之间转换
@@ -1229,7 +1230,7 @@ used earlier. We can demonstrate as follows. First, using our two files, switch 
 ，输入：
 
     :buffer 1
-    
+
 which should give us this:
 
 我们应该得到以下输出：
@@ -1249,7 +1250,7 @@ Switch to the second buffer by entering:
 转换到第二个缓冲区，输入：
 
     :buffer 2
-    
+
 The screen will now contain some file listings like this (only a portion is shown here):
 
 现在屏幕会包含一些文件列表（这里只列出了一部分）：
@@ -1267,7 +1268,7 @@ typing the p command:
     The quick brown fox jumped over the lazy dog. It was cool.
     -rwxr-xr-x 1 root root    31316  2007-12-05  08:58 [
     ....
-    
+
 Inserting An Entire File Into Another
 
 #### 插入整个文件到另一个文件
@@ -1279,7 +1280,7 @@ let's end our vi session and start a new one with just a single file:
 启动一个只打开一个文件的 vi 会话：
 
     [me@linuxbox ~]$ vi ls-output.txt
-    
+
 We will see our file listing again:
 
 再一次看到我们的文件列表：
@@ -1335,7 +1336,7 @@ foo1.txt, we would enter the following:
 正在编辑 foo.txt 文件，想要保存一个副本，叫做 foo1.txt，那么我们可以执行以下命令：
 
     :w foo1.txt
-    
+
 <br />
 
 ---
