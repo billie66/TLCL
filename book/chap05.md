@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 操作文件和目录 
+title: 操作文件和目录
 ---
 
 At this point, we are ready for some real work! This chapter will introduce
@@ -54,8 +54,8 @@ manager. Pretty easy with the command line:
 到另一个目录，但这些 HTML 文件不存在于目标目录，或者是文件版本新于目标目录里的文件？
 要完成这个任务，使用文件管理器相当难，使用命令行相当容易：
 
-    cp -u *.html destination 
-    
+    cp -u *.html destination
+
 Wildcards
 
 ### 通配符
@@ -291,59 +291,57 @@ talk more about that in Chapter 8.
 
 接受文件名作为参数的任何命令，都可以使用通配符，我们会在第八章更深入的谈到这个知识点。
 
-<div class="single">
-
-<h3>Character Ranges</h3>
-<h3>字符范围</h3>
-
-<p>If you are coming from another Unix-like environment or have been reading
+> Character Ranges
+>
+> 字符范围
+>
+> If you are coming from another Unix-like environment or have been reading
 some other books on this subject, you may have encountered the [A-Z] or the
 [a-z] character range notations. These are traditional Unix notations and
 worked in older versions of Linux as well. They can still work, but you have to
 be very careful with them because they will not produce the expected results
 unless properly configured. For now, you should avoid using them and use
-character classes instead.</p>
-
-<p>如果你用过别的类似 Unix 系统的操作环境，或者是读过这方面的书籍，你可能遇到过[A-Z]或
+character classes instead.
+>
+> 如果你用过别的类似 Unix 系统的操作环境，或者是读过这方面的书籍，你可能遇到过[A-Z]或
 [a-z]形式的字符范围表示法。这些都是传统的 Unix 表示法，并且在早期的 Linux 版本中仍有效。
 虽然它们仍然起作用，但是你必须小心地使用它们，因为它们不会产生你期望的输出结果，除非
-你合理地配置它们。从现在开始，你应该避免使用它们，并且用字符类来代替它们。</p>
-
-<h3>Wildcards Work In The GUI Too</h3>
-<h3>通配符在 GUI 中也有效</h3>
-
-<p>Wildcards are especially valuable not only because they are used so frequently on
-the command line, but are also supported by some graphical file managers.</p>
-
-<p>通配符非常重要，不仅因为它们经常用在命令行中，而且一些图形文件管理器也支持它们。</p>
-
-<ul>
-<li>In Nautilus (the file manager for GNOME), you can select files using the
+你合理地配置它们。从现在开始，你应该避免使用它们，并且用字符类来代替它们。
+>
+> Wildcards Work In The GUI Too
+>
+> 通配符在 GUI 中也有效
+>
+> Wildcards are especially valuable not only because they are used so frequently on
+the command line, but are also supported by some graphical file managers.
+>
+> 通配符非常重要，不仅因为它们经常用在命令行中，而且一些图形文件管理器也支持它们。
+>
+> * In Nautilus (the file manager for GNOME), you can select files using the
 Edit/Select Pattern menu item. Just enter a file selection pattern with
 wildcards and the files in the currently viewed directory will be highlighted
-for selection.</li>
-<li>In Dolphin and Konqueror (the file managers for KDE), you can enter
+for selection.
+>
+> * In Dolphin and Konqueror (the file managers for KDE), you can enter
 wildcards directly on the location bar. For example, if you want to see all the
-files starting with a lowercase “u” in the /usr/bin directory, type “/usr/bin/u*” 
-into the location bar and it will display the result.  </li>
-</ul>
-
-<ul><li>在 Nautilus (GNOME 文件管理器）中，可以通过 Edit/Select 模式菜单项来选择文件。
+files starting with a lowercase “u” in the /usr/bin directory, type “/usr/bin/u*”
+into the location bar and it will display the result.
+>
+> * 在 Nautilus (GNOME 文件管理器）中，可以通过 Edit/Select 模式菜单项来选择文件。
 输入一个用通配符表示的文件选择模式后，那么当前所浏览的目录中，所匹配的文件名
-就会高亮显示。</li>
-
-<li>在 Dolphin 和 Konqueror（KDE 文件管理器）中，可以在地址栏中直接输入通配符。例如，如果你
+就会高亮显示。
+>
+> * 在 Dolphin 和 Konqueror（KDE 文件管理器）中，可以在地址栏中直接输入通配符。例如，如果你
 想查看目录 /usr/bin 中，所有以小写字母 "u" 开头的文件，在地址栏中敲入 "/usr/bin/u*"，则
-文件管理器会显示匹配的结果。</li></ul>
-
-<p>Many ideas originally found in the command line interface make their way into
+文件管理器会显示匹配的结果。
+>
+> Many ideas originally found in the command line interface make their way into
 the graphical interface, too. It is one of the many things that make the Linux
-desktop so powerful.</p>
-
-<p>最初源于命令行界面中的想法，在图形界面中也适用。这就是使 Linux 桌面系统
-如此强大的众多原因中的一个。</p>
-</div>
-<br />
+desktop so powerful.
+>
+> 最初源于命令行界面中的想法，在图形界面中也适用。这就是使 Linux 桌面系统
+如此强大的众多原因中的一个
+{: .single}
 
 ### mkdir — Create Directories
 
@@ -352,7 +350,6 @@ The mkdir command is used to create directories. It works like this:
 mkdir 命令是用来创建目录的。它这样工作：
 
     mkdir directory...
-    
 
 __A note on notation:__ When three periods follow an argument in the
 description of a command (as above), it means that the argument can be
@@ -362,13 +359,13 @@ __注意表示法:__ 在描述一个命令时（如上所示），当有三个�
 这意味着那个参数可以重复，就像这样：
 
     mkdir dir1
-    
+
 would create a single directory named "dir1", while
 
 会创建一个名为"dir1"的目录，而
 
     mkdir dir1 dir2 dir3
-    
+
 would create three directokries named "dir1", "dir2", "dir3".
 
 会创建三个目录，名为"dir1", "dir2", "dir3"。
@@ -382,13 +379,13 @@ The cp command copies files or directories. It can be used two dfferent ways:
 cp 命令，复制文件或者目录。它有两种使用方法：
 
     cp item1 item2
-    
+
 to copy the single file or directory “item1” to file or directory “item2” and:
 
 复制单个文件或目录"item1"到文件或目录"item2"，和：
 
     cp item... directory
-    
+
 to copy multiple items (either files or directories) into a directory.
 
 复制多个项目（文件或目录）到一个目录下。
@@ -557,13 +554,13 @@ mv 命令可以执行文件移动和文件命名任务，这依赖于你怎样�
 情况下，完成操作之后，原来的文件名不再存在。mv 使用方法与 cp 很相像：
 
     mv item1 item2
-    
+
 to move or rename file or directory “item1” to “item2” or:
 
 把文件或目录 “item1” 移动或重命名为 “item2”, 或者：
 
     mv item... directory
-    
+
 to move one or more items from one directory to another.
 
 把一个或多个条目从一个目录移动到另一个目录中。
@@ -585,7 +582,7 @@ mv 与 cp 共享了很多一样的选项：
 <tr>
 <td valign="top" width="25%">-i --interactive</td>
 <td valign="top">Before overwriting an existing file, prompt the user for
-confirmation. <b>If this option is not specified, mv command will silently 
+confirmation. <b>If this option is not specified, mv command will silently
 overwrite files</b></td>
 </tr>
 <tr>
@@ -639,7 +636,7 @@ prompted before it is overwritten.</td>
 </tr>
 <tr>
 <td valign="top">mv file1 file2 dir1</td>
-<td valign="top">Move file1 and file2 into dirctory dir1. dir1 must 
+<td valign="top">Move file1 and file2 into dirctory dir1. dir1 must
 already exist.
 </td>
 </tr>
@@ -682,7 +679,7 @@ The rm command is used to remove(delete)files and directories:
 rm 命令用来移除（删除）文件和目录：
 
     rm item...
-    
+
 
 where "item" is one or more files or directories.
 
@@ -793,8 +790,7 @@ exist, rm will continue silently.</td>
 </tr>
 <tr>
 <td valign="top">rm -i file1</td>
-<td valign="top">除了在删除文件之前，提示用户
-确认信息之外，和上面的命令作用一样。</td>
+<td valign="top">除了在删除文件之前，提示用户确认信息之外，和上面的命令作用一样。</td>
 </tr>
 <tr>
 <td valign="top">rm -r file1 dir1</td>
@@ -802,52 +798,50 @@ exist, rm will continue silently.</td>
 </tr>
 <tr>
 <td valign="top">rm -rf file1 dir1</td>
-<td
-valign="top">同上，除了如果文件 file1，或目录 dir1不存在的话，rm 仍会继续执行。</td>
+<td valign="top">同上，除了如果文件 file1，或目录 dir1不存在的话，rm 仍会继续执行。</td>
 </tr>
 </table>
 
-<div class="single">
-<h3>Be Careful With rm!</h3>
-
-<h3>小心 rm!</h3>
-
-<p>Unix-like operating systems such as Linux do not have an undelete command.
+> Be Careful With rm!
+>
+> 小心 rm!
+>
+> Unix-like operating systems such as Linux do not have an undelete command.
 Once you delete something with rm, it's gone. Linux assumes you're smart and
-you know what you're doing.  </p>
-
-<p>类似于 Unix 的操作系统，比如说 Linux，没有复原命令。一旦你用 rm 删除了一些东西，
-它就消失了。Linux 假定你很聪明，你知道你在做什么。</p>
-
-<p>Be particularly careful with wildcards. Consider this classic example. Let's say
-you want to delete just the HTML files in a directory. To do this, you type:  </p>
-
-<p>rm *.html </p>
-
-<p>尤其要小心通配符。思考一下这个经典的例子。假如说，你只想删除一个目录中的 HTML
-文件。输入： rm *.html</p>
-
-<p>which is correct, but if you accidentally place a space between the “*” and the
-“.html” like so:</p>
-
-<p>这是正确的，如果你不小心在"*"和".html"之间多输入了一个空格，就像这样：</p>
-<p>rm * .html</p>
-
-<p>the rm command will delete all the files in the directory and then complain that
-there is no file called “.html”.</p>
-
-<p>这个 rm 命令会删除目录中的所有文件，还会抱怨没有文件叫做".html"。</p>
-
-<p><b>Here is a useful tip.</b> Whenever you use wildcards with rm (besides carefully
+you know what you're doing.
+>
+> 类似于 Unix 的操作系统，比如说 Linux，没有复原命令。一旦你用 rm 删除了一些东西，
+它就消失了。Linux 假定你很聪明，你知道你在做什么。
+>
+> Be particularly careful with wildcards. Consider this classic example. Let's say
+you want to delete just the HTML files in a directory. To do this, you type:
+>
+> rm *.html
+>
+> 尤其要小心通配符。思考一下这个经典的例子。假如说，你只想删除一个目录中的 HTML
+文件。输入： rm *.html
+>
+> which is correct, but if you accidentally place a space between the “*” and the
+“.html” like so:
+>
+> 这是正确的，如果你不小心在"*"和".html"之间多输入了一个空格，就像这样：
+> rm * .html
+>
+> the rm command will delete all the files in the directory and then complain that
+there is no file called “.html”.
+>
+> 这个 rm 命令会删除目录中的所有文件，还会抱怨没有文件叫做".html"。
+>
+> _Here is a useful tip._ Whenever you use wildcards with rm (besides carefully
 checking your typing!), test the wildcard first with ls. This will let you see the
 files that will be deleted. Then press the up arrow key to recall the command and
-replace the ls with rm.</p>
-
-<p><b>小贴士。</b>无论什么时候，rm 命令用到通配符（除了仔细检查输入的内容外！），
+replace the ls with rm.
+>
+> _小贴士。_ 无论什么时候，rm 命令用到通配符（除了仔细检查输入的内容外！），
 用 ls 命令来测试通配符。这会让你看到要删除的文件列表。然后按下上箭头按键，重新调用
-刚刚执行的命令，用 rm 替换 ls。</p>
-</div>
-<br />
+刚刚执行的命令，用 rm 替换 ls。
+{: .single}
+
 
 ### In — Create Links
 
@@ -856,11 +850,11 @@ replace the ls with rm.</p>
 The ln command is used to create either hard or symbolic links. It is used in one of two
 ways:
 
-ln 命令即可创建硬链接，也可以创建符号链接。可以用其中一种方法来使用它： 
+ln 命令即可创建硬链接，也可以创建符号链接。可以用其中一种方法来使用它：
 
     ln file link
 
-to create a hard link, and: 
+to create a hard link, and:
 
 创建硬链接，和：
 
@@ -888,9 +882,11 @@ may not reference a file that is not on the same disk partition as the link itse
 
 2. A hard link may not reference a directory.
 
-<ol><li>一个硬链接不能关联它所在文件系统之外的文件。这是说一个链接不能关联
-与链接本身不在同一个磁盘分区上的文件。</li>
-<li>一个硬链接不能关联一个目录。</li></ol>
+^
+1. 一个硬链接不能关联它所在文件系统之外的文件。这是说一个链接不能关联
+与链接本身不在同一个磁盘分区上的文件。
+
+2. 一个硬链接不能关联一个目录。
 
 A hard link is indistinguishable from the file itself. Unlike a symbolic link, when you list
 a directory containing a hard link you will see no special indication of the link. When a
@@ -965,7 +961,7 @@ mkdir 命令被用来创建目录。首先确定我们在我们的主目录下�
 
     [me@linuxbox ~]$ cd
     [me@linuxbox ~]$ mkdir playground
-    
+
 To make our playground a little more interesting, let's create a couple of directories inside
 it called “dir1” and “dir2”. To do this, we will change our current working directory to
 playground and execute another mkdir:
@@ -976,7 +972,7 @@ playground and execute another mkdir:
 
     [me@linuxbox ~]$ cd playground
     [me@linuxbox playground]$ mkdir dir1 dir2
-    
+
 Notice that the mkdir command will accept multiple arguments allowing us to create
 both directories with a single command.
 
@@ -995,7 +991,7 @@ working directory:
 使用 cp 命令，我们从/etc 目录复制 passwd 文件到当前工作目录下：
 
     [me@linuxbox playground]$ cp /etc/passwd .
-    
+
 Notice how we used the shorthand for the current working directory, the single trailing
 period. So now if we perform an ls, we will see our file:
 
@@ -1006,15 +1002,15 @@ period. So now if we perform an ls, we will see our file:
     total 12
     drwxrwxr-x 2  me  me   4096 2008-01-10 16:40 dir1
     drwxrwxr-x 2  me  me   4096 2008-01-10 16:40 dir2
-    -rw-r--r-- 1  me  me   1650 2008-01-10 16:07 passwd 
-    
+    -rw-r--r-- 1  me  me   1650 2008-01-10 16:07 passwd
+
 Now, just for fun, let's repeat the copy using the “-v” option (verbose) to see what it does:
 
 现在，仅仅是为了高兴，重复操作复制命令，使用"-v"选项（唠叨），看一个它的作用：
 
     [me@linuxbox playground]$ cp -v /etc/passwd .
     `/etc/passwd' -> `./passwd'
-    
+
 The cp command performed the copy again, but this time displayed a concise message
 indicating what operation it was performing. Notice that cp overwrote the first copy
 without any warning. Again this is a case of cp assuming that you know what you’re are
@@ -1026,7 +1022,7 @@ cp 假定你知道你的所作所为。为了得到警示信息，在命令中�
 
     [me@linuxbox playground]$ cp -i /etc/passwd .
     cp: overwrite `./passwd'?
-    
+
 Responding to the prompt by entering a “y” will cause the file to be overwritten, any
 other character (for example, “n”) will cause cp to leave the file alone.
 
@@ -1043,7 +1039,7 @@ change it to something else:
 现在，"passwd"这个名字，看起来不怎么有趣，这是个游戏场，所以我们给它改个名字：
 
     [me@linuxbox playground]$ mv passwd fun
-    
+
 Let's pass the fun around a little by moving our renamed file to each of the directories and
 back again:
 
@@ -1051,19 +1047,19 @@ back again:
 然后再把它移回到当前目录：
 
     [me@linuxbox playground]$ mv fun dir1
-    
+
 to move it first to directory dir1, then:
 
 首先，把 fun 文件移动目录 dir1中，然后：
 
     [me@linuxbox playground]$ mv dir1/fun dir2
-    
+
 to move it from dir1 to dir2, then:
 
 再把 fun 文件从 dir1移到目录 dir2, 然后：
 
     [me@linuxbox playground]$ mv dir2/fun .
-    
+
 to finally bringing it back to the current working directory. Next, let's see the effect of mv
 on directories. First we will move our data file into dir1 again:
 
@@ -1071,7 +1067,7 @@ on directories. First we will move our data file into dir1 again:
 首先，我们先移动我们的数据文件到 dir1目录：
 
     [me@linuxbox playground]$ mv fun dir1
-    
+
 then move dir1 into dir2 and confirm it with ls:
 
 然后移动 dir1到 dir2目录，用 ls 来确认执行结果:
@@ -1083,7 +1079,7 @@ then move dir1 into dir2 and confirm it with ls:
     [me@linuxbox playground]$ ls -l dir2/dir1
     total 4
     -rw-r--r-- 1 me me 1650 2008-01-10 16:33 fun
-    
+
 Note that since dir2 already existed, mv moved dir1 into dir2. If dir2 had not
 existed, mv would have renamed dir1 to dir2. Lastly, let's put everything back:
 
@@ -1092,7 +1088,7 @@ mv 会重新命名 dir1为 dir2。最后，把所有的东西放回原处。
 
     [me@linuxbox playground]$ mv dir2/dir1 .
     [me@linuxbox playground]$ mv dir1/fun .
-    
+
 ### Creating Hard Links
 
 ### 创建硬链接
@@ -1106,7 +1102,7 @@ like so:
     [me@linuxbox playground]$ ln fun fun-hard
     [me@linuxbox playground]$ ln fun dir1/fun-hard
     [me@linuxbox playground]$ ln fun dir2/fun-hard
-    
+
 So now we have four instances of the file “fun”. Let's take a look our playground
 directory:
 
@@ -1118,7 +1114,7 @@ directory:
     drwxrwxr-x 2 me  me 4096 2008-01-14 16:17 dir2
     -rw-r--r-- 4 me  me 1650 2008-01-10 16:33 fun
     -rw-r--r-- 4 me  me 1650 2008-01-10 16:33 fun-hard
-    
+
 One thing you notice is that the second field in the listing for fun and fun-hard both
 contain a “4” which is the number of hard links that now exist for the file. You'll
 remember that a file will always have at least one because the file's name is created by a
@@ -1157,7 +1153,7 @@ ls 命令有一种方法，来展示（文件索引节点）的信息。在命�
     12353540 drwxrwxr-x 2 me  me 4096  2008-01-14  16:17  dir2
     12353538 -rw-r--r-- 4 me  me 1650  2008-01-10  16:33  fun
     12353538 -rw-r--r-- 4 me  me 1650  2008-01-10  16:33  fun-hard
-    
+
 In this version of the listing, the first field is the inode number and, as we can see, both
 fun and fun-hard share the same inode number, which confirms they are the same
 file.
@@ -1185,7 +1181,7 @@ Creating symbolic links is similar to creating hard links:
     [me@linuxbox playground]$ ln -s fun fun-sym
     [me@linuxbox playground]$ ln -s ../fun dir1/fun-sym
     [me@linuxbox playground]$ ln -s ../fun dir2/fun-sym
-    
+
 The first example is pretty straightforward, we simply add the “-s” option to create a
 symbolic link rather than a hard link. But what about the next two? Remember, when we
 create a symbolic link, we are creating a text description of where the target file is
@@ -1200,7 +1196,7 @@ ls 命令的输出结果，比较容易理解。
     total 4
     -rw-r--r-- 4 me  me 1650 2008-01-10 16:33 fun-hard
     lrwxrwxrwx 1 me  me    6 2008-01-15 15:17 fun-sym -> ../fun
-    
+
 The listing for fun-sym in dir1 shows that is it a symbolic link by the leading “l” in
 the first field and that it points to “../fun”, which is correct. Relative to the location of
 fun-sym, fun is in the directory above it. Notice too, that the length of the symbolic
@@ -1217,7 +1213,7 @@ When creating symbolic links, you can either use absolute pathnames:
 当建立符号链接时，你即可以使用绝对路径名：
 
     ln -s /home/me/playground/fun dir1/fun-sym
-    
+
 or relative pathnames, as we did in our earlier example. Using relative pathnames is
 more desirable because it allows a directory containing symbolic links to be renamed
 and/or moved without breaking the links.
@@ -1233,7 +1229,7 @@ In addition to regular files, symbolic links can also reference directories:
     [me@linuxbox playground]$ ls -l
     total 16
     ...省略
-    
+
 ### Removing Files And Directories
 
 ### 移动文件和目录
@@ -1249,7 +1245,7 @@ links:
     [me@linuxbox playground]$ ls -l
     total 12
     ...省略
-    
+
 That worked as expected. The file fun-hard is gone and the link count shown for fun
 is reduced from four to three, as indicated in the second field of the directory listing.
 Next, we'll delete the file fun, and just for enjoyment, we'll include the “-i” option to
@@ -1261,7 +1257,7 @@ show what that does:
 
     [me@linuxbox playground]$ rm -i fun
     rm: remove regular file `fun'?
-    
+
 Enter “y” at the prompt and the file is deleted. But let's look at the output of ls now.
 Noticed what happened to fun-sym? Since it's a symbolic link pointing to a now-
 nonexistent file, the link is broken:
@@ -1275,7 +1271,7 @@ nonexistent file, the link is broken:
     lrwxrwxrwx 1 me  me        4 2008-01-16 14:45 dir1-sym -> dir1
     drwxrwxr-x 2 me  me     4096 2008-01-15 15:17 dir2
     lrwxrwxrwx 1 me  me        3 2008-01-15 15:15 fun-sym -> fun
-    
+
 Most Linux distributions configure ls to display broken links. On a Fedora box, broken
 links are displayed in blinking red text! The presence of a broken link is not, in and of
 itself dangerous but it is rather messy. If we try to use a broken link we will see this:
@@ -1286,7 +1282,7 @@ itself dangerous but it is rather messy. If we try to use a broken link we will 
 
     [me@linuxbox playground]$ less fun-sym
     fun-sym: No such file or directory
-    
+
 Let's clean up a little. We'll delete the symbolic links:
 
 稍微清理一下现场。删除符号链接：
@@ -1296,7 +1292,7 @@ Let's clean up a little. We'll delete the symbolic links:
     total 8
     drwxrwxr-x 2 me  me    4096 2008-01-15 15:17 dir1
     drwxrwxr-x 2 me  me    4096 2008-01-15 15:17 dir2
-    
+
 One thing to remember about symbolic links is that most file operations are carried out
 on the link's target, not the link itself. rm is an exception. When you delete a link, it is
 the link that is deleted, not the target.
@@ -1314,24 +1310,22 @@ including its subdirectories:
 
     [me@linuxbox playground]$ cd
     [me@linuxbox ~]$ rm -r playground
-    
-<div class="single">
 
-<h3>Creating Symlinks With The GUI</h3>
-<h3>用 GUI 来创建符号链接</h3>
 
-<p>The file managers in both GNOME and KDE provide an easy and automatic
+> Creating Symlinks With The GUI
+> 用 GUI 来创建符号链接
+>
+> The file managers in both GNOME and KDE provide an easy and automatic
 method of creating symbolic links. With GNOME, holding the Ctrl+Shift keys
 while dragging a file will create a link rather than copying (or moving) the file.
 In KDE, a small menu appears whenever a file is dropped, offering a choice of
 copying, moving, or linking the file.
-</p>
-<p>文件管理器 GNOME 和 KDE 都提供了一个简单而且自动化的方法来创建符号链接。
+>
+> 文件管理器 GNOME 和 KDE 都提供了一个简单而且自动化的方法来创建符号链接。
 在 GNOME 里面，当拖动文件时，同时按下 Ctrl+Shift 按键会创建一个链接，而不是
 复制（或移动）文件。在 KDE 中，无论什么时候放下一个文件，会弹出一个小菜单，
-这个菜单会提供复制，移动，或创建链接文件选项。</p>
-</div>
-<br />
+这个菜单会提供复制，移动，或创建链接文件选项。
+{: .single}
 
 ### Summing Up
 
