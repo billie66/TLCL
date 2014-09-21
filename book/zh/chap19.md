@@ -55,11 +55,11 @@ title: 归档和备份
     -rw-r--r-- 1 me     me 3230 2008-10-14 07:15 foo.txt.gz
     [me@linuxbox ~]$ gunzip foo.txt
     [me@linuxbox ~]$ ls -l foo.*
-    -rw-r--r-- 1 me     me 15738 2008-10-14 07:15 foo.txt 
+    -rw-r--r-- 1 me     me 15738 2008-10-14 07:15 foo.txt
 
 在这个例子里，我们创建了一个名为 foo.txt 的文本文件，其内容包含一个目录的列表清单。
 接下来，我们运行 gzip 命令，它会把原始文件替换为一个叫做 foo.txt.gz 的压缩文件。在
-foo.\*文件列表中，我们看到原始文件已经被压缩文件替代了，并将这个压缩文件大约是原始
+foo.*文件列表中，我们看到原始文件已经被压缩文件替代了，并将这个压缩文件大约是原始
 文件的十五分之一。我们也能看到压缩文件与原始文件有着相同的权限和时间戳。
 
 接下来，我们运行 gunzip 程序来解压缩文件。随后，我们能见到压缩文件已经被原始文件替代了，
@@ -123,28 +123,28 @@ valign="top">解压缩。正如 gunzip 命令一样。也可以用--decompress �
 这里，我们用压缩文件来替代文件 foo.txt，压缩文件名为 foo.txt.gz。下一步，我们测试了压缩文件
 的完整性，使用了-t 和-v 选项。
 
-    [me@linuxbox ~]$ ls -l /etc | gzip > foo.txt.gz 
+    [me@linuxbox ~]$ ls -l /etc | gzip > foo.txt.gz
 
 这个命令创建了一个目录列表的压缩文件。
 
 这个 gunzip 程序，会解压缩 gzip 文件，假定那些文件名的扩展名是.gz，所以没有必要指定它，
 只要指定的名字与现有的未压缩文件不冲突就可以：
 
-    [me@linuxbox ~]$ gunzip foo.txt 
+    [me@linuxbox ~]$ gunzip foo.txt
 
 如果我们的目标只是为了浏览一下压缩文本文件的内容，我们可以这样做：
 
-    [me@linuxbox ~]$ gunzip -c foo.txt | less 
+    [me@linuxbox ~]$ gunzip -c foo.txt | less
 
 另外，对应于 gzip 还有一个程序，叫做 zcat，它等同于带有-c 选项的 gunzip 命令。
 它可以被用来如 cat 命令作用于 gzip 压缩文件：
 
-    [me@linuxbox ~]$ zcat foo.txt.gz | less 
+    [me@linuxbox ~]$ zcat foo.txt.gz | less
 
 
 ---
 
-<p><b>小贴士:</b> 还有一个 zless 程序。它与上面的管道线有相同的功能。</p>
+_小贴士:_ 还有一个 zless 程序。它与上面的管道线有相同的功能。
 
 ---
 
@@ -158,25 +158,26 @@ valign="top">解压缩。正如 gunzip 命令一样。也可以用--decompress �
     [me@linuxbox ~]$ bzip2 foo.txt
     [me@linuxbox ~]$ ls -l foo.txt.bz2
     -rw-r--r-- 1 me     me      2792 2008-10-17 13:51 foo.txt.bz2
-    [me@linuxbox ~]$ bunzip2 foo.txt.bz2 
+    [me@linuxbox ~]$ bunzip2 foo.txt.bz2
 
 正如我们所看到的，bzip2 程序使用起来和 gzip 程序一样。我们之前讨论的 gzip 程序的所有选项（除了-r）
 ，bzip2 程序同样也支持。注意，然而，压缩级别选项（-number）对于 bzip2 程序来说，有少许不同的含义。
 伴随着 bzip2 程序，有 bunzip2 和 bzcat 程序来解压缩文件。bzip2 文件也带有 bzip2recover 程序，其会
 试图恢复受损的.bz2 文件。
 
-<div class="single">
 
-<h3>不要强迫性压缩</h3>
-
-<p>我偶然见到人们试图用高效的压缩算法，来压缩一个已经被压缩过的文件，通过这样做：</p>
-
-<p>不要这样。你可能只是在浪费时间和空间！如果你再次压缩已经压缩过的文件，实际上你
+> 不要强迫性压缩
+>
+> 我偶然见到人们试图用高效的压缩算法，来压缩一个已经被压缩过的文件，通过这样做：
+>
+> _$ gzip picture.jpg_
+>
+> 不要这样。你可能只是在浪费时间和空间！如果你再次压缩已经压缩过的文件，实际上你
 会得到一个更大的文件。这是因为所有的压缩技术都会涉及一些开销，文件中会被添加描述
 此次压缩过程的信息。如果你试图压缩一个已经不包含多余信息的文件，那么再次压缩不会节省
-空间，以抵消额外的花费。</p>
-</div>
-<br>
+空间，以抵消额外的花费。
+{: .single}
+
 
 ### 归档文件
 
@@ -220,12 +221,12 @@ tar 命令使用了稍微有点奇怪的方式来表达它的选项，所以我�
 怎样工作的。首先，让我们重新创建之前我们用过的操练场:
 
     [me@linuxbox ~]$ mkdir -p playground/dir-{00{1..9},0{10..99},100}
-    [me@linuxbox ~]$ touch playground/dir-{00{1..9},0{10..99},100}/file-{A-Z} 
+    [me@linuxbox ~]$ touch playground/dir-{00{1..9},0{10..99},100}/file-{A-Z}
 
 下一步，让我们创建整个操练场的 tar 包：
 
-    [me@linuxbox ~]$ tar cf playground.tar playground 
-    
+    [me@linuxbox ~]$ tar cf playground.tar playground
+
 
 这个命令创建了一个名为 playground.tar 的 tar 包，其包含整个 playground 目录层次结果。我们
 可以看到模式 c 和选项 f，其被用来指定这个 tar 包的名字，模式和选项可以写在一起，而且不
@@ -233,11 +234,11 @@ tar 命令使用了稍微有点奇怪的方式来表达它的选项，所以我�
 
 要想列出归档文件的内容，我们可以这样做：
 
-    [me@linuxbox ~]$ tar tf playground.tar 
+    [me@linuxbox ~]$ tar tf playground.tar
 
 为了得到更详细的列表信息，我们可以添加选项 v：
 
-    [me@linuxbox ~]$ tar tvf playground.tar 
+    [me@linuxbox ~]$ tar tvf playground.tar
 
 现在，抽取 tar 包 playground 到一个新位置。我们先创建一个名为 foo 的新目录，更改目录，
 然后抽取 tar 包中的文件：
@@ -246,7 +247,7 @@ tar 命令使用了稍微有点奇怪的方式来表达它的选项，所以我�
     [me@linuxbox ~]$ cd foo
     [me@linuxbox ~]$ tar xf ../playground.tar
     [me@linuxbox ~]$ ls
-    playground 
+    playground
 
 如果我们检查~/foo/playground 目录中的内容，会看到这个归档文件已经被成功地安装了，就是创建了
 一个精确的原始文件的副本。有一个警告，然而：除非你是超级用户，要不然从归档文件中抽取的文件
@@ -257,7 +258,7 @@ tar 命令另一个有趣的行为是它处理归档文件路径名的方式。�
 重新创建我们的归档文件，这次指定一个绝对路径：
 
     [me@linuxbox foo]$ cd
-    [me@linuxbox ~]$ tar cf playground2.tar ~/playground 
+    [me@linuxbox ~]$ tar cf playground2.tar ~/playground
 
 记住，当按下回车键后，~/playground 会展开成/home/me/playground，所以我们将会得到一个
 绝对路径名。接下来，和之前一样我们会抽取归档文件，观察发生什么事情：
@@ -266,10 +267,10 @@ tar 命令另一个有趣的行为是它处理归档文件路径名的方式。�
     [me@linuxbox foo]$ tar xf ../playground2.tar
     [me@linuxbox foo]$ ls
     home     playground
-    [me@linuxbox foo]$ ls home 
+    [me@linuxbox foo]$ ls home
     me
     [me@linuxbox foo]$ ls home/me
-    playground 
+    playground
 
 这里我们看到当我们抽取第二个归档文件时，它重新创建了 home/me/playground 目录，
 相对于我们当前的工作目录，~/foo，而不是相对于 root 目录，作为带有绝对路径名的案例。
@@ -282,14 +283,14 @@ tar 命令另一个有趣的行为是它处理归档文件路径名的方式。�
 这个硬盘会被“自动地”挂载到/media 目录下。我们也假定硬盘中有一个名为 BigDisk 的逻辑卷。
 为了制作 tar 包，我们可以这样做：
 
-    [me@linuxbox ~]$ sudo tar cf /media/BigDisk/home.tar /home 
-    
+    [me@linuxbox ~]$ sudo tar cf /media/BigDisk/home.tar /home
+
 
 tar 包制作完成之后，我们卸载硬盘，然后把它连接到第二个计算机上。再一次，此硬盘被
 挂载到/media/BigDisk 目录下。为了抽取归档文件，我们这样做：
 
     [me@linuxbox2 ~]$ cd /
-    [me@linuxbox2 /]$ sudo tar xf /media/BigDisk/home.tar 
+    [me@linuxbox2 /]$ sudo tar xf /media/BigDisk/home.tar
 
 值得注意的一点是，因为归档文件中的所有路径名都是相对的，所以首先我们必须更改目录到根目录下，
 这样抽取的文件路径就相对于根目录了。
@@ -297,7 +298,7 @@ tar 包制作完成之后，我们卸载硬盘，然后把它连接到第二个�
 当抽取一个归档文件时，有可能限制从归档文件中抽取什么内容。例如，如果我们想要抽取单个文件，
 可以这样实现：
 
-    tar xf archive.tar pathname 
+    tar xf archive.tar pathname
 
 通过给命令添加末尾的路径名，tar 命令就只会恢复指定的文件。可以指定多个路径名。注意
 路径名必须是完全的，精准的相对路径名，就如存储在归档文件中的一样。当指定路径名的时候，
@@ -305,15 +306,15 @@ tar 包制作完成之后，我们卸载硬盘，然后把它连接到第二个�
 支持通配符。这个例子使用了之前 playground.tar 文件：
 
     [me@linuxbox ~]$ cd foo
-    [me@linuxbox foo]$ tar xf ../playground2.tar --wildcards 'home/me/playground/dir-\*/file-A' 
-    
+    [me@linuxbox foo]$ tar xf ../playground2.tar --wildcards 'home/me/playground/dir-\*/file-A'
+
 
 这个命令将只会抽取匹配特定路径名的文件，路径名中包含了通配符 dir-\*。
 
 tar 命令经常结合 find 命令一起来制作归档文件。在这个例子里，我们将会使用 find 命令来
 产生一个文件集合，然后这些文件被包含到归档文件中。
 
-    [me@linuxbox ~]$ find playground -name 'file-A' -exec tar rf playground.tar '{}' '+' 
+    [me@linuxbox ~]$ find playground -name 'file-A' -exec tar rf playground.tar '{}' '+'
 
 这里我们使用 find 命令来匹配 playground 目录中所有名为 file-A 的文件，然后使用-exec 行为，来
 唤醒带有追加模式（r）的 tar 命令，把匹配的文件添加到归档文件 playground.tar 里面。
@@ -325,8 +326,8 @@ tar 命令经常结合 find 命令一起来制作归档文件。在这个例子�
 tar 命令也可以利用标准输出和输入。这里是一个完整的例子:
 
     [me@linuxbox foo]$ cd
-    [me@linuxbox ~]$ find playground -name 'file-A' | tar cf - --files-from=- 
-       | gzip > playground.tgz 
+    [me@linuxbox ~]$ find playground -name 'file-A' | tar cf - --files-from=-
+       | gzip > playground.tgz
 
 在这个例子里面，我们使用 find 程序产生了一个匹配文件列表，然后把它们管道到 tar 命令中。
 如果指定了文件名“-”，则其被看作是标准输入或输出，正是所需（顺便说一下，使用“-”来表示
@@ -339,12 +340,12 @@ tar 命令也可以利用标准输出和输入。这里是一个完整的例子:
 ，gzip 和 bzip2压缩两者都直接支持，各自使用 z 和 j 选项。以我们之前的例子为基础，
 我们可以这样简化它：
 
-    [me@linuxbox ~]$ find playground -name 'file-A' | tar czf playground.tgz -T - 
+    [me@linuxbox ~]$ find playground -name 'file-A' | tar czf playground.tgz -T -
 
 如果我们本要创建一个由 bzip2压缩的归档文件，我们可以这样做：
 
-    [me@linuxbox ~]$ find playground -name 'file-A' | tar cjf playground.tbz -T - 
-    
+    [me@linuxbox ~]$ find playground -name 'file-A' | tar cjf playground.tbz -T -
+
 
 通过简单地修改压缩选项，把 z 改为 j（并且把输出文件的扩展名改为.tbz，来指示一个 bzip2压缩文件），
 就使 bzip2命令压缩生效了。另一个 tar 命令与标准输入和输出的有趣使用，涉及到在系统之间经过
@@ -356,7 +357,7 @@ tar 命令也可以利用标准输出和输入。这里是一个完整的例子:
     [me@linuxbox remote-stuff]$ ssh remote-sys 'tar cf - Documents' | tar xf -
     me@remote-sys’s password:
     [me@linuxbox remote-stuff]$ ls
-    Documents 
+    Documents
 
 这里我们能够从远端系统 remote-sys 中复制目录 Documents 到本地系统名为 remote-stuff 目录中。
 我们怎样做的呢？首先，通过使用 ssh 命令在远端系统中启动 tar 程序。你可记得 ssh 允许我们
@@ -372,7 +373,7 @@ tar 命令也可以利用标准输出和输入。这里是一个完整的例子:
 
 例如，制作一个 playground 的 zip 版本的文件包，这样做：
 
-    [me@linuxbox ~]$ zip -r playground.zip playground 
+    [me@linuxbox ~]$ zip -r playground.zip playground
 
 除非我们包含-r 选项，要不然只有 playground 目录（没有任何它的内容）被存储。虽然会自动添加
 .zip 扩展名，但为了清晰起见，我们还是包含文件扩展名。
@@ -383,7 +384,7 @@ tar 命令也可以利用标准输出和输入。这里是一个完整的例子:
     adding: playground/dir-020/file-Y (stored 0%)
     adding: playground/dir-020/file-X (stored 0%)
     adding: playground/dir-087/ (stored 0%)
-    adding: playground/dir-087/file-S (stored 0%) 
+    adding: playground/dir-087/file-S (stored 0%)
 
 这些信息显示了添加到文件包中每个文件的状态。zip 命令会使用两种存储方法之一，来添加
 文件到文件包中：要不它会“store”没有压缩的文件，正如这里所示，或者它会“deflate”文件，
@@ -393,7 +394,7 @@ tar 命令也可以利用标准输出和输入。这里是一个完整的例子:
 使用 unzip 程序，来直接抽取一个 zip 文件的内容。
 
     [me@linuxbox ~]$ cd foo
-    [me@linuxbox foo]$ unzip ../playground.zip 
+    [me@linuxbox foo]$ unzip ../playground.zip
 
 对于 zip 命令（与 tar 命令相反）要注意一点，就是如果指定了一个已经存在的文件包，其被更新
 而不是被替代。这意味着会保留此文件包，但是会添加新文件，同时替换匹配的文件。可以列出
@@ -421,7 +422,7 @@ unzip 程序将会列出文件包中的所有文件。添加这个-v 选项会�
 文件名管道到 zip 命令。
 
     [me@linuxbox foo]$ cd
-    [me@linuxbox ~]$ find playground -name "file-A" | zip -@ file-A.zip 
+    [me@linuxbox ~]$ find playground -name "file-A" | zip -@ file-A.zip
 
 这里我们使用 find 命令产生一系列与“file-A”相匹配的文件列表，并且把此列表管道到 zip 命令，
 然后创建包含所选文件的文件包 file-A.zip。
@@ -433,21 +434,21 @@ zip 命令也支持把它的输出写入到标准输出，但是它的使用是�
 然而，zip 命令可以接受标准输入，所以它可以被用来压缩其它程序的输出：
 
     [me@linuxbox ~]$ ls -l /etc/ | zip ls-etc.zip -
-    adding: - (deflated 80%) 
+    adding: - (deflated 80%)
 
 在这个例子里，我们把 ls 命令的输出管道到 zip 命令。像 tar 命令，zip 命令把末尾的横杠解释为
 “使用标准输入作为输入文件。”
 
 这个 unzip 程序允许它的输出发送到标准输出，当指定了-p 选项之后：
 
-    [me@linuxbox ~]$ unzip -p ls-etc.zip | less 
+    [me@linuxbox ~]$ unzip -p ls-etc.zip | less
 
 我们讨论了一些 zip/unzip 可以完成的基本操作。它们两个都有许多选项，其增加了
 命令的灵活性，虽然一些选项只针对于特定的平台。zip 和 unzip 命令的说明手册都相当不错，
 并且包含了有用的实例。然而，这些程序的主要用途是为了和 Windows 系统交换文件，
 而不是在 Linux 系统中执行压缩和打包操作，tar 和 gzip 程序在 Linux 系统中更受欢迎。
 
-### 同步文件和目录 
+### 同步文件和目录
 
 维护系统备份的常见策略是保持一个或多个目录与另一个本地系统（通常是某种可移动的存储设备）
 或者远端系统中的目录（或多个目录）同步。我们可能，例如有一个正在开发的网站的本地备份，
@@ -470,11 +471,11 @@ rsync 被这样唤醒：
 
 让我们试着对一些本地文件使用 rsync 命令。首先，清空我们的 foo 目录：
 
-    [me@linuxbox ~]$ rm -rf foo/* 
+    [me@linuxbox ~]$ rm -rf foo/*
 
 下一步，我们将同步 playground 目录和它在 foo 目录中相对应的副本
 
-    [me@linuxbox ~]$ rsync -av playground foo 
+    [me@linuxbox ~]$ rsync -av playground foo
 
 我们包括了-a 选项（递归和保护文件属性）和-v 选项（冗余输出），
 来在 foo 目录中制作一个 playground 目录的镜像。当这个命令执行的时候，
@@ -489,8 +490,8 @@ rsync 被这样唤醒：
     building file list ... done
     sent 22635 bytes received 20 bytes
     total size is 3230 speedup is 0.14
-    45310.00 bytes/sec 
-    
+    45310.00 bytes/sec
+
 
 注意到没有文件列表。这是因为 rsync 程序检测到在目录~/playground 和 ~/foo/playground 之间
 不存在差异，因此它不需要复制任何数据。如果我们在 playground 目录中修改一个文件，然后
@@ -501,7 +502,7 @@ rsync 被这样唤醒：
     building file list ... done
     playground/dir-099/file-Z
     sent 22685 bytes received 42 bytes 45454.00 bytes/sec
-    total size is 3230 speedup is 0.14 
+    total size is 3230 speedup is 0.14
 
 我们看到 rsync 命令检测到更改，并且只是复制了更新的文件。作为一个实际的例子，
 让我们考虑一个假想的外部硬盘，之前我们在 tar 命令中用到过的。如果我们再次把此
@@ -510,7 +511,7 @@ rsync 被这样唤醒：
 从我们的系统中复制最重要的数据到此外部硬盘上：
 
     [me@linuxbox ~]$ mkdir /media/BigDisk/backup
-    [me@linuxbox ~]$ sudo rsync -av --delete /etc /home /usr/local /media/BigDisk/backup 
+    [me@linuxbox ~]$ sudo rsync -av --delete /etc /home /usr/local /media/BigDisk/backup
 
 在这个例子里，我们把/etc，/home，和/usr/local 目录从我们的系统中复制到假想的存储设备中。
 我们包含了--delete 这个选项，来删除可能在备份设备中已经存在但却不再存在于源设备中的文件，
@@ -519,7 +520,7 @@ rsync 命令，不断重复这个过程，是一个不错的（虽然不理想�
 当然，别名会对这个操作更有帮助些。我们将会创建一个别名，并把它添加到.bashrc 文件中，
 来提供这个特性：
 
-    alias backup='sudo rsync -av --delete /etc /home /usr/local /media/BigDisk/backup' 
+    alias backup='sudo rsync -av --delete /etc /home /usr/local /media/BigDisk/backup'
 
 现在我们所做的事情就是连接外部驱动器，然后运行 backup 命令来完成工作。
 
@@ -531,8 +532,8 @@ rsync 程序的真正好处之一，是它可以被用来在网络间复制文�
 用远程系统来代替一个外部驱动器，来执行文件备份操作。假定远程系统中有一个名为/backup 的目录，
 其用来存放我们传送的文件，我们这样做：
 
-    [me@linuxbox ~]$ sudo rsync -av --delete --rsh=ssh /etc /home /usr/local remote-sys:/backup 
-    
+    [me@linuxbox ~]$ sudo rsync -av --delete --rsh=ssh /etc /home /usr/local remote-sys:/backup
+
 
 我们对命令做了两处修改，来方便网络间文件复制。首先，我们添加了--rsh=ssh 选项，其指示
 rsync 使用 ssh 程序作为它的远程 shell。以这种方式，我们就能够使用一个 ssh 加密通道，把数据
@@ -548,16 +549,16 @@ Hat 软件中心为它的 Fedora 发行版，维护着一个巨大的正在开�
 
     [me@linuxbox ~]$ mkdir fedora-devel
     [me@linuxbox ~]$ rsync -av -delete rsync://rsync.gtlib.gatech.edu/fedora-linux-
-     core/development/i386/os fedora-devel 
-    
+     core/development/i386/os fedora-devel
+
 
 在这个例子里，我们使用了远端 rsync 服务器的 URI，其由协议（rsync://），远端主机名
 （rsync.gtlib.gatech.edu），和软件仓库的路径名组成。
 
-### 拓展阅读 
+### 拓展阅读
 
 * 在这里讨论的所有命令的手册文档都相当清楚明白，并且包含了有用的例子。另外，
-GNU 版本的 tar 命令有一个不错的在线文档。可以在下面链接处找到： 
+GNU 版本的 tar 命令有一个不错的在线文档。可以在下面链接处找到：
 
-  <http://www.gnu.org/software/tar/manual/index.html>
+    <http://www.gnu.org/software/tar/manual/index.html>
 

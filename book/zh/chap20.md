@@ -1,6 +1,6 @@
 ---
 layout: book-zh
-title: 正则表达式 
+title: 正则表达式
 ---
 
 接下来的几章中，我们将会看一下一些用来操作文本的工具。正如我们所见到的，在类似于 Unix 的
@@ -26,8 +26,7 @@ POSIX 标准中描述的正则表达式（其包括了大多数的命令行工�
 
 到目前为止，我们已经使用 grep 程序查找了固定的字符串，就像这样:
 
-    [me@linuxbox ~]$ ls /usr/bin | grep zip 
-    
+    [me@linuxbox ~]$ ls /usr/bin | grep zip
 
 这个命令会列出，位于目录/usr/bin 中，文件名中包含子字符串“zip”的所有文件。
 
@@ -84,28 +83,28 @@ POSIX 标准中描述的正则表达式（其包括了大多数的命令行工�
     [me@linuxbox ~]$ ls /usr/sbin > dirlist-usr-sbin.txt
     [me@linuxbox ~]$ ls dirlist*.txt
     dirlist-bin.txt     dirlist-sbin.txt    dirlist-usr-sbin.txt
-    dirlist-usr-bin.txt 
-    
+    dirlist-usr-bin.txt
+
 
 我们能够对我们的文件列表执行简单的搜索，像这样：
 
     [me@linuxbox ~]$ grep bzip dirlist*.txt
     dirlist-bin.txt:bzip2
-    dirlist-bin.txt:bzip2recover 
+    dirlist-bin.txt:bzip2recover
 
 在这个例子里，grep 程序在所有列出的文件中搜索字符串 bzip，然后找到两个匹配项，其都在
 文件 dirlist-bin.txt 中。如果我们只是对包含匹配项的文件列表，而不是对匹配项本身感兴趣
 的话，我们可以指定-l 选项：
 
     [me@linuxbox ~]$ grep -l bzip dirlist*.txt
-    dirlist-bin.txt 
+    dirlist-bin.txt
 
 相反地，如果我们只想查看不包含匹配项的文件列表，我们可以这样操作：
 
     [me@linuxbox ~]$ grep -L bzip dirlist*.txt
     dirlist-sbin.txt
     dirlist-usr-bin.txt
-    dirlist-usr-sbin.txt 
+    dirlist-usr-sbin.txt
 
 它可能看起来不明显，但是我们的 grep 程序一直使用了正则表达式，虽然是非常简单的例子。
 这个正则表达式“bzip”意味着，匹配项所在行至少包含4个字符，并且按照字符 “b”, “z”, “i”, 和 “p”的顺序
@@ -120,9 +119,9 @@ POSIX 标准中描述的正则表达式（其包括了大多数的命令行工�
 
 ---
 
-<p>注意：正如我们所见到的，当 shell 执行展开的时候，许多正则表达式元字符，也是对 shell 有特殊
+注意：正如我们所见到的，当 shell 执行展开的时候，许多正则表达式元字符，也是对 shell 有特殊
 含义的字符。当我们在命令行中传递包含元字符的正则表达式的时候，把元字符用引号引起来至关重要，
-这样可以阻止 shell 试图展开它们。</p>
+这样可以阻止 shell 试图展开它们。
 
 ---
 
@@ -141,7 +140,7 @@ POSIX 标准中描述的正则表达式（其包括了大多数的命令行工�
     prezip
     prezip-bin
     unzip
-    unzipsfx 
+    unzipsfx
 
 我们在文件中查找包含正则表达式“.zip”的文本行。对于搜索结果，有几点需要注意一下。
 注意没有找到这个 zip 程序。这是因为在我们的正则表达式中包含的圆点字符把所要求的匹配项的长度
@@ -169,29 +168,31 @@ POSIX 标准中描述的正则表达式（其包括了大多数的命令行工�
     unzip
     zip
     [me@linuxbox ~]$ grep -h '^zip$' dirlist*.txt
-    zip 
+    zip
 
 这里我们分别在文件列表中搜索行首，行尾以及行首和行尾同时包含字符串“zip”（例如，zip 独占一行）的匹配行。
 注意正则表达式‘^$’（行首和行尾之间没有字符）会匹配空行。
 
-<div class="single">
 
-<h3>字谜助手 </h3>
-
-<p> 到目前为止，甚至凭借我们有限的正则表达式知识，我们已经能做些有意义的事情了。 </p>
-
-<p>我妻子喜欢玩字谜游戏，有时候她会因为一个特殊的问题，而向我求助。类似这样的问题，“一个
+> 字谜助手
+>
+>  到目前为止，甚至凭借我们有限的正则表达式知识，我们已经能做些有意义的事情了。
+>
+> 我妻子喜欢玩字谜游戏，有时候她会因为一个特殊的问题，而向我求助。类似这样的问题，“一个
 有五个字母的单词，它的第三个字母是‘j’，最后一个字母是‘r’，是哪个单词？”这类问题会
-让我动脑筋想想。</p>
-
-<p>你知道你的 Linux 系统中带有一本英文字典吗？千真万确。看一下/usr/share/dict 目录，你就能找到一本，
+让我动脑筋想想。
+>
+> 你知道你的 Linux 系统中带有一本英文字典吗？千真万确。看一下/usr/share/dict 目录，你就能找到一本，
 或几本。存储在此目录下的字典文件，其内容仅仅是一个长长的单词列表，每行一个单词，按照字母顺序排列。在我的
-系统中，这个文件仅包含98,000个单词。为了找到可能的上述字谜的答案，我们可以这样做：</p>
+系统中，这个文件仅包含98,000个单词。为了找到可能的上述字谜的答案，我们可以这样做：
+>
+> [me@linuxbox ~]$ grep -i '^..j.r$' /usr/share/dict/words
+>
+> 使用这个正则表达式，我们能在我们的字典文件中查找到包含五个字母，且第三个字母
+是“j”，最后一个字母是“r”的所有单词。
+{: .single}
 
-<p>使用这个正则表达式，我们能在我们的字典文件中查找到包含五个字母，且第三个字母
-是“j”，最后一个字母是“r”的所有单词。</p>
-</div>
-<br />
+
 
 ### 中括号表达式和字符类
 
@@ -202,8 +203,8 @@ POSIX 标准中描述的正则表达式（其包括了大多数的命令行工�
     [me@linuxbox ~]$ grep -h '[bg]zip' dirlist*.txt
     bzip2
     bzip2recover
-    gzip 
-    
+    gzip
+
 
 我们匹配包含字符串“bzip”或者“gzip”的任意行。
 
@@ -223,7 +224,7 @@ POSIX 标准中描述的正则表达式（其包括了大多数的命令行工�
     prezip
     prezip-bin
     unzip
-    unzipsfx 
+    unzipsfx
 
 通过激活否定操作，我们得到一个文件列表，它们的文件名都包含字符串“zip”，并且“zip”的前一个字符
 是除了“b”和“g”之外的任意字符。注意文件 zip 没有被发现。一个否定的字符集仍然在给定位置要求一个字符，
@@ -237,8 +238,8 @@ POSIX 标准中描述的正则表达式（其包括了大多数的命令行工�
 如果我们想要构建一个正则表达式，它可以在我们的列表中找到每个以大写字母开头的文件，我们
 可以这样做：
 
-    [me@linuxbox ~]$ grep -h '^[ABCDEFGHIJKLMNOPQRSTUVWXZY]' dirlist*.txt 
-    
+    [me@linuxbox ~]$ grep -h '^[ABCDEFGHIJKLMNOPQRSTUVWXZY]' dirlist*.txt
+
 
 这只是一个在正则表达式中输入26个大写字母的问题。但是输入所有字母非常令人烦恼，所以有另外一种方式：
 
@@ -253,24 +254,24 @@ POSIX 标准中描述的正则表达式（其包括了大多数的命令行工�
     Xorg
     MAKEFLOPPIES
     NetworkManager
-    NetworkManagerDispatcher 
+    NetworkManagerDispatcher
 
 通过使用一个三字符区域，我们能够缩写26个字母。任意字符的区域都能按照这种方式表达，包括多个区域，
 比如下面这个表达式就匹配了所有以字母和数字开头的文件名：
 
-    [me@linuxbox ~]$ grep -h '^[A-Za-z0-9]' dirlist*.txt 
-    
+    [me@linuxbox ~]$ grep -h '^[A-Za-z0-9]' dirlist*.txt
+
 
 在字符区域中，我们看到这个连字符被特殊对待，所以我们怎样在一个正则表达式中包含一个连字符呢？
 方法就是使连字符成为表达式中的第一个字符。考虑一下这两个例子：
 
-    [me@linuxbox ~]$ grep -h '[A-Z]' dirlist*.txt 
-    
+    [me@linuxbox ~]$ grep -h '[A-Z]' dirlist*.txt
+
 
 这会匹配包含一个大写字母的文件名。然而：
 
-    [me@linuxbox ~]$ grep -h '[-AZ]' dirlist*.txt 
-    
+    [me@linuxbox ~]$ grep -h '[-AZ]' dirlist*.txt
+
 
 上面的表达式会匹配包含一个连字符，或一个大写字母“A”，或一个大写字母“Z”的文件名。
 
@@ -300,7 +301,7 @@ POSIX 标准中描述的正则表达式（其包括了大多数的命令行工�
     /usr/sbin/cleanup-info
     /usr/sbin/complain
     /usr/sbin/console-kit-daemon
-    
+
 
 通过这个命令我们得到整个不同的结果（只显示了一部分结果列表）。为什么会是那样？
 说来话长，但是这个版本比较简短：
@@ -325,7 +326,7 @@ POSIX 标准中描述的正则表达式（其包括了大多数的命令行工�
 选择所需的字符集。通过使用下面这个命令，我们能够查看到我们系统的语言设置：
 
     [me@linuxbox ~]$ echo $LANG
-    en_US.UTF-8 
+    en_US.UTF-8
 
 通过这个设置，POSIX 相容的应用程序将会使用字典排列顺序而不是 ASCII 顺序。这就解释了上述命令的行为。
 当[A-Z]字符区域按照字典顺序解释的时候，包含除了小写字母“a”之外的所有字母，因此得到这样的结果。
@@ -381,7 +382,7 @@ POSIX 标准中描述的正则表达式（其包括了大多数的命令行工�
 </tr>
 <tr>
 <td valign="top">[:space:] </td>
-<td valign="top">空白字符，包括空格，tab，回车，换行，vertical tab, 和 form feed.在 ASCII 中， 
+<td valign="top">空白字符，包括空格，tab，回车，换行，vertical tab, 和 form feed.在 ASCII 中，
 等价于：[ \t\r\n\v\f] </td>
 </tr>
 <tr>
@@ -401,28 +402,26 @@ POSIX 标准中描述的正则表达式（其包括了大多数的命令行工�
     [me@linuxbox ~]$ ls /usr/sbin/[[:upper:]]*
     /usr/sbin/MAKEFLOPPIES
     /usr/sbin/NetworkManagerDispatcher
-    /usr/sbin/NetworkManager 
-    
+    /usr/sbin/NetworkManager
+
 
 记住，然而，这不是一个正则表达式的例子，而是 shell 正在执行路径名展开操作。我们在这里展示这个例子，
 是因为 POSIX 规范的字符集适用于二者。
 
-<div class="single">
 
-<h3>恢复到传统的排列顺序</h3>
+> 恢复到传统的排列顺序
+>
+> 通过改变环境变量 LANG 的值，你可以选择让你的系统使用传统的（ASCII）排列规则。如上所示，这个
+LANG 变量包含了语种和字符集。这个值最初由你安装 Linux 系统时所选择的安装语言决定。
+>
+> 使用 locale 命令，来查看 locale 的设置。
+>
+> 把这个 LANG 变量设置为 POSIX，来更改 locale，使其使用传统的 Unix 行为。
+>
+> 注意这个改动使系统为它的字符集使用 U.S.英语（更准确地说，ASCII），所以要确认一下这
+是否是你真正想要的效果。通过把这条语句添加到你的.bashrc 文件中，你可以使这个更改永久有效。
+{: .single}
 
-<p>通过改变环境变量 LANG 的值，你可以选择让你的系统使用传统的（ASCII）排列规则。如上所示，这个
-LANG 变量包含了语种和字符集。这个值最初由你安装 Linux 系统时所选择的安装语言决定。</p>
-
-<p>使用 locale 命令，来查看 locale 的设置。</p>
-
-<p>把这个 LANG 变量设置为 POSIX，来更改 locale，使其使用传统的 Unix 行为。</p>
-
-<p>注意这个改动使系统为它的字符集使用 U.S.英语（更准确地说，ASCII），所以要确认一下这
-是否是你真正想要的效果。通过把这条语句添加到你的.bashrc 文件中，你可以使这个更改永久有效。</p>
-
-</div>
-<br />
 
 ### POSIX 基本的 Vs.扩展的正则表达式
 
@@ -445,23 +444,21 @@ BRE 和 ERE 之间有什么区别呢？这是关于元字符的问题。BRE 可�
 因为我们将要讨论的下一个特性是 ERE 的一部分，我们将要使用一个不同的 grep 程序。照惯例，
 一直由 egrep 程序来执行这项操作，但是 GUN 版本的 grep 程序也支持扩展的正则表达式，当使用了-E 选项之后。
 
-<div class="single">
-
-<p>在 20 世纪 80 年代，Unix 成为一款非常流行的商业操作系统，但是到了1988年，Unix 世界
-一片混乱。许多计算机制造商从 Unix 的创建者 AT&amp;T 那里得到了许可的 Unix 源码，并且
+> 在 20 世纪 80 年代，Unix 成为一款非常流行的商业操作系统，但是到了1988年，Unix 世界
+一片混乱。许多计算机制造商从 Unix 的创建者 AT&T 那里得到了许可的 Unix 源码，并且
 供应各种版本的操作系统。然而，在他们努力创造产品差异化的同时，每个制造商都增加了
-专用的更改和扩展。这就开始限制了软件的兼容性。</p>
-
-<p>专有软件供应商一如既往，每个供应商都试图玩嬴游戏“锁定”他们的客户。这个 Unix 历史上
-的黑暗时代，就是今天众所周知的“the Balkanization”。</p>
-
-<p>然后进入 IEEE（ 电气与电子工程师协会 ）时代。在上世纪 80 年代中叶，IEEE 开始制定一套标准，
+专用的更改和扩展。这就开始限制了软件的兼容性。
+>
+> 专有软件供应商一如既往，每个供应商都试图玩嬴游戏“锁定”他们的客户。这个 Unix 历史上
+的黑暗时代，就是今天众所周知的“the Balkanization”。
+>
+> 然后进入 IEEE（ 电气与电子工程师协会 ）时代。在上世纪 80 年代中叶，IEEE 开始制定一套标准，
 其将会定义 Unix 系统（ 以及类似于 Unix 的系统 ）如何执行。这些标准，正式成为 IEEE 1003，
 定义了应用程序编程接口（ APIs ），shell 和一些实用程序，其将会在标准的类似于 Unix
 操作系统中找到。“POSIX” 这个名字，象征着可移植的操作系统接口（为了额外的，添加末尾的 “X” ），
-是由 Richard Stallman 建议的（ 是的，的确是 Richard Stallman ），后来被 IEEE 采纳。</p>
-</div>
-<br />
+是由 Richard Stallman 建议的（ 是的，的确是 Richard Stallman ），后来被 IEEE 采纳。
+{: .single}
+
 
 我们将要讨论的扩展表达式的第一个特性叫做 alternation（交替），其是一款允许从一系列表达式
 之间选择匹配项的实用程序。就像中括号表达式允许从一系列指定的字符之间匹配单个字符那样，
@@ -471,8 +468,8 @@ alternation 允许从一系列字符串或者是其它的正则表达式中选�
     [me@linuxbox ~]$ echo "AAA" | grep AAA
     AAA
     [me@linuxbox ~]$ echo "BBB" | grep AAA
-    [me@linuxbox ~]$ 
-    
+    [me@linuxbox ~]$
+
 
 一个相当直截了当的例子，我们把 echo 的输出管道给 grep，然后看到输出结果。当出现
 一个匹配项时，我们看到它会打印出来；当没有匹配项时，我们看到没有输出结果。
@@ -492,30 +489,30 @@ alternation 允许从一系列字符串或者是其它的正则表达式中选�
 Alternation 并不局限于两种选择：
 
     [me@linuxbox ~]$ echo "AAA" | grep -E 'AAA|BBB|CCC'
-    AAA 
-    
+    AAA
+
 
 为了把 alternation 和其它正则表达式元素结合起来，我们可以使用()来分离 alternation。
 
-    [me@linuxbox ~]$ grep -Eh '^(bz|gz|zip)' dirlist*.txt 
+    [me@linuxbox ~]$ grep -Eh '^(bz|gz|zip)' dirlist*.txt
 
 这个表达式将会在我们的列表中匹配以“bz”，或“gz”，或“zip”开头的文件名。如果我们删除了圆括号，
 这个表达式的意思：
 
-    [me@linuxbox ~]$ grep -Eh '^bz|gz|zip' dirlist*.txt 
+    [me@linuxbox ~]$ grep -Eh '^bz|gz|zip' dirlist*.txt
 
 会变成匹配任意以“bz”开头，或包含“gz”，或包含“zip”的文件名。
 
-### 限定符 
+### 限定符
 
 扩展的正则表达式支持几种方法，来指定一个元素被匹配的次数。
 
-#### ? - 匹配一个元素零次或一次 
+#### ? - 匹配一个元素零次或一次
 
 这个限定符意味着，实际上，“使前面的元素可有可无。”比方说我们想要查看一个电话号码的真实性，
 如果它匹配下面两种格式的任意一种，我们就认为这个电话号码是真实的：
 
-    (nnn) nnn-nnnn 
+    (nnn) nnn-nnnn
 
     nnn nnn-nnnn
 
@@ -536,33 +533,32 @@ Alternation 并不局限于两种选择：
     555 123-4567
     [me@linuxbox ~]$ echo "AAA 123-4567" | grep -E '^\(?[0-9][0-9][0-9]\)
     ? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'
-    [me@linuxbox ~]$ 
+    [me@linuxbox ~]$
 
 这里我们看到这个表达式匹配这个电话号码的两种形式，但是不匹配包含非数字字符的号码。
 
-像?元字符一样，这个\*被用来表示一个可选的字符；然而，又与?不同，匹配的字符可以出现
+像?元字符一样，这个 * 被用来表示一个可选的字符；然而，又与?不同，匹配的字符可以出现
 任意多次，不仅是一次。比方说我们想要知道是否一个字符串是一句话；也就是说，字符串开始于
 一个大写字母，然后包含任意多个大写和小写的字母和空格，最后以句号收尾。为了匹配这个（非常粗略的）
 语句的定义，我们能够使用一个像这样的正则表达式：
 
     [[:upper:]][[:upper:][:lower:] ]*.
 
-这个表达式由三个元素组成：一个包含[:upper:]字符集的中括号表达式，一个包含[:upper:]和[:lower:]
-两个字符集以及一个空格的中括号表达式，和一个被反斜杠字符转义过的圆点。第二个元素末尾带有一个
-\*元字符，所以在开头的大写字母之后，可能会跟随着任意数目的大写和小写字母和空格，并且匹配：
+这个表达式由三个元素组成：一个包含[:upper:]字符集的中括号表达式，一个包含 [:upper:] 和 [:lower:]
+两个字符集以及一个空格的中括号表达式，和一个被反斜杠字符转义过的圆点。第二个元素末尾带有一个 * 元字符，所以在开头的大写字母之后，可能会跟随着任意数目的大写和小写字母和空格，并且匹配：
 
     [me@linuxbox ~]$ echo "This works." | grep -E '[[:upper:]][[:upper:][[:lower:]]*.'
     This works.
     [me@linuxbox ~]$ echo "This Works." | grep -E '[[:upper:]][[:upper:][[:lower:]]*.'
     This Works.
     [me@linuxbox ~]$ echo "this does not" | grep -E '[[:upper:]][[:upper: ][[:lower:]]*.'
-    [me@linuxbox ~]$ 
+    [me@linuxbox ~]$
 
 这个表达式匹配前两个测试语句，但不匹配第三个，因为第三个句子缺少开头的大写字母和末尾的句号。
 
-#### + - 匹配一个元素一次或多次 
+#### + - 匹配一个元素一次或多次
 
-这个+元字符的作用与\*非常相似，除了它要求前面的元素至少出现一次匹配。这个正则表达式只匹配
+这个+元字符的作用与 * 非常相似，除了它要求前面的元素至少出现一次匹配。这个正则表达式只匹配
 那些由一个或多个字母字符组构成的文本行，字母字符之间由单个空格分开：
 
     [me@linuxbox ~]$ echo "This that" | grep -E '^([[:alpha:]]+ ?)+$'
@@ -571,8 +567,8 @@ Alternation 并不局限于两种选择：
     a b c
     [me@linuxbox ~]$ echo "a b 9" | grep -E '^([[:alpha:]]+ ?)+$'
     [me@linuxbox ~]$ echo "abc  d" | grep -E '^([[:alpha:]]+ ?)+$'
-    [me@linuxbox ~]$ 
-    
+    [me@linuxbox ~]$
+
 
 我们看到这个正则表达式不匹配“a b 9”这一行，因为它包含了一个非字母的字符；它也不匹配
  “abc  d” ，因为在字符“c”和“d”之间不止一个空格。
@@ -618,8 +614,8 @@ Alternation 并不局限于两种选择：
     [me@linuxbox ~]$ echo "555 123-4567" | grep -E '^\(?[0-9]{3}\)? [0-9]{3}-[0-9]{4}$'
     555 123-4567
     [me@linuxbox ~]$ echo "5555 123-4567" | grep -E '^\(?[0-9]{3}\)? [0-9]{3}-[0-9]{4}$'
-    [me@linuxbox ~]$ 
-    
+    [me@linuxbox ~]$
+
 
 我们可以看到，我们修订的表达式能成功地验证带有和不带有圆括号的数字，而拒绝那些格式
 不正确的数字。
@@ -636,7 +632,7 @@ Alternation 并不局限于两种选择：
 讨论那些命令。这是咒语：
 
     [me@linuxbox ~]$ for i in {1..10}; do echo "(${RANDOM:0:3}) ${RANDO
-    M:0:3}-${RANDOM:0:4}" >> phonelist.txt; done 
+    M:0:3}-${RANDOM:0:4}" >> phonelist.txt; done
 
 这个命令会创建一个包含10个电话号码的名为 phonelist.txt 的文件。每次重复这个命令的时候，
 另外10个号码会被添加到这个列表中。我们也能够更改命令开头附近的数值10，来生成或多或少的
@@ -652,7 +648,7 @@ Alternation 并不局限于两种选择：
     (129) 44-1379
     (458) 273-1642
     (686) 299-8268
-    (198) 307-2440 
+    (198) 307-2440
 
 一些号码是残缺的，但它们符号我们的目的，以为我们将使用 grep 命令来验证它们。
 
@@ -662,14 +658,14 @@ Alternation 并不局限于两种选择：
     phonelist.txt
     (292) 108-518
     (129) 44-1379
-    [me@linuxbox ~]$ 
-    
+    [me@linuxbox ~]$
+
 
 这里我们使用-v 选项来产生相反的匹配，因此我们将只输出不匹配指定表达式的文本行。这个
 表达式自身的两端都包含定位点（锚）元字符，是为了确保这个号码的两端没有多余的字符。
 这个表达式也要求圆括号出现在一个有效的号码中，不同于我们先前电话号码的实例。
 
-#### 用 find 查找丑陋的文件名 
+#### 用 find 查找丑陋的文件名
 
 这个 find 命令支持一个基于正则表达式的测试。当在使用正则表达式方面比较 find 和 grep 命令的时候，
 还有一个重要问题要牢记在心。当某一行包含的字符串匹配上了一个表达式的时候，grep 命令会打印出这一行，
@@ -681,12 +677,12 @@ Alternation 并不局限于两种选择：
 这样一种扫描会发现包含空格和其它潜在不规范字符的路径名：
 
     [me@linuxbox ~]$ find . -regex '.*[^-\_./0-9a-zA-Z].*'
-    
 
-由于要精确地匹配整个路径名，所以我们在表达式的两端使用了.\*，来匹配零个或多个字符。
+
+由于要精确地匹配整个路径名，所以我们在表达式的两端使用了 .*，来匹配零个或多个字符。
 在表达式中间，我们使用了否定的中括号表达式，其包含了我们一系列可接受的路径名字符。
 
-#### 用 locate 查找文件 
+#### 用 locate 查找文件
 
 这个 locate 程序支持基本的（--regexp 选项）和扩展的（--regex 选项）正则表达式。通过
 locate 命令，我们能够执行许多与先前操作 dirlist 文件时相同的操作：
@@ -710,17 +706,17 @@ locate 命令，我们能够执行许多与先前操作 dirlist 文件时相同�
     /usr/bin/zipgrep
     /usr/bin/zipinfo
     /usr/bin/zipnote
-    /usr/bin/zipsplit 
+    /usr/bin/zipsplit
 
 通过使用 alternation，我们搜索包含 bin/bz，bin/gz，或/bin/zip 字符串的路径名。
 
-#### 在 less 和 vim 中查找文本 
+#### 在 less 和 vim 中查找文本
 
 less 和 vim 两者享有相同的文本查找方法。按下/按键，然后输入正则表达式，来执行搜索任务。
 如果我们使用 less 程序来浏览我们的 phonelist.txt 文件：
 
-    [me@linuxbox ~]$ less phonelist.txt 
-    
+    [me@linuxbox ~]$ less phonelist.txt
+
 
 然后查找我们有效的表达式：
 
@@ -735,8 +731,8 @@ less 和 vim 两者享有相同的文本查找方法。按下/按键，然后输
     (686) 299-8268
     (198) 307-2440
     ~
-    /^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$ 
-    
+    /^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$
+
 
 less 将会高亮匹配到的字符串，这样就很容易看到无效的电话号码：
 
@@ -751,7 +747,7 @@ less 将会高亮匹配到的字符串，这样就很容易看到无效的电话
     (686) 299-8268
     (198) 307-2440
     ~
-    (END) 
+    (END)
 
 另一方面，vim 支持基本的正则表达式，所以我们用于搜索的表达式看起来像这样：
 
@@ -774,14 +770,14 @@ less 将会高亮匹配到的字符串，这样就很容易看到无效的电话
 
 ---
 
-### 总结归纳 
+### 总结归纳
 
 在这章中，我们已经看到几个使用正则表达式例子。如果我们使用正则表达式来搜索那些使用正则表达式的应用程序，
 我们可以找到更多的使用实例。通过查找手册页，我们就能找到：
 
     [me@linuxbox ~]$ cd /usr/share/man/man1
-    [me@linuxbox man1]$ zgrep -El 'regex|regular expression' *.gz 
-    
+    [me@linuxbox man1]$ zgrep -El 'regex|regular expression' *.gz
+
 
 这个 zgrep 程序是 grep 的前端，允许 grep 来读取压缩文件。在我们的例子中，我们在手册文件所在的
 目录中，搜索压缩文件中的内容。这个命令的结果是一个包含字符串“regex”或者“regular
@@ -789,7 +785,7 @@ expression”的文件列表。正如我们所看到的，正则表达式会出�
 
 基本正则表达式中有一个特性，我们没有涵盖。叫做反引用，这个特性在下一章中会被讨论到。
 
-### 拓展阅读 
+### 拓展阅读
 
 有许多在线学习正则表达式的资源，包括各种各样的教材和速记表。
 
