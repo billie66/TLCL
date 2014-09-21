@@ -29,7 +29,7 @@ title: 网络系统
 
 * IP (网络协议)地址
 
-<li><p>主机和域名</p></li>
+* 主机和域名
 
 * URI（统一资源标识符）
 
@@ -248,7 +248,7 @@ valign="top">退出远端服务器，结束 ftp 程序会话。也可以使用�
 </tr>
 </table>
 
-在“ftp&gt;”提示符下，输入“help”，会显示所支持命令的列表。使用 ftp 登录到一台
+在“ftp>”提示符下，输入“help”，会显示所支持命令的列表。使用 ftp 登录到一台
 授予了用户足够权限的服务器中，则可以执行很多普通的文件管理任务。虽然很笨拙，
 但它真能工作。
 
@@ -359,7 +359,7 @@ Hat）,而另一些（比方说 Ubuntu）则只是提供客户端服务。为了
 被轻易否定。当这条消息出现时，总要与远端系统的管理员查对一下。
 
 当确定了这条消息归结为一个良性的原因之后，那么在客户端更正问题就很安全了。
-使用文本编辑器（可能是 vim）从文件~/.ssh/known\_hosts 中删除废弃的钥匙，
+使用文本编辑器（可能是 vim）从文件~/.ssh/known_hosts 中删除废弃的钥匙，
 就解决了问题。在上面的例子里，我们看到这样一句话：
 
     Offending key in /home/me/.ssh/known_hosts:1
@@ -397,26 +397,28 @@ shell 会话中。
 
     [me@linuxbox ~]$ ssh remote-sys 'ls * > dirlist.txt'
 
-<br />
-
-<div class="single">
-<h3>SSH 通道</h3>
-
-<p>当你通过 SSH 协议与远端主机建立连接的时候，其中发生的事就是在本地与远端系统之间
+> SSH 通道
+>
+> 当你通过 SSH 协议与远端主机建立连接的时候，其中发生的事就是在本地与远端系统之间
 创建了一条加密通道。通常，这条通道被用来把在本地系统中输入的命令安全地传输到远端系统，
 同样地，再把执行结果安全地发送回来。除了这个基本功能之外，SSH 协议允许大多数
-网络流量类型通过这条加密通道来被传送，在本地与远端系统之间创建某种 VPN（虚拟专用网络）。</p>
-
-<p>可能这个特性的最普遍使用是允许传递 X 窗口系统流量。在运行着 X 服务器（也就是，
+网络流量类型通过这条加密通道来被传送，在本地与远端系统之间创建某种 VPN（虚拟专用网络）。
+>
+> 可能这个特性的最普遍使用是允许传递 X 窗口系统流量。在运行着 X 服务器（也就是，
 能显示 GUI 的机器）的系统中，有可能在远端启动和运行一个 X 客户端程序（一个图形化应用程序），
 而应用程序的显示结果出现在本地。这很容易完成，这里有个例子：假设我们正坐在一台装有 Linux 系统，
 叫做 linuxbox 的机器之前，且系统中运行着 X 服务器，现在我们想要在名为 remote-sys 的远端系统中
-运行 xload 程序，但是要在我们的本地系统中看到这个程序的图形化输出。我们可以这样做：</p>
+运行 xload 程序，但是要在我们的本地系统中看到这个程序的图形化输出。我们可以这样做：
+>
+>     [me@linuxbox ~]$ ssh -X remote-sys
+>     me@remote-sys's password:
+>     Last login: Mon Sep 08 13:23:11 2008
+>     [me@remote-sys ~]$ xload
+>
+> 这个 xload 命令在远端执行之后，它的窗口就会出现在本地。在某些系统中，你可能需要
+使用“－Y”选项，而不是“－X”选项来完成这个操作。
+{: .single}
 
-<p>这个 xload 命令在远端执行之后，它的窗口就会出现在本地。在某些系统中，你可能需要
-使用“－Y”选项，而不是“－X”选项来完成这个操作。</p>
-</div>
-<br />
 
 这个 OpenSSH 软件包也包含两个程序，它们可以利用 SSH 加密通道在网络间复制文件。
 第一个，scp（安全复制）被用来复制文件，与熟悉的 cp 程序非常相似。最显著的区别就是
@@ -454,8 +456,6 @@ shell 会话中。
     /home/me/ubuntu-8.04-desktop-i386.iso 100% 699MB 7.4MB/s 01:35
     sftp> bye
 
-<br />
-
 ---
 
 小贴示：这个 SFTP 协议被许多 Linux 发行版中的图形化文件管理器支持。使用
@@ -464,34 +464,30 @@ sftp://开头的 URI， 来操作存储在运行着 SSH 服务器的远端系统
 
 ---
 
-<br />
-
-<div class="single">
-
-<h3>Windows 中的 SSH 客户端</h3>
-
-<p>比方说你正坐在一台 Windows 机器前面，但是你需要登录到你的 Linux 服务器中，去完成
+> Windows 中的 SSH 客户端
+>
+> 比方说你正坐在一台 Windows 机器前面，但是你需要登录到你的 Linux 服务器中，去完成
 一些实际的工作，那该怎么办呢？当然是得到一个 Windows 平台下的 SSH 客户端！有很多这样
 的工具。最流行的可能就是由 Simon Tatham 和他的团队开发的 PuTTY 了。这个 PuTTY 程序
 能够显示一个终端窗口，而且允许 Windows 用户在远端主机中打开一个 SSH（或者 telnet）会话。
-这个程序也提供了 scp 和 sftp 程序的类似物。</p>
+这个程序也提供了 scp 和 sftp 程序的类似物。
 
-<p>PuTTY 可在链接 http://www.chiark.greenend.org.uk/~sgtatham/putty/ 处得到。</p>
-</div>
-<br />
+> PuTTY 可在链接 http://www.chiark.greenend.org.uk/~sgtatham/putty/ 处得到。
+{: .single}
+
 
 ### 拓展阅读
 
-  Linux 文档项目提供了 Linux 网络管理指南，可以广泛地（虽然过时了）了解网络管理方面的知识。
+* Linux 文档项目提供了 Linux 网络管理指南，可以广泛地（虽然过时了）了解网络管理方面的知识。
 
-  <http://tldp.org/LDP/nag2/index.html>
+    <http://tldp.org/LDP/nag2/index.html>
 
 
 * Wikipedia 上包含了许多网络方面的优秀文章。这里有一些基础的：
 
-  <http://en.wikipedia.org/wiki/Internet_protocol_address>
+    <http://en.wikipedia.org/wiki/Internet_protocol_address>
 
-  <http://en.wikipedia.org/wiki/Host_name>
+    <http://en.wikipedia.org/wiki/Host_name>
 
-  <http://en.wikipedia.org/wiki/Uniform_Resource_Identifier>
+    <http://en.wikipedia.org/wiki/Uniform_Resource_Identifier>
 

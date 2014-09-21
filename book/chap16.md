@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 存储媒介 
+title: 存储媒介
 ---
 
 In previous chapters we’ve looked at manipulating data at the file level. In this chapter,
@@ -45,7 +45,7 @@ We will look at the following commands:
 
 * fdisk – Partition table manipulator
 
-* fdisk – 分区表控制器 
+* fdisk – 分区表控制器
 
 * mkfs – Create a file system
 
@@ -112,8 +112,7 @@ Fedora 7 system:
     devpts                  /dev/pts        devpts      gid=5,mode=620  0   0
     sysfs                   /sys            sysfs       defaults        0   0
     proc                    /proc           proc        defaults        0   0
-    LABEL=SWAP-sda3         /swap           swap        defaults        0   0        
-    
+    LABEL=SWAP-sda3         /swap           swap        defaults        0   0
 
 Most of the file systems listed in this example file are virtual and are not applicable to our
 discussion. For our purposes, the interesting ones are the first three:
@@ -124,7 +123,6 @@ discussion. For our purposes, the interesting ones are the first three:
     LABEL=/12               /               ext3        defaults        1   1
     LABEL=/home             /home           ext3        defaults        1   2
     LABEL=/boot             /boot           ext3        defaults        1   2
-    
 
 These are the hard disk partitions. Each line of the file consists of six fields, as follows:
 
@@ -314,7 +312,7 @@ see the following:
     sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw)
     /dev/hdc on /media/live-1.0.10-8 type iso9660 (ro,noexec,nosuid,
     nodev,uid=500)
-    
+
 After we insert the disk, we see the same listing as before with one additional entry. At
 the end of the listing we see that the CD-ROM (which is device /dev/hdc on this
 system) has been mounted on /media/live-1.0.10-8, and is type iso9660 (a CD-
@@ -343,7 +341,7 @@ Now that we have the device name of the CD-ROM drive, let's unmount the disk and
 remount it another location in the file system tree. To do this, we become the superuser
 (using the command appropriate for our system) and unmount the disk with the umount
 (notice the spelling) command:
- 
+
 现在我们拥有 CD-ROW 光盘的设备名字，让我们卸载这张光盘，并把它重新挂载到文件系统树
 的另一个位置。我们需要超级用户身份（使用系统相应的命令）来进行操作，并且用
 umount（注意这个命令的拼写）来卸载光盘：
@@ -363,14 +361,14 @@ For our purposes, we will create a new directory:
 这个目录中原来的内容，直到你卸载这个设备。就我们的目的而言，我们将创建一个新目录：
 
     [root@linuxbox ~]# mkdir /mnt/cdrom
-    
+
 Finally, we mount the CD-ROM at the new mount point. The -t option is used to
 specify the file system type:
 
 最后，我们把这个 CD-ROW 挂载到一个新的挂载点上。这个-t 选项用来指定文件系统类型：
 
     [root@linuxbox ~]# mount -t iso9660 /dev/hdc /mnt/cdrom
-    
+
 Afterward, we can examine the contents of the CD-ROM via the new mount point:
 
 之后，我们可以通过这个新挂载点来查看 CD-ROW 的内容：
@@ -499,7 +497,7 @@ directory (where all devices live), we can see that there are lots and lots of d
 会看到许许多多的设备：
 
     [me@linuxbox ~]$ ls /dev
-    
+
 The contents of this listing reveal some patterns of device naming. Here are a few:
 
 这个列表的内容揭示了一些设备命名的模式。这里有几个：
@@ -595,7 +593,7 @@ may require superuser privileges for this):
 （你可能需要超级用户权限）：
 
     [me@linuxbox ~]$ sudo tail -f /var/log/messages
-    
+
 The last few lines of the file will be displayed and then pause. Next, plug in the
 removable device. In this example, we will use a 16 MB flash drive. Almost
 immediately, the kernel will notice the device and probe it:
@@ -612,7 +610,7 @@ immediately, the kernel will notice the device and probe it:
     Storage devices
     Jul 23 10:07:58 linuxbox kernel: scsi scan: INQUIRY result too short
     (5), using 36
-    Jul 23 10:07:58 linuxbox kernel: scsi 3:0:0:0: Direct-Access Easy 
+    Jul 23 10:07:58 linuxbox kernel: scsi 3:0:0:0: Direct-Access Easy
     Disk 1.00 PQ: 0 ANSI: 2
     Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: [sdb] 31263 512-byte
     hardware sectors (16 MB)
@@ -631,7 +629,7 @@ immediately, the kernel will notice the device and probe it:
     removable disk
     Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: Attached scsi generic
     sg3 type 0
-    
+
 After the display pauses again, type Ctrl-c to get the prompt back. The interesting parts
 of the output are the repeated references to “[sdb]” which matches our expectation of a
 SCSI disk device name. Knowing this, two lines become particularly illuminating:
@@ -669,9 +667,9 @@ With our device name in hand, we can now mount the flash drive:
     /dev/sda1       147764      17277       122858      13%     /boot
     tmpfs           776808      0           776808      0%      /dev/shm
     /dev/sdb1       15560       0           15560       0%      /mnt/flash
-    
+
 The device name will remain the same as long as it remains physically attached to the
-computer and the computer is not rebooted. 
+computer and the computer is not rebooted.
 
 这个设备名称会保持不变只要设备与计算机保持连接并且计算机不会重新启动。
 
@@ -692,13 +690,13 @@ Warning! In the following exercise, we are going to format a flash drive. Use a
 drive that contains nothing you care about because it will be erased! Again, make
 absolutely sure you are specifying the correct device name for your system, not
 the one shown in the text. Failure to heed this warning could result in you
-formatting (i.e., erasing) the wrong drive! 
+formatting (i.e., erasing) the wrong drive!
 
 注意！在下面的练习中，我们将要格式化一个闪存驱动器。拿一个不包含有用数据的驱动器
 作为实验品，因为它将会被擦除！再次，请确定你指定了正确的系统设备名称。未能注意此
 警告可能导致你格式化（即擦除）错误的驱动器！
 
-Manipulating Partitions With fdisk 
+Manipulating Partitions With fdisk
 
 ### 用 fdisk 命令操作分区
 
@@ -736,11 +734,11 @@ entering “p” to print the partition table for the device:
 我们想要做的第一件事情是检查已存在的分区布局。输入"p"会打印出这个设备的分区表：
 
     Command (m for help): p
-    
+
     Disk /dev/sdb: 16 MB, 16006656 bytes
     1 heads, 31 sectors/track, 1008 cylinders
     Units = cylinders of 31 * 512 = 15872 bytes
-    
+
     Device Boot     Start        End     Blocks   Id        System
     /dev/sdb1           2       1008      15608+   b       w95 FAT32
 
@@ -774,7 +772,7 @@ Going back to the menu, we see this choice to change a partition ID:
 回到之前的菜单，看到这个选项来更改分区 ID 号：
 
     t   change a partition's system id
-    
+
 We enter “t” at the prompt enter the new ID:
 
 我们先输入“t”，再输入新的 ID 号：
@@ -783,7 +781,7 @@ We enter “t” at the prompt enter the new ID:
     Selected partition 1
     Hex code (type L to list codes): 83
     Changed system type of partition 1 to 83 (Linux)
-    
+
 This completes all the changes that we need to make. Up to this point, the device has
 been untouched (all the changes have been stored in memory, not on the physical device),
 so we will write the modified partition table to the device and exit. To do this, we enter
@@ -899,7 +897,7 @@ To check our flash drive (which should be unmounted first), we could do the foll
     fsck 1.40.8 (13-Mar-2008)
     e2fsck 1.40.8 (13-Mar-2008)
     /dev/sdb1: clean, 11/3904 files, 1661/15608 blocks
-    
+
 In my experience, file system corruption is quite rare unless there is a hardware problem,
 such as a failing disk drive. On most systems, file system corruption detected at boot
 time will cause the system to stop and direct you to run fsck before continuing.
@@ -940,7 +938,7 @@ floppy device (usually /dev/fd0):
     Double-sided, 80 tracks, 18 sec/track. Total capacity 1440 kB.
     Formatting ... done
     Verifying ... done
-    
+
 Next, we apply a FAT file system to the diskette with mkfs:
 
 接下来，通过 mkfs 命令，给这个软盘创建一个 FAT 文件系统：
@@ -1059,7 +1057,7 @@ rom.iso with the following command:
 填充此目录，再通过下面的命令来创建一个叫做 cd-rom.iso 映像文件：
 
     genisoimage -o cd-rom.iso -R -J ~/cd-rom-files
-    
+
 The “-R” option adds metadata for the Rock Ridge extensions, which allows the use of
 long filenames and POSIX style file permissions. Likewise, the “-J” option enables the
 Joliet extensions, which permit long filenames for Windows.
@@ -1115,7 +1113,7 @@ file as though it were a device and attach it to the file system tree:
 
     mkdir /mnt/iso_image
     mount -t iso9660 -o loop image.iso /mnt/iso_image
-    
+
 In the example above, we created a mount point named /mnt/iso_image and then
 mounted the image file image.iso at that mount point. After the image is mounted, it
 can be treated just as though it were a real CD-ROM or DVD. Remember to unmount the
@@ -1149,7 +1147,7 @@ device and the name of the image file:
 写入一个映像文件，我们再次使用 wodim 命令，指定光盘设备名称和映像文件名：
 
     wodim dev=/dev/cdrw image.iso
-    
+
 In addition to the device name and image file, wodim supports a very large set of
 options. Two common ones are “-v” for verbose output, and “-dao” which writes the disk
 in disk-at-once mode. This mode should be used if you are preparing a disk for
@@ -1194,7 +1192,7 @@ number:
 
     md5sum image.iso
     34e354760f9bb7fbf85c96f6a3f94ece    image.iso
-    
+
 After you download an image, you should run md5sum against it and compare the results
 with the md5sum value supplied by the publisher.
 
@@ -1209,7 +1207,7 @@ always written in 2048 byte blocks) and reading that many blocks from the media.
 some types of media, this is not required. A CD-R written in disk-at-once mode can be
 checked this way:
 
-除了检查下载文件的完整性之外，我们也可以使用 md5sum 程序验证新写入的光学存储介质。 
+除了检查下载文件的完整性之外，我们也可以使用 md5sum 程序验证新写入的光学存储介质。
 为此，首先我们计算映像文件的 checksum 数值，然后计算此光学存储介质的 checksum 数值。
 这种验证光学介质的技巧是限定只对 光学存储介质中包含映像文件的部分计算 checksum 数值。
 通过确定映像文件所包含的 2048 个字节块的数目（光学存储介质总是以 2048 个字节块的方式写入）
@@ -1220,12 +1218,12 @@ checked this way:
     34e354760f9bb7fbf85c96f6a3f94ece    /dev/cdrom
 
 Many types of media, such as DVDs require a precise calculation of the number of
-blocks. In the example below, we check the integrity of the image file dvd-image.iso 
+blocks. In the example below, we check the integrity of the image file dvd-image.iso
 and the disk in the DVD reader /dev/dvd. Can you figure out how this works?
 
 许多存储介质类型，如 DVD 需要精确地计算字节块的数目。在下面的例子中，我们检验了映像文件 dvd-image.iso
 以及 DVD 光驱中磁盘 /dev/dvd 文件的完整性。你能弄明白这是怎么回事吗？
 
     md5sum dvd-image.iso; dd if=/dev/dvd bs=2048 count=$(( $(stat -c "%s" dvd-image.iso) / 2048 )) | md5sum
-    
+
 

@@ -695,53 +695,50 @@ filename within the single quotes:
 
     [me@linuxbox ~]$ ssh remote-sys 'ls * > dirlist.txt'
 
-<br />
-
-<div class="single">
-<h3>Tunneling With SSH</h3>
-<h3>SSH 通道</h3>
-
-<p>Part of what happens when you establish a connection with a remote host via SSH
+> Tunneling With SSH
+>
+> SSH 通道
+>
+> Part of what happens when you establish a connection with a remote host via SSH
 is that an encrypted tunnel is created between the local and remote systems.
 Normally, this tunnel is used to allow commands typed at the local system to be
 transmitted safely to the remote system, and for the results to be transmitted
 safely back. In addition to this basic function, the SSH protocol allows most
 types of network traffic to be sent through the encrypted tunnel, creating a sort of
-VPN (Virtual Private Network) between the local and remote systems.</p>
-
-<p>当你通过 SSH 协议与远端主机建立连接的时候，其中发生的事就是在本地与远端系统之间
+VPN (Virtual Private Network) between the local and remote systems.
+>
+> 当你通过 SSH 协议与远端主机建立连接的时候，其中发生的事就是在本地与远端系统之间
 创建了一条加密通道。通常，这条通道被用来把在本地系统中输入的命令安全地传输到远端系统，
 同样地，再把执行结果安全地发送回来。除了这个基本功能之外，SSH 协议允许大多数
-网络流量类型通过这条加密通道来被传送，在本地与远端系统之间创建某种 VPN（虚拟专用网络）。</p>
-
-<p>Perhaps the most common use of this feature is to allow X Window system traffic
+网络流量类型通过这条加密通道来被传送，在本地与远端系统之间创建某种 VPN（虚拟专用网络）。
+>
+> Perhaps the most common use of this feature is to allow X Window system traffic
 to be transmitted. On a system running an X server (that is, a machine displaying
 a GUI), it is possible to launch and run an X client program (a graphical
 application) on a remote system and have its display appear on the local system.
 It’s easy to do, here’s an example: let’s say we are sitting at a Linux system
 called linuxbox which is running an X server, and we want to run the xload
 program on a remote system named remote-sys and see the program’s
-graphical output on our local system. We could do this:</p>
-
-<p>可能这个特性的最普遍使用是允许传递 X 窗口系统流量。在运行着 X 服务器（也就是，
+graphical output on our local system. We could do this:
+>
+> 可能这个特性的最普遍使用是允许传递 X 窗口系统流量。在运行着 X 服务器（也就是，
 能显示 GUI 的机器）的系统中，有可能在远端启动和运行一个 X 客户端程序（一个图形化应用程序），
 而应用程序的显示结果出现在本地。这很容易完成，这里有个例子：假设我们正坐在一台装有 Linux 系统，
 叫做 linuxbox 的机器之前，且系统中运行着 X 服务器，现在我们想要在名为 remote-sys 的远端系统中
-运行 xload 程序，但是要在我们的本地系统中看到这个程序的图形化输出。我们可以这样做：</p>
-
-<p>[me@linuxbox ~]$ ssh -X remote-sys</p>
-<p>me@remote-sys's password:</p>
-<p>Last login: Mon Sep 08 13:23:11 2008</p>
-<p>[me@remote-sys ~]$ xload</p>
-
-<p>After the xload command is executed on the remote system, its window
+运行 xload 程序，但是要在我们的本地系统中看到这个程序的图形化输出。我们可以这样做：
+>
+>     [me@linuxbox ~]$ ssh -X remote-sys
+>     me@remote-sys's password:
+>     Last login: Mon Sep 08 13:23:11 2008
+>     [me@remote-sys ~]$ xload
+>
+> After the xload command is executed on the remote system, its window
 appears on the local system. On some systems, you may need to use the “-Y”
-option rather than the “-X” option to do this.</p>
-
-<p>这个 xload 命令在远端执行之后，它的窗口就会出现在本地。在某些系统中，你可能需要
-使用“－Y”选项，而不是“－X”选项来完成这个操作。</p>
-</div>
-<br />
+option rather than the “-X” option to do this.
+>
+> 这个 xload 命令在远端执行之后，它的窗口就会出现在本地。在某些系统中，你可能需要
+使用“－Y”选项，而不是“－X”选项来完成这个操作。
+{: .single}
 
 #### scp And sftp
 
@@ -799,7 +796,6 @@ also be used as a FTP-like server. Here is a sample session:
     /home/me/ubuntu-8.04-desktop-i386.iso 100% 699MB 7.4MB/s 01:35
     sftp> bye
 
-<br />
 
 ---
 
@@ -814,32 +810,30 @@ sftp://开头的 URI， 来操作存储在运行着 SSH 服务器的远端系统
 
 ---
 
-<br />
 
-<div class="single">
-<h3>An SSH Client For Windows?</h3>
-
-<h3>Windows 中的 SSH 客户端</h3>
-
-<p>Let’s say you are sitting at a Windows machine but you need to log in to your
+> An SSH Client For Windows?
+>
+> Windows 中的 SSH 客户端
+>
+> Let’s say you are sitting at a Windows machine but you need to log in to your
 Linux server and get some real work done, what do you do? Get an SSH client
 program for your Windows box, of course! There are a number of these. The
 most popular one is probably PuTTY by Simon Tatham and his team. The
 PuTTY program displays a terminal window and allow a Windows user to open
 an SSH (or telnet) session on a remote host. The program also provides analogs
-for the scp and sftp programs.</p>
-
-<p>比方说你正坐在一台 Windows 机器前面，但是你需要登录到你的 Linux 服务器中，去完成
+for the scp and sftp programs.
+>
+> 比方说你正坐在一台 Windows 机器前面，但是你需要登录到你的 Linux 服务器中，去完成
 一些实际的工作，那该怎么办呢？当然是得到一个 Windows 平台下的 SSH 客户端！有很多这样
 的工具。最流行的可能就是由 Simon Tatham 和他的团队开发的 PuTTY 了。这个 PuTTY 程序
 能够显示一个终端窗口，而且允许 Windows 用户在远端主机中打开一个 SSH（或者 telnet）会话。
-这个程序也提供了 scp 和 sftp 程序的类似物。</p>
+这个程序也提供了 scp 和 sftp 程序的类似物。
+>
+> PuTTY is available at http://www.chiark.greenend.org.uk/~sgtatham/putty/
+>
+> PuTTY 可在链接 http://www.chiark.greenend.org.uk/~sgtatham/putty/ 处得到。
+{: .single}
 
-<p>PuTTY is available at http://www.chiark.greenend.org.uk/~sgtatham/putty/</p>
-
-<p>PuTTY 可在链接 http://www.chiark.greenend.org.uk/~sgtatham/putty/ 处得到。</p>
-</div>
-<br />
 
 ### Further Reading
 
@@ -848,17 +842,17 @@ for the scp and sftp programs.</p>
 * For a broad (albeit dated) look at network administration, the Linux
   Documentation Project provides the Linux Network Administrator’s Guide:
 
-  Linux 文档项目提供了 Linux 网络管理指南，可以广泛地（虽然过时了）了解网络管理方面的知识。
+* Linux 文档项目提供了 Linux 网络管理指南，可以广泛地（虽然过时了）了解网络管理方面的知识。
 
-  <http://tldp.org/LDP/nag2/index.html>
+    <http://tldp.org/LDP/nag2/index.html>
 
 * Wikipedia contains many good networking articles. Here are some of the basics:
 
 * Wikipedia 上包含了许多网络方面的优秀文章。这里有一些基础的：
 
-  <http://en.wikipedia.org/wiki/Internet_protocol_address>
+    <http://en.wikipedia.org/wiki/Internet_protocol_address>
 
-  <http://en.wikipedia.org/wiki/Host_name>
+    <http://en.wikipedia.org/wiki/Host_name>
 
-  <http://en.wikipedia.org/wiki/Uniform_Resource_Identifier>
+    <http://en.wikipedia.org/wiki/Uniform_Resource_Identifier>
 
