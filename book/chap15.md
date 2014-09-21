@@ -4,7 +4,7 @@ title: 软件包管理
 ---
 
 If we spend any time in the Linux community, we hear many opinions as to which of the
-many Linux distributions is &quot;best.&quot; Often, these discussions get really silly, focusing on
+many Linux distributions is "best." Often, these discussions get really silly, focusing on
 such things as the prettiness of the desktop background (some people won't use Ubuntu
 because its default color scheme is brown!) and other trivial matters.
 
@@ -56,7 +56,7 @@ camp and the Red Hat “.rpm” camp. There are some important exceptions such a
 Gentoo, Slackware, and Foresight, but most others use one of these two basic systems.
 
 不同的 Linux 发行版使用不同的打包系统，一般而言，大多数发行版分别属于两大包管理技术阵营：
-Debian 的&quot;.deb&quot;，和红帽的&quot;.rpm&quot;。也有一些重要的例外，比方说 Gentoo，
+Debian 的".deb"，和红帽的".rpm"。也有一些重要的例外，比方说 Gentoo，
 Slackware，和 Foresight，但大多数会使用这两个基本系统中的一个。
 
 <table class="multi">
@@ -97,11 +97,11 @@ How A Package System Works
 ### 软件包管理系统是怎样工作的
 
 The method of software distribution found in the proprietary software industry usually
-entails buying a piece of installation media such as an &quot;install disk&quot; and then running an
-&quot;installation wizard&quot; to install a new application on the system.
+entails buying a piece of installation media such as an "install disk" and then running an
+"installation wizard" to install a new application on the system.
 
-在专有软件产业中找到的软件发布方法通常需要买一张安装媒介，比方说&quot;安装盘&quot;，然后运行
-&quot;安装向导&quot;，来在系统中安装新的应用程序。
+在专有软件产业中找到的软件发布方法通常需要买一张安装媒介，比方说"安装盘"，然后运行
+"安装向导"，来在系统中安装新的应用程序。
 
 Linux doesn't work that way. Virtually all software for a Linux system will be found on
 the Internet. Most of it will be provided by the distribution vendor in the form of
@@ -164,8 +164,8 @@ distribution will often have a “development” repository where work-in-progre
 destined for inclusion in the distribution's next major release are kept.
 
 因软件开发生命周期不同阶段的需要，一个系统发行版可能维护着几个不同的资源库。例如，通常会
-有一个&quot;测试&quot;资源库，其中包含刚刚建立的软件包，它们想要勇敢的用户来使用，
-在这些软件包正式发布之前，让用户查找错误。系统发行版经常会有一个&quot;开发&quot;资源库，
+有一个"测试"资源库，其中包含刚刚建立的软件包，它们想要勇敢的用户来使用，
+在这些软件包正式发布之前，让用户查找错误。系统发行版经常会有一个"开发"资源库，
 这个资源库中保存着注定要包含到下一个主要版本中的半成品软件包。
 
 A distribution may also have related third-party repositories. These are often needed to
@@ -196,7 +196,7 @@ have a dependency. Modern package management systems all provide some method of
 dependency resolution to ensure that when a package is installed, all of its dependencies
 are installed, too.
 
-程序很少是&quot;孤立的&quot;，而是依赖于其它软件组件来完成它们的工作。常见活动，以
+程序很少是"孤立的"，而是依赖于其它软件组件来完成它们的工作。常见活动，以
 输入/输出为例，就是由共享程序例程来处理的。这些程序例程存储在共享库中，共享库不只
 为一个程序提供基本服务。如果一个软件包需要共享资源，比如说共享库，据说就有一个依赖。
 现代的软件包管理系统都提供了一些依赖项解析方法，以此来确保当安装软件包时，也安装了
@@ -268,13 +268,13 @@ Common Package Management Tasks
 There are many operations that can be performed with the command line package
 management tools. We will look at the most common. Be aware that the low-level tools
 also support creation of package files, an activity outside the scope of this book.
-In the discussion below, the term &quot;package\_name&quot; refers to the actual name of a
-package rather than the term “package\_file,” which is the name of the file that
+In the discussion below, the term "package_name" refers to the actual name of a
+package rather than the term “package_file,” which is the name of the file that
 contains the package.
 
 通过命令行软件包管理工具可以完成许多操作。我们将会看一下最常用的工具。注意底层工具也
-支持软件包文件的创建，这个话题超出了本书叙述的范围。在以下的讨论中，&quot;package\_name&quot;
-这个术语是指软件包实际名称，而不是指&quot;package\_file&quot;，它是包含在软件包中的文件名。
+支持软件包文件的创建，这个话题超出了本书叙述的范围。在以下的讨论中，"package_name"
+这个术语是指软件包实际名称，而不是指"package_file"，它是包含在软件包中的文件名。
 
 Finding A Package In A Repository
 
@@ -370,7 +370,7 @@ Example: To install the emacs text editor from an apt repository:
 例如：从一个 apt 资源库来安装 emacs 文本编辑器：
 
     apt-get update; apt-get install emacs
-    
+
 Installing A Package From A Package File
 
 ### 通过软件包文件来安装软件
@@ -419,8 +419,6 @@ from a non-repository site, it would be installed this way:
 则可以通过这种方法来安装它：
 
     rpm -i emacs-22.1-7.fc7-i386.rpm
-    
-<br />
 
 ---
 
@@ -479,7 +477,7 @@ Example: To uninstall the emacs package from a Debian-style system:
 例如：从 Debian 风格的系统中卸载 emacs 软件包：
 
     apt-get remove emacs
-    
+
 Updating Packages From A Repository
 
 ### 经过资源库来更新软件包
@@ -532,7 +530,7 @@ system:
 例如：更新安装在 Debian 风格系统中的软件包：
 
     apt-get update; apt-get upgrade
-    
+
 Upgrading A Package From A Package File
 
 ### 经过软件包文件来升级软件
@@ -581,9 +579,6 @@ package file emacs-22.1-7.fc7-i386.rpm on a Red Hat system:
 例如：把 Red Hat 系统中所安装的 emacs 的版本更新到软件包文件 emacs-22.1-7.fc7-i386.rpmz 所包含的 emacs 版本。
 
     rpm -U emacs-22.1-7.fc7-i386.rpm
-    
-
-<br />
 
 ---
 
@@ -773,7 +768,7 @@ Example: To see what package installed the /usr/bin/vim file on a Red Hat system
 例如：在 Red Hat 系统中，查看哪个软件包安装了/usr/bin/vim 这个文件
 
     rpm -qf /usr/bin/vim
-    
+
 Summing Up
 
 ### 总结归纳
@@ -788,84 +783,82 @@ management, we should have no problem installing and managing the programs we ne
 大多数程序一般是默认安装的，但是若所需程序没有安装在系统中，那么我们可能需要安装额外的软件包。
 通过我们新学到的（和了解的）软件包管理知识，我们应该没有问题来安装和管理所需的程序。
 
-<div class="single">
-<h3>The Linux Software Installation Myth</h3>
-<h3>Linux 软件安装谣言</h3>
-
-<p> People migrating from other platforms sometimes fall victim to the myth that
+> The Linux Software Installation Myth
+>
+> Linux 软件安装谣言
+>
+>  People migrating from other platforms sometimes fall victim to the myth that
 software is somehow difficult to install under Linux and that the variety of
 packaging schemes used by different distributions is a hindrance. Well, it is a
 hindrance, but only to proprietary software vendors who wish to distribute binary-
-only versions of their secret software.</p>
-
-<p>从其它平台迁移过来的用户有时会成为谣言的受害者，说是在 Linux 系统中，安装软件有些
+only versions of their secret software.
+>
+> 从其它平台迁移过来的用户有时会成为谣言的受害者，说是在 Linux 系统中，安装软件有些
 困难，并且不同系统发行版所使用的各种各样的打包方案是一个障碍。唉，它是一个障碍，
-但只是针对于那些希望把他们的秘密软件只以二进制版本发行的专有软件供应商。</p>
-
-<p>The Linux software ecosystem is based on the idea of open source code. If a
+但只是针对于那些希望把他们的秘密软件只以二进制版本发行的专有软件供应商。
+>
+> The Linux software ecosystem is based on the idea of open source code. If a
 program developer releases source code for a product, it is likely that a person
 associated with a distribution will package the product and include it in their
 repository. This method ensures that the product is well integrated into the
 distribution and the user is given the convenience of “one-stop shopping” for
-software, rather than having to search for each product's web site. </p>
-
-<p>Linux 软件生态系统是基于开放源代码理念。如果一个程序开发人员发布了一款产品的
+software, rather than having to search for each product's web site.
+>
+> Linux 软件生态系统是基于开放源代码理念。如果一个程序开发人员发布了一款产品的
 源码，那么与系统发行版相关联的开发人员可能就会把这款产品打包，并把它包含在
 他们的资源库中。这种方法保证了这款产品能很好地与系统发行版整合在一起，同时为用户
-“一站式采购”软件提供了方便，从而用户不必去搜索每个产品的网站。</p>
-
-<p> Device drivers are are handled in much the same way, except that instead of being
+“一站式采购”软件提供了方便，从而用户不必去搜索每个产品的网站。
+>
+>  Device drivers are are handled in much the same way, except that instead of being
 separate items in a distribution's repository, they become part of the Linux kernel
 itself. Generally speaking, there is no such thing as a “driver disk” in Linux.
 Either the kernel supports a device or it doesn't, and the Linux kernel supports a
 lot of devices. Many more, in fact, than Windows does. Of course, this is of no
 consolation if the particular device you need is not supported. When that
 happens, you need to look at the cause. A lack of driver support is usually caused
-by one of three things: </p>
-
-<p>设备驱动差不多也以同样的方式来处理，但它们不是系统发行版资源库中单独的项目，
+by one of three things:
+>
+> 设备驱动差不多也以同样的方式来处理，但它们不是系统发行版资源库中单独的项目，
 它们本身是 Linux 系统内核的一部分。一般来说，在 Linux 当中没有一个类似于“驱动盘”的东西。
 要不内核支持一个设备，要不不支持，反正 Linux 内核支持很多设备，事实上，多于 Windows
 所支持的设备数目。当然，如果你需要的特定设备不被支持，这里也没有安慰。当那种情况
-发生时，你需要查找一下原因。缺少驱动程序支持通常是由以下三种情况之一导致：</p>
-
-<ol>
-<li><p><b>The device is too new.</b>Since many hardware vendors don't actively support
+发生时，你需要查找一下原因。缺少驱动程序支持通常是由以下三种情况之一导致：
+>
+> 1. _The device is too new._ Since many hardware vendors don't actively support
 Linux development, it falls upon a member of the Linux community to write the
-kernel driver code. This takes time.</p> </li>
-
-<li><p><b>The device is too exotic.</b>Not all distributions include every possible device
+kernel driver code. This takes time.
+>
+> 1. _The device is too exotic._ Not all distributions include every possible device
 driver. Each distribution builds their own kernels, and since kernels are very
 configurable (which is what makes it possible to run Linux on everything from
 wristwatches to mainframes) they may have overlooked a particular device. By
 locating and downloading the source code for the driver, it is possible for you
 (yes, you) to compile and install the driver yourself. This process is not overly
 difficult, but it is rather involved. We'll talk about compiling software in a later
-chapter.</p></li>
-
-<li><p><b>The hardware vendor is hiding something.</b>They have neither released
+chapter.
+>
+> 1. _The hardware vendor is hiding something._ They have neither released
 source code for a Linux driver, nor have they released the technical
 documentation for somebody to create one for them. This means that the
 hardware vendor is trying to keep the programming interfaces to the device a
 secret. Since we don't want secret devices in our computers, I suggest that you
 remove the offending hardware and pitch it into the trash, with your other useless
-items.</p></li>
-</ol>
-
-<ol><li><p><b>设备太新。</b>因为许多硬件供应商没有积极地支持 Linux 的发展，那么编写内核
-驱动代码的任务就由一些 Linux 社区来承担，而这需要花费时间。</p></li>
-
-<li><p><b>设备太奇异。</b>不是所有的发行版都包含每个可能的设备驱动。每个发行版会建立
+items.
+>^
+> 1. _设备太新。_ 因为许多硬件供应商没有积极地支持 Linux 的发展，那么编写内核
+驱动代码的任务就由一些 Linux 社区来承担，而这需要花费时间。
+>
+> 1. _设备太奇异。_ 不是所有的发行版都包含每个可能的设备驱动。每个发行版会建立
 它们自己的内核，因为内核是可以配置的（这使得从手表到主机的每台设备上运行 Linux 成为可能），
 这样它们可能会忽略某个特殊设备。通过定位和下载驱动程序的源码，可能需要你自己（是的，由你）
-来编译和安装驱动。这个过程不是很难，而是参与。我们将在随后的章节里来讨论编译软件。</p></li>
-
-<li><p><b>硬件供应商隐藏信息。</b>他们既不发布应用于 Linux 系统的驱动程序代码，
+来编译和安装驱动。这个过程不是很难，而是参与。我们将在随后的章节里来讨论编译软件。
+>
+> 1. _硬件供应商隐藏信息。_ 他们既不发布应用于 Linux 系统的驱动程序代码，
 也不发布技术文档来让某人创建它。这意味着硬件供应商试图保密此设备的程序接口。因为我们
 不想在计算机中使用保密的设备，所以我建议删除这令人厌恶的软件，
-把它和其它无用的项目都仍到垃圾桶里。</p></li></ol>
-</div>
-<br />
+把它和其它无用的项目都仍到垃圾桶里。
+{: .single}
+
 
 Further Reading
 
