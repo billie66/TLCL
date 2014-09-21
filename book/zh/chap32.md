@@ -244,8 +244,8 @@ case 命令是我们编程技巧口袋中的一个便捷工具。在下一章中
 
 * Bash 参考手册的条件构造一节详尽的介绍了 case 命令：
 
-<http://tiswww.case.edu/php/chet/bash/bashref.html#SEC21>
+    <http://tiswww.case.edu/php/chet/bash/bashref.html#SEC21>
 
 * 高级 Bash 脚本指南提供了更深一层的 case 应用实例：
 
-<http://tldp.org/LDP/abs/html/testbranch.html>
+    <http://tldp.org/LDP/abs/html/testbranch.html>

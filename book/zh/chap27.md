@@ -113,20 +113,20 @@ title: 自顶向下设计
 
 两种形式是等价的，可以交替使用。下面我们将查看一个说明 shell 函数使用方法的脚本：
 
-       1     #!/bin/bash
-       2
-       3     # Shell function demo
-       4
-       5     function funct {
-       6           echo "Step 2"
-       7           return
-       8     }
-       9
-       10     # Main program starts here
-       11
-       12     echo "Step 1"
-       13     funct
-       14     echo "Step 3"
+    1     #!/bin/bash
+    2
+    3     # Shell function demo
+    4
+    5     function funct {
+    6           echo "Step 2"
+    7           return
+    8     }
+    9
+    10     # Main program starts here
+    11
+    12     echo "Step 1"
+    13     funct
+    14     echo "Step 3"
 
 随着 shell 读取这个脚本，它会跳过第1行到第11行的代码，因为这些文本行由注释和函数定义组成。
 从第12行代码开始执行，有一个 echo 命令。第13行会调用 shell 函数 funct，然后 shell 会执行这个函数，
@@ -307,21 +307,20 @@ shell 函数可以在脚本之间进行剪切和粘贴。
 只有用超级用户权限执行我们的脚本时，才会工作。一个更好的解决方案是让脚本能根据用户的使用权限来
 调整自己的行为。我们将在下一章中讨论这个问题。
 
-<div class="single">
 
-<h3>你的.bashrc 文件中的 shell 函数</h3>
-
- <p>Shell 函数是更为完美的别名替代物，实际上是创建较小的个人所用命令的首选方法。别名
+> 你的.bashrc 文件中的 shell 函数
+>
+> Shell 函数是更为完美的别名替代物，实际上是创建较小的个人所用命令的首选方法。别名
  非常局限于命令的种类和它们支持的 shell 功能，然而 shell 函数允许任何可以编写脚本的东西。
  例如，如果我们喜欢 为我们的脚本开发的这个 report_disk_space shell 函数，我们可以为我们的.bashrc 文件
- 创建一个相似的名为 ds 的函数：</p>
-<pre>ds () {
-echo “Disk Space Utilization For $HOSTNAME”
-df -h
-} </pre>
+ 创建一个相似的名为 ds 的函数：
+>
+>     ds () {
+>       echo “Disk Space Utilization For $HOSTNAME”
+>       df -h
+>     }
+{: .single}
 
-</div>
-<br />
 
 ### 总结归纳
 
@@ -334,7 +333,7 @@ df -h
 
 * Wikipedia 上面有许多关于软件设计原理的文章。这里是一些好文章：
 
-  <http://en.wikipedia.org/wiki/Top-down_design>
+    <http://en.wikipedia.org/wiki/Top-down_design>
 
-  <http://en.wikipedia.org/wiki/Subroutines>
+    <http://en.wikipedia.org/wiki/Subroutines>
 

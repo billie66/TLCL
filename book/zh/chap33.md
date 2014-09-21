@@ -132,7 +132,7 @@ shell 提供了一个称为位置参数的变量集合，这个集合包含了�
 最后，执行 shift 命令加载 $1，其值为下一个位置参数的值。这里是程序运行后的输出结果:
 
     [me@linuxbox ~]$ posit-param2 a b c d
-    Argument 1 = a 
+    Argument 1 = a
     Argument 2 = b
     Argument 3 = c
     Argument 4 = d
@@ -228,7 +228,7 @@ basename $0 的执行结果就很有用处。按照这种方式编码，可以�
         echo -e "\n" '"$*" :';    print_params   "$*"
         echo -e "\n" '$@ :';      print_params   $@
         echo -e "\n" '"$@" :';    print_params   "$@"
-    }  
+    }
     pass_params "word" "words with spaces"
 
 在这个相当复杂的程序中，我们创建了两个参数： “word” 和 “words with spaces”，然后把它们
@@ -502,14 +502,14 @@ basename $0 的执行结果就很有用处。按照这种方式编码，可以�
 
 * _Bash Hackers Wiki_ 上有一篇不错的关于位置参数的文章：
 
-<http://wiki.bash-hackers.org/scripting/posparams>
+    <http://wiki.bash-hackers.org/scripting/posparams>
 
 * Bash 的参考手册有一篇关于特殊参数的文章，包括 $* 和 $@：
 
-<http://www.gnu.org/software/bash/manual/bashref.html#Special-Parameters>
+    <http://www.gnu.org/software/bash/manual/bashref.html#Special-Parameters>
 
 * 除了本章讨论的技术之外，bash 还包含一个叫做 getopts 的内部命令，此命令也可以用来处理命令行参数。
 bash 参考页面的 SHELL BUILTIN COMMANDS 一节介绍了这个命令，Bash Hackers Wiki 上也有对它的描述：
 
-<http://wiki.bash-hackers.org/howto/getopts_tutorial>
+    <http://wiki.bash-hackers.org/howto/getopts_tutorial>
 

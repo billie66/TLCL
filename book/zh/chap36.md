@@ -254,7 +254,7 @@ ${!array[@]}
     [me@linuxbox~]$ unset 'foo[2]'
     [me@linuxbox~]$ echo ${foo[@]}
     a b d e f
-    
+
 在这个例子中，我们删除了数组中的第三个元素，下标为2。记住，数组下标开始于0，而不是1！也要注意数组元素必须
 用引号引起来为的是防止 shell 执行路径名展开操作。
 
@@ -273,7 +273,7 @@ ${!array[@]}
     [me@linuxbox~]$ foo=A
     [me@linuxbox~]$ echo ${foo[@]}
     A b c d e f
-    
+
 ### 关联数组
 
 现在最新的 bash 版本支持关联数组了。关联数组使用字符串而不是整数作为数组索引。
@@ -309,6 +309,6 @@ for ((expr; expr; expr))
 
 * Wikipedia 上面有两篇关于在本章提到的数据结构的文章：
 
-<http://en.wikipedia.org/wiki/Scalar_(computing)>
+    <http://en.wikipedia.org/wiki/Scalar_(computing)>
 
-<http://en.wikipedia.org/wiki/Associative_array>
+    <http://en.wikipedia.org/wiki/Associative_array>

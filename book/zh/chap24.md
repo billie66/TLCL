@@ -2,6 +2,7 @@
 layout: book-zh
 title: 编译程序
 ---
+
 在这一章中，我们将看一下如何通过编译源代码来创建程序。源代码的可用性是至关重要的自由，从而使得 Linux 成为可能。
 整个 Linux 开发生态圈就是依赖于开发者之间的自由交流。对于许多桌面用户来说，编译是一种失传的艺术。以前很常见，
 但现在，由系统发行版提供商维护巨大的预编译的二进制仓库，准备供用户下载和使用。在写这篇文章的时候，
@@ -9,15 +10,16 @@ Debian 仓库（最大的发行版之一）包含了几乎23,000个预编译的�
 
 那么为什么要编译软件呢？ 有两个原因：
 
-<ol>
-  <li>可用性。尽管系统发行版仓库中已经包含了大量的预编译程序，但是一些发行版本不可能包含所有期望的应用。
-    在这种情况下，得到所期望程序的唯一方式是编译程序源码。</li>
-  <li>及时性。虽然一些系统发行版专门打包前沿版本的应用程序，但是很多不是。这意味着，
-    为了拥有一个最新版本的程序，编译是必需的。</li>
-</ol>
+ 1. 可用性。尽管系统发行版仓库中已经包含了大量的预编译程序，但是一些发行版本不可能包含所有期望的应用。
+    在这种情况下，得到所期望程序的唯一方式是编译程序源码。
+
+ 1. 及时性。虽然一些系统发行版专门打包前沿版本的应用程序，但是很多不是。这意味着，
+    为了拥有一个最新版本的程序，编译是必需的。
+
 
 从源码编译软件可以变得非常复杂且具有技术性；许多用户难以企及。然而，许多编译任务是
-相当简单的，只涉及到几个步骤。这都取决于程序包。我们将看一个非常简单的案例，为的是给大家提供一个对编译过程的整体认识，并为那些愿意进一步学习的人们构筑一个起点。
+相当简单的，只涉及到几个步骤。这都取决于程序包。我们将看一个非常简单的案例，为的是给大家提供一个对编译过程的整体认识，
+并为那些愿意进一步学习的人们构筑一个起点。
 
 我们将介绍一个新命令：
 
@@ -78,9 +80,11 @@ Python，PHP，Ruby，和许多其它语言。
 在这个例子中的输出结果表明安装了 gcc 编译器。
 
 ---
+
 小提示： 你的系统发行版可能有一个用于软件开发的 meta-package（软件包的集合）。如果是这样的话，
 考虑安装它，若你打算在你的系统中编译程序。若你的系统没有提供一个 meta-package，试着安装 gcc 和 make 工具包。
 在许多发行版中，这就足够完成下面的练习了。
+
 ---
 
 #### 得到源码
@@ -138,12 +142,14 @@ Python，PHP，Ruby，和许多其它语言。
     diction-1.11.tar.gz
 
 ---
+
 小提示：该 diction 程序，像所有的 GNU 项目软件，遵循着一定的源码打包标准。其它大多数在 Linux 生态系统中
 可用的源码也遵循这个标准。该标准的一个条目是，当源码 tar 文件打开的时候，会创建一个目录，该目录包含了源码树，
 并且这个目录将会命名为 project-x.xx，其包含了项目名称和它的版本号两项内容。这种方案能在系统中方便安装同一程序的多个版本。
 然而，通常在打开 tarball 之前检验源码树的布局是个不错的主意。一些项目不会创建该目录，反而，会把文件直接传递给当前目录。 这会把你的（除非组织良好的）src 目录弄得一片狼藉。为了避免这个，使用下面的命令，检查 tar 文件的内容：
 
     tar tzvf tarfile | head
+
 ---
 
 ### 检查源码树
@@ -154,7 +160,7 @@ Python，PHP，Ruby，和许多其它语言。
     [me@linuxbox diction-1.11]$ ls
     config.guess     diction.c          getopt.c      nl
     config.h.in      diction.pot        getopt.h      nl.po
-    config.sub       diction.spec       getopt_int.h  README 
+    config.sub       diction.spec       getopt_int.h  README
     configure        diction.spec.in    INSTALL       sentence.c
     configure.in     diction.texi.in    install-sh    sentence.h
     COPYING en       Makefile.in        style.1.in
@@ -357,11 +363,11 @@ make 程序这种智能地只构建所需要构建的内容的特性，对程序
 
 * Wikipedia 上面有关于编译器和 make 程序的好文章：
 
-<http://en.wikipedia.org/wiki/Compiler>
+    <http://en.wikipedia.org/wiki/Compiler>
 
-<http://en.wikipedia.org/wiki/Make_(software)>
+    <http://en.wikipedia.org/wiki/Make_(software)>
 
 * GNU Make 手册
 
-<http://www.gnu.org/software/make/manual/html_node/index.html>
+    <http://www.gnu.org/software/make/manual/html_node/index.html>
 

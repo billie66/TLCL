@@ -1,6 +1,6 @@
 ---
 layout: book-zh
-title: 启动一个项目 
+title: 启动一个项目
 ---
 
 从这一章开始，我们将建设一个项目。这个项目的目的是为了了解怎样使用各种各样的 shell 功能来
@@ -87,7 +87,7 @@ echo 命令，每个命令负责输出一行文本。保存文件之后，我们
 右引号。它在命令行中也是这样工作的：
 
     [me@linuxbox ~]$ echo "<HTML>
-    
+
     >         <HEAD>
                     <TITLE>Page Title</TITLE>
     >         </HEAD>
@@ -96,10 +96,10 @@ echo 命令，每个命令负责输出一行文本。保存文件之后，我们
     >         </BODY>
     ></HTML>"
 
-开头的“&gt;”字符是包含在 PS2shell 变量中的 shell 提示符。每当我们在 shell 中键入多行语句的时候，
+开头的“>”字符是包含在 PS2shell 变量中的 shell 提示符。每当我们在 shell 中键入多行语句的时候，
 这个提示符就会出现。现在这个功能有点儿晦涩，但随后，当我们介绍多行编程语句时，它会派上大用场。
 
-### 第二阶段：添加一点儿数据 
+### 第二阶段：添加一点儿数据
 
 现在我们的程序能生成一个最小的文档，让我们给报告添加些数据吧。为此，我们将做
 以下修改：
@@ -119,7 +119,7 @@ echo 命令，每个命令负责输出一行文本。保存文件之后，我们
 
 我们增加了一个网页标题，并且在报告正文部分加了一个标题。
 
-### 变量和常量 
+### 变量和常量
 
 然而，我们的脚本存在一个问题。请注意字符串“System Information
 Report”是怎样被重复使用的？对于这个微小的脚本而言，它不是一个问题，但是让我们设想一下，
@@ -132,7 +132,7 @@ Report”是怎样被重复使用的？对于这个微小的脚本而言，它�
     # Program to output a system information page
 
     title="System Information Report"
-    
+
     echo "<HTML>
             <HEAD>
                     <TITLE>$title</TITLE>
@@ -187,11 +187,11 @@ Report”字符串赋值给它，我们就可以利用参数展开功能，把�
 
 有一些关于变量名的规则：
 
-<ol><li><p> 变量名可由字母数字字符（字母和数字）和下划线字符组成。</p></li>
+1. 变量名可由字母数字字符（字母和数字）和下划线字符组成。
 
-<li><p>变量名的第一个字符必须是一个字母或一个下划线。</p></li>
+1. 变量名的第一个字符必须是一个字母或一个下划线。
 
-<li><p>变量名中不允许出现空格和标点符号。</p></li></ol>
+1. 变量名中不允许出现空格和标点符号。
 
 单词“variable”意味着可变的值，并且在许多应用程序当中，都是以这种方式来使用变量的。然而，
 我们应用程序中的变量，title，被用作一个常量。常量有一个名字且包含一个值，在这方面就
@@ -228,7 +228,7 @@ Report”字符串赋值给它，我们就可以利用参数展开功能，把�
 
 ---
 
-#### 给变量和常量赋值 
+#### 给变量和常量赋值
 
 这里是我们真正开始使用参数扩展知识的地方。正如我们所知道的，这样给变量赋值：
 
@@ -245,7 +245,7 @@ Report”字符串赋值给它，我们就可以利用参数展开功能，把�
     b="a string"            # Embedded spaces must be within quotes.
     c="a string and $b"     # Other expansions such as variables can be
                             # expanded into the assignment.
-    	 
+
     d=$(ls -l foo.txt)      # Results of a command.
     e=$((5 * 7))            # Arithmetic expansion.
     f="\t\ta string\n"      # Escape sequences such as tabs and newlines.
@@ -323,7 +323,7 @@ Report”字符串赋值给它，我们就可以利用参数展开功能，把�
     </HTML>
     _EOF_
 
-取代 echo 命令，现在我们的脚本使用 cat 命令和一个 here document。这个字符串\_EOF\_（意思是“文件结尾”，
+取代 echo 命令，现在我们的脚本使用 cat 命令和一个 here document。这个字符串 _EOF_（意思是“文件结尾”，
 一个常见用法）被选作为 token，并标志着嵌入文本的结尾。注意这个 token 必须在一行中单独出现，并且文本行中
 没有末尾的空格。
 
@@ -365,7 +365,7 @@ Here documents 可以和任意能接受标准输入的命令一块使用。在�
     _EOF_
     ls -l $REMOTE_FILE
 
-如果我们把重定向操作符从“&lt;&lt;” 改为 “&lt;&lt;-”，shell 会忽略在此 here document 中开头的 tab 字符。
+如果我们把重定向操作符从“<<” 改为 “<<-”，shell 会忽略在此 here document 中开头的 tab 字符。
 这就能缩进一个 here document，从而提高脚本的可读性：
 
     #!/bin/bash
@@ -387,20 +387,20 @@ Here documents 可以和任意能接受标准输入的命令一块使用。在�
 
     ls -l $REMOTE_FILE
 
-### 总结归纳 
+### 总结归纳
 
 在这一章中，我们启动了一个项目，其带领我们领略了创建一个成功脚本的整个过程。
 同时我们介绍了变量和常量的概念，以及怎样使用它们。它们是我们将找到的众多参数展开应用程序中的第一批实例。
 我们也知道了怎样从我们的脚本文件中产生输出，及其各种各样嵌入文本块的方法。
 
-### 拓展阅读 
+### 拓展阅读
 
 * 关于 HTML 的更多信息，查看下面的文章和教材：
 
-  <http://en.wikipedia.org/wiki/Html>
+    <http://en.wikipedia.org/wiki/Html>
 
-  <http://en.wikibooks.org/wiki/HTML_Programming>
+    <http://en.wikibooks.org/wiki/HTML_Programming>
 
-  <http://html.net/tutorials/html/>
+    <http://html.net/tutorials/html/>
 
 * Bash 手册包括一节“HERE DOCUMENTS”的内容，其详细的讲述了这个功能。
