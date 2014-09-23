@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 流程控制：if 分支结构 
+title: 流程控制：if 分支结构
 ---
 
 In the last chapter, we were presented with a problem. How can we make our report
@@ -52,11 +52,11 @@ or we can enter it directly at the command line (slightly shortened):
     [me@linuxbox ~]$ x=5
     [me@linuxbox ~]$ if [ $x = 5 ]; then echo "equals 5"; else echo "does
     not equal 5"; fi
-    equals 5	
+    equals 5
     [me@linuxbox ~]$ x=0
     [me@linuxbox ~]$ if [ $x = 5 ]; then echo "equals 5"; else echo "does
-    not equal 5"; fi	
-    does not equal 5	
+    not equal 5"; fi
+    does not equal 5
 
 In this example, we execute the command twice. Once, with the value of x set to 5,
 which results in the string “equals 5” being output, and the second time with the value of
@@ -131,7 +131,7 @@ True 命令总是执行成功，而 false 命令总是执行失败：
 
     [me@linuxbox~]$ true
     [me@linuxbox~]$ echo $?
-    0           
+    0
     [me@linuxbox~]$ false
     [me@linuxbox~]$ echo $?
     1
@@ -162,7 +162,7 @@ evaluated:
 
 ### test
 
-### 测试 
+### 测试
 
 By far, the command used most frequently with if is test. The test command
 performs a variety of checks and comparisons. It has two equivalent forms:
@@ -187,7 +187,7 @@ when the expression is false.
 
 #### File Expressions
 
-#### 文件表达式 
+#### 文件表达式
 
 The following expressions are used to evaluate the status of files:
 
@@ -483,7 +483,7 @@ and get the desired behavior:
 
 #### String Expressions
 
-#### 字符串表达式 
+#### 字符串表达式
 
 The following expressions are used to evaluate strings:
 
@@ -621,7 +621,7 @@ is no answer.”重定向到标准错误，这是处理错误信息的“合理�
 
 #### Integer Expressions
 
-#### 整型表达式 
+#### 整型表达式
 
 The following expressions are used with integers:
 
@@ -792,7 +792,7 @@ Another added feature of `[[ ]]` is that the `==` operator supports pattern matc
 same way pathname expansion does. For example:
 
 `[[ ]]`添加的另一个功能是`==`操作符支持类型匹配，正如路径名展开所做的那样。例如：
-    
+
     [me@linuxbox ~]$ FILE=foo.bar
     [me@linuxbox ~]$ if [[ $FILE == foo.* ]]; then
     > echo "$FILE matches pattern 'foo.*'"
@@ -805,7 +805,7 @@ This makes `[[ ]]` useful for evaluating file and path names.
 
 ### ((&nbsp;)) - Designed For Integers
 
-### ((&nbsp;)) - 为整数设计 
+### ((&nbsp;)) - 为整数设计
 
 In addition to the `[[ ]]` compound command, bash also provides the `(( ))`
 compound command, which is useful for operating on integers. It supports a full set of
@@ -868,7 +868,7 @@ related arithmetic expansion further in Chapter 35.
 
 ### Combining Expressions
 
-### 结合表达式 
+### 结合表达式
 
 It’s also possible to combine expressions to create more complex evaluations.
 Expressions are combined by using logical operators. We saw these in Chapter 18, when
@@ -885,12 +885,12 @@ represent these operations :
 <tr>
 <th class="title" width="34%">Operation</th>
 <th class="title">test</th>
-<th class="title" width="34%">[[&nbsp;]] and ((&nbsp;))</th>
+<th class="title" width="34%">[[ ]] and (( ))</th>
 </tr>
 <tr>
 <td valign="top">AND</td>
 <td valign="top">-a</td>
-<td valign="top">&amp;&amp;</td>
+<td valign="top">&&</td>
 </tr>
 <tr>
 <td valign="top">OR</td>
@@ -932,7 +932,7 @@ Here’s an example of an AND operation. The following script determines if an i
 within a range of values:
 
 这里有一个 AND 操作的示例。下面的脚本决定了一个整数是否属于某个范围内的值：
-    
+
     #!/bin/bash
 
     # test-integer3: determine if an integer is within a
@@ -1034,9 +1034,9 @@ portable.</p>
 
 ### Control Operators: Another Way To Branch
 
-### 控制操作符：分支的另一种方法 
+### 控制操作符：分支的另一种方法
 
-bash provides two control operators that can perform branching. The `&& (AND)` and `|| (OR)` operators 
+bash provides two control operators that can perform branching. The `&& (AND)` and `|| (OR)` operators
 work like the logical operators in the `[[ ]]` compound command. This
 is the syntax:
 
@@ -1089,7 +1089,7 @@ terminate with an exit status of one.
 
 ### Summing Up
 
-### 总结 
+### 总结
 
 We started this chapter with a question. How could we make our `sys_info_page`
 script detect if the user had permission to read all the home directories? With our
@@ -1133,7 +1133,7 @@ our work.
 
 ### Further Reading
 
-### 拓展阅读 
+### 拓展阅读
 
 There are several sections of the bash man page that provide further detail on the topics
 covered in this chapter:

@@ -533,12 +533,12 @@ is no answer.”重定向到标准错误，这是处理错误信息的“合理�
 <tr>
 <th class="title" width="34%">操作符</th>
 <th class="title">测试</th>
-<th class="title" width="34%">[[&nbsp;]] and ((&nbsp;))</th>
+<th class="title" width="34%">[[ ]] and (( ))</th>
 </tr>
 <tr>
 <td valign="top">AND</td>
 <td valign="top">-a</td>
-<td valign="top">&amp;&amp;</td>
+<td valign="top">&&</td>
 </tr>
 <tr>
 <td valign="top">OR</td>
@@ -547,6 +547,7 @@ is no answer.”重定向到标准错误，这是处理错误信息的“合理�
 </tr>
 <tr>
 <td valign="top">NOT</td>
+<td valign="top">!</td>
 <td valign="top">!</td>
 </tr>
 </table>
