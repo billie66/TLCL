@@ -517,11 +517,11 @@ equal signs may be used, but the use of double equal signs is greatly preferred.
 <td valign="top">string1 and string2 are not equal.</td>
 </tr>
 <tr>
-<td valign="top">string1 &gt; string2</td>
+<td valign="top">string1 > string2</td>
 <td valign="top">sting1 sorts after string2.</td>
 </tr>
 <tr>
-<td valign="top">string1 &lt; string2</td>
+<td valign="top">string1 < string2</td>
 <td valign="top">string1 sorts before string2.</td>
 </tr>
 </table>
@@ -546,19 +546,19 @@ equal signs may be used, but the use of double equal signs is greatly preferred.
 </tr>
 <tr>
 <td valign="top"><p>string1 = string2</p><p>string1 == string2</p></td>
-<td valign="top">string1和 string2相同. 单或双等号都可以，不过双等号更受欢迎。 </td>
+<td valign="top">string1 和 string2 相同. 单或双等号都可以，不过双等号更受欢迎。 </td>
 </tr>
 <tr>
 <td valign="top">string1 != string2 </td>
-<td valign="top">string1和 string2不相同。</td>
+<td valign="top">string1 和 string2 不相同。</td>
 </tr>
 <tr>
-<td valign="top">string1 &gt; string2</td>
-<td valign="top">sting1排列在 string2之后。</td>
+<td valign="top">string1 > string2</td>
+<td valign="top">sting1 排列在 string2 之后。</td>
 </tr>
 <tr>
-<td valign="top">string1 &lt; string2</td>
-<td valign="top">string1排列在 string2之前。</td>
+<td valign="top">string1 < string2</td>
+<td valign="top">string1 排列在 string2 之前。</td>
 </tr>
 </table>
 
@@ -969,18 +969,18 @@ of the two. Coding this with test would be done this way:
 
 Since all expressions and operators used by test are treated as command arguments by
 the shell (unlike `[[ ]]` and `(( ))` ), characters which have special meaning to bash,
-such as &lt;, &gt;, (, and ), must be quoted or escaped.
+such as <, >, (, and ), must be quoted or escaped.
 
-因为 test 使用的所有的表达式和操作符都被 shell 看作是命令参数（不像`[[ ]]`和`(( ))` ），
-对于 bash 有特殊含义的字符，比如说&lt;，&gt;，(，和 )，必须引起来或者是转义。
+因为 test 使用的所有的表达式和操作符都被 shell 看作是命令参数（不像 `[[ ]]` 和 `(( ))` ），
+对于 bash 有特殊含义的字符，比如说 <，>，(，和 )，必须引起来或者是转义。
 
 Seeing that test and `[[ ]]` do roughly the same thing, which is preferable? test is
 traditional (and part of POSIX), whereas `[[ ]]` is specific to bash. It’s important to
 know how to use test, since it is very widely used, but `[[ ]]` is clearly more useful
 and is easier to code.
 
-知道了 test 和`[[ ]]`基本上完成相同的事情，哪一个更好呢？test 更传统（是 POSIX 的一部分），
-然而`[[ ]]`特定于 bash。知道怎样使用 test 很重要，因为它被非常广泛地应用，但是显然`[[ ]]`更
+知道了 test 和 `[[ ]]` 基本上完成相同的事情，哪一个更好呢？test 更传统（是 POSIX 的一部分），
+然而 `[[ ]]` 特定于 bash。知道怎样使用 test 很重要，因为它被非常广泛地应用，但是显然 `[[ ]]` 更
 有助于，并更易于编码。
 
 <div class="single">

@@ -303,19 +303,19 @@ True 命令总是执行成功，而 false 命令总是执行失败：
 </tr>
 <tr>
 <td valign="top"><p>string1 = string2</p><p>string1 == string2</p></td>
-<td valign="top">string1和 string2相同. 单或双等号都可以，不过双等号更受欢迎。 </td>
+<td valign="top">string1 和 string2 相同. 单或双等号都可以，不过双等号更受欢迎。 </td>
 </tr>
 <tr>
 <td valign="top">string1 != string2 </td>
-<td valign="top">string1和 string2不相同。</td>
+<td valign="top">string1 和 string2 不相同。</td>
 </tr>
 <tr>
-<td valign="top">string1 &gt; string2</td>
-<td valign="top">sting1排列在 string2之后。</td>
+<td valign="top">string1 > string2</td>
+<td valign="top">sting1 排列在 string2 之后。</td>
 </tr>
 <tr>
-<td valign="top">string1 &lt; string2</td>
-<td valign="top">string1排列在 string2之前。</td>
+<td valign="top">string1 < string2</td>
+<td valign="top">string1 排列在 string2 之前。</td>
 </tr>
 </table>
 
