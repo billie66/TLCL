@@ -219,7 +219,7 @@ shell 能帮助你的另一种方式是通过一种叫做自动补全的机制�
 默认情况下，Ubuntu 已经定义了一个相当大的规则集合。可编程自动补全是由 shell 函数实现的，
 shell 函数是一种小巧的 shell 脚本，我们会在后面的章节中讨论到。如果你感到好奇，试一下：
 >
-> _set | less_
+> _set \| less_
 >
 > 查看一下如果你能找到它们的话。默认情况下，并不是所有的发行版都包括它们。
 {: .single}
@@ -283,35 +283,35 @@ bash 会把 "!88" 展开成为历史列表中88行的内容。还有其它的历
 <th class="title">行为</th>
 </tr>
 <tr>
-<td valign="top" width="25%">Ctrl-p </td>
+<td valign="top" width="25%">Ctrl-p</td>
 <td valign="top">移动到上一个历史条目。类似于上箭头按键。</td>
 </tr>
 <tr>
-<td valign="top">Ctrl-n </td>
+<td valign="top">Ctrl-n</td>
 <td valign="top">移动到下一个历史条目。类似于下箭头按键。</td>
 </tr>
 <tr>
-<td valign="top">Alt-&lt; </td>
+<td valign="top">Alt-<</td>
 <td valign="top"> 移动到历史列表开头。</td>
 </tr>
 <tr>
-<td valign="top">Alt-&gt; </td>
+<td valign="top"> Alt-></td>
 <td valign="top">移动到历史列表结尾，即当前命令行。</td>
 </tr>
 <tr>
-<td valign="top">Ctrl-r </td>
+<td valign="top">Ctrl-r</td>
 <td valign="top">反向递增搜索。从当前命令行开始，向上递增搜索。</td>
 </tr>
 <tr>
-<td valign="top">Alt-p </td>
+<td valign="top">Alt-p</td>
 <td valign="top">反向搜索，不是递增顺序。输入要查找的字符串，然后按下 Enter，执行搜索。</td>
 </tr>
 <tr>
-<td valign="top">Alt-n </td>
+<td valign="top">Alt-n</td>
 <td valign="top"> 向前搜索，非递增顺序。</td>
 </tr>
 <tr>
-<td valign="top">Ctrl-o </td>
+<td valign="top">Ctrl-o</td>
 <td valign="top">执行历史列表中的当前项，并移到下一个。如果你想要执行历史列表中一系列的命令，这很方便。</td>
 </tr>
 </table>
