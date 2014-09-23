@@ -408,15 +408,27 @@ Figure 2: KDE 3.5 File properties Dialog
 > 这里有一些例子，使用 chmod 命令和符号表示法，来设置这些特殊的权限。首先，
 授予一个程序 setuid 权限。
 >
+> chmod u+s program
+>
 > 下一步，授予一个目录 setgid 权限：
+>
+> chmod g+s dir
 >
 > 最后，授予一个目录 sticky 权限：
 >
+> chmod +t dir
+>
 > 当浏览 ls 命令的输出结果时，你可以确认这些特殊权限。这里有一些例子。首先，一个程序被设置为setuid属性：
+>
+> -rwsr-xr-x
 >
 > 具有 setgid 属性的目录：
 >
+> drwxrwsr-x
+>
 > 设置了 sticky 位的目录：
+>
+> drwxrwxrwt
 {: .single}
 
 
