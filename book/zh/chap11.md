@@ -256,31 +256,31 @@ valign="top">加载平均值是指，等待运行的进程数目，也就是说�
 </tr>
 <tr>
 <td valign="top"></td>
-<td valign="top">0.7\%us </td>
-<td valign="top">0.7\% of the CPU is being used for user
+<td valign="top">0.7%us </td>
+<td valign="top">0.7% of the CPU is being used for user
 processes. 这意味着进程在内核之外。</td>
 </tr>
 <tr>
 <td valign="top"></td>
-<td valign="top">1.0\%sy </td>
-<td valign="top">1.0\%的 CPU 时间被用于系统（内核）进程。
+<td valign="top">1.0%sy </td>
+<td valign="top">1.0%的 CPU 时间被用于系统（内核）进程。
 </td>
 </tr>
 <tr>
 <td valign="top"></td>
-<td valign="top">0.0\%ni </td>
-<td valign="top">0.0\%的 CPU 时间被用于"nice"（低优先级）进程。
+<td valign="top">0.0%ni </td>
+<td valign="top">0.0%的 CPU 时间被用于"nice"（低优先级）进程。
 </td>
 </tr>
 <tr>
 <td valign="top"></td>
-<td valign="top">98.3\%id </td>
-<td valign="top">98.3\%的 CPU 时间是空闲的。</td>
+<td valign="top">98.3%id </td>
+<td valign="top">98.3%的 CPU 时间是空闲的。</td>
 </tr>
 <tr>
 <td valign="top"></td>
-<td valign="top">0.0\%wa </td>
-<td valign="top">0.0\%的 CPU 时间来等待 I/O。</td>
+<td valign="top">0.0%wa </td>
+<td valign="top">0.0%的 CPU 时间来等待 I/O。</td>
 </tr>
 <tr>
 <td valign="top">4</td>
