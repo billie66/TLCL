@@ -463,13 +463,13 @@ valign="top">创建一个新命令，叫做'l.'，这个命令会显示所有以
 是为了给读者在可能的配置选项方面一些建议，或者给出正确的配置语法实例。例如，Ubuntu 8.04
 中的 .bashrc 文件包含这些行：
 >
-> # some more ls aliases
+> \# some more ls aliases
 >
-> #alias ll='ls -l'
+> \#alias ll='ls -l'
 >
-> #alias la='ls -A'
+> \#alias la='ls -A'
 >
-> #alias l='ls -CF'
+> \#alias l='ls -CF'
 >
 > 最后三行是有效的被注释掉的别名定义。如果你删除这三行开头的 "#" 符号，此技术程称为
 uncommenting (不注释)，这样你就会激活这些别名。相反地，如果你在一行的开头加上 "#" 符号，

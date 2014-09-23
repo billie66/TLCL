@@ -863,13 +863,13 @@ these lines:
 是为了给读者在可能的配置选项方面一些建议，或者给出正确的配置语法实例。例如，Ubuntu 8.04
 中的 .bashrc 文件包含这些行：
 >
-> # some more ls aliases
+> \# some more ls aliases
 >
-> #alias ll='ls -l'
+> \#alias ll='ls -l'
 >
-> #alias la='ls -A'
+> \#alias la='ls -A'
 >
-> #alias l='ls -CF'
+> \#alias l='ls -CF'
 >
 > The last three lines are valid alias definitions that have been commented out. If
 you remove the leading "#" symbols from these three lines, a technique called
