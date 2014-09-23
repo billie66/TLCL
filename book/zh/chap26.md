@@ -329,6 +329,7 @@ Report”字符串赋值给它，我们就可以利用参数展开功能，把�
 
 那么使用一个 here document 的优点是什么呢？它很大程度上和 echo 一样，除了默认情况下，here
 documents 中的单引号和双引号会失去它们在 shell 中的特殊含义。这里有一个命令中的例子：
+
     [me@linuxbox ~]$ foo="some text"
     [me@linuxbox ~]$ cat << _EOF_
     > $foo
