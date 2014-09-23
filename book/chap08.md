@@ -142,15 +142,20 @@ command: </p>
 <p> To correctly perform pathname expansion in this situation, we have to
 employ a more specific pattern. This will work correctly: </p>
 <p>为了在这种情况下正确地完成路径名展开，我们应该雇佣一个更精确些的模式。
-这个模式会正确地工作：</p>
+/*这个模式会正确地工作：</p>*/
 
 <p>ls -d .[!.]?* </p>
 
 <p>This pattern expands into every filename that begins with a period, does not
 include a second period, contains at least one additional character and can be
-followed by any other characters.</p>
+followed by any other characters. This will work correctly with most hidden files (though it still won't
+include filenames with multiple leading periods). The ls command with the -A
+option (“almost all”) will provide a correct listing of hidden files: </p>
 <p>这种模式展开成为文件名，每个文件名以圆点开头，第二个字符不包含圆点，再包含至少一个字符，
-并且这个字符之后紧接着任意多个字符。</p>
+并且这个字符之后紧接着任意多个字符。这将列出大多数的隐藏文件
+（但仍将不能包含以多个圆点开头的文件名）这个带有 -A 选项（“几乎所有”）的 ls
+命令能够提供一份正确的隐藏文件清单：</p>
+<p>ls -A</p>
 </div>
 <br />
 
