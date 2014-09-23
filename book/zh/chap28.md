@@ -683,5 +683,5 @@ bash 手册页中有几部分对本章中涵盖的主题提供了更详细的内
 
 进一步，Wikipedia 中有一篇关于伪代码概念的好文章：
 
-    <http://en.wikipedia.org/wiki/Pseudocode>
+<http://en.wikipedia.org/wiki/Pseudocode>
 

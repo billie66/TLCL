@@ -1152,5 +1152,5 @@ Further, the Wikipedia has a good article on the concept of pseudocode:
 
 进一步，Wikipedia 中有一篇关于伪代码概念的好文章：
 
-  <http://en.wikipedia.org/wiki/Pseudocode>
+<http://en.wikipedia.org/wiki/Pseudocode>
 
