@@ -142,7 +142,7 @@ command: </p>
 <p> To correctly perform pathname expansion in this situation, we have to
 employ a more specific pattern. This will work correctly: </p>
 <p>为了在这种情况下正确地完成路径名展开，我们应该雇佣一个更精确些的模式。
-/*这个模式会正确地工作：</p>*/
+这个模式会正确地工作：</p>
 
 <p>ls -d .[!.]?* </p>
 
