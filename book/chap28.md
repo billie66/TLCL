@@ -667,27 +667,27 @@ The following expressions are used with integers:
 </tr>
 <tr>
 <td valign="top" width="50%">integer1 -eq integer2 </td>
-<td valign="top">integer1等于 integer2.</td>
+<td valign="top">integer1 等于 integer2.</td>
 </tr>
 <tr>
 <td valign="top">integer1 -ne integer2 </td>
-<td valign="top">integer1不等于 integer2.</td>
+<td valign="top">integer1 不等于 integer2.</td>
 </tr>
 <tr>
 <td valign="top">integer1 -le integer2 </td>
-<td valign="top">integer1小于或等于 integer2.</td>
+<td valign="top">integer1 小于或等于 integer2.</td>
 </tr>
 <tr>
 <td valign="top">integer1 -lt integer2 </td>
-<td valign="top">integer1小于 integer2.</td>
+<td valign="top">integer1 小于 integer2.</td>
 </tr>
 <tr>
 <td valign="top">integer1 -ge integer2 </td>
-<td valign="top">integer1大于或等于 integer2.</td>
+<td valign="top">integer1 大于或等于 integer2.</td>
 </tr>
 <tr>
 <td valign="top">integer1 -gt integer2 </td>
-<td valign="top">integer1大于 integer2.</td>
+<td valign="top">integer1 大于 integer2.</td>
 </tr>
 </table>
 
