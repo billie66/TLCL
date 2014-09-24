@@ -257,7 +257,7 @@ valign="top">如果文件 ~/.bash_profile 或文件 ~/.bash_login 都没有找�
 
 如果我们看一下典型的 .bash_profile 文件（来自于 CentOS 4 系统），它看起来像这样：
 
-    # .bash\_profile
+    # .bash_profile
     # Get the aliases and functions
 
     if [ -f ~/.bashrc ]; then

@@ -158,11 +158,11 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 </tr>
 <tr>
 <td valign="top" >Debian</td>
-<td valign="top">apt-get update <p>apt-get install package\_name</p></td>
+<td valign="top">apt-get update <p>apt-get install package_name</p></td>
 </tr>
 <tr>
 <td valign="top">Red Hat</td>
-<td valign="top">yum install package\_name</td>
+<td valign="top">yum install package_name</td>
 </tr>
 </table>
 

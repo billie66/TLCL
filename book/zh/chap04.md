@@ -98,7 +98,7 @@ ls 命令有大量的选项。表4-1列出了最常使用的选项。
 <td >-F</td>
 <td >--classify</td>
 <td >这个选项会在每个所列出的名字后面加上一个指示符。例如，如果名字是
-目录名，则会加上一个“/”字符。 </td>
+目录名，则会加上一个'/'字符。 </td>
 </tr>
 <tr>
 <td >-h</td>
@@ -343,7 +343,6 @@ Linux 系统中，文件系统布局与类似 Unix 系统的文件布局很相�
 <td valign="top">/bin</td>
 <td valign="top">包含系统启动和运行所必须的二进制程序。</td>
 </tr>
-
 <tr>
 <td valign="top">/boot</td>
 <td valign="top"><p>包含 Linux 内核，最初的 RMA 磁盘映像（系统启动时，由驱动程序所需），和
@@ -355,34 +354,28 @@ Linux 系统中，文件系统布局与类似 Unix 系统的文件布局很相�
 </ul>
 </td>
 </tr>
-
 <tr>
 <td valign="top">/dev</td>
 <td valign="top">这是一个包含设备结点的特殊目录。“一切都是文件”，也使用于设备。
 在这个目录里，内核维护着它支持的设备。</td>
 </tr>
-
 <tr>
 <td valign="top">/etc</td>
 <td valign="top"><p>这个目录包含所有系统层面的配置文件。它也包含一系列的 shell 脚本，
 在系统启动时，这些脚本会运行每个系统服务。这个目录中的任何文件应该是可读的文本文件。</p>
-
 <p>有意思的文件：虽然/etc 目录中的任何文件都有趣，但这里只列出了一些我一直喜欢的文件：</p>
-
 <ul>
 <li>/etc/crontab， 定义自动运行的任务。</li>
 <li>/etc/fstab，包含存储设备的列表，以及与他们相关的挂载点。</li>
 <li>/etc/passwd，包含用户帐号列表。 </li>
 </ul>
 </td>
-
 </tr>
 <tr>
 <td valign="top">/home</td>
 <td valign="top">在通常的配置环境下，系统会在/home 下，给每个用户分配一个目录。普通只能
 在他们自己的目录下创建文件。这个限制保护系统免受错误的用户活动破坏。</td>
 </tr>
-
 <tr>
 <td valign="top">/lib </td>
 <td valign="top">包含核心系统程序所需的库文件。这些文件与 Windows 中的动态链接库相似。</td>

@@ -123,8 +123,8 @@ title: 自定制 shell 提示符
 </tr>
 <tr>
 <td valign="top">\$</td>
-<td valign="top">这会显示一个"$"字符，除非你拥有超级用户权限。在那种情况下，
-它会显示一个"#"字符。</td>
+<td valign="top">这会显示一个 '$' 字符，除非你拥有超级用户权限。在那种情况下，
+它会显示一个 '#' 字符。</td>
 </tr>
 <tr>
 <td valign="top">\[</td>
