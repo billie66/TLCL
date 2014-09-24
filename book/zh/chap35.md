@@ -515,8 +515,8 @@ $((expression))
         <td valign="top">后缀自增变量。等价于 parameter = parameter + 1 (但，要看下面的讨论)。</td>
     </tr>
     <tr>
-        <td valign="top">parameter−− </td>
-        <td valign="top">后缀自减变量。等价于 parameter = parameter − 1。</td>
+        <td valign="top">parameter-- </td>
+        <td valign="top">后缀自减变量。等价于 parameter = parameter - 1。</td>
     </tr>
     <tr>
         <td valign="top">++parameter</td>
@@ -524,7 +524,7 @@ $((expression))
     </tr>
     <tr>
         <td valign="top">--parameter</td>
-        <td valign="top">前缀自减变量。等价于 parameter = parameter − 1。</td>
+        <td valign="top">前缀自减变量。等价于 parameter = parameter - 1。</td>
     </tr>
 </table>
 
@@ -603,7 +603,7 @@ $((expression))
     </tr>
 </table>
 
-注意除了按位取反运算符之外，其它所有位运算符都有相对应的赋值运算符（例如，<<=）。
+注意除了按位取反运算符之外，其它所有位运算符都有相对应的赋值运算符（例如，<\<=）。
 
 这里我们将演示产生2的幂列表的操作，使用位左移运算符：
 
@@ -753,7 +753,7 @@ $((expression))
     /* A very simple bc script */
     2 + 2
 
-脚本的第一行是一行注释。bc 使用和 C编程语言一样的注释语法。注释，可能会跨越多行，开始于 /* 结束于 */。
+脚本的第一行是一行注释。bc 使用和 C 编程语言一样的注释语法。注释，可能会跨越多行，开始于 `/*` 结束于 `*/`。
 
 #### 使用 bc
 
