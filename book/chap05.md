@@ -1313,6 +1313,7 @@ including its subdirectories:
 
 
 > Creating Symlinks With The GUI
+>
 > 用 GUI 来创建符号链接
 >
 > The file managers in both GNOME and KDE provide an easy and automatic

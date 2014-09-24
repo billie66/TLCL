@@ -712,7 +712,7 @@ ls 命令的输出结果，比较容易理解。
     [me@linuxbox ~]$ rm -r playground
 
 
-> 用 GUI 来创建符号链接</h3>
+> 用 GUI 来创建符号链接
 >
 > 文件管理器 GNOME 和 KDE 都提供了一个简单而且自动化的方法来创建符号链接。
 在 GNOME 里面，当拖动文件时，同时按下 Ctrl+Shift 按键会创建一个链接，而不是
