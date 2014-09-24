@@ -287,7 +287,10 @@ Shell 允许在一个命令之前立即发生一个或多个变量赋值。这�
     echo "$file_info" | IFS=":" read user pw uid gid name home shell
 
 > 你不能管道 read
->> 虽然通常`read`命令接受标准输入，但是你不能这样做：
+>
+> echo "foo" \| read
+>
+> 虽然通常`read`命令接受标准输入，但是你不能这样做：
 >
 > 我们期望这个命令能生效，但是它不能。这个命令将显示成功，但是`REPLY`变量
 总是为空。为什么会这样？

@@ -1,9 +1,9 @@
 ---
 layout: book
-title: 读取键盘输入 
+title: 读取键盘输入
 ---
 
-The scripts we have written so far lack a feature common in most computer programs — 
+The scripts we have written so far lack a feature common in most computer programs —
 interactivity. That is, the ability of the program to interact with the user. While many
 programs don’t need to be interactive, some programs benefit from being able to accept
 input directly from the user. Take, for example, this script from the previous chapter:
@@ -47,7 +47,7 @@ begin to look at how we can add interactivity to our programs.
 
 ### read – Read Values From Standard Input
 
-### read – 从标准输入读取数值 
+### read – 从标准输入读取数值
 
 The `read` builtin command is used to read a single line of standard input. This
 command can be used to read keyboard input or, when redirection is employed, a line of
@@ -166,7 +166,7 @@ assigned all the input:
     #!/bin/bash
 
     # read-single: read multiple values into default variable
-    
+
     echo -n "Enter one or more values > "
     read
 
@@ -180,7 +180,7 @@ Running this script results in this:
 
 #### Options
 
-#### 选项 
+#### 选项
 
 `read` supports the following options:
 
@@ -422,7 +422,7 @@ Shell 允许在一个命令之前立即发生一个或多个变量赋值。这�
 
 where we store the value of IFS, assign a new value, perform the read command, then
 restore IFS to its original value. Clearly, placing the variable assignment in front of the
-command is a more concise way of doing the same thing.  
+command is a more concise way of doing the same thing.
 
 我们先存储 IFS 的值，然后赋给一个新值，再执行`read`命令，最后把 IFS 恢复原值。显然，完成相同的任务，
 在命令之前放置变量名赋值是一种更简明的方式。
@@ -484,7 +484,7 @@ discussed in Chapter 37.</p>
 
 ### Validating Input
 
-### 校正输入 
+### 校正输入
 
 With our new ability to have keyboard input comes an additional programming challenge,
 validating input. Very often the difference between a well-written program and a poorly
@@ -646,7 +646,7 @@ program logic harder to understand), but it works in this script.
 
 ### Summing Up
 
-### 总结归纳 
+### 总结归纳
 
 In this chapter, we took our first steps toward interactivity; allowing users to input data
 into our programs via the keyboard. Using the techniques presented thus far, it is
@@ -660,7 +660,7 @@ on the menu-driven program concept to make it even better.
 
 #### Extra Credit
 
-#### 友情提示 
+#### 友情提示
 
 It is important to study the programs in this chapter carefully and have a complete
 understanding of the way they are logically structured, as the programs to come will be
@@ -674,7 +674,7 @@ evaluate the regular expressions and evaluate its exit status. This will be good
 
 ### Further Reading
 
-### 拓展阅读 
+### 拓展阅读
 
 * The Bash Reference Manual contains a chapter on builtins, which includes the
 read command:
