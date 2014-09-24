@@ -40,16 +40,16 @@ title: 打印
 
 接着，一台类打字机的打印机会收到以简单字节流的形式传送来的数据，其中就包含要打印的字符。例如要打印一个字母a，计算机就会发送 ASCII 码97，如果要移动打印机的滑动架和纸张，就需要使用回车、换行、换页等的小编号 ASCII 控制码。使用控制码，还能实现一些之前受限制的字体效果，比如粗体，就是让打印机先打印一个字符，然后退格再打印一遍来得到颜色较深的效果的。用 nroff 来产生一个手册页然后用 cat -A 检查输出，我们就能亲眼看看这种效果了：
 
-		[me@linuxbox ~]$ zcat /usr/share/man/man1/ls.1.gz | nroff -man | cat -A | head
-		LS(1) User Commands LS(1)
-		$
-		$
-		$
-		N^HNA^HAM^HME^HE$
-		ls - list directory contents$
-		$
-		S^HSY^HYN^HNO^HOP^HPS^HSI^HIS^HS$
-		l^Hls^Hs [_^HO_^HP_^HT_^HI_^HO_^HN]... [_^HF_^HI_^HL_^HE]...$
+	[me@linuxbox ~]$ zcat /usr/share/man/man1/ls.1.gz | nroff -man | cat -A | head
+	LS(1) User Commands LS(1)
+	$
+	$
+	$
+	N^HNA^HAM^HME^HE$
+	ls - list directory contents$
+	$
+	S^HSY^HYN^HNO^HOP^HPS^HSI^HIS^HS$
+	l^Hls^Hs [_^HO_^HP_^HT_^HI_^HO_^HN]... [_^HF_^HI_^HL_^HE]...$
 
 ^H（ctrl-H）字符是用于打印粗体效果的退格符。同样，我们还可以看到用于打印下划线效果的[退格/下划线]序列。
 
@@ -131,14 +131,14 @@ CUPS 通过创建并维护打印队列来管理打印机。如前所述，Unix �
 
 我们通常用管道配合 pr 命令来做筛选。下面的例子中我们会列出目录 /usr/bin 并用 pr 将其格式化为3列输出的标题页：
 
-		[me@linuxbox ~]$ ls /usr/bin | pr -3 -w 65 | head
+	[me@linuxbox ~]$ ls /usr/bin | pr -3 -w 65 | head
 
-		2012-02-18 14:00 												Page 1
-		[						apturl					bsd-write
-		411toppm				ar						bsh
-		a2p						arecord					btcflash
-		a2ps					arecordmidi				bug-buddy
-		a2ps-lpr-wrapper		ark						buildhash
+	2012-02-18 14:00 												Page 1
+	[						apturl					bsd-write
+	411toppm				ar						bsh
+	a2p						arecord					btcflash
+	a2ps					arecordmidi				bug-buddy
+	a2ps-lpr-wrapper		ark						buildhash
 
 ### 将打印任务送至打印机
 
@@ -148,13 +148,13 @@ CUPS 打印体系支持两种曾用于类 Unix 系统的打印方式。一种，
 
 lpr 程序可以用来把文件传送给打印机。由于它能接收标准输入，所以能用管道来协同工作。例如，要打印刚才多列目录列表的结果，我们只需这样：
 
-		[me@linuxbox ~]$ ls /usr/bin | pr -3 | lpr
+	[me@linuxbox ~]$ ls /usr/bin | pr -3 | lpr
 
 报告会送到系统默认的打印机，如果要送到别的打印机，可以使用 -P 参数：
     lpr -P printer_name
 printer_name 表示这台打印机的名称。若要查看系统已知的打印机列表：
 
-		[me@linuxbox ~]$ lpstat -a
+	[me@linuxbox ~]$ lpstat -a
 
 注意：许多 Linux 发行版允许你定义一个输出 PDF 文件但不执行实体打印的“打印机”，这可以用来很方便的检验你的打印命令。看看你的打印机配置程序是否支持这项配置。在某些发行版中，你可能要自己安装额外的软件包（如 cups-pdf）来使用这项功能。
 
@@ -234,7 +234,7 @@ printer_name 表示这台打印机的名称。若要查看系统已知的打印�
 
 再次打印我们的目录列表，这次我们设置12 CPI、8 LPI 和一个半英寸的左边距。注意这里我必须调整 pr 选项来适应新的页面大小：
 
-		[me@linuxbox ~]$ ls /usr/bin | pr -4 -w 90 -l 88 | lp -o page-left=36 -o cpi=12 -o lpi=8
+	[me@linuxbox ~]$ ls /usr/bin | pr -4 -w 90 -l 88 | lp -o page-left=36 -o cpi=12 -o lpi=8
 
 这条命令用小于默认的格式产生了一个四列的列表。增加 CPI 可以让我们在页面上打印更多列。
 
@@ -380,16 +380,16 @@ a2ps 有很多选项，总结在表22-4 中。
 
 lpstat 程序可用于确定系统中打印机的名字和有效性。例如，我们系统中有一台实体打印机（名叫 printer）和一台 PDF 虚拟打印机（名叫 PDF），我们可以像这样查看打印机状态：
 
-		[me@linuxbox ~]$ lpstat -a
-		PDF accepting requests since Mon 05 Dec 2011 03:05:59 PM EST
-		printer accepting requests since Tue 21 Feb 2012 08:43:22 AM EST
+	[me@linuxbox ~]$ lpstat -a
+	PDF accepting requests since Mon 05 Dec 2011 03:05:59 PM EST
+	printer accepting requests since Tue 21 Feb 2012 08:43:22 AM EST
 
 接着，我们可以查看打印系统更具体的配置信息：
 
-		[me@linuxbox ~]$ lpstat -s
-		system default destination: printer
-		device for PDF: cups-pdf:/
-		device for printer: ipp://print-server:631/printers/printer
+	[me@linuxbox ~]$ lpstat -s
+	system default destination: printer
+	device for PDF: cups-pdf:/
+	device for printer: ipp://print-server:631/printers/printer
 
 上例中，我们看到 printer 是系统默认的打印机，其本身是一台网络打印机，使用网络打印协议（ipp://）通过网络连接到名为 print-server 的系统。
 lpstat 的常用选项列于表22-5。
@@ -430,26 +430,26 @@ lpstat 的常用选项列于表22-5。
 
 使用 lpq 程序可以查看打印机队列的状态，从中我们可以看到队列的状态和所包含的打印任务。下面的例子显示了一台名叫 printer 的系统默认打印机包含一个空队列的情况：
 
-		[me@linuxbox ~]$ lpq
-		printer is ready
-		no entries
+	[me@linuxbox ~]$ lpq
+	printer is ready
+	no entries
 
 如果我们不指定打印机（用 -P 参数），就会显示系统默认打印机。如果给打印机添加一项任务再查看队列，我们就会看到下列结果：
 
-		[me@linuxbox ~]$ ls *.txt | pr -3 | lp
-		request id is printer-603 (1 file(s))
-		[me@linuxbox ~]$ lpq
-		printer is ready and printing
-		Rank		Owner		Job			File(s)						Total Size
-		active		me			603			(stdin)						1024 bytes
+	[me@linuxbox ~]$ ls *.txt | pr -3 | lp
+	request id is printer-603 (1 file(s))
+	[me@linuxbox ~]$ lpq
+	printer is ready and printing
+	Rank		Owner		Job			File(s)						Total Size
+	active		me			603			(stdin)						1024 bytes
 
 #### lprm 和 cancel——取消打印任务
 
 CUPS 提供两个程序来从打印队列中终止并移除打印任务。一个是 Berkeley 风格的（lprm），另一个是 System V 的（cancel）。在支持的选项上两者有较小的区别但是功能却几乎相同。以上面的打印任务为例，我们可以像这样终止并移除任务：
 
-		[me@linuxbox ~]$ cancel 603
-		[me@linuxbox ~]$ lpq
-		printer is ready
-		no entries
+	[me@linuxbox ~]$ cancel 603
+	[me@linuxbox ~]$ lpq
+	printer is ready
+	no entries
 
 每个命令都有选项可用于移除某用户、某打印机或多个任务号的所有任务，相应的参考手册中都有详细的介绍。
