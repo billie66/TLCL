@@ -476,13 +476,10 @@ looks something like this:
 
     # .bash\_profile
     # Get the aliases and functions
-
     if [ -f ~/.bashrc ]; then
     . ~/.bashrc
     fi
-
     # User specific environment and startup programs
-
     PATH=$PATH:$HOME/bin
     export PATH
 
@@ -503,7 +500,7 @@ scripting in Part 5, but for now we will translate:
 这叫做一个 if 复合命令，我们将会在第五部分详细地介绍它，现在我们对它翻译一下：
 
     If the file ~/.bashrc exists, then
-          read the ~/.bashrc file.
+    read the ~/.bashrc file.
 
 We can see that this bit of code is how a login shell gets the contents of .bashrc. The
 next thing in our startup file has to do with the PATH variable.
@@ -927,4 +924,3 @@ The INVOCATION section of the bash man page covers the bash startup files
 in gory detail.
 
 bash 手册页的 INVOCATION 部分非常详细地讨论了 bash 启动文件。
-

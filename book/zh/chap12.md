@@ -259,13 +259,10 @@ valign="top">如果文件 ~/.bash_profile 或文件 ~/.bash_login 都没有找�
 
     # .bash_profile
     # Get the aliases and functions
-
     if [ -f ~/.bashrc ]; then
     . ~/.bashrc
     fi
-
     # User specific environment and startup programs
-
     PATH=$PATH:$HOME/bin
     export PATH
 
@@ -280,7 +277,7 @@ valign="top">如果文件 ~/.bash_profile 或文件 ~/.bash_login 都没有找�
 这叫做一个 if 复合命令，我们将会在第五部分详细地介绍它，现在我们对它翻译一下：
 
     If the file ~/.bashrc exists, then
-          read the ~/.bashrc file.
+    read the ~/.bashrc file.
 
 我们可以看到这一小段代码就是一个登录 shell 得到 .bashrc 文件内容的方式。在我们启动文件中，
 下一件有趣的事与 PATH 变量有关系。
@@ -367,7 +364,6 @@ vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stal
 总是一个不错的主意。这样能避免我们在编辑文件时弄乱文件。创建文件 .bashrc 的备份文件，这样做：
 
     [me@linuxbox ~]$ cp .bashrc .bashrc.bak
-
 
 备份文件的名字无关紧要，只要选择一个容易理解的文件名。扩展名 ".bak"，".sav"，
 ".old"，和 ".orig" 都是用来指示备份文件的流行方法。哦，记住 cp 命令会默默地重写存在的文件。
