@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 编写第一个 Shell 脚本 
+title: 编写第一个 Shell 脚本
 ---
 
 In the preceding chapters, we have assembled an arsenal of command line tools. While
@@ -17,7 +17,7 @@ enable it to do this by writing shell scripts.
 
 ### What Are Shell Scripts?
 
-### 什么是 Shell 脚本？ 
+### 什么是 Shell 脚本？
 
 In the simplest terms, a shell script is a file containing a series of commands. The shell
 reads this file and carries out the commands as though they have been entered directly on
@@ -44,7 +44,7 @@ Shell 也提供了一些通常（但不总是）在编写程序时才使用的�
 
 ### How To Write A Shell Script
 
-### 怎样编写一个 Shell 脚本 
+### 怎样编写一个 Shell 脚本
 
 To successfully create and run a shell script, we need to do three things:
 
@@ -64,19 +64,20 @@ file’s permissions to allow execution.
 certain directories for executable files when no explicit pathname is specified.
 For maximum convenience, we will place our scripts in these directories.
 
-<ol><li><p><b> 编写一个脚本。</b> Shell 脚本就是普通的文本文件。所以我们需要一个文本编辑器来书写它们。最好的文本
+^
+1. _编写一个脚本。_ Shell 脚本就是普通的文本文件。所以我们需要一个文本编辑器来书写它们。最好的文本
    编辑器都会支持语法高亮，这样我们就能够看到一个脚本关键字的彩色编码视图。语法高亮会帮助我们查看某种常见
-   错误。为了编写脚本文件，vim，gedit，kate，和许多其它编辑器都是不错的候选者。</p></li>
+   错误。为了编写脚本文件，vim，gedit，kate，和许多其它编辑器都是不错的候选者。
 
-<li><p><b>使脚本文件可执行。</b> 系统会相当挑剔不允许任何旧的文本文件被看作是一个程序，并且有充分的理由!
-   所以我们需要设置脚本文件的权限来允许其可执行。 </p></li>
+1. _使脚本文件可执行。_ 系统会相当挑剔不允许任何旧的文本文件被看作是一个程序，并且有充分的理由!
+   所以我们需要设置脚本文件的权限来允许其可执行。
 
-<li><p><b>把脚本放置到 shell 能够找到的地方</b> 当没有指定可执行文件明确的路径名时，shell 会自动地搜索某些目录，
-来查找此可执行文件。为了最大程度的方便，我们会把脚本放到这些目录当中。</p></li></ol>
+1. _把脚本放置到 shell 能够找到的地方_ 当没有指定可执行文件明确的路径名时，shell 会自动地搜索某些目录，
+来查找此可执行文件。为了最大程度的方便，我们会把脚本放到这些目录当中。
 
 ### Script File Format
 
-### 脚本文件格式 
+### 脚本文件格式
 
 In keeping with programming tradition, we’ll create a “hello world” program to
 demonstrate an extremely simple script. So let’s fire up our text editors and enter the
@@ -85,7 +86,7 @@ following script:
 为了保持编程传统，我们将创建一个“hello world”程序来说明一个极端简单的脚本。所以让我们启动
 我们的文本编辑器，然后输入以下脚本：
 
-    #!/bin/bash 
+    #!/bin/bash
 
     # This is our first script.
 
@@ -141,10 +142,10 @@ chmod:
 
     [me@linuxbox ~]$ ls -l hello_world
     -rw-r--r-- 1  me    me      63  2009-03-07 10:10 hello_world
-    [me@linuxbox ~]$ chmod 755 hello_world 
+    [me@linuxbox ~]$ chmod 755 hello_world
     [me@linuxbox ~]$ ls -l hello_world
     -rwxr-xr-x 1  me    me      63  2009-03-07 10:10 hello_world
-    
+
 There are two common permission settings for scripts; 755 for scripts that everyone can
 execute, and 700 for scripts that only the owner can execute. Note that scripts must be
 readable in order to be executed.
@@ -226,7 +227,7 @@ change to the current terminal session, we must have the shell re-read the .bash
 This can be done by “sourcing” it:
 
 当做了这个修改之后，它会在每个新的终端会话中生效。为了把这个修改应用到当前的终端会话中，
-我们必须让 shell 重新读取这个.bashrc 文件。这可以通过“sourcing”.bashrc 文件来完成：
+我们必须让 shell 重新读取这个 .bashrc 文件。这可以通过 “sourcing”.bashrc 文件来完成：
 
     [me@linuxbox ~]$ . .bashrc
 
@@ -243,15 +244,15 @@ Note: Ubuntu automatically adds the ~/bin directory to the PATH variable if the
 systems, if we create the ~/bin directory and then log out and log in again,
 everything works.
 
-注意：在 Ubuntu 系统中，如果存在~/bin 目录，当执行用户的.bashrc 文件时，
-Ubuntu 会自动地添加这个~/bin 目录到 PATH 变量中。所以在 Ubuntu 系统中，如果我们创建
-了这个~/bin 目录，随后退出，然后再登录，一切会正常运行。
+注意：在 Ubuntu 系统中，如果存在 ~/bin 目录，当执行用户的 .bashrc 文件时，
+Ubuntu 会自动地添加这个 ~/bin 目录到 PATH 变量中。所以在 Ubuntu 系统中，如果我们创建
+了这个 ~/bin 目录，随后退出，然后再登录，一切会正常运行。
 
 ---
 
 #### Good Locations For Scripts
 
-#### 脚本文件的好去处 
+#### 脚本文件的好去处
 
 The ~/bin directory is a good place to put scripts intended for personal use. If we write
 a script that everyone on a system is allowed to use, the traditional location is
@@ -261,10 +262,10 @@ scripts or compiled programs, should be placed in the /usr/local hierarchy and n
 /bin or /usr/bin. These directories are specified by the Linux Filesystem Hierarchy
 Standard to contain only files supplied and maintained by the Linux distributor.
 
-这个~/bin 目录是存放为个人所用脚本的好地方。如果我们编写了一个脚本，系统中的每个用户都可以使用它，
-那么这个脚本的传统位置是/usr/local/bin。系统管理员使用的脚本经常放到/usr/local/sbin 目录下。
-大多数情况下，本地支持的软件，不管是脚本还是编译过的程序，都应该放到/usr/local 目录下，
-而不是在/bin 或/usr/bin 目录下。这些目录都是由 Linux 文件系统层次结构标准指定，只包含由 Linux 发行商
+这个 ~/bin 目录是存放为个人所用脚本的好地方。如果我们编写了一个脚本，系统中的每个用户都可以使用它，
+那么这个脚本的传统位置是 /usr/local/bin。系统管理员使用的脚本经常放到 /usr/local/sbin 目录下。
+大多数情况下，本地支持的软件，不管是脚本还是编译过的程序，都应该放到 /usr/local 目录下，
+而不是在 /bin 或 /usr/bin 目录下。这些目录都是由 Linux 文件系统层次结构标准指定，只包含由 Linux 发行商
 所提供和维护的文件。
 
 ### More Formatting Tricks
@@ -280,7 +281,7 @@ Making a script easy to read and understand is one way to facilitate easy mainte
 
 #### Long Option Names
 
-#### 长选项名称 
+#### 长选项名称
 
 Many of the commands we have studied feature both short and long option names. For
 instance, the ls command has many options that can be expressed in either short or long
@@ -288,7 +289,7 @@ form. For example:
 
 我们学过的许多命令都以长短两种选项名称为特征。例如，这个 ls 命令有许多选项既可以用短形式也
 可以用长形式来表示。例如：
-    
+
     [me@linuxbox ~]$ ls -ad
 
 and:
@@ -402,13 +403,13 @@ programming constructs. To stop indentation, type Ctrl-d.</p>
 <p>These changes can be made permanent by adding these commands (without the
 leading colon characters) to your ~/.vimrc file.</p>
 
-<p>通过把这些命令（没有开头的冒号字符）添加到你的~/.vimrc 文件中，这些改动会永久生效。</p>
+<p>通过把这些命令（没有开头的冒号字符）添加到你的 ~/.vimrc 文件中，这些改动会永久生效。</p>
 </div>
 <br />
 
 ### Summing Up
 
-### 总结归纳 
+### 总结归纳
 
 In this first chapter of scripting, we have looked at how scripts are written and made to
 easily execute on our system. We also saw how we may use various formatting
@@ -422,7 +423,7 @@ in good script writing.
 
 ### Further Reading
 
-### 拓展阅读 
+### 拓展阅读
 
 * For “Hello World” programs and examples in various programming languages, see:
 
