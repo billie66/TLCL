@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 启动一个项目 
+title: 启动一个项目
 ---
 
 Starting with this chapter, we will begin to build a program. The purpose of this project
@@ -135,7 +135,7 @@ this way on the command line, too:
 右引号。它在命令行中也是这样工作的：
 
     [me@linuxbox ~]$ echo "<HTML>
-    
+
     >         <HEAD>
                     <TITLE>Page Title</TITLE>
     >         </HEAD>
@@ -154,7 +154,7 @@ turn out to be quite handy.
 
 ### Second Stage: Adding A Little Data
 
-### 第二阶段：添加一点儿数据 
+### 第二阶段：添加一点儿数据
 
 Now that our program can generate a minimal document, let’s put some data in the
 report. To do this, we will make the following changes:
@@ -181,7 +181,7 @@ We added a page title and a heading to the body of the report.
 
 ### Variables And Constants
 
-### 变量和常量 
+### 变量和常量
 
 There is an issue with our script, however. Notice how the string “System Information
 Report” is repeated? With our tiny script it’s not a problem, but let’s imagine that our
@@ -198,11 +198,8 @@ Report”是怎样被重复使用的？对于这个微小的脚本而言，它�
 出现一次而不是多次，会怎样呢？这样会使今后的脚本维护工作更加轻松。我们可以这样做：
 
     #!/bin/bash
-
     # Program to output a system information page
-
     title="System Information Report"
-    
     echo "<HTML>
             <HEAD>
                     <TITLE>$title</TITLE>
@@ -297,11 +294,12 @@ underscore characters.
 
 3. Spaces and punctuation symbols are not allowed.
 
-<ol><li><p> 变量名可由字母数字字符（字母和数字）和下划线字符组成。</p></li>
+^
+1. 变量名可由字母数字字符（字母和数字）和下划线字符组成。
 
-<li><p>变量名的第一个字符必须是一个字母或一个下划线。</p></li>
+1. 变量名的第一个字符必须是一个字母或一个下划线。
 
-<li><p>变量名中不允许出现空格和标点符号。</p></li></ol>
+1. 变量名中不允许出现空格和标点符号。
 
 The word “variable” implies a value that changes, and in many applications, variables are
 used this way. However, the variable in our application, title, is used as a constant. A
@@ -314,19 +312,16 @@ convenience. A common convention is to use upper case letters to designate const
 and lower case letters for true variables. We will modify our script to comply with this
 convention:
 
-单词“variable”意味着可变的值，并且在许多应用程序当中，都是以这种方式来使用变量的。然而，
+单词 “variable” 意味着可变的值，并且在许多应用程序当中，都是以这种方式来使用变量的。然而，
 我们应用程序中的变量，title，被用作一个常量。常量有一个名字且包含一个值，在这方面就
 像是变量。不同之处是常量的值是不能改变的。在执行几何运算的应用程序中，我们可以把 PI 定义为
-一个常量，并把3.1415赋值给它，用它来代替数字字面值。shell 不能辨别变量和常量；它们大多数情况下
+一个常量，并把 3.1415 赋值给它，用它来代替数字字面值。shell 不能辨别变量和常量；它们大多数情况下
 是为了方便程序员。一个常用惯例是指定大写字母来表示常量，小写字母表示真正的变量。我们
 将修改我们的脚本来遵从这个惯例：
 
     #!/bin/bash
-
     # Program to output a system information page
-
     TITLE="System Information Report For $HOSTNAME"
-
     echo "<HTML>
             <HEAD>
                     <TITLE>$title</TITLE>
@@ -363,7 +358,7 @@ rarely used, but it exists for very formal scripts.
 
 #### Assigning Values To Variables And Constants
 
-#### 给变量和常量赋值 
+#### 给变量和常量赋值
 
 Here is where our knowledge of expansion really starts to pay off. As we have seen,
 variables are assigned values this way:
@@ -393,11 +388,11 @@ expand into a string:
     b="a string"            # Embedded spaces must be within quotes.
     c="a string and $b"     # Other expansions such as variables can be
                             # expanded into the assignment.
-    	 
+
     d=$(ls -l foo.txt)      # Results of a command.
     e=$((5 * 7))            # Arithmetic expansion.
     f="\t\ta string\n"      # Escape sequences such as tabs and newlines.
-	
+
 Multiple variable assignments may be done on a single line:
 
 可以在同一行中对多个变量赋值：
@@ -437,13 +432,10 @@ report was created and the user name of the creator:
 我们将利用这个机会来添加一些数据到我们的报告中，即创建包括的日期和时间，以及创建者的用户名：
 
     #!/bin/bash
-
     # Program to output a system information page
-
     TITLE="System Information Report For $HOSTNAME"
     CURRENT_TIME=$(date +"%x %r %Z")
     TIME_STAMP="Generated $CURRENT_TIME, by $USER"
-
     echo "<HTML>
             <HEAD>
                     <TITLE>$TITLE</TITLE>
@@ -462,7 +454,7 @@ is an additional form of I/O redirection in which we embed a body of text into o
 and feed it into the standard input of a command. It works like this:
 
 我们已经知道了两种不同的文本输出方法，两种方法都使用了 echo 命令。还有第三种方法，叫做
-*here document* 或者 *here script*。一个 here document 是另外一种 I/O 重定向形式，我们
+here document 或者 here script。一个 here document 是另外一种 I/O 重定向形式，我们
 在脚本文件中嵌入正文文本，然后把它发送给一个命令的标准输入。它这样工作：
 
     command << token
@@ -475,17 +467,14 @@ where *command* is the name of command that accepts standard input and *token* i
 used to indicate the end of the embedded text. We’ll modify our script to use a here
 document:
 
-这里的*command*是一个可以接受标准输入的命令名，*token*是一个用来指示嵌入文本结束的字符串。
+这里的 command 是一个可以接受标准输入的命令名，token 是一个用来指示嵌入文本结束的字符串。
 我们将修改我们的脚本，来使用一个 here document:
 
     #!/bin/bash
-
     # Program to output a system information page
-
     TITLE="System Information Report For $HOSTNAME"
     CURRENT_TIME=$(date +"%x %r %Z")
     TIME_STAMP="Generated $CURRENT_TIME, by $USER"
-
     cat << _EOF_
     <HTML>
              <HEAD>
@@ -497,7 +486,7 @@ document:
              </BODY>
     </HTML>
     _EOF_
- 
+
 Instead of using echo, our script now uses cat and a here document. The string \_EOF\_
 (meaning “End Of File,” a common convention) was selected as the token, and marks the
 end of the embedded text. Note that the token must appear alone and that there must not
@@ -513,7 +502,7 @@ meaning to the shell. Here is a command line example:
 
 那么使用一个 here document 的优点是什么呢？它很大程度上和 echo 一样，除了默认情况下，here
 documents 中的单引号和双引号会失去它们在 shell 中的特殊含义。这里有一个命令中的例子：
- 
+
     [me@linuxbox ~]$ foo="some text"
     [me@linuxbox ~]$ cat << _EOF_
     > $foo
@@ -541,13 +530,10 @@ Here documents 可以和任意能接受标准输入的命令一块使用。在�
 一个 here document 将一系列的命令传递到这个 ftp 程序中，为的是从一个远端 FTP 服务器中得到一个文件：
 
     #!/bin/bash
-
     # Script to retrieve a file via FTP
-
     FTP_SERVER=ftp.nl.debian.org
     FTP_PATH=/debian/dists/lenny/main/installer-i386/current/images/cdrom
     REMOTE_FILE=debian-cd_info.tar.gz
-
     ftp -n << _EOF_
     open $FTP_SERVER
     user anonymous me@linuxbox
@@ -558,21 +544,18 @@ Here documents 可以和任意能接受标准输入的命令一块使用。在�
     _EOF_
     ls -l $REMOTE_FILE
 
-If we change the redirection operator from “&lt;&lt;” to “&lt;&lt;-”, the shell will ignore leading
+If we change the redirection operator from “<<” to “<<-”, the shell will ignore leading
 tab characters in the here document. This allows a here document to be indented, which
 can improve readability:
 
-如果我们把重定向操作符从“&lt;&lt;” 改为 “&lt;&lt;-”，shell 会忽略在此 here document 中开头的 tab 字符。
+如果我们把重定向操作符从 “<<” 改为 “<<-”，shell 会忽略在此 here document 中开头的 tab 字符。
 这就能缩进一个 here document，从而提高脚本的可读性：
 
     #!/bin/bash
-
     # Script to retrieve a file via FTP
-
     FTP_SERVER=ftp.nl.debian.org
     FTP_PATH=/debian/dists/lenny/main/installer-i386/current/images/cdrom
     REMOTE_FILE=debian-cd_info.tar.gz
-
     ftp -n <<- _EOF_
         open $FTP_SERVER
         user anonymous me@linuxbox
@@ -581,12 +564,11 @@ can improve readability:
         get $REMOTE_FILE
         bye
     _EOF_
-
     ls -l $REMOTE_FILE
 
 ### Summing Up
 
-### 总结归纳 
+### 总结归纳
 
 In this chapter, we started a project that will carry us through the process of building a
 successful script. We introduced the concept of variables and constants and how they can
@@ -601,7 +583,7 @@ methods for embedding blocks of text.
 
 ### Further Reading
 
-### 拓展阅读 
+### 拓展阅读
 
 * For more information about HTML, see the following articles and tutorials:
 
