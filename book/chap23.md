@@ -371,7 +371,7 @@ Like lpr, lp accepts either files or standard input for printing. It differs fro
 <table class="multi">
 <caption class="cap">Table 22-3: Common lp Options</caption>
 <tr>
-<th class="title" width="25%">Option</th>
+<th class="title" width="28%">Option</th>
 <th class="title">Description</th>
 </tr>
 <tr>
