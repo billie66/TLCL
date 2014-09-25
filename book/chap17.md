@@ -21,9 +21,9 @@ cover:
 使用到的命令。我们要研究的命令包括那些被用来监测网络和传输文件的命令。另外，我们
 还会探讨用来远端登录的 ssh 程序。这章会介绍：
 
-* ping - Send an ICMP ECHO\_REQUEST to network hosts
+* ping - Send an ICMP ECHO_REQUEST to network hosts
 
-* ping - 发送 ICMP ECHO\_REQUEST 软件包到网络主机
+* ping - 发送 ICMP ECHO_REQUEST 软件包到网络主机
 
 * traceroute - Print the route packets trace to a network host
 
@@ -59,7 +59,7 @@ make full use of this chapter we should be familiar with the following terms:
 
 * Host and domain name
 
-<li><p>主机和域名</p></li>
+* 主机和域名
 
 * URI (Uniform Resource Identifier)
 
@@ -72,9 +72,9 @@ terms.
 
 ---
 
-<p align="left">Note: Some of the commands we will cover may (depending on your distribution)
+Note: Some of the commands we will cover may (depending on your distribution)
 require the installation of additional packages from your distribution’s repositories,
-and some may require superuser privileges to execute.</p>
+and some may require superuser privileges to execute.
 
 注意：一些将要讲到的命令可能（取决于系统发行版）需要从系统发行版的仓库中安装额外的软件包，
 并且一些命令可能需要超级用户权限才能执行。
@@ -93,11 +93,11 @@ and operation of a network.
 #### ping
 
 The most basic network command is ping. The ping command sends a special
-network packet called an IMCP ECHO\_REQUEST to a specified host. Most network
+network packet called an IMCP ECHO_REQUEST to a specified host. Most network
 devices receiving this packet will reply to it, allowing the network connection to be
 verified.
 
-最基本的网络命令是 ping。这个 ping 命令发送一个特殊的网络数据包，叫做 IMCP ECHO\_REQUEST，到
+最基本的网络命令是 ping。这个 ping 命令发送一个特殊的网络数据包，叫做 IMCP ECHO_REQUEST，到
 一台指定的主机。大多数接收这个包的网络设备将会回复它，来允许网络连接验证。
 
 ---
@@ -312,11 +312,11 @@ FTP（它的原始形式）并不是安全的，因为它会以明码形式发�
 都是匿名的。一个匿名服务器能允许任何人使用注册名“anonymous”和无意义的密码登录系统。
 
 In the example below, we show a typical session with the ftp program downloading an
-Ubuntu iso image located in the /pub/cd\_images/Ubuntu-8.04 directory of the
+Ubuntu iso image located in the /pub/cd_images/Ubuntu-8.04 directory of the
 anonymous FTP server fileserver:
 
 在下面的例子中，我们将展示一个典型的会话，从匿名 FTP 服务器，其名字是 fileserver，
-的/pub/\_images/Ubuntu-8.04的目录下，使用 ftp 程序下载一个 Ubuntu 系统映像文件。
+的/pub/_images/Ubuntu-8.04的目录下，使用 ftp 程序下载一个 Ubuntu 系统映像文件。
 
     [me@linuxbox ~]$ ftp fileserver
     Connected to fileserver.localdomain.
@@ -438,11 +438,11 @@ valign="top">退出远端服务器，结束 ftp 程序会话。也可以使用�
 </tr>
 </table>
 
-Typing “help” at the “ftp&gt;” prompt will display a list of the supported commands. Using
+Typing “help” at the “ftp>” prompt will display a list of the supported commands. Using
 ftp on a server where sufficient permissions have been granted, it is possible to perform
 many ordinary file management tasks. It’s clumsy, but it does work.
 
-在“ftp&gt;”提示符下，输入“help”，会显示所支持命令的列表。使用 ftp 登录到一台
+在“ftp>”提示符下，输入“help”，会显示所支持命令的列表。使用 ftp 登录到一台
 授予了用户足够权限的服务器中，则可以执行很多普通的文件管理任务。虽然很笨拙，
 但它真能工作。
 
@@ -637,20 +637,20 @@ occurs.
 
 After it has been determined that the message is due to a benign cause, it is safe to correct
 the problem on the client side. This is done by using a text editor (vim perhaps) to
-remove the obsolete key from the ~/.ssh/known\_hosts file. In the example
+remove the obsolete key from the ~/.ssh/known_hosts file. In the example
 message above, we see this:
 
 当确定了这条消息归结为一个良性的原因之后，那么在客户端更正问题就很安全了。
-使用文本编辑器（可能是 vim）从文件~/.ssh/known\_hosts 中删除废弃的钥匙，
+使用文本编辑器（可能是 vim）从文件~/.ssh/known_hosts 中删除废弃的钥匙，
 就解决了问题。在上面的例子里，我们看到这样一句话：
 
     Offending key in /home/me/.ssh/known_hosts:1
 
-This means that line one of the known\_hosts file contains the offending key. Delete
+This means that line one of the known_hosts file contains the offending key. Delete
 this line from the file, and the ssh program will be able to accept new authentication
 credentials from the remote system.
 
-这意味着文件 known\_hosts 里面某一行包含攻击型的钥匙。从文件中删除这一行，则 ssh 程序
+这意味着文件 known_hosts 里面某一行包含攻击型的钥匙。从文件中删除这一行，则 ssh 程序
 就能够从远端系统接受新的身份验证凭据。
 
 Besides opening a shell session on a remote system, ssh also allows us to execute a
