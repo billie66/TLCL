@@ -8,11 +8,8 @@ title: 读取键盘输入
 接受用户的输入。以这个前面章节中的脚本为例：
 
     #!/bin/bash
-
     # test-integer2: evaluate the value of an integer.
-
     INT=-5
-
     if [[ "$INT" =~ ^-?[0-9]+$ ]]; then
         if [ $INT -eq 0 ]; then
             echo "INT is zero."
@@ -33,29 +30,26 @@ title: 读取键盘输入
         exit 1
     fi
 
-每次我们想要改变`INT`数值的时候，我们必须编辑这个脚本。如果脚本能请求用户输入数值，那
+每次我们想要改变 INT 数值的时候，我们必须编辑这个脚本。如果脚本能请求用户输入数值，那
 么它会更加有用处。在这个脚本中，我们将看一下我们怎样给程序增加交互性功能。
 
 ### read – 从标准输入读取数值
 
-这个`read`内部命令被用来从标准输入读取单行数据。这个命令可以用来读取键盘输入，当使用
+这个 read 内部命令被用来从标准输入读取单行数据。这个命令可以用来读取键盘输入，当使用
 重定向的时候，读取文件中的一行数据。这个命令有以下语法形式：
 
     read [-options] [variable...]
 
-这里的`options`是下面列出的可用选项中的一个或多个，且`variable`是用来存储输入数值的一个或多个变量名。
+这里的 options 是下面列出的可用选项中的一个或多个，且 variable 是用来存储输入数值的一个或多个变量名。
 如果没有提供变量名，shell 变量`REPLY`会包含数据行。
 
-基本上，`read`会把来自标准输入的字段赋值给具体的变量。如果我们修改我们的整数求值脚本，让其使用
-`read`，它可能看起来像这样：
+基本上，read 会把来自标准输入的字段赋值给具体的变量。如果我们修改我们的整数求值脚本，让其使用
+read，它可能看起来像这样：
 
     #!/bin/bash
-
     # read-integer: evaluate the value of an integer.
-
     echo -n "Please enter an integer -> "
     read int
-
     if [[ "$int" =~ ^-?[0-9]+$ ]]; then
         if [ $int -eq 0 ]; then
             echo "$int is zero."
@@ -76,8 +70,8 @@ title: 读取键盘输入
         exit 1
     fi
 
-我们使用带有`-n`选项（其会删除输出结果末尾的换行符）的`echo`命令，来显示提示信息，
-然后使用`read`来读入变量`int`的数值。运行这个脚本得到以下输出：
+我们使用带有 -n 选项（其会删除输出结果末尾的换行符）的 echo 命令，来显示提示信息，
+然后使用 read 来读入变量 int 的数值。运行这个脚本得到以下输出：
 
     [me@linuxbox ~]$ read-integer
     Please enter an integer -> 5
@@ -87,19 +81,16 @@ title: 读取键盘输入
 `read`可以给多个变量赋值，正如下面脚本中所示：
 
     #!/bin/bash
-
     # read-multiple: read multiple values from keyboard
-
     echo -n "Enter one or more values > "
     read var1 var2 var3 var4 var5
-
     echo "var1 = '$var1'"
     echo "var2 = '$var2'"
     echo "var3 = '$var3'"
     echo "var4 = '$var4'"
     echo "var5 = '$var5'"
 
-在这个脚本中，我们给五个变量赋值并显示其结果。注意当给定不同个数的数值后，`read`怎样操作：
+在这个脚本中，我们给五个变量赋值并显示其结果。注意当给定不同个数的数值后，`read` 怎样操作：
 
     [me@linuxbox ~]$ read-multiple
     Enter one or more values > a b c d e
@@ -123,18 +114,17 @@ title: 读取键盘输入
     var4 = 'd'
     var5 = 'e f g'
 
-如果`read`命令接受到变量值数目少于期望的数字，那么额外的变量值为空，而多余的输入数据则会
-被包含到最后一个变量中。如果`read`命令之后没有列出变量名，则一个 shell 变量，`REPLY`，将会包含
+如果 `read` 命令接受到变量值数目少于期望的数字，那么额外的变量值为空，而多余的输入数据则会
+被包含到最后一个变量中。如果 `read` 命令之后没有列出变量名，则一个 shell 变量，`REPLY`，将会包含
 所有的输入：
 
     #!/bin/bash
-
     # read-single: read multiple values into default variable
-
     echo -n "Enter one or more values > "
     read
-
     echo "REPLY = '$REPLY'"
+
+这个脚本的输出结果是：
 
     [me@linuxbox ~]$ read-single
     Enter one or more values > a b c d
@@ -142,7 +132,7 @@ title: 读取键盘输入
 
 #### 选项
 
-`read`支持以下选送：
+read 支持以下选送：
 
 <table class="multi">
 <caption class="cap">表29-1: read 选项</caption>
@@ -194,25 +184,19 @@ title: 读取键盘输入
 </tbody>
 </table>
 
-使用各种各样的选项，我们能用`read`完成有趣的事情。例如，通过-p 选项，我们能够提供提示信息：
+使用各种各样的选项，我们能用 read 完成有趣的事情。例如，通过 -p 选项，我们能够提供提示信息：
 
     #!/bin/bash
-
     # read-single: read multiple values into default variable
-
     read -p "Enter one or more values > "
-
     echo "REPLY = '$REPLY'"
 
-通过-t 和-s 选项，我们可以编写一个这样的脚本，读取“秘密”输入，并且如果在特定的时间内
+通过 -t 和 -s 选项，我们可以编写一个这样的脚本，读取“秘密”输入，并且如果在特定的时间内
 输入没有完成，就终止输入。
 
     #!/bin/bash
-
     # read-secret: input a secret pass phrase
-
     if read -t 10 -sp "Enter secret pass phrase > " secret_pass; then
-
         echo -e "\nSecret pass phrase = '$secret_pass'"
     else
         echo -e "\nInput timed out" >&2
@@ -220,26 +204,22 @@ title: 读取键盘输入
     if
 
 这个脚本提示用户输入一个密码，并等待输入10秒钟。如果在特定的时间内没有完成输入，
-则脚本会退出并返回一个错误。因为包含了一个-s 选项，所以输入的密码不会出现在屏幕上。
+则脚本会退出并返回一个错误。因为包含了一个 -s 选项，所以输入的密码不会出现在屏幕上。
 
-通常，shell 对提供给`read`的输入按照单词进行分离。正如我们所见到的，这意味着多个由一个或几个空格
-分离开的单词在输入行中变成独立的个体，并被`read`赋值给单独的变量。这种行为由 shell 变量 _IFS_
+通常，shell 对提供给 read 的输入按照单词进行分离。正如我们所见到的，这意味着多个由一个或几个空格
+分离开的单词在输入行中变成独立的个体，并被 read 赋值给单独的变量。这种行为由 shell 变量 _IFS_
 （内部字符分隔符）配置。_IFS_ 的默认值包含一个空格，一个 tab，和一个换行符，每一个都会把
 字段分割开。
 
-我们可以调整 _IFS_ 的值来控制输入字段的分离。例如，这个 _/etc/passwd_ 文件包含的数据行
-使用冒号作为字段分隔符。通过把 _IFS_ 的值更改为单个冒号，我们可以使用`read`读取 _/etc/passwd_ 中的内容，并成功地把字段分给不同的变量。这个就是做这样的事情：
+我们可以调整 _IFS_ 的值来控制输入字段的分离。例如，这个 /etc/passwd 文件包含的数据行
+使用冒号作为字段分隔符。通过把 _IFS_ 的值更改为单个冒号，我们可以使 read 读取 /etc/passwd 中的内容，
+并成功地把字段分给不同的变量。这个就是做这样的事情：
 
     #!/bin/bash
-
     # read-ifs: read fields from a file
-
     FILE=/etc/passwd
-
     read -p "Enter a user name > " user_name
-
     file_info=$(grep "^$user_name:" $FILE)
-
     if [ -n "$file_info" ]; then
         IFS=":" read user pw uid gid name home shell <<< "$file_info"
         echo "User = '$user'"
@@ -253,19 +233,19 @@ title: 读取键盘输入
         exit 1
     fi
 
-这个脚本提示用户输入系统中一个帐户的用户名，然后显示在文件 _/etc/passwd/_ 文件中关于用户记录的
-不同字段，。这个脚本包含两个有趣的文本行。 第一个是：
+这个脚本提示用户输入系统中一个帐户的用户名，然后显示在文件 /etc/passwd/ 文件中关于用户记录的
+不同字段。这个脚本包含两个有趣的文本行。 第一个是：
 
     file_info=$(grep "^$user_name:" $FILE)
 
-这一行把 _grep_ 命令的输入结果赋值给变量 _ file_info _。_grep_ 命令使用的正则表达式
-确保用户名只会在 _/etc/passwd_ 文件中匹配一个文本行。
+这一行把 grep 命令的输入结果赋值给变量 file_info。grep 命令使用的正则表达式
+确保用户名只会在 /etc/passwd 文件中匹配一个文本行。
 
 第二个有意思的文本行是：
 
     IFS=":" read user pw uid gid name home shell <<< "$file_info"
 
-这一行由三部分组成：一个变量赋值，一个带有一串参数的`read`命令，和一个奇怪的新的重定向操作符。
+这一行由三部分组成：一个变量赋值，一个带有一串参数的 read 命令，和一个奇怪的新的重定向操作符。
 我们首先看一下变量赋值。
 
 Shell 允许在一个命令之前立即发生一个或多个变量赋值。这些赋值为跟随着的命令更改环境变量。
@@ -277,31 +257,31 @@ Shell 允许在一个命令之前立即发生一个或多个变量赋值。这�
     read user pw uid gid name home shell <<< "$file_info"
     IFS="$OLD_IFS"
 
-我们先存储 IFS 的值，然后赋给一个新值，再执行`read`命令，最后把 IFS 恢复原值。显然，完成相同的任务，
+我们先存储 IFS 的值，然后赋给一个新值，再执行 read 命令，最后把 IFS 恢复原值。显然，完成相同的任务，
 在命令之前放置变量名赋值是一种更简明的方式。
 
-这个`<<<`操作符指示一个 here 字符串。一个 here 字符串就像一个 here 文档，只是比较简短，由
-单个字符串组成。在这个例子中，来自__/etc/passwd__文件的数据发送给`read`命令的标准输入。
+这个 `<<<` 操作符指示一个 here 字符串。一个 here 字符串就像一个 here 文档，只是比较简短，由
+单个字符串组成。在这个例子中，来自 /etc/passwd 文件的数据发送给 read 命令的标准输入。
 我们可能想知道为什么选择这种相当晦涩的方法而不是：
 
     echo "$file_info" | IFS=":" read user pw uid gid name home shell
 
-> 你不能管道 read
+> _你不能管道 read_
 >
 > echo "foo" \| read
 >
-> 虽然通常`read`命令接受标准输入，但是你不能这样做：
+> 虽然通常 `read` 命令接受标准输入，但是你不能这样做：
 >
-> 我们期望这个命令能生效，但是它不能。这个命令将显示成功，但是`REPLY`变量
+> 我们期望这个命令能生效，但是它不能。这个命令将显示成功，但是 `REPLY` 变量
 总是为空。为什么会这样？
 >
 > 答案与 shell 处理管道线的方式有关系。在 bash（和其它 shells，例如 sh）中，管道线
 会创建子 shell。它们是 shell 的副本，且用来执行命令的环境变量在管道线中。
-上面示例中，`read`命令将在子 shell 中执行。
+上面示例中，read 命令将在子 shell 中执行。
 >
 > 在类似于 Unix 的系统中，子 shell 执行的时候，会为进程创建父环境的副本。当进程结束
-之后，环境副本就会被破坏掉。这意味着一个子 shell 永远不能改变父进程的环境。`read`赋值变量，
-然后会变为环境的一部分。在上面的例子中，`read`在它的子 shell 环境中，把“foo”赋值给变量 REPLY，
+之后，环境副本就会被破坏掉。这意味着一个子 shell 永远不能改变父进程的环境。read 赋值变量，
+然后会变为环境的一部分。在上面的例子中，read 在它的子 shell 环境中，把 foo 赋值给变量 REPLY，
 但是当命令退出后，子 shell 和它的环境将被破坏掉，这样赋值的影响就会消失。
 >
 > 使用 here 字符串是解决此问题的一种方法。另一种方法将在37章中讨论。
@@ -321,22 +301,16 @@ Shell 允许在一个命令之前立即发生一个或多个变量赋值。这�
 这里我们有一个校正各种输入的示例程序：
 
     #!/bin/bash
-
     # read-validate: validate input
-
     invalid_input () {
         echo "Invalid input '$REPLY'" >&2
         exit 1
     }
-
     read -p "Enter a single item > "
-
     # input is empty (invalid)
     [[ -z $REPLY ]] && invalid_input
-
     # input is multiple items (invalid)
     (( $(echo $REPLY | wc -w) > 1 )) && invalid_input
-
     # is input a valid filename?
     if [[ $REPLY =~ ^[-[:alnum:]\._]+$ ]]; then
         echo "'$REPLY' is a valid filename."
@@ -345,14 +319,12 @@ Shell 允许在一个命令之前立即发生一个或多个变量赋值。这�
         else
             echo "However, file '$REPLY' does not exist."
         fi
-
         # is input a floating point number?
         if [[ $REPLY =~ ^-?[[:digit:]]*\.[[:digit:]]+$ ]]; then
             echo "'$REPLY' is a floating point number."
         else
             echo "'$REPLY' is not a floating point number."
         fi
-
         # is input an integer?
         if [[ $REPLY =~ ^-?[[:digit:]]+$ ]]; then
             echo "'$REPLY' is an integer."
@@ -372,22 +344,19 @@ Shell 允许在一个命令之前立即发生一个或多个变量赋值。这�
 一种常见的交互类型称为菜单驱动。在菜单驱动程序中，呈现给用户一系列选择，并要求用户选择一项。
 例如，我们可以想象一个展示以下信息的程序：
 
-        Please Select:
+    Please Select:
+    1.Display System Information
+    2.Display Disk Space
+    3.Display Home Space Utilization
+    0.Quit
 
-        1.Display System Information
-        2.Display Disk Space
-        3.Display Home Space Utilization
-        0.Quit
-
-        Enter selection [0-3] >
+    Enter selection [0-3] >
 
 使用我们从编写 sys_info_page 程序中所学到的知识，我们能够构建一个菜单驱动程序来执行
 上述菜单中的任务：
 
     #!/bin/bash
-
     # read-menu: a menu driven system information program
-
     clear
     echo "
     Please Select:
@@ -398,7 +367,6 @@ Shell 允许在一个命令之前立即发生一个或多个变量赋值。这�
         0. Quit
     "
     read -p "Enter selection [0-3] > "
-
     if [[ $REPLY =~ ^[0-3]$ ]]; then
         if [[ $REPLY == 0 ]]; then
             echo "Program terminated."
@@ -428,11 +396,11 @@ Shell 允许在一个命令之前立即发生一个或多个变量赋值。这�
         exit 1
     fi
 
-The presence of multiple ｀exit｀ points in a program is generally a bad idea (it makes
+The presence of multiple｀exit｀points in a program is generally a bad idea (it makes
 
 从逻辑上讲，这个脚本被分为两部分。第一部分显示菜单和用户输入。第二部分确认用户反馈，并执行
-选择的行动。注意脚本中使用的 exit 命令。在这里，在一个行动执行之后，`exit`被用来阻止脚本执行不必要的代码。
-通常在程序中出现多个`exit`代码是一个坏想法（它使程序逻辑较难理解），但是它在这个脚本中起作用。
+选择的行动。注意脚本中使用的 exit 命令。在这里，在一个行动执行之后，exit 被用来阻止脚本执行不必要的代码。
+通常在程序中出现多个 exit 代码是一个坏想法（它使程序逻辑较难理解），但是它在这个脚本中起作用。
 
 ### 总结归纳
 
@@ -443,12 +411,12 @@ The presence of multiple ｀exit｀ points in a program is generally a bad idea 
 #### 友情提示
 
 仔细研究本章中的程序，并对程序的逻辑结构有一个完整的理解，这是非常重要的，因为即将到来的
-程序会日益复杂。作为练习，用`test`命令而不是`[[ ]]`复合命令来重新编写本章中的程序。
-提示：使用`grep`命令来计算正则表达式及其退出状态。这会是一个不错的实践。
+程序会日益复杂。作为练习，用 test 命令而不是`[[ ]]`复合命令来重新编写本章中的程序。
+提示：使用 grep 命令来计算正则表达式及其退出状态。这会是一个不错的实践。
 
 ### 拓展阅读
 
-* Bash 参考手册有一章关于内部命令的内容，其包括了`read`命令：
+* Bash 参考手册有一章关于内部命令的内容，其包括了 read 命令：
 
     <http://www.gnu.org/software/bash/manual/bashref.html#Bash-Builtins>
 
