@@ -581,7 +581,7 @@ xargs，另一种方法是，使用 find 命令自己的一个新功能。我们
 则会产生由 null 字符分离的输出，并且 xargs 命令有一个 --null 选项，这个选项会接受由 null 字符
 分离的输入。这里有一个例子：
 >
->  find ~ -iname '*.jpg' -print0 | xargs --null ls -l
+>     find ~ -iname '*.jpg' -print0 | xargs --null ls -l
 >
 > 使用这项技术，我们可以保证所有文件，甚至那些文件名中包含空格的文件，都能被正确地处理。
 {: .single}
