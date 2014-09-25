@@ -617,7 +617,7 @@ The following expressions are used with integers:
 <th class="title">Is True If...</th>
 </tr>
 <tr>
-<td valign="top" width="50%">integer1 -eq integer2 </td>
+<td valign="top" width="40%">integer1 -eq integer2 </td>
 <td valign="top">integer1 is equal to integer2.</td>
 </tr>
 <tr>
@@ -649,7 +649,7 @@ The following expressions are used with integers:
 <th class="title">如果为真...</th>
 </tr>
 <tr>
-<td valign="top" width="50%">integer1 -eq integer2 </td>
+<td valign="top" width="40%">integer1 -eq integer2 </td>
 <td valign="top">integer1 等于 integer2.</td>
 </tr>
 <tr>

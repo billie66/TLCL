@@ -363,7 +363,7 @@ is no answer.” 重定向到标准错误，这是处理错误信息的“合理
 <th class="title">如果为真...</th>
 </tr>
 <tr>
-<td valign="top" width="50%">integer1 -eq integer2 </td>
+<td valign="top" width="40%">integer1 -eq integer2 </td>
 <td valign="top">integer1 等于 integer2.</td>
 </tr>
 <tr>
