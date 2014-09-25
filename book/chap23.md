@@ -79,16 +79,16 @@ Data is sent to a typewriter-like printer in a simple stream of bytes containing
 
 接着，一台类打字机的打印机会收到以简单字节流的形式传送来的数据，其中就包含要打印的字符。例如要打印一个字母a，计算机就会发送 ASCII 码97，如果要移动打印机的滑动架和纸张，就需要使用回车、换行、换页等的小编号 ASCII 控制码。使用控制码，还能实现一些之前受限制的字体效果，比如粗体，就是让打印机先打印一个字符，然后退格再打印一遍来得到颜色较深的效果的。用 nroff 来产生一个手册页然后用 cat -A 检查输出，我们就能亲眼看看这种效果了：
 
-	[me@linuxbox ~]$ zcat /usr/share/man/man1/ls.1.gz | nroff -man | cat -A | head
-	LS(1) User Commands LS(1)
-	$
-	$
-	$
-	N^HNA^HAM^HME^HE$
-	ls - list directory contents$
-	$
-	S^HSY^HYN^HNO^HOP^HPS^HSI^HIS^HS$
-	l^Hls^Hs [_^HO_^HP_^HT_^HI_^HO_^HN]... [_^HF_^HI_^HL_^HE]...$
+    [me@linuxbox ~]$ zcat /usr/share/man/man1/ls.1.gz | nroff -man | cat -A | head
+    LS(1) User Commands LS(1)
+    $
+    $
+    $
+    N^HNA^HAM^HME^HE$
+    ls - list directory contents$
+    $
+    S^HSY^HYN^HNO^HOP^HPS^HSI^HIS^HS$
+    l^Hls^Hs [_^HO_^HP_^HT_^HI_^HO_^HN]... [_^HF_^HI_^HL_^HE]...$
 
 ^H (CTRL-H) characters are the backspaces used to create the boldface effect. Likewise, we can also see a backspace/underscore sequence used to produce underlining.
 
@@ -161,7 +161,7 @@ We looked at pr a little in the previous chapter. Now we will examine some of it
 <table class="multi">
 <caption class="cap">Table 22-1: Common pr Options</caption>
 <tr>
-<th class="title">Option</th>
+<th class="title" width="20%">Option</th>
 <th class="title">Description</th>
 </tr>
 <tr>
@@ -213,7 +213,7 @@ We looked at pr a little in the previous chapter. Now we will examine some of it
 <table class="multi">
 <caption class="cap">表22－1：常用 pr 选项</caption>
 <tr>
-<th class="title">选项</th>
+<th class="title" width="20%">选项</th>
 <th class="title">描述</th>
 </tr>
 <tr>
@@ -266,14 +266,13 @@ pr is often used in pipelines as a filter. In this example, we will produce a di
 
 我们通常用管道配合 pr 命令来做筛选。下面的例子中我们会列出目录 /usr/bin 并用 pr 将其格式化为3列输出的标题页：
 
-	[me@linuxbox ~]$ ls /usr/bin | pr -3 -w 65 | head
-
-	2012-02-18 14:00 												Page 1
-	[						apturl					bsd-write
-	411toppm				ar						bsh
-	a2p						arecord					btcflash
-	a2ps					arecordmidi				bug-buddy
-	a2ps-lpr-wrapper		ark						buildhash
+    [me@linuxbox ~]$ ls /usr/bin | pr -3 -w 65 | head
+    2012-02-18 14:00                    Page 1
+    [                   apturl          bsd-write
+    411toppm            ar              bsh
+    a2p                 arecord         btcflash
+    a2ps                arecordmidi     bug-buddy
+    a2ps-lpr-wrapper    ark             buildhash
 
 ### Sending a Print Job to a Printer
 
@@ -291,30 +290,32 @@ The lpr program can be used to send files to the printer. It may also be used in
 
 lpr 程序可以用来把文件传送给打印机。由于它能接收标准输入，所以能用管道来协同工作。例如，要打印刚才多列目录列表的结果，我们只需这样：
 
-	[me@linuxbox ~]$ ls /usr/bin | pr -3 | lpr
+    [me@linuxbox ~]$ ls /usr/bin | pr -3 | lpr
 
 The report would be sent to the system’s default printer. To send the file to a different printer, the -P option can used like this:
 	lpr -P printer_name
 where printer_name is the name of the desired printer. To see a list of printers known to the system:
 
 报告会送到系统默认的打印机，如果要送到别的打印机，可以使用 -P 参数：
+
     lpr -P printer_name
+
 printer_name 表示这台打印机的名称。若要查看系统已知的打印机列表：
 
-	[me@linuxbox ~]$ lpstat -a
+    [me@linuxbox ~]$ lpstat -a
 
 Note: Many Linux distributions allow you to define a “printer” that outputs files in PDF, rather than printing on the physical printer. This is very handy for experimenting with printing commands. Check your printer configuration program to see if it supports this configuration. On some distributions, you may need to install additional packages (such as cups-pdf) to enable this capability.
 
 注意：许多 Linux 发行版允许你定义一个输出 PDF 文件但不执行实体打印的“打印机”，这可以用来很方便的检验你的打印命令。看看你的打印机配置程序是否支持这项配置。在某些发行版中，你可能要自己安装额外的软件包（如 cups-pdf）来使用这项功能。
 
-  Table 22-2 shows some of the common options for lpr.
+Table 22-2 shows some of the common options for lpr.
 
-  表22-2显示了 lpr 的一些常用选项
+表22-2显示了 lpr 的一些常用选项
 
 <table class="multi">
 <caption class="cap">Table 22-2: Common lpr Options</caption>
 <tr>
-<th class="title">Option</th>
+<th class="title" width="20%">Option</th>
 <th class="title">Description</th>
 </tr>
 <tr>
@@ -338,7 +339,7 @@ Note: Many Linux distributions allow you to define a “printer” that outputs 
 <table class="multi">
 <caption class="cap">表22－2：常用 lpr 选项</caption>
 <tr>
-<th class="title">选项</th>
+<th class="title" width="20%">选项</th>
 <th class="title">描述</th>
 </tr>
 <tr>
@@ -370,7 +371,7 @@ Like lpr, lp accepts either files or standard input for printing. It differs fro
 <table class="multi">
 <caption class="cap">Table 22-3: Common lp Options</caption>
 <tr>
-<th class="title">Option</th>
+<th class="title" width="25%">Option</th>
 <th class="title">Description</th>
 </tr>
 <tr>
@@ -415,7 +416,7 @@ printing images, such as JPEG files.</td>
 <table class="multi">
 <caption class="cap">表22－3：常用 lp 选项</caption>
 <tr>
-<th class="title">选项</th>
+<th class="title" width="25%">选项</th>
 <th class="title">描述</th>
 </tr>
 <tr>
@@ -460,7 +461,7 @@ We’ll produce our directory listing again, this time printing 12 CPI and 8 LPI
 
 再次打印我们的目录列表，这次我们设置12 CPI、8 LPI 和一个半英寸的左边距。注意这里我必须调整 pr 选项来适应新的页面大小：
 
-	[me@linuxbox ~]$ ls /usr/bin | pr -4 -w 90 -l 88 | lp -o page-left=36 -o cpi=12 -o lpi=8
+    [me@linuxbox ~]$ ls /usr/bin | pr -4 -w 90 -l 88 | lp -o page-left=36 -o cpi=12 -o lpi=8
 
 This pipeline produces a four-column listing using smaller type than the default. The increased number of characters per inch allows us to fit more columns on the page.
 
@@ -474,9 +475,9 @@ The a2ps program is interesting. As we can surmise from its name, it’s a forma
 
 a2ps 程序很有趣。单从名字上看，这是个格式转换程序，但它的功能不止于此。程序名字的本意为 ASCII to PostScript，它是用来为 PostScript 打印机准备要打印的文本文件的。多年后，程序的功能得到了提升，名字的含义也变成了 Anything to PostScript。尽管名为格式转换程序，但它实际的功能却是打印。它的默认输出不是标准输出，而是系统的默认打印机。程序的默认行为被称为“漂亮的打印机”，这意味着它可以改善输出的外观。我们能用程序在桌面上创建一个 PostScript 文件：
 
-	[me@linuxbox ~]$ ls /usr/bin | pr -3 -t | a2ps -o ~/Desktop/ls.ps -L 66
-	[stdin (plain): 11 pages on 6 sheets]
-	[Total: 11 pages on 6 sheets] saved into the file `/home/me/Desktop/ls.ps'
+    [me@linuxbox ~]$ ls /usr/bin | pr -3 -t | a2ps -o ~/Desktop/ls.ps -L 66
+    [stdin (plain): 11 pages on 6 sheets]
+    [Total: 11 pages on 6 sheets] saved into the file `/home/me/Desktop/ls.ps'
 
 Here we filter the stream with pr, using the -t option (omit headers and footers) and then, with a2ps, specifying an output file (-o option) and 66 lines per page (-L option) to match the output pagination of pr. If we view the resulting file with a suitable file viewer, we will see the output shown in Figure 22-1.
 
@@ -496,7 +497,7 @@ a2ps 有很多选项，总结在表22-4中。
 <table class="multi">
 <caption class="cap">Table 22-4: a2ps Options</caption>
 <tr>
-<th class="title">Option</th>
+<th class="title" width="25%">Option</th>
 <th class="title">Description</th>
 </tr>
 <tr>
@@ -608,7 +609,7 @@ a2ps 有很多选项，总结在表22-4中。
 <table class="multi">
 <caption class="cap">表22－4：a2ps 选项</caption>
 <tr>
-<th class="title">选项</th>
+<th class="title" width="25%">选项</th>
 <th class="title">描述</th>
 </tr>
 <tr>
@@ -742,18 +743,18 @@ The lpstat program is useful for determining the names and availability of print
 
 lpstat 程序可用于确定系统中打印机的名字和有效性。例如，我们系统中有一台实体打印机（名叫 printer）和一台 PDF 虚拟打印机（名叫 PDF），我们可以像这样查看打印机状态：
 
-	[me@linuxbox ~]$ lpstat -a
-	PDF accepting requests since Mon 05 Dec 2011 03:05:59 PM EST
-	printer accepting requests since Tue 21 Feb 2012 08:43:22 AM EST
+    [me@linuxbox ~]$ lpstat -a
+    PDF accepting requests since Mon 05 Dec 2011 03:05:59 PM EST
+    printer accepting requests since Tue 21 Feb 2012 08:43:22 AM EST
 
 Further, we could determine a more detailed description of the print system configuration this way:
 
 接着，我们可以查看打印系统更具体的配置信息：
 
-	[me@linuxbox ~]$ lpstat -s
-	system default destination: printer
-	device for PDF: cups-pdf:/
-	device for printer: ipp://print-server:631/printers/printer
+    [me@linuxbox ~]$ lpstat -s
+    system default destination: printer
+    device for PDF: cups-pdf:/
+    device for printer: ipp://print-server:631/printers/printer
 
 In this example, we see that printer is the system’s default printer and that it is a network printer using Internet Printing Protocol (ipp:// ) attached to a system named print-server.
 
@@ -766,7 +767,7 @@ lpstat 的常用选项列于表22-5。
 <table class="multi">
 <caption class="cap">Table 22-5: Common lpstat Options</caption>
 <tr>
-<th class="title">Option</th>
+<th class="title" width="20%">Option</th>
 <th class="title">Description</th>
 </tr>
 <tr>
@@ -798,7 +799,7 @@ lpstat 的常用选项列于表22-5。
 <table class="multi">
 <caption class="cap">表22－5：常用 lpstat 选项</caption>
 <tr>
-<th class="title">选项</th>
+<th class="title" width="20%">选项</th>
 <th class="title">描述</th>
 </tr>
 <tr>
@@ -835,9 +836,9 @@ To see the status of a printer queue, the lpq program is used. This allows us to
 
 使用 lpq 程序可以查看打印机队列的状态，从中我们可以看到队列的状态和所包含的打印任务。下面的例子显示了一台名叫 printer 的系统默认打印机包含一个空队列的情况：
 
-	[me@linuxbox ~]$ lpq
-	printer is ready
-	no entries
+    [me@linuxbox ~]$ lpq
+    printer is ready
+    no entries
 
 If we do not specify a printer (using the -P option), the system’s default
 printer is shown. If we send a job to the printer and then look at the queue,
@@ -845,12 +846,12 @@ we will see it listed:
 
 如果我们不指定打印机（用 -P 参数），就会显示系统默认打印机。如果给打印机添加一项任务再查看队列，我们就会看到下列结果：
 
-	[me@linuxbox ~]$ ls *.txt | pr -3 | lp
-	request id is printer-603 (1 file(s))
-	[me@linuxbox ~]$ lpq
-	printer is ready and printing
-	Rank		Owner		Job			File(s)						Total Size
-	active		me			603			(stdin)						1024 bytes
+    [me@linuxbox ~]$ ls *.txt | pr -3 | lp
+    request id is printer-603 (1 file(s))
+    [me@linuxbox ~]$ lpq
+    printer is ready and printing
+    Rank      Owner   Job     File(s)           Total Size
+    active    me      603     (stdin)           1024 bytes
 
 #### lprm and cancel—Cancel Print Jobs
 
@@ -860,10 +861,10 @@ CUPS supplies two programs used to terminate print jobs and remove them from the
 
 CUPS 提供两个程序来从打印队列中终止并移除打印任务。一个是 Berkeley 风格的（lprm），另一个是 System V 的（cancel）。在支持的选项上两者有较小的区别但是功能却几乎相同。以上面的打印任务为例，我们可以像这样终止并移除任务：
 
-	[me@linuxbox ~]$ cancel 603
-	[me@linuxbox ~]$ lpq
-	printer is ready
-	no entries
+    [me@linuxbox ~]$ cancel 603
+    [me@linuxbox ~]$ lpq
+    printer is ready
+    no entries
 
 Each command has options for removing all the jobs belonging to a particular user, particular printer, and multiple job numbers. Their respective man pages have all the details.
 
