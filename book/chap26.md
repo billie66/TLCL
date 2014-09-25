@@ -140,12 +140,12 @@ this way on the command line, too:
     >         </BODY>
     ></HTML>"
 
-The leading “&gt;” character is the shell prompt contained in the PS2 shell variable. It
+The leading “>” character is the shell prompt contained in the PS2 shell variable. It
 appears whenever we type a multi-line statement into the shell. This feature is a little
 obscure right now, but later, when we cover multi-line programming statements, it will
 turn out to be quite handy.
 
-开头的“&gt;”字符是包含在 PS2shell 变量中的 shell 提示符。每当我们在 shell 中键入多行语句的时候，
+开头的 “>” 字符是包含在 PS2shell 变量中的 shell 提示符。每当我们在 shell 中键入多行语句的时候，
 这个提示符就会出现。现在这个功能有点儿晦涩，但随后，当我们介绍多行编程语句时，它会派上大用场。
 
 ### Second Stage: Adding A Little Data
@@ -185,8 +185,8 @@ could be a lot of work. What if we could arrange the script so that the string o
 appeared once and not multiple times? That would make future maintenance of the script
 much easier. Here’s how we could do that:
 
-然而，我们的脚本存在一个问题。请注意字符串“System Information
-Report”是怎样被重复使用的？对于这个微小的脚本而言，它不是一个问题，但是让我们设想一下，
+然而，我们的脚本存在一个问题。请注意字符串 “System Information
+Report” 是怎样被重复使用的？对于这个微小的脚本而言，它不是一个问题，但是让我们设想一下，
 我们的脚本非常冗长，并且我们有许多这个字符串的实例。如果我们想要更换一个标题，我们必须
 对脚本中的许多地方做修改，这会是很大的工作量。如果我们能整理一下脚本，让这个字符串只
 出现一次而不是多次，会怎样呢？这样会使今后的脚本维护工作更加轻松。我们可以这样做：
@@ -208,7 +208,7 @@ Report,” we can take advantage of parameter expansion and place the string in 
 locations.
 
 通过创建一个名为 title 的变量，并把 “System Information
-Report”字符串赋值给它，我们就可以利用参数展开功能，把这个字符串放到文件中的多个位置。
+Report” 字符串赋值给它，我们就可以利用参数展开功能，把这个字符串放到文件中的多个位置。
 
 So, how do we create a variable? Simple, we just use it. When the shell encounters a
 variable, it automatically creates it. This differs from many programming languages in
@@ -234,8 +234,8 @@ pay close attention to our spelling! It’s also important to understand what re
 happened in this example. From our previous look at how the shell performs expansions,
 we know that the command:
 
-首先我们把“yes”赋给变量 foo，然后用 echo 命令来显示变量值。接下来，我们显示拼写错误的变量名
-“fool”的变量值，然后得到一个空值。这是因为 shell 很高兴地创建了变量 fool，当 shell 遇到 fool 的时候，
+首先我们把 “yes” 赋给变量 foo，然后用 echo 命令来显示变量值。接下来，我们显示拼写错误的变量名
+“fool” 的变量值，然后得到一个空值。这是因为 shell 很高兴地创建了变量 fool，当 shell 遇到 fool 的时候，
 并且赋给 fool 一个空的默认值。因此，我们必须小心谨慎地拼写！同样理解实例中究竟发生了什么事情也
 很重要。从我们以前学习 shell 执行展开操作，我们知道这个命令：
 
@@ -398,8 +398,8 @@ This is useful in cases where a variable name becomes ambiguous due to its surro
 context. Here, we try to change the name of a file from myfile to myfile1, using a
 variable:
 
-在参数展开过程中，变量名可能被花括号“{}”包围着。由于变量名周围的上下文，其变得不明确的情况下，
-这会很有帮助。这里，我们试图把一个文件名从*myfile*改为*myfile1*，使用一个变量：
+在参数展开过程中，变量名可能被花括号 “{}” 包围着。由于变量名周围的上下文，其变得不明确的情况下，
+这会很有帮助。这里，我们试图把一个文件名从 myfile 改为 myfile1，使用一个变量：
 
     [me@linuxbox ~]$ filename="myfile"
     [me@linuxbox ~]$ touch $filename
