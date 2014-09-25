@@ -38,9 +38,7 @@ title: 启动一个项目
 随后输入下面的程序：
 
     #!/bin/bash
-
     # Program to output a system information page
-
     echo "<HTML>"
     echo "      <HEAD>"
     echo "            <TITLE>Page Title</TITLE>"
@@ -71,9 +69,7 @@ echo 命令，每个命令负责输出一行文本。保存文件之后，我们
 这样能更容易地添加更多的文本行到程序的输出中。那么，把我们的程序修改为：
 
     #!/bin/bash
-
     # Program to output a system information page
-
     echo "<HTML>
         <HEAD>
               <TITLE>Page Title</TITLE>
@@ -87,7 +83,6 @@ echo 命令，每个命令负责输出一行文本。保存文件之后，我们
 右引号。它在命令行中也是这样工作的：
 
     [me@linuxbox ~]$ echo "<HTML>
-
     >         <HEAD>
                     <TITLE>Page Title</TITLE>
     >         </HEAD>
@@ -96,7 +91,7 @@ echo 命令，每个命令负责输出一行文本。保存文件之后，我们
     >         </BODY>
     ></HTML>"
 
-开头的“>”字符是包含在 PS2shell 变量中的 shell 提示符。每当我们在 shell 中键入多行语句的时候，
+开头的 “>” 字符是包含在 PS2shell 变量中的 shell 提示符。每当我们在 shell 中键入多行语句的时候，
 这个提示符就会出现。现在这个功能有点儿晦涩，但随后，当我们介绍多行编程语句时，它会派上大用场。
 
 ### 第二阶段：添加一点儿数据
@@ -128,11 +123,8 @@ Report”是怎样被重复使用的？对于这个微小的脚本而言，它�
 出现一次而不是多次，会怎样呢？这样会使今后的脚本维护工作更加轻松。我们可以这样做：
 
     #!/bin/bash
-
     # Program to output a system information page
-
     title="System Information Report"
-
     echo "<HTML>
             <HEAD>
                     <TITLE>$title</TITLE>
@@ -193,19 +185,16 @@ Report”字符串赋值给它，我们就可以利用参数展开功能，把�
 
 1. 变量名中不允许出现空格和标点符号。
 
-单词“variable”意味着可变的值，并且在许多应用程序当中，都是以这种方式来使用变量的。然而，
+单词 “variable” 意味着可变的值，并且在许多应用程序当中，都是以这种方式来使用变量的。然而，
 我们应用程序中的变量，title，被用作一个常量。常量有一个名字且包含一个值，在这方面就
 像是变量。不同之处是常量的值是不能改变的。在执行几何运算的应用程序中，我们可以把 PI 定义为
-一个常量，并把3.1415赋值给它，用它来代替数字字面值。shell 不能辨别变量和常量；它们大多数情况下
+一个常量，并把 3.1415 赋值给它，用它来代替数字字面值。shell 不能辨别变量和常量；它们大多数情况下
 是为了方便程序员。一个常用惯例是指定大写字母来表示常量，小写字母表示真正的变量。我们
 将修改我们的脚本来遵从这个惯例：
 
     #!/bin/bash
-
     # Program to output a system information page
-
     TITLE="System Information Report For $HOSTNAME"
-
     echo "<HTML>
             <HEAD>
                     <TITLE>$title</TITLE>
@@ -220,7 +209,7 @@ Report”字符串赋值给它，我们就可以利用参数展开功能，把�
 
 ---
 
-注意：实际上，shell 确实提供了一种方法，通过使用带有-r（只读）选项的内部命令 declare，
+注意：实际上，shell 确实提供了一种方法，通过使用带有 -r（只读）选项的内部命令 declare，
 来强制常量的不变性。如果我们给 TITLE 这样赋值：
 
 那么 shell 会阻止之后给 TITLE 的任意赋值。这个功能极少被使用，但为了很早之前的脚本，
@@ -234,8 +223,8 @@ Report”字符串赋值给它，我们就可以利用参数展开功能，把�
 
     variable=value
 
-这里的*variable*是变量的名字，*value*是一个字符串。不同于一些其它的编程语言，shell 不会
-在乎变量值的类型；它把它们都看作是字符串。通过使用带有-i 选项的 declare 命令，你可以强制 shell 把
+这里的 variable 是变量的名字，value 是一个字符串。不同于一些其它的编程语言，shell 不会
+在乎变量值的类型；它把它们都看作是字符串。通过使用带有 -i 选项的 declare 命令，你可以强制 shell 把
 赋值限制为整型，但是，正如像设置变量为只读一样，极少这样做。
 
 注意在赋值过程中，变量名，等号和变量值之间必须没有空格。那么，这些值由什么组成呢？
@@ -254,8 +243,8 @@ Report”字符串赋值给它，我们就可以利用参数展开功能，把�
 
     a=5 b="a string"
 
-在参数展开过程中，变量名可能被花括号“{}”包围着。由于变量名周围的上下文，其变得不明确的情况下，
-这会很有帮助。这里，我们试图把一个文件名从*myfile*改为*myfile1*，使用一个变量：
+在参数展开过程中，变量名可能被花括号 “{}” 包围着。由于变量名周围的上下文，其变得不明确的情况下，
+这会很有帮助。这里，我们试图把一个文件名从 myfile 改为 myfile1，使用一个变量：
 
     [me@linuxbox ~]$ filename="myfile"
     [me@linuxbox ~]$ touch $filename
@@ -273,13 +262,10 @@ Report”字符串赋值给它，我们就可以利用参数展开功能，把�
 我们将利用这个机会来添加一些数据到我们的报告中，即创建包括的日期和时间，以及创建者的用户名：
 
     #!/bin/bash
-
     # Program to output a system information page
-
     TITLE="System Information Report For $HOSTNAME"
     CURRENT_TIME=$(date +"%x %r %Z")
     TIME_STAMP="Generated $CURRENT_TIME, by $USER"
-
     echo "<HTML>
             <HEAD>
                     <TITLE>$TITLE</TITLE>
@@ -291,26 +277,21 @@ Report”字符串赋值给它，我们就可以利用参数展开功能，把�
     </HTML>"
 
 我们已经知道了两种不同的文本输出方法，两种方法都使用了 echo 命令。还有第三种方法，叫做
-*here document* 或者 *here script*。一个 here document 是另外一种 I/O 重定向形式，我们
+here document 或者 here script。一个 here document 是另外一种 I/O 重定向形式，我们
 在脚本文件中嵌入正文文本，然后把它发送给一个命令的标准输入。它这样工作：
 
     command << token
-
     text
-
     token
 
-这里的*command*是一个可以接受标准输入的命令名，*token*是一个用来指示嵌入文本结束的字符串。
+这里的 command 是一个可以接受标准输入的命令名，token 是一个用来指示嵌入文本结束的字符串。
 我们将修改我们的脚本，来使用一个 here document:
 
     #!/bin/bash
-
     # Program to output a system information page
-
     TITLE="System Information Report For $HOSTNAME"
     CURRENT_TIME=$(date +"%x %r %Z")
     TIME_STAMP="Generated $CURRENT_TIME, by $USER"
-
     cat << _EOF_
     <HTML>
              <HEAD>
@@ -323,7 +304,7 @@ Report”字符串赋值给它，我们就可以利用参数展开功能，把�
     </HTML>
     _EOF_
 
-取代 echo 命令，现在我们的脚本使用 cat 命令和一个 here document。这个字符串 _EOF_（意思是“文件结尾”，
+取代 echo 命令，现在我们的脚本使用 cat 命令和一个 here document。这个字符串 \_EOF\_（意思是“文件结尾”，
 一个常见用法）被选作为 token，并标志着嵌入文本的结尾。注意这个 token 必须在一行中单独出现，并且文本行中
 没有末尾的空格。
 
@@ -349,13 +330,10 @@ Here documents 可以和任意能接受标准输入的命令一块使用。在�
 一个 here document 将一系列的命令传递到这个 ftp 程序中，为的是从一个远端 FTP 服务器中得到一个文件：
 
     #!/bin/bash
-
     # Script to retrieve a file via FTP
-
     FTP_SERVER=ftp.nl.debian.org
     FTP_PATH=/debian/dists/lenny/main/installer-i386/current/images/cdrom
     REMOTE_FILE=debian-cd_info.tar.gz
-
     ftp -n << _EOF_
     open $FTP_SERVER
     user anonymous me@linuxbox
@@ -366,17 +344,14 @@ Here documents 可以和任意能接受标准输入的命令一块使用。在�
     _EOF_
     ls -l $REMOTE_FILE
 
-如果我们把重定向操作符从“<\<” 改为 “<\<-”，shell 会忽略在此 here document 中开头的 tab 字符。
+如果我们把重定向操作符从 “<\<” 改为 “<\<-”，shell 会忽略在此 here document 中开头的 tab 字符。
 这就能缩进一个 here document，从而提高脚本的可读性：
 
     #!/bin/bash
-
     # Script to retrieve a file via FTP
-
     FTP_SERVER=ftp.nl.debian.org
     FTP_PATH=/debian/dists/lenny/main/installer-i386/current/images/cdrom
     REMOTE_FILE=debian-cd_info.tar.gz
-
     ftp -n <<- _EOF_
         open $FTP_SERVER
         user anonymous me@linuxbox
@@ -385,7 +360,6 @@ Here documents 可以和任意能接受标准输入的命令一块使用。在�
         get $REMOTE_FILE
         bye
     _EOF_
-
     ls -l $REMOTE_FILE
 
 ### 总结归纳
