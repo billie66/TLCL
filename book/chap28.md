@@ -15,15 +15,11 @@ computer language intended for human consumption:
 用编程术语表达，就是我们需要程序可以分支。让我们考虑一个简单的用伪码表示的逻辑实例，
 伪码是一种模拟的计算机语言，为的是便于人们理解：
 
-X=5
-
-If X = 5, then:
-
-Say “X equals 5.”
-
-Otherwise:
-
-Say “X is not equal to 5.”
+    X=5
+    If X = 5, then:
+    Say “X equals 5.”
+    Otherwise:
+    Say “X is not equal to 5.”
 
 This is an example of a branch. Based on the condition, “Does X = 5?” do one thing,
 “Say X equals 5,” otherwise do another thing, “Say X is not equal to 5.”
@@ -38,7 +34,6 @@ Using the shell, we can code the logic above as follows:
 使用 shell，我们可以编码上面的逻辑，如下所示：
 
     x=5
-
     if [ $x = 5 ]; then
         echo "x equals 5."
     else
@@ -391,11 +386,8 @@ Here we have a script that demonstrates some of the file expressions:
 这里我们有一个脚本说明了一些文件表达式：
 
     #!/bin/bash
-
     # test-file: Evaluate the status of a file
-
     FILE=~/.bashrc
-
     if [ -e "$FILE" ]; then
         if [ -f "$FILE" ]; then
             echo "$FILE is a regular file."
@@ -416,7 +408,6 @@ Here we have a script that demonstrates some of the file expressions:
         echo "$FILE does not exist"
         exit 1
     fi
-
     exit
 
 The script evaluates the file assigned to the constant FILE and displays its results as the
@@ -453,11 +444,8 @@ and get the desired behavior:
 则得到期望的行为：
 
     test_file () {
-
         # test-file: Evaluate the status of a file
-
         FILE=~/.bashrc
-
         if [ -e "$FILE" ]; then
             if [ -f "$FILE" ]; then
                 echo "$FILE is a regular file."
@@ -478,7 +466,6 @@ and get the desired behavior:
             echo "$FILE does not exist"
             return 1
         fi
-
     }
 
 #### String Expressions
@@ -573,7 +560,7 @@ while the bash documentation states that the sorting order conforms to the
 collation order of the current locale, it does not. ASCII (POSIX) order is used in
 versions of bash up to and including 4.0.
 
-警告：这个&lt;和&gt;表达式操作符必须用引号引起来（或者是用反斜杠转义），
+警告：这个 > 和 <表达式操作符必须用引号引起来（或者是用反斜杠转义），
 当与 test 一块使用的时候。如果不这样，它们会被 shell 解释为重定向操作符，造成潜在地破坏结果。
 同时也要注意虽然 bash 文档声明排序遵从当前语系的排列规则，但并不这样。将来的 bash 版本，包含 4.0，
 使用 ASCII（POSIX）排序规则。
@@ -585,16 +572,12 @@ Here is a script that demonstrates them:
 这是一个演示这些问题的脚本：
 
     #!/bin/bash
-
     # test-string: evaluate the value of a string
-
     ANSWER=maybe
-
     if [ -z "$ANSWER" ]; then
         echo "There is no answer." >&2
         exit 1
     fi
-
     if [ "$ANSWER" = "yes" ]; then
         echo "The answer is YES."
     elif [ "$ANSWER" = "no" ]; then
@@ -614,9 +597,9 @@ the string is not empty, we evaluate the value of the string to see if it is equ
 using elif, we are able to construct a more complex logical test.
 
 在这个脚本中，我们计算常量 ANSWER。我们首先确定是否此字符串为空。如果为空，我们就终止
-脚本，并把退出状态设为零。注意这个应用于 echo 命令的重定向操作。其把错误信息“There
-is no answer.”重定向到标准错误，这是处理错误信息的“合理”方法。如果字符串不为空，我们就计算
-字符串的值，看看它是否等于“yes,” "no," 或者“maybe”。为此使用了 elif，它是“else if”的简写。
+脚本，并把退出状态设为零。注意这个应用于 echo 命令的重定向操作。其把错误信息 “There
+is no answer.” 重定向到标准错误，这是处理错误信息的“合理”方法。如果字符串不为空，我们就计算
+字符串的值，看看它是否等于“yes,” "no," 或者“maybe”。为此使用了 elif，它是 “else if” 的简写。
 通过使用 elif，我们能够构建更复杂的逻辑测试。
 
 #### Integer Expressions
@@ -693,12 +676,11 @@ The following expressions are used with integers:
 
 Here is a script that demonstrates them:
 
+这里是一个演示以上表达式用法的脚本：
+
     #!/bin/bash
-
     # test-integer: evaluate the value of an integer.
-
     INT=-5
-
     if [ -z "$INT" ]; then
         echo "INT is empty." >&2
         exit 1
@@ -753,14 +735,11 @@ integer. Using `[[ ]]` with the `=~` string expression operator, we could improv
 
 其返回值为真，如果 string1匹配扩展的正则表达式 regex。这就为执行比如数据验证等任务提供了许多可能性。
 在我们前面的整数表达式示例中，如果常量 INT 包含除了整数之外的任何数据，脚本就会运行失败。这个脚本
-需要一种方法来证明此常量包含一个整数。使用`[[ ]]`和 `=~` 字符串表达式操作符，我们能够这样来改进脚本：
+需要一种方法来证明此常量包含一个整数。使用 `[[ ]]` 和 `=~` 字符串表达式操作符，我们能够这样来改进脚本：
 
     #!/bin/bash
-
     # test-integer2: evaluate the value of an integer.
-
     INT=-5
-
     if [[ "$INT" =~ ^-?[0-9]+$ ]]; then
         if [ $INT -eq 0 ]; then
             echo "INT is zero."
@@ -811,7 +790,7 @@ In addition to the `[[ ]]` compound command, bash also provides the `(( ))`
 compound command, which is useful for operating on integers. It supports a full set of
 arithmetic evaluations, a subject we will cover fully in Chapter 35.
 
-除了`[[ ]]`复合命令之外，bash 也提供了`(( ))`复合命名，其有利于操作整数。它支持一套
+除了 `[[ ]]` 复合命令之外，bash 也提供了 `(( ))` 复合命名，其有利于操作整数。它支持一套
 完整的算术计算，我们将在第35章中讨论这个主题。
 
 `(( ))` is used to perform arithmetic truth tests. An arithmetic truth test results in true if
@@ -829,11 +808,8 @@ Using `(( ))`, we can slightly simplify the test-integer2 script like this:
 使用`(( ))`，我们能够略微简化 test-integer2脚本，像这样：
 
     #!/bin/bash
-
     # test-integer2a: evaluate the value of an integer.
-
     INT=-5
-
     if [[ "$INT" =~ ^-?[0-9]+$ ]]; then
         if ((INT == 0)); then
             echo "INT is zero."
@@ -862,8 +838,8 @@ name and does not require expansion to be performed. We’ll discuss `(( ))` and
 related arithmetic expansion further in Chapter 35.
 
 注意我们使用小于和大于符号，以及==用来测试是否相等。这是使用整数较为自然的语法了。也要
-注意，因为复合命令`(( ))`是 shell 语法的一部分，而不是一个普通的命令，而且它只处理整数，
-所以它能够通过名字识别出变量，而不需要执行展开操作。我们将在第35中进一步讨论`(( ))`命令
+注意，因为复合命令 `(( ))` 是 shell 语法的一部分，而不是一个普通的命令，而且它只处理整数，
+所以它能够通过名字识别出变量，而不需要执行展开操作。我们将在第35中进一步讨论 `(( ))` 命令
 和相关的算术展开操作。
 
 ### Combining Expressions
@@ -877,8 +853,8 @@ we learned about the find command. There are three logical operations for test a
 represent these operations :
 
 也有可能把表达式结合起来创建更复杂的计算。通过使用逻辑操作符来结合表达式。我们
-在第18章中已经知道了这些，当我们学习 find 命令的时候。它们是用于 test 和`[[ ]]`三个逻辑操作。
-它们是 AND，OR，和 NOT。test 和`[[ ]]`使用不同的操作符来表示这些操作：
+在第18章中已经知道了这些，当我们学习 find 命令的时候。它们是用于 test 和 `[[ ]]` 三个逻辑操作。
+它们是 AND，OR，和 NOT。test 和 `[[ ]]` 使用不同的操作符来表示这些操作：
 
 <table class="multi">
 <caption class="cap">Table 28-4: Logical Operators</caption>
@@ -909,12 +885,12 @@ represent these operations :
 <tr>
 <th class="title" width="34%">操作符</th>
 <th class="title">测试</th>
-<th class="title" width="34%">[[&nbsp;]] and ((&nbsp;))</th>
+<th class="title" width="34%">[[]] and (())</th>
 </tr>
 <tr>
 <td valign="top">AND</td>
 <td valign="top">-a</td>
-<td valign="top">&amp;&amp;</td>
+<td valign="top">&&</td>
 </tr>
 <tr>
 <td valign="top">OR</td>
@@ -934,15 +910,11 @@ within a range of values:
 这里有一个 AND 操作的示例。下面的脚本决定了一个整数是否属于某个范围内的值：
 
     #!/bin/bash
-
     # test-integer3: determine if an integer is within a
     # specified range of values.
-
     MIN_VAL=1
     MAX_VAL=100
-
     INT=50
-
     if [[ "$INT" =~ ^-?[0-9]+$ ]]; then
         if [[ INT -ge MIN_VAL && INT -le MAX_VAL ]]; then
             echo "$INT is within $MIN_VAL to $MAX_VAL."
@@ -1054,8 +1026,8 @@ executed and command2 is executed if, and only if, command1 is successful. With 
 `||` operator, command1 is executed and command2 is executed if, and only if,
 command1 is unsuccessful.
 
-理解这些操作很重要。对于&&操作符，先执行 command1，如果并且只有如果 command1执行成功后，
-才会执行 command2。对于||操作符，先执行 command1，如果并且只有如果 command1执行失败后，
+理解这些操作很重要。对于 && 操作符，先执行 command1，如果并且只有如果 command1 执行成功后，
+才会执行 command2。对于 || 操作符，先执行 command1，如果并且只有如果 command1 执行失败后，
 才会执行 command2。
 
 In practical terms, it means that we can do something like this:
@@ -1096,8 +1068,8 @@ script detect if the user had permission to read all the home directories? With 
 knowledge of if, we can solve the problem by adding this code to the
 `report_home_space` function:
 
-这一章开始于一个问题。我们怎样使`sys_info_page`脚本来检测是否用户拥有权限来读取所有的
-主目录？根据我们的 if 知识，我们可以解决这个问题，通过把这些代码添加到`report_home_space`函数中：
+这一章开始于一个问题。我们怎样使 `sys_info_page` 脚本来检测是否用户拥有权限来读取所有的
+主目录？根据我们的 if 知识，我们可以解决这个问题，通过把这些代码添加到 `report_home_space` 函数中：
 
     report_home_space () {
         if [[ $(id -u) -eq 0 ]]; then
@@ -1120,7 +1092,7 @@ is a number greater than zero. Knowing this, we can construct two different here
 documents, one taking advantage of superuser privileges, and the other, restricted to the
 user’s own home directory.
 
-我们计算 id 命令的输出结果。通过带有-u 选项的 id 命令，输出有效用户的数字用户 ID 号。
+我们计算 id 命令的输出结果。通过带有 -u 选项的 id 命令，输出有效用户的数字用户 ID 号。
 超级用户总是零，其它每个用户是一个大于零的数字。知道了这点，我们能够构建两种不同的 here 文档，
 一个利用超级用户权限，另一个限制于用户拥有的主目录。
 
@@ -1128,7 +1100,7 @@ We are going to take a break from the sys_info_page program, but don’t worry. 
 will be back. In the meantime, we’ll cover some topics that we’ll need when we resume
 our work.
 
-我们将暂别`sys_info_page`程序，但不要着急。它还会回来。同时，当我们继续工作的时候，
+我们将暂别 `sys_info_page` 程序，但不要着急。它还会回来。同时，当我们继续工作的时候，
 将会讨论一些我们需要的话题。
 
 ### Further Reading

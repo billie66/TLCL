@@ -8,13 +8,18 @@ title: 流程控制：if 分支结构
 用编程术语表达，就是我们需要程序可以分支。让我们考虑一个简单的用伪码表示的逻辑实例，
 伪码是一种模拟的计算机语言，为的是便于人们理解：
 
+    X=5
+    If X = 5, then:
+    Say “X equals 5.”
+    Otherwise:
+    Say “X is not equal to 5.”
+
 这就是一个分支的例子。根据条件，“Does X = 5?” 做一件事情，“Say X equals 5,”
 否则，做另一件事情，“Say X is not equal to 5.”
 
 使用 shell，我们可以编码上面的逻辑，如下所示：
 
     x=5
-
     if [ $x = 5 ]; then
         echo "x equals 5."
     else
@@ -209,11 +214,8 @@ True 命令总是执行成功，而 false 命令总是执行失败：
 这里我们有一个脚本说明了一些文件表达式：
 
     #!/bin/bash
-
     # test-file: Evaluate the status of a file
-
     FILE=~/.bashrc
-
     if [ -e "$FILE" ]; then
         if [ -f "$FILE" ]; then
             echo "$FILE is a regular file."
@@ -234,11 +236,10 @@ True 命令总是执行成功，而 false 命令总是执行失败：
         echo "$FILE does not exist"
         exit 1
     fi
-
     exit
 
 这个脚本会计算赋值给常量 FILE 的文件，并显示计算结果。对于此脚本有两点需要注意。第一个，
-在表达式中参数`$FILE`是怎样被引用的。引号并不是必需的，但这是为了防范空参数。如果`$FILE`的参数展开
+在表达式中参数 `$FILE` 是怎样被引用的。引号并不是必需的，但这是为了防范空参数。如果 `$FILE` 的参数展开
 是一个空值，就会导致一个错误（操作符将会被解释为非空的字符串而不是操作符）。用引号把参数引起来就
 确保了操作符之后总是跟随着一个字符串，即使字符串为空。第二个，注意脚本末尾的 exit 命令。
 这个 exit 命令接受一个单独的，可选的参数，其成为脚本的退出状态。当不传递参数时，退出状态默认为零。
@@ -251,11 +252,8 @@ True 命令总是执行成功，而 false 命令总是执行失败：
 则得到期望的行为：
 
     test_file () {
-
         # test-file: Evaluate the status of a file
-
         FILE=~/.bashrc
-
         if [ -e "$FILE" ]; then
             if [ -f "$FILE" ]; then
                 echo "$FILE is a regular file."
@@ -276,7 +274,6 @@ True 命令总是执行成功，而 false 命令总是执行失败：
             echo "$FILE does not exist"
             return 1
         fi
-
     }
 
 #### 字符串表达式
@@ -333,16 +330,12 @@ True 命令总是执行成功，而 false 命令总是执行失败：
 这是一个演示这些问题的脚本：
 
     #!/bin/bash
-
     # test-string: evaluate the value of a string
-
     ANSWER=maybe
-
     if [ -z "$ANSWER" ]; then
         echo "There is no answer." >&2
         exit 1
     fi
-
     if [ "$ANSWER" = "yes" ]; then
         echo "The answer is YES."
     elif [ "$ANSWER" = "no" ]; then
@@ -354,9 +347,9 @@ True 命令总是执行成功，而 false 命令总是执行失败：
     fi
 
 在这个脚本中，我们计算常量 ANSWER。我们首先确定是否此字符串为空。如果为空，我们就终止
-脚本，并把退出状态设为零。注意这个应用于 echo 命令的重定向操作。其把错误信息“There
-is no answer.”重定向到标准错误，这是处理错误信息的“合理”方法。如果字符串不为空，我们就计算
-字符串的值，看看它是否等于“yes,” “no,”或者“maybe”。为此使用了 elif，它是“else if”的简写。
+脚本，并把退出状态设为零。注意这个应用于 echo 命令的重定向操作。其把错误信息 “There
+is no answer.” 重定向到标准错误，这是处理错误信息的“合理”方法。如果字符串不为空，我们就计算
+字符串的值，看看它是否等于 “yes,” “no,” 或者 “maybe”。为此使用了 elif，它是 “else if” 的简写。
 通过使用 elif，我们能够构建更复杂的逻辑测试。
 
 #### 整型表达式
@@ -395,12 +388,11 @@ is no answer.”重定向到标准错误，这是处理错误信息的“合理�
 </tr>
 </table>
 
+这里是一个演示以上表达式用法的脚本：
+
     #!/bin/bash
-
     # test-integer: evaluate the value of an integer.
-
     INT=-5
-
     if [ -z "$INT" ]; then
         echo "INT is empty." >&2
         exit 1
@@ -429,21 +421,18 @@ is no answer.”重定向到标准错误，这是处理错误信息的“合理�
 
     [[ expression ]]
 
-这里，类似于 test，expression 是一个表达式，其计算结果为真或假。这个`[[ ]]`命令非常
+这里，类似于 test，expression 是一个表达式，其计算结果为真或假。这个 `[[ ]]` 命令非常
 相似于 test 命令（它支持所有的表达式），但是增加了一个重要的新的字符串表达式：
 
     string1 =~ regex
 
 其返回值为真，如果 string1 匹配扩展的正则表达式 regex。这就为执行比如数据验证等任务提供了许多可能性。
 在我们前面的整数表达式示例中，如果常量 INT 包含除了整数之外的任何数据，脚本就会运行失败。这个脚本
-需要一种方法来证明此常量包含一个整数。使用`[[ ]]`和 `=~` 字符串表达式操作符，我们能够这样来改进脚本：
+需要一种方法来证明此常量包含一个整数。使用 `[[ ]]` 和 `=~` 字符串表达式操作符，我们能够这样来改进脚本：
 
     #!/bin/bash
-
     # test-integer2: evaluate the value of an integer.
-
     INT=-5
-
     if [[ "$INT" =~ ^-?[0-9]+$ ]]; then
         if [ $INT -eq 0 ]; then
             echo "INT is zero."
@@ -467,7 +456,7 @@ is no answer.”重定向到标准错误，这是处理错误信息的“合理�
 通过应用正则表达式，我们能够限制 INT 的值只是字符串，其开始于一个可选的减号，随后是一个或多个数字。
 这个表达式也消除了空值的可能性。
 
-`[[ ]]`添加的另一个功能是`==`操作符支持类型匹配，正如路径名展开所做的那样。例如：
+`[[ ]]` 添加的另一个功能是 `==` 操作符支持类型匹配，正如路径名展开所做的那样。例如：
 
     [me@linuxbox ~]$ FILE=foo.bar
     [me@linuxbox ~]$ if [[ $FILE == foo.* ]]; then
@@ -475,11 +464,11 @@ is no answer.”重定向到标准错误，这是处理错误信息的“合理�
     > fi
     foo.bar matches pattern 'foo.*'
 
-这就使`[[ ]]`有助于计算文件和路径名。
+这就使 `[[ ]]` 有助于计算文件和路径名。
 
-### ((&nbsp;)) - 为整数设计
+### (( )) - 为整数设计
 
-除了`[[ ]]`复合命令之外，bash 也提供了`(( ))`复合命名，其有利于操作整数。它支持一套
+除了 `[[ ]]` 复合命令之外，bash 也提供了 `(( ))` 复合命名，其有利于操作整数。它支持一套
 完整的算术计算，我们将在第35章中讨论这个主题。
 
 `(( ))`被用来执行算术真测试。如果算术计算的结果是非零值，则一个算术真测试值为真。
@@ -492,11 +481,8 @@ is no answer.”重定向到标准错误，这是处理错误信息的“合理�
 使用`(( ))`，我们能够略微简化 test-integer2脚本，像这样：
 
     #!/bin/bash
-
     # test-integer2a: evaluate the value of an integer.
-
     INT=-5
-
     if [[ "$INT" =~ ^-?[0-9]+$ ]]; then
         if ((INT == 0)); then
             echo "INT is zero."
@@ -555,15 +541,11 @@ is no answer.”重定向到标准错误，这是处理错误信息的“合理�
 这里有一个 AND 操作的示例。下面的脚本决定了一个整数是否属于某个范围内的值：
 
     #!/bin/bash
-
     # test-integer3: determine if an integer is within a
     # specified range of values.
-
     MIN_VAL=1
     MAX_VAL=100
-
     INT=50
-
     if [[ "$INT" =~ ^-?[0-9]+$ ]]; then
         if [[ INT -ge MIN_VAL && INT -le MAX_VAL ]]; then
             echo "$INT is within $MIN_VAL to $MAX_VAL."
@@ -592,7 +574,7 @@ is no answer.”重定向到标准错误，这是处理错误信息的“合理�
 有助于，并更易于编码。
 
 
-> 可移植性是头脑狭隘人士的心魔
+> _可移植性是头脑狭隘人士的心魔_
 >
 > 如果你和“真正的” Unix 用户交谈，你很快就会发现他们大多数人不是非常喜欢 Linux。他们
 认为 Linux 肮脏且不干净。Unix 追随者的一个宗旨是，一切都应“可移植的”。这意味着你编写
@@ -616,7 +598,7 @@ shell 对 Unix 世界的所做所为，他们自然会警惕 Linux 对他们心�
 ### 控制操作符：分支的另一种方法
 
 bash 支持两种可以执行分支任务的控制操作符。这个 `&&（AND）`和`||（OR）`操作符作用如同
-复合命令`[[ ]]`中的逻辑操作符。这是语法：
+复合命令 `[[ ]]` 中的逻辑操作符。这是语法：
 
     command1 && command2
 
