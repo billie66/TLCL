@@ -83,13 +83,11 @@ In keeping with programming tradition, we’ll create a “hello world” progra
 demonstrate an extremely simple script. So let’s fire up our text editors and enter the
 following script:
 
-为了保持编程传统，我们将创建一个“hello world”程序来说明一个极端简单的脚本。所以让我们启动
+为了保持编程传统，我们将创建一个 “hello world” 程序来说明一个极端简单的脚本。所以让我们启动
 我们的文本编辑器，然后输入以下脚本：
 
     #!/bin/bash
-
     # This is our first script.
-
     echo 'Hello World!'
 
 The last line of our script is pretty familiar, just an echo command with a string
@@ -105,7 +103,7 @@ comments in shell scripts is that they may also appear at the end of lines, like
 
 Everything from the # symbol onward on the line is ignored.
 
-文本行中，#符号之后的所有字符都会被忽略。
+文本行中，# 符号之后的所有字符都会被忽略。
 
 Like many things, this works on the command line, too:
 
