@@ -64,9 +64,7 @@ and enter the following program:
 随后输入下面的程序：
 
     #!/bin/bash
-
     # Program to output a system information page
-
     echo "<HTML>"
     echo "      <HEAD>"
     echo "            <TITLE>Page Title</TITLE>"
@@ -115,9 +113,7 @@ program’s output. So, let’s change our program to this:
 这样能更容易地添加更多的文本行到程序的输出中。那么，把我们的程序修改为：
 
     #!/bin/bash
-
     # Program to output a system information page
-
     echo "<HTML>
         <HEAD>
               <TITLE>Page Title</TITLE>
@@ -163,9 +159,7 @@ report. To do this, we will make the following changes:
 以下修改：
 
     #!/bin/bash
-
     # Program to output a system information page
-
     echo "<HTML>
         <HEAD>
               <TITLE>System Information Report</TITLE>
@@ -458,9 +452,7 @@ here document 或者 here script。一个 here document 是另外一种 I/O 重�
 在脚本文件中嵌入正文文本，然后把它发送给一个命令的标准输入。它这样工作：
 
     command << token
-
     text
-
     token
 
 where *command* is the name of command that accepts standard input and *token* is a string

@@ -100,9 +100,7 @@ echo 命令，每个命令负责输出一行文本。保存文件之后，我们
 以下修改：
 
     #!/bin/bash
-
     # Program to output a system information page
-
     echo "<HTML>
         <HEAD>
               <TITLE>System Information Report</TITLE>
