@@ -349,7 +349,6 @@ Shell 允许在一个命令之前立即发生一个或多个变量赋值。这�
     2.Display Disk Space
     3.Display Home Space Utilization
     0.Quit
-
     Enter selection [0-3] >
 
 使用我们从编写 sys_info_page 程序中所学到的知识，我们能够构建一个菜单驱动程序来执行
