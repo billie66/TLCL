@@ -190,7 +190,7 @@ printer_name 表示这台打印机的名称。若要查看系统已知的打印�
 <table class="multi">
 <caption class="cap">表22－3：常用 lp 选项</caption>
 <tr>
-<th class="title" width="25%">选项</th>
+<th class="title" width="28%">选项</th>
 <th class="title">描述</th>
 </tr>
 <tr>

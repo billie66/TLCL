@@ -416,7 +416,7 @@ printing images, such as JPEG files.</td>
 <table class="multi">
 <caption class="cap">表22－3：常用 lp 选项</caption>
 <tr>
-<th class="title" width="25%">选项</th>
+<th class="title" width="28%">选项</th>
 <th class="title">描述</th>
 </tr>
 <tr>
