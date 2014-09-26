@@ -395,7 +395,7 @@ shell 会话中。
 
     [me@linuxbox ~]$ ssh remote-sys 'ls * > dirlist.txt'
 
-> SSH 通道
+> _SSH 通道_
 >
 > 当你通过 SSH 协议与远端主机建立连接的时候，其中发生的事就是在本地与远端系统之间
 创建了一条加密通道。通常，这条通道被用来把在本地系统中输入的命令安全地传输到远端系统，
@@ -462,7 +462,7 @@ sftp://开头的 URI， 来操作存储在运行着 SSH 服务器的远端系统
 
 ---
 
-> Windows 中的 SSH 客户端
+> _Windows 中的 SSH 客户端_
 >
 > 比方说你正坐在一台 Windows 机器前面，但是你需要登录到你的 Linux 服务器中，去完成
 一些实际的工作，那该怎么办呢？当然是得到一个 Windows 平台下的 SSH 客户端！有很多这样
@@ -470,7 +470,7 @@ sftp://开头的 URI， 来操作存储在运行着 SSH 服务器的远端系统
 能够显示一个终端窗口，而且允许 Windows 用户在远端主机中打开一个 SSH（或者 telnet）会话。
 这个程序也提供了 scp 和 sftp 程序的类似物。
 >
-> PuTTY 可在链接 http://www.chiark.greenend.org.uk/~sgtatham/putty/ 处得到。
+> PuTTY 可在链接 <http://www.chiark.greenend.org.uk/~sgtatham/putty/> 处得到。
 {: .single}
 
 
