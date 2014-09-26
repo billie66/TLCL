@@ -686,7 +686,7 @@ $((expression))
     [me@linuxbox~]$ ((a<1?++a:--a))
     [me@linuxbox~]$ echo $a
     1
-    [me@linuxbox~]$ ((a<1?++a:sa))
+    [me@linuxbox~]$ ((a<1?++a:--a))
     [me@linuxbox~]$ echo $a
     0
 
