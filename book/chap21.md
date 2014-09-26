@@ -1,6 +1,6 @@
 ---
 layout: book
-title: 文本处理 
+title: 文本处理
 ---
 
 All Unix-like operating systems rely heavily on text files for several types of data
@@ -35,15 +35,15 @@ This chapter will revisit some old friends and introduce us to some new ones:
 
 * paste – Merge lines of files
 
-* paste – 合并文件文本行 
+* paste – 合并文件文本行
 
 * join – Join lines of two files on a common field
 
-* join – 基于某个共享字段来联合两个文件的文本行 
+* join – 基于某个共享字段来联合两个文件的文本行
 
 * comm – Compare two sorted files line by line
 
-* comm – 逐行比较两个有序的文件 
+* comm – 逐行比较两个有序的文件
 
 * diff – Compare files line by line
 
@@ -67,7 +67,7 @@ This chapter will revisit some old friends and introduce us to some new ones:
 
 ### Applications Of Text
 
-### 文本应用程序 
+### 文本应用程序
 
 So far, we have learned a couple of text editors (nano and vim), looked a bunch of
 configuration files, and have witnessed the output of dozens of commands, all in text.
@@ -172,8 +172,8 @@ the line with some trailing spaces:
 来指示 cat 程序，我们已经到达文件末尾了。在这个例子中，我们文本行的开头和末尾分别键入了一个 tab 字符以及一些空格。
 
     [me@linuxbox ~]$ cat > foo.txt
-        The quick brown fox jumped over the lazy dog.     
-    [me@linuxbox ~]$ 
+        The quick brown fox jumped over the lazy dog.
+    [me@linuxbox ~]$
 
 Next, we will use cat with the -A option to display the text:
 
@@ -181,7 +181,7 @@ Next, we will use cat with the -A option to display the text:
 
     [me@linuxbox ~]$ cat -A foo.txt
     ^IThe quick brown fox jumped over the lazy dog.       $
-    [me@linuxbox ~]$        
+    [me@linuxbox ~]$
 
 As we can see in the results, the tab character in our text is represented by ^I. This is a
 common notation that means “Control-I” which, as it turns out, is the same as a tab
@@ -240,7 +240,7 @@ cat 程序也包含用来修改文本的选项。最著名的两个选项是-n�
     1   The quick brown fox
     2
     3   jumped over the lazy dog.
-    [me@linuxbox ~]$ 
+    [me@linuxbox ~]$
 
 In this example, we create a new version of our foo.txt test file, which contains two
 lines of text separated by two blank lines. After processing by cat with the -ns options,
@@ -252,7 +252,7 @@ much of a process to perform on text, it is a process.
 然而这并不是多个进程在操作这个文本，只有一个进程。
 
 #### sort
- 
+
 The sort program sorts the contents of standard input, or one or more files specified on
 the command line, and sends the results to standard output. Using the same technique
 that we used with cat, we can demonstrate processing of standard input directly from
@@ -268,7 +268,7 @@ the keyboard:
     [me@linuxbox ~]$ cat foo.txt
     a
     b
-    c 
+    c
 
 After entering the command, we type the letters “c”, “b”, and “a”, followed once again by
 Ctrl-d to indicate end-of-file. We then view the resulting file and see that the lines
@@ -284,8 +284,8 @@ and wanted to combine them into a single sorted file, we could do something like
 因为 sort 程序能接受命令行中的多个文件作为参数，所以有可能把多个文件合并成一个有序的文件。例如，
 如果我们有三个文本文件，想要把它们合并为一个有序的文件，我们可以这样做：
 
-    sort file1.txt file2.txt file3.txt > final_sorted_list.txt 
-    
+    sort file1.txt file2.txt file3.txt > final_sorted_list.txt
+
 sort has several interesting options. Here is a partial list:
 
 sort 程序有几个有趣的选项。这里只是一部分列表：
@@ -420,7 +420,7 @@ the results of a summary in pathname order:
     12488   /usr/share/anthy
     8       /usr/share/apmd
     21440   /usr/share/app-install
-    48      /usr/share/application-registry 
+    48      /usr/share/application-registry
 
 In this example, we pipe the results into head to limit the results to the first ten lines.
 We can produce a numerically sorted list to show the ten largest consumers of space this
@@ -439,7 +439,7 @@ way:
     135880         /usr/share/dict
     76508          /usr/share/icons
     68072          /usr/share/apps
-    62844          /usr/share/foomatic 
+    62844          /usr/share/foomatic
 
 By using the -nr options, we produce a reverse numerical sort, with the largest values
 appearing first in the results. This sort works because the numerical values occur at the
@@ -487,7 +487,7 @@ containing the author’s name:
 这个 k 选项非常有趣，而且还有很多特点，但是首先我们需要讲讲 sort 程序怎样来定义字段。
 让我们考虑一个非常简单的文本文件，只有一行包含作者名字的文本。
 
-    William      Shotts 
+    William      Shotts
 
 By default, sort sees this line as having two fields. The first field contains the characters:
 
@@ -509,7 +509,7 @@ and that the fifth field is the file size:
 意味着空白字符（空格和制表符）被当作是字段间的界定符，当执行排序时，界定符会被
 包含在字段当中。再看一下 ls 命令的输出，我们看到每行包含八个字段，并且第五个字段是文件大小：
 
-    -rwxr-xr-x 1 root root 8234216 2008-04-07 17:42 inkscape 
+    -rwxr-xr-x 1 root root 8234216 2008-04-07 17:42 inkscape
 
 For our next series of experiments, let’s consider the following file containing the history
 of three popular Linux distributions released from 2006 to 2008. Each line in the file has
@@ -524,7 +524,7 @@ MM/DD/YYYY format:
     SUSE            11.04  06/19/2008
     Ubuntu          8.04   04/24/2008
     Fedora          8      11/08/2007
-    SUSE            10.3   10/04/2007 
+    SUSE            10.3   10/04/2007
     ...
 
 Using a text editor (perhaps vim), we’ll enter this data and name the resulting file
@@ -567,7 +567,7 @@ the end of the line. Here is the syntax for our multi-key sort:
     Fedora         5     03/20/2006
     Fedora         6     10/24/2006
     Fedora         7     05/31/2007
-    ...  
+    ...
 
 Though we used the long form of the option for clarity, -k 1,1 -k 2n would be
 exactly equivalent. In the first instance of the key option, we specified a range of fields
@@ -992,7 +992,7 @@ end of the line: </p>
 任意区间内的字符。例如，我们能够使用以下命令来从列表中抽取发行年份，通过展开
 此文件，再使用 cut 命令，来抽取从位置 23 开始到行尾的每一个字符：</p>
 
-<p> [me@linuxbox ~]$ expand distros.txt | cut -c 23- </p>
+<p>[me@linuxbox ~]$ expand distros.txt | cut -c 23- </p>
 
 <p>Coreutils also provides the unexpand program to substitute tabs for spaces.</p>
 
@@ -1042,7 +1042,7 @@ and store the result in a file called distros-by-date.txt:
 从我们之前使用 sort 的工作中，首先我们将产生一个按照日期排序的发行版列表，并把结果
 存储在一个叫做 distros-by-date.txt 的文件中：
 
-    [me@linuxbox ~]$ sort -k 3.7nbr -k 3.1nbr -k 3.4nbr distros.txt > distros-by-date.txt 
+    [me@linuxbox ~]$ sort -k 3.7nbr -k 3.1nbr -k 3.4nbr distros.txt > distros-by-date.txt
 
 Next, we will use cut to extract the first two fields from the file (the distro name and
 version), and store that result in a file named distro-versions.txt:
@@ -1099,7 +1099,7 @@ done simply by using paste and ordering its arguments in the desired arrangement
     10/18/2007	Ubuntu     7.10
     10/04/2007	SUSE       10.3
     05/31/2007	Fedora     7
-    04/19/2007	Ubuntu     7.04 
+    04/19/2007	Ubuntu     7.04
 
 #### join
 
@@ -1221,7 +1221,7 @@ See the join man page for details.
 
 ### Comparing Text
 
-### 比较文本 
+### 比较文本
 
 It is often useful to compare versions of text files. For system administrators and
 software developers, this is particularly important. A system administrator may, for
@@ -1356,7 +1356,7 @@ appeared at range r2 in the second file.</td>
 </tr>
 <tr>
 <td valign="top">r1dr2</td>
-<td valign="top">删除第一个文件中位置 r1处的文本行，这些文本行将会出现在第二个文件中位置 r2处。</td>
+<td valign="top">删除第一个文件中位置 r1处的文本行，这些文本行将会出现在第二个文件中位置 r2 处。</td>
 </tr>
 </table>
 
@@ -1387,7 +1387,7 @@ When viewed using the _context format_ (the -c option), we will see this:
       b
       c
       d
-      + e 
+      + e
 
 The output begins with the names of the two files and their timestamps. The first file is
 marked with asterisks and the second file is marked with dashes. Throughout the
@@ -1556,9 +1556,10 @@ two significant advantages:
 
 2. The diff file concisely shows the change being made, allowing reviewers of the patch to quickly evaluate it.
 
-<ol><li><p>一个 diff 文件非常小，与整个源码树的大小相比较而言。</p></li>
+^
+1. 一个 diff 文件非常小，与整个源码树的大小相比较而言。
 
-<li><p> 一个 diff 文件简洁地显示了所做的修改，从而允许程序补丁的审阅者能快速地评估它。</p></li></ol>
+1. 一个 diff 文件简洁地显示了所做的修改，从而允许程序补丁的审阅者能快速地评估它。
 
 Of course, diff/patch will work on any text file, not just source code. It would be
 equally applicable to configuration files or any other text.
@@ -1572,10 +1573,10 @@ below) suggests using diff as follows:
 
     diff -Naur old_file new_file > diff_file
 
-Where old\_file and new\_file are either single files or directories containing files. The r
+Where old_file and new_file are either single files or directories containing files. The r
 option supports recursion of a directory tree.
 
-old\_file 和 new\_file 部分不是单个文件就是包含文件的目录。这个 r 选项支持递归目录树。
+old_file 和 new_file 部分不是单个文件就是包含文件的目录。这个 r 选项支持递归目录树。
 
 Once the diff file has been created, we can apply it to patch the old file into the new file:
 
@@ -1612,7 +1613,7 @@ patch 程序有大量的选项，而且还有额外的实用程序可以被用�
 
 ### Editing On The Fly
 
-### 运行时编辑 
+### 运行时编辑
 
 Our experience with text editors has been largely interactive, meaning that we manually
 move a cursor around, then type our changes. However, there are non-interactive ways to
@@ -1652,12 +1653,13 @@ and thus should be used with caution.
 
 3. POSIX character classes. For example, [:upper:].
 
-<ol><li><p>一个枚举列表。例如， ABCDEFGHIJKLMNOPQRSTUVWXYZ</p></li>
+^
+1. 一个枚举列表。例如， ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
-<li><p>一个字符域。例如，A-Z 。注意这种方法有时候面临与其它命令相同的问题，归因于
-语系的排序规则，因此应该谨慎使用。</p></li>
+1. 一个字符域。例如，A-Z 。注意这种方法有时候面临与其它命令相同的问题，归因于
+语系的排序规则，因此应该谨慎使用。
 
-<li><p>POSIX 字符类。例如，[:upper:]</p></li></ol>
+1. POSIX 字符类。例如，[:upper:]
 
 In most cases, both character sets should be of equal length; however, it is possible for
 the first set to be larger than the second, particularly if we wish to convert multiple
@@ -1684,7 +1686,7 @@ where dos_file is the file to be converted and unix_file is the result. This for
 command uses the escape sequence \r to represent the carriage return character. To see
 a complete list of the sequences and character classes tr supports, try:
 
-这里的 dos\_file 是需要被转换的文件，unix\_file
+这里的 dos_file 是需要被转换的文件，unix_file
 是转换后的结果。这种形式的命令使用转义序列 \r 来代表回车符。查看 tr
 命令所支持地完整的转义序列和字符类别列表，试试下面的命令：
 
@@ -1708,15 +1710,15 @@ text restores it to its original form. To perform this encoding with tr: </p>
 这个方法就是简单地把每个字符在字母表中向前移动13位。因为移动的位数是可能的26个字符的一半，
 所以对文本再次执行这个算法，就恢复到了它最初的形式。通过 tr 命令来执行这种编码：</p>
 
-<p>echo "secret text" | tr a-zA-Z n-za-mN-ZA-M </p>
+<p><b>echo "secret text" | tr a-zA-Z n-za-mN-ZA-M</b></p>
 
-<p> frperg grkg </p>
+<p>frperg grkg </p>
 
 <p>Performing the same procedure a second time results in the translation:</p>
 
 <p>再次执行相同的过程，得到翻译结果：</p>
 
-<p>echo "frperg grkg" | tr a-zA-Z n-za-mN-ZA-M</p>
+<p><b>echo "frperg grkg" | tr a-zA-Z n-za-mN-ZA-M</b></p>
 
 <p>secret text</p>
 
@@ -1926,7 +1928,7 @@ in this chapter. First, a range of line numbers:
     Fedora         10       11/25/2008
     SUSE           11.0     06/19/2008
     Ubuntu         8.04     04/24/2008
-    Fedora         8        11/08/2007 
+    Fedora         8        11/08/2007
 
 In this example, we print a range of lines, starting with line one and continuing to line
 five. To do this, we use the p command, which simply causes a matched line to be
@@ -1969,7 +1971,7 @@ Finally, we’ll try negation by adding an ! to the address:
     Fedora         9        05/13/2008
     Ubuntu         6.06     06/01/2006
     Ubuntu         8.10     10/30/2008
-    Fedora         5        03/20/2006 
+    Fedora         5        03/20/2006
 
 Here we see the expected result: all of the lines in the file except the ones matched by the
 regular expression.
@@ -2023,7 +2025,7 @@ the -n option is not specified, output the current line.</td>
 <td valign="top">s/regexp/replacement/ </td>
 <td valign="top">Substitute the contents of replacement wherever
 regexp is found. replacement may include the
-special character &amp;, which is equivalent to the text
+special character &, which is equivalent to the text
 matched by regexp. In addition, replacement may
 include the sequences \1 through \9, which are
 the contents of the corresponding subexpressions
@@ -2079,7 +2081,7 @@ valign="top">打印当前行。默认情况下，sed 程序打印每一行，并
 <tr>
 <td valign="top">s/regexp/replacement/ </td>
 <td valign="top">只要找到一个 regexp 匹配项，就替换为 replacement 的内容。
-replacement 可能包括特殊字符&amp;，其等价于由 regexp 匹配的文本。另外，
+replacement 可能包括特殊字符 &，其等价于由 regexp 匹配的文本。另外，
 replacement 可能包含序列 \1到 \9，其是 regexp 中相对应的子表达式的内容。更多信息，查看
 下面 back references 部分的讨论。在 replacement 末尾的斜杠之后，可以指定一个
 可选的标志，来修改 s 命令的行为。</td>
@@ -2120,7 +2122,7 @@ distros.txt 文件。我们以前讨论过 distros.txt 文件中的日期字段�
     Fedora         9        2008-05-13
     Ubuntu         6.06     2006-06-01
     Ubuntu         8.10     2008-10-30
-    Fedora         5        2006-03-20 
+    Fedora         5        2006-03-20
 
 Wow! Now that is an ugly looking command. But it works. In just one step, we have
 changed the date format in our file. It is also a perfect example of why regular
@@ -2150,7 +2152,7 @@ that takes care of _regexp_, but what about _replacement_? To handle that, we mu
 a new regular expression feature that appears in some applications which use BRE. This
 feature is called _back references_ and works like this: if the sequence \n appears in
 _replacement_ where n is a number from one to nine, the sequence will refer to the
-corresponding subexpression in the preceding regular expression. To create the subexpressions, 
+corresponding subexpression in the preceding regular expression. To create the subexpressions,
 we simply enclose them in parentheses like so:
 
 此表达式匹配两位数字，一个斜杠，两位数字，一个斜杠，四位数字，以及行尾。如此关心_regexp_，
@@ -2216,7 +2218,7 @@ change all the instances:
 我们能够更改所有的实例：
 
     [me@linuxbox ~]$ echo "aaabbbccc" | sed 's/b/B/g'
-    aaaBBBccc 
+    aaaBBBccc
 
 So far, we have only given sed single commands via the command line. It is also
 possible to construct more complex commands in a script file using the -f option. To
@@ -2254,7 +2256,7 @@ We will save our sed script as distros.sed and run it like this:
     UBUNTU	7.04	2007-04-19
     SUSE	10.1	2006-05-11
     FEDORA	6	    2006-10-24
-    FEDORA	9	    2008-05-13 
+    FEDORA	9	    2008-05-13
 
 As we can see, our script produces the desired results, but how does is do it? Let’s take
 another look at our script. We’ll use cat to number the lines:
@@ -2270,7 +2272,7 @@ another look at our script. We’ll use cat to number the lines:
     5 Linux Distributions Report\
     6
     7 s/\([0-9]\{2\}\)\/\([0-9]\{2\}\)\/\([0-9]\{4\}\)$/\3-\1-\2/
-    8 y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/ 
+    8 y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/
 
 Line one of our script is a comment. Like many configuration files and programming
 languages on Linux systems, comments begin with the # character and are followed by
@@ -2418,7 +2420,7 @@ As aspell is interactive in the check mode, we will see a screen like this:
     a)Add                           l)Add Lower
     b)Abort                         x)Exit
 
-    ?  
+    ?
 
 At the top of the display, we see our text with a suspiciously spelled word highlighted. In
 the middle, we see ten spelling suggestions numbered zero through nine, followed by a
@@ -2471,12 +2473,12 @@ markup to our file:
 我们将添加一些 HTML 标志到文件中：
 
     <html>
-           <head>
-                  <title>Mispelled HTML file</title>
-           </head>
-           <body>
-                  <p>The quick brown fox jimped over the laxy dog.</p>
-           </body>
+        <head>
+              <title>Mispelled HTML file</title>
+        </head>
+        <body>
+              <p>The quick brown fox jimped over the laxy dog.</p>
+        </body>
     </html>
 
 Now, if we try to spell check our modified file, we run into a problem. If we do it this
@@ -2491,12 +2493,12 @@ we’ll get this:
 我们会得到这些：
 
     <html>
-           <head>
-                  <title>Mispelled HTML file</title>
-           </head>
-           <body>
-                  <p>The quick brown fox jimped over the laxy dog.</p>
-           </body>
+        <head>
+              <title>Mispelled HTML file</title>
+        </head>
+        <body>
+              <p>The quick brown fox jimped over the laxy dog.</p>
+        </body>
     </html>
 
     1) HTML                     4) Hamel
@@ -2523,12 +2525,12 @@ which will result in this:
 这会导致这样的结果：
 
     <html>
-           <head>
-                  <title><b>Mispelled</b> HTML file</title>
-           </head>
-           <body>
-                  <p>The quick brown fox jimped over the laxy dog.</p>
-           </body>
+        <head>
+              <title><b>Mispelled</b> HTML file</title>
+        </head>
+        <body>
+              <p>The quick brown fox jimped over the laxy dog.</p>
+        </body>
     </html>
 
     1) HTML                     4) Hamel
@@ -2563,7 +2565,7 @@ for details.
 
 ### Summing Up
 
-### 总结归纳 
+### 总结归纳
 
 In this chapter, we have looked at a few of the many command line tools that operate on
 text. In the next chapter, we will look at several more. Admittedly, it may not seem
@@ -2581,7 +2583,7 @@ where these tools will really show their worth.
 
 ### Further Reading
 
-### 拓展阅读 
+### 拓展阅读
 
 The GNU Project website contains many online guides to the tools discussed in this chapter.
 
@@ -2598,7 +2600,7 @@ GNU 项目网站包含了本章中所讨论工具的许多在线指南。
   <http://www.gnu.org/software/coreutils/manual/coreutils.html#Operating-on-characters>
 
 * From the Diffutils package:
-  
+
   <http://www.gnu.org/software/diffutils/manual/html\_mono/diff.html>
 
 * sed
@@ -2612,14 +2614,14 @@ GNU 项目网站包含了本章中所讨论工具的许多在线指南。
 * There are many other online resources for sed, in particular:
 
   <http://www.grymoire.com/Unix/Sed.html>
-  
+
   <http://sed.sourceforge.net/sed1line.txt>
 
 * Also try googling “sed one liners”, “sed cheat sheets”
 
 ### Extra Credit
 
-### 友情提示 
+### 友情提示
 
 There are a few more interesting text manipulation commands worth investigating.
 Among these are: split (split files into pieces), csplit (split files into pieces based

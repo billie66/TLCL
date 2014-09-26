@@ -85,7 +85,7 @@ title: 文本处理
 表明我们的文本包含末尾的空格。
 
 
-> MS-DOS 文本 Vs. Unix 文本
+> _MS-DOS 文本 Vs. Unix 文本_
 >
 > 可能你想用 cat 程序在文本中查看非打印字符的一个原因是发现隐藏的回车符。那么
 隐藏的回车符来自于哪里呢？它们来自于 DOS 和 Windows！Unix 和 DOS 在文本文件中定义每行
@@ -527,7 +527,7 @@ uniq 程序是一个传统的 Unix 工具，经常与 sort 程序一块使用，
 这个 7-10 表示法是一个区间的例子。cut 命令手册包含了一个如何指定区间的完整描述。
 
 
-> 展开 Tabs
+> _展开 Tabs_
 >
 > distros.txt 的文件格式很适合使用 cut 程序来抽取字段。但是如果我们想要 cut 程序
 按照字符，而不是字段来操作一个文件，那又怎样呢？这要求我们用相应数目的空格来
@@ -538,6 +538,8 @@ uniq 程序是一个传统的 Unix 工具，经常与 sort 程序一块使用，
 > 如果我们通过 expand 来处理 distros.txt 文件，我们能够使用 cut -c 命令来从文件中抽取
 任意区间内的字符。例如，我们能够使用以下命令来从列表中抽取发行年份，通过展开
 此文件，再使用 cut 命令，来抽取从位置 23 开始到行尾的每一个字符：
+>
+> _[me@linuxbox ~]$ expand distros.txt | cut -c 23-_
 >
 > Coreutils 软件包也提供了 unexpand 程序，用 tab 来代替空格。
 {: .single}
@@ -762,15 +764,15 @@ paste 接受多个文件参数和 ／ 或标准输入。为了说明 paste 是�
 </tr>
 <tr>
 <td valign="top" width="25%">r1ar2</td>
-<td valign="top">把第二个文件中位置 r2处的文件行添加到第一个文件中的 r1处。</td>
+<td valign="top">把第二个文件中位置 r2 处的文件行添加到第一个文件中的 r1 处。</td>
 </tr>
 <tr>
 <td valign="top">r1cr2</td>
-<td valign="top">用第二个文件中位置 r2处的文本行更改（替代）位置 r1处的文本行。</td>
+<td valign="top">用第二个文件中位置 r2 处的文本行更改（替代）位置 r1 处的文本行。</td>
 </tr>
 <tr>
 <td valign="top">r1dr2</td>
-<td valign="top">删除第一个文件中位置 r1处的文本行，这些文本行将会出现在第二个文件中位置 r2处。</td>
+<td valign="top">删除第一个文件中位置 r1 处的文本行，这些文本行将会出现在第二个文件中位置 r2 处。</td>
 </tr>
 </table>
 
@@ -951,16 +953,26 @@ MS-DOS 文本文件为 Unix 风格文本的问题。为了执行这个转换，�
     [me@linuxbox ~]$ tr --help
 
 
-> ROT13: 不那么秘密的编码环
+> _ROT13: 不那么秘密的编码环_
 >
 > tr 命令的一个有趣的用法是执行 ROT13文本编码。ROT13是一款微不足道的基于一种简易的替换暗码的
 加密类型。把 ROT13称为“加密”是大方的；“文本模糊处理”更准确些。有时候它被用来隐藏文本中潜在的攻击内容。
 这个方法就是简单地把每个字符在字母表中向前移动13位。因为移动的位数是可能的26个字符的一半，
 所以对文本再次执行这个算法，就恢复到了它最初的形式。通过 tr 命令来执行这种编码：
 >
+> _echo "secret text" \| tr a-zA-Z n-za-mN-ZA-M_
+>
+> frperg grkg
+>
 > 再次执行相同的过程，得到翻译结果：
 >
+> _echo "frperg grkg" | tr a-zA-Z n-za-mN-ZA-M_
+>
+> secret text
+>
 > 大量的 email 程序和 USENET 新闻读者都支持 ROT13 编码。Wikipedia 上面有一篇关于这个主题的好文章：
+>
+> http://en.wikipedia.org/wiki/ROT13
 {: .single}
 
 
@@ -1142,8 +1154,8 @@ valign="top">打印当前行。默认情况下，sed 程序打印每一行，并
 <tr>
 <td valign="top">s/regexp/replacement/ </td>
 <td valign="top">只要找到一个 regexp 匹配项，就替换为 replacement 的内容。
-replacement 可能包括特殊字符&，其等价于由 regexp 匹配的文本。另外，
-replacement 可能包含序列 \1到 \9，其是 regexp 中相对应的子表达式的内容。更多信息，查看
+replacement 可能包括特殊字符 &，其等价于由 regexp 匹配的文本。另外，
+replacement 可能包含序列 \1 到 \9，其是 regexp 中相对应的子表达式的内容。更多信息，查看
 下面 back references 部分的讨论。在 replacement 末尾的斜杠之后，可以指定一个
 可选的标志，来修改 s 命令的行为。</td>
 </tr>
@@ -1189,16 +1201,16 @@ distros.txt 文件。我们以前讨论过 distros.txt 文件中的日期字段�
 
     [0-9]{2}/[0-9]{2}/[0-9]{4}$
 
-此表达式匹配两位数字，一个斜杠，两位数字，一个斜杠，四位数字，以及行尾。如此关心_regexp_，
-那么_replacement_又怎样呢？为了解决此问题，我们必须介绍一个正则表达式的新功能，它出现
-在一些使用 BRE 的应用程序中。这个功能叫做_逆参照_，像这样工作：如果序列\n 出现在_replacement_中
+此表达式匹配两位数字，一个斜杠，两位数字，一个斜杠，四位数字，以及行尾。如此关心 regexp，
+那么 replacement 又怎样呢？为了解决此问题，我们必须介绍一个正则表达式的新功能，它出现
+在一些使用 BRE 的应用程序中。这个功能叫做逆参照，像这样工作：如果序列 \n 出现在 replacement 中
 ，这里 n 是指从 1 到 9 的数字，则这个序列指的是在前面正则表达式中相对应的子表达式。为了
 创建这个子表达式，我们简单地把它们用圆括号括起来，像这样：
 
     ([0-9]{2})/([0-9]{2})/([0-9]{4})$
 
 现在我们有了三个子表达式。第一个表达式包含月份，第二个包含某月中的某天，以及第三个包含年份。
-现在我们就可以构建_replacement_，如下所示：
+现在我们就可以构建 replacement ，如下所示：
 
     \3-\1-\2
 
@@ -1301,7 +1313,7 @@ s 命令的另一个功能是使用可选标志，其跟随替代字符串。一
 所以它会操作输入流的每一行。
 
 
-> 喜欢 sed 的人们也会喜欢。。。
+> _喜欢 sed 的人们也会喜欢。。。_
 >
 > sed 是一款非常强大的程序，它能够针对文本流完成相当复杂的编辑任务。它最常
 用于简单的行任务，而不是长长的脚本。许多用户喜欢使用其它工具，来执行较大的工作。
@@ -1317,7 +1329,7 @@ awk 程序通常逐行处理文本文件，这点类似于 sed，awk 使用了�
 我们要查看的最后一个工具是 aspell，一款交互式的拼写检查器。这个 aspell 程序是早先 ispell 程序
 的继承者，大多数情况下，它可以被用做一个替代品。虽然 aspell 程序大多被其它需要拼写检查能力的
 程序使用，但它也可以作为一个独立的命令行工具使用。它能够智能地检查各种类型的文本文件，
-包括 HTML 文件，C/C++程序，电子邮件和其它种类的专业文本。
+包括 HTML 文件，C/C++ 程序，电子邮件和其它种类的专业文本。
 
 拼写检查一个包含简单的文本文件，可以这样使用 aspell:
 
@@ -1353,33 +1365,33 @@ awk 程序通常逐行处理文本文件，这点类似于 sed，awk 使用了�
 十个拼写建议，序号从 0 到 9，然后是一系列其它可能的操作。最后，在最底部，我们看到一个提示符，
 准备接受我们的选择。
 
-如果我们按下 1 按键，aspell 会用单词 “jumped” 代替错误单词，然后移动到下一个拼写错的单词，就是
- “laxy”。如果我们选择替代物 “lazy”，aspell 会替换 “laxy” 并且终止。一旦 aspell 结束操作，我们
+如果我们按下 1 按键，aspell 会用单词 jumped 代替错误单词，然后移动到下一个拼写错的单词，就是
+ laxy。如果我们选择替代物 lazy，aspell 会替换 laxy 并且终止。一旦 aspell 结束操作，我们
 可以检查我们的文件，会看到拼写错误的单词已经更正了。
 
     [me@linuxbox ~]$ cat foo.txt
     The quick brown fox jumped over the lazy dog.
 
-除非由命令行选项--dont-backup 告诉 aspell，否则通过追加扩展名.bak 到文件名中,
+除非由命令行选项 --dont-backup 告诉 aspell，否则通过追加扩展名 .bak 到文件名中,
 aspell 会创建一个包含原始文本的备份文件。
 
 为了炫耀 sed 的编辑本领，我们将还原拼写错误，从而能够重用我们的文件：
 
     [me@linuxbox ~]$ sed -i 's/lazy/laxy/; s/jumped/jimped/' foo.txt
 
-这个 sed 选项-i，告诉 sed 在适当位置编辑文件，意思是不要把编辑结果发送到标准输出中。sed 会把更改应用到文件中，
+这个 sed 选项 -i，告诉 sed 在适当位置编辑文件，意思是不要把编辑结果发送到标准输出中。sed 会把更改应用到文件中，
 以此重新编写文件。我们也看到可以把多个 sed 编辑命令放在同一行，编辑命令之间由分号分隔开来。
 
 下一步，我们将看一下 aspell 怎样来解决不同种类的文本文件。使用一个文本编辑器，例如 vim（胆大的人可能想用 sed），
 我们将添加一些 HTML 标志到文件中：
 
     <html>
-           <head>
-                  <title>Mispelled HTML file</title>
-           </head>
-           <body>
-                  <p>The quick brown fox jimped over the laxy dog.</p>
-           </body>
+        <head>
+              <title>Mispelled HTML file</title>
+        </head>
+        <body>
+              <p>The quick brown fox jimped over the laxy dog.</p>
+        </body>
     </html>
 
 现在，如果我们试图拼写检查我们修改的文件，我们会遇到一个问题。如果我们这样做：
@@ -1389,12 +1401,12 @@ aspell 会创建一个包含原始文本的备份文件。
 我们会得到这些：
 
     <html>
-           <head>
-                  <title>Mispelled HTML file</title>
-           </head>
-           <body>
-                  <p>The quick brown fox jimped over the laxy dog.</p>
-           </body>
+        <head>
+              <title>Mispelled HTML file</title>
+        </head>
+        <body>
+              <p>The quick brown fox jimped over the laxy dog.</p>
+        </body>
     </html>
 
     1) HTML                     4) Hamel
@@ -1408,7 +1420,7 @@ aspell 会创建一个包含原始文本的备份文件。
 
     ?
 
-aspell 会认为 HTML 标志的内容是拼写错误。通过包含-H（HTML）检查模式选项，这个问题能够
+aspell 会认为 HTML 标志的内容是拼写错误。通过包含 -H（HTML）检查模式选项，这个问题能够
 解决，像这样：
 
     [me@linuxbox ~]$ aspell -H check foo.txt
@@ -1416,12 +1428,12 @@ aspell 会认为 HTML 标志的内容是拼写错误。通过包含-H（HTML）�
 这会导致这样的结果：
 
     <html>
-           <head>
-                  <title><b>Mispelled</b> HTML file</title>
-           </head>
-           <body>
-                  <p>The quick brown fox jimped over the laxy dog.</p>
-           </body>
+        <head>
+              <title><b>Mispelled</b> HTML file</title>
+        </head>
+        <body>
+              <p>The quick brown fox jimped over the laxy dog.</p>
+        </body>
     </html>
 
     1) HTML                     4) Hamel
@@ -1457,22 +1469,35 @@ aspell 会认为 HTML 标志的内容是拼写错误。通过包含-H（HTML）�
 
 GNU 项目网站包含了本章中所讨论工具的许多在线指南。
 
-    <http://www.gnu.org/software/coreutils/manual/coreutils.html#Output-of-entire-files>
+* 来自 Coreutils 软件包：
 
-    <http://www.gnu.org/software/coreutils/manual/coreutils.html#Operating-on-sorted-files>
+  <http://www.gnu.org/software/coreutils/manual/coreutils.html#Output-of-entire-files>
 
-    <http://www.gnu.org/software/coreutils/manual/coreutils.html#Operating-on-fields-within-a-line>
+  <http://www.gnu.org/software/coreutils/manual/coreutils.html#Operating-on-sorted-files>
 
-    <http://www.gnu.org/software/coreutils/manual/coreutils.html#Operating-on-characters>
+  <http://www.gnu.org/software/coreutils/manual/coreutils.html#Operating-on-fields-within-a-line>
 
-    <http://www.gnu.org/software/diffutils/manual/html\_mono/diff.html>
+  <http://www.gnu.org/software/coreutils/manual/coreutils.html#Operating-on-characters>
 
-    <http://www.gnu.org/software/sed/manual/sed.html>
+* 来自 Diffutils 软件包：
 
-    <http://aspell.net/man-html/index.html>
+  <http://www.gnu.org/software/diffutils/manual/html\_mono/diff.html>
 
-    <http://www.grymoire.com/Unix/Sed.html>
-    <http://sed.sourceforge.net/sed1line.txt>
+* sed
+
+  <http://www.gnu.org/software/sed/manual/sed.html>
+
+* aspell
+
+  <http://aspell.net/man-html/index.html>
+
+* There are many other online resources for sed, in particular:
+
+  <http://www.grymoire.com/Unix/Sed.html>
+
+  <http://sed.sourceforge.net/sed1line.txt>
+
+* 也试着搜索一下 “sed one liners”, “sed cheat sheets”
 
 ### 友情提示
 
