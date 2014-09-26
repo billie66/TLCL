@@ -1474,7 +1474,7 @@ GNU 项目网站包含了本章中所讨论工具的许多在线指南。
 
 * 来自 Diffutils 软件包：
 
-  <http://www.gnu.org/software/diffutils/manual/html\_mono/diff.html>
+  <http://www.gnu.org/software/diffutils/manual/html_mono/diff.html>
 
 * sed
 
