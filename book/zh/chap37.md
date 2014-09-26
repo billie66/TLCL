@@ -324,7 +324,7 @@ trap argument signal [signal...]
 给临时文件一个不可预测的文件名是很重要的。这就避免了一种为大众所知的 temp race 攻击。
 一种创建一个不可预测的（但是仍有意义的）临时文件名的方法是，做一些像这样的事情：
 >
->     tempfile=/tmp/$(basename $0).$$.$RANDOM
+> tempfile=/tmp/$(basename $0).$$.$RANDOM
 >
 > 这将创建一个由程序名字，程序进程的 ID（PID）文件名，和一个随机整数组成。注意，然而，该 $RANDOM shell 变量
 只能返回一个范围在1-32767内的整数值，这在计算机术语中不是一个很大的范围，所以一个单一的该变量实例是不足以克服一个坚定的攻击者的。
@@ -334,17 +334,17 @@ trap argument signal [signal...]
 随后这些字符会被相应数量的随机字母和数字替换掉。一连串的 “X” 字符越长，则一连串的随机字符也就越长。
 这里是一个例子：
 >
->     tempfile=$(mktemp /tmp/foobar.$$.XXXXXXXXXX)
+> tempfile=$(mktemp /tmp/foobar.$$.XXXXXXXXXX)
 >
 > 这里创建了一个临时文件，并把临时文件的名字赋值给变量 tempfile。因为模板中的 “X” 字符会被随机字母和
 数字代替，所以最终的文件名（在这个例子中，文件名也包含了特殊参数 $$ 的展开值，进程的 PID）可能像这样：
 >
->     /tmp/foobar.6593.UOZuvM6654
+> /tmp/foobar.6593.UOZuvM6654
 >
 > 对于那些由普通用户操作执行的脚本，避免使用 /tmp 目录，而是在用户主目录下为临时文件创建一个目录，
 通过像这样的一行代码：
 >
->     [[ -d $HOME/tmp ]] || mkdir $HOME/tmp
+> [[ -d $HOME/tmp ]] \|\| mkdir $HOME/tmp
 {: .single}
 
 
