@@ -2381,7 +2381,7 @@ other kinds of specialized texts.
 我们要查看的最后一个工具是 aspell，一款交互式的拼写检查器。这个 aspell 程序是早先 ispell 程序
 的继承者，大多数情况下，它可以被用做一个替代品。虽然 aspell 程序大多被其它需要拼写检查能力的
 程序使用，但它也可以作为一个独立的命令行工具使用。它能够智能地检查各种类型的文本文件，
-包括 HTML 文件，C/C++程序，电子邮件和其它种类的专业文本。
+包括 HTML 文件，C/C++ 程序，电子邮件和其它种类的专业文本。
 
 To spell check a text file containing simple prose, it could be used like this:
 
@@ -2409,7 +2409,6 @@ As aspell is interactive in the check mode, we will see a screen like this:
 因为 aspell 在检查模式下是交互的，我们将看到像这样的一个屏幕：
 
     The quick brown fox jimped over the laxy dog.
-
     1)jumped                        6)wimped
     2)gimped                        7)camped
     3)comped                        8)humped
@@ -2419,7 +2418,6 @@ As aspell is interactive in the check mode, we will see a screen like this:
     r)Replace                       R)Replace all
     a)Add                           l)Add Lower
     b)Abort                         x)Exit
-
     ?
 
 At the top of the display, we see our text with a suspiciously spelled word highlighted. In
@@ -2500,16 +2498,13 @@ we’ll get this:
               <p>The quick brown fox jimped over the laxy dog.</p>
         </body>
     </html>
-
     1) HTML                     4) Hamel
     2) ht ml                    5) Hamil
     3) ht-ml                    6) hotel
-
     i) Ignore                   I) Ignore all
     r) Replace                  R) Replace all
     a) Add                      l) Add Lower
     b) Abort                    x) Exit
-
     ?
 
 aspell will see the contents of the HTML tags as misspelled. This problem can be
@@ -2532,16 +2527,13 @@ which will result in this:
               <p>The quick brown fox jimped over the laxy dog.</p>
         </body>
     </html>
-
     1) HTML                     4) Hamel
     2) ht ml                    5) Hamil
     3) ht-ml                    6) hotel
-
     i) Ignore                   I) Ignore all
     r) Replace                  R) Replace all
     a) Add                      l) Add Lower
     b) Abort                    x) Exit
-
     ?
 
 The HTML is ignored and only the non-markup portions of the file are checked. In this

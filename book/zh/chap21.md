@@ -113,7 +113,7 @@ cat 程序也包含用来修改文本的选项。最著名的两个选项是-n�
     [me@linuxbox ~]$
 
 在这个例子里，我们创建了一个测试文件 foo.txt 的新版本，其包含两行文本，由两个空白行分开。
-经由带有-ns 选项的 cat 程序处理之后，多余的空白行被删除，并且对保留的文本行进行编号。
+经由带有 -ns 选项的 cat 程序处理之后，多余的空白行被删除，并且对保留的文本行进行编号。
 然而这并不是多个进程在操作这个文本，只有一个进程。
 
 这个 sort 程序对标准输入的内容，或命令行中指定的一个或多个文件进行排序，然后把排序
@@ -539,7 +539,7 @@ uniq 程序是一个传统的 Unix 工具，经常与 sort 程序一块使用，
 任意区间内的字符。例如，我们能够使用以下命令来从列表中抽取发行年份，通过展开
 此文件，再使用 cut 命令，来抽取从位置 23 开始到行尾的每一个字符：
 >
-> _[me@linuxbox ~]$ expand distros.txt | cut -c 23-_
+> _[me@linuxbox ~]$ expand distros.txt \| cut -c 23-_
 >
 > Coreutils 软件包也提供了 unexpand 程序，用 tab 来代替空格。
 {: .single}
@@ -966,7 +966,7 @@ MS-DOS 文本文件为 Unix 风格文本的问题。为了执行这个转换，�
 >
 > 再次执行相同的过程，得到翻译结果：
 >
-> _echo "frperg grkg" | tr a-zA-Z n-za-mN-ZA-M_
+> _echo "frperg grkg" \| tr a-zA-Z n-za-mN-ZA-M_
 >
 > secret text
 >
@@ -1348,7 +1348,6 @@ awk 程序通常逐行处理文本文件，这点类似于 sed，awk 使用了�
 因为 aspell 在检查模式下是交互的，我们将看到像这样的一个屏幕：
 
     The quick brown fox jimped over the laxy dog.
-
     1)jumped                        6)wimped
     2)gimped                        7)camped
     3)comped                        8)humped
@@ -1358,7 +1357,6 @@ awk 程序通常逐行处理文本文件，这点类似于 sed，awk 使用了�
     r)Replace                       R)Replace all
     a)Add                           l)Add Lower
     b)Abort                         x)Exit
-
     ?
 
 在显示屏的顶部，我们看到我们的文本中有一个拼写可疑且高亮显示的单词。在中间部分，我们看到
@@ -1408,7 +1406,6 @@ aspell 会创建一个包含原始文本的备份文件。
               <p>The quick brown fox jimped over the laxy dog.</p>
         </body>
     </html>
-
     1) HTML                     4) Hamel
     2) ht ml                    5) Hamil
     3) ht-ml                    6) hotel
@@ -1417,7 +1414,6 @@ aspell 会创建一个包含原始文本的备份文件。
     r) Replace                  R) Replace all
     a) Add                      l) Add Lower
     b) Abort                    x) Exit
-
     ?
 
 aspell 会认为 HTML 标志的内容是拼写错误。通过包含 -H（HTML）检查模式选项，这个问题能够
@@ -1435,16 +1431,13 @@ aspell 会认为 HTML 标志的内容是拼写错误。通过包含 -H（HTML）
               <p>The quick brown fox jimped over the laxy dog.</p>
         </body>
     </html>
-
     1) HTML                     4) Hamel
     2) ht ml                    5) Hamil
     3) ht-ml                    6) hotel
-
     i) Ignore                   I) Ignore all
     r) Replace                  R) Replace all
     a) Add                      l) Add Lower
     b) Abort                    x) Exit
-
     ?
 
 这个 HTML 标志被忽略了，并且只会检查文件中非标志部分的内容。在这种模式下，HTML 标志的
