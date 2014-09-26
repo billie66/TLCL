@@ -76,7 +76,9 @@ ${parameter:=word}
     bar
 
 ---
+
 注意： 位置参数或其它的特殊参数不能以这种方式赋值。
+
 ---
 
 ${parameter:?word}

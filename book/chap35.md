@@ -495,7 +495,7 @@ Here is a script that demonstrates these expansions:
         echo ${1^^}
         echo ${1^}
     fi
-  
+
 Here is the script in action:
 
 这里是脚本运行后的结果：
@@ -890,7 +890,7 @@ signments:
         <td valign="top">前缀自减变量。等价于 parameter = parameter − 1。</td>
     </tr>
 </table>
- 
+
 These assignment operators provide a convenient shorthand for many common arithmetic
 tasks. Of special interest are the increment (++) and decrement (−−) operators,
 which increase or decrease the value of their parameters by one. This style of notation is taken
@@ -1226,7 +1226,7 @@ in a script that produces a simple table of numbers:
 
 In this script, we implement an until loop based on the value of the finished variable.
 Initially, the variable is set to zero (arithmetic false) and we continue
-the loop until it becomes non-zero. Within the loop, we calculate the square 
+the loop until it becomes non-zero. Within the loop, we calculate the square
 and cube of the counter variable __a__. At the end of the loop, the value of the
 counter variable is evaluated. If it is less than
 10 (the maximum number of iterations), it is incremented by one, else the
