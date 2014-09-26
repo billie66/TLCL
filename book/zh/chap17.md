@@ -212,16 +212,16 @@ FTP（它的原始形式）并不是安全的，因为它会以明码形式发�
 <th class="title">意思</th>
 </tr>
 <tr>
-<td valign="top" width="25%">ftp fileserver</td>
+<td valign="top" width="35%">ftp fileserver</td>
 <td valign="top">唤醒 ftp 程序，让它连接到 FTP 服务器，fileserver。</td>
 </tr>
 <tr>
 <td valign="top">anonymous</td>
 <td valign="top">登录名。输入登录名后，将出现一个密码提示。一些服务器将会接受空密码，
-其它一些则会要求一个邮件地址形式的密码。如果是这种情况，试着输入“user@example.com”。 </td>
+其它一些则会要求一个邮件地址形式的密码。如果是这种情况，试着输入 “user@example.com”。 </td>
 </tr>
 <tr>
-<td valign="top">cd pub/cd\_images/Ubuntu-8.04 </td>
+<td valign="top">cd pub/cd_images/Ubuntu-8.04 </td>
 <td valign="top">跳转到远端系统中，要下载文件所在的目录下，
 注意在大多数匿名的 FTP 服务器中，支持公共下载的文件都能在目录 pub 下找到 </td>
 </tr>
@@ -231,13 +231,13 @@ FTP（它的原始形式）并不是安全的，因为它会以明码形式发�
 </tr>
 <tr>
 <td valign="top">lcd Desktop</td>
-<td valign="top">跳转到本地系统中的~/Desktop 目录下。在实例中，ftp 程序在工作目录~下被唤醒。
-这个命令把工作目录改为~/Desktop </td>
+<td valign="top">跳转到本地系统中的 ~/Desktop 目录下。在实例中，ftp 程序在工作目录 ~ 下被唤醒。
+这个命令把工作目录改为 ~/Desktop </td>
 </tr>
 <tr>
 <td valign="top">get ubuntu-8.04-desktop-i386.iso </td>
 <td valign="top">告诉远端系统传送文件到本地。因为本地系统的工作目录
-已经更改到了~/Desktop，所以文件会被下载到此目录。 </td>
+已经更改到了 ~/Desktop，所以文件会被下载到此目录。 </td>
 </tr>
 <tr>
 <td valign="top">bye</td>
@@ -246,7 +246,7 @@ valign="top">退出远端服务器，结束 ftp 程序会话。也可以使用�
 </tr>
 </table>
 
-在“ftp>”提示符下，输入“help”，会显示所支持命令的列表。使用 ftp 登录到一台
+在 “ftp>” 提示符下，输入 “help”，会显示所支持命令的列表。使用 ftp 登录到一台
 授予了用户足够权限的服务器中，则可以执行很多普通的文件管理任务。虽然很笨拙，
 但它真能工作。
 
