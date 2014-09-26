@@ -45,7 +45,7 @@ As written, this script runs successfully:
 
 #### Missing Quotes
 
-#### 丢失引号 
+#### 丢失引号
 
 If we edit our script and remove the trailing quote from the argument following the first
 echo command:
@@ -217,7 +217,7 @@ filenames containing embedded spaces.
 
 ### Logical Errors
 
-### 逻辑错误 
+### 逻辑错误
 
 Unlike syntactic errors, logical errors do not prevent a script from running. The script
 will run, but it will not produce the desired result, due to a problem with its logic. There
@@ -243,19 +243,20 @@ data or situations that were unforeseen by the programmer. This can also include
 unanticipated expansions, such as a filename that contains embedded spaces that
 expands into multiple command arguments rather than a single filename.
 
-<ol><li><p>不正确的条件表达式。很容易编写一个错误的 if/then/else 语句，并且执行错误的逻辑。
-有时候逻辑会被颠倒，或者是逻辑结构不完整。</p></li>
+^
+1. 不正确的条件表达式。很容易编写一个错误的 if/then/else 语句，并且执行错误的逻辑。
+有时候逻辑会被颠倒，或者是逻辑结构不完整。
 
-<li><p>“超出一个值”错误。当编写带有计数器的循环语句的时候，为了计数在恰当的点结束，循环语句
+1. “超出一个值”错误。当编写带有计数器的循环语句的时候，为了计数在恰当的点结束，循环语句
 可能要求从 0 开始计数，而不是从 1 开始，这有可能会被忽视。这些类型的错误要不导致循环计数太多，而“超出范围”，
-要不就是过早的结束了一次迭代，从而错过了最后一次迭代循环。</p></li>
+要不就是过早的结束了一次迭代，从而错过了最后一次迭代循环。
 
-<li><p>意外情况。大多数逻辑错误来自于程序碰到了程序员没有预见到的数据或者情况。这也
-可以包括出乎意料的展开，比如说一个包含嵌入式空格的文件名展开成多个命令参数而不是单个的文件名。</p></li></ol>
+1. 意外情况。大多数逻辑错误来自于程序碰到了程序员没有预见到的数据或者情况。这也
+可以包括出乎意料的展开，比如说一个包含嵌入式空格的文件名展开成多个命令参数而不是单个的文件名。
 
 #### Defensive Programming
 
-#### 防错编程 
+#### 防错编程
 
 It is important to verify assumptions when programming. This means a careful
 evaluation of the exit status of programs and commands that are used by a script. Here is
@@ -271,12 +272,12 @@ two lines of code:
     rm *
 
 There is nothing intrinsically wrong with these two lines, as long as the directory named
-in the variable, dir\_name, exists. But what happens if it does not? In that case, the cd
+in the variable, dir_name, exists. But what happens if it does not? In that case, the cd
 command fails, the script continues to the next line and deletes the files in the current
 working directory. Not the desired outcome at all! The hapless administrator destroyed
 an important part of the server because of this design decision.
 
-从本质上来说，这两行代码没有任何问题，只要是变量 dir\_name
+从本质上来说，这两行代码没有任何问题，只要是变量 dir_name
 中存储的目录名字存在就可以。但是如果不是这样会发生什么事情呢？在那种情况下，cd 命令会运行失败，
 脚本会继续执行下一行代码，将会删除当前工作目录中的所有文件。完成不是期望的结果！
 由于这种设计策略，这个倒霉的管理员销毁了服务器中的一个重要部分。
@@ -289,14 +290,14 @@ the execution of rm contingent on the success of cd:
     cd $dir_name && rm *
 
 This way, if the cd command fails, the rm command is not carried out. This is better, but
-still leaves open the possibility that the variable, dir\_name, is unset or empty, which
+still leaves open the possibility that the variable, dir_name, is unset or empty, which
 would result in the files in the user’s home directory being deleted. This could also be
-avoided by checking to see that dir\_name actually contains the name of an existing
+avoided by checking to see that dir_name actually contains the name of an existing
 directory:
 
 这样，如果 cd 命令运行失败后，rm 命令将不会执行。这样比较好，但是仍然有可能未设置变量
-dir\_name 或其变量值为空，从而导致删除了用户主目录下面的所有文件。这个问题也能够避免，通过检验变量
-dir\_name 中包含的目录名是否真正地存在：
+dir_name 或其变量值为空，从而导致删除了用户主目录下面的所有文件。这个问题也能够避免，通过检验变量
+dir_name 中包含的目录名是否真正地存在：
 
     [[ -d $dir_name ]] && cd $dir_name && rm *
 
@@ -326,7 +327,7 @@ error and the script terminates with an exit status of one to indicate a failure
 
 #### Verifying Input
 
-#### 验证输入 
+#### 验证输入
 
 A general rule of good programming is that if a program accepts input, it must be able to
 deal with anything it receives. This usually means that input must be carefully screened,
@@ -375,6 +376,35 @@ more careful development.</p>
 某个重要任务或者多个客户会不断地用到它，此时这个脚本就需要非常谨慎小心地开发了。</p>
 </div>
 
+> Design Is A Function Of Time
+>
+> _设计是时间的函数_
+>
+> When I was a college student studying industrial design, a wise professor stated
+that the degree of design on a project was determined by the amount of time given
+to the designer. If you were given five minutes to design a device “that kills
+flies,” you designed a flyswatter. If you were given five months, you might come
+up with a laser-guided “anti-fly system” instead.
+>
+> 当我还是一名大学生，在学习工业设计的时候，一位明智的教授说过一个项目的设计程度是由
+给定设计师的时间量来决定的。如果给你五分钟来设计一款能够 “杀死苍蝇”
+的产品，你会设计出一个苍蝇拍。如果给你五个月的时间，你可能会制作出激光制导的
+“反苍蝇系统”。
+>
+>  The same principle applies to programming. Sometimes a “quick and dirty”
+script will do if it’s only going to be used once and only used by the programmer.
+That kind of script is common and should be developed quickly to make the effort
+economical. Such scripts don’t need a lot of comments and defensive checks. On
+the other hand, if a script is intended for production use, that is, a script that will
+be used over and over for an important task or by multiple users, it needs much
+more careful development.
+>
+> 同样的原理适用于编程。有时候一个 “快速但质量差” 的脚本就可以解决问题，
+但这个脚本只能被其作者使用一次。这类脚本很常见，为了节省气力也应该被快速地开发出来。
+所以这些脚本不需要太多的注释和防错检查。相反，如果一个脚本打算用于生产使用，也就是说，
+某个重要任务或者多个客户会不断地用到它，此时这个脚本就需要非常谨慎小心地开发了。
+{: .single}
+
 ### Testing
 
 ### 测试
@@ -414,8 +444,8 @@ delete files, but we could modify the code to make the test safe:
         echo "no such directory: '$dir_name'" >&2
         exit 1
     fi
-    exit # TESTING   
-     
+    exit # TESTING
+
 Since the error conditions already output useful messages, we don't have to add any. The
 most important change is placing an echo command just before the rm command to
 allow the command and its expanded argument list to be displayed, rather than the
@@ -457,7 +487,7 @@ code performs under three specific conditions:
   <li><p>dir_name 包含一个已经存在的目录的名字</p></li>
   <li><p>dir_name 包含一个不存在的目录的名字</p></li>
   <li><p>dir_name 为空</p></li>
-</ol> 
+</ol>
 
 By performing the test with each of these conditions, good test coverage is achieved.
 
@@ -557,7 +587,7 @@ location of execution. We can add messages to our code fragment:
     echo "file deletion complete" >&2
 
 We send the messages to standard error to separate them from normal output. We also do
-not indent the lines containing the messages, so it is easier to find when 
+not indent the lines containing the messages, so it is easier to find when
 it’s time to remove them.
 
 我们把提示信息输出到标准错误输出，让其从标准输出中分离出来。我们也没有缩进包含提示信息的语句，这样
@@ -601,7 +631,7 @@ When executed, the results look like this:
     Number is equal to 1.
 
 With tracing enabled, we see the commands performed with expansions applied. The
-leading plus signs indicate the display of the trace to distinguish them from lines of 
+leading plus signs indicate the display of the trace to distinguish them from lines of
 regular output. The plus sign is the default character for trace output. It is contained in the
 PS4 (prompt string 4) shell variable. The contents of this variable can be adjusted to
 make the prompt more useful. Here, we modify the contents of the variable to include the
@@ -666,7 +696,7 @@ usually do the trick:
     set +x # Turn off tracing
 
 In this trivial example, we simply display the value of the variable number and mark the
-added line with a comment to facilitate its later identification and removal. 
+added line with a comment to facilitate its later identification and removal.
 This technique is particularly useful when watching the behavior of loops and arithmetic within
 scripts.
 
@@ -679,7 +709,7 @@ scripts.
 
 In this chapter, we looked at just a few of the problems that can crop up during script de-
 velopment. Of course, there are many more. The techniques described here will enable
-finding most common bugs. Debugging is a fine art that can be developed through 
+finding most common bugs. Debugging is a fine art that can be developed through
 experience, both in knowing how to avoid bugs (testing constantly throughout development)
 and in finding bugs (effective use of tracing).
 
