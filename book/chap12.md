@@ -831,7 +831,7 @@ Ah, much better! With our changes complete, type Ctrl-o to save our modified
 
 > Why Comments Are Important
 >
-> 为什么注释很重要？
+> _为什么注释很重要？_
 >
 >  Whenever you modify configuration files it's a good idea to add some comments
 to document your changes. Sure, you will remember what you changed
@@ -860,13 +860,10 @@ these lines:
 是为了给读者在可能的配置选项方面一些建议，或者给出正确的配置语法实例。例如，Ubuntu 8.04
 中的 .bashrc 文件包含这些行：
 >
-> \# some more ls aliases
->
-> \#alias ll='ls -l'
->
-> \#alias la='ls -A'
->
-> \#alias l='ls -CF'
+>     # some more ls aliases
+>     #alias ll='ls -l'
+>     #alias la='ls -A'
+>     #alias l='ls -CF'
 >
 > The last three lines are valid alias definitions that have been commented out. If
 you remove the leading "#" symbols from these three lines, a technique called
