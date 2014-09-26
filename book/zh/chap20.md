@@ -788,3 +788,6 @@ expression 的文件列表。正如我们所看到的，正则表达式会出现
 
 另外，关于下面的背景话题，Wikipedia 有不错的文章。
 
+* POSIX: <http://en.wikipedia.org/wiki/Posix>
+
+* ASCII: <http://en.wikipedia.org/wiki/Ascii>

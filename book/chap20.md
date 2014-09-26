@@ -1428,8 +1428,8 @@ In addition, the Wikipedia has good articles on the following background topics:
 
 另外，关于下面的背景话题，Wikipedia 有不错的文章。
 
-* POSIX: http://en.wikipedia.org/wiki/Posix
+* POSIX: <http://en.wikipedia.org/wiki/Posix>
 
-* ASCII: http://en.wikipedia.org/wiki/Ascii
+* ASCII: <http://en.wikipedia.org/wiki/Ascii>
 
 
