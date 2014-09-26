@@ -315,7 +315,7 @@ trap argument signal [signal...]
     Iteration 2 of 5
     Script interrupted.
 
-> 临时文件
+> _临时文件_
 >
 > 把信号处理程序包含在脚本中的一个原因是删除临时文件，在脚本执行期间，脚本可能会创建临时文件来存放中间结果。
 命名临时文件是一种艺术。传统上，在类似于 unix 系统中的程序会在 /tmp 目录下创建它们的临时文件，/tmp 是
