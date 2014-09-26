@@ -351,30 +351,6 @@ a high quality script.
 这条语句才返回一个 0 退出状态。而其它任何输入概不接受。有时候编写这类测试条件非常具有挑战性，
 但是为了能产出一个高质量的脚本，付出还是必要的。
 
-<div class="single" >
-<h3>Design Is A Function Of Time</h3>
-<h3>设计是时间的函数</h3>
-<p>When I was a college student studying industrial design, a wise professor stated
-that the degree of design on a project was determined by the amount of time given
-to the designer. If you were given five minutes to design a device “that kills
-flies,” you designed a flyswatter. If you were given five months, you might come
-up with a laser-guided “anti-fly system” instead.</p>
-<p>当我还是一名大学生，在学习工业设计的时候，一位明智的教授说过一个项目的设计程度是由
-给定设计师的时间量来决定的。如果给你五分钟来设计一款能够 “杀死苍蝇”
-的产品，你会设计出一个苍蝇拍。如果给你五个月的时间，你可能会制作出激光制导的
-“反苍蝇系统”。</p>
-<p> The same principle applies to programming. Sometimes a “quick and dirty”
-script will do if it’s only going to be used once and only used by the programmer.
-That kind of script is common and should be developed quickly to make the effort
-economical. Such scripts don’t need a lot of comments and defensive checks. On
-the other hand, if a script is intended for production use, that is, a script that will
-be used over and over for an important task or by multiple users, it needs much
-more careful development.</p>
-<p>同样的原理适用于编程。有时候一个 “快速但质量差” 的脚本就可以解决问题，
-但这个脚本只能被其作者使用一次。这类脚本很常见，为了节省气力也应该被快速地开发出来。
-所以这些脚本不需要太多的注释和防错检查。相反，如果一个脚本打算用于生产使用，也就是说，
-某个重要任务或者多个客户会不断地用到它，此时这个脚本就需要非常谨慎小心地开发了。</p>
-</div>
 
 > Design Is A Function Of Time
 >
