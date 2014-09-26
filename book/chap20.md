@@ -1174,7 +1174,7 @@ not. We will get there in future chapters. Here is the incantation:
 在我们先前的例子中，我们查看过单个电话号码，并且检查了它们的格式。一个更现实的
 情形是检查一个数字列表，所以我们先创建一个列表。我们将背诵一个神奇的咒语到命令行中。
 它会很神奇，因为我们还没有涵盖所涉及的大部分命令，但是不要担心。我们将在后面的章节里面
-讨论那些命令。这是咒语：
+讨论那些命令。这里是这个咒语：
 
     [me@linuxbox ~]$ for i in {1..10}; do echo "(${RANDOM:0:3}) ${RANDO
     M:0:3}-${RANDOM:0:4}" >> phonelist.txt; done
@@ -1204,7 +1204,7 @@ problem:
 Some of the numbers are malformed, which is perfect for our purposes, since we will use
 grep to validate them.
 
-一些号码是残缺的，但它们符号我们的目的，以为我们将使用 grep 命令来验证它们。
+一些号码是残缺不全的，但是它们很适合我们的需求，因为我们将使用 grep 命令来验证它们。
 
 One useful method of validation would be to scan the file for invalid numbers and display
 the resulting list on the display:
