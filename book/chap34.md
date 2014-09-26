@@ -16,7 +16,7 @@ In modern versions of bash, for is available in two forms.
 
 实现一个 for 循环，很自然的，要用 for 命令。在现代版的 bash 中，有两种可用的 for 循环格式。
 
-### for: Traditional Shell Form 
+### for: Traditional Shell Form
 
 ### for: 传统 shell 格式
 
@@ -144,33 +144,35 @@ The use of shift has also been eliminated.
 正如我们所看到的，我们已经更改了最外围的循环，用 for 循环来代替 while 循环。通过省略 for 命令的 words 列表，
 用位置参数替而代之。在循环体内，之前的变量 i 已经改为变量 j。同时 shift 命令也被淘汰掉了。
 
-<div class="single">
-<h3>Why i?</h3>
-<h3>为什么是 i？</h3>
-
-<p>You may have noticed that the variable i was chosen for each of the for loop
+> _Why i?_
+>
+> _为什么是 i？_
+>
+> You may have noticed that the variable i was chosen for each of the for loop
 examples above. Why? No specific reason actually, besides tradition. The variable
 used with for can be any valid variable, but i is the most common, followed by
-j and k.</p>
-
-<p>你可能已经注意到上面所列举的 for 循环的实例都选择 i 作为变量。为什么呢？ 实际上没有具体原因，除了传统习惯。
-for 循环使用的变量可以是任意有效的变量，但是 i 是最常用的一个，其次是 j 和 k。</p>
-
-<p>The basis of this tradition comes from the Fortran programming language. In For-
+j and k.
+>
+> 你可能已经注意到上面所列举的 for 循环的实例都选择 i 作为变量。为什么呢？ 实际上没有具体原因，除了传统习惯。
+for 循环使用的变量可以是任意有效的变量，但是 i 是最常用的一个，其次是 j 和 k。
+>
+> The basis of this tradition comes from the Fortran programming language. In For-
 tran, undeclared variables starting with the letters I, J, K, L, and M are automati-
 cally typed as integers, while variables beginning with any other letter are typed
 as real (numbers with decimal fractions). This behavior led programmers to use
 the variables I, J, and K for loop variables, since it was less work to use them
 when a temporary variable (as loop variables often are) was needed.
-It also led to the following Fortran-based witticism:</p>
-<p>“GOD is real, unless declared integer.”</p>
-
-<p>这一传统的基础源于 Fortran 编程语言。在 Fortran 语言中，以字母 I，J，K，L 和 M 开头的未声明变量的类型
+It also led to the following Fortran-based witticism:
+>
+> “GOD is real, unless declared integer.”
+>
+> 这一传统的基础源于 Fortran 编程语言。在 Fortran 语言中，以字母 I，J，K，L 和 M 开头的未声明变量的类型
 自动设为整形，而以其它字母开头的变量则为实数类型（带有小数的数字）。这种行为导致程序员使用变量 I，J，和 K 作为循环变量，
-因为当需要一个临时变量（正如循环变量）的时候，使用它们工作量比较少。这也引出了如下基于 fortran 的俏皮话：</p>
-<p> “神是真实的，除非是声明的整数。” </p>
-</div>
-<br />
+因为当需要一个临时变量（正如循环变量）的时候，使用它们工作量比较少。这也引出了如下基于 fortran 的俏皮话：
+>
+> “神是真实的，除非是声明的整数。”
+{: .single}
+
 
 ### for: C Language Form
 
