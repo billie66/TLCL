@@ -345,10 +345,9 @@ could do this:</p>
 或几本。存储在此目录下的字典文件，其内容仅仅是一个长长的单词列表，每行一个单词，按照字母顺序排列。在我的
 系统中，这个文件仅包含98,000个单词。为了找到可能的上述字谜的答案，我们可以这样做：</p>
 
-<p>[me@linuxbox ~]$ grep -i '^..j.r$' /usr/share/dict/words </p>
-
-<p>Major</p>
-<p>major</p>
+<pre><code>[me@linuxbox ~]$ grep -i '^..j.r$' /usr/share/dict/words </p>
+Major
+major</code></pre>
 <p>Using this regular expression, we can find all the words in our dictionary file that
 are five letters long and have a “j” in the third position and an “r” in the last
 position.</p>
