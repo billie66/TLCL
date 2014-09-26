@@ -222,9 +222,9 @@ whatis 程序显示匹配特定关键字的手册页的名字和一行命令说�
 {: .single}
 
 
-### info －显示程序 Info 条目
+### info 一 显示程序 Info 条目
 
-GNU 项目提供了一个命令程序手册页的替代物，称为"info"。info 内容可通过 info 阅读器
+GNU 项目提供了一个命令程序手册页的替代物，称为 "info"。info 内容可通过 info 阅读器
 程序读取。info 页是超级链接形式的，和网页很相似。这有个例子：
 
     File: coreutils.info,    Node: ls invocation,    Next: dir invocation,

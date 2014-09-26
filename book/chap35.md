@@ -897,7 +897,7 @@ which increase or decrease the value of their parameters by one. This style of n
 from the C programming language and has been incorporated by several other
 programming languages, including bash.
 
-这些赋值运算符为许多常见算术任务提供了快捷方式。特别关注一下自增（++）和自减（--）运算符，它们会把它们的参数值加1或减1。
+这些赋值运算符为许多常见算术任务提供了快捷方式。特别关注一下自增（++）和自减（-\-）运算符，它们会把它们的参数值加1或减1。
 这种风格的表示法取自C 编程语言并且被其它几种编程语言吸收，包括 bash。
 
 The operators may appear either at the front of a parameter or at the end. While they both
@@ -936,10 +936,10 @@ For most shell applications, prefixing the operator will be the most useful.
 
 对于大多数 shell 应用来说，前缀运算符最有用。
 
-The ++ and -- operators are often used in conjunction with loops.
+The ++ and -\- operators are often used in conjunction with loops.
 We will make some improvements to our modulo script to tighten it up a bit:
 
-自增 ++ 和 自减 -- 运算符经常和循环操作结合使用。我们将改进我们的 modulo 脚本，让代码更紧凑些：
+自增 ++ 和 自减 -\- 运算符经常和循环操作结合使用。我们将改进我们的 modulo 脚本，让代码更紧凑些：
 
     #!/bin/bash
     # modulo2 : demonstrate the modulo operator
