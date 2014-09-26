@@ -82,16 +82,16 @@ title: 自顶向下设计
     TIME_STAMP="Generated $CURRENT_TIME, by $USER"
     cat << _EOF_
     <HTML>
-            <HEAD>
-                    <TITLE>$TITLE</TITLE>
-            </HEAD>
-            <BODY>
-                    <H1>$TITLE</H1>
-                    <P>$TIME_STAMP</P>
-                    $(report_uptime)
-                    $(report_disk_space)
-                    $(report_home_space)
-            </BODY>
+        <HEAD>
+            <TITLE>$TITLE</TITLE>
+        </HEAD>
+        <BODY>
+            <H1>$TITLE</H1>
+            <P>$TIME_STAMP</P>
+            $(report_uptime)
+            $(report_disk_space)
+            $(report_home_space)
+        </BODY>
     </HTML>
     _EOF_
 
@@ -118,8 +118,8 @@ title: 自顶向下设计
     3     # Shell function demo
     4
     5     function funct {
-    6           echo "Step 2"
-    7           return
+    6         echo "Step 2"
+    7         return
     8     }
     9
     10     # Main program starts here
@@ -153,20 +153,20 @@ echo 命令。注意为了使函数调用被识别出是 shell 函数，而不�
     }
     cat << _EOF_
     <HTML>
-          <HEAD>
-                  <TITLE>$TITLE</TITLE>
-          </HEAD>
-          <BODY>
-                  <H1>$TITLE</H1>
-                  <P>$TIME_STAMP</P>
-                  $(report_uptime)
-                  $(report_disk_space)
-                  $(report_home_space)
-          </BODY>
+        <HEAD>
+            <TITLE>$TITLE</TITLE>
+        </HEAD>
+        <BODY>
+            <H1>$TITLE</H1>
+            <P>$TIME_STAMP</P>
+            $(report_uptime)
+            $(report_disk_space)
+            $(report_home_space)
+        </BODY>
     </HTML>
     _EOF_
 
-Shell 函数的命名规则和变量一样。一个函数必须至少包含一条命令。这条_return_命令（是可选的）满足要求。
+Shell 函数的命名规则和变量一样。一个函数必须至少包含一条命令。这条 return 命令（是可选的）满足要求。
 
 ### 局部变量
 
@@ -240,16 +240,16 @@ shell 函数可以在脚本之间进行剪切和粘贴。
 修改这些函数，让它们包含一些反馈信息：
 
     report_uptime () {
-    echo "Function report_uptime executed."
-    return
+      echo "Function report_uptime executed."
+      return
     }
     report_disk_space () {
-    echo "Function report_disk_space executed."
-    return
+      echo "Function report_disk_space executed."
+      return
     }
     report_home_space () {
-    echo "Function report_home_space executed."
-    return
+      echo "Function report_home_space executed."
+      return
     }
 
 然后再次运行这个脚本：
@@ -273,46 +273,46 @@ shell 函数可以在脚本之间进行剪切和粘贴。
 我们的函数框架已经各就各位并且能工作，是时候更新一些函数代码了。首先，是 report_uptime 函数：
 
     report_uptime () {
-    cat <<- _EOF_
-    <H2>System Uptime</H2>
-    <PRE>$(uptime)</PRE>
-    _EOF_
-    return
+      cat <<- _EOF_
+      <H2>System Uptime</H2>
+      <PRE>$(uptime)</PRE>
+      _EOF_
+      return
     }
 
-这些代码相当直截了当。我们使用一个 here 文档来输出标题和 uptime 命令的输出结果，命令结果被&lt;PRE&gt;标签包围，
+这些代码相当直截了当。我们使用一个 here 文档来输出标题和 uptime 命令的输出结果，命令结果被 <PRE> 标签包围，
 为的是保持命令的输出格式。这个 report_disk_space 函数类似：
 
     report_disk_space () {
-    cat <<- _EOF_
-    <H2>Disk Space Utilization</H2>
-    <PRE>$(df -h)</PRE>
-    _EOF_
-    return
+      cat <<- _EOF_
+      <H2>Disk Space Utilization</H2>
+      <PRE>$(df -h)</PRE>
+      _EOF_
+      return
     }
 
 这个函数使用 df -h 命令来确定磁盘空间的数量。最后，我们将建造 report_home_space 函数：
 
     report_home_space () {
-    cat <<- _EOF_
-    <H2>Home Space Utilization</H2>
-    <PRE>$(du -sh /home/*)</PRE>
-    _EOF_
-    return
+      cat <<- _EOF_
+      <H2>Home Space Utilization</H2>
+      <PRE>$(du -sh /home/*)</PRE>
+      _EOF_
+      return
     }
 
-我们使用带有-sh 选项的 du 命令来完成这个任务。然而，这并不是此问题的完整解决方案。虽然它会
+我们使用带有 -sh 选项的 du 命令来完成这个任务。然而，这并不是此问题的完整解决方案。虽然它会
 在一些系统（例如 Ubuntu）中起作用，但是在其它系统中它不工作。这是因为许多系统会设置主目录的
 权限，以此阻止其它用户读取它们，这是一个合理的安全措施。在这些系统中，这个 report_home_space 函数，
 只有用超级用户权限执行我们的脚本时，才会工作。一个更好的解决方案是让脚本能根据用户的使用权限来
 调整自己的行为。我们将在下一章中讨论这个问题。
 
 
-> 你的.bashrc 文件中的 shell 函数
+> _你的 .bashrc 文件中的 shell 函数_
 >
 > Shell 函数是更为完美的别名替代物，实际上是创建较小的个人所用命令的首选方法。别名
  非常局限于命令的种类和它们支持的 shell 功能，然而 shell 函数允许任何可以编写脚本的东西。
- 例如，如果我们喜欢 为我们的脚本开发的这个 report_disk_space shell 函数，我们可以为我们的.bashrc 文件
+ 例如，如果我们喜欢 为我们的脚本开发的这个 report_disk_space shell 函数，我们可以为我们的 .bashrc 文件
  创建一个相似的名为 ds 的函数：
 >
 >     ds () {

@@ -169,16 +169,16 @@ through command substitution:
     TIME_STAMP="Generated $CURRENT_TIME, by $USER"
     cat << _EOF_
     <HTML>
-            <HEAD>
-                    <TITLE>$TITLE</TITLE>
-            </HEAD>
-            <BODY>
-                    <H1>$TITLE</H1>
-                    <P>$TIME_STAMP</P>
-                    $(report_uptime)
-                    $(report_disk_space)
-                    $(report_home_space)
-            </BODY>
+        <HEAD>
+            <TITLE>$TITLE</TITLE>
+        </HEAD>
+        <BODY>
+            <H1>$TITLE</H1>
+            <P>$TIME_STAMP</P>
+            $(report_uptime)
+            $(report_disk_space)
+            $(report_home_space)
+        </BODY>
     </HTML>
     _EOF_
 
@@ -207,7 +207,7 @@ contained within the function.
 
 这里的 name 是函数名，commands 是一系列包含在函数中的命令。
 
-Both forms are equivalent and may be used interchangeably. 
+Both forms are equivalent and may be used interchangeably.
 Below we see a script that demonstrates the use of a shell function:
 
 两种形式是等价的，可以交替使用。下面我们将查看一个说明 shell 函数使用方法的脚本：
@@ -217,8 +217,8 @@ Below we see a script that demonstrates the use of a shell function:
        3     # Shell function demo
        4
        5     function funct {
-       6           echo "Step 2"
-       7           return
+       6       echo "Step 2"
+       7       return
        8     }
        9
        10     # Main program starts here
@@ -265,23 +265,23 @@ We’ll add minimal shell function definitions to our script:
     }
     cat << _EOF_
     <HTML>
-          <HEAD>
-                  <TITLE>$TITLE</TITLE>
-          </HEAD>
-          <BODY>
-                  <H1>$TITLE</H1>
-                  <P>$TIME_STAMP</P>
-                  $(report_uptime)
-                  $(report_disk_space)
-                  $(report_home_space)
-          </BODY>
+        <HEAD>
+            <TITLE>$TITLE</TITLE>
+        </HEAD>
+        <BODY>
+            <H1>$TITLE</H1>
+            <P>$TIME_STAMP</P>
+            $(report_uptime)
+            $(report_disk_space)
+            $(report_home_space)
+        </BODY>
     </HTML>
     _EOF_
 
 Shell function names follow the same rules as variables. A function must contain at least
 one command. The return command (which is optional) satisfies the requirement.
 
-Shell 函数的命名规则和变量一样。一个函数必须至少包含一条命令。这条_return_命令（是可选的）满足要求。
+Shell 函数的命名规则和变量一样。一个函数必须至少包含一条命令。这条 return 命令（是可选的）满足要求。
 
 ### Local Variables
 
@@ -399,15 +399,15 @@ sure of the cause. If we change the functions to include some feedback:
 
     report_uptime () {
     echo "Function report_uptime executed."
-    return
+      return
     }
     report_disk_space () {
-    echo "Function report_disk_space executed."
-    return
+      echo "Function report_disk_space executed."
+      return
     }
     report_home_space () {
-    echo "Function report_home_space executed."
-    return
+      echo "Function report_home_space executed."
+      return
     }
 
 and run the script again:
@@ -438,26 +438,26 @@ function code. First, the report_uptime function:
 我们的函数框架已经各就各位并且能工作，是时候更新一些函数代码了。首先，是 report_uptime 函数：
 
     report_uptime () {
-    cat <<- _EOF_
-    <H2>System Uptime</H2>
-    <PRE>$(uptime)</PRE>
-    _EOF_
-    return
+      cat <<- _EOF_
+      <H2>System Uptime</H2>
+      <PRE>$(uptime)</PRE>
+      _EOF_
+      return
     }
 
 It’s pretty straightforward. We use a here document to output a section header and the
-output of the uptime command, surrounded by &lt;PRE&gt; tags to preserve the formatting
+output of the uptime command, surrounded by <PRE> tags to preserve the formatting
 of the command. The report_disk_space function is similar:
 
-这些代码相当直截了当。我们使用一个 here 文档来输出标题和 uptime 命令的输出结果，命令结果被&lt;PRE&gt;标签包围，
+这些代码相当直截了当。我们使用一个 here 文档来输出标题和 uptime 命令的输出结果，命令结果被 <PRE> 标签包围，
 为的是保持命令的输出格式。这个 report_disk_space 函数类似：
 
     report_disk_space () {
-    cat <<- _EOF_
-    <H2>Disk Space Utilization</H2>
-    <PRE>$(df -h)</PRE>
-    _EOF_
-    return
+      cat <<- _EOF_
+      <H2>Disk Space Utilization</H2>
+      <PRE>$(df -h)</PRE>
+      _EOF_
+      return
     }
 
 This function uses the df -h command to determine the amount of disk space. Lastly,
@@ -466,11 +466,11 @@ we’ll build the report_home_space function:
 这个函数使用 df -h 命令来确定磁盘空间的数量。最后，我们将建造 report_home_space 函数：
 
     report_home_space () {
-    cat <<- _EOF_
-    <H2>Home Space Utilization</H2>
-    <PRE>$(du -sh /home/*)</PRE>
-    _EOF_
-    return
+      cat <<- _EOF_
+      <H2>Home Space Utilization</H2>
+      <PRE>$(du -sh /home/*)</PRE>
+      _EOF_
+      return
     }
 
 We use the du command with the -sh options to perform this task. This, however, is not
@@ -482,7 +482,7 @@ will only work if our script is run with superuser privileges. A better solution
 have the script could adjust its behavior according to the privileges of the user. We will
 take this up in the next chapter.
 
-我们使用带有-sh 选项的 du 命令来完成这个任务。然而，这并不是此问题的完整解决方案。虽然它会
+我们使用带有 -sh 选项的 du 命令来完成这个任务。然而，这并不是此问题的完整解决方案。虽然它会
 在一些系统（例如 Ubuntu）中起作用，但是在其它系统中它不工作。这是因为许多系统会设置主目录的
 权限，以此阻止其它用户读取它们，这是一个合理的安全措施。在这些系统中，这个 report_home_space 函数，
 只有用超级用户权限执行我们的脚本时，才会工作。一个更好的解决方案是让脚本能根据用户的使用权限来
@@ -491,7 +491,7 @@ take this up in the next chapter.
 <div class="single">
 <h3>Shell Functions In Your .bashrc File</h3>
 
-<h3>你的.bashrc 文件中的 shell 函数</h3>
+<h3>你的 .bashrc 文件中的 shell 函数</h3>
 
 <p> Shell functions make excellent replacements for aliases, and are actually the
 preferred method of creating small commands for personal use. Aliases are very
@@ -502,12 +502,12 @@ could create a similar function named ds for our .bashrc file:
  </p>
  <p>Shell 函数是更为完美的别名替代物，实际上是创建较小的个人所用命令的首选方法。别名
  非常局限于命令的种类和它们支持的 shell 功能，然而 shell 函数允许任何可以编写脚本的东西。
- 例如，如果我们喜欢 为我们的脚本开发的这个 report_disk_space shell 函数，我们可以为我们的.bashrc 文件
+ 例如，如果我们喜欢 为我们的脚本开发的这个 report_disk_space shell 函数，我们可以为我们的 .bashrc 文件
  创建一个相似的名为 ds 的函数：</p>
 
 <pre>ds () {
-echo “Disk Space Utilization For $HOSTNAME”
-df -h
+  echo “Disk Space Utilization For $HOSTNAME”
+  df -h
 } </pre>
 
 </div>
