@@ -697,7 +697,7 @@ filename within the single quotes:
 
 > Tunneling With SSH
 >
-> SSH 通道
+> _SSH 通道_
 >
 > Part of what happens when you establish a connection with a remote host via SSH
 is that an encrypted tunnel is created between the local and remote systems.
@@ -737,7 +737,7 @@ appears on the local system. On some systems, you may need to use the “-Y”
 option rather than the “-X” option to do this.
 >
 > 这个 xload 命令在远端执行之后，它的窗口就会出现在本地。在某些系统中，你可能需要
-使用“－Y”选项，而不是“－X”选项来完成这个操作。
+使用 “－Y” 选项，而不是 “－X” 选项来完成这个操作。
 {: .single}
 
 #### scp And sftp
@@ -813,7 +813,7 @@ sftp://开头的 URI， 来操作存储在运行着 SSH 服务器的远端系统
 
 > An SSH Client For Windows?
 >
-> Windows 中的 SSH 客户端
+> _Windows 中的 SSH 客户端_
 >
 > Let’s say you are sitting at a Windows machine but you need to log in to your
 Linux server and get some real work done, what do you do? Get an SSH client
@@ -829,9 +829,9 @@ for the scp and sftp programs.
 能够显示一个终端窗口，而且允许 Windows 用户在远端主机中打开一个 SSH（或者 telnet）会话。
 这个程序也提供了 scp 和 sftp 程序的类似物。
 >
-> PuTTY is available at http://www.chiark.greenend.org.uk/~sgtatham/putty/
+> PuTTY is available at <http://www.chiark.greenend.org.uk/~sgtatham/putty/>
 >
-> PuTTY 可在链接 http://www.chiark.greenend.org.uk/~sgtatham/putty/ 处得到。
+> PuTTY 可在链接 <http://www.chiark.greenend.org.uk/~sgtatham/putty/> 处得到。
 {: .single}
 
 
