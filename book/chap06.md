@@ -112,11 +112,11 @@ examples:
 
 Here we see the results for three different commands. Notice that the one for ls (taken
 from a Fedora system) and how the ls command is actually an alias for the ls command
-with the “-- color=tty” option added. Now we know why the output from ls is displayed
+with the “-\-color=tty” option added. Now we know why the output from ls is displayed
 in color!
 
 我们看到这三个不同命令的检测结果。注意，ls 命令（在 Fedora 系统中）的检查结果，ls 命令实际上
-是 ls 命令加上选项"--color=tty"的别名。现在我们知道为什么 ls 的输出结果是有颜色的！
+是 ls 命令加上选项"-\-color=tty"的别名。现在我们知道为什么 ls 的输出结果是有颜色的！
 
 ### which – Display An Executable's Location
 
@@ -160,12 +160,12 @@ available for each kind of command.
 
 ### help – Get Help For Shell Builtins
 
-### help －得到 shell 内部命令的帮助文档
+### help － 得到 shell 内部命令的帮助文档
 
 bash has a built-in help facility available for each of the shell builtins. To use it, type
 “help” followed by the name of the shell builtin. For example:
 
-bash 有一个内建的帮助工具，可供每一个 shell 内部命令使用。输入"help"，接着是 shell
+bash 有一个内建的帮助工具，可供每一个 shell 内部命令使用。输入“help”，接着是 shell
 内部命令名。例如：
 
     [me@linuxbox ~]$ help cd
@@ -184,7 +184,7 @@ items. In the case of the cd command above:
 This notation says that the command cd may be followed optionally by either a “-L” or a
 “-P” and further, optionally followed by the argument “dir”.
 
-这种表示法说明，cd 命令可能有一个"-L"选项或者"-P"选项，进一步，可能有参数"dir"。
+这种表示法说明，cd 命令可能有一个“-L”选项或者“-P”选项，进一步，可能有参数“dir”。
 
 While the output of help for the cd commands is concise and accurate, it is by no
 means tutorial and as we can see, it also seems to mention a lot of things we haven't
@@ -193,23 +193,23 @@ talked about yet! Don't worry. We'll get there.
 虽然 cd 命令的帮助文档很简洁准确，但它决不是教材。正如我们所看到的，它似乎提到了许多
 我们还没有谈论到的东西！不要担心，我们会学到的。
 
-### --help – Display Usage Information
+### -\-help – Display Usage Information
 
-### --help — 显示用法信息
+### -\-help - 显示用法信息
 
-Many executable programs support a “--help” option that displays a description of the
+Many executable programs support a “-\-help” option that displays a description of the
 command's supported syntax and options. For example:
 
-许多可执行程序支持一个"--help"选项，这个选项是显示命令所支持的语法和选项说明。例如：
+许多可执行程序支持一个 -\-help 选项，这个选项是显示命令所支持的语法和选项说明。例如：
 
     [me@linuxbox ~]$ mkdir --help
     Usage: mkdir [OPTION] DIRECTORY...
     Create ...
 
-Some programs don't support the “--help” option, but try it anyway. Often it results in an
+Some programs don't support the “-\-help” option, but try it anyway. Often it results in an
 error message that will reveal the same usage information.
 
-一些程序不支持"--help"选项，但不管怎样试一下。这经常会导致输出错误信息，但同时能
+一些程序不支持 -\-help 选项，但不管怎样试一下。这经常会导致输出错误信息，但同时能
 揭示一样的命令用法信息。
 
 ### man – Display A Program's Manual Page
@@ -227,7 +227,7 @@ page)。一个特殊的叫做 man 的分页程序，可用来浏览他们。它�
 
 where “program” is the name of the command to view.
 
-"program"是要浏览的命令名。
+“program”是要浏览的命令名。
 
 Man pages vary somewhat in format but generally contain a title, a synopsis of the
 command's syntax, a description of the command's purpose, and a listing and description
