@@ -354,7 +354,6 @@ position.</p>
 <p>使用这个正则表达式，我们能在我们的字典文件中查找到包含五个字母，且第三个字母
 是“j”，最后一个字母是“r”的所有单词。</p>
 </div>
-<br />
 
 ### Bracket Expressions And Character Classes
 
@@ -784,9 +783,7 @@ ASCII) for its character set, so be sure if this is really what you want.  </p>
 是否是你真正想要的效果。通过把这条语句添加到你的.bashrc 文件中，你可以使这个更改永久有效。</p>
 
 <p>export LANG=POSIX </p>
-
 </div>
-<br />
 
 ### POSIX Basic Vs. Extended Regular Expressions
 
@@ -871,7 +868,6 @@ Stallman), and was adopted by the IEEE. </p>
 操作系统中找到。“POSIX” 这个名字，象征着可移植的操作系统接口（为了额外的，添加末尾的 “X” ），
 是由 Richard Stallman 建议的（ 是的，的确是 Richard Stallman ），后来被 IEEE 采纳。</p>
 </div>
-<br />
 
 ### Alternation
 

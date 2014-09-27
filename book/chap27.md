@@ -509,9 +509,7 @@ could create a similar function named ds for our .bashrc file:
   echo “Disk Space Utilization For $HOSTNAME”
   df -h
 } </pre>
-
 </div>
-<br />
 
 ### Summing Up
 

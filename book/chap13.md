@@ -1337,8 +1337,6 @@ foo1.txt, we would enter the following:
 
     :w foo1.txt
 
-<br />
-
 ---
 
 Note: While the command above saves the file under a new name, it does not

@@ -466,7 +466,6 @@ file system corruption, one of the worst things that can happen on a computer. <
 没有卸载设备，就移除了它，就有可能没有把注定要发送到设备中的数据输送完毕。在某些情况下，
 这些数据可能包含重要的目录更新信息，这将导致文件系统损坏，这是发生在计算机中的最坏的事情之一。</p>
 </div>
-<br />
 
 Determining Device Names
 
@@ -918,7 +917,6 @@ where you are forced to run fsck.  </p>
 字母。这个尤其适用，因为你可能会说出上文提到的词，若你发现自己处于这种境况下，
 被强制来运行 fsck 命令时。</p>
 </div>
-<br />
 
 Formatting Floppy Disks
 
@@ -1085,7 +1083,6 @@ genisoimage, respectively.  </p>
 这创建了一个与 GNU GPL 不相兼容的协议。结果，就 fork 了这个 cdrtools 项目，
 目前新项目里面包含 cdrecord 和 mkisofs 的替代程序，分别是 wodim 和 genisoimage。</p>
 </div>
-<br />
 
 Writing CD-ROM Images
 

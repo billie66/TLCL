@@ -134,9 +134,7 @@ by becoming the superuser and running updatedb at the prompt.  </p>
 updatedb 程序。因为数据库不能被持续地更新，所以当使用 locate 时，你会发现
 目前最新的文件不会出现。为了克服这个问题，有可能手动运行 updatedb 程序，
 更改为超级用户身份，在提示符下运行 updatedb 命令。</p>
-
 </div>
-<br />
 
 ### find – Find Files The Hard Way
 
@@ -1062,8 +1060,6 @@ execute xargs with the --show-limits option.
 
 ---
 
-<br />
-
 <div class="single">
 <h3>Dealing With Funny Filenames</h3>
 
@@ -1096,7 +1092,6 @@ spaces in their names, are handled correctly. </p>
 
 <p>使用这项技术，我们可以保证所有文件，甚至那些文件名中包含空格的文件，都能被正确地处理。</p>
 </div>
-<br />
 
 A Return To The Playground
 

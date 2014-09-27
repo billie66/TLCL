@@ -222,7 +222,6 @@ programs discussed later in this chapter.</p>
 简单；它只简单地涉及到删除违规的回车符。通过随后本章中讨论的一些程序，这个工作很容易
 完成。</p>
 </div>
-<br />
 
 cat also has options that are used to modify text. The two most prominent are -n,
 which numbers lines, and -s, which suppresses the output of multiple blank lines. We
@@ -998,7 +997,6 @@ end of the line: </p>
 
 <p>Coreutils 软件包也提供了 unexpand 程序，用 tab 来代替空格。</p>
 </div>
-<br />
 
 When working with fields, it is possible to specify a different field delimiter rather than
 the tab character. Here we will extract the first field from the /etc/passwd file:
@@ -1727,9 +1725,7 @@ encoding. Wikipedia contains a good article on the subject:</p>
 
 <p>大量的 email 程序和 USENET 新闻读者都支持 ROT13 编码。Wikipedia 上面有一篇关于这个主题的好文章：</p>
 <p>http://en.wikipedia.org/wiki/ROT13</p>
-
 </div>
-<br />
 
 tr can perform another trick, too. Using the -s option, tr can “squeeze” (delete)
 repeated instances of a character:
@@ -2364,9 +2360,7 @@ of this book, they are very good skills for the Linux command line user.</p>
 awk 程序通常逐行处理文本文件，这点类似于 sed，awk 使用了一种方案，其与 sed 中地址
 之后跟随编辑命令的概念相似。虽然关于 awk 和 perl 的内容都超出了本书所讨论的范围，
 但是对于 Linux 命令行用户来说，它们都是非常好的技能。</p>
-
 </div>
-<br />
 
 #### aspell
 

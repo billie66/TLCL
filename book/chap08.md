@@ -157,7 +157,6 @@ option (“almost all”) will provide a correct listing of hidden files: </p>
 命令能够提供一份正确的隐藏文件清单：</p>
 <p>ls -A</p>
 </div>
-<br />
 
 ### Tilde Expansion
 

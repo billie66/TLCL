@@ -632,8 +632,6 @@ Try out the color codes and see what you can create!
 
 试试这些颜色编码，看看你能定制出怎样的提示符！
 
-<br />
-
 ---
 
 Note: Besides the normal (0) and bold (1) character attributes, text may also be

@@ -69,6 +69,7 @@ hr {
 table.multi {
   text-align: left;
   border: 1px;
+  margin: 20px 0 30px;
 }
 
 td {
