@@ -302,14 +302,14 @@ tar 包制作完成之后，我们卸载硬盘，然后把它连接到第二个�
 
 通过给命令添加末尾的路径名，tar 命令就只会恢复指定的文件。可以指定多个路径名。注意
 路径名必须是完全的，精准的相对路径名，就如存储在归档文件中的一样。当指定路径名的时候，
-通常不支持通配符；然而，GNU 版本的 tar 命令（在 Linux 发行版中最常出现）通过--wildcards 选项来
+通常不支持通配符；然而，GNU 版本的 tar 命令（在 Linux 发行版中最常出现）通过-\-wildcards 选项来
 支持通配符。这个例子使用了之前 playground.tar 文件：
 
     [me@linuxbox ~]$ cd foo
-    [me@linuxbox foo]$ tar xf ../playground2.tar --wildcards 'home/me/playground/dir-\*/file-A'
+    [me@linuxbox foo]$ tar xf ../playground2.tar --wildcards 'home/me/playground/dir-*/file-A'
 
 
-这个命令将只会抽取匹配特定路径名的文件，路径名中包含了通配符 dir-\*。
+这个命令将只会抽取匹配特定路径名的文件，路径名中包含了通配符 dir-*。
 
 tar 命令经常结合 find 命令一起来制作归档文件。在这个例子里，我们将会使用 find 命令来
 产生一个文件集合，然后这些文件被包含到归档文件中。
@@ -331,7 +331,7 @@ tar 命令也可以利用标准输出和输入。这里是一个完整的例子:
 
 在这个例子里面，我们使用 find 程序产生了一个匹配文件列表，然后把它们管道到 tar 命令中。
 如果指定了文件名“-”，则其被看作是标准输入或输出，正是所需（顺便说一下，使用“-”来表示
-标准输入／输出的惯例，也被大量的其它程序使用）。这个--file-from 选项（也可以用-T 来指定）
+标准输入／输出的惯例，也被大量的其它程序使用）。这个-\-file-from 选项（也可以用-T 来指定）
 导致 tar 命令从一个文件而不是命令行来读入它的路径名列表。最后，这个由 tar 命令产生的归档
 文件被管道到 gzip 命令中，然后创建了压缩归档文件 playground.tgz。此.tgz 扩展名是命名
 由 gzip 压缩的 tar 文件的常规扩展名。有时候也会使用.tar.gz 这个扩展名。
@@ -513,11 +513,11 @@ rsync 被这样唤醒：
     [me@linuxbox ~]$ mkdir /media/BigDisk/backup
     [me@linuxbox ~]$ sudo rsync -av --delete /etc /home /usr/local /media/BigDisk/backup
 
-在这个例子里，我们把/etc，/home，和/usr/local 目录从我们的系统中复制到假想的存储设备中。
-我们包含了--delete 这个选项，来删除可能在备份设备中已经存在但却不再存在于源设备中的文件，
+在这个例子里，我们把 /etc，/home，和 /usr/local 目录从我们的系统中复制到假想的存储设备中。
+我们包含了-\-delete 这个选项，来删除可能在备份设备中已经存在但却不再存在于源设备中的文件，
 （这与我们第一次创建备份无关，但是会在随后的复制操作中有用途）。挂载外部驱动器，运行
 rsync 命令，不断重复这个过程，是一个不错的（虽然不理想）方式来保存少量的系统备份文件。
-当然，别名会对这个操作更有帮助些。我们将会创建一个别名，并把它添加到.bashrc 文件中，
+当然，别名会对这个操作更有帮助些。我们将会创建一个别名，并把它添加到 .bashrc 文件中，
 来提供这个特性：
 
     alias backup='sudo rsync -av --delete /etc /home /usr/local /media/BigDisk/backup'
@@ -535,7 +535,7 @@ rsync 程序的真正好处之一，是它可以被用来在网络间复制文�
     [me@linuxbox ~]$ sudo rsync -av --delete --rsh=ssh /etc /home /usr/local remote-sys:/backup
 
 
-我们对命令做了两处修改，来方便网络间文件复制。首先，我们添加了--rsh=ssh 选项，其指示
+我们对命令做了两处修改，来方便网络间文件复制。首先，我们添加了-\-rsh=ssh 选项，其指示
 rsync 使用 ssh 程序作为它的远程 shell。以这种方式，我们就能够使用一个 ssh 加密通道，把数据
 安全地传送到远程主机中。其次，通过在目标路径名前加上远端主机的名字（在这种情况下，
 远端主机名为 remote-sys），来指定远端主机。

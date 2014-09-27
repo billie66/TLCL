@@ -421,11 +421,11 @@ world:
 By passing the argument “600”, we were able to set the permissions of the owner to read
 and write while removing all permissions from the group owner and world. Though
 remembering the octal to binary mapping may seem inconvenient, you will usually only
-have to use a few common ones: 7 (rwx), 6 (rw-), 5 (r-x), 4 (r--), and 0 (---).
+have to use a few common ones: 7 (rwx), 6 (rw-), 5 (r-x), 4 (r-\-), and 0 (-\-\-).
 
 通过传递参数 “600”，我们能够设置文件所有者的权限为读写权限，而删除用户组和其他人的所有
 权限。虽然八进制到二进制的映射看起来不方便，但通常只会用到一些常见的映射关系：
-7 (rwx)， 6 (rw-)，5 (r-x)， 4 (r--)， and 0 (---)。
+7 (rwx)， 6 (rw-)，5 (r-x)， 4 (r-\-)， and 0 (-\-\-)。
 
 chmod also supports a symbolic notation for specifying file modes. Symbolic notation is
 divided into three parts: who the change will affect, which operation will be performed,
@@ -561,7 +561,7 @@ caution regarding the “--recursive” option: it acts on both files and direct
 as useful as one would hope since, we rarely want files and directories to have the same
 permissions.
 
-看一下 chmod 命令的手册页，可以得到更详尽的信息和 chmod 命令的各个选项。要注意"--recursive"选项：
+看一下 chmod 命令的手册页，可以得到更详尽的信息和 chmod 命令的各个选项。要注意"-\-recursive"选项：
 它可以同时作用于文件和目录，所以它并不是如我们期望的那么有用处，因为我们很少希望文件和
 目录拥有同样的权限。
 

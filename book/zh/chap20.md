@@ -682,7 +682,7 @@ Alternation 并不局限于两种选择：
 
 #### 用 locate 查找文件
 
-这个 locate 程序支持基本的（--regexp 选项）和扩展的（--regex 选项）正则表达式。通过
+这个 locate 程序支持基本的（-\-regexp 选项）和扩展的（-\-regex 选项）正则表达式。通过
 locate 命令，我们能够执行许多与先前操作 dirlist 文件时相同的操作：
 
     [me@linuxbox ~]$ locate --regex 'bin/(bz|gz|zip)'

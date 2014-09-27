@@ -179,7 +179,7 @@ $1 with the next argument. Here is the program at work:
 最后，执行 shift 命令加载 $1，其值为下一个位置参数的值。这里是程序运行后的输出结果:
 
     [me@linuxbox ~]$ posit-param2 a b c d
-    Argument 1 = a 
+    Argument 1 = a
     Argument 2 = b
     Argument 3 = c
     Argument 4 = d
@@ -188,7 +188,7 @@ $1 with the next argument. Here is the program at work:
 
 #### 简单应用
 
-Even without shift, it’s possible to write useful applications using positional parameters. 
+Even without shift, it’s possible to write useful applications using positional parameters.
 By way of example, here is a simple file information program:
 
 即使没有 shift 命令，也可以用位置参数编写一个有用的应用。举例说明，这里是一个简单的输出文件信息的程序：
@@ -301,8 +301,8 @@ complete list of positional parameters, but differ in rather subtle ways. They a
     </tr>
     <tr>
         <td valign="top">$@</td>
-        <td valign="top">Expands into the list of positional parameters, starting with 1. 
-            When surrounded by double quotes, it expands each positional 
+        <td valign="top">Expands into the list of positional parameters, starting with 1.
+            When surrounded by double quotes, it expands each positional
             parameter into a separate word surrounded by double quotes.</td>
     </tr>
 </table>
@@ -342,7 +342,7 @@ Here is a script that shows these special paramaters in action:
         echo -e "\n" '"$*" :';    print_params   "$*"
         echo -e "\n" '$@ :';      print_params   $@
         echo -e "\n" '"$@" :';    print_params   "$@"
-    }  
+    }
     pass_params "word" "words with spaces"
 
 In this rather convoluted program, we create two arguments: “word” and “words with
@@ -404,23 +404,23 @@ Our next addition will add several command line options to the program as follow
 经过长时间的间断，我们将恢复程序 sys_info_page 的工作。我们下一步要给程序添加如下几个命令行选项：
 
 * __Output file__. We will add an option to specify a name for a file to contain the pro-
-  gram’s output. It will be specified as either _-f file_ or _--file file_.
+  gram’s output. It will be specified as either _-f file_ or _-\-file file_.
 
 * __输出文件__。 我们将添加一个选项，以便指定一个文件名，来包含程序的输出结果。
-选项格式要么是 -f file，要么是 --file file
+选项格式要么是 -f file，要么是 -\-file file
 
 * __Interactive mode__. This option will prompt the user for an output filename and
   will determine if the specified file already exists. If it does, the user will be
   prompted before the existing file is overwritten. This option will be specified by
-  either -i or --interactive.
+  either -i or -\-interactive.
 
 * __交互模式__。这个选项将提示用户输入一个输出文件名，然后判断是否指定的文件已经存在了。如果文件存在，
-在覆盖这个存在的文件之前会提示用户。这个选项可以通过 _-i_ 或者 _--interactive_ 来指定。
+在覆盖这个存在的文件之前会提示用户。这个选项可以通过 _-i_ 或者 _-\-interactive_ 来指定。
 
-* __Help__. Either _-h_ or _--help_ may be specified to cause the program to output an
+* __Help__. Either _-h_ or _-\-help_ may be specified to cause the program to output an
   informative usage message.
 
-* __帮助__。指定 -h 选项 或者是 --help 选项，可导致程序输出提示性的使用信息。
+* __帮助__。指定 -h 选项 或者是 -\-help 选项，可导致程序输出提示性的使用信息。
 
 Here is the code needed to implement the command line processing:
 
@@ -458,7 +458,7 @@ invoked or an unknown option is attempted.
 Next, we begin the processing loop. This loop continues while the positional parameter
 $1 is not empty. At the bottom of the loop, we have a shift command to advance the
 positional parameters to ensure that the loop will eventually terminate.
-Within the loop, we have a case statement that examines the current positional 
+Within the loop, we have a case statement that examines the current positional
 parameter to see if it matches any of the supported choices. If a supported parameter is found, it
 is acted upon. If not, the usage message is displayed and the script
 terminates with an error.
@@ -505,7 +505,7 @@ We next add the code to implement the interactive mode:
 If the interactive variable is not empty, an endless loop is started, which contains
 the filename prompt and subsequent existing file-handling code. If the desired output file
 already exists, the user is prompted to overwrite, choose another filename, or quit the
-program. If the user chooses to overwrite an existing file, a _break_ is executed to 
+program. If the user chooses to overwrite an existing file, a _break_ is executed to
 terminate the loop. Notice how the case statement only detects if the user chooses to
 overwrite or quit. Any other choice causes the loop to continue and prompts the user again.
 
@@ -560,7 +560,7 @@ if the file already exists, that it’s a regular file.
 则执行另一个测试看看该文件是不是可写文件。为此，会运行 touch 命令，紧随其后执行一个测试，来决定 touch 命令
 创建的文件是否是个普通文件。这两个测试考虑到了输入是无效路径名（touch 命令执行失败），和一个普通文件已经存在的情况。
 
-As we can see, the write_html_page function is called to perform the actual 
+As we can see, the write_html_page function is called to perform the actual
 generation of the page. Its output is either directed to standard output
 (if the variable filename is empty) or redirected to the specified file.
 

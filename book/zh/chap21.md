@@ -1370,7 +1370,7 @@ awk 程序通常逐行处理文本文件，这点类似于 sed，awk 使用了�
     [me@linuxbox ~]$ cat foo.txt
     The quick brown fox jumped over the lazy dog.
 
-除非由命令行选项 --dont-backup 告诉 aspell，否则通过追加扩展名 .bak 到文件名中,
+除非由命令行选项 -\-dont-backup 告诉 aspell，否则通过追加扩展名 .bak 到文件名中,
 aspell 会创建一个包含原始文本的备份文件。
 
 为了炫耀 sed 的编辑本领，我们将还原拼写错误，从而能够重用我们的文件：
