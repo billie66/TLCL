@@ -368,7 +368,7 @@ would create a single directory named "dir1", while
 
 would create three directokries named "dir1", "dir2", "dir3".
 
-会创建三个目录，名为"dir1", "dir2", "dir3"。
+会创建三个目录，名为 dir1, dir2, dir3。
 
 ### cp — Copy Files And Directories
 
@@ -509,7 +509,7 @@ its contents) will be copied into dir2.
 </table>
 
 <table class="multi">
-<caption class="cap">表 5—5： cp 实例</caption>
+<caption class="cap">表 5-5： cp 实例</caption>
 <tr>
 <th class="title">命令</th>
 <th class="title">运行结果</th>

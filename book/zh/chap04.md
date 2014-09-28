@@ -148,7 +148,7 @@ ls 命令有大量的选项。表4-1列出了最常使用的选项。
 选一个文件，来看一下各个输出字段的含义：
 
 <table class="multi">
-<caption class="cap">表 4-2:ls 长格式列表的字段</caption>
+<caption class="cap">表 4-2: ls 长格式列表的字段</caption>
 <tr>
 <th class="title">字段</th>
 <th class="title">含义</th>

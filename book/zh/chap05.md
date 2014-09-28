@@ -28,7 +28,6 @@ title: 操作文件和目录
 
     cp -u *.html destination
 
-
 ### 通配符
 
 在开始使用命令之前，我们需要介绍一个使命令行如此强大的 shell 特性。因为 shell 频繁地使用
@@ -169,19 +168,16 @@ mkdir 命令是用来创建目录的。它这样工作：
 
     mkdir directory...
 
-
 __注意表示法:__ 在描述一个命令时（如上所示），当有三个圆点跟在一个命令的参数后面，
 这意味着那个参数可以重复，就像这样：
 
     mkdir dir1
 
-
 会创建一个名为"dir1"的目录，而
 
     mkdir dir1 dir2 dir3
 
-
-会创建三个目录，名为"dir1", "dir2", "dir3"。
+会创建三个目录，名为 dir1, dir2, dir3。
 
 ### cp — 复制文件和目录
 
@@ -189,11 +185,9 @@ cp 命令，复制文件或者目录。它有两种使用方法：
 
     cp item1 item2
 
-
 复制单个文件或目录"item1"到文件或目录"item2"，和：
 
     cp item... directory
-
 
 复制多个项目（文件或目录）到一个目录下。
 
@@ -234,36 +228,36 @@ cp 命令会默认重写文件。</td>
 </table>
 
 <table class="multi">
-<caption class="cap">表 5—5： cp 实例</caption>
+<caption class="cap">表5－5： cp 实例</caption>
 <tr>
 <th class="title">命令</th>
 <th class="title">运行结果</th>
 </tr>
 <tr>
 <td valign="top" width="25%">cp file1 file2</td>
-<td valign="top">复制文件 file1内容到文件 file2。如果 file2已经存在，file2的内容会被 file1的
-内容重写。如果 file2不存在，则会创建 file2。</td>
+<td valign="top">复制文件 file1 内容到文件 file2。如果 file2 已经存在，file2 的内容会被 file1 的
+内容重写。如果 file2 不存在，则会创建 file2。</td>
 </tr>
 <tr>
 <td valign="top">cp -i file1 file2 </td>
-<td valign="top">这条命令和上面的命令一样，除了如果文件 file2存在的话，在文件 file2被重写之前，
+<td valign="top">这条命令和上面的命令一样，除了如果文件 file2 存在的话，在文件 file2 被重写之前，
 会提示用户确认信息。</td>
 </tr>
 <tr>
 <td valign="top">cp file1 file2 dir1 </td>
-<td valign="top">复制文件 file1和文件 file2到目录 dir1。目录 dir1必须存在。
+<td valign="top">复制文件 file1 和文件 file2 到目录 dir1。目录 dir1 必须存在。
 </td>
 </tr>
 <tr>
 <td valign="top">cp dir1/* dir2 </td>
-<td valign="top">使用一个通配符，在目录 dir1中的所有文件都被复制到目录 dir2中。
-dir2必须已经存在。</td>
+<td valign="top">使用一个通配符，在目录 dir1 中的所有文件都被复制到目录 dir2 中。
+dir2 必须已经存在。</td>
 </tr>
 <tr>
 <td valign="top">cp -r dir1 dir2 </td>
-<td valign="top">复制目录 dir1中的内容到目录 dir2。如果目录 dir2不存在，
-创建目录 dir2，操作完成后，目录 dir2中的内容和 dir1中的一样。
-如果目录 dir2存在，则目录 dir1(和目录中的内容)将会被复制到 dir2中。</td>
+<td valign="top">复制目录 dir1中的内容到目录 dir2。如果目录 dir2 不存在，
+创建目录 dir2，操作完成后，目录 dir2 中的内容和 dir1 中的一样。
+如果目录 dir2 存在，则目录 dir1(和目录中的内容)将会被复制到 dir2 中。</td>
 </tr>
 </table>
 
@@ -274,11 +268,9 @@ mv 命令可以执行文件移动和文件命名任务，这依赖于你怎样�
 
     mv item1 item2
 
-
 把文件或目录 “item1” 移动或重命名为 “item2”, 或者：
 
     mv item... directory
-
 
 把一个或多个条目从一个目录移动到另一个目录中。
 
@@ -287,7 +279,7 @@ mv 命令可以执行文件移动和文件命名任务，这依赖于你怎样�
 mv 与 cp 共享了很多一样的选项：
 
 <table class="multi">
-<caption class="cap">表 5－6：mv 选项</caption>
+<caption class="cap">表5－6：mv 选项</caption>
 <tr>
 <th class="title">选项</th>
 <th class="title">意义</th>
@@ -309,33 +301,32 @@ mv 与 cp 共享了很多一样的选项：
 </table>
 
 <table class="multi">
-<caption class="cap">表 5－7 mv 实例</caption>
+<caption class="cap">表5－7 mv 实例</caption>
 <tr>
 <td class="title">mv file1 file2</td>
-<td class="title">移动 file1到 file2。<b>如果 file2存在，它的内容会被 file1的内容重写。
-</b>如果 file2不存在，则创建 file2。<b> 每种情况下，file1不再存在。</b></td>
+<td class="title">移动 file1 到 file2。<b>如果 file2 存在，它的内容会被 file1 的内容重写。
+</b>如果 file2 不存在，则创建 file2。<b> 每种情况下，file1 不再存在。</b></td>
 </tr>
 <tr>
 <td valign="top" width="25%">mv -i file1 file2</td>
-<td valign="top">除了如果 file2存在的话，在 file2被重写之前，用户会得到
+<td valign="top">除了如果 file2 存在的话，在 file2 被重写之前，用户会得到
 提示信息外，这个和上面的选项一样。</td>
 </tr>
 <tr>
 <td valign="top">mv file1 file2 dir1</td>
-<td valign="top">移动 file1和 file2到目录 dir1中。dir1必须已经存在。</td>
+<td valign="top">移动 file1 和 file2 到目录 dir1中。dir1 必须已经存在。</td>
 </tr>
 <tr>
 <td valign="top">mv dir1 dir2</td>
-<td valign="top">如果目录 dir2不存在，创建目录 dir2，
-并且移动目录 dir1的内容到目录 dir2中，同时删除目录 dir1。
-如果目录 dir2存在，移动目录 dir1（及它的内容）到目录 dir2。</td>
+<td valign="top">如果目录 dir2 不存在，创建目录 dir2，
+并且移动目录 dir1 的内容到目录 dir2 中，同时删除目录 dir1。
+如果目录 dir2 存在，移动目录 dir1（及它的内容）到目录 dir2。</td>
 </tr>
 </table>
 
 rm 命令用来移除（删除）文件和目录：
 
     rm item...
-
 
 "item"代表一个或多个文件或目录。
 
@@ -344,7 +335,7 @@ rm 命令用来移除（删除）文件和目录：
 下表是一些普遍使用的 rm 选项：
 
 <table class="multi">
-<caption class="cap">表 5－8： rm 选项</caption>
+<caption class="cap">表5－8： rm 选项</caption>
 <tr>
 <th class="title">选项</th>
 <th class="title">意义</th>
@@ -469,14 +460,12 @@ mkdir 命令被用来创建目录。首先确定我们在我们的主目录下�
     [me@linuxbox ~]$ cd
     [me@linuxbox ~]$ mkdir playground
 
-
 为了让我们的游戏场更加有趣，在 playground 目录下创建一对目录
 ，分别叫做"dir1"和"dir2"。更改我们的当前工作目录到 playground，然后
 执行 mkdir 命令：
 
     [me@linuxbox ~]$ cd playground
     [me@linuxbox playground]$ mkdir dir1 dir2
-
 
 注意到 mkdir 命令可以接受多个参数，它允许我们用一个命令来创建这两个
 目录。
@@ -488,7 +477,6 @@ mkdir 命令被用来创建目录。首先确定我们在我们的主目录下�
 
     [me@linuxbox playground]$ cp /etc/passwd .
 
-
 注意：我们怎样使用当前工作目录的快捷方式，命令末尾的单个圆点。如果我们执行 ls 命令，
 可以看到我们的文件：
 
@@ -498,12 +486,10 @@ mkdir 命令被用来创建目录。首先确定我们在我们的主目录下�
     drwxrwxr-x 2  me  me   4096 2008-01-10 16:40 dir2
     -rw-r--r-- 1  me  me   1650 2008-01-10 16:07 passwd
 
-
 现在，仅仅是为了高兴，重复操作复制命令，使用"-v"选项（唠叨），看一个它的作用：
 
     [me@linuxbox playground]$ cp -v /etc/passwd .
     `/etc/passwd' -> `./passwd'
-
 
 cp 命令再一次执行了复制操作，但是这次显示了一条简洁的信息，指明它
 进行了什么操作。注意，cp 没有警告，就重写了第一次复制的文件。这是一个案例，
@@ -511,7 +497,6 @@ cp 假定你知道你的所作所为。为了得到警示信息，在命令中�
 
     [me@linuxbox playground]$ cp -i /etc/passwd .
     cp: overwrite `./passwd'?
-
 
 响应命令提示信息，输入"y"，文件就会被重写，其它的字符（例如，"n"）
 会导致 cp 命令不理会文件。
@@ -522,30 +507,25 @@ cp 假定你知道你的所作所为。为了得到警示信息，在命令中�
 
     [me@linuxbox playground]$ mv passwd fun
 
-
 让我们来传送 fun 文件，通过移动重命名的文件到各个子目录，
 然后再把它移回到当前目录：
 
     [me@linuxbox playground]$ mv fun dir1
 
-
-首先，把 fun 文件移动目录 dir1中，然后：
+首先，把 fun 文件移动目录 dir1 中，然后：
 
     [me@linuxbox playground]$ mv dir1/fun dir2
 
-
-再把 fun 文件从 dir1移到目录 dir2, 然后：
+再把 fun 文件从 dir1 移到目录 dir2, 然后：
 
     [me@linuxbox playground]$ mv dir2/fun .
 
-
 最后，再把 fun 文件带回到当前工作目录。下一步，来看看移动目录的效果。
-首先，我们先移动我们的数据文件到 dir1目录：
+首先，我们先移动我们的数据文件到 dir1 目录：
 
     [me@linuxbox playground]$ mv fun dir1
 
-
-然后移动 dir1到 dir2目录，用 ls 来确认执行结果:
+然后移动 dir1 到 dir2 目录，用 ls 来确认执行结果:
 
     [me@linuxbox playground]$ mv dir1 dir2
     [me@linuxbox playground]$ ls -l dir2
@@ -555,13 +535,11 @@ cp 假定你知道你的所作所为。为了得到警示信息，在命令中�
     total 4
     -rw-r--r-- 1 me me 1650 2008-01-10 16:33 fun
 
-
-注意：因为目录 dir2已经存在，mv 命令移动 dir1到 dir2目录。如果 dir2不存在，
-mv 会重新命名 dir1为 dir2。最后，把所有的东西放回原处。
+注意：因为目录 dir2 已经存在，mv 命令移动 dir1 到 dir2 目录。如果 dir2 不存在，
+mv 会重新命名 dir1 为 dir2。最后，把所有的东西放回原处。
 
     [me@linuxbox playground]$ mv dir2/dir1 .
     [me@linuxbox playground]$ mv dir1/fun .
-
 
 ### 创建硬链接
 
@@ -572,7 +550,6 @@ mv 会重新命名 dir1为 dir2。最后，把所有的东西放回原处。
     [me@linuxbox playground]$ ln fun dir1/fun-hard
     [me@linuxbox playground]$ ln fun dir2/fun-hard
 
-
 所以现在，我们有四个文件"fun"的实例。看一下目录 playground 中的内容：
 
     [me@linuxbox playground]$ ls -l
@@ -581,7 +558,6 @@ mv 会重新命名 dir1为 dir2。最后，把所有的东西放回原处。
     drwxrwxr-x 2 me  me 4096 2008-01-14 16:17 dir2
     -rw-r--r-- 4 me  me 1650 2008-01-10 16:33 fun
     -rw-r--r-- 4 me  me 1650 2008-01-10 16:33 fun-hard
-
 
 注意到一件事，列表中，文件 fun 和 fun-hard 的第二个字段是"4"，这个数字
 是文件"fun"的硬链接数目。你要记得一个文件至少有一个硬链接，因为文件
@@ -605,7 +581,6 @@ ls 命令有一种方法，来展示（文件索引节点）的信息。在命�
     12353538 -rw-r--r-- 4 me  me 1650  2008-01-10  16:33  fun
     12353538 -rw-r--r-- 4 me  me 1650  2008-01-10  16:33  fun-hard
 
-
 在这个版本的列表中，第一字段表示文件索引节点号，正如我们所见到的，
 fun 和 fun-hard 共享一样的索引节点号，这就证实这两个文件是一样的文件。
 
@@ -621,7 +596,6 @@ fun 和 fun-hard 共享一样的索引节点号，这就证实这两个文件是
     [me@linuxbox playground]$ ln -s ../fun dir1/fun-sym
     [me@linuxbox playground]$ ln -s ../fun dir2/fun-sym
 
-
 第一个实例相当直接，在 ln 命令中，简单地加上"-s"选项就可以创建一个符号链接，
 而不是一个硬链接。下面两个例子又是怎样呢？ 记住，当我们创建一个符号链接
 的时候，会建立一个目标文件在哪里和符号链接有关联的文本描述。如果我们看看
@@ -632,8 +606,7 @@ ls 命令的输出结果，比较容易理解。
     -rw-r--r-- 4 me  me 1650 2008-01-10 16:33 fun-hard
     lrwxrwxrwx 1 me  me    6 2008-01-15 15:17 fun-sym -> ../fun
 
-
-目录 dir1中，fun-sym 的列表说明了它是一个符号链接，通过在第一字段中的首字符"l"
+目录 dir1 中，fun-sym 的列表说明了它是一个符号链接，通过在第一字段中的首字符"l"
 可知，并且它还指向"../fun"，也是正确的。相对于 fun-sym 的存储位置，fun 在它的
 上一个目录。同时注意，符号链接文件的长度是6，这是字符串"../fun"所包含的字符数，
 而不是符号链接所指向的文件长度。
@@ -641,7 +614,6 @@ ls 命令的输出结果，比较容易理解。
 当建立符号链接时，你即可以使用绝对路径名：
 
     ln -s /home/me/playground/fun dir1/fun-sym
-
 
 也可用相对路径名，正如前面例题所展示的。使用相对路径名更令人满意，
 因为它允许一个包含符号链接的目录重命名或移动，而不会破坏链接。
@@ -653,7 +625,6 @@ ls 命令的输出结果，比较容易理解。
     total 16
     ...省略
 
-
 ### 移动文件和目录
 
 正如我们之前讨论的，rm 命令被用来删除文件和目录。我们将要使用它
@@ -663,7 +634,6 @@ ls 命令的输出结果，比较容易理解。
     [me@linuxbox playground]$ ls -l
     total 12
     ...省略
-
 
 结果不出所料。文件 fun-hard 消失了，文件 fun 的链接数从4减到3，正如
 目录列表第二字段所示。下一步，我们会删除文件 fun，仅为了娱乐，我们会包含"-i"

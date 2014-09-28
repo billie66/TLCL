@@ -249,7 +249,7 @@ Let's look at the different fields from one of the files and examine their meani
 选一个文件，来看一下各个输出字段的含义：
 
 <table class="multi">
-<caption class="cap">Table 4-2:ls Long Listing Fields</caption>
+<caption class="cap">Table 4-2: ls Long Listing Fields</caption>
 <tr>
 <th class="title">Field</th>
 <th class="title">Meaning</th>
@@ -291,7 +291,7 @@ later in this chapter.  </td>
 </table>
 
 <table class="multi">
-<caption class="cap">表 4-2:ls 长格式列表的字段</caption>
+<caption class="cap">表 4-2: ls 长格式列表的字段</caption>
 <tr>
 <th class="title">字段</th>
 <th class="title">含义</th>
