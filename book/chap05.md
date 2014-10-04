@@ -1145,7 +1145,7 @@ specific inode containing the file's contents.
 
 The ls command has a way to reveal this information. It is invoked with the “-i” option:
 
-ls 命令有一种方法，来展示（文件索引节点）的信息。在命令中加上"-l"选项：
+ls 命令有一种方法，来展示（文件索引节点）的信息。在命令中加上"-i"选项：
 
     [me@linuxbox playground]$ ls -li
     total 16

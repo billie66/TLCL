@@ -130,7 +130,7 @@ used:
 有时候在一个操作系统中，不只安装了可执行程序的一个版本。然而在桌面系统中，这并不普遍，
 但在大型服务器中，却很平常。为了确定所给定的执行程序的准确位置，使用 which 命令：
 
-    [me@linuxbox ~]$ which is
+    [me@linuxbox ~]$ which ls
     /bin/ls
 
 which only works for executable programs, not builtins nor aliases that are substitutes
