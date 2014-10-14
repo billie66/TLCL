@@ -59,12 +59,6 @@ hr {
   border: none;
 }
 
-.single {
-  border: 2px solid #E7E5DC;
-  margin: 20px 0;
-  padding: 0.6em 1em;
-  background-color: #f1f1f1;
-}
 
 table.multi {
   text-align: left;
@@ -103,5 +97,8 @@ th.title {
 }
 
 blockquote {
-  margin: 0;
+  border: 2px solid #E7E5DC;
+  margin: 20px 0;
+  padding: 0.6em 1em;
+  background-color: #F1F1F1;
 }
