@@ -418,7 +418,7 @@ OpenOffice.org 文档 编辑器创建的文件。这些文件，和简单的 ASC
 系统，许多文件 以文本格式存储，也有许多 Linux 工具来处理文本文件。甚至 Windows
 也承认这种文件格式的重要性。著名的 NOTEPAD.EXE 程序就是一个 ASCII
 文本文件编辑器。
-{: .single}
+
 
 Why would we want to examine text files? Because many of the files that contain system
 settings (called configuration files) are stored in this format, and being able to read them

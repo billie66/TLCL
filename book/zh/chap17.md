@@ -415,7 +415,7 @@ shell 会话中。
 >
 > 这个 xload 命令在远端执行之后，它的窗口就会出现在本地。在某些系统中，你可能需要
 使用“－Y”选项，而不是“－X”选项来完成这个操作。
-{: .single}
+
 
 
 这个 OpenSSH 软件包也包含两个程序，它们可以利用 SSH 加密通道在网络间复制文件。
@@ -471,7 +471,7 @@ sftp://开头的 URI， 来操作存储在运行着 SSH 服务器的远端系统
 这个程序也提供了 scp 和 sftp 程序的类似物。
 >
 > PuTTY 可在链接 <http://www.chiark.greenend.org.uk/~sgtatham/putty/> 处得到。
-{: .single}
+
 
 
 ### 拓展阅读

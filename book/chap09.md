@@ -305,7 +305,7 @@ Readline 程序的开发者们，不能确定一个专用多余的控制键的�
 控制键，并把它叫做"元"（"meta"）。然而在现代的键盘上，Alt 键作为元键来服务。
 如果你仍然在使用终端（在 Linux 中，你仍然可以得到一个终端），你也可以按下和
 释放 Esc 键来得到如控制 Alt 键一样的效果。
-{: .single}
+
 
 ### Completion
 
@@ -442,7 +442,7 @@ in later chapters. If you are curious, try:
 > and see if you can find them. Not all distributions include them by default.
 >
 > 查看一下如果你能找到它们的话。默认情况下，并不是所有的发行版都包括它们。
-{: .single}
+
 
 
 ### Using History
@@ -722,7 +722,7 @@ complete list of the program’s options and features.
 >
 > 命令中的 file 是指用来存储 shell 会话记录的文件名。如果没有指定文件名，则使用文件
 typescript。查看脚本的手册页，可以得到一个关于 script 程序选项和特点的完整列表。
-{: .single}
+
 
 
 ### Summing Up

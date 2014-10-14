@@ -421,7 +421,7 @@ read it and it all makes sense.
 >
 > 另一方面，bash 参考手册的内容非常简明精确，同时也非常完善。所以，如果你有胆量就查看一下，
 并且期望有一天你能读懂它。
-{: .single}
+
 
 ### info – Display A Program's Info Entry
 

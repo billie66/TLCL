@@ -396,7 +396,7 @@ codes.
 > 为了努力使所有的终端都讲某种通用语言，美国国家标准委员会（ANSI）制定了
 一套标准的字符序列集合来控制视频终端。原先 DOS 用户会记得 ANSI.SYS 文件，
 这是一个用来使这些编码解释生效的文件。
-{: .single}
+
 
 
 Character color is controlled by sending the terminal emulator an ANSI escape code

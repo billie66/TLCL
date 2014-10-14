@@ -297,7 +297,7 @@ see the Wikipedia article on “/dev/null”.
 > 位存储桶是个古老的 Unix 概念，由于它的普遍性，它的身影出现在 Unix 文化的
 许多部分。当有人说他/她正在发送你的评论到/dev/null，现在你应该知道那是
 什么意思了。更多的例子，可以阅读 Wikipedia 关于"/dev/null"的文章。
-{: .single}
+
 
 ### Redirecting Standard Input
 
@@ -711,4 +711,4 @@ shape of your imagination. It does what you want.
 more satisfying?
 >
 > 当然，选择哪一个玩具，是你的事情，那么你觉得哪个玩具更令人满意呢？
-{: .single}
+

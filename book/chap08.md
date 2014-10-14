@@ -698,7 +698,7 @@ we can create a primitive countdown timer:
 > 我们也可以这样做：
 >
 > _sleep 10; echo "Time's up" $\'\a\'_
-{: .single}
+
 
 ### Summing Up
 

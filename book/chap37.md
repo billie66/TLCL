@@ -553,7 +553,7 @@ home directory, with a line of code such as this:
 通过像这样的一行代码：
 >
 > [[ -d $HOME/tmp ]] \|\| mkdir $HOME/tmp
-{: .single}
+
 
 
 ### Asynchronous Execution

@@ -171,7 +171,7 @@ It also led to the following Fortran-based witticism:
 因为当需要一个临时变量（正如循环变量）的时候，使用它们工作量比较少。这也引出了如下基于 fortran 的俏皮话：
 >
 > “神是真实的，除非是声明的整数。”
-{: .single}
+
 
 
 ### for: C Language Form

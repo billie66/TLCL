@@ -347,7 +347,7 @@ be very useful...
 >
 > 现在，十六进制表示法（经常叫做“hex”）比八进制更普遍，但是我们很快会看到，用八进制
 来表示3个二进制数非常有用处...
-{: .single}
+
 
 
 With octal notation we use octal numbers to set the pattern of desired permissions. Since
@@ -797,7 +797,7 @@ Here are some examples. First, a program that is setuid:
 > 设置了 sticky 位的目录：
 >
 > drwxrwxrwt
-{: .single}
+
 
 
 ### Changing Identities
@@ -1002,7 +1002,7 @@ similar powers to subsequent user accounts.
 > 当引进 Ubuntu 的时候，它的创作者们采取了不同的策略。默认情况下，Ubuntu 不允许用户登录
 到 root 帐号（因为不能为 root 帐号设置密码），而是使用 sudo 命令授予普通用户超级用户权限。
 通过 sudo 命令，最初的用户可以拥有超级用户权限，也可以授予随后的用户帐号相似的权力。
-{: .single}
+
 
 ### chown – Change File Owner And Group
 

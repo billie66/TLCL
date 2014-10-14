@@ -738,7 +738,7 @@ option rather than the “-X” option to do this.
 >
 > 这个 xload 命令在远端执行之后，它的窗口就会出现在本地。在某些系统中，你可能需要
 使用 “－Y” 选项，而不是 “－X” 选项来完成这个操作。
-{: .single}
+
 
 #### scp And sftp
 
@@ -832,7 +832,7 @@ for the scp and sftp programs.
 > PuTTY is available at <http://www.chiark.greenend.org.uk/~sgtatham/putty/>
 >
 > PuTTY 可在链接 <http://www.chiark.greenend.org.uk/~sgtatham/putty/> 处得到。
-{: .single}
+
 
 
 ### Further Reading
