@@ -319,7 +319,7 @@ shell 函数可以在脚本之间进行剪切和粘贴。
 >       echo “Disk Space Utilization For $HOSTNAME”
 >       df -h
 >     }
-{: .single}
+
 
 
 ### 总结归纳

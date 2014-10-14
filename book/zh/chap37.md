@@ -345,7 +345,7 @@ trap argument signal [signal...]
 通过像这样的一行代码：
 >
 > [[ -d $HOME/tmp ]] \|\| mkdir $HOME/tmp
-{: .single}
+ 
 
 
 ### 异步执行
