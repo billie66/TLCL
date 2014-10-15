@@ -12,7 +12,7 @@ layout: default
 
 <p>
 本书的翻译由<a href="http://haoqicat.com/about/team">好奇猫团队</a>发起，并社区协同努力
-（<a href="contributors.html">翻译贡献者名单 </a>）
+（<a href="https://github.com/billie66/TLCL/graphs/contributors">Github Contributors</a>）
 </p>
 
 <p><br /><b>Contact Information:</b></p>
