@@ -58,10 +58,10 @@ expanded result. Knowing this, we can see that echo behaved as expected.
 
 那么刚才发生了什么事情呢？ 为什么 echo 不打印"\*"呢？随着你回想起我们所学过的
 关于通配符的内容，这个"\*"字符意味着匹配文件名中的任意字符，但是在原先的讨论
-中我们却不知道 shell 是怎样实现这个功能的。最简单的答案就是shell把"\*"展开成了
-另外的东西（在这种情况下，就是在当前工作目录下的文件名字），在echo命令被执行
-前。当回车键被按下时，shell在命令被执行前在命令行上自动展开任何符合条件的字符，
-所以echo命令从不会发现"\*",只把它展开成结果。知道了这个以后，我们能看到echo执行
+中我们却不知道 shell 是怎样实现这个功能的。最简单的答案就是 shell 把"\*"展开成了
+另外的东西（在这种情况下，就是在当前工作目录下的文件名字），在 echo 命令被执行
+前。当回车键被按下时，shell 在命令被执行前在命令行上自动展开任何符合条件的字符，
+所以 echo 命令从不会发现"\*",只把它展开成结果。知道了这个以后，我们能看到 echo 执行
 的结果和我们想象的一样。
 
 ### Pathname Expansion
@@ -142,7 +142,7 @@ command:
 和".."也出现在结果中。因为这些名字是指当前工作目录和它的父目录，使用这种
 模式可能会产生不正确的结果。我们能看到这样的结果，如果我们试一下这个命令：
 >
-> ls -d .* | less
+> ls -d .* \| less
 >
 > To correctly perform pathname expansion in this situation, we have to
 employ a more specific pattern. This will work correctly:
