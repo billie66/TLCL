@@ -418,47 +418,50 @@ wonder why this rather oblique method was chosen rather than:
 
     echo "$file_info" | IFS=":" read user pw uid gid name home shell
 
-<div class="single">
-<h3>You Can’t Pipe read</h3>
-<h3>你不能管道 read</h3>
-<p> While the read command normally takes input from standard input, you cannot
-do this: </p>
-<p>虽然通常 read 命令接受标准输入，但是你不能这样做：</p>
-<p>echo "foo" | read  </p>
-
-<p> We would expect this to work, but it does not. The command will appear to
-succeed but the REPLY variable will always be empty. Why is this? </p>
-<p>我们期望这个命令能生效，但是它不能。这个命令将显示成功，但是 REPLY 变量
-总是为空。为什么会这样？</p>
-
-<p>The explanation has to do with the way the shell handles pipelines. In bash (and
+> You Can’t Pipe read
+>
+> 你不能管道 read
+>
+> While the read command normally takes input from standard input, you cannot
+do this:
+>
+> 虽然通常 read 命令接受标准输入，但是你不能这样做：
+>
+> echo "foo" \| read
+>
+> We would expect this to work, but it does not. The command will appear to
+succeed but the REPLY variable will always be empty. Why is this?
+>
+> 我们期望这个命令能生效，但是它不能。这个命令将显示成功，但是 REPLY 变量
+总是为空。为什么会这样？
+>
+> The explanation has to do with the way the shell handles pipelines. In bash (and
 other shells such as sh), pipelines create subshells. These are copies of the shell
 and its environment which are used to execute the command in the pipeline. In
-our example above, read is executed in a subshell.</p>
-
-<p>答案与 shell 处理管道线的方式有关系。在 bash（和其它 shells，例如 sh）中，管道线
+our example above, read is executed in a subshell.
+>
+> 答案与 shell 处理管道线的方式有关系。在 bash（和其它 shells，例如 sh）中，管道线
 会创建子 shell。它们是 shell 的副本，且用来执行命令的环境变量在管道线中。
-上面示例中，read 命令将在子 shell 中执行。</p>
-
-<p>Subshells in Unix-like systems create copies of the environment for the processes
+上面示例中，read 命令将在子 shell 中执行。
+>
+> Subshells in Unix-like systems create copies of the environment for the processes
 to use while they execute. When the processes finishes the copy of the
 environment is destroyed. This means that a subshell can never alter the
 environment of its parent process. read assigns variables, which then become
 part of the environment. In the example above, read assigns the value “foo” to
 the variable REPLY in its subshell’s environment, but when the command exits,
 the subshell and its environment are destroyed, and the effect of the assignment is
-lost.</p>
-
-<p>在类似于 Unix 的系统中，子 shell 执行的时候，会为进程创建父环境的副本。当进程结束
+lost.
+>
+> 在类似于 Unix 的系统中，子 shell 执行的时候，会为进程创建父环境的副本。当进程结束
 之后，环境副本就会被破坏掉。这意味着一个子 shell 永远不能改变父进程的环境。read 赋值变量，
 然后会变为环境的一部分。在上面的例子中，read 在它的子 shell 环境中，把 foo 赋值给变量 REPLY，
-但是当命令退出后，子 shell 和它的环境将被破坏掉，这样赋值的影响就会消失。</p>
-
-<p>Using here strings is one way to work around this behavior. Another method is
-discussed in Chapter 37.</p>
-
-<p>使用 here 字符串是解决此问题的一种方法。另一种方法将在37章中讨论。</p>
-</div>
+但是当命令退出后，子 shell 和它的环境将被破坏掉，这样赋值的影响就会消失。
+>
+> Using here strings is one way to work around this behavior. Another method is
+discussed in Chapter 37.
+>
+> 使用 here 字符串是解决此问题的一种方法。另一种方法将在37章中讨论。
 
 ### Validating Input
 
@@ -648,4 +651,3 @@ read command:
 * Bash 参考手册有一章关于内部命令的内容，其包括了`read`命令：
 
   <http://www.gnu.org/software/bash/manual/bashref.html#Bash-Builtins>
-

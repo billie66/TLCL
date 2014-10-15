@@ -192,36 +192,35 @@ contains trailing spaces.
 “Control-I”，结果证明，它和 tab 字符是一样的。我们也看到一个$字符出现在文本行真正的结尾处，
 表明我们的文本包含末尾的空格。
 
-<div class="single">
-<h3>MS-DOS Text Vs. Unix Text </h3>
-
-<h3>MS-DOS 文本 Vs. Unix 文本</h3>
-<p> One of the reasons you may want to use cat to look for non-printing characters
+> MS-DOS Text Vs. Unix Text
+>
+> MS-DOS 文本 Vs. Unix 文本
+>
+> One of the reasons you may want to use cat to look for non-printing characters
 in text is to spot hidden carriage returns. Where do hidden carriage returns come
 from? DOS and Windows! Unix and DOS don’t define the end of a line the
 same way in text files. Unix ends a line with a linefeed character (ASCII 10)
 while MS-DOS and its derivatives use the sequence carriage return (ASCII 13)
-and linefeed to terminate each line of text. </p>
-
-<p>可能你想用 cat 程序在文本中查看非打印字符的一个原因是发现隐藏的回车符。那么
+and linefeed to terminate each line of text.
+>
+> 可能你想用 cat 程序在文本中查看非打印字符的一个原因是发现隐藏的回车符。那么
 隐藏的回车符来自于哪里呢？它们来自于 DOS 和 Windows！Unix 和 DOS 在文本文件中定义每行
 结束的方式不相同。Unix 通过一个换行符（ASCII 10）来结束一行，然而 MS-DOS 和它的
-衍生品使用回车（ASCII 13）和换行字符序列来终止每个文本行。</p>
-
-<p> There are a several ways to convert files from DOS to Unix format. On many
+衍生品使用回车（ASCII 13）和换行字符序列来终止每个文本行。
+>
+> There are a several ways to convert files from DOS to Unix format. On many
 Linux systems, there are programs called dos2unix and unix2dos, which can
 convert text files to and from DOS format. However, if you don’t have
 dos2unix on your system, don’t worry. The process of converting text from
 DOS to Unix format is very simple; it simply involves the removal of the
 offending carriage returns. That is easily accomplished by a couple of the
-programs discussed later in this chapter.</p>
-
-<p>有几种方法能够把文件从 DOS 格式转变为 Unix 格式。在许多 Linux 系统中，有两个
+programs discussed later in this chapter.
+>
+> 有几种方法能够把文件从 DOS 格式转变为 Unix 格式。在许多 Linux 系统中，有两个
 程序叫做 dos2unix 和 unix2dos，它们能在两种格式之间转变文本文件。然而，如果你
 的系统中没有安装 dos2unix 程序，也不要担心。文件从 DOS 格式转变为 Unix 格式的过程非常
 简单；它只简单地涉及到删除违规的回车符。通过随后本章中讨论的一些程序，这个工作很容易
-完成。</p>
-</div>
+完成。
 
 cat also has options that are used to modify text. The two most prominent are -n,
 which numbers lines, and -s, which suppresses the output of multiple blank lines. We
@@ -964,39 +963,40 @@ can be specified.
 通过对我们的列表再次运行 cut 命令，我们能够抽取从位置7到10的字符，其对应于日期字段的年份。
 这个 7-10 表示法是一个区间的例子。cut 命令手册包含了一个如何指定区间的完整描述。
 
-<div class="single">
-<h3>Expanding Tabs</h3>
-<h3>展开 Tabs</h3>
-<p>Our distros.txt file is ideally formatted for extracting fields using cut. But
+> Expanding Tabs
+>
+> 展开 Tabs
+>
+> Our distros.txt file is ideally formatted for extracting fields using cut. But
 what if we wanted a file that could be fully manipulated with cut by characters,
 rather than fields? This would require us to replace the tab characters within the
 file with the corresponding number of spaces. Fortunately, the GNU Coreutils
 package includes a tool for that. Named expand, this program accepts either
 one or more file arguments or standard input, and outputs the modified text to
-standard output.</p>
-
-<p>distros.txt 的文件格式很适合使用 cut 程序来抽取字段。但是如果我们想要 cut 程序
+standard output.
+>
+> distros.txt 的文件格式很适合使用 cut 程序来抽取字段。但是如果我们想要 cut 程序
 按照字符，而不是字段来操作一个文件，那又怎样呢？这要求我们用相应数目的空格来
 代替 tab 字符。幸运地是，GNU 的 Coreutils 软件包有一个工具来解决这个问题。这个
 程序名为 expand，它既可以接受一个或多个文件参数，也可以接受标准输入，并且把
-修改过的文本送到标准输出。</p>
-
-<p>If we process our distros.txt file with expand, we can use the cut -c to
+修改过的文本送到标准输出。
+>
+> If we process our distros.txt file with expand, we can use the cut -c to
 extract any range of characters from the file. For example, we could use the
 following command to extract the year of release from our list, by expanding the
 file and using cut to extract every character from the twenty-third position to the
-end of the line: </p>
-
-<p>如果我们通过 expand 来处理 distros.txt 文件，我们能够使用 cut -c 命令来从文件中抽取
+end of the line:
+>
+> 如果我们通过 expand 来处理 distros.txt 文件，我们能够使用 cut -c 命令来从文件中抽取
 任意区间内的字符。例如，我们能够使用以下命令来从列表中抽取发行年份，通过展开
-此文件，再使用 cut 命令，来抽取从位置 23 开始到行尾的每一个字符：</p>
+此文件，再使用 cut 命令，来抽取从位置 23 开始到行尾的每一个字符：
+>
+> [me@linuxbox ~]$ expand distros.txt | cut -c 23-
+>
+> Coreutils also provides the unexpand program to substitute tabs for spaces.
+>
+> Coreutils 软件包也提供了 unexpand 程序，用 tab 来代替空格。
 
-<p>[me@linuxbox ~]$ expand distros.txt | cut -c 23- </p>
-
-<p>Coreutils also provides the unexpand program to substitute tabs for spaces.</p>
-
-<p>Coreutils 软件包也提供了 unexpand 程序，用 tab 来代替空格。</p>
-</div>
 
 When working with fields, it is possible to specify a different field delimiter rather than
 the tab character. Here we will extract the first field from the /etc/passwd file:
@@ -1690,42 +1690,41 @@ a complete list of the sequences and character classes tr supports, try:
 
     [me@linuxbox ~]$ tr --help
 
-<div class="single">
-<h3>ROT13: The Not-So-Secret Decoder Ring</h3>
-
-<h3>ROT13: 不那么秘密的编码环</h3>
-
-<p>One amusing use of tr is to perform ROT13 encoding of text. ROT13 is a trivial
+> ROT13: The Not-So-Secret Decoder Ring
+>
+> ROT13: 不那么秘密的编码环
+>
+> One amusing use of tr is to perform ROT13 encoding of text. ROT13 is a trivial
 type of encryption based on a simple substitution cipher. Calling ROT13
 “encryption” is being generous; “text obfuscation” is more accurate. It is used
 sometimes on text to obscure potentially offensive content. The method simply
 moves each character thirteen places up the alphabet. Since this is half way up
 the possible twenty-six characters, performing the algorithm a second time on the
-text restores it to its original form. To perform this encoding with tr: </p>
-
-<p>tr 命令的一个有趣的用法是执行 ROT13文本编码。ROT13是一款微不足道的基于一种简易的替换暗码的
+text restores it to its original form. To perform this encoding with tr:
+>
+> tr 命令的一个有趣的用法是执行 ROT13文本编码。ROT13是一款微不足道的基于一种简易的替换暗码的
 加密类型。把 ROT13称为“加密”是大方的；“文本模糊处理”更准确些。有时候它被用来隐藏文本中潜在的攻击内容。
 这个方法就是简单地把每个字符在字母表中向前移动13位。因为移动的位数是可能的26个字符的一半，
-所以对文本再次执行这个算法，就恢复到了它最初的形式。通过 tr 命令来执行这种编码：</p>
-
-<p><b>echo "secret text" | tr a-zA-Z n-za-mN-ZA-M</b></p>
-
-<p>frperg grkg </p>
-
-<p>Performing the same procedure a second time results in the translation:</p>
-
-<p>再次执行相同的过程，得到翻译结果：</p>
-
-<p><b>echo "frperg grkg" | tr a-zA-Z n-za-mN-ZA-M</b></p>
-
-<p>secret text</p>
-
-<p>A number of email programs and USENET news readers support ROT13
-encoding. Wikipedia contains a good article on the subject:</p>
-
-<p>大量的 email 程序和 USENET 新闻读者都支持 ROT13 编码。Wikipedia 上面有一篇关于这个主题的好文章：</p>
-<p>http://en.wikipedia.org/wiki/ROT13</p>
-</div>
+所以对文本再次执行这个算法，就恢复到了它最初的形式。通过 tr 命令来执行这种编码：
+>
+> <b>echo "secret text" | tr a-zA-Z n-za-mN-ZA-M</b>
+>
+> frperg grkg
+>
+> Performing the same procedure a second time results in the translation:
+>
+> 再次执行相同的过程，得到翻译结果：
+>
+> <b>echo "frperg grkg" | tr a-zA-Z n-za-mN-ZA-M</b>
+>
+> secret text
+>
+> A number of email programs and USENET news readers support ROT13
+encoding. Wikipedia contains a good article on the subject:
+>
+> 大量的 email 程序和 USENET 新闻读者都支持 ROT13 编码。Wikipedia 上面有一篇关于这个主题的好文章：
+>
+> http://en.wikipedia.org/wiki/ROT13
 
 tr can perform another trick, too. Using the -s option, tr can “squeeze” (delete)
 repeated instances of a character:
@@ -2335,11 +2334,11 @@ not preceded by an address, it applies to every line in the input stream.
 支持字符区域（例如，[a-z]），也不支持 POSIX 字符集。再说一次，因为 y 命令之前不带地址，
 所以它会操作输入流的每一行。
 
-<div class="single">
-<h3>People Who Like sed Also Like...</h3>
-
-<h3>喜欢 sed 的人们也会喜欢。。。</h3>
-<p>sed is a very capable program, able to perform fairly complex editing tasks to
+> People Who Like sed Also Like...
+>
+> 喜欢 sed 的人们也会喜欢。。。
+>
+> sed is a very capable program, able to perform fairly complex editing tasks to
 streams of text. It is most often used for simple one line tasks rather than long
 scripts. Many users prefer other tools for larger tasks. The most popular of these
 are awk and perl. These go beyond mere tools, like the programs covered here,
@@ -2350,17 +2349,17 @@ development. awk is a little more specialized. Its specific strength is its abil
 manipulate tabular data. It resembles sed in that awk programs normally
 process text files line-by-line, using a scheme similar to the sed concept of an
 address followed by an action. While both awk and perl are outside the scope
-of this book, they are very good skills for the Linux command line user.</p>
-
-<p>sed 是一款非常强大的程序，它能够针对文本流完成相当复杂的编辑任务。它最常
+of this book, they are very good skills for the Linux command line user.
+>
+> sed 是一款非常强大的程序，它能够针对文本流完成相当复杂的编辑任务。它最常
 用于简单的行任务，而不是长长的脚本。许多用户喜欢使用其它工具，来执行较大的工作。
 在这些工具中最著名的是 awk 和 perl。它们不仅仅是工具，像这里介绍的程序，且延伸到
 完整的编程语言领域。特别是 perl，经常被用来代替 shell 脚本，来完成许多系统管理任务，
 同时它也是一款非常流行网络开发语言。awk 更专用一些。其具体优点是其操作表格数据的能力。
 awk 程序通常逐行处理文本文件，这点类似于 sed，awk 使用了一种方案，其与 sed 中地址
 之后跟随编辑命令的概念相似。虽然关于 awk 和 perl 的内容都超出了本书所讨论的范围，
-但是对于 Linux 命令行用户来说，它们都是非常好的技能。</p>
-</div>
+但是对于 Linux 命令行用户来说，它们都是非常好的技能。
+
 
 #### aspell
 

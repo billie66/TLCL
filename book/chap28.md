@@ -953,53 +953,50 @@ and is easier to code.
 然而 `[[ ]]` 特定于 bash。知道怎样使用 test 很重要，因为它被非常广泛地应用，但是显然 `[[ ]]` 更
 有助于，并更易于编码。
 
-<div class="single">
-
-<h3>Portability Is The Hobgoblin Of Little Minds</h3>
-
-<h3>可移植性是头脑狭隘人士的心魔</h3>
-
-<p>If you talk to “real” Unix people, you quickly discover that many of them don’t
+> Portability Is The Hobgoblin Of Little Minds
+>
+> 可移植性是头脑狭隘人士的心魔
+>
+> If you talk to “real” Unix people, you quickly discover that many of them don’t
 like Linux very much. They regard it as impure and unclean. One tenet of Unix
 followers is that everything should be “portable.” This means that any script you
-write should be able to run, unchanged, on any Unix-like system.</p>
-
-<p>如果你和“真正的”Unix 用户交谈，你很快就会发现他们大多数人不是非常喜欢 Linux。他们
+write should be able to run, unchanged, on any Unix-like system.
+>
+> 如果你和“真正的”Unix 用户交谈，你很快就会发现他们大多数人不是非常喜欢 Linux。他们
 认为 Linux 肮脏且不干净。Unix 追随者的一个宗旨是，一切都应“可移植的”。这意味着你编写
-的任意一个脚本都应当无需修改，就能运行在任何一个类似于 Unix 的系统中。</p>
-
-<p>Unix people have good reason to believe this. Having seen what proprietary
+的任意一个脚本都应当无需修改，就能运行在任何一个类似于 Unix 的系统中。
+>
+> Unix people have good reason to believe this. Having seen what proprietary
 extensions to commands and shells did to the Unix world before POSIX, they are
-naturally wary of the effect of Linux on their beloved OS.</p>
-
-<p>Unix 用户有充分的理由相信这一点。在 POSIX 之前，Unix 用户已经看到了命令的专有扩展以及
-shell 对 Unix 世界的所做所为，他们自然会警惕 Linux 对他们心爱系统的影响。</p>
-
-<p>But portability has a serious downside. It prevents progress. It requires that
+naturally wary of the effect of Linux on their beloved OS.
+>
+> Unix 用户有充分的理由相信这一点。在 POSIX 之前，Unix 用户已经看到了命令的专有扩展以及
+shell 对 Unix 世界的所做所为，他们自然会警惕 Linux 对他们心爱系统的影响。
+>
+> But portability has a serious downside. It prevents progress. It requires that
 things are always done using “lowest common denominator” techniques. In the
 case of shell programming, it means making everything compatible with sh, the
-original Bourne shell.</p>
-
-<p>但是可移植性有一个严重的缺点。它防碍了进步。它要求做事情要遵循“最低常见标准”。
-在 shell 编程这种情况下，它意味着一切要与 sh 兼容，最初的 Bourne shell。</p>
-
-<p>This downside is the excuse that proprietary vendors use to justify their
+original Bourne shell.
+>
+> 但是可移植性有一个严重的缺点。它防碍了进步。它要求做事情要遵循“最低常见标准”。
+在 shell 编程这种情况下，它意味着一切要与 sh 兼容，最初的 Bourne shell。
+>
+> This downside is the excuse that proprietary vendors use to justify their
 proprietary extensions, only they call them “innovations.” But they are really just
-lock-in devices for their customers.</p>
-
-<p>这个缺点是一个借口，专有软件供应商用它来证明他们的专利扩展，只有他们称他们为“创新”。
-但是他们只是为他们的客户锁定设备。</p>
-
-<p>The GNU tools, such as bash, have no such restrictions. They encourage
+lock-in devices for their customers.
+>
+> 这个缺点是一个借口，专有软件供应商用它来证明他们的专利扩展，只有他们称他们为“创新”。
+但是他们只是为他们的客户锁定设备。
+>
+> The GNU tools, such as bash, have no such restrictions. They encourage
 portability by supporting standards and by being universally available. You can
 install bash and the other GNU tools on almost any kind of system, even
 Windows, without cost. So feel free to use all the features of bash. It’s really
-portable.</p>
-
-<p>GNU 工具，比如说 bash，就没有这些限制。他们通过支持标准和普遍地可用性来鼓励可移植性。你几乎可以
+portable.
+>
+> GNU 工具，比如说 bash，就没有这些限制。他们通过支持标准和普遍地可用性来鼓励可移植性。你几乎可以
 在所有类型的系统中安装 bash 和其它的 GNU 工具，甚至是 Windows，而没有损失。所以就
-感觉可以自由的使用 bash 的所有功能。它是真正的可移植。</p>
-</div>
+感觉可以自由的使用 bash 的所有功能。它是真正的可移植。
 
 ### Control Operators: Another Way To Branch
 

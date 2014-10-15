@@ -488,28 +488,28 @@ take this up in the next chapter.
 只有用超级用户权限执行我们的脚本时，才会工作。一个更好的解决方案是让脚本能根据用户的使用权限来
 调整自己的行为。我们将在下一章中讨论这个问题。
 
-<div class="single">
-<h3>Shell Functions In Your .bashrc File</h3>
 
-<h3>你的 .bashrc 文件中的 shell 函数</h3>
-
-<p> Shell functions make excellent replacements for aliases, and are actually the
+> Shell Functions In Your .bashrc File
+>
+> 你的 .bashrc 文件中的 shell 函数
+>
+> Shell functions make excellent replacements for aliases, and are actually the
 preferred method of creating small commands for personal use. Aliases are very
 limited in the kind of commands and shell features they support, whereas shell
 functions allow anything that can be scripted. For example, if we liked the
 report_disk_space shell function that we developed for our script, we
 could create a similar function named ds for our .bashrc file:
- </p>
- <p>Shell 函数是更为完美的别名替代物，实际上是创建较小的个人所用命令的首选方法。别名
+>
+> Shell 函数是更为完美的别名替代物，实际上是创建较小的个人所用命令的首选方法。别名
  非常局限于命令的种类和它们支持的 shell 功能，然而 shell 函数允许任何可以编写脚本的东西。
  例如，如果我们喜欢 为我们的脚本开发的这个 report_disk_space shell 函数，我们可以为我们的 .bashrc 文件
- 创建一个相似的名为 ds 的函数：</p>
+ 创建一个相似的名为 ds 的函数：
+>
+>     ds () {
+>       echo “Disk Space Utilization For $HOSTNAME”
+>       df -h
+>     }
 
-<pre>ds () {
-  echo “Disk Space Utilization For $HOSTNAME”
-  df -h
-} </pre>
-</div>
 
 ### Summing Up
 

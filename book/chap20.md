@@ -319,41 +319,43 @@ with nothing in between) will match blank lines.
 这里我们分别在文件列表中搜索行首，行尾以及行首和行尾同时包含字符串“zip”（例如，zip 独占一行）的匹配行。
 注意正则表达式‘^$’（行首和行尾之间没有字符）会匹配空行。
 
-<div class="single">
-<h3>A Crossword Puzzle Helper </h3>
-
-<h3>字谜助手 </h3>
-
-<p> Even with our limited knowledge of regular expressions at this point, we can do something useful. </p>
-<p> 到目前为止，甚至凭借我们有限的正则表达式知识，我们已经能做些有意义的事情了。 </p>
-
-<p> My wife loves crossword puzzles and she will sometimes ask me for help with a
+> A Crossword Puzzle Helper
+>
+> 字谜助手
+>
+> Even with our limited knowledge of regular expressions at this point, we can do something useful.
+>
+> 到目前为止，甚至凭借我们有限的正则表达式知识，我们已经能做些有意义的事情了。
+>
+> My wife loves crossword puzzles and she will sometimes ask me for help with a
 particular question. Something like, “what’s a five letter word whose third letter
-is ‘j’ and last letter is ‘r’ that means...?” This kind of question got me thinking. </p>
-
-<p>我妻子喜欢玩字谜游戏，有时候她会因为一个特殊的问题，而向我求助。类似这样的问题，“一个
+is ‘j’ and last letter is ‘r’ that means...?” This kind of question got me thinking.
+>
+> 我妻子喜欢玩字谜游戏，有时候她会因为一个特殊的问题，而向我求助。类似这样的问题，“一个
 有五个字母的单词，它的第三个字母是‘j’，最后一个字母是‘r’，是哪个单词？”这类问题会
-让我动脑筋想想。</p>
-
-<p>Did you know that your Linux system contains a dictionary? It does. Take a look
+让我动脑筋想想。
+>
+> Did you know that your Linux system contains a dictionary? It does. Take a look
 in the /usr/share/dict directory and you might find one, or several. The
 dictionary files located there are just long lists of words, one per line, arranged in
 alphabetical order. On my system, the words file contains just over 98,500
 words. To find possible answers to the crossword puzzle question above, we
-could do this:</p>
-<p>你知道你的 Linux 系统中带有一本英文字典吗？千真万确。看一下/usr/share/dict 目录，你就能找到一本，
+could do this:
+>
+> 你知道你的 Linux 系统中带有一本英文字典吗？千真万确。看一下/usr/share/dict 目录，你就能找到一本，
 或几本。存储在此目录下的字典文件，其内容仅仅是一个长长的单词列表，每行一个单词，按照字母顺序排列。在我的
-系统中，这个文件仅包含98,000个单词。为了找到可能的上述字谜的答案，我们可以这样做：</p>
-
-<pre><code>[me@linuxbox ~]$ grep -i '^..j.r$' /usr/share/dict/words </p>
-Major
-major</code></pre>
-<p>Using this regular expression, we can find all the words in our dictionary file that
+系统中，这个文件仅包含98,000个单词。为了找到可能的上述字谜的答案，我们可以这样做：
+>
+>     [me@linuxbox ~]$ grep -i '^..j.r$' /usr/share/dict/words </p>
+>     Major
+>     major
+>
+> Using this regular expression, we can find all the words in our dictionary file that
 are five letters long and have a “j” in the third position and an “r” in the last
-position.</p>
-<p>使用这个正则表达式，我们能在我们的字典文件中查找到包含五个字母，且第三个字母
-是“j”，最后一个字母是“r”的所有单词。</p>
-</div>
+position.
+>
+> 使用这个正则表达式，我们能在我们的字典文件中查找到包含五个字母，且第三个字母
+是“j”，最后一个字母是“r”的所有单词。
 
 ### Bracket Expressions And Character Classes
 
@@ -734,56 +736,68 @@ can be used for both.
 记住，然而，这不是一个正则表达式的例子，而是 shell 正在执行路径名展开操作。我们在这里展示这个例子，
 是因为 POSIX 规范的字符集适用于二者。
 
-<div class="single">
-
-<h3>Reverting To Traditional Collation Order </h3>
-
-<h3>恢复到传统的排列顺序</h3>
-
-<p>You can opt to have your system use the traditional (ASCII) collation order by
+> Reverting To Traditional Collation Order
+>
+> 恢复到传统的排列顺序
+>
+> You can opt to have your system use the traditional (ASCII) collation order by
 changing the value of the LANG environment variable. As we saw above, the
 LANG variable contains the name of the language and character set used in your
 locale. This value was originally determined when you selected an installation
-language as your Linux was installed. </p>
-
-<p>通过改变环境变量 LANG 的值，你可以选择让你的系统使用传统的（ASCII）排列规则。如上所示，这个
-LANG 变量包含了语种和字符集。这个值最初由你安装 Linux 系统时所选择的安装语言决定。</p>
-
-<p> To see the locale settings, use the locale command: </p>
-<p>使用 locale 命令，来查看 locale 的设置。</p>
-
-<p>[me@linuxbox ~]$ locale</p>
-<p>LANG=en_US.UTF-8 </p>
-<p>LC_CTYPE="en_US.UTF-8" </p>
-<p>LC_NUMERIC="en_US.UTF-8" </p>
-<p>LC_TIME="en_US.UTF-8" </p>
-<p>LC_COLLATE="en_US.UTF-8" </p>
-<p>LC_MONETARY="en_US.UTF-8" </p>
-<p>LC_MESSAGES="en_US.UTF-8" </p>
-<p>LC_PAPER="en_US.UTF-8" </p>
-<p>LC_NAME="en_US.UTF-8" </p>
-<p>LC_ADDRESS="en_US.UTF-8" </p>
-<p>LC_TELEPHONE="en_US.UTF-8" </p>
-<p>LC_MEASUREMENT="en_US.UTF-8" </p>
-<p>LC_IDENTIFICATION="en_US.UTF-8" </p>
-<p>LC_ALL= </p>
-
-<p>To change the locale to use the traditional Unix behaviors, set the LANG variable to POSIX:</p>
-
-<p>把这个 LANG 变量设置为 POSIX，来更改 locale，使其使用传统的 Unix 行为。</p>
-
-<p>[me@linuxbox ~]$ export LANG=POSIX </p>
-
-<p>Note that this change converts the system to use U.S. English (more specifically,
-ASCII) for its character set, so be sure if this is really what you want.  </p>
-
-<p>You can make this change permanent by adding this line to you your .bashrc file:</p>
-
-<p>注意这个改动使系统为它的字符集使用 U.S.英语（更准确地说，ASCII），所以要确认一下这
-是否是你真正想要的效果。通过把这条语句添加到你的.bashrc 文件中，你可以使这个更改永久有效。</p>
-
-<p>export LANG=POSIX </p>
-</div>
+language as your Linux was installed.
+>
+> 通过改变环境变量 LANG 的值，你可以选择让你的系统使用传统的（ASCII）排列规则。如上所示，这个
+LANG 变量包含了语种和字符集。这个值最初由你安装 Linux 系统时所选择的安装语言决定。
+>
+>  To see the locale settings, use the locale command:
+>
+> 使用 locale 命令，来查看 locale 的设置。
+>
+> [me@linuxbox ~]$ locale
+>
+> LANG=en_US.UTF-8
+>
+> LC_CTYPE="en_US.UTF-8"
+>
+> LC_NUMERIC="en_US.UTF-8"
+>
+> LC_TIME="en_US.UTF-8"
+>
+> LC_COLLATE="en_US.UTF-8"
+>
+> LC_MONETARY="en_US.UTF-8"
+>
+> LC_MESSAGES="en_US.UTF-8"
+>
+> LC_PAPER="en_US.UTF-8"
+>
+> LC_NAME="en_US.UTF-8"
+>
+> LC_ADDRESS="en_US.UTF-8"
+>
+> LC_TELEPHONE="en_US.UTF-8"
+>
+> LC_MEASUREMENT="en_US.UTF-8"
+>
+> LC_IDENTIFICATION="en_US.UTF-8"
+>
+> LC_ALL=
+>
+> To change the locale to use the traditional Unix behaviors, set the LANG variable to POSIX:
+>
+> 把这个 LANG 变量设置为 POSIX，来更改 locale，使其使用传统的 Unix 行为。
+>
+> [me@linuxbox ~]$ export LANG=POSIX
+>
+> Note that this change converts the system to use U.S. English (more specifically,
+ASCII) for its character set, so be sure if this is really what you want.
+>
+> You can make this change permanent by adding this line to you your .bashrc file:
+>
+> 注意这个改动使系统为它的字符集使用 U.S.英语（更准确地说，ASCII），所以要确认一下这
+是否是你真正想要的效果。通过把这条语句添加到你的.bashrc 文件中，你可以使这个更改永久有效。
+>
+> export LANG=POSIX
 
 ### POSIX Basic Vs. Extended Regular Expressions
 
@@ -830,44 +844,41 @@ option is used.
 因为我们将要讨论的下一个特性是 ERE 的一部分，我们将要使用一个不同的 grep 程序。照惯例，
 一直由 egrep 程序来执行这项操作，但是 GUN 版本的 grep 程序也支持扩展的正则表达式，当使用了-E 选项之后。
 
-<div class="single">
-
-<h3>POSIX </h3>
-
-<p>During the 1980’s, Unix became a very popular commercial operating system, but
+> POSIX
+>
+> During the 1980’s, Unix became a very popular commercial operating system, but
 by 1988, the Unix world was in turmoil. Many computer manufacturers had
-licensed the Unix source code from its creators, AT&amp;T, and were supplying
+licensed the Unix source code from its creators, AT&T, and were supplying
 various versions of the operating system with their systems. However, in their
 efforts to create product differentiation, each manufacturer added proprietary
-changes and extensions. This started to limit the compatibility of the software. </p>
-
-<p>在 20 世纪 80 年代，Unix 成为一款非常流行的商业操作系统，但是到了1988年，Unix 世界
-一片混乱。许多计算机制造商从 Unix 的创建者 AT&amp;T 那里得到了许可的 Unix 源码，并且
+changes and extensions. This started to limit the compatibility of the software.
+>
+> 在 20 世纪 80 年代，Unix 成为一款非常流行的商业操作系统，但是到了1988年，Unix 世界
+一片混乱。许多计算机制造商从 Unix 的创建者 AT&T 那里得到了许可的 Unix 源码，并且
 供应各种版本的操作系统。然而，在他们努力创造产品差异化的同时，每个制造商都增加了
-专用的更改和扩展。这就开始限制了软件的兼容性。</p>
-
-<p>As always with proprietary vendors, each was trying to play a winning game of
+专用的更改和扩展。这就开始限制了软件的兼容性。
+>
+> As always with proprietary vendors, each was trying to play a winning game of
 “lock-in” with their customers. This dark time in the history of Unix is known
-today as “the Balkanization.” </p>
-
-<p>专有软件供应商一如既往，每个供应商都试图玩嬴游戏“锁定”他们的客户。这个 Unix 历史上
-的黑暗时代，就是今天众所周知的“the Balkanization”。</p>
-
-<p>Enter the IEEE (Institute of Electrical and Electronics Engineers). In the
+today as “the Balkanization.”
+>
+> 专有软件供应商一如既往，每个供应商都试图玩嬴游戏“锁定”他们的客户。这个 Unix 历史上
+的黑暗时代，就是今天众所周知的 “the Balkanization”。
+>
+> Enter the IEEE (Institute of Electrical and Electronics Engineers). In the
 mid-1980s, the IEEE began developing a set of standards that would define how
 Unix (and Unix-like) systems would perform. These standards, formally known
 as IEEE 1003, define the application programming interfaces (APIs), shell and
 utilities that are to be found on a standard Unix-like system. The name “POSIX,”
 which stands for Portable Operating System Interface (with the “X” added to the
 end for extra snappiness), was suggested by Richard Stallman (yes, that Richard
-Stallman), and was adopted by the IEEE. </p>
-
-<p>然后进入 IEEE（ 电气与电子工程师协会 ）时代。在上世纪 80 年代中叶，IEEE 开始制定一套标准，
+Stallman), and was adopted by the IEEE.
+>
+> 然后进入 IEEE（ 电气与电子工程师协会 ）时代。在上世纪 80 年代中叶，IEEE 开始制定一套标准，
 其将会定义 Unix 系统（ 以及类似于 Unix 的系统 ）如何执行。这些标准，正式成为 IEEE 1003，
 定义了应用程序编程接口（ APIs ），shell 和一些实用程序，其将会在标准的类似于 Unix
 操作系统中找到。“POSIX” 这个名字，象征着可移植的操作系统接口（为了额外的，添加末尾的 “X” ），
-是由 Richard Stallman 建议的（ 是的，的确是 Richard Stallman ），后来被 IEEE 采纳。</p>
-</div>
+是由 Richard Stallman 建议的（ 是的，的确是 Richard Stallman ），后来被 IEEE 采纳。
 
 ### Alternation
 

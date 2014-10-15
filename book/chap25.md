@@ -349,60 +349,58 @@ to activate completion.
 命令行的一个区别是，脚本可能雇佣 tab 字符拉实现缩进，然而命令行却不能，因为 tab 字符被用来
 激活自动补全功能。
 
-<div class="single">
-<h3>Configuring vim For Script Writing</h3>
-
-<h3>为书写脚本配置 vim</h3>
-
-<p> The vim text editor has many, many configuration settings. There are several
-common options that can facilitate script writing: </p>
-
-<p>这个 vim 文本编辑器有许多许多的配置设置。有几个常见的选项能够有助于脚本书写：</p>
-
-<p><b>:syntax on</b></p>
-
-<p>turns on syntax highlighting. With this setting, different elements of shell syntax
+> Configuring vim For Script Writing
+>
+> 为书写脚本配置 vim
+>
+> The vim text editor has many, many configuration settings. There are several
+common options that can facilitate script writing:
+>
+> 这个 vim 文本编辑器有许多许多的配置设置。有几个常见的选项能够有助于脚本书写：
+>
+> _:syntax on_
+>
+> turns on syntax highlighting. With this setting, different elements of shell syntax
 will be displayed in different colors when viewing a script. This is helpful for
 identifying certain kinds of programming errors. It looks cool, too. Note that for
 this feature to work, you must have a complete version of vim installed, and the
 file you are editing must have a shebang indicating the file is a shell script. If you
-have difficulty with the command above, try <b>:set syntax=sh</b> instead. </p>
-
-<p>打开语法高亮。通过这个设置，当查看脚本的时候，不同的 shell 语法元素会以不同的颜色
+have difficulty with the command above, try _:set syntax=sh_ instead.
+>
+> 打开语法高亮。通过这个设置，当查看脚本的时候，不同的 shell 语法元素会以不同的颜色
 显示。这对于识别某些编程错误很有帮助。并且它看起来也很酷。注意为了这个功能起作用，你
 必须安装了一个完整的 vim 版本，并且你编辑的文件必须有一个 shebang，来说明这个文件是
-一个 shell 脚本。如果对于上面的命令，你遇到了困难，试试<b>:set syntax=sh</b>。</p>
-
-<p><b>:set hlsearch</b></p>
-
-<p>turns on the option to highlight search results. Say we search for the word
-“echo.” With this option on, each instance of the word will be highlighted.</p>
-
-<p>打开这个选项是为了高亮查找结果。比如说我们查找单词“echo”。通过设置这个选项，这个
-单词的每个实例会高亮显示。</p>
-
-<p><b>:set tabstop=4</b></p>
-
-<p>sets the number of columns occupied by a tab character. The default is eight
+一个 shell 脚本。如果对于上面的命令，你遇到了困难，试试 _:set syntax=sh_。
+>
+> _:set hlsearch_
+>
+> turns on the option to highlight search results. Say we search for the word
+“echo.” With this option on, each instance of the word will be highlighted.
+>
+> 打开这个选项是为了高亮查找结果。比如说我们查找单词“echo”。通过设置这个选项，这个
+单词的每个实例会高亮显示。
+>
+> _:set tabstop=4_
+>
+> sets the number of columns occupied by a tab character. The default is eight
 columns. Setting the value to four (which is a common practice) allows long
-lines to fit more easily on the screen.</p>
-<p>设置一个 tab 字符所占据的列数。默认是8列。把这个值设置为4（一种常见做法），
-从而让长文本行更容易适应屏幕。</p>
-
-<p><b>:set autoindent</b></p>
-
-<p>turns on the “auto indent” feature. This causes vim to indent a new line the same
+lines to fit more easily on the screen.
+>> 设置一个 tab 字符所占据的列数。默认是8列。把这个值设置为4（一种常见做法），
+从而让长文本行更容易适应屏幕。
+>
+> _:set autoindent_
+>
+> turns on the “auto indent” feature. This causes vim to indent a new line the same
 amount as the line just typed. This speeds up typing on many kinds of
-programming constructs. To stop indentation, type Ctrl-d.</p>
-
-<p>打开"auto indent"功能。这导致 vim 能对新的文本行缩进与刚输入的文本行相同的列数。
-对于许多编程结构来说，这就加速了输入。停止缩进，输入 Ctrl-d。</p>
-
-<p>These changes can be made permanent by adding these commands (without the
-leading colon characters) to your ~/.vimrc file.</p>
-
-<p>通过把这些命令（没有开头的冒号字符）添加到你的 ~/.vimrc 文件中，这些改动会永久生效。</p>
-</div>
+programming constructs. To stop indentation, type Ctrl-d.
+>
+> 打开 "auto indent" 功能。这导致 vim 能对新的文本行缩进与刚输入的文本行相同的列数。
+对于许多编程结构来说，这就加速了输入。停止缩进，输入 Ctrl-d。
+>
+> These changes can be made permanent by adding these commands (without the
+leading colon characters) to your ~/.vimrc file.
+>
+> 通过把这些命令（没有开头的冒号字符）添加到你的 ~/.vimrc 文件中，这些改动会永久生效。
 
 ### Summing Up
 

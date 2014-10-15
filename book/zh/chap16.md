@@ -604,12 +604,13 @@ CD，用它来制作一个 iso 文件，以后我们可以用它来制作更多�
 "-R"选项添加元数据为 Rock Ridge 扩展，这允许使用长文件名和 POSIX 风格的文件权限。
 同样地，这个"-J"选项使 Joliet 扩展生效，这样 Windows 中就支持长文件名了。
 
-
+> 一个有着其它名字的程序。。。
+>
 > 如果你看一下关于创建和烧写光介质如 CD-ROMs 和 DVD 的在线文档，你会经常碰到两个程序
 叫做 mkisofs 和 cdrecord。这些程序是流行软件包"cdrtools"的一部分，"cdrtools"由 Jorg Schilling
-编写成。在2006年春天，Schilling 先生更改了部分 cdrtools 软件包的协议，许多 Linux 社区的意见是，
+编写成。在2006年春天，Schilling 先生更改了部分 cdrtools 软件包的协议，Linux 社区许多人的看法是，
 这创建了一个与 GNU GPL 不相兼容的协议。结果，就 fork 了这个 cdrtools 项目，
-目前新项目里面包含 cdrecord 和 mkisofs 的替代程序，分别是 wodim 和 genisoimage。
+目前新项目里面包含了 cdrecord 和 mkisofs 的替代程序，分别是 wodim 和 genisoimage。
 
 
 ### 写入 CD-ROM 镜像

@@ -107,56 +107,63 @@ and looking beyond our home directory:
     [me@linuxbox ~]$ echo /usr/*/share
     /usr/kerberos/share  /usr/local/share
 
-<div class="single">
-<h3>Pathname Expansion Of Hidden Files</h3>
-<h3>隐藏文件路径名展开</h3>
 
-<p> As we know, filenames that begin with a period character are hidden.
-Pathname expansion also respects this behavior. An expansion such as: </p>
-<p>正如我们知道的，以圆点字符开头的文件名是隐藏文件。路径名展开也尊重这种
-行为。像这样的展开：</p>
-
-<p>echo * </p>
-
-<p>does not reveal hidden files.  </p>
-<p>不会显示隐藏文件</p>
-
-<p>It might appear at first glance that we could include hidden files in an
-expansion by starting the pattern with a leading period, like this: </p>
-<p>要是展开模式以一个圆点开头，我们就能够在展开模式中包含隐藏文件，
-而且隐藏文件可能会出现在第一位置，就像这样：</p>
-
-<p>echo .* </p>
-
-<p> It almost works. However, if we examine the results closely, we will see
+> Pathname Expansion Of Hidden Files
+>
+> 隐藏文件路径名展开
+>
+> As we know, filenames that begin with a period character are hidden.
+Pathname expansion also respects this behavior. An expansion such as:
+>
+> 正如我们知道的，以圆点字符开头的文件名是隐藏文件。路径名展开也尊重这种
+行为。像这样的展开：
+>
+> echo *
+>
+> does not reveal hidden files.
+>
+> 不会显示隐藏文件
+>
+> It might appear at first glance that we could include hidden files in an
+expansion by starting the pattern with a leading period, like this:
+>
+> 要是展开模式以一个圆点开头，我们就能够在展开模式中包含隐藏文件，
+而且隐藏文件可能会出现在第一位置，就像这样：
+>
+> echo .*
+>
+> It almost works. However, if we examine the results closely, we will see
 that the names “.” and “..” will also appear in the results. Since these names
 refer to the current working directory and its parent directory, using this
 pattern will likely produce an incorrect result. We can see this if we try the
-command: </p>
-<p>它几乎是起作用了。然而，如果我们仔细检查一下输出结果，我们会看到名字"."
+command:
+>
+> 它几乎是起作用了。然而，如果我们仔细检查一下输出结果，我们会看到名字"."
 和".."也出现在结果中。因为这些名字是指当前工作目录和它的父目录，使用这种
-模式可能会产生不正确的结果。我们能看到这样的结果，如果我们试一下这个命令：</p>
-
-<p>ls -d .* | less</p>
-
-<p> To correctly perform pathname expansion in this situation, we have to
-employ a more specific pattern. This will work correctly: </p>
-<p>为了在这种情况下正确地完成路径名展开，我们应该雇佣一个更精确些的模式。
-这个模式会正确地工作：</p>
-
-<p>ls -d .[!.]?* </p>
-
-<p>This pattern expands into every filename that begins with a period, does not
+模式可能会产生不正确的结果。我们能看到这样的结果，如果我们试一下这个命令：
+>
+> ls -d .* | less
+>
+> To correctly perform pathname expansion in this situation, we have to
+employ a more specific pattern. This will work correctly:
+>
+> 为了在这种情况下正确地完成路径名展开，我们应该雇佣一个更精确些的模式。
+这个模式会正确地工作：
+>
+> ls -d .[!.]?*
+>
+> This pattern expands into every filename that begins with a period, does not
 include a second period, contains at least one additional character and can be
 followed by any other characters. This will work correctly with most hidden files (though it still won't
 include filenames with multiple leading periods). The ls command with the -A
-option (“almost all”) will provide a correct listing of hidden files: </p>
-<p>这种模式展开成为文件名，每个文件名以圆点开头，第二个字符不包含圆点，再包含至少一个字符，
+option (“almost all”) will provide a correct listing of hidden files:
+>
+> 这种模式展开成为文件名，每个文件名以圆点开头，第二个字符不包含圆点，再包含至少一个字符，
 并且这个字符之后紧接着任意多个字符。这将列出大多数的隐藏文件
 （但仍将不能包含以多个圆点开头的文件名）这个带有 -A 选项（“几乎所有”）的 ls
-命令能够提供一份正确的隐藏文件清单：</p>
-<p>ls -A</p>
-</div>
+命令能够提供一份正确的隐藏文件清单：
+>
+> ls -A
 
 ### Tilde Expansion
 

@@ -326,32 +326,29 @@ damaged .bz2 files.
 伴随着 bzip2 程序，有 bunzip2 和 bzcat 程序来解压缩文件。bzip2 文件也带有 bzip2recover 程序，其会
 试图恢复受损的.bz2 文件。
 
-<div class="single">
-
-<h3>Don’t Be Compressive Compulsive </h3>
-
-<h3>不要强迫性压缩</h3>
-
-<p>I occasionally see people attempting to compress a file, which has been already
+> Don’t Be Compressive Compulsive
+>
+> 不要强迫性压缩
+>
+> I occasionally see people attempting to compress a file, which has been already
 compressed with an effective compression algorithm, by doing something like
-this: </p>
-<p>我偶然见到人们试图用高效的压缩算法，来压缩一个已经被压缩过的文件，通过这样做：</p>
-
-<p><b>$ gzip picture.jpg </b></p>
-
-<p> Don’t do it. You’re probably just wasting time and space! If you apply
+this:
+>
+> 我偶然见到人们试图用高效的压缩算法，来压缩一个已经被压缩过的文件，通过这样做：
+>
+> <b>$ gzip picture.jpg </b>
+>
+> Don’t do it. You’re probably just wasting time and space! If you apply
 compression to a file that is already compressed, you will actually end up a larger
 file. This is because all compression techniques involve some overhead that is
 added to the file to describe the compression. If you try to compress a file that
 already contains no redundant information, the compression will not result in any
-savings to offset the additional overhead.</p>
-
-<p>不要这样。你可能只是在浪费时间和空间！如果你再次压缩已经压缩过的文件，实际上你
+savings to offset the additional overhead.
+>
+> 不要这样。你可能只是在浪费时间和空间！如果你再次压缩已经压缩过的文件，实际上你
 会得到一个更大的文件。这是因为所有的压缩技术都会涉及一些开销，文件中会被添加描述
 此次压缩过程的信息。如果你试图压缩一个已经不包含多余信息的文件，那么再次压缩不会节省
-空间，以抵消额外的花费。</p>
-</div>
-<br>
+空间，以抵消额外的花费。
 
 ### Archiving Files
 

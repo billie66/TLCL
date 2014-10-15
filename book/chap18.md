@@ -112,12 +112,11 @@ determine which version of locate is installed.
 匹配（我们会在下一章中讨论）和通配符支持。查看 locate 命令的手册，从而确定安装了
 哪个版本的 locate 程序。
 
-<div class="single">
-<h3>Where Does The locate Database Come From?</h3>
-
-<h3>locate 数据库来自何方？</h3>
-
-<p> You may notice that, on some distributions, locate fails to work just
+> Where Does The locate Database Come From?
+>
+> locate 数据库来自何方？
+>
+> You may notice that, on some distributions, locate fails to work just
 after the system is installed, but if you try again the next day, it works
 fine. What gives?  The locate database is created by another program named
 updatedb.  Usually, it is run periodically as a cron job; that is, a task
@@ -125,16 +124,15 @@ performed at regular intervals by the cron daemon. Most systems equipped
 with locate run updatedb once a day. Since the database is not updated
 continuously, you will notice that very recent files do not show up when using
 locate. To overcome this, it’s possible to run the updatedb program manually
-by becoming the superuser and running updatedb at the prompt.  </p>
-
-<p>你可能注意到了，在一些发行版中，仅仅在系统安装之后，locate 不能工作，
+by becoming the superuser and running updatedb at the prompt.
+>
+> 你可能注意到了，在一些发行版中，仅仅在系统安装之后，locate 不能工作，
 但是如果你第二天再试一下，它就工作正常了。怎么回事呢？locate 数据库由另一个叫做 updatedb
 的程序创建。通常，这个程序作为一个 cron 工作例程周期性运转；也就是说，一个任务
 在特定的时间间隔内被 cron 守护进程执行。大多数装有 locate 的系统会每隔一天运行一回
 updatedb 程序。因为数据库不能被持续地更新，所以当使用 locate 时，你会发现
-目前最新的文件不会出现。为了克服这个问题，有可能手动运行 updatedb 程序，
-更改为超级用户身份，在提示符下运行 updatedb 命令。</p>
-</div>
+目前最新的文件不会出现。为了克服这个问题，可以手动运行 updatedb 程序，
+更改为超级用户身份，在提示符下运行 updatedb 命令。
 
 ### find – Find Files The Hard Way
 
@@ -1060,12 +1058,11 @@ execute xargs with the --show-limits option.
 
 ---
 
-<div class="single">
-<h3>Dealing With Funny Filenames</h3>
-
-<h3>处理古怪的文件名</h3>
-
-<p>Unix-like systems allow embedded spaces (and even newlines!) in filenames.
+> Dealing With Funny Filenames
+>
+> 处理古怪的文件名
+>
+> Unix-like systems allow embedded spaces (and even newlines!) in filenames.
 This causes problems for programs like xargs that construct argument lists for
 other programs. An embedded space will be treated as a delimiter and the
 resulting command will interpret each space-separated word as a separate
@@ -1075,23 +1072,23 @@ character represented by the number zero (as opposed to, for example, the space
 character, which is defined in ASCII as the character represented by the number
 32). The find command provides the action -print0, which produces null
 separated output, and the xargs command has the --null option, which
-accepts null separated input. Here’s an example:</p>
-
-<p>类似于 Unix 的系统允许在文件名中嵌入空格（甚至换行符）。这就给一些程序，如为其它
+accepts null separated input. Here’s an example:
+>
+> 类似于 Unix 的系统允许在文件名中嵌入空格（甚至换行符）。这就给一些程序，如为其它
 程序构建参数列表的 xargs 程序，造成了问题。一个嵌入的空格会被看作是一个界定符，生成的
 命令会把每个空格分离的单词解释为单独的参数。为了解决这个问题，find 命令和 xarg 程序
 允许可选择的使用一个 null 字符作为参数分隔符。一个 null 字符被定义在 ASCII 码中，由数字
 零来表示（相反的，例如，空格字符在 ASCII 码中由数字32表示）。find 命令提供的 -print0 行为，
 则会产生由 null 字符分离的输出，并且 xargs 命令有一个 --null 选项，这个选项会接受由 null 字符
-分离的输入。这里有一个例子：</p>
+分离的输入。这里有一个例子：
+>
+> find ~ -iname '*.jpg' -print0 | xargs --null ls -l
+>
+> Using this technique, we can ensure that all files, even those containing embedded
+spaces in their names, are handled correctly.
+>
+> 使用这项技术，我们可以保证所有文件，甚至那些文件名中包含空格的文件，都能被正确地处理。
 
-<p> find ~ -iname '*.jpg' -print0 | xargs --null ls -l </p>
-
-<p> Using this technique, we can ensure that all files, even those containing embedded
-spaces in their names, are handled correctly. </p>
-
-<p>使用这项技术，我们可以保证所有文件，甚至那些文件名中包含空格的文件，都能被正确地处理。</p>
-</div>
 
 A Return To The Playground
 

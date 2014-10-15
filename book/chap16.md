@@ -399,12 +399,11 @@ Now the device unmounts successfully.
 
 现在这个设备成功卸载了。
 
-<div class="single">
-<h3>Why Unmounting Is Important</h3>
-
-<h3>为什么卸载重要</h3>
-
-<p> If you look at the output of the free command, which displays statistics about
+> Why Unmounting Is Important
+>
+> 为什么卸载重要
+>
+> If you look at the output of the free command, which displays statistics about
 memory usage, you will see a statistic called “buffers.” Computer systems are
 designed to go as fast as possible. One of the impediments to system speed is
 slow devices. Printers are a good example. Even the fastest printer is extremely
@@ -420,8 +419,9 @@ the printer buffer in place, the computer would send the printer output to the
 buffer and it would quickly be stored in the fast RAM so the computer could go
 back to work without waiting. Meanwhile, the printer buffer would slowly spool
 the data to the printer from the buffer's memory at the speed at which the printer
-could accept it.</p>
-<p>如果你看一下 free 命令的输出结果，这个命令用来显示关于内存使用情况的统计信息，你
+could accept it.
+>
+> 如果你看一下 free 命令的输出结果，这个命令用来显示关于内存使用情况的统计信息，你
 会看到一个统计值叫做”buffers“。计算机系统旨在尽可能快地运行。系统运行速度的
 一个阻碍是缓慢的设备。打印机是一个很好的例子。即使最快速的打印机相比于计算机标准也
 极其地缓慢。一台计算机确实会运行地非常慢，如果它要停下来等待一台打印机打印完一页。
@@ -431,41 +431,40 @@ could accept it.</p>
 这个发送速度会非常慢。这个问题被解决了，由于打印机缓存的出现，一个包含一些 RAM 内存
 的设备，位于计算机和打印机之间。通过打印机缓存，计算机把要打印的结果发送到这个缓存区，
 数据会迅速地存储到这个 RAM 中，这样计算机就能回去工作，而不用等待。与此同时，打印机缓存将会
-以打印机可接受的速度把缓存中的数据缓慢地输出给打印机。</p>
-
-<p>This idea of buffering is used extensively in computers to make them faster.
+以打印机可接受的速度把缓存中的数据缓慢地输出给打印机。
+>
+> This idea of buffering is used extensively in computers to make them faster.
 Don't let the need to occasionally read or write data to/from slow devices impede
 the speed of the system. Operating systems store data read from, and to be
 written to storage devices in memory for as long as possible before actually
 having to interact with the slower device. On a Linux system for example, you
 will notice that the system seems to fill up memory the longer it is used. This
 does not mean Linux is “using“ all the memory, it means that Linux is taking
-advantage of all the available memory to do as much buffering as it can. </p>
-
-<p>缓存被广泛地应用于计算机中，使其运行地更快。别让偶尔地需要读取或写入慢设备阻碍了
+advantage of all the available memory to do as much buffering as it can.
+>
+> 缓存被广泛地应用于计算机中，使其运行地更快。别让偶尔地需要读取或写入慢设备阻碍了
 系统的运行速度。在实际与慢设备交互之前，操作系统会尽可能多的读取或写入数据到内存中的
 存储设备里。以 Linux 操作系统为例，你会注意到系统看似填充了多于它所需要的内存。
-这不意味着 Linux 正在使用所有的内存，它意味着 Linux 正在利用所有可用的内存，来作为缓存区。</p>
-
-<p> This buffering allows writing to storage devices to be done very quickly, because
+这不意味着 Linux 正在使用所有的内存，它意味着 Linux 正在利用所有可用的内存，来作为缓存区。
+>
+> This buffering allows writing to storage devices to be done very quickly, because
 the writing to the physical device is being deferred to a future time. In the
 meantime, the data destined for the device is piling up in memory. From time to
-time, the operating system will write this data to the physical device.  </p>
-
-<p>这个缓存区允许非常快速地写入存储设备，因为写入物理设备的操作被延迟到后面进行。同时，
+time, the operating system will write this data to the physical device.
+>
+> 这个缓存区允许非常快速地写入存储设备，因为写入物理设备的操作被延迟到后面进行。同时，
 这些注定要传送到设备中的数据正在内存中堆积起来。时不时地，操作系统会把这些数据
-写入物理设备。</p>
-
-<p>Unmounting a device entails writing all the remaining data to the device so that it
+写入物理设备。
+>
+> Unmounting a device entails writing all the remaining data to the device so that it
 can be safely removed. If the device is removed without unmounting it first, the
 possibility exists that not all the data destined for the device has been transferred.
 In some cases, this data may include vital directory updates, which will lead to
-file system corruption, one of the worst things that can happen on a computer. </p>
-
-<p>卸载一个设备需要把所有剩余的数据写入这个设备，所以设备可以被安全地移除。如果
+file system corruption, one of the worst things that can happen on a computer.
+>
+> 卸载一个设备需要把所有剩余的数据写入这个设备，所以设备可以被安全地移除。如果
 没有卸载设备，就移除了它，就有可能没有把注定要发送到设备中的数据输送完毕。在某些情况下，
-这些数据可能包含重要的目录更新信息，这将导致文件系统损坏，这是发生在计算机中的最坏的事情之一。</p>
-</div>
+这些数据可能包含重要的目录更新信息，这将导致文件系统损坏，这是发生在计算机中的最坏的事情之一。
 
 Determining Device Names
 
@@ -905,18 +904,19 @@ time will cause the system to stop and direct you to run fsck before continuing.
 在大多数系统中，系统启动阶段若探测到文件系统已经损坏了，则会导致系统停止下来，
 在系统继续执行之前，会指导你运行 fsck 程序。
 
-<div class="single">
-<h3>What The fsck?</h3>
-<h3>什么是 fsck?</h3>
-
-<p>In Unix culture, the word “fsck” is often used in place of a popular word with
+> What The fsck?
+>
+> 什么是 fsck?
+>
+> In Unix culture, the word “fsck” is often used in place of a popular word with
 which it shares three letters. This is especially appropriate, given that you will
 probably be uttering the aforementioned word if you find yourself in a situation
-where you are forced to run fsck.  </p>
-<p>在 Unix 文化中，"fsck"这个单词往往会被用来代替一个流行的词，“fsck”和这个词共享了三个
+where you are forced to run fsck.
+>
+> 在 Unix 文化中，"fsck"这个单词往往会被用来代替一个流行的词，“fsck”和这个词共享了三个
 字母。这个尤其适用，因为你可能会说出上文提到的词，若你发现自己处于这种境况下，
-被强制来运行 fsck 命令时。</p>
-</div>
+被强制来运行 fsck 命令时。
+
 
 Formatting Floppy Disks
 
@@ -1063,11 +1063,12 @@ Joliet extensions, which permit long filenames for Windows.
 "-R"选项添加元数据为 Rock Ridge 扩展，这允许使用长文件名和 POSIX 风格的文件权限。
 同样地，这个"-J"选项使 Joliet 扩展生效，这样 Windows 中就支持长文件名了。
 
-<div class="single">
 
-<h3>A Program By Any Other Name...</h3>
-
-<p>If you look at on-line tutorials for creating and burning optical media like CD-
+> A Program By Any Other Name...
+>
+>一个有着其它名字的程序。。。
+>
+> If you look at on-line tutorials for creating and burning optical media like CD-
 ROMs and DVDs, you will frequently encounter two programs called mkisofs
 and cdrecord. These programs were part of a popular package called
 “cdrtools” authored by Jorg Schilling. In the summer of 2006, Mr. Schilling
@@ -1075,14 +1076,13 @@ made a license change to a portion of the cdrtools package which, in the opinion
 of many in the Linux community, created a license incompatibility with the GNU
 GPL. As a result, a fork of the cdrtools project was started that now includes
 replacement programs for cdrecord and mkisofs named wodim and
-genisoimage, respectively.  </p>
-
-<p>如果你看一下关于创建和烧写光介质如 CD-ROMs 和 DVD 的在线文档，你会经常碰到两个程序
+genisoimage, respectively.
+>
+> 如果你看一下关于创建和烧写光介质如 CD-ROMs 和 DVD 的在线文档，你会经常碰到两个程序
 叫做 mkisofs 和 cdrecord。这些程序是流行软件包"cdrtools"的一部分，"cdrtools"由 Jorg Schilling
-编写成。在2006年春天，Schilling 先生更改了部分 cdrtools 软件包的协议，许多 Linux 社区的意见是，
+编写成。在2006年春天，Schilling 先生更改了部分 cdrtools 软件包的协议，Linux 社区许多人的看法是，
 这创建了一个与 GNU GPL 不相兼容的协议。结果，就 fork 了这个 cdrtools 项目，
-目前新项目里面包含 cdrecord 和 mkisofs 的替代程序，分别是 wodim 和 genisoimage。</p>
-</div>
+目前新项目里面包含了 cdrecord 和 mkisofs 的替代程序，分别是 wodim 和 genisoimage。
 
 Writing CD-ROM Images
 
