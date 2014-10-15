@@ -44,8 +44,6 @@ we will introduce the following commands:
 
 * tail - 输出文件最后一部分
 
-### Standard Input, Output, And Error
-
 ### 标准输入，输出，和错误
 
 Many of the programs that we have used so far produce output of some kind. This output
@@ -78,8 +76,6 @@ redirection, we can change that.
 
 I/O 重定向允许我们可以更改输出走向和输入来向。一般地，输出送到屏幕，输入来自键盘，
 但是通过 I/O 重定向，我们可以改变输入输出方向。
-
-### Redirecting Standard Output
 
 ### 重定向标准输出
 
@@ -185,8 +181,6 @@ We repeated the command three times resulting in an output file three times as l
 
 我们重复执行命令三次，导致输出文件大小是原来的三倍。
 
-### Redirecting Standard Error
-
 ### 重定向标准错误
 
 Redirecting standard error lacks the ease of a dedicated redirection operator. To redirect
@@ -209,8 +203,6 @@ The file descriptor “2” is placed immediately before the redirection operato
 the redirection of standard error to the file ls-error.txt.
 
 文件描述符"2"，紧挨着放在重定向操作符之前，来执行重定向标准错误到文件 ls-error.txt 任务。
-
-### Redirecting Standard Output And Standard Error To One File
 
 ### 重定向标准输出和错误到同一个文件
 
@@ -267,8 +259,6 @@ standard error to the file ls-output.txt.
 
 在这个例子里面，我们使用单单一个表示法 &> 来重定向标准输出和错误到文件 ls-output.txt。
 
-### Disposing Of Unwanted Output
-
 ### 处理不需要的输出
 
 Sometimes “silence is golden,” and we don't want output from a command, we just want
@@ -298,8 +288,6 @@ see the Wikipedia article on “/dev/null”.
 许多部分。当有人说他/她正在发送你的评论到/dev/null，现在你应该知道那是
 什么意思了。更多的例子，可以阅读 Wikipedia 关于"/dev/null"的文章。
 
-
-### Redirecting Standard Input
 
 ### 重定向标准输入
 
@@ -432,8 +420,6 @@ Before we move on, check out the man page for cat, as it has several interesting
 
 在我们继续之前，查看 cat 的手册页，因为它有几个有趣的选项。
 
-### Pipelines
-
 ### 管道线
 
 The ability of commands to read data from standard input and send to standard output is
@@ -462,8 +448,6 @@ of any command that produces standard output.
 
 这极其方便！使用这项技术，我们可以方便地检测会产生标准输出的任一命令的运行结果。
 
-### Filters
-
 ### 过滤器
 
 Pipelines are often used to perform complex operations on data. It is possible to put
@@ -486,8 +470,6 @@ we changed the data to produce a single, sorted list.
 因为我们指定了两个目录（/bin 和/usr/bin），ls 命令的输出结果由有序列表组成，
 各自针对一个目录。通过在管道线中包含 sort，我们改变输出数据，从而产生一个
 有序列表。
-
-### uniq - Report Or Omit Repeated Lines
 
 ### uniq - 报道或忽略重复行
 
@@ -648,8 +630,6 @@ contents:
     bunzip2
     bzip2
     ....
-
-### Summing Up
 
 ### 总结归纳
 

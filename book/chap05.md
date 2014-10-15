@@ -390,8 +390,6 @@ to copy multiple items (either files or directories) into a directory.
 
 复制多个项目（文件或目录）到一个目录下。
 
-### Useful Options And Examples
-
 ### 有用的选项和实例
 
 Here are some of the commonly used options (the short option and the equivalent long
@@ -565,8 +563,6 @@ to move one or more items from one directory to another.
 
 把一个或多个条目从一个目录移动到另一个目录中。
 
-### Useful Options And Examples
-
 ### 有用的选项和实例
 
 mv shares many of the same options as cp:
@@ -684,8 +680,6 @@ rm 命令用来移除（删除）文件和目录：
 where "item" is one or more files or directories.
 
 "item"代表一个或多个文件或目录。
-
-### Useful Options And Examples
 
 ### 有用的选项和实例
 
@@ -864,8 +858,6 @@ to create a symbolic link where "item" is either a file or a directory.
 
 创建符号链接，"item"可以是一个文件或是一个目录。
 
-### Hard Links
-
 ### 硬链接
 
 Hard links are the original Unix way of creating links, compared to symbolic links, which
@@ -901,8 +893,6 @@ time, but modern practice prefers symbolic links, which we will cover next.
 直到所有关联这个文件的链接都删除掉。知道硬链接很重要，因为你可能有时
 会遇到它们，但现在实际中更喜欢使用符号链接，下一步我们会讨论符号链接。
 
-### Symbolic Links
-
 ### 符号链接
 
 Symbolic links were created to overcome the limitations of hard links. Symbolic links
@@ -936,8 +926,6 @@ this stuff and it will, hopefully, become clear.
 关于链接的概念，看起来很迷惑，但不要胆怯。我们将要试着练习
 这些命令，希望，它变得清晰起来。
 
-### Let's Build A Playground
-
 ### 创建游戏场（实战演习）
 
 Since we are going to do some real file manipulation, let's build a safe place to “play”
@@ -947,8 +935,6 @@ one in our home directory and call it “playground.”
 下面我们将要做些真正的文件操作，让我们先建立一个安全地带，
 来玩一下文件操作命令。首先，我们需要一个工作目录。在我们的
 主目录下创建一个叫做"playground"的目录。
-
-### Creating Directories
 
 ### 创建目录
 
@@ -1029,8 +1015,6 @@ other character (for example, “n”) will cause cp to leave the file alone.
 响应命令提示信息，输入"y"，文件就会被重写，其它的字符（例如，"n"）
 会导致 cp 命令不理会文件。
 
-### Moving And Renaming Files
-
 ### 移动和重命名文件
 
 Now, the name “passwd” doesn't seem very playful and this is a playground, so let's
@@ -1088,8 +1072,6 @@ mv 会重新命名 dir1为 dir2。最后，把所有的东西放回原处。
 
     [me@linuxbox playground]$ mv dir2/dir1 .
     [me@linuxbox playground]$ mv dir1/fun .
-
-### Creating Hard Links
 
 ### 创建硬链接
 
@@ -1161,8 +1143,6 @@ file.
 在这个版本的列表中，第一字段表示文件索引节点号，正如我们所见到的，
 fun 和 fun-hard 共享一样的索引节点号，这就证实这两个文件是一样的文件。
 
-### Creating Symbolic Links
-
 ### 创建符号链接
 
 Symbolic links were created to overcome the two disadvantages of hard links: hard links
@@ -1229,8 +1209,6 @@ In addition to regular files, symbolic links can also reference directories:
     [me@linuxbox playground]$ ls -l
     total 16
     ...省略
-
-### Removing Files And Directories
 
 ### 移动文件和目录
 
@@ -1327,8 +1305,6 @@ copying, moving, or linking the file.
 复制（或移动）文件。在 KDE 中，无论什么时候放下一个文件，会弹出一个小菜单，
 这个菜单会提供复制，移动，或创建链接文件选项。
 
-
-### Summing Up
 
 ### 总结
 

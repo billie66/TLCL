@@ -14,8 +14,6 @@ complex features of the shell, we will do it with just one new command:
 
 ### echo － 显示一行文本
 
-### Expansion
-
 ### (字符)展开
 
 Each time you type a command line and press the enter key, bash performs several
@@ -63,8 +61,6 @@ expanded result. Knowing this, we can see that echo behaved as expected.
 前。当回车键被按下时，shell 在命令被执行前在命令行上自动展开任何符合条件的字符，
 所以 echo 命令从不会发现"\*",只把它展开成结果。知道了这个以后，我们能看到 echo 执行
 的结果和我们想象的一样。
-
-### Pathname Expansion
 
 ### 路径名展开
 
@@ -165,8 +161,6 @@ option (“almost all”) will provide a correct listing of hidden files:
 >
 > ls -A
 
-### Tilde Expansion
-
 ### 波浪线展开
 
 As you may recall from our introduction to the cd command, the tilde character (“~”) has
@@ -186,8 +180,6 @@ If user “foo” has an account, then:
 
     [me@linuxbox ~]$ echo ~foo
     /home/foo
-
-### Arithmetic Expansion
 
 ### 算术表达式展开
 
@@ -314,8 +306,6 @@ Arithmetic expansion is covered in greater detail in Chapter 35.
 
 在35章会更深入的讨论算术表达式的内容。
 
-### Brace Expansion
-
 ### 花括号展开
 
 Perhaps the strangest expansion is called brace expansion. With it, you can create
@@ -381,8 +371,6 @@ Pretty slick!
 
 棒极了！
 
-### Parameter Expansion
-
 ### 参数展开
 
 We're only going to touch briefly on parameter expansion in this chapter, but we'll be
@@ -420,8 +408,6 @@ echo 命令只简单地显示误键入的模式。通过参数展开，如果你
     [me@linuxbox ~]$ echo $SUER
 
     [me@linuxbox ~]$
-
-### Command Substitution
 
 ### 命令替换
 
@@ -465,8 +451,6 @@ bash 也支持这种语法。它使用倒引号来代替美元符号和括号：
     [me@linuxbox ~]$ ls -l `which cp`
     -rwxr-xr-x 1 root root 71516 2007-12-05 08:58 /bin/cp
 
-### Quoting
-
 ### 引用
 
 Now that we've seen how many ways the shell can perform expansions, it's time to learn
@@ -493,8 +477,6 @@ provides a mechanism called quoting to selectively suppress unwanted expansions.
 在第一个例子中，shell 从 echo 命令的参数列表中，删除多余的空格。在第二个例子中，
 参数展开把 `$1` 的值替换为一个空字符串，因为 `1` 是没有定义的变量。shell 提供了一种
 叫做引用的机制，来有选择地禁止不需要的展开。
-
-### Double Quotes
 
 ### 双引号
 
@@ -597,8 +579,6 @@ includes the embedded spaces and newlines.
 在第一个实例中，没有引用的命令替换导致命令行包含38个参数。在第二个例子中，
 命令行只有一个参数，参数中包括嵌入的空格和换行符。
 
-### Single Quotes
-
 ### 单引号
 
 If we need to suppress all expansions, we use single quotes. Here is a comparison of
@@ -617,8 +597,6 @@ As we can see, with each succeeding level of quoting, more and more of the expan
 are suppressed.
 
 正如我们所看到的，随着引用程度加强，越来越多的展开被禁止。
-
-### Escaping Characters
 
 ### 转义字符
 
@@ -707,8 +685,6 @@ we can create a primitive countdown timer:
 > _sleep 10; echo "Time's up" $\'\a\'_
 
 
-### Summing Up
-
 ### 总结归纳
 
 As we move forward with using the shell, we will find that expansions and quoting will
@@ -721,8 +697,6 @@ be a source of mystery and confusion, and much of it potential power wasted.
 理解他们的工作方式很有意义。事实上，可以这样说，他们是学习 shell 的最重要的主题。
 如果没有准确地理解展开模式，shell 总是神秘和混乱的源泉，并且 shell 潜在的能力也
 浪费掉了。
-
-### Further Reading
 
 ### 拓展阅读
 

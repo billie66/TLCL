@@ -65,8 +65,6 @@ This chapter will revisit some old friends and introduce us to some new ones:
 
 * aspell – 交互式拼写检查器
 
-### Applications Of Text
-
 ### 文本应用程序
 
 So far, we have learned a couple of text editors (nano and vim), looked a bunch of
@@ -1217,8 +1215,6 @@ See the join man page for details.
 也要注意，默认情况下，join 命令使用空白字符做为输入字段的界定符，一个空格作为输出字段
 的界定符。这种行为可以通过指定的选项来修改。详细信息，参考 join 命令手册。
 
-### Comparing Text
-
 ### 比较文本
 
 It is often useful to compare versions of text files. For system administrators and
@@ -1608,8 +1604,6 @@ patch has a large number of options, and there are additional utility programs t
 be used to analyze and edit patches.
 
 patch 程序有大量的选项，而且还有额外的实用程序可以被用来分析和编辑补丁。
-
-### Editing On The Fly
 
 ### 运行时编辑
 
@@ -2548,8 +2542,6 @@ for details.
 
 ---
 
-### Summing Up
-
 ### 总结归纳
 
 In this chapter, we have looked at a few of the many command line tools that operate on
@@ -2565,8 +2557,6 @@ where these tools will really show their worth.
 虽然我们已经展示了一些半实际的命令用法的例子。我们将在随后的章节中发现这些工具组成
 了解决实际问题的基本工具箱。这将是确定无疑的，当我们学习 shell 脚本的时候，
 到时候这些工具将真正体现出它们的价值。
-
-### Further Reading
 
 ### 拓展阅读
 
@@ -2603,8 +2593,6 @@ GNU 项目网站包含了本章中所讨论工具的许多在线指南。
   <http://sed.sourceforge.net/sed1line.txt>
 
 * Also try googling “sed one liners”, “sed cheat sheets”
-
-### Extra Credit
 
 ### 友情提示
 

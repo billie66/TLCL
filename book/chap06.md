@@ -40,8 +40,6 @@ this chapter are:
 
 * alias – 创建命令别名
 
-### What Exactly Are Commands?
-
 ### 到底什么是命令？
 
 A command can be one of four different things:
@@ -75,8 +73,6 @@ functions in later chapters, but for now, just be aware that they exist.
 仅仅意识到它们的存在就可以了。
 
 1. 是一个命令别名。我们可以定义自己的命令，建立在其它命令之上。
-
-### Identifying Commands
 
 ### 识别命令
 
@@ -148,8 +144,6 @@ example, cd, we either get no response or an error message:
 which is a fancy way of saying “command not found.”
 
 说“命令没有找到”，真是很奇特。
-
-### Getting A Command's Documentation
 
 ### 得到命令文档
 
@@ -557,8 +551,6 @@ package.
 
 将会显示一个包含超级链接的手册页，这些超级链接指向包含在 coreutils 包中的各个程序。
 
-### README And Other Program Documentation Files
-
 ### README 和其它程序文档
 
 Many software packages installed on your system have documentation files residing in
@@ -574,8 +566,6 @@ of gzip-compressed text files.
 可用网页浏览器来阅读。我们可能遇到许多以".gz"结尾的文件。这表示 gzip 压缩程序
 已经压缩了这些程序。gzip 软件包包括一个特殊的 less 版本，叫做 zless，zless 可以显示由
 gzip 压缩的文本文件的内容。
-
-### Creating Your Own Commands With alias
 
 ### 用别名（alias）创建你自己的命令
 
@@ -695,8 +685,6 @@ we have taken our first, albeit tiny, step into the world of shell programming!
 我们会了解怎样把自己的别名添加到文件中去，每次我们登录系统，这些文件会建立系统环境。
 现在，好好享受我们刚经历过的，步入 shell 编程世界的第一步吧，虽然微小。
 
-### Revisiting Old Friends
-
 ### 拜访老朋友
 
 Now that we have learned how to find the documentation for commands, go and look up
@@ -705,8 +693,6 @@ additional options are available and try them out!
 
 既然我们已经学习了怎样找到命令的帮助文档，那就试着查阅，到目前为止，我们学到的所有
 命令的文档。学习命令其它可用的选项，练习一下！
-
-### Further Reading
 
 ### 拓展阅读
 

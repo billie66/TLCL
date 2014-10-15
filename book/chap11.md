@@ -55,8 +55,6 @@ This chapter will introduce the following commands:
 
 * shutdown – 关机或重启系统
 
-### How A Process Works
-
 ### 进程是怎样工作的
 
 When a system starts up, the kernel initiates a few of its own activities as processes and
@@ -86,8 +84,6 @@ IDs, etc.
 内核维护每个进程的信息，以此来保持事情有序。例如，系统分配给每个进程一个数字，这个数字叫做
 进程 ID 或 PID。PID 号按升序分配，init 进程的 PID 总是1。内核也对分配给每个进程的内存进行跟踪。
 像文件一样，进程也有所有者和用户 ID，有效用户 ID，等等。
-
-### Viewing Processes
 
 ### 查看进程
 
@@ -354,8 +350,6 @@ a date is used.</td>
 </tbody>
 </table>
 
-### Viewing Processes Dynamically With top
-
 ### 用 top 命令动态查看进程
 
 While the ps command can reveal a lot about what the machine is doing, it provides only
@@ -609,8 +603,6 @@ the system slowdown that we are trying to track.
 因为它运行速度快，并且消费很少的系统资源。毕竟，我们的系统监测程序不能成为
 系统怠工的源泉，而这是我们试图追踪的信息。
 
-### Controlling Processes
-
 ### 控制进程
 
 Now that we can see and monitor processes, let's gain some control over them. For our
@@ -651,8 +643,6 @@ xlogo window, the prompt returns.
 注意，为什么我们的 shell 提示符还没有返回？这是因为 shell 正在等待这个程序结束，
 就像到目前为止我们用过的其它所有程序一样。如果我们关闭 xlogo 窗口，shell 提示符就返回了。
 
-### Interrupting A Process
-
 ### 中断一个进程
 
 Let's observe what happens when we run xlogo again. First, enter the xlogo
@@ -675,8 +665,6 @@ prompt returned.
 Many (but not all) command line programs can be interrupted by using this technique.
 
 通过这个技巧，许多（但不是全部）命令行程序可以被中断。
-
-### Putting A Process In The Background
 
 ### 把一个进程放置到后台(执行)
 
@@ -723,8 +711,6 @@ command was xlogo &.
 
 结果显示我们有一个任务，编号为“1”，它正在运行，并且这个任务的命令是 xlogo ＆。
 
-### Returning A Process To The Foreground
-
 ### 进程返回到前台
 
 A process in the background is immune from keyboard input, including any attempt
@@ -745,8 +731,6 @@ xlogo, type Ctrl-c.
 
 fg 命令之后，跟随着一个百分号和工作序号（叫做 jobspec）。如果我们只有一个后台任务，那么
 jobspec 是可有可无的。输入 Ctrl-c 来终止 xlogo 程序。
-
-### Stopping (Pausing) A Process
 
 ### 停止一个进程
 
@@ -838,8 +822,6 @@ do things like save work in progress when it is sent a termination signal.
 Ctrl-z 时，则发送一个叫做 TSTP（终端停止）的信号。程序，反过来，倾听信号的到来，当程序
 接到信号之后，则做出响应。一个程序能够倾听和响应信号，这个事实允许一个程序做些事情，
 比如，当程序接到一个终止信号时，它可以保存所做的工作。
-
-### Sending Signals To Processes With kill
 
 ### 通过 kill 命令给进程发送信号
 
@@ -1087,8 +1069,6 @@ For the curious, a complete list of signals can be seen with the following comma
 
     [me@linuxbox ~]$ kill -l
 
-### Sending Signals To Multiple Processes With killall
-
 ### 通过 killall 命令给多个进程发送信号
 
 It's also possible to send signals to multiple processes matching a specified program or
@@ -1115,8 +1095,6 @@ Remember, as with kill, you must have superuser privileges to send signals to
 processes that do not belong to you.
 
 记住，和 kill 命令一样，你必须拥有超级用户权限才能给不属于你的进程发送信号。
-
-### More Process Related Commands
 
 ### 更多和进程相关的命令
 

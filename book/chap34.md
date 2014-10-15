@@ -16,8 +16,6 @@ In modern versions of bash, for is available in two forms.
 
 实现一个 for 循环，很自然的，要用 for 命令。在现代版的 bash 中，有两种可用的 for 循环格式。
 
-### for: Traditional Shell Form
-
 ### for: 传统 shell 格式
 
 The original for command’s syntax is:
@@ -174,8 +172,6 @@ It also led to the following Fortran-based witticism:
 
 
 
-### for: C Language Form
-
 ### for: C 语言格式
 
 Recent versions of bash have added a second form of for command syntax, one that
@@ -241,8 +237,6 @@ several applications for this in the next two chapters.
 
 C 语言格式的 for 循环对于需要一个数字序列的情况是很有用处的。我们将在接下来的两章中看到几个这样的应用实例。
 
-### Summing Up
-
 ### 总结
 
 With our knowledge of the for command, we will now apply the final improvements to
@@ -305,8 +299,6 @@ made use of printf to format some of the output.
 这次重写应用了目前为止我们学过的许多知识。我们仍然测试超级用户（superuser），但是我们在 if 语句块内
 设置了一些随后会在 for 循环中用到的变量，来取代在 if 语句块内执行完备的动作集合。我们添加了给
 函数添加了几个本地变量，并且使用 printf 来格式化输出。
-
-### Further Reading
 
 ### 拓展阅读
 

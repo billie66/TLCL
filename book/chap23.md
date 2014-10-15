@@ -43,15 +43,11 @@ We will discuss the following commands:
 
 * cancel —— 取消打印任务（System V）
 
-### A Brief History of Printing
-
 ### 打印简史
 
 To fully understand the printing features found in Unix-like operating systems, we must first learn some history. Printing on Unix-like systems goes way back to the beginning of the operating system itself. In those days, printers and how they were used were much different from how they are today.
 
 为了较好的理解类 Unix 操作系统中的打印功能，我们必须先了解一些历史。类 Unix 系统中的打印可追溯到操作系统本身的起源，那时候打印机和它的用法与今天截然不同。
-
-#### Printing in the Dim Times
 
 #### 早期的打印
 
@@ -62,8 +58,6 @@ Like the computers themselves, printers in the pre-PC era tended to be large, ex
 When printers were expensive and centralized, as they often were in the early days of Unix, it was common practice for many users to share a printer. To identify print jobs belonging to a particular user, a banner page displaying the name of the user was often printed at the beginning of each print job. The computer support staff would then load up a cart containing the day's print jobs and deliver them to the individual users.
 
 由于当时打印机既昂贵又集中，而且都工作在早期的 Unix 环境下，人们从实际考虑通常都会多人共享一台打印机。为了区别不同用户的打印任务，每个打印任务的开头都会打印一张写着用户名字的标题页，然后计算机工作人员会用推车装好当天的打印任务并分发给每个用户。
-
-#### Character-Based Printers
 
 #### 基于字符的打印机
 
@@ -93,8 +87,6 @@ Data is sent to a typewriter-like printer in a simple stream of bytes containing
 ^H (CTRL-H) characters are the backspaces used to create the boldface effect. Likewise, we can also see a backspace/underscore sequence used to produce underlining.
 
 ^H（ctrl-H）字符是用于打印粗体效果的退格符。同样，我们还可以看到用于打印下划线效果的[退格/下划线]序列。
-
-#### Graphical Printers
 
 #### 图形化打印机
 
@@ -130,8 +122,6 @@ Many printers today still accept character-based streams, but many low-cost prin
 
 现在的许多打印机仍能接受基于字符的字节流，但很多廉价的打印机却不支持，因为它们依赖于主机的 RIP 提供的比特流来作为点阵打印。当然也有不少仍旧是 PostScript 打印机。
 
-### Printing with Linux
-
 ### 在 Linux 下打印
 
 Modern Linux systems employ two software suites to perform and manage printing. The first, CUPS (Common Unix Printing System), provides print drivers and print-job management; the second, Ghostscript, a PostScript interpreter, acts as a RIP.
@@ -141,8 +131,6 @@ Modern Linux systems employ two software suites to perform and manage printing. 
 CUPS manages printers by creating and maintaining print queues. As we discussed in our brief history lesson, Unix printing was originally designed to manage a centralized printer shared by multiple users. Since printers are slow by nature, compared to the computers that are feeding them, printing systems need a way to schedule multiple print jobs and keep things organized. CUPS also has the ability to recognize different types of data (within reason) and can convert files to a printable form.
 
 CUPS 通过创建并维护打印队列来管理打印机。如前所述，Unix 下的打印原本是设计成多用户共享中央打印机的管理模式的。由于打印机本身比连接到它的电脑要慢，打印系统就需要对打印任务进行调度使其保持顺序。CUPS 还能识别出不同类型的数据（在合理范围内）并转换文件为可打印的格式。
-
-### Preparing Files for Printing
 
 ### 为打印准备文件
 
@@ -273,8 +261,6 @@ pr is often used in pipelines as a filter. In this example, we will produce a di
     a2p                 arecord         btcflash
     a2ps                arecordmidi     bug-buddy
     a2ps-lpr-wrapper    ark             buildhash
-
-### Sending a Print Job to a Printer
 
 ### 将打印任务送至打印机
 
@@ -466,8 +452,6 @@ We’ll produce our directory listing again, this time printing 12 CPI and 8 LPI
 This pipeline produces a four-column listing using smaller type than the default. The increased number of characters per inch allows us to fit more columns on the page.
 
 这条命令用小于默认的格式产生了一个四列的列表。增加 CPI 可以让我们在页面上打印更多列。
-
-#### Another Option: a2ps
 
 #### 另一种选择：a2ps
 
@@ -726,8 +710,6 @@ Note: a2ps is still in active development. During my testing, I noticed differen
 
 注意：a2ps 目前仍在不断的开发中。就我的测试而言，不同版本之间都多少有所变化。CentOS 4 中输出总是默认为标准输出。在 CentOS 4 和 Fedora 10 中，尽管程序配置信纸为默认媒介，输出还是默认为 A4纸。我可以明确的指定需要的选项来解决这些问题。Ubuntu 8.04 中，a2ps 表现的正如参考文档中所述。
 另外，我们也要注意到另一个转换文本为 PostScript 的输出格式化工具，名叫 enscript。它具有许多相同的格式化和打印功能，但和 a2ps 唯一的不同在于，它只能处理纯文本的输入。
-
-### Monitoring and Controlling Print Jobs
 
 ### 监视和控制打印任务
 

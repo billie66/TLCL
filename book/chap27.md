@@ -283,8 +283,6 @@ one command. The return command (which is optional) satisfies the requirement.
 
 Shell 函数的命名规则和变量一样。一个函数必须至少包含一条命令。这条 return 命令（是可选的）满足要求。
 
-### Local Variables
-
 ### 局部变量
 
 In the scripts we have written so far, all the variables (including constants) have been
@@ -358,8 +356,6 @@ script, as needed.
 这个功能就允许 shell 函数能保持各自以及与它们所在脚本之间的独立性。这个非常有价值，因为它帮忙
 阻止了程序各部分之间的相互干涉。这样 shell 函数也可以移植。也就是说，按照需求，
 shell 函数可以在脚本之间进行剪切和粘贴。
-
-### Keep Scripts Running
 
 ### 保持脚本运行
 
@@ -511,8 +507,6 @@ could create a similar function named ds for our .bashrc file:
 >     }
 
 
-### Summing Up
-
 ### 总结归纳
 
 In this chapter, we have introduced a common method of program design called top-
@@ -526,8 +520,6 @@ to be reusable by allowing them to be placed in multiple programs; a great time 
 使用 shell 函数按照要求来完成逐步细化的任务。我们也知道了怎样使用局部变量使 shell 函数
 独立于其它函数，以及其所在程序的其它部分。这就有可能使 shell 函数以可移植的方式编写，
 并且能够重复使用，通过把它们放置到多个程序中；节省了大量的时间。
-
-### Further Reading
 
 ### 拓展阅读
 

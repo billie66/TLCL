@@ -15,8 +15,6 @@ for sh, the original Unix shell program written by Steve Bourne.
 bash 是 shell 的一种，来自于 GNU 项目。“bash”是“Bourne Again SHell”的首字母缩写，
 所指的是这样一个事实，bash 是 sh 的增强版，sh 是最初 Unix 的 shell 程序，由 Steve Bourne 写成。
 
-Terminal Emulators
-
 ### 终端仿真器
 
 When using a graphical user interface, we need another program called a
@@ -72,8 +70,6 @@ another chance:
     bash: kaekfjaeifj: command not found
     [me@linuxbox ~]$
 
-Command History
-
 ### 命令历史
 
 If we press the up-arrow key, we will see that the previous command “kaekfjaeifj”
@@ -85,8 +81,6 @@ previous command disappears.
 这就叫做命令历史。许多 Linux 发行版默认保存最后输入的500个命令。
 按下下箭头按键，先前输入的命令就消失了。
 
-Cursor Movement
-
 ### 移动光标
 
 Recall the previous command with the up-arrow key again. Now try the left and right-arrow keys.
@@ -94,8 +88,6 @@ See how we can position the cursor anywhere on the command line? This makes edit
 
 可借助上箭头按键，来获得上次输入的命令。现在试着使用左右箭头按键。
 看一下怎样把光标定位到命令行的任意位置？通过使用箭头按键，使编辑命令变得轻松些。
-
-A Few Words About Mice And Focus
 
 ### 关于鼠标和光标
 
@@ -137,8 +129,6 @@ window manager.
 这个窗口就成为活动窗口。这个窗口不会成为前端窗口，直到你单击它，但它能接受输入。
 设置聚焦策略为“聚焦跟随着鼠标”，可以使拷贝和粘贴技巧更有益。尝试一下。
 给它一个机会，我想你会喜欢上它的。在窗口管理器的配置程序中，你会找到这个设置。
-
-Try Some Simple Commands
 
 ### 试试运行一些简单命令
 
@@ -186,8 +176,6 @@ Likewise, to display the amount of free memory, type the free command.
     -/+ buffers/cache:     441860    1617816
     Swap:      1042428          0    1042428
 
-Ending A Terminal Session
-
 ### 结束终端会话
 
 We can end a terminal session by either closing the terminal emulator window, or by
@@ -196,8 +184,6 @@ entering the exit command at the shell prompt:
 我们可以终止一个终端会话，通过关闭终端仿真器窗口，或者是在 shell 提示符下输入 exit 命令：
 
     [me@linuxbox ~]$ exit
-
-The Console Behind The Curtain
 
 ### 幕后控制台
 
@@ -214,8 +200,6 @@ F1-F6. To return to the graphical desktop, press Alt-F7.
 按下 Ctrl-Alt-F1 到 Ctrl-Alt-F6 访问不同的虚拟终端。当一个会话被访问的时候，
 它会显示登录提示框，我们需要输入用户名和密码。从一个虚拟控制台转换到另一个，
 按下 Alt 和 F1-F6。返回图形桌面，按下 Alt-F7。
-
-Further Reading
 
 ### 拓展阅读
 

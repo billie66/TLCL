@@ -81,8 +81,6 @@ and some may require superuser privileges to execute.
 
 ---
 
-### Examining And Monitoring A Network
-
 ### 检查和监测网络
 
 Even if you’re not the system administrator, it’s often helpful to examine the performance
@@ -274,8 +272,6 @@ Check out the netstat man page for a complete list.
 
 netstat 程序有许多选项，我们仅仅讨论了几个。查看 netstat 命令的手册，可以
 得到所有选项的完整列表。
-
-### Transporting Files Over A Network
 
 ### 网络中传输文件
 
@@ -488,8 +484,6 @@ better-than-average man page.
 
 这个程序的许多选项允许 wget 递归地下载，在后台下载文件（你退出后仍在下载），能完成未下载
 全的文件。这些特性在命令手册，better-than-average 一节中有详尽地说明。
-
-### Secure Communication With Remote Hosts
 
 ### 与远程主机安全通信
 
@@ -834,8 +828,6 @@ for the scp and sftp programs.
 > PuTTY 可在链接 <http://www.chiark.greenend.org.uk/~sgtatham/putty/> 处得到。
 
 
-
-### Further Reading
 
 ### 拓展阅读
 

@@ -78,8 +78,6 @@ the following commands:
 
 * passwd – 更改用户密码
 
-### Owners, Group Members, And Everybody Else
-
 ### 拥有者，组成员，和其他人
 
 When we were exploring the system back in Chapter 4, we may have encountered a
@@ -166,8 +164,6 @@ the user. This makes certain types of permission assignment easier.
 然而许多像 Unix 的系统会把普通用户分配到一个公共的用户组中，例如“users”，现在的 Linux
 会创建一个独一无二的，只有一个成员的用户组，这个用户组与用户同名。这样使某种类型的
 权限分配更容易些。
-
-### Reading, Writing, And Executing
 
 ### 读取，写入，和执行
 
@@ -565,8 +561,6 @@ permissions.
 它可以同时作用于文件和目录，所以它并不是如我们期望的那么有用处，因为我们很少希望文件和
 目录拥有同样的权限。
 
-### Setting File Mode With The GUI
-
 ### 借助 GUI 来设置文件模式
 
 Now that we have seen how the permissions on files and directories are set, we can better
@@ -799,8 +793,6 @@ Here are some examples. First, a program that is setuid:
 > drwxrwxrwt
 
 
-
-### Changing Identities
 
 ### 更改身份
 
@@ -1118,8 +1110,6 @@ same way as chown, except for being more limited.
 在旧版 Unix 系统中，chown 命令只能更改文件所有权，而不是用户组所有权。为了达到目的，
 使用一个独立的命令，chgrp 来完成。除了限制多一点之外，chgrp 命令与 chown 命令使用起来很相似。
 
-### Exercising Our Privileges
-
 ### 练习使用权限
 
 Now that we have learned how this permissions thing works, it's time to show
@@ -1250,8 +1240,6 @@ umask permanent.
 剩下一个问题是关于 umask 命令的。umask 命令设置的掩码值只能在当前 shell 会话中生效，若当前 shell
 会话结束后，则必须重新设置。在这本书的第三部分，我们将看一下，怎样使掩码值永久生效。
 
-### Changing Your Password
-
 ### 更改用户密码
 
 The last topic we'll cover in this chapter is setting passwords for yourself (and for other
@@ -1296,8 +1284,6 @@ passwd man page for details.
 如果你具有超级用户权限，你可以指定一个用户名作为 passwd 命令的参数，这样可以设置另一个
 用户的密码。还有其它的 passwd 命令选项对超级用户有效，允许帐号锁定，密码失效，等等。
 详细内容，参考 passwd 命令的手册页。
-
-### Further Reading
 
 ### 拓展阅读
 

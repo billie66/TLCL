@@ -51,8 +51,6 @@ We will introduce one new command:
 
 * make - 维护程序的工具
 
-### What Is Compiling?
-
 ### 什么是编译？
 
 Simply put, compiling is the process of translating source code (the
@@ -129,8 +127,6 @@ The final result of this process is the executable program file, ready for use.
 一个叫做链接器的程序用来在编译器的输出结果和要编译的程序所需的库之间建立连接。这个过程的最终结果是
 一个可执行程序文件，准备使用。
 
-#### Are All Programs Compiled?
-
 #### 所有的程序都是可编译的吗？
 
 No. As we have seen, there are programs such as shell scripts that do not require compiling.
@@ -165,8 +161,6 @@ quite long. Interpreted languages remove the compilation step and thus speed up 
 要比编译程序快速且容易。通常程序开发需要经历一个不断重复的写码，编译，测试周期。随着程序变得越来越大，
 编译阶段会变得相当耗时。解释型语言删除了编译步骤，这样就加快了程序开发。
 
-### Compiling A C Program
-
 ### 编译一个 C 语言
 
 Let’s compile something. Before we do that however, we’re going to need some
@@ -197,8 +191,6 @@ exercise below.
 考虑安装它，若你打算在你的系统中编译程序。若你的系统没有提供一个 meta-package，试着安装 gcc 和 make 工具包。
 在许多发行版中，这就足够完成下面的练习了。
 ---
-
-#### Obtaining The Source Code
 
 #### 得到源码
 
@@ -294,8 +286,6 @@ following command to examine the contents of the tar file:
 
     tar tzvf tarfile | head
 ---
-
-### Examining The Source Tree
 
 ### 检查源码树
 
@@ -592,8 +582,6 @@ undergoes continuous modification and improvement) contains several million line
 make 程序这种智能地只构建所需要构建的内容的特性，对程序来说，是巨大的福利。虽然在我们的小项目中，节省的时间可能
 不是非常明显，在庞大的工程中，它具有非常重大的意义。记住，Linux 内核（一个经历着不断修改和改进的程序）包含了几百万行代码。
 
-#### Installing The Program
-
 #### 安装程序
 
 Well-packaged source code will often include a special make target called install.
@@ -613,8 +601,6 @@ the superuser to perform the installation:
     [me@linuxbox diction-1.11]$ man diction
     And there we have it!
 
-### Summing Up
-
 ### 总结
 
 In this chapter, we have seen how three simple commands:
@@ -631,8 +617,6 @@ task that needs to maintain a target/dependency relationship, not just for compi
 
 可以用来构建许多源码包。我们也知道了在程序维护过程中，make 程序起到了举足轻重的作用。make 程序可以用到
 任何需要维护一个目标/依赖关系的任务中，不仅仅为了编译源代码。
-
-### Further Reading
 
 ### 拓展阅读
 

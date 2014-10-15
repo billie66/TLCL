@@ -29,8 +29,6 @@ In this chapter, we will work with the following commands:
 
 * alias – Create an alias for a command 创建命令别名
 
-What Is Stored In The Environment?
-
 ### 什么存储在环境变量中？
 
 The shell stores two basic types of data in the environment, though, with bash, the
@@ -44,8 +42,6 @@ shell 在环境中存储了两种基本类型的数据，虽然对于 bash 来�
 辨别的。它们是环境变量和 shell 变量。Shell 变量是由 bash 存放的一很少数据，而环境变量基本上
 就是其它的所有数据。除了变量，shell 也存储了一些可编程的数据，命名为别名和 shell 函数。我们
 已经在第六章讨论了别名，而 shell 函数（涉及到 shell 脚本）将会在第五部分叙述。
-
-Examining The Environment
 
 ### 检查环境变量
 
@@ -95,8 +91,6 @@ see them, enter the alias command without arguments:
 
 如果 shell 环境中的一个成员既不可用 set 命令也不可用 printenv 命令显示，则这个变量是别名。
 输入不带参数的 alias 命令来查看它们:
-
-Some Interesting Variables
 
 ### 一些有趣的变量
 
@@ -168,8 +162,6 @@ see them, enter the alias command without arguments:
     alias ls='ls --color=tty'
     alias vi='vim'
     alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
-
-Some Interesting Variables
 
 ### 一些有趣的变量
 
@@ -325,8 +317,6 @@ Don't worry if some of these values are missing. They vary by distribution.
 
 如果缺失了一些变量，不要担心，这些变量会因发行版本的不同而不同。
 
-How Is The Environment Established?
-
 ### 如何建立 shell 环境？
 
 When we log on to the system, the bash program starts, and reads a series of
@@ -465,8 +455,6 @@ in such a way as to read the ~/.bashrc file as well.
 在普通用户看来，文件 ~/.bashrc 可能是最重要的启动文件，因为它几乎总是被读取。非登录 shell 默认
 会读取它，并且大多数登录 shell 的启动文件会以能读取 ~/.bashrc 文件的方式来书写。
 
-What's In A Startup File?
-
 ### 一个启动文件的内容
 
 If we take a look inside a typical .bash_profile (taken from a CentOS 4 system), it
@@ -568,16 +556,12 @@ processes of this shell.
 
 这个 export 命令告诉 shell 让这个 shell 的子进程可以使用 PATH 变量的内容。
 
-Modifying The Environment
-
 ### 修改 shell 环境
 
 Since we know where the startup files are and what they contain, we can modify them to
 customize our environment.
 
 既然我们知道了启动文件所在的位置和它们所包含的内容，我们就可以修改它们来定制自己的 shell 环境。
-
-Which Files Should We Modify?
 
 ### 我们应该修改哪个文件？
 
@@ -595,8 +579,6 @@ many cases it would be sensible to do so, but for now, let's play it safe.
 默认设置，那么则限定你只能对自己主目录下的文件进行修改。当然，有可能会更改 /etc 目录中的
 文件，比如说 profile 文件，而且在许多情况下，修改这些文件也是明智的，但是现在，我们要
 安全起见。
-
-Text Editors
 
 ### 文本编辑器
 
@@ -646,8 +628,6 @@ installed on most Linux systems by default.
 （在大多数 Linux 系统中被 vim 替代，vim 是 "Vi IMproved"的简写）是类似于 Unix 操作系统的传统编辑器。
 vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stallman 写成。emacs 是一个庞大的，多用途的，
 可做任何事情的编程环境。虽然 emacs 很容易获取，但是大多数 Linux 系统很少默认安装它。
-
-Using A Text Editor
 
 ### 使用文本编辑器
 
@@ -875,9 +855,6 @@ preserving the information it contains.
 uncommenting (不注释)，这样你就会激活这些别名。相反地，如果你在一行的开头加上 "#" 符号，
 你可以注销掉这一行，但会保留它所包含的信息。
 
-
-Activating Our Changes
-
 ### 激活我们的修改
 
 The changes we have made to our .bashrc will not take affect until we close our
@@ -898,8 +875,6 @@ new aliases:
 
     [me@linuxbox ~]$ ll
 
-Summing Up
-
 ### 总结
 
 In this chapter we learned an essential skill—editing configuration files with a text
@@ -912,8 +887,6 @@ in the bash startup files to add to your arsenal of custom commands.
 读到命令的手册页时，记录下命令所支持的环境变量。可能会有一个或两个宝贝。在随后的章节
 里面，我们将会学习 shell 函数，一个很强大的特性，你可以把它包含在 bash 启动文件里面，以此
 来添加你自定制的命令宝库。
-
-Further Reading
 
 ### 拓展阅读
 

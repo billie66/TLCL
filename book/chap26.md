@@ -24,8 +24,6 @@ contains no system information. That will come later.
 通常，创建程序要经过一系列阶段，每个阶段会添加新的特性和功能。我们程序的第一个阶段将会
 产生一个非常小的 HTML 网页，其不包含系统信息。随后我们会添加这些信息。
 
-### First Stage: Minimal Document
-
 ### 第一阶段：最小的文档
 
 The first thing we need to know is the format of a well-formed HTML document. It
@@ -148,8 +146,6 @@ turn out to be quite handy.
 开头的 “>” 字符是包含在 PS2shell 变量中的 shell 提示符。每当我们在 shell 中键入多行语句的时候，
 这个提示符就会出现。现在这个功能有点儿晦涩，但随后，当我们介绍多行编程语句时，它会派上大用场。
 
-### Second Stage: Adding A Little Data
-
 ### 第二阶段：添加一点儿数据
 
 Now that our program can generate a minimal document, let’s put some data in the
@@ -172,8 +168,6 @@ report. To do this, we will make the following changes:
 We added a page title and a heading to the body of the report.
 
 我们增加了一个网页标题，并且在报告正文部分加了一个标题。
-
-### Variables And Constants
 
 ### 变量和常量
 
@@ -349,8 +343,6 @@ rarely used, but it exists for very formal scripts.
 它仍然存在。
 
 ---
-
-#### Assigning Values To Variables And Constants
 
 #### 给变量和常量赋值
 
@@ -558,8 +550,6 @@ can improve readability:
     _EOF_
     ls -l $REMOTE_FILE
 
-### Summing Up
-
 ### 总结归纳
 
 In this chapter, we started a project that will carry us through the process of building a
@@ -572,8 +562,6 @@ methods for embedding blocks of text.
 同时我们介绍了变量和常量的概念，以及怎样使用它们。它们是我们将找到的众多参数展开应用程序中的第一批实例。
 我们也知道了怎样从我们的脚本文件中产生输出，及其各种各样嵌入文本块的方法。
 
-
-### Further Reading
 
 ### 拓展阅读
 

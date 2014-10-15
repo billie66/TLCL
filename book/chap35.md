@@ -18,8 +18,6 @@ there is a common command line program called bc, which performs higher level ma
 在这一章中，我们将查看几个用来操作字符串和数字的 shell 功能。shell 提供了各种执行字符串操作的参数展开功能。
 除了算术展开（在第七章中接触过），还有一个常见的命令行程序叫做 bc，能执行更高级别的数学运算。
 
-### Parameter Expansion
-
 ### 参数展开
 
 Though parameter expansion came up in Chapter 7, we did not cover it in detail because
@@ -29,8 +27,6 @@ The shell provides many more.
 
 尽管参数展开在第七章中出现过，但我们并没有详尽地介绍它，因为大多数的参数展开会用在脚本中，而不是命令行中。
 我们已经使用了一些形式的参数展开；例如，shell 变量。shell 提供了更多方式。
-
-#### Basic Parameters
 
 #### 基本参数
 
@@ -75,8 +71,6 @@ can do this:
 我们已经知道通过把数字包裹在花括号中，可以访问大于9的位置参数。例如，访问第十一个位置参数，我们可以这样做：
 
 ${11}
-
-#### Expansions To Manage Empty Variables
 
 #### 管理空变量的展开
 
@@ -168,8 +162,6 @@ not changed.
     [me@linuxbox ~]$ echo ${foo:+"substitute value if set"}
     substitute value if set
 
-### Expansions That Return Variable Names
-
 ### 返回变量名的参数展开
 
 The shell has the ability to return the names of variables. This is
@@ -192,8 +184,6 @@ Here, we list all the variables in the environment with names that begin with BA
     BASH BASH_ARGC BASH_ARGV BASH_COMMAND BASH_COMPLETION
     BASH_COMPLETION_DIR BASH_LINENO BASH_SOURCE BASH_SUBSHELL
     BASH_VERSINFO BASH_VERSION
-
-#### String Operations
 
 #### 字符串展开
 
@@ -366,8 +356,6 @@ version, using parameter expansion, takes only 0.06 seconds — a very significa
 
 原来的脚本扫描整个文本文件需耗时3.168秒，而该新版本，使用参数展开，仅仅花费了0.06秒 —— 一个非常巨大的提高。
 
-#### Case Conversion
-
 #### 大小写转换
 
 Recent versions of bash have support for upper/lowercase conversion of strings. bash
@@ -513,8 +501,6 @@ parameter my be any string, variable, or string expression.
 再次，我们处理了第一个命令行参数，输出了由参数展开支持的四种变体。尽管这个脚本使用了第一个位置参数，
 但参数可以是任意字符串，变量，或字符串表达式。
 
-### Arithmetic Evaluation And Expansion
-
 ### 算术求值和展开
 
 We looked at arithmetic expansion in Chapter 7. It is used to perform various arithmetic
@@ -537,8 +523,6 @@ In previous chapters, we saw some of the common types of expressions and operato
 Here, we will look at a more complete list.
 
 在之前的章节中，我们看到过一些类型的表达式和运算符。这里，我们将看到一个更完整的列表。
-
-#### Number Bases
 
 #### 数基
 
@@ -612,16 +596,12 @@ two-digit number) and the largest eight-digit binary (base 2) number.
 
 在上面的示例中，我们打印出十六进制数 ff（最大的两位数）的值和最大的八位二进制数（以2为底）。
 
-#### Unary Operators
-
 #### 一元运算符
 
 There are two unary operators, the + and -, which are used to indicate if a number is pos-
 itive or negative, respectively. For example, -5.
 
 有两个二元运算符，+ 和 -，它们被分别用来表示一个数字是正数还是负数。例如，-5。
-
-#### Simple Arithmetic
 
 #### 简单算术
 
@@ -741,8 +721,6 @@ When executed, the results look like this:
 
     [me@linuxbox ~]$ modulo
     <0> 1 2 3 4 <5> 6 7 8 9 <10> 11 12 13 14 <15> 16 17 18 19 <20>
-
-#### Assignment
 
 #### 赋值运算符
 
@@ -952,8 +930,6 @@ We will make some improvements to our modulo script to tighten it up a bit:
     done
     printf "\n"
 
-#### Bit Operations
-
 #### 位运算符
 
 One class of operators manipulates numbers in an unusual way. These operators work at
@@ -1046,8 +1022,6 @@ Here we will demonstrate producing a list of powers of 2, using the left bitwise
     32
     64
     128
-
-#### Logic
 
 #### 逻辑运算符
 
@@ -1293,8 +1267,6 @@ end with `*/`.
 
 脚本的第一行是一行注释。bc 使用和 C编程语言一样的注释语法。注释，可能会跨越多行，开始于 `/*` 结束于 `*/`。
 
-#### Using bc
-
 #### 使用 bc
 
 If we save the bc script above as foo.bc, we can run it this way:
@@ -1340,8 +1312,6 @@ and pipes to pass scripts. This is a here string example:
 
     [me@linuxbox ~]$ bc <<< "2+2"
     4
-
-#### An Example Script
 
 #### 一个脚本实例
 
@@ -1400,8 +1370,6 @@ be quite familiar, based on what we have learned so far.
 虽然 bc 的数学符号与 shell 的略有差异（bc 与 C 更相近），但是基于目前我们所学的内容，
 大多数符号是我们相当熟悉的。
 
-### Summing Up
-
 ### 总结
 
 In this chapter, we have learned about many of the little things that can be used to get the
@@ -1412,8 +1380,6 @@ Our loan-calc script demonstrates that even simple scripts can be created to do 
 在这一章中，我们学习了很多小东西，在脚本中这些小零碎可以完成“真正的工作”。随着我们编写脚本经验的增加，
 能够有效地操作字符串和数字的能力将具有极为重要的价值。我们的 loan-calc 脚本表明，
 甚至可以创建简单的脚本来完成一些真正有用的事情。
-
-### Extra Credit
 
 ### 额外加分
 
@@ -1435,8 +1401,6 @@ user to input the principal, interest rate, and term of the loan.
 * 用一个命令行选项来实现“交互”模式，提示用户输入本金、利率和贷款期限
 
 * 输出格式美化
-
-### Further Reading
 
 ### 拓展阅读
 

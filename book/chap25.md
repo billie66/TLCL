@@ -15,8 +15,6 @@ enable it to do this by writing shell scripts.
 我们可以的。通过把我们的工具一起放置到我们自己设计的程序中，然后 shell 就会自己来执行这些复杂的任务序列。
 通过编写 shell 脚本，我们让 shell 来做这些事情。
 
-### What Are Shell Scripts?
-
 ### 什么是 Shell 脚本？
 
 In the simplest terms, a shell script is a file containing a series of commands. The shell
@@ -41,8 +39,6 @@ not always) used when writing programs.
 
 虽然我们已经介绍了许多 shell 功能，但只是集中于那些经常直接在命令行中使用的功能。
 Shell 也提供了一些通常（但不总是）在编写程序时才使用的功能。
-
-### How To Write A Shell Script
 
 ### 怎样编写一个 Shell 脚本
 
@@ -74,8 +70,6 @@ For maximum convenience, we will place our scripts in these directories.
 
 1. _把脚本放置到 shell 能够找到的地方_ 当没有指定可执行文件明确的路径名时，shell 会自动地搜索某些目录，
 来查找此可执行文件。为了最大程度的方便，我们会把脚本放到这些目录当中。
-
-### Script File Format
 
 ### 脚本文件格式
 
@@ -150,8 +144,6 @@ readable in order to be executed.
 
 对于脚本文件，有两个常见的权限设置；权限为755的脚本，则每个人都能执行，和权限为700的
 脚本，只有文件所有者能够执行。注意为了能够执行脚本，脚本必须是可读的。
-
-### Script File Location
 
 ### 脚本文件位置
 
@@ -248,8 +240,6 @@ Ubuntu 会自动地添加这个 ~/bin 目录到 PATH 变量中。所以在 Ubunt
 
 ---
 
-#### Good Locations For Scripts
-
 #### 脚本文件的好去处
 
 The ~/bin directory is a good place to put scripts intended for personal use. If we write
@@ -266,8 +256,6 @@ Standard to contain only files supplied and maintained by the Linux distributor.
 而不是在 /bin 或 /usr/bin 目录下。这些目录都是由 Linux 文件系统层次结构标准指定，只包含由 Linux 发行商
 所提供和维护的文件。
 
-### More Formatting Tricks
-
 ### 更多的格式技巧
 
 One of the key goals of serious script writing is ease of maintenance; that is, the ease
@@ -276,8 +264,6 @@ Making a script easy to read and understand is one way to facilitate easy mainte
 
 严肃认真的脚本书写，一个关键目标是为了维护方便；也就是说，一个脚本可以轻松地被作者或其它
 用户修改，使它适应变化的需求。使脚本容易阅读和理解是一种方便维护的方法。
-
-#### Long Option Names
 
 #### 长选项名称
 
@@ -302,8 +288,6 @@ provide improved readability.
 
 是等价的命令。为了减少输入，当在命令行中输入选项的时候，短选项更受欢迎，但是当书写脚本的时候，
 长选项能提供可读性。
-
-#### Indentation And Line Continuation
 
 #### 缩进和行继续符
 
@@ -402,8 +386,6 @@ leading colon characters) to your ~/.vimrc file.
 >
 > 通过把这些命令（没有开头的冒号字符）添加到你的 ~/.vimrc 文件中，这些改动会永久生效。
 
-### Summing Up
-
 ### 总结归纳
 
 In this first chapter of scripting, we have looked at how scripts are written and made to
@@ -415,8 +397,6 @@ in good script writing.
 在这脚本编写的第一章中，我们已经看过怎样编写脚本，怎样让它们在我们的系统中轻松地执行。
 我们也知道了怎样使用各种格式技巧来提高脚本的可读性（可维护性）。在以后的各章中，轻松维护
 会作为编写好脚本的中心法则一次又一次地出现。
-
-### Further Reading
 
 ### 拓展阅读
 

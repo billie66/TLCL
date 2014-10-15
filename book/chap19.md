@@ -42,8 +42,6 @@ And the file synchronization program:
 
 * rsync – 同步远端文件和目录
 
-### Compressing Files
-
 ### 压缩文件
 
 Throughout the history of computing, there has been a struggle to get the most data into
@@ -349,8 +347,6 @@ savings to offset the additional overhead.
 会得到一个更大的文件。这是因为所有的压缩技术都会涉及一些开销，文件中会被添加描述
 此次压缩过程的信息。如果你试图压缩一个已经不包含多余信息的文件，那么再次压缩不会节省
 空间，以抵消额外的花费。
-
-### Archiving Files
 
 ### 归档文件
 
@@ -848,8 +844,6 @@ greatly preferred.
 并且包含了有用的实例。然而，这些程序的主要用途是为了和 Windows 系统交换文件，
 而不是在 Linux 系统中执行压缩和打包操作，tar 和 gzip 程序在 Linux 系统中更受欢迎。
 
-### Synchronizing Files And Directories
-
 ### 同步文件和目录
 
 A common strategy for maintaining a backup copy of a system involves keeping one or
@@ -988,8 +982,6 @@ the job.
 
 现在我们所做的事情就是连接外部驱动器，然后运行 backup 命令来完成工作。
 
-#### Using rsync Over A Network
-
 #### 在网络间使用 rsync 命令
 
 One of the real beauties of rsync is that it can be used to copy files over a network.
@@ -1048,8 +1040,6 @@ followed by the pathname of the repository.
 
 在这个例子里，我们使用了远端 rsync 服务器的 URI，其由协议（rsync://），远端主机名
 （rsync.gtlib.gatech.edu），和软件仓库的路径名组成。
-
-### Further Reading
 
 ### 拓展阅读
 

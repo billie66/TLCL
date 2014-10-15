@@ -23,8 +23,6 @@ looping. We will look at two of them in this chapter, and the third in a later o
 在这一章中，我们将看一个叫做循环的程序概念，其可用来使程序的某些部分重复。shell 为循环提供了三个复合命令。
 本章我们将查看其中的两个命令，随后章节介绍第三个命令。
 
-### Looping
-
 ### 循环
 
 Daily life is full of repeated activities. Going to work each day, walking the dog, slicing
@@ -176,8 +174,6 @@ the loop terminates and execution continues with the line following `done`.
  sleep 命令，所以在清空屏幕和重新显示菜单之前，程序将会停顿几秒钟，为的是能够看到选项输出结果。
 一旦 REPLY 等于“0”，则表示选择了“退出”选项，循环就会终止，程序继续执行 done 语句之后的代码。
 
-### Breaking Out Of A Loop
-
 ### 跳出循环
 
 bash provides two builtin commands that can be used to control program flow inside
@@ -277,8 +273,6 @@ matter of choosing the one that allows the clearest `test` to be written.
 通过把 test 表达式更改为 $count -gt 5 ， until 会在正确的时间终止循环。决定使用 while 循环
 还是 until 循环，通常是选择一个 test 可以编写地很清楚的循环。
 
-### Reading Files With Loops
-
 ### 使用循环读取文件
 
 `while` and `until` can process standard input. This allows files to be processed with
@@ -328,8 +322,6 @@ variables created or assigned within the loop will be lost when the loop termina
 这里我们接受 sort 命令的标准输出，然后显示文本流。然而，因为管道将会在子 shell 中执行
 循环，当循环终止的时候，循环中创建的任意变量或赋值的变量都会消失，记住这一点很重要。
 
-### Summing Up
-
 ### 总结
 
 With the introduction of loops, and our previous encounters with branching, subroutines
@@ -338,8 +330,6 @@ has some more tricks up its sleeve, but they are refinements on these basic conc
 
 通过引入循环，和我们之前遇到的分支，子例程和序列，我们已经介绍了程序流程控制的主要类型。
 bash 还有一些锦囊妙计，但它们都是关于这些基本概念的完善。
-
-### Further Reading
 
 ### 拓展阅读
 

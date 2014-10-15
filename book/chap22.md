@@ -35,8 +35,6 @@ programs that we will cover in this chapter include:
 
 * groff – 一个文件格式系统
 
-### Simple Formatting Tools
-
 ###简单的格式化工具
 
 We’ll look at some of the simple formatting tools first. These are mostly single purpose

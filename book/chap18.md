@@ -539,8 +539,6 @@ This is not a complete list. The find man page has all the details.
 
 这不是一个完整的列表。find 命令手册有更详细的说明。
 
-#### Operators
-
 #### 操作符
 
 Even with all the tests that find provides, we may still need a better way to describe the
@@ -735,8 +733,6 @@ expr1 -or expr2，并且表达式 expr1的结果为真，那么就没有必要�
 表达式 expr1 -or expr2 为真。好，这样会执行快一些。为什么这个很重要？
 它很重要是因为我们能依靠这种行为来控制怎样来执行操作。我们会很快看到...
 
-### Predefined Actions
-
 ### 预定义的操作
 
 Let’s get some work done! Having a list of results from our find command is useful,
@@ -925,8 +921,6 @@ true) and then test for file type and the specified file extension.
 
 这个版本的命令会打印出每个文件（-print 行为总是为真），然后测试文件类型和指定的文件扩展名。
 
-### User Defined Actions
-
 ### 用户定义的行为
 
 In addition to the predefined actions, we can also invoke arbitrary commands. The
@@ -969,8 +963,6 @@ before the ls command is executed.
 
 在这个例子里面，我们搜索以字符串“foo”开头的文件名，并且对每个匹配的文件执行 ls -l 命令。
 使用 -ok 行为，会在 ls 命令执行之前提示用户。
-
-### Improving Efficiency
 
 ### 提高效率
 
@@ -1239,8 +1231,6 @@ the operators and actions can be used together to perform useful tasks.
 而不是这一个长长的复合命令，但是很高兴知道，我们能这样执行命令。这里最重要的一点是要
 理解怎样把操作符和行为结合起来使用，来执行有用的任务。
 
-#### Options
-
 #### 选项
 
 Finally, we have the options. The options are used to control the scope of a find search.
@@ -1314,8 +1304,6 @@ systems and CD-ROMs.</td>
 <td valign="top">指导 find 程序不要基于搜索类似于 Unix 的文件系统做出的假设，来优化它的搜索。</td>
 </tr>
 </table>
-
-### Further Reading
 
 ### 拓展阅读
 

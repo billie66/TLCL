@@ -60,8 +60,6 @@ known if you care enough to find out.
 它决定你的计算机能做什么，同时能够拥有这种“自由”的唯一方式就是知道计算机正在做什么。
 “自由”是指一台没有任何秘密的计算机，你可以从它那里了解一切，只要你用心的去寻找。
 
-### Why Use The Command Line?
-
 ### 为什么使用命令行
 
 Have you ever noticed in the movies when the “super hacker,”— you know, the guy who
@@ -346,8 +344,6 @@ AIX. I have chosen to use the popular format. If, however, you prefer to use
 比如说 DOS, Windows, MacOS, Solaris, Irix, AIX. 所以我选择用流行的命名规则。然而，
 如果你喜欢用“GNU/Linux”，当你读这本书时，可以在脑子里搜索并替换“Linux”。我不介意。
 
-
-### Further Reading
 
 ### 拓展阅读
 

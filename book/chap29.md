@@ -168,8 +168,6 @@ Running this script results in this:
     Enter one or more values > a b c d
     REPLY = 'a b c d'
 
-#### Options
-
 #### 选项
 
 `read` supports the following options:
@@ -463,8 +461,6 @@ discussed in Chapter 37.
 >
 > 使用 here 字符串是解决此问题的一种方法。另一种方法将在37章中讨论。
 
-### Validating Input
-
 ### 校正输入
 
 With our new ability to have keyboard input comes an additional programming challenge,
@@ -535,8 +531,6 @@ we have covered thus far, including shell functions, `[[ ]]`, `(( ))`, the contr
 这个脚本提示用户输入一个数字。随后，分析这个数字来决定它的内容。正如我们所看到的，这个脚本
 使用了许多我们已经讨论过的概念，包括 shell 函数，`[[ ]]`，`(( ))`，控制操作符 `&&`，以及 `if` 和
 一些正则表达式。
-
-### Menus
 
 ### 菜单
 
@@ -613,8 +607,6 @@ program logic harder to understand), but it works in this script.
 选择的行动。注意脚本中使用的 exit 命令。在这里，在一个行动执行之后， exit 被用来阻止脚本执行不必要的代码。
 通常在程序中出现多个 exit 代码是一个坏想法（它使程序逻辑较难理解），但是它在这个脚本中起作用。
 
-### Summing Up
-
 ### 总结归纳
 
 In this chapter, we took our first steps toward interactivity; allowing users to input data
@@ -627,8 +619,6 @@ on the menu-driven program concept to make it even better.
 已经学过的技巧，有可能编写许多有用的程序，比如说特定的计算程序和容易使用的命令行工具
 前端。在下一章中，我们将继续建立菜单驱动程序概念，让它更完善。
 
-#### Extra Credit
-
 #### 友情提示
 
 It is important to study the programs in this chapter carefully and have a complete
@@ -640,8 +630,6 @@ evaluate the regular expressions and evaluate its exit status. This will be good
 仔细研究本章中的程序，并对程序的逻辑结构有一个完整的理解，这是非常重要的，因为即将到来的
 程序会日益复杂。作为练习，用 test 命令而不是`[[ ]]`复合命令来重新编写本章中的程序。
 提示：使用 grep 命令来计算正则表达式及其退出状态。这会是一个不错的实践。
-
-### Further Reading
 
 ### 拓展阅读
 

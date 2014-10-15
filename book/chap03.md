@@ -23,8 +23,6 @@ introduce the following commands:
 * ls — 列出目录内容
 
 
-### Understanding The File System Tree
-
 ### 理解文件系统树
 
 Like Windows, a Unix-like operating system such as Linux organizes its files
@@ -51,8 +49,6 @@ the person (or persons) responsible for the maintenance of the system.
 比如 Linux，总是有一个单一的文件系统树，不管有多少个磁盘或者存储设备连接到计算机上。
 根据系统管理员的兴致，存储设备连接到（或着更精确些，是挂载到）目录树的各个节点上。
 系统管理员负责维护系统安全。
-
-### The Current Working Directory
 
 ### 当前工作目录
 
@@ -98,8 +94,6 @@ directory is the only place the user is allowed to write files.
 每个用户都有他自己的主目录，当用户以普通用户的身份操控系统时，主目录是唯一
 允许用户编写文件的地方。
 
-### Listing The Contents Of A Directory
-
 ### 列出目录内容
 
 To list the files and directories in the current working directory, we use the
@@ -117,8 +111,6 @@ do as well. We'll spend more time with ls in the next chapter.
 实际上，用 ls 命令可以列出任一个目录的内容，而不只是当前工作目录的内容。
 ls 命令还能完成许多有趣的事情。在下一章节，我们将介绍更多关于 ls 的知识。
 
-### Changing The Current Working Directory
-
 ### 更改当前工作目录
 
 To change your working directory (where we are standing in our tree-shaped
@@ -132,8 +124,6 @@ pathnames. Let's deal with absolute pathnames first.
 然后输入你想要的工作目录的路径名，就能实现愿望。路径名就是沿着目录树的分支
 到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，
 另一个是相对路径。首先处理绝对路径。
-
-### Absolute Pathnames
 
 ### 绝对路径
 
@@ -163,8 +153,6 @@ working directory.
 
 我们把工作目录转到 /usr/bin 目录下，里面装满了文件。注意 shell 提示符是怎样改变的。
 为了方便，通常设置提示符自动显示工作目录名。
-
-### Relative Pathnames
 
 ### 相对路径
 
@@ -238,8 +226,6 @@ does the same thing. In general, if you do not specify a pathname to
 something, the working directory will be assumed.
 
 实现相同的效果，如果不指定一个文件的目录，那它的工作目录会被假定为当前工作目录。
-
-### Some Helpful Shortcuts
 
 ### 有用的快捷键
 

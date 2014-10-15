@@ -10,8 +10,6 @@ that allow our programs to get access to the contents of the command line.
 现在我们的程序还缺少一种本领，就是接收和处理命令行选项和参数的能力。在这一章中，我们将探究一些能
 让程序访问命令行内容的 shell 性能。
 
-### Accessing The Command Line
-
 ### 访问命令行
 
 The shell provides a set of variables called positional parameters that contain the individ-
@@ -78,8 +76,6 @@ ample ${10}, ${55}, ${211}, and so on.
 
 注意： 实际上通过参数展开方式你可以访问的参数个数多于9个。只要指定一个大于9的数字，用花括号把该数字括起来就可以。
 例如 ${10}， ${55}， ${211}，等等。
-
-#### Determining The Number of Arguments
 
 #### 确定参数个数
 
@@ -184,8 +180,6 @@ $1 with the next argument. Here is the program at work:
     Argument 3 = c
     Argument 4 = d
 
-#### Simple Applications
-
 #### 简单应用
 
 Even without shift, it’s possible to write useful applications using positional parameters.
@@ -222,8 +216,6 @@ automatically adjusts to contain the name of the program.
 中的路径名的开头部分，$0 中包含着我们示例程序的完整路径名。当构建提示信息正如程序结尾的使用信息的时候，
 basename $0 的执行结果就很有用处。按照这种方式编码，可以重命名该脚本，且程序信息会自动调整为
 包含相应的程序名称。
-
-#### Using Positional Parameters With Shell Functions
 
 #### Shell 函数中使用位置参数
 
@@ -266,8 +258,6 @@ function as we might expect.
 注意那个 PROGNAME 变量已经改成 shell 变量 FUNCNAME 了。shell 会自动更新 FUNCNAME 变量，以便
 跟踪当前执行的 shell 函数。注意位置参数 $0 总是包含命令行中第一项的完整路径名（例如，该程序的名字），
 但不会包含这个我们可能期望的 shell 函数的名字。
-
-### Handling Positional Parameters En Masse
 
 ### 处理集体位置参数
 
@@ -393,8 +383,6 @@ parameter.
 
 这个结果符合我们实际的期望。我们从中得到的教训是尽管 shell 提供了四种不同的得到位置参数列表的方法，
 但到目前为止， "$@" 在大多数情况下是最有用的方法，因为它保留了每一个位置参数的完整性。
-
-### A More Complete Application
 
 ### 一个更复杂的应用
 
@@ -567,8 +555,6 @@ generation of the page. Its output is either directed to standard output
 正如我们所看到的，程序调用 write_html_page 函数来生成实际的网页。函数输出要么直接定向到
 标准输出（若 filename 变量为空的话）要么重定向到具体的文件中。
 
-### Summing Up
-
 ### 总结
 
 With the addition of positional parameters, we can now write fairly functional scripts.
@@ -690,8 +676,6 @@ complete listing, with the most recent changes highlighted:
 We’re not done yet. There are still more things we can do and improvements we can make.
 
 我们还没有完成。仍然还有许多事情我们可以做，可以改进。
-
-### Further Reading
 
 ### 拓展阅读
 

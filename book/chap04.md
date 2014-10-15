@@ -22,8 +22,6 @@ Linux 系统有帮助的命令。
 
 * less — 浏览文件内容
 
-More Fun With ls
-
 ### ls 乐趣
 
 The ls command is probably the most used command, and for good reason. With it, we
@@ -75,8 +73,6 @@ We can also change the format of the output to reveal more detail:
 By adding “-l” to the command, we changed the output to the long format.
 
 使用 ls 命令的“-l”选项，则结果以长模式输出。
-
-Options And Arguments
 
 ### 选项和参数
 
@@ -221,8 +217,6 @@ ls display its results in ascending alphabetical order.  </td>
 </tr>
 </table>
 
-A Longer Look At Long Format
-
 ### 深入研究长格式输出
 
 As we saw before, the “-l” option causes ls to display its results in long format. This
@@ -329,8 +323,6 @@ later in this chapter.  </td>
 </tr>
 </table>
 
-Determining A File's Type With file
-
 ### 确定文件类型
 
 As we explore the system it will be useful to know what files contain. To do
@@ -364,8 +356,6 @@ While many of the files on your system are familiar, for example MP3 and JPEG, t
 are many kinds that are a little less obvious and a few that are quite strange.
 
 虽然系统中许多文件格式是熟悉的，例如 MP3和 JPEG 文件，但也有一些文件格式比较含蓄，极少数文件相当陌生。
-
-Viewing File Contents With less
 
 ### 用 less 浏览文件内容
 
@@ -550,8 +540,6 @@ The table below lists the most common keyboard commands used by less.
 </tr>
 </table>
 
-Less Is More
-
 ### less 就是 more（禅语：色即是空）
 
 The less program was designed as an improved replacement of an earlier Unix
@@ -568,8 +556,6 @@ forward and backward and has many other features as well.
 
 less 属于"页面调度器"程序类，这些程序允许通过页方式，在一页中轻松地浏览长长的文本文档。然而 more
 程序只能向前分页浏览，而 less 程序允许前后分页浏览，它还有很多其它的特性。
-
-A Guided Tour
 
 ### 旅行指南
 
@@ -934,8 +920,6 @@ some systems, you must be the superuser to view log files.</td>
 你必须是超级用户才能查看这些日志文件。</td></tr>
 </table>
 
-Symbolic Links
-
 ### 符号链接
 
 As we look around, we are likely to see a directory listing with an entry like this:
@@ -997,8 +981,6 @@ We will learn how to create symbolic links in the next chapter.
 叫做 “libc-2.6.so” 的共享库文件。这意味着，寻找文件 “libc.so.6” 的程序，实际上得到是文件 “libc-2.6.so”。
 在下一章节，我们将学习如何建立符号链接。
 
-Hard Links
-
 ### 硬链接
 
 While we are on the subject of links, we need to mention that there is a second type of
@@ -1008,8 +990,6 @@ links in the next chapter.
 
 讨论到链接问题，我们需要提一下，还有一种链接类型，叫做硬链接。硬链接同样允许文件有多个名字，
 但是硬链接以不同的方法来创建多个文件名。在下一章中，我们会谈到更多符号链接与硬链接之间的差异问题。
-
-Further Reading
 
 ### 拓展阅读
 

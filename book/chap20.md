@@ -357,8 +357,6 @@ position.
 > 使用这个正则表达式，我们能在我们的字典文件中查找到包含五个字母，且第三个字母
 是“j”，最后一个字母是“r”的所有单词。
 
-### Bracket Expressions And Character Classes
-
 ### 中括号表达式和字符类
 
 In addition to matching any character at a given position in our regular expression, we
@@ -426,8 +424,6 @@ the set.
 这个插入字符如果是中括号表达式中的第一个字符的时候，才会唤醒否定功能；否则，它会失去
 它的特殊含义，变成字符集中的一个普通字符。
 
-### Traditional Character Ranges
-
 ### 传统的字符区域
 
 If we wanted to construct a regular expression that would find every file in our lists
@@ -483,8 +479,6 @@ This will match every filename containing an upper case letter. While:
 will match every filename containing a dash, or a upper case “A” or an uppercase “Z”.
 
 上面的表达式会匹配包含一个连字符，或一个大写字母“A”，或一个大写字母“Z”的文件名。
-
-### POSIX Character Classes
 
 ### POSIX 字符集
 
@@ -799,8 +793,6 @@ ASCII) for its character set, so be sure if this is really what you want.
 >
 > export LANG=POSIX
 
-### POSIX Basic Vs. Extended Regular Expressions
-
 ### POSIX 基本的 Vs.扩展的正则表达式
 
 Just when we thought this couldn’t get any more confusing, we discover that POSIX also
@@ -950,16 +942,12 @@ changes to match any filename that begins with “bz” or contains “gz” or 
 
 会变成匹配任意以“bz”开头，或包含“gz”，或包含“zip”的文件名。
 
-### Quantifiers
-
 ### 限定符
 
 Extended regular expressions support several ways to specify the number of times an
 element is matched.
 
 扩展的正则表达式支持几种方法，来指定一个元素被匹配的次数。
-
-#### ? - Match An Element Zero Or One Time
 
 #### ? - 匹配一个元素零次或一次
 
@@ -1045,8 +1033,6 @@ leading uppercase character and trailing period.
 
 这个表达式匹配前两个测试语句，但不匹配第三个，因为第三个句子缺少开头的大写字母和末尾的句号。
 
-#### + - Match An Element One Or More Times
-
 #### + - 匹配一个元素一次或多次
 
 The + metacharacter works much like the \*, except it requires at least one instance of the
@@ -1072,8 +1058,6 @@ separates the characters “c” and “d”.
 
 我们看到这个正则表达式不匹配“a b 9”这一行，因为它包含了一个非字母的字符；它也不匹配
  “abc  d” ，因为在字符“c”和“d”之间不止一个空格。
-
-#### { } - Match An Element A Specific Number Of Times
 
 #### { } - 匹配一个元素特定的次数
 
@@ -1159,16 +1143,12 @@ without the parentheses, while rejecting those numbers that are not properly for
 我们可以看到，我们修订的表达式能成功地验证带有和不带有圆括号的数字，而拒绝那些格式
 不正确的数字。
 
-### Putting Regular Expressions To Work
-
 ### 让正则表达式工作起来
 
 Let’s look at some of the commands we already know and see how they can be used with
 regular expressions.
 
 让我们看看一些我们已经知道的命令，然后看一下它们怎样使用正则表达式。
-
-#### Validating A Phone List With grep
 
 #### 通过 grep 命令来验证一个电话簿
 
@@ -1234,8 +1214,6 @@ number, unlike our earlier phone number example.
 表达式自身的两端都包含定位点（锚）元字符，是为了确保这个号码的两端没有多余的字符。
 这个表达式也要求圆括号出现在一个有效的号码中，不同于我们先前电话号码的实例。
 
-#### Finding Ugly Filenames With find
-
 #### 用 find 查找丑陋的文件名
 
 The find command supports a test based on a regular expression. There is an important
@@ -1266,8 +1244,6 @@ pathname characters.
 
 由于要精确地匹配整个路径名，所以我们在表达式的两端使用了.\*，来匹配零个或多个字符。
 在表达式中间，我们使用了否定的中括号表达式，其包含了我们一系列可接受的路径名字符。
-
-#### Searching For Files With locate
 
 #### 用 locate 查找文件
 
@@ -1302,8 +1278,6 @@ locate 命令，我们能够执行许多与先前操作 dirlist 文件时相同�
 Using alternation, we perform a search for pathnames that contain either bin/bz, bin/gz, or /bin/zip.
 
 通过使用 alternation，我们搜索包含 bin/bz，bin/gz，或/bin/zip 字符串的路径名。
-
-#### Searching For Text In less And vim
 
 #### 在 less 和 vim 中查找文本
 
@@ -1392,8 +1366,6 @@ a more complete version of vim.
 
 ---
 
-### Summing Up
-
 ### 总结归纳
 
 In this chapter, we’ve seen a few of the many uses of regular expressions. We can find
@@ -1420,8 +1392,6 @@ There is one feature found in basic regular expressions that we did not cover. C
 back references, this feature will be discussed in the next chapter.
 
 基本正则表达式中有一个特性，我们没有涵盖。叫做反引用，这个特性在下一章中会被讨论到。
-
-### Further Reading
 
 ### 拓展阅读
 

@@ -31,8 +31,6 @@ The following commands will make an appearance:
 
 * history － 显示历史列表内容
 
-### Command Line Editing
-
 ### 命令行编辑
 
 bash uses a library (a shared collection of routines that different programs can use)
@@ -53,8 +51,6 @@ work properly when using a virtual console.
 
 注意：下面一些按键组合（尤其使用 Alt 键的组合），可能会被 GUI 拦截来触发其它的功能。
 当使用虚拟控制台时，所有的按键组合都应该正确地工作。
-
-### Cursor Movement
 
 ### 移动光标
 
@@ -134,8 +130,6 @@ The following table lists the keys used to move the cursor:
 </tr>
 </table>
 
-### Modifying Text
-
 ### 修改文本
 
 Table 9-2 lists keyboard commands that are used to edit characters on the command line.
@@ -197,8 +191,6 @@ Table 9-2 lists keyboard commands that are used to edit characters on the comman
 <td valign="top"> 把从光标位置到字尾的字符转换成大写字母。</td>
 </tr>
 </table>
-
-### Cutting And Pasting (Killing And Yanking) Text
 
 ### 剪切和粘贴文本
 
@@ -306,8 +298,6 @@ Readline 程序的开发者们，不能确定一个专用多余的控制键的�
 如果你仍然在使用终端（在 Linux 中，你仍然可以得到一个终端），你也可以按下和
 释放 Esc 键来得到如控制 Alt 键一样的效果。
 
-
-### Completion
 
 ### 自动补全
 
@@ -445,8 +435,6 @@ in later chapters. If you are curious, try:
 
 
 
-### Using History
-
 ### 利用历史命令
 
 As we discovered in Chapter 2, bash maintains a history of commands that have been
@@ -457,8 +445,6 @@ typing you have to do, especially when combined with command line editing.
 正如我们在第二章中讨论到的，bash 维护着一个已经执行过的命令的历史列表。这个命令列表
 被保存在你主目录下，一个叫做 .bash_history 的文件里。这个 history 工具是个有用资源，
 因为它可以减少你敲键盘的次数，尤其当和命令行编辑联系起来时。
-
-### Searching History
 
 ### 搜索历史命令
 
@@ -628,8 +614,6 @@ commands in the history list.</td>
 </tr>
 </table>
 
-### History Expansion
-
 ### 历史命令展开
 
 The shell offers a specialized type of expansion for items in the history list by using the
@@ -725,8 +709,6 @@ typescript。查看脚本的手册页，可以得到一个关于 script 程序�
 
 
 
-### Summing Up
-
 ### 总结归纳
 
 In this chapter we have covered some of the keyboard tricks that the shell provides to
@@ -737,8 +719,6 @@ up more of these tricks. For now, consider them optional and potentially helpful
 在这一章中，我们已经讨论了一些由 shell 提供的键盘操作技巧，这些技巧是来帮助打字员减少工作量的。
 随着时光流逝，你和命令行打交道越来越多，我猜想你会重新翻阅这一章的内容，学会更多的技巧。
 目前，你就认为它们是可选的，潜在地有帮助的。
-
-### Further Reading
 
 ### 拓展阅读
 

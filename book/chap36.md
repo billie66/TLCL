@@ -18,8 +18,6 @@ Even so, they can be very useful for solving programming problems.
 在本章中，我们将看看另一种数据结构叫做数组，数组能存放多个值。数组几乎是所有编程语言的一个特性。
 shell 也支持它们，尽管以一个相当有限的形式。即便如此，为解决编程问题，它们是非常有用的。
 
-### What Are Arrays?
-
 ### 什么是数组？
 
 Arrays are variables that hold more than one value at a time. Arrays are organized like a table.
@@ -49,8 +47,6 @@ The original Unix shell program, sh, did not support arrays at all.
 
 Bash 中的数组仅限制为单一维度。我们可以把它们看作是只有一列的电子表格。尽管有这种局限，但是有许多应用使用它们。
 对数组的支持第一次出现在 bash 版本2中。原来的 Unix shell 程序，sh，根本就不支持数组。
-
-### Creating An Array
 
 ### 创建一个数组
 
@@ -82,8 +78,6 @@ An array can also be created with the declare command:
 Using the -a option, this example of declare creates the array a.
 
 使用 -a 选项，declare 命令的这个例子创建了数组 a。
-
-### Assigning Values To An Array
 
 ### 数组赋值
 
@@ -122,8 +116,6 @@ value:
 还可以通过指定下标，把值赋给数组中的特定元素：
 
     [me@linuxbox ~]$ days=([0]=Sun [1]=Mon [2]=Tue [3]=Wed [4]=Thu [5]=Fri [6]=Sat)
-
-### Accessing Array Elements
 
 ### 访问数组元素
 
@@ -227,16 +219,12 @@ the final tally of files.
 
 脚本的最后一部分显示数组中的内容。我们首先输出两行标题，然后进入一个循环产生两栏输出。最后，输出总共的文件数目。
 
-### Array Operations
-
 ### 数组操作
 
 There are many common array operations. Such things as deleting arrays, determining
 their size, sorting, etc. have many applications in scripting.
 
 有许多常见的数组操作。比方说删除数组，确定数组大小，排序，等等。有许多脚本应用程序。
-
-#### Outputting The Entire Contents Of An Array
 
 #### 输出整个数组的内容
 
@@ -278,8 +266,6 @@ in three words, which matches the arrays “real” contents.
 我们创建了数组 animals，并把三个含有两个字的字符串赋值给数组。然后我们执行四个循环看一下对数组内容进行分词的效果。
 表示法 ${animals[*]} 和 ${animals[@]}的行为是一致的直到它们被用引号引起来。
 
-#### Determining The Number Of Array Elements
-
 #### 确定数组元素个数
 
 Using parameter expansion, we can determine the number of elements in an array in
@@ -304,8 +290,6 @@ the array (elements 0-99) would be initialized with empty values and counted.
 最后，我们查看了包含字符串 “foo” 的数组元素 100 的长度。有趣的是，尽管我们把字符串赋值给数组元素100，
 bash 仅仅报告数组中有一个元素。这不同于一些其它语言的行为，数组中未使用的元素（元素0-99）会初始化为空值，
 并把它们计入数组长度。
-
-#### Finding The Subscripts Used By An Array
 
 #### 找到数组使用的下标
 
@@ -336,8 +320,6 @@ the @ form enclosed in quotes is the most useful, as it expands into separate wo
     4
     6
 
-#### Adding Elements To The End Of An Array
-
 #### 在数组末尾添加元素
 
 Knowing the number of elements in an array is no help if we need to append values to the
@@ -356,8 +338,6 @@ we assign three values to the array foo, and then append three more.
     [me@linuxbox~]$ foo+=(d e f)
     [me@linuxbox~]$ echo ${foo[@]}
     a b c d e f
-
-#### Sorting An Array
 
 #### 数组排序
 
@@ -389,8 +369,6 @@ pipeline.
 
 脚本运行成功，通过使用一个复杂的命令替换把原来的数组（a）中的内容复制到第二个数组（a_sorted）中。
 通过修改管道线的设计，这个基本技巧可以用来对数组执行各种各样的操作。
-
-#### Deleting An Array
 
 #### 删除数组
 
@@ -443,8 +421,6 @@ Any reference to an array variable without a subscript refers to element zero of
     [me@linuxbox~]$ echo ${foo[@]}
     A b c d e f
     
-### Associative Arrays
-
 ### 关联数组
 
 Recent versions of bash now support associative arrays. Associative arrays use strings
@@ -476,8 +452,6 @@ produce an interesting report.
 
 在下一章中，我们将看一个脚本，很好地利用关联数组，生产出了一个有意思的报告。
 
-### Summing Up
-
 ### 总结
 
 If we search the bash man page for the word “array,” we find many instances of where
@@ -502,8 +476,6 @@ for ((expr; expr; expr))
 form of loop is particularly well-suited to calculating array subscripts.
 
 形式的循环尤其适合计算数组下标。
-
-### Further Reading
 
 ### 拓展阅读
 

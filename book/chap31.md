@@ -11,8 +11,6 @@ techniques that can be used to track down and eradicate problems.
 随着我们的脚本变得越来越复杂，当脚本运行错误，执行结果出人意料的时候, 我们就应该查看一下原因了。
 在这一章中，我们将会看一些脚本中出现地常见错误类型，同时还会介绍几个可以跟踪和消除问题的有用技巧。
 
-### Syntactic Errors
-
 ### 语法错误
 
 One general class of errors is syntactic. Syntactic errors involve mis-typing some
@@ -42,8 +40,6 @@ As written, this script runs successfully:
 
     [me@linuxbox ~]$ trouble
     Number is equal to 1.
-
-#### Missing Quotes
 
 #### 丢失引号
 
@@ -91,8 +87,6 @@ be enabled by entering the command:
 
     :syntax on
 
-#### Missing Or Unexpected Tokens
-
 #### 丢失或意外的标记
 
 Another common mistake is forgetting to complete a compound command, such as if or
@@ -139,8 +133,6 @@ if 能够接受一系列命令，并且会计算列表中最后一个命令的�
 这是合法的。随后的 echo 命令也是合法的。它被解释为命令列表中的另一个命令，if
 将会计算命令的 退出代码。接下来遇到单词 else，但是它出局了，因为 shell 把它认定为一个
 保留字（对于 shell 有特殊含义的单词），而不是一个命令名，因此报告错误信息。
-
-#### Unanticipated Expansions
 
 #### 预料不到的展开
 
@@ -215,8 +207,6 @@ filenames containing embedded spaces.
 其得到了正确的参数个数。除了代表空字符串之外，引号应该被用于这样的场合，一个要展开
 成多单词字符串的数值，及其包含嵌入式空格的文件名。
 
-### Logical Errors
-
 ### 逻辑错误
 
 Unlike syntactic errors, logical errors do not prevent a script from running. The script
@@ -253,8 +243,6 @@ expands into multiple command arguments rather than a single filename.
 
 1. 意外情况。大多数逻辑错误来自于程序碰到了程序员没有预见到的数据或者情况。这也
 可以包括出乎意料的展开，比如说一个包含嵌入式空格的文件名展开成多个命令参数而不是单个的文件名。
-
-#### Defensive Programming
 
 #### 防错编程
 
@@ -325,8 +313,6 @@ error and the script terminates with an exit status of one to indicate a failure
 这里，我们检验了两种情况，一个名字，看看它是否为一个真正存在的目录，另一个是 cd 命令是否执行成功。
 如果任一种情况失败，就会发送一个错误说明信息到标准错误，然后脚本终止执行，并用退出状态 1 表明脚本执行失败。
 
-#### Verifying Input
-
 #### 验证输入
 
 A general rule of good programming is that if a program accepts input, it must be able to
@@ -380,8 +366,6 @@ more careful development.
 所以这些脚本不需要太多的注释和防错检查。相反，如果一个脚本打算用于生产使用，也就是说，
 某个重要任务或者多个客户会不断地用到它，此时这个脚本就需要非常谨慎小心地开发了。
 
-
-### Testing
 
 ### 测试
 
@@ -441,8 +425,6 @@ can be used to help find and remove the changes when testing is complete.
 
 我们也在代码中添加了一些注释，用来标记与测试相关的改动。当测试完成之后，这些注释可以帮助我们找到并删除所有的更改。
 
-#### Test Cases
-
 #### 测试案例
 
 To perform useful testing, it's important to develop and apply good test cases. This is
@@ -477,8 +459,6 @@ careful consideration during both its design and testing.
 正如设计，测试也是一个时间的函数。不是每一个脚本功能都需要做大量的测试。问题关键是确定什么功能是最重要的。因为
 测试若发生故障会存在如此潜在的破坏性，所以我们的代码片在设计和测试段期间都应值得仔细推敲。
 
-### Debugging
-
 ### 调试
 
 If testing reveals a problem with a script, the next step is debugging. “A problem”
@@ -494,8 +474,6 @@ problems are quite strange and unexpected and more involved techniques are requi
 有时候查找 bug 要牵涉到许多监测工作。一个设计良好的脚本会对查找错误有帮助。设计良好的脚本应该具备防卫能力，
 能够监测异常条件，并能为用户提供有用的反馈信息。
 然而有时候，出现的问题相当稀奇，出人意料，这时候就需要更多的调试技巧了。
-
-#### Finding The Problem Area
 
 #### 找到问题区域
 
@@ -529,8 +507,6 @@ if the removal of the code has any impact on the behavior of the bug.
 
 通过给脚本中的一个逻辑区块内的每条语句的开头添加一个注释符号，我们就阻止了这部分代码的执行。然后可以再次执行测试，
 来看看清除的代码是否影响了错误的行为。
-
-#### Tracing
 
 #### 追踪
 
@@ -648,8 +624,6 @@ portions of a troublesome script.
 
 我们使用 set 命令加上 -x 选项来启动追踪，+x 选项关闭追踪。这种技术可以用来检查一个有错误的脚本的多个部分。
 
-#### Examining Values During Execution
-
 #### 执行时检查数值
 
 It is often useful, along with tracing, to display the content of variables to see the internal
@@ -679,8 +653,6 @@ scripts.
 在这个简单的示例中，我们只是显示变量 number 的数值，并为其添加注释，随后利于其识别和清除。
 当查看脚本中的循环和算术语句的时候，这种技术特别有用。
 
-### Summing Up
-
 ### 总结
 
 In this chapter, we looked at just a few of the problems that can crop up during script de-
@@ -692,8 +664,6 @@ and in finding bugs (effective use of tracing).
 在这一章中，我们仅仅看了几个在脚本开发期间会出现的问题。当然，还有很多。这章中描述的技术对查找
 大多数的常见错误是有效的。调试是一种艺术，可以通过开发经验，在知道如何避免错误(整个开发过程中不断测试)
 以及在查找 bug（有效利用追踪）两方面都会得到提升。
-
-### Further Reading
 
 ### 拓展阅读
 
