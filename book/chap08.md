@@ -10,9 +10,9 @@ complex features of the shell, we will do it with just one new command:
 在这一章我们将看一下，当你按下 enter 键后，发生在命令行中的一些“魔法”。虽然我们会
 仔细查看几个复杂有趣的 shell 特点，但我们只使用一个新命令来处理这些特性。
 
-### echo – Display a line of text
+* echo - Display a line of text
 
-### echo － 显示一行文本
+* echo － 显示一行文本
 
 ### (字符)展开
 
