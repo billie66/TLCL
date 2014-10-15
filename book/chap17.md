@@ -442,7 +442,7 @@ many ordinary file management tasks. It’s clumsy, but it does work.
 授予了用户足够权限的服务器中，则可以执行很多普通的文件管理任务。虽然很笨拙，
 但它真能工作。
 
-#### lftp – A Better ftp
+#### lftp - 更好的 ftp
 
 ftp is not the only command line FTP client. In fact, there are many. One of better (and
 more popular) ones is lftp by Alexander Lukyanov. It works much like the traditional
@@ -790,7 +790,6 @@ also be used as a FTP-like server. Here is a sample session:
     /home/me/ubuntu-8.04-desktop-i386.iso 100% 699MB 7.4MB/s 01:35
     sftp> bye
 
-
 ---
 
 Tip: The SFTP protocol is supported by many of the graphical file managers found
@@ -803,7 +802,6 @@ Nautilus (GNOME), 或者是 Konqueror (KDE)，我们都能在位置栏中输入�
 sftp://开头的 URI， 来操作存储在运行着 SSH 服务器的远端系统中的文件。
 
 ---
-
 
 > An SSH Client For Windows?
 >
@@ -826,8 +824,6 @@ for the scp and sftp programs.
 > PuTTY is available at <http://www.chiark.greenend.org.uk/~sgtatham/putty/>
 >
 > PuTTY 可在链接 <http://www.chiark.greenend.org.uk/~sgtatham/putty/> 处得到。
-
-
 
 ### 拓展阅读
 
