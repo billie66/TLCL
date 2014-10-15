@@ -536,11 +536,11 @@ Here documents 可以和任意能接受标准输入的命令一块使用。在�
     _EOF_
     ls -l $REMOTE_FILE
 
-If we change the redirection operator from “<<” to “<<-”, the shell will ignore leading
+If we change the redirection operator from "<\<" to "<\<-", the shell will ignore leading
 tab characters in the here document. This allows a here document to be indented, which
 can improve readability:
 
-如果我们把重定向操作符从 “<<” 改为 “<<-”，shell 会忽略在此 here document 中开头的 tab 字符。
+如果我们把重定向操作符从 “<\<” 改为 “<\<-”，shell 会忽略在此 here document 中开头的 tab 字符。
 这就能缩进一个 here document，从而提高脚本的可读性：
 
     #!/bin/bash

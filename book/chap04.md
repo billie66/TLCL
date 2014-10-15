@@ -139,7 +139,7 @@ to see details about the directory rather than its contents.</td>
 <td>-F</td>
 <td>--classify</td>
 <td>This option will append an indicator character
-to the end of each listed name. For example, a "/" if the name is a directory.  </td>
+to the end of each listed name. For example, a '/' if the name is a directory.  </td>
 </tr>
 <tr>
 <td>-h</td>
@@ -186,13 +186,13 @@ ls display its results in ascending alphabetical order.  </td>
 <td valign="top">-d</td>
 <td>--directory</td>
 <td>通常，如果指定了目录名，ls 命令会列出这个目录中的内容，而不是目录本身。
-把这个选项与-l 选项结合使用，可以看到所指定目录的详细信息，而不是目录中的内容。</td>
+把这个选项与 -l 选项结合使用，可以看到所指定目录的详细信息，而不是目录中的内容。</td>
 </tr>
 <tr>
 <td >-F</td>
 <td >--classify</td>
 <td >这个选项会在每个所列出的名字后面加上一个指示符。例如，如果名字是
-目录名，则会加上一个“/”字符。 </td>
+目录名，则会加上一个'/'字符。 </td>
 </tr>
 <tr>
 <td >-h</td>

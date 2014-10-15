@@ -161,18 +161,18 @@ existing file or create a new, empty file.
 创建一个新的空文件。
 
 So, how can we append redirected output to a file instead of overwriting the file from the
-beginning? For that, we use the “>>” redirection operator, like so:
+beginning? For that, we use the ">\>" redirection operator, like so:
 
 所以，怎样才能把重定向结果追加到文件内容后面，而不是从开头重写文件？为了这个目的，
-我们使用">>"重定向符，像这样：
+我们使用">\>"重定向符，像这样：
 
     [me@linuxbox ~]$ ls -l /usr/bin >> ls-output.txt
 
-Using the “>>” operator will result in the output being appended to the file. If the file
+Using the ">\>" operator will result in the output being appended to the file. If the file
 does not already exist, it is created just as though the “>” operator had been used. Let's
 put it to the test:
 
-使用">>"操作符，将导致输出结果添加到文件内容之后。如果文件不存在，文件会
+使用">\>"操作符，将导致输出结果添加到文件内容之后。如果文件不存在，文件会
 被创建，就如使用了">"操作符。把它放到测试中：
 
     [me@linuxbox ~]$ ls -l /usr/bin >> ls-output.txt

@@ -1028,10 +1028,10 @@ reading bit-flags.
     </tr>
 </table>
 
-Note that there are also corresponding assignment operators (for example, <<=) for all
+Note that there are also corresponding assignment operators (for example, <\<=) for all
 but bitwise negation.
 
-注意除了按位取反运算符之外，其它所有位运算符都有相对应的赋值运算符（例如，<<=）。
+注意除了按位取反运算符之外，其它所有位运算符都有相对应的赋值运算符（例如，<\<=）。
 
 Here we will demonstrate producing a list of powers of 2, using the left bitwise shift operator:
 
@@ -1288,10 +1288,10 @@ Let’s start with a simple example. We’ll write a bc script to add 2 plus 2:
     2 + 2
 
 The first line of the script is a comment. bc uses the same syntax for comments as the C
-programming language. Comments, which may span multiple lines, begin with /* and
-end with */.
+programming language. Comments, which may span multiple lines, begin with `/*` and
+end with `*/`.
 
-脚本的第一行是一行注释。bc 使用和 C编程语言一样的注释语法。注释，可能会跨越多行，开始于 /* 结束于 */。
+脚本的第一行是一行注释。bc 使用和 C编程语言一样的注释语法。注释，可能会跨越多行，开始于 `/*` 结束于 `*/`。
 
 #### Using bc
 

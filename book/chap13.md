@@ -163,7 +163,7 @@ To do this, you have a few options:
 >
 > 或者，使用这个命令在你的 vim 配置文件中添加一行：
 >
-> echo "set nocp" >> ~/.vimrc
+> echo "set nocp" >\> ~/.vimrc
 >
 > Different Linux distributions package vim in different ways. Some distributions
 install a minimal version of vim by default that only supports a limiting set of
@@ -917,12 +917,12 @@ Searching The Entire File
 
 To move the cursor to the next occurrence of a word or phrase, the / command is used.
 This works the same way as we learned earlier in the less program. When you type the
-/ command a “/” will appear at the bottom of the screen. Next, type the word or phrase
+/ command a "/" will appear at the bottom of the screen. Next, type the word or phrase
 to be searched for, followed by the Enter key. The cursor will move to the next
 location containing the search string. A search may be repeated using the previous search
 string with the n command. Here's an example:
 
-移动光标到下一个出现的单词或短语上，使用/命令。这个命令和我们之前在 less 程序中学到
+移动光标到下一个出现的单词或短语上，使用 / 命令。这个命令和我们之前在 less 程序中学到
 的一样。当你输入/命令后，一个"/"字符会出现在屏幕底部。下一步，输入要查找的单词或短语后，
 按下回车。光标就会移动到下一个包含所查找字符串的位置。通过 n 命令来重复先前的查找。
 这里有个例子：

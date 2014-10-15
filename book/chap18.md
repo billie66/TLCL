@@ -52,7 +52,7 @@ In addition, we will introduce a couple of commands to assist us in or explorati
 The locate program performs a rapid database search of pathnames and outputs every
 name that matches a given substring. Say, for example, we want to find all the programs
 with names that begin with “zip.” Since we are looking for programs, we can assume
-that the directory containing the programs would end with “bin/”. Therefore, we could
+that the directory containing the programs would end with "bin/". Therefore, we could
 try to use locate this way to find our files:
 
 这个 locate 程序快速搜索路径名数据库，并且输出每个与给定字符串相匹配的文件名。比如说，
