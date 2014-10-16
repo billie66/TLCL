@@ -193,7 +193,7 @@ ls display its results in ascending alphabetical order.  </td>
 <tr>
 <td >-h</td>
 <td >--human-readable</td>
-<td >以长格式列出。以人们可读的格式，而不是以字节数来显示文件的大小。</td>
+<td >当以长格式列出时，以人们可读的格式，而不是以字节数来显示文件的大小。</td>
 </tr>
 <tr>
 <td >-l</td>
