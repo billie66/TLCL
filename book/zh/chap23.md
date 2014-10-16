@@ -442,7 +442,7 @@ lpstat 的常用选项列于表22-5。
     Rank      Owner   Job     File(s)           Total Size
     active    me      603     (stdin)           1024 bytes
 
-#### lprm 和 cancel——取消打印任务
+#### lprm 和 cancel - 取消打印任务
 
 CUPS 提供两个程序来从打印队列中终止并移除打印任务。一个是 Berkeley 风格的（lprm），另一个是 System V 的（cancel）。在支持的选项上两者有较小的区别但是功能却几乎相同。以上面的打印任务为例，我们可以像这样终止并移除任务：
 

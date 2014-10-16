@@ -45,9 +45,7 @@ In addition, we will introduce a couple of commands to assist us in or explorati
 
 * stat – 显示文件或文件系统状态
 
-### locate – Find Files The Easy Way
-
-### locate – 查找文件的简单方法
+### locate - 查找文件的简单方法
 
 The locate program performs a rapid database search of pathnames and outputs every
 name that matches a given substring. Say, for example, we want to find all the programs
@@ -134,9 +132,7 @@ updatedb 程序。因为数据库不能被持续地更新，所以当使用 loca
 目前最新的文件不会出现。为了克服这个问题，可以手动运行 updatedb 程序，
 更改为超级用户身份，在提示符下运行 updatedb 命令。
 
-### find – Find Files The Hard Way
-
-### find – 查找文件的复杂方式
+### find - 查找文件的复杂方式
 
 While the locate program can find a file based solely on its name, the find program
 searches a given directory (and its subdirectories) for files based on a variety of
@@ -1080,9 +1076,6 @@ accepts null separated input. Here’s an example:
 spaces in their names, are handled correctly.
 >
 > 使用这项技术，我们可以保证所有文件，甚至那些文件名中包含空格的文件，都能被正确地处理。
-
-
-A Return To The Playground
 
 ### 返回操练场
 

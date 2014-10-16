@@ -95,7 +95,7 @@ script.
 
 在这一章中，我们将使用自顶向下的设计方法来进一步开发我们的报告产生器脚本。
 
-### Shell Functions
+### Shell 函数
 
 Our script currently performs the following steps to generate the HTML document:
 

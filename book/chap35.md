@@ -1227,9 +1227,7 @@ thereby terminating the loop. Running the script gives this result:
     9    81       729
     10   100      1000
 
-### bc – An Arbitrary Precision Calculator Language
-
-### bc — 一种高精度计算器语言
+### bc - 一种高精度计算器语言
 
 We have seen how the shell can handle all types of integer arithmetic, but what if we
 need to perform higher math or even just use floating point numbers? The answer is, we

@@ -40,7 +40,7 @@ this chapter are:
 
 * alias – 创建命令别名
 
-### 到底什么是命令？
+s 到底什么是命令？
 
 A command can be one of four different things:
 
@@ -82,9 +82,7 @@ Linux provides a couple of ways to find out.
 这经常很有用，能确切地知道正在使用四类命令中的哪一类。Linux 提供了一对方法来
 弄明白命令类型。
 
-### type – Display A Command's Type
-
-### type－显示命令的类型
+### type － 显示命令的类型
 
 The type command is a shell builtin that displays the kind of command the shell will
 execute, given a particular command name. It works like this:
@@ -113,8 +111,6 @@ in color!
 
 我们看到这三个不同命令的检测结果。注意，ls 命令（在 Fedora 系统中）的检查结果，ls 命令实际上
 是 ls 命令加上选项"-\-color=tty"的别名。现在我们知道为什么 ls 的输出结果是有颜色的！
-
-### which – Display An Executable's Location
 
 ### which － 显示一个可执行程序的位置
 
@@ -152,8 +148,6 @@ available for each kind of command.
 
 知道了什么是命令，现在我们来寻找每一类命令的可得到的文档。
 
-### help – Get Help For Shell Builtins
-
 ### help － 得到 shell 内部命令的帮助文档
 
 bash has a built-in help facility available for each of the shell builtins. To use it, type
@@ -187,8 +181,6 @@ talked about yet! Don't worry. We'll get there.
 虽然 cd 命令的帮助文档很简洁准确，但它决不是教材。正如我们所看到的，它似乎提到了许多
 我们还没有谈论到的东西！不要担心，我们会学到的。
 
-### -\-help – Display Usage Information
-
 ### -\-help - 显示用法信息
 
 Many executable programs support a “-\-help” option that displays a description of the
@@ -206,9 +198,7 @@ error message that will reveal the same usage information.
 一些程序不支持 -\-help 选项，但不管怎样试一下。这经常会导致输出错误信息，但同时能
 揭示一样的命令用法信息。
 
-### man – Display A Program's Manual Page
-
-### man －显示程序手册页
+### man － 显示程序手册页
 
 Most executable programs intended for command line use provide a formal piece of
 documentation called a manual or man page. A special paging program called man is
@@ -359,9 +349,7 @@ This will display the man page describing the file format of the /etc/passwd fil
 
 命令运行结果会显示文件 /etc/passwd 的文件格式说明手册。
 
-### apropos – Display Appropriate Commands
-
-### apropos －显示适当的命令
+### apropos － 显示适当的命令
 
 It is also possible to search the list of man pages for possible matches based on a search
 term. It's very crude but sometimes helpful. Here is an example of a search for man
@@ -381,9 +369,7 @@ function as apropos.
 输出结果每行的第一个字段是手册页的名字，第二个字段展示章节。注意，man 命令加上"-k"选项，
 和 apropos 完成一样的功能。
 
-### whatis – Display A Very Brief Description Of A Command
-
-### whatis －显示非常简洁的命令说明
+### whatis － 显示非常简洁的命令说明
 
 The whatis program displays the name and a one line description of a man page
 matching a specified keyword:
@@ -416,10 +402,7 @@ read it and it all makes sense.
 > 另一方面，bash 参考手册的内容非常简明精确，同时也非常完善。所以，如果你有胆量就查看一下，
 并且期望有一天你能读懂它。
 
-
-### info – Display A Program's Info Entry
-
-### info －显示程序 Info 条目
+### info － 显示程序 Info 条目
 
 The GNU Project provides an alternative to man pages for their programs, called “info.”
 Info pages are displayed with a reader program named, appropriately enough, info.

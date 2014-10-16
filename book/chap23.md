@@ -138,7 +138,7 @@ As command line users, we are mostly interested in printing text, though it is c
 
 作为命令行用户，尽管打印各种格式的文本都能实现，不过打印最多的，还是文本。
 
-#### pr——转换需要打印的文本文件
+#### pr - 转换需要打印的文本文件
 
 We looked at pr a little in the previous chapter. Now we will examine some of its many options used in conjunction with printing. In our history of printing, we saw that character-based printers use monospaced fonts, resulting in 288 Chapter 22 fixed numbers of characters per line and lines per page. pr is used to adjust text to fit on a specific page size, with optional page headers and margins. Table 22-1 summarizes the most commonly used options.
 
@@ -711,9 +711,7 @@ As Unix printing systems are designed to handle multiple print jobs from multipl
 
 由于 Unix 打印系统的设计是能够处理多用户的多重打印任务，CUPS 也是如此设计的。每台打印机都有一个打印队列，其中的任务直到传送到打印机才停下并进行打印。CUPS 支持一些命令行程序来管理打印机状态和打印队列。想 lpr 和 lp 这样的管理程序都是以 Berkeley 和 System V 打印系统的相应程序为依据进行排列的。
 
-#### lpstat—Display Print System Status
-
-#### lpstat——显示打印系统状态
+#### lpstat - 显示打印系统状态
 
 The lpstat program is useful for determining the names and availability of printers on the system. For example, if we had a system with both a physical printer (named printer) and a PDF virtual printer (named PDF ), we could check their status like this:
 
@@ -827,9 +825,7 @@ we will see it listed:
     Rank      Owner   Job     File(s)           Total Size
     active    me      603     (stdin)           1024 bytes
 
-#### lprm and cancel—Cancel Print Jobs
-
-#### lprm 和 cancel——取消打印任务
+#### lprm 和 cancel - 取消打印任务
 
 CUPS supplies two programs used to terminate print jobs and remove them from the print queue. One is Berkeley style (lprm), and the other is System V (cancel). They differ slightly in the options they support but do basically the same thing. Using our print job above as an example, we could stop the job and remove it this way:
 

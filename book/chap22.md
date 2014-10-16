@@ -44,7 +44,7 @@ and as parts of pipelines and scripts.
 我们将先着眼于一些简单的格式工具。他们都是功能单一的程序，并且做法有一点单纯，
 但是他们能被用于小任务并且作为脚本和管道的一部分 。
 
-#### nl – 添加行号
+#### nl - 添加行号
 
 The nl program is a rather arcane tool used to perform a simple task. It numbers lines.
 In its simplest use, it resembles cat -n:
@@ -268,8 +268,7 @@ and
 
     nl -w 3 -s ' '
 
-#### fold – Wrap Each Line To A Specified Length
-#### fold – 限制文件列宽
+#### fold - 限制文件行宽
 
 Folding is the process of breaking lines of text at a specified width. Like our other
 commands, fold accepts either one or more text files or standard input. If we send

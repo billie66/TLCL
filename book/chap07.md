@@ -274,7 +274,6 @@ To suppress error messages from a command, we do this:
 
     [me@linuxbox ~]$ ls -l /bin/usr 2> /dev/null
 
-
 > /dev/null in Unix Culture
 >
 > Unix 文化中的/dev/null
@@ -288,7 +287,6 @@ see the Wikipedia article on “/dev/null”.
 许多部分。当有人说他/她正在发送你的评论到/dev/null，现在你应该知道那是
 什么意思了。更多的例子，可以阅读 Wikipedia 关于"/dev/null"的文章。
 
-
 ### 重定向标准输入
 
 Up to now, we haven't encountered any commands that make use of standard input
@@ -297,8 +295,6 @@ one.
 
 到目前为止，我们还没有遇到一个命令是利用标准输入的（实际上我们遇到过了，但是
 一会儿再揭晓谜底），所以我们需要介绍一个。
-
-### cat – Concatenate Files
 
 ### cat － 连接文件
 
@@ -405,7 +401,6 @@ let's try redirecting standard input:
     [me@linuxbox ~]$ cat < lazy_dog.txt
     The quick brown fox jumped over the lazy dog.
 
-
 Using the “<” redirection operator, we change the source of standard input from the
 keyboard to the file lazy_dog.txt. We see that the result is the same as passing a
 single filename argument. This is not particularly useful compared to passing a filename
@@ -495,9 +490,7 @@ uniq like so:
 
     [me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq -d | less
 
-### wc – Print Line, Word, And Byte Counts
-
-### wc －打印行，字和字节数
+### wc － 打印行，字和字节数
 
 The wc (word count) command is used to display the number of lines, words, and bytes
 contained in files. For example:
@@ -521,9 +514,7 @@ programs we have in our sorted list, we can do this:
     [me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq | wc -l
     2728
 
-### grep – Print Lines Matching A Pattern
-
-### grep －打印匹配行
+### grep － 打印匹配行
 
 grep is a powerful program used to find text patterns within files. It's used like this:
 
@@ -560,9 +551,7 @@ grep to only print lines that do not match the pattern.
 grep 有－对方便的选项："-i"导致 grep 忽略大小写当执行搜索时（通常，搜索是大小写
 敏感的），"-v"选项会告诉 grep 只打印不匹配的行。
 
-### head / tail – Print First / Last Part Of Files
-
-### head / tail －打印文件开头部分/结尾部分
+### head / tail － 打印文件开头部分/结尾部分
 
 Sometimes you don't want all of the output from a command. You may only want the
 first few lines or the last few lines. The head command prints the first ten lines of a file
@@ -608,8 +597,6 @@ appended, they immediately appear on the display. This continues until you type 
 使用"-f"选项，tail 命令继续监测这个文件，当新的内容添加到文件后，它们会立即
 出现在屏幕上。这会一直继续下去直到你输入 Ctrl-c。
 
-### tee – Read From Stdin And Output To Stdout And Files
-
 ### tee － 从 Stdin 读取数据，并同时输出到 Stdout 和文件
 
 In keeping with our plumbing metaphor, Linux provides a command called tee which
@@ -644,7 +631,6 @@ line programs use standard error to display their informative messages.
 它们还有很多有趣的选项。随着我们 Linux 经验的积累，我们会了解命令行重定向特性
 在解决特殊问题时非常有用处。有许多命令利用标准输入和输出，而几乎所有的命令行
 程序都使用标准错误来显示它们的详细信息。
-
 
 > Linux Is About Imagination
 > Linux 可以激发我们的想象
@@ -691,4 +677,3 @@ shape of your imagination. It does what you want.
 more satisfying?
 >
 > 当然，选择哪一个玩具，是你的事情，那么你觉得哪个玩具更令人满意呢？
-

@@ -125,7 +125,7 @@ Let’s save our script file as hello_world.
 
 让我们把此脚本文件保存为 hello_world。
 
-### Executable Permissions
+### 可执行权限
 
 The next thing we have to do is make our script executable. This is easily done using
 chmod:

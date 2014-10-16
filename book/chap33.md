@@ -117,8 +117,6 @@ The result:
     $8 =
     $9 =
 
-#### shift – Getting Access To Many Arguments
-
 #### shift - 访问多个参数的利器
 
 But what happens when we give the program a large number of arguments such as this:

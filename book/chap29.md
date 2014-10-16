@@ -42,9 +42,7 @@ begin to look at how we can add interactivity to our programs.
 每次我们想要改变 INT 数值的时候，我们必须编辑这个脚本。如果脚本能请求用户输入数值，那
 么它会更加有用处。在这个脚本中，我们将看一下我们怎样给程序增加交互性功能。
 
-### read – Read Values From Standard Input
-
-### read – 从标准输入读取数值
+### read - 从标准输入读取数值
 
 The read builtin command is used to read a single line of standard input. This
 command can be used to read keyboard input or, when redirection is employed, a line of

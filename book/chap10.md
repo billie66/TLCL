@@ -258,8 +258,6 @@ directories:
 
 当设置文件模式后，r，w，x 模式属性对文件和目录会产生以下影响：
 
-### chmod – Change file mode
-
 ### chmod － 更改文件模式
 
 To change the mode (permissions) of a file or directory, the chmod command is used.
@@ -585,8 +583,6 @@ command line!
 在 KDE 中，右击"Advanced Permissions"按钮，会打开另一个对话框，这个对话框允许
 你单独设置各个模式属性。这也可以通过命令行来理解！
 
-### umask – Set Default Permissions
-
 ### umask － 设置默认权限
 
 The umask command controls the default permissions given to a file when it is created.
@@ -792,8 +788,6 @@ Here are some examples. First, a program that is setuid:
 >
 > drwxrwxrwt
 
-
-
 ### 更改身份
 
 At various times, we may find it necessary to take on the identity of another user. Often
@@ -828,9 +822,7 @@ either one or the other. We'll start with su.
 可以执行这些命令。选择使用哪个命令，很大程度上是由你使用的 Linux 发行版来决定的。
 你的发行版可能这两个命令都包含，但系统配置可能会偏袒其中之一。我们先介绍 su 命令。
 
-### su – Run A Shell With Substitute User And Group IDs
-
-### su－以其他用户身份和组 ID 运行一个 shell
+### su － 以其他用户身份和组 ID 运行一个 shell
 
 The su command is used to start a shell as another user. The command syntax looks like
 this:
@@ -896,10 +888,7 @@ shell, but rather in the new shell:
     total 0
     [me@linuxbox ~]$
 
-
-### sudo – Execute A Command As Another User
-
-### sudo－以另一个用户身份执行命令
+### sudo － 以另一个用户身份执行命令
 
 The sudo command is like su in many ways, but has some important additional
 capabilities. The administrator can configure sudo to allow an ordinary user to execute
@@ -995,10 +984,7 @@ similar powers to subsequent user accounts.
 到 root 帐号（因为不能为 root 帐号设置密码），而是使用 sudo 命令授予普通用户超级用户权限。
 通过 sudo 命令，最初的用户可以拥有超级用户权限，也可以授予随后的用户帐号相似的权力。
 
-
-### chown – Change File Owner And Group
-
-### chown－更改文件所有者和用户组
+### chown － 更改文件所有者和用户组
 
 The chown command is used to change the owner and group owner of a file or directory.
 Superuser privileges are required to use this command. The syntax of chown looks like
@@ -1099,9 +1085,7 @@ runs out.
 注意，第一次使用 sudo 命令之后，为什么（shell）没有提示 janet 输入她的密码？这是因为，在
 大多数的配置中，sudo 命令会相信你几分钟，直到计时结束。
 
-### chgrp – Change Group Ownership
-
-### chgrp－更改用户组所有权
+### chgrp － 更改用户组所有权
 
 In older versions of Unix, the chown command only changed file ownership, not group
 ownership. For that purpose, a separate command, chgrp was used. It works much the

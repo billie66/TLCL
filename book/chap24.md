@@ -377,11 +377,11 @@ The header files in this directory were installed when we installed the compiler
 
 当我们安装编译器的时候，这个目录中的头文件会被安装。
 
-#### Building The Program
+#### 构建程序
 
 Most programs build with a simple, two-command sequence:
 
-大多数程序通过一个简单的，两个命令的序列建立：
+大多数程序通过一个简单的，两个命令的序列构建：
 
     ./configure
     make

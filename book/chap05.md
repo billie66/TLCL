@@ -56,8 +56,6 @@ manager. Pretty easy with the command line:
 
     cp -u *.html destination
 
-Wildcards
-
 ### 通配符
 
 Before we begin using our commands, we need to talk about a shell feature that
@@ -342,8 +340,7 @@ desktop so powerful.
 > 最初源于命令行界面中的想法，在图形界面中也适用。这就是使 Linux 桌面系统
 如此强大的众多原因中的一个
 
-
-### mkdir — Create Directories
+### mkdir - 创建目录
 
 The mkdir command is used to create directories. It works like this:
 
@@ -370,9 +367,7 @@ would create three directokries named "dir1", "dir2", "dir3".
 
 会创建三个目录，名为 dir1, dir2, dir3。
 
-### cp — Copy Files And Directories
-
-### cp — 复制文件和目录
+### cp - 复制文件和目录
 
 The cp command copies files or directories. It can be used two dfferent ways:
 
@@ -540,9 +535,7 @@ dir2必须已经存在。</td>
 </tr>
 </table>
 
-### mv — Move And Rename Files
-
-### mv — 移动和重命名文件
+### mv - 移动和重命名文件
 
 The mv command performs both file moving and file renaming, depending on how it is
 used. In either case, the original filename no longer exists after the operation. mv is used
@@ -668,14 +661,13 @@ directory dir2.</td>
 </tr>
 </table>
 
-### rm - Remove Files And Directories
+### rm - 删除文件和目录
 
 The rm command is used to remove(delete)files and directories:
 
 rm 命令用来移除（删除）文件和目录：
 
     rm item...
-
 
 where "item" is one or more files or directories.
 
@@ -834,10 +826,6 @@ replace the ls with rm.
 > _小贴士。_ 无论什么时候，rm 命令用到通配符（除了仔细检查输入的内容外！），
 用 ls 命令来测试通配符。这会让你看到要删除的文件列表。然后按下上箭头按键，重新调用
 刚刚执行的命令，用 rm 替换 ls。
-
-
-
-### In — Create Links
 
 ### ln — 创建链接
 

@@ -733,8 +733,7 @@ option rather than the “-X” option to do this.
 > 这个 xload 命令在远端执行之后，它的窗口就会出现在本地。在某些系统中，你可能需要
 使用 “－Y” 选项，而不是 “－X” 选项来完成这个操作。
 
-
-#### scp And sftp
+#### scp 和 sftp
 
 The OpenSSH package also includes two programs that can make use of an SSH
 encrypted tunnel to copy files across the network. The first, scp (secure copy) is used
@@ -799,7 +798,7 @@ stored on a remote system running an SSH server.
 
 小贴示：这个 SFTP 协议被许多 Linux 发行版中的图形化文件管理器支持。使用
 Nautilus (GNOME), 或者是 Konqueror (KDE)，我们都能在位置栏中输入以
-sftp://开头的 URI， 来操作存储在运行着 SSH 服务器的远端系统中的文件。
+sftp:// 开头的 URI， 来操作存储在运行着 SSH 服务器的远端系统中的文件。
 
 ---
 
