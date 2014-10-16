@@ -74,7 +74,7 @@ But what else is text used for? For many things, it turns out.
 到目前为止，我们已经知道了一对文本编辑器（nano 和 vim），看过一堆配置文件，并且目睹了
 许多命令的输出都是文本格式。但是文本还被用来做什么？ 它可以做很多事情。
 
-#### Documents
+#### 文档
 
 Many people write documents using plain text formats. While it is easy to see how a
 small text file could be useful for keeping simple notes, it is also possible to write large
@@ -89,7 +89,7 @@ typographical layout needed by writers in technical disciplines.
 大的文档，然后使用一种标记语言来描述已完成文档的格式。许多科学论文就是用这种方法编写的，
 因为基于 Unix 的文本处理系统位于支持技术学科作家所需要的高级排版布局的一流系统之列。
 
-#### Web Pages
+#### 网页
 
 The world’s most popular type of electronic document is probably the web page. Web
 pages are text documents that use either HTML (Hypertext Markup Language) or XML
@@ -99,7 +99,7 @@ format.
 世界上最流行的电子文档类型可能就是网页了。网页是文本文档，它们使用 HTML（超文本标记语言）或者是 XML
 （可扩展的标记语言）作为标记语言来描述文档的可视格式。
 
-#### Email
+#### 电子邮件
 
 Email is an intrinsically text-based medium. Even non-text attachments are converted
 into a text representation for transmission. We can see this for ourselves by downloading
@@ -111,7 +111,7 @@ journey, followed by the body of the message with its content.
 我们能看到这些，通过下载一个 email 信息，然后用 less 来浏览它。我们将会看到这条信息开始于一个标题，
 其描述了信息的来源以及在传输过程中它接受到的处理，然后是信息的正文内容。
 
-#### Printer Output
+#### 打印输出
 
 On Unix-like systems, output destined for a printer is sent as plain text or, if the page
 contains graphics, is converted into a text format page description language known as
@@ -121,7 +121,7 @@ PostScript, which is then sent to a program that generates the graphic dots to b
 一种文本格式的页面描述语言，以 PostScript 著称，然后再被发送给一款能产生图形点阵的程序，
 最后被打印出来。
 
-#### Program Source Code
+#### 程序源码
 
 Many of the command line programs found on Unix-like systems were created to support
 system administration and software development, and text processing programs are no
@@ -134,7 +134,7 @@ text format.
 许多文本处理程序被设计用来解决软件开发问题。文本处理对于软件开发者来言至关重要是因为所有的软件
 都起始于文本格式。源代码，程序员实际编写的一部分程序，总是文本格式。
 
-### Revisiting Some Old Friends
+### 回顾一些老朋友
 
 Back in Chapter 7 (Redirection), we learned about some commands that are able to
 accept standard input in addition to command line arguments. We only touched on them
@@ -792,7 +792,7 @@ the -c option:
             2 b
             2 c
 
-### Slicing And Dicing
+### 切片和切块
 
 The next three programs we will discuss are used to peel columns of text out of files and
 recombine them in useful ways.
@@ -1308,7 +1308,7 @@ the form of _range operation range_ to describe the positions and type of change
 to convert the first file to the second file:
 
 我们看到 diff 程序的默认输出风格：对两个文件之间差异的简短描述。在默认格式中，
-每组的更改之前都是一个更改命令，其形式为_range operation range_ ，
+每组的更改之前都是一个更改命令，其形式为 _range operation range_ ，
 用来描述要求更改的位置和类型，从而把第一个文件转变为第二个文件：
 
 <table class="multi">
@@ -2353,7 +2353,6 @@ of this book, they are very good skills for the Linux command line user.
 awk 程序通常逐行处理文本文件，这点类似于 sed，awk 使用了一种方案，其与 sed 中地址
 之后跟随编辑命令的概念相似。虽然关于 awk 和 perl 的内容都超出了本书所讨论的范围，
 但是对于 Linux 命令行用户来说，它们都是非常好的技能。
-
 
 #### aspell
 
