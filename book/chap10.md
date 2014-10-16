@@ -274,6 +274,7 @@ first.
 > What The Heck Is Octal?
 >
 > 究竟什么是八进制？
+
 >
 > Octal (base 8), and its cousin, hexadecimal (base 16) are number systems
 often used to express numbers on computers. We humans, owing to the fact that we (or
@@ -352,53 +353,17 @@ scheme used to store the file mode. This table shows what we mean:
 3个二进制数字，这种对应关系，正好映射到用来存储文件模式所使用的方案上。下表展示了
 我们所要表达的意思：
 
-<table class="multi">
-<tr>
-<th class="title">Octal</th>
-<th class="title">Binary</th>
-<th class="title">File Mode</th>
-</tr>
-<tr>
-<td valign="top">0 </td>
-<td valign="top">000</td>
-<td valign="top">---</td>
-</tr>
-<tr>
-<td valign="top">1</td>
-<td valign="top">001</td>
-<td valign="top">--x</td>
-</tr>
-<tr>
-<td valign="top">2</td>
-<td valign="top">010</td>
-<td valign="top">-w-</td>
-</tr>
-<tr>
-<td valign="top">3</td>
-<td valign="top">011</td>
-<td valign="top">-wx</td>
-</tr>
-<tr>
-<td valign="top">4</td>
-<td valign="top">100</td>
-<td valign="top">r--</td>
-</tr>
-<tr>
-<td valign="top">5</td>
-<td valign="top">101</td>
-<td valign="top">r-x</td>
-</tr>
-<tr>
-<td valign="top">6</td>
-<td valign="top">110</td>
-<td valign="top">rw-</td>
-</tr>
-<tr>
-<td valign="top">7</td>
-<td valign="top">111</td>
-<td valign="top">rwx</td>
-</tr>
-</table>
+
+Octal| Binary | File Mode|
+0 | 000 | ---|
+1 | 001 | --x|
+2 | 010 | -w-|
+3 | 011 | -wx|
+4 | 100 | r--|
+5 | 101 | r-x|
+6 | 110 | rw-|
+7 | 111 | rwx|
+
 
 By using three octal digits, we can set the file mode for the owner, group owner, and
 world:
@@ -632,22 +597,9 @@ what happens:
 怎么回事，我们需要看一下掩码的八进制形式。把掩码展开成二进制形式，然后与文件属性
 相比较，看看有什么区别：
 
-<center>
-<table class="multi">
-<tr>
-<td valign="top">Original file mode </td>
-<td valign="top">--- rw- rw- rw-</td>
-</tr>
-<tr>
-<td valign="top">Mask</td>
-<td valign="top">000 000 000 010</td>
-</tr>
-<tr>
-<td valign="top">Result</td>
-<td valign="top">--- rw- rw- r--</td>
-</tr>
-</table>
-</center>
+Original file mode | --- rw- rw- rw-
+Mask | 000 000 000 010
+Result | --- rw- rw- r--
 
 Ignore for the moment the leading zeros (we'll get to those in a minute) and observe that
 where the 1 appears in our mask, an attribute was removed—in this case, the world
@@ -660,22 +612,11 @@ does:
 任务。掩码的二进制形式中，出现数字1的位置，相应地关掉一个文件模式属性。看一下
 掩码0022的作用：
 
-<center>
-<table class="multi">
-<tr>
-<td valign="top">Original file mode </td>
-<td valign="top">--- rw- rw- rw-</td>
-</tr>
-<tr>
-<td valign="top">Mask</td>
-<td valign="top">000 000 010 010</td>
-</tr>
-<tr>
-<td valign="top">Result</td>
-<td valign="top">--- rw- r-- r--</td>
-</tr>
-</table>
-</center>
+
+Original file mode | --- rw- rw- rw-
+Mask | 000 000 010 010
+Result | --- rw- r-- r--
+
 
 Again, where a 1 appears in the binary value, the corresponding attribute is unset. Play
 with some values (try some sevens) to get used to how this works. When you're done,

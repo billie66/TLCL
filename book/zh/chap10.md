@@ -179,53 +179,17 @@ Linux 系统的多用户性能，不是最近的“创新”，而是一种特�
 3个二进制数字，这种对应关系，正好映射到用来存储文件模式所使用的方案上。下表展示了
 我们所要表达的意思：
 
-<table class="multi">
-<tr>
-<th class="title">Octal</th>
-<th class="title">Binary</th>
-<th class="title">File Mode</th>
-</tr>
-<tr>
-<td valign="top">0 </td>
-<td valign="top">000</td>
-<td valign="top">---</td>
-</tr>
-<tr>
-<td valign="top">1</td>
-<td valign="top">001</td>
-<td valign="top">--x</td>
-</tr>
-<tr>
-<td valign="top">2</td>
-<td valign="top">010</td>
-<td valign="top">-w-</td>
-</tr>
-<tr>
-<td valign="top">3</td>
-<td valign="top">011</td>
-<td valign="top">-wx</td>
-</tr>
-<tr>
-<td valign="top">4</td>
-<td valign="top">100</td>
-<td valign="top">r--</td>
-</tr>
-<tr>
-<td valign="top">5</td>
-<td valign="top">101</td>
-<td valign="top">r-x</td>
-</tr>
-<tr>
-<td valign="top">6</td>
-<td valign="top">110</td>
-<td valign="top">rw-</td>
-</tr>
-<tr>
-<td valign="top">7</td>
-<td valign="top">111</td>
-<td valign="top">rwx</td>
-</tr>
-</table>
+
+Octal| Binary | File Mode|
+0 | 000 | ---|
+1 | 001 | --x|
+2 | 010 | -w-|
+3 | 011 | -wx|
+4 | 100 | r--|
+5 | 101 | r-x|
+6 | 110 | rw-|
+7 | 111 | rwx|
+
 
 通过使用3个八进制数字，我们能够设置文件所有者，用户组，和其他人的权限：
 
@@ -349,40 +313,22 @@ Figure 2: KDE 3.5 File properties Dialog
 怎么回事，我们需要看一下掩码的八进制形式。把掩码展开成二进制形式，然后与文件属性
 相比较，看看有什么区别：
 
-<table class="multi">
-<tr>
-<td valign="top">Original file mode </td>
-<td valign="top">--- rw- rw- rw-</td>
-</tr>
-<tr>
-<td valign="top">Mask</td>
-<td valign="top">000 000 000 010</td>
-</tr>
-<tr>
-<td valign="top">Result</td>
-<td valign="top">--- rw- rw- r--</td>
-</tr>
-</table>
+
+Original file mode | --- rw- rw- rw-
+Mask | 000 000 000 010
+Result | --- rw- rw- r--
+
 
 此刻先忽略掉开头的三个零（我们一会儿再讨论），注意掩码中若出现一个数字1，则
 删除文件模式中和这个1在相同位置的属性，在这是指其他人的写权限。这就是掩码要完成的
 任务。掩码的二进制形式中，出现数字1的位置，相应地关掉一个文件模式属性。看一下
 掩码0022的作用：
 
-<table class="multi">
-<tr>
-<td valign="top">Original file mode </td>
-<td valign="top">--- rw- rw- rw-</td>
-</tr>
-<tr>
-<td valign="top">Mask</td>
-<td valign="top">000 000 010 010</td>
-</tr>
-<tr>
-<td valign="top">Result</td>
-<td valign="top">--- rw- r-- r--</td>
-</tr>
-</table>
+
+Original file mode | --- rw- rw- rw-
+Mask | 000 000 010 010
+Result | --- rw- r-- r--
+
 
 又一次，二进制中数字1出现的位置，相对应的属性被删除。再试一下其它的掩码值（一些带数字7的）
 ，习惯于掩码的工作原理。当你实验完成之后，要记得清理现场：
