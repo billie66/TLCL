@@ -314,9 +314,9 @@ Figure 2: KDE 3.5 File properties Dialog
 相比较，看看有什么区别：
 
 
-Original file mode | --- rw- rw- rw-
+Original file mode | -\-\- rw- rw- rw-
 Mask | 000 000 000 010
-Result | --- rw- rw- r--
+Result | -\-\- rw- rw- r-\-
 
 
 此刻先忽略掉开头的三个零（我们一会儿再讨论），注意掩码中若出现一个数字1，则
@@ -325,9 +325,9 @@ Result | --- rw- rw- r--
 掩码0022的作用：
 
 
-Original file mode | --- rw- rw- rw-
+Original file mode | -\-\- rw- rw- rw-
 Mask | 000 000 010 010
-Result | --- rw- r-- r--
+Result | -\-\- rw- r-\- r-\-
 
 
 又一次，二进制中数字1出现的位置，相对应的属性被删除。再试一下其它的掩码值（一些带数字7的）

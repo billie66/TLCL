@@ -274,7 +274,7 @@ first.
 > What The Heck Is Octal?
 >
 > 究竟什么是八进制？
-
+>
 >
 > Octal (base 8), and its cousin, hexadecimal (base 16) are number systems
 often used to express numbers on computers. We humans, owing to the fact that we (or
@@ -597,9 +597,9 @@ what happens:
 怎么回事，我们需要看一下掩码的八进制形式。把掩码展开成二进制形式，然后与文件属性
 相比较，看看有什么区别：
 
-Original file mode | --- rw- rw- rw-
+Original file mode | -\-- rw- rw- rw-
 Mask | 000 000 000 010
-Result | --- rw- rw- r--
+Result | -\-- rw- rw- r-\-
 
 Ignore for the moment the leading zeros (we'll get to those in a minute) and observe that
 where the 1 appears in our mask, an attribute was removed—in this case, the world
@@ -613,9 +613,9 @@ does:
 掩码0022的作用：
 
 
-Original file mode | --- rw- rw- rw-
+Original file mode | -\-\- rw- rw- rw-
 Mask | 000 000 010 010
-Result | --- rw- r-- r--
+Result | -\-- rw- r-\- r-\-
 
 
 Again, where a 1 appears in the binary value, the corresponding attribute is unset. Play
