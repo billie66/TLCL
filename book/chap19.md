@@ -880,7 +880,7 @@ where source and destination are one of the following:
 
 * A remote rsync server specified with a URI of rsync://[user@]host[:port]/path
 
-
+^
 * 一个本地文件或目录
 
 * 一个远端文件或目录，以[user@]host:path 的形式存在
@@ -1007,7 +1007,7 @@ data from the local system to the remote host. Second, we specified the remote h
 prefixing its name (in this case the remote host is named remote-sys) to the
 destination path name.
 
-我们对命令做了两处修改，来方便网络间文件复制。首先，我们添加了--rsh=ssh 选项，其指示
+我们对命令做了两处修改，来方便网络间文件复制。首先，我们添加了-\-rsh=ssh 选项，其指示
 rsync 使用 ssh 程序作为它的远程 shell。以这种方式，我们就能够使用一个 ssh 加密通道，把数据
 安全地传送到远程主机中。其次，通过在目标路径名前加上远端主机的名字（在这种情况下，
 远端主机名为 remote-sys），来指定远端主机。

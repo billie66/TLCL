@@ -207,7 +207,7 @@ could do this:
     dirlist-usr-bin.txt
     dirlist-usr-sbin.txt
 
-### Metacharacters And Literals
+### 元字符和文本
 
 While it may not seem apparent, our grep searches have been using regular expressions
 all along, albeit very simple ones. The regular expression “bzip” is taken to mean that a
@@ -246,7 +246,7 @@ that they be enclosed in quotes to prevent the shell from attempting to expand t
 
 ---
 
-### The Any Character
+### 任何字符
 
 The first metacharacter we will look at is the dot or period character, which is used to
 match any character. If we include it in a regular expression, it will match any character
@@ -283,13 +283,13 @@ because the period character in the file extension is treated as “any characte
 中有一些文件的扩展名是.zip，则它们也会成为匹配项，因为文件扩展名中的圆点符号也会被看作是
 “任意字符”。
 
-### Anchors
+### 锚点
 
 The caret and dollar sign characters are treated as anchors in regular expressions.
 This means that they cause the match to occur only if the regular expression is found at
 the beginning of the line or at the end of the line:
 
-在正则表达式中，插入符号和美元符号被看作是锚（定位点）。这意味着正则表达式
+在正则表达式中，插入符号和美元符号被看作是锚点。这意味着正则表达式
 只有在文本行的开头或末尾被找到时，才算发生一次匹配。
 
     [me@linuxbox ~]$ grep -h '^zip' dirlist*.txt
@@ -388,7 +388,7 @@ is used to indicate a character range.
 然而，在两种情况下，会在中括号表达式中使用元字符，并且有着不同的含义。第一个元字符
 是插入字符，其被用来表示否定；第二个是连字符字符，其被用来表示一个字符区域。
 
-### Negation
+### 否定
 
 If the first character in a bracket expression is a caret (^), the remaining characters are
 taken to be a set of characters that must not be present at the given character position. We
@@ -949,7 +949,7 @@ element is matched.
 
 扩展的正则表达式支持几种方法，来指定一个元素被匹配的次数。
 
-#### ? - 匹配一个元素零次或一次
+#### ? - 匹配零个或一个元素
 
 This quantifier means, in effect, “make the preceding element optional.” Let’s say we
 wanted to check a phone number for validity and we considered a phone number to be
@@ -995,7 +995,7 @@ match one containing non-numeric characters.
 
 这里我们看到这个表达式匹配这个电话号码的两种形式，但是不匹配包含非数字字符的号码。
 
-#### \* - Match An Element Zero Or More Times
+### \* - 匹配零个或多个元素
 
 Like the ? metacharacter, the \* is used to denote an optional item; however, unlike the ?,
 the item may occur any number of times, not just once. Let’s say we wanted to see if a
@@ -1003,7 +1003,7 @@ string was a sentence; that is, it starts with an uppercase letter, then contain
 of upper and lowercase letters and spaces, and ends with a period. To match this (very
 crude) definition of a sentence, we could use a regular expression like this:
 
-像?元字符一样，这个\*被用来表示一个可选的字符；然而，又与?不同，匹配的字符可以出现
+像 ? 元字符一样，这个 \* 被用来表示一个可选的字符；然而，又与 ? 不同，匹配的字符可以出现
 任意多次，不仅是一次。比方说我们想要知道是否一个字符串是一句话；也就是说，字符串开始于
 一个大写字母，然后包含任意多个大写和小写的字母和空格，最后以句号收尾。为了匹配这个（非常粗略的）
 语句的定义，我们能够使用一个像这样的正则表达式：
@@ -1033,17 +1033,16 @@ leading uppercase character and trailing period.
 
 这个表达式匹配前两个测试语句，但不匹配第三个，因为第三个句子缺少开头的大写字母和末尾的句号。
 
-#### + - 匹配一个元素一次或多次
+#### + - 匹配一个或多个元素
 
-The + metacharacter works much like the \*, except it requires at least one instance of the
+The + metacharacter works much like the *, except it requires at least one instance of the
 preceding element to cause a match. Here is a regular expression that will only match
 lines consisting of groups of one or more alphabetic characters separated by single spaces:
 
-这个+元字符的作用与\*非常相似，除了它要求前面的元素至少出现一次匹配。这个正则表达式只匹配
+这个 + 元字符的作用与 * 非常相似，除了它要求前面的元素至少出现一次匹配。这个正则表达式只匹配
 那些由一个或多个字母字符组构成的文本行，字母字符之间由单个空格分开：
 
-<p>^([[:alpha:]]+ ?)+$</p>
-
+    ^([[:alpha:]]+ ?)+$
     [me@linuxbox ~]$ echo "This that" | grep -E '^([[:alpha:]]+ ?)+$'
     This that
     [me@linuxbox ~]$ echo "a b c" | grep -E '^([[:alpha:]]+ ?)+$'
@@ -1059,12 +1058,12 @@ separates the characters “c” and “d”.
 我们看到这个正则表达式不匹配“a b 9”这一行，因为它包含了一个非字母的字符；它也不匹配
  “abc  d” ，因为在字符“c”和“d”之间不止一个空格。
 
-#### { } - 匹配一个元素特定的次数
+#### { } - 匹配特定个数的元素
 
 The { and } metacharacters are used to express minimum and maximum numbers of
 required matches. They may be specified in four possible ways:
 
-{和}元字符都被用来表达要求匹配的最小和最大数目。它们可以通过四种方法来指定：
+这个 { 和 } 元字符都被用来表达要求匹配的最小和最大数目。它们可以通过四种方法来指定：
 
 <table class="multi">
 <caption class="cap">Table 20-3: Specifying The Number Of Matches </caption>
@@ -1122,7 +1121,7 @@ specifying repetitions to simplify our original regular expression from:
 
     ^\(?[0-9][0-9][0-9]\)?  [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$
 
-to:
+简化为：
 
     ^\(?[0-9]{3}\)?  [0-9]{3}-[0-9]{4}$
 
