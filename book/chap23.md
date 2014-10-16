@@ -394,7 +394,7 @@ printing images, such as JPEG files.</td>
 </table>
 
 <table class="multi">
-<caption class="cap">表22－3：常用 lp 选项</caption>
+<caption class="cap">表22-3: 常用 lp 选项</caption>
 <tr>
 <th class="title" width="28%">选项</th>
 <th class="title">描述</th>
@@ -585,7 +585,7 @@ a2ps 有很多选项，总结在表22-4中。
 </table>
 
 <table class="multi">
-<caption class="cap">表22－4：a2ps 选项</caption>
+<caption class="cap">表22-4: a2ps 选项</caption>
 <tr>
 <th class="title" width="25%">选项</th>
 <th class="title">描述</th>

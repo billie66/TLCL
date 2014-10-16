@@ -188,7 +188,7 @@ printer_name 表示这台打印机的名称。若要查看系统已知的打印�
 和 lpr 一样，lp 可以接收文件或标准输入为打印内容。与 lpr 不同的是 lp 支持不同的选项（略为复杂），表22-3 列出了其常用选项。
 
 <table class="multi">
-<caption class="cap">表22－3：常用 lp 选项</caption>
+<caption class="cap">表22-3: 常用 lp 选项</caption>
 <tr>
 <th class="title" width="28%">选项</th>
 <th class="title">描述</th>
@@ -255,7 +255,7 @@ Figure 22-1: Viewing a2ps output
 a2ps 有很多选项，总结在表22-4 中。
 
 <table class="multi">
-<caption class="cap">表22－4：a2ps 选项</caption>
+<caption class="cap">表22-4: a2ps 选项</caption>
 <tr>
 <th class="title" width="25%">选项</th>
 <th class="title">描述</th>

@@ -100,7 +100,7 @@ characters</td>
 </table>
 
 <table class="multi">
-<caption class="cap">表5－1：通配符</caption>
+<caption class="cap">表5-1: 通配符</caption>
 <tr>
 <th class="title">通配符</th>
 <th class="title">意义</th>
@@ -160,7 +160,7 @@ Table 5-2 lists the most commonly used character classes:
 </table>
 
 <table class="multi">
-<caption class="cap">表5－2：普遍使用的字符类</caption>
+<caption class="cap">表5-2: 普遍使用的字符类</caption>
 <tr>
 <th class="title">字符类</th>
 <th class="title">意义</th>
@@ -241,7 +241,7 @@ numerals</td>
 </table>
 
 <table class="multi">
-<caption class="cap">表5－3：通配符范例</caption>
+<caption class="cap">表5-3: 通配符范例</caption>
 <tr>
 <th class="title">模式</th>
 <th class="title">匹配对象</th>
@@ -432,7 +432,7 @@ performed.</td>
 </table>
 
 <table class="multi">
-<caption class="cap">表5－4：cp 选项</caption>
+<caption class="cap">表5-4: cp 选项</caption>
 <tr>
 <th class="title">选项</th>
 <th class="title">意义</th>
@@ -502,7 +502,7 @@ its contents) will be copied into dir2.
 </table>
 
 <table class="multi">
-<caption class="cap">表 5-5： cp 实例</caption>
+<caption class="cap">表5-5: cp 实例</caption>
 <tr>
 <th class="title">命令</th>
 <th class="title">运行结果</th>
@@ -589,7 +589,7 @@ directory.
 </table>
 
 <table class="multi">
-<caption class="cap">表 5－6：mv 选项</caption>
+<caption class="cap">表5-6: mv 选项</caption>
 <tr>
 <th class="title">选项</th>
 <th class="title">意义</th>
@@ -639,7 +639,7 @@ directory dir2.</td>
 </table>
 
 <table class="multi">
-<caption class="cap">表 5－7 mv 实例</caption>
+<caption class="cap">表5-7: mv 实例</caption>
 <tr>
 <td class="title">mv file1 file2</td>
 <td class="title">移动 file1到 file2。<b>如果 file2存在，它的内容会被 file1的内容重写。
@@ -711,7 +711,7 @@ performed.</td>
 </table>
 
 <table class="multi">
-<caption class="cap">表 5－8： rm 选项</caption>
+<caption class="cap">表5-8: rm 选项</caption>
 <tr>
 <th class="title">选项</th>
 <th class="title">意义</th>
@@ -765,7 +765,7 @@ exist, rm will continue silently.</td>
 </table>
 
 <table class="multi">
-<caption class="cap">表 5－9： rm 实例</caption>
+<caption class="cap">表5-9: rm 实例</caption>
 <tr>
 <th class="title">命令</th>
 <th class="title">运行结果</th>

@@ -175,7 +175,7 @@ cursor or changing text colors.
 </table>
 
 <table class="multi">
-<caption class="cap">表14－1：Shell 提示符中用到的转义字符</caption>
+<caption class="cap">表14-1: Shell 提示符中用到的转义字符</caption>
 <tr>
 <th class="title">序列</th>
 <th class="title">显示值</th>
@@ -423,7 +423,7 @@ appearance of “light” colors:
 分化开来，这个属性可以描绘出“浅”色文本。
 
 <table class="multi">
-<caption class="cap">Table14- 2: Escape Sequences Used To Set Text Colors</caption>
+<caption class="cap">Table 14-2: Escape Sequences Used To Set Text Colors</caption>
 <tr>
 <th class="title">Sequence</th>
 <th class="title">Text Color</th>
@@ -703,7 +703,7 @@ position the cursor:
 </table>
 
 <table class="multi">
-<caption class="cap">表14－4： 光标移动转义序列</caption>
+<caption class="cap">表14-4: 光标移动转义序列</caption>
 <tr>
 <th class="title">转义编码</th>
 <th class="title">行动</th>

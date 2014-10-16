@@ -71,7 +71,7 @@ Linux 桌面系统的最新进展已经使存储设备管理对于桌面用户�
 这些是硬盘分区。每行由六个字段组成，如下所示：
 
 <table class="multi">
-<caption class="cap">表16－1： /etc/fstab 字段</caption>
+<caption class="cap">表16-1: /etc/fstab 字段</caption>
 <tr>
 <th class="title">字段</th>
 <th class="title">内容</th>
@@ -269,7 +269,7 @@ Linux 已经发展地比其祖先更加灵活。在以上事例中，我们利�
 这个列表的内容揭示了一些设备命名的模式。这里有几个：
 
 <table class="multi">
-<caption class="cap"> 表16－2： Linux 存储设备名称</caption>
+<caption class="cap"> 表16-2: Linux 存储设备名称</caption>
 <tr>
 <th class="title">模式</th>
 <th class="title">设备</th>

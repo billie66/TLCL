@@ -434,7 +434,7 @@ table of commands used to control the reader while displaying an info page:
 用来控制阅读器。
 
 <table class="multi">
-<caption class="cap">Tbale 6－2：info Commands</caption>
+<caption class="cap">Tbale 6-2: info Commands</caption>
 <thead>
 <tr>
 <th class="title">Command</th>
@@ -479,7 +479,7 @@ node, usually a menu.</td>
 </table>
 
 <table class="multi">
-<caption class="cap">表 6－2：info 命令</caption>
+<caption class="cap">表 6-2: info 命令</caption>
 <thead>
 <tr>
 <th class="title">命令</th>

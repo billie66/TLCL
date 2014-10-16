@@ -110,8 +110,7 @@ the Table 4-1.
 ls 命令有大量的选项。表4-1列出了最常使用的选项。
 
 <table class="multi">
-<caption class="cap">Table 4-1: Common ls Options
-</caption>
+<caption class="cap">Table 4-1: Common ls Options</caption>
 <tr>
 <th class="title" width="10%">Option</th>
 <th class="title" width="20%">Long Option</th>

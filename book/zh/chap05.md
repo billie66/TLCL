@@ -36,7 +36,7 @@ title: 操作文件和目录
 以及它们所选择的对象：
 
 <table class="multi">
-<caption class="cap">表5－1：通配符</caption>
+<caption class="cap">表5-1: 通配符</caption>
 <tr>
 <th class="title">通配符</th>
 <th class="title">意义</th>
@@ -66,7 +66,7 @@ title: 操作文件和目录
 表5-2列出了最常使用的字符类：
 
 <table class="multi">
-<caption class="cap">表5－2：普遍使用的字符类</caption>
+<caption class="cap">表5-2: 普遍使用的字符类</caption>
 <tr>
 <th class="title">字符类</th>
 <th class="title">意义</th>
@@ -96,7 +96,7 @@ title: 操作文件和目录
 借助通配符，为文件名构建非常复杂的选择标准成为可能。下面是一些类型匹配的范例:
 
 <table class="multi">
-<caption class="cap">表5－3：通配符范例</caption>
+<caption class="cap">表5-3: 通配符范例</caption>
 <tr>
 <th class="title">模式</th>
 <th class="title">匹配对象</th>
@@ -197,7 +197,7 @@ cp 命令，复制文件或者目录。它有两种使用方法：
 这里列举了 cp 命令一些有用的选项（短选项和等效的长选项）：
 
 <table class="multi">
-<caption class="cap">表5－4：cp 选项</caption>
+<caption class="cap">表5-4: cp 选项</caption>
 <tr>
 <th class="title">选项</th>
 <th class="title">意义</th>
@@ -229,7 +229,7 @@ cp 命令会默认重写文件。</td>
 </table>
 
 <table class="multi">
-<caption class="cap">表5－5： cp 实例</caption>
+<caption class="cap">表5-5: cp 实例</caption>
 <tr>
 <th class="title">命令</th>
 <th class="title">运行结果</th>
@@ -280,7 +280,7 @@ mv 命令可以执行文件移动和文件命名任务，这依赖于你怎样�
 mv 与 cp 共享了很多一样的选项：
 
 <table class="multi">
-<caption class="cap">表5－6：mv 选项</caption>
+<caption class="cap">表5-6: mv 选项</caption>
 <tr>
 <th class="title">选项</th>
 <th class="title">意义</th>
@@ -302,7 +302,7 @@ mv 与 cp 共享了很多一样的选项：
 </table>
 
 <table class="multi">
-<caption class="cap">表5－7 mv 实例</caption>
+<caption class="cap">表5-7: mv 实例</caption>
 <tr>
 <td class="title">mv file1 file2</td>
 <td class="title">移动 file1 到 file2。<b>如果 file2 存在，它的内容会被 file1 的内容重写。
@@ -338,7 +338,7 @@ rm 命令用来移除（删除）文件和目录：
 下表是一些普遍使用的 rm 选项：
 
 <table class="multi">
-<caption class="cap">表5－8： rm 选项</caption>
+<caption class="cap">表5-8: rm 选项</caption>
 <tr>
 <th class="title">选项</th>
 <th class="title">意义</th>
@@ -363,7 +363,7 @@ rm 命令用来移除（删除）文件和目录：
 </table>
 
 <table class="multi">
-<caption class="cap">表 5－9： rm 实例</caption>
+<caption class="cap">表5-9: rm 实例</caption>
 <tr>
 <th class="title">命令</th>
 <th class="title">运行结果</th>

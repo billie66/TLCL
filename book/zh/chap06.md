@@ -240,7 +240,7 @@ info 文件包含超级链接，它可以让你从一个结点跳到另一个结
 用来控制阅读器。
 
 <table class="multi">
-<caption class="cap">表 6－2：info 命令</caption>
+<caption class="cap">表 6-2: info 命令</caption>
 <thead>
 <tr>
 <th class="title">命令</th>

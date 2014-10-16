@@ -723,6 +723,7 @@ Here is the meaning of our additions:
 下表是所添加行的意义：
 
 <table class="multi">
+<caption class="cap">Table 12-4:</caption>
 <tr>
 <th class="title">Line</th>
 <th class="title">Meaning</th>
@@ -757,6 +758,7 @@ format directory listing.</td>
 </table>
 
 <table class="multi">
+<caption class="cap">Table 12-4:</caption>
 <tr>
 <th class="title">文本行</th>
 <th class="title">含义</th>

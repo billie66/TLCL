@@ -34,7 +34,7 @@ title: 自定制 shell 提示符
 在第八章中看到的一样。这里是一部分字符列表，在提示符中 shell 会特殊对待这些字符：
 
 <table class="multi">
-<caption class="cap">表14－1：Shell 提示符中用到的转义字符</caption>
+<caption class="cap">表14-1: Shell 提示符中用到的转义字符</caption>
 <tr>
 <th class="title">序列</th>
 <th class="title">显示值</th>
@@ -332,7 +332,7 @@ title: 自定制 shell 提示符
 比如说上面一个角落，显示一个时钟或者其它一些信息。这里是一系列用来定位光标的转义编码：
 
 <table class="multi">
-<caption class="cap">表14－4： 光标移动转义序列</caption>
+<caption class="cap">表14-4: 光标移动转义序列</caption>
 <tr>
 <th class="title">转义编码</th>
 <th class="title">行动</th>

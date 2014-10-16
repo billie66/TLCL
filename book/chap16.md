@@ -192,7 +192,7 @@ systems should be checked with the fsck command.</td>
 </table>
 
 <table class="multi">
-<caption class="cap">表16－1： /etc/fstab 字段</caption>
+<caption class="cap">表16-1: /etc/fstab 字段</caption>
 <tr>
 <th class="title">字段</th>
 <th class="title">内容</th>
@@ -543,7 +543,7 @@ similar to the older /dev/hd* naming scheme described above.</td>
 </table>
 
 <table class="multi">
-<caption class="cap"> 表16－2： Linux 存储设备名称</caption>
+<caption class="cap"> 表16-2: Linux 存储设备名称</caption>
 <tr>
 <th class="title">模式</th>
 <th class="title">设备</th>
