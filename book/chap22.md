@@ -35,7 +35,7 @@ programs that we will cover in this chapter include:
 
 * groff – 一个文件格式系统
 
-###简单的格式化工具
+### 简单的格式化工具
 
 We’ll look at some of the simple formatting tools first. These are mostly single purpose
 programs, and a bit unsophisticated in what they do, but they can be used for small tasks
@@ -44,8 +44,7 @@ and as parts of pipelines and scripts.
 我们将先着眼于一些简单的格式工具。他们都是功能单一的程序，并且做法有一点单纯，
 但是他们能被用于小任务并且作为脚本和管道的一部分 。
 
-#### nl – Number Lines
-####nl – 添加行号
+#### nl – 添加行号
 
 The nl program is a rather arcane tool used to perform a simple task. It numbers lines.
 In its simplest use, it resembles cat -n:
@@ -186,7 +185,6 @@ Here are the common options for nl:
 </tr>
 </table>
 
-
 Admittedly, we probably won’t be numbering lines that often, but we can use nl to look
 at how we can combine multiple tools to perform more complex tasks. We will build on
 our work in the previous chapter to produce a Linux distributions report. Since we will
@@ -305,8 +303,7 @@ fold to break the line at the last available space before the line width is reac
     the lazy
     dog.
 
-#### fmt – A Simple Text Formatter
-#### fmt – 一个简单的文本格式器
+#### fmt - 一个简单的文本格式器
 
 The fmt program also folds text, plus a lot more. It accepts either files or standard input
 and performs paragraph formatting on the text stream. Basically, it fills and joins lines in
