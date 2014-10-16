@@ -348,6 +348,7 @@ Here is an explanation of the commands entered during this session:
 这里是对会话期间所输入命令的解释说明：
 
 <table class="multi">
+<caption class="cap" style="display: none;">17-1:</caption>
 <tr>
 <th class="title">Command</th>
 <th class="title">Meaning</th>
@@ -395,6 +396,7 @@ The commands quit and exit may also be used. </td>
 </table>
 
 <table class="multi">
+<caption class="cap" style="display: none;">17-1:</caption>
 <tr>
 <th class="title">命令</th>
 <th class="title">意思</th>

@@ -973,7 +973,7 @@ reading bit-flags.
 </table>
 
 <table class="multi">
-    <caption class="cap">表34-5：位运算符</caption>
+    <caption class="cap">表34-5: 位运算符</caption>
     <tr>
         <th class="title">运算符</th>
         <th class="title">描述</th>
@@ -1079,7 +1079,7 @@ the complete list:
 </table>
 
 <table class="multi">
-    <caption class="cap">表34-6：比较运算符</caption>
+    <caption class="cap">表34-6: 比较运算符</caption>
     <tr>
         <th class="title">运算符</th>
         <th class="title">描述</th>

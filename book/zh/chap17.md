@@ -212,6 +212,7 @@ FTP（它的原始形式）并不是安全的，因为它会以明码形式发�
 这里是对会话期间所输入命令的解释说明：
 
 <table class="multi">
+<caption class="cap" style="display: none;">17-1:</caption>
 <tr>
 <th class="title">命令</th>
 <th class="title">意思</th>

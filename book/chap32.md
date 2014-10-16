@@ -5,7 +5,7 @@ title: 流程控制：case 分支
 
 In this chapter, we will continue to look at flow control. In Chapter 28, we constructed
 some simple menus and built the logic used to act on a user’s selection. To do this, we
-used a series of if commands to identify which of the possible choices has been selected. 
+used a series of if commands to identify which of the possible choices has been selected.
 This type of construct appears frequently in programs, so much so that many programming
 languages (including the shell) provide a flow control mechanism for multiple-choice decisions.
 
@@ -122,7 +122,7 @@ are terminated with a “)” character. Here are some valid patterns:
 这里 case 语句使用的模式和路径展开中使用的那些是一样的。模式以一个 “)” 为终止符。这里是一些有效的模式。
 
 <table class="multi">
-    <caption class="cap">Table32-1：case Pattern Examples</caption>
+    <caption class="cap">Table 32-1: case Pattern Examples</caption>
     <tr>
         <th class="title">Pattern</th>
         <th class="title">Description</th>
@@ -152,7 +152,7 @@ are terminated with a “)” character. Here are some valid patterns:
 </table>
 
 <table class="multi">
-    <caption class="cap">表 32-1：case 模式实例</caption>
+    <caption class="cap">表 32-1: case 模式实例</caption>
     <tr>
         <th class="title">模式</th>
         <th class="title">描述</th>

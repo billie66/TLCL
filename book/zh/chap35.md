@@ -392,7 +392,7 @@ $((expression))
 下表中列出了普通算术运算符：
 
 <table class="multi">
-    <caption class="cap">表 34-3: 算术运算符</caption>
+    <caption class="cap">表34-3: 算术运算符</caption>
     <tr>
         <th class="title">运算符</th>
         <th class="title">描述</th>
