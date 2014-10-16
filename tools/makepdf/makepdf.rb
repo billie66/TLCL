@@ -3,7 +3,12 @@ require 'kramdown'
 require 'erb'
 
 here = File.expand_path(File.dirname(__FILE__))
-root = File.join("#{here}", '../../book/zh')
+case ARGV[0]
+when "en-cn"
+  root = File.join("#{here}", '../../book')
+when "cn"
+  root = File.join("#{here}", '../../book/zh')
+end
 
 def replace(string, &block)
   string.instance_eval do
