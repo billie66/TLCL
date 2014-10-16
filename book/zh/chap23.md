@@ -75,7 +75,7 @@ CUPS 通过创建并维护打印队列来管理打印机。如前所述，Unix �
 
 #### pr - 转换需要打印的文本文件
 
-前面的章节我们也有提到过 pr 命令，现在我们来探讨一下这条命令结合打印使用的一些选项。我们知道，在打印的历史上，基于字符的打印机曾经用过等宽字体，致使每页只能打印固定的行数和字符数，而 pr 命令则能够根据不同的页眉和页边距排列文本使其适应指定的纸张。表22-1 总结了最常用的选项。
+前面的章节我们也有提到过 pr 命令，现在我们来探讨一下这条命令结合打印使用的一些选项。我们知道，在打印的历史上，基于字符的打印机曾经用过等宽字体，致使每页只能打印固定的行数和字符数，而 pr 命令则能够根据不同的页眉和页边距排列文本使其适应指定的纸张。表23-1 总结了最常用的选项。
 
 <table class="multi">
 <caption class="cap">表22－1：常用 pr 选项</caption>
@@ -157,7 +157,7 @@ printer_name 表示这台打印机的名称。若要查看系统已知的打印�
 
 注意：许多 Linux 发行版允许你定义一个输出 PDF 文件但不执行实体打印的“打印机”，这可以用来很方便的检验你的打印命令。看看你的打印机配置程序是否支持这项配置。在某些发行版中，你可能要自己安装额外的软件包（如 cups-pdf）来使用这项功能。
 
-表22-2 显示了 lpr 的一些常用选项
+表23-2 显示了 lpr 的一些常用选项
 
 <table class="multi">
 <caption class="cap">表22－2：常用 lpr 选项</caption>
@@ -185,10 +185,10 @@ printer_name 表示这台打印机的名称。若要查看系统已知的打印�
 
 #### lp - 打印文件（System V 风格）
 
-和 lpr 一样，lp 可以接收文件或标准输入为打印内容。与 lpr 不同的是 lp 支持不同的选项（略为复杂），表22-3 列出了其常用选项。
+和 lpr 一样，lp 可以接收文件或标准输入为打印内容。与 lpr 不同的是 lp 支持不同的选项（略为复杂），表23-3 列出了其常用选项。
 
 <table class="multi">
-<caption class="cap">表22-3: 常用 lp 选项</caption>
+<caption class="cap">表23-3: 常用 lp 选项</caption>
 <tr>
 <th class="title" width="28%">选项</th>
 <th class="title">描述</th>
@@ -245,17 +245,17 @@ a2ps 程序很有趣。单从名字上看，这是个格式转换程序，但它
     [stdin (plain): 11 pages on 6 sheets]
     [Total: 11 pages on 6 sheets] saved into the file `/home/me/Desktop/ls.ps'
 
-这里我们用带 -t 参数（忽略页眉和页脚）的 pr 命令过滤数据流，然后用 a2ps 指定一个输出文件（-o 参数），并设定每页66行（-L 参数）来匹配 pr 的输出分页。用合适的文件查看器查看我们的输出文件，我们就会看到图22-1 中显示的结果。
+这里我们用带 -t 参数（忽略页眉和页脚）的 pr 命令过滤数据流，然后用 a2ps 指定一个输出文件（-o 参数），并设定每页66行（-L 参数）来匹配 pr 的输出分页。用合适的文件查看器查看我们的输出文件，我们就会看到图23-1 中显示的结果。
 
-![](../images/22-1.png) \\
-Figure 22-1: Viewing a2ps output
+![](../images/23-1.png) \\
+Figure 23-1: Viewing a2ps output
 {: .figure}
 
 可以看到，默认的输出布局是一面两页的，这将导致两页的内容被打印到一张纸上。a2ps 还能利用页眉和页脚。
-a2ps 有很多选项，总结在表22-4 中。
+a2ps 有很多选项，总结在表23-4 中。
 
 <table class="multi">
-<caption class="cap">表22-4: a2ps 选项</caption>
+<caption class="cap">表23-4: a2ps 选项</caption>
 <tr>
 <th class="title" width="25%">选项</th>
 <th class="title">描述</th>
@@ -391,10 +391,10 @@ lpstat 程序可用于确定系统中打印机的名字和有效性。例如，�
     device for printer: ipp://print-server:631/printers/printer
 
 上例中，我们看到 printer 是系统默认的打印机，其本身是一台网络打印机，使用网络打印协议（ipp://）通过网络连接到名为 print-server 的系统。
-lpstat 的常用选项列于表22-5。
+lpstat 的常用选项列于表23-5。
 
 <table class="multi">
-<caption class="cap">表22－5：常用 lpstat 选项</caption>
+<caption class="cap">表23-5: 常用 lpstat 选项</caption>
 <tr>
 <th class="title" width="20%">选项</th>
 <th class="title">描述</th>

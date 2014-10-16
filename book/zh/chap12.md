@@ -400,7 +400,7 @@ vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stal
 下表是所添加行的意义：
 
 <table class="multi">
-<caption class="cap" style="display: none;">12-4:</caption>
+<caption class="cap">表12-4:</caption>
 <tr>
 <th class="title">文本行</th>
 <th class="title">含义</th>

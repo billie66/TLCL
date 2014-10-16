@@ -805,9 +805,9 @@ signments:
            parameter + 1 (however, see discussion below).</td>
     </tr>
     <tr>
-        <td valign="top">parameter−− </td>
+        <td valign="top">parameter-\- </td>
         <td valign="top">Variable post-decrement. Equivalent to parameter =
-               parameter − 1.</td>
+               parameter - 1.</td>
     </tr>
     <tr>
         <td valign="top">++parameter</td>
@@ -817,7 +817,7 @@ signments:
     <tr>
         <td valign="top">--parameter</td>
         <td valign="top">Variable pre-decrement. Equivalent to parameter =
-           parameter − 1.</td>
+           parameter - 1.</td>
     </tr>
 </table>
 
@@ -856,8 +856,8 @@ signments:
         <td valign="top">后缀自增变量。等价于 parameter = parameter + 1 (但，要看下面的讨论)。</td>
     </tr>
     <tr>
-        <td valign="top">parameter−− </td>
-        <td valign="top">后缀自减变量。等价于 parameter = parameter − 1。</td>
+        <td valign="top">parameter-\- </td>
+        <td valign="top">后缀自减变量。等价于 parameter = parameter - 1。</td>
     </tr>
     <tr>
         <td valign="top">++parameter</td>
@@ -865,12 +865,12 @@ signments:
     </tr>
     <tr>
         <td valign="top">--parameter</td>
-        <td valign="top">前缀自减变量。等价于 parameter = parameter − 1。</td>
+        <td valign="top">前缀自减变量。等价于 parameter = parameter - 1。</td>
     </tr>
 </table>
 
 These assignment operators provide a convenient shorthand for many common arithmetic
-tasks. Of special interest are the increment (++) and decrement (−−) operators,
+tasks. Of special interest are the increment (++) and decrement (-\-) operators,
 which increase or decrease the value of their parameters by one. This style of notation is taken
 from the C programming language and has been incorporated by several other
 programming languages, including bash.

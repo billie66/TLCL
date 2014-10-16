@@ -1432,7 +1432,7 @@ in its respective section of the change group.</td>
 </table>
 
 <table class="multi">
-<caption class="cap">表21-5：diff 上下文模式更改指示符</caption>
+<caption class="cap">表21-5: diff 上下文模式更改指示符</caption>
 <tr>
 <th class="title">指示符</th>
 <th class="title">意思</th>
@@ -1504,7 +1504,7 @@ possible characters:
 </table>
 
 <table class="multi">
-<caption class="cap">表21-6：diff 统一模式更改指示符</caption>
+<caption class="cap">表21-6: diff 统一模式更改指示符</caption>
 <tr>
 <th class="title">字符</th>
 <th class="title">意思</th>
@@ -2032,7 +2032,7 @@ Note that unlike tr, sed requires that both sets be of the same length.</td>
 </table>
 
 <table class="multi">
-<caption class="cap">表 21-8： sed 基本编辑命令 </caption>
+<caption class="cap">表21-8: sed 基本编辑命令 </caption>
 <tr>
 <th class="title">命令</th>
 <th class="title">说明</th>

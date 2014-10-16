@@ -58,7 +58,10 @@ def convert_tables(string)
   tr = /<tr>(.*?)<\/tr>/m
   th = /<t[hd].*?>(.*?)<\/t[hd]>/m
   text = string.gsub(pattern) do |s|
-    cap = s.scan(/%\s\<caption class="cap"\>(.*?)\s*\<\/caption\>/)
+    cap = s.scan(/%\s+\<caption class="cap"\>(.*?)\s*\<\/caption\>/)
+    if not cap.empty?
+      table_number = cap.first.first.match(/[0-9\s\-]+:/)[0].gsub!(/[\s:]/, '')
+    end
     tmp = ''
     cols = 0
     tmp = s.scan(tr).map do |e|
@@ -85,9 +88,26 @@ def convert_tables(string)
       end.join
     len = case cols
           when 2
-            '{p{3cm}p{10cm}}'
+            if %w(4-3 6-2 12-4 13-1 15-1 17-1 22-3 22-4 28-2 28-3 28-4 34-4).include?(table_number)
+              '{p{5cm}p{8cm}}'
+            elsif table_number == "34-3"
+              '{p{3cm}p{3cm}}'
+            else
+              '{p{3cm}p{10cm}}'
+            end
           when 3
-            '{p{2cm}p{2cm}p{9cm}}'
+            case table_number
+            when "15-2"
+              '{p{8cm}p{2cm}p{3cm}}'
+            when "18-5"
+              '{p{4cm}p{3cm}p{6cm}}'
+            when "21-1"
+              '{p{1cm}p{4cm}p{8cm}}'
+            when "4-1", "11-3", "16-1"
+              '{p{1cm}p{3cm}p{9cm}}'
+            else
+              '{p{2cm}p{2cm}p{9cm}}'
+            end
           when 4
             '{p{2cm}p{2cm}p{2cm}p{2cm}}'
           end
@@ -95,7 +115,7 @@ def convert_tables(string)
     tab = "\n\\begin{longtable}[H]" + len + "\n\\hline\n"
 
     if cap.empty?
-      content = tab + tmp + "\\end{longtable}\n" 
+      content = tab + tmp + "\\end{longtable}\n"
     else
       content = tab + tmp + "\n\\caption{#{cap.first.first}}\n" + "\\end{longtable}\n"
     end
@@ -104,7 +124,7 @@ def convert_tables(string)
 end
 
 @tex = ""
-@graphicspath = "#{root}/" 
+@graphicspath = "#{root}/"
 
 layout = /^---\nlayout:.*?\ntitle:(\p{Any}+?)\n---\n/
 
@@ -122,7 +142,7 @@ Dir.glob("#{root}/*.md").sort.each do |f|
     :input => 'GFM',
     :hard_wrap => false
   ).to_latex
-  
+
   @tex += "\\chapter{#{title}}\n\n" + convert_tables(doc)
 end
 

@@ -835,7 +835,7 @@ paste 接受多个文件参数和 ／ 或标准输入。为了说明 paste 是�
 这表示第二个文件中从第一行到第四行的文本行。在更改组内，文本行以四个指示符之一开头：
 
 <table class="multi">
-<caption class="cap">表21-5：diff 上下文模式更改指示符</caption>
+<caption class="cap">表21-5: diff 上下文模式更改指示符</caption>
 <tr>
 <th class="title">指示符</th>
 <th class="title">意思</th>
@@ -876,7 +876,7 @@ paste 接受多个文件参数和 ／ 或标准输入。为了说明 paste 是�
 这行字符串之后就是文本行本身，与三行默认的上下文。每行以可能的三个字符中的一个开头：
 
 <table class="multi">
-<caption class="cap">表21-6：diff 统一模式更改指示符</caption>
+<caption class="cap">表21-6: diff 统一模式更改指示符</caption>
 <tr>
 <th class="title">字符</th>
 <th class="title">意思</th>
