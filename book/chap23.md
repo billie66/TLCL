@@ -138,8 +138,6 @@ As command line users, we are mostly interested in printing text, though it is c
 
 作为命令行用户，尽管打印各种格式的文本都能实现，不过打印最多的，还是文本。
 
-#### pr—Convert Text Files for Printing
-
 #### pr——转换需要打印的文本文件
 
 We looked at pr a little in the previous chapter. Now we will examine some of its many options used in conjunction with printing. In our history of printing, we saw that character-based printers use monospaced fonts, resulting in 288 Chapter 22 fixed numbers of characters per line and lines per page. pr is used to adjust text to fit on a specific page size, with optional page headers and margins. Table 22-1 summarizes the most commonly used options.
@@ -268,9 +266,7 @@ The CUPS printing suite supports two methods of printing historically used on Un
 
 CUPS 打印体系支持两种曾用于类 Unix 系统的打印方式。一种，叫 Berkeley 或 LPD（用于 Unix 的 Berkeley 软件发行版），使用 lpr 程序；另一种，叫 SysV（源自 System V 版本的 Unix），使用 lp 程序。这两个程序的功能大致相同。具体使用哪个完全根据个人喜好。
 
-#### lpr—Print Files (Berkeley Style)
-
-#### lpr——打印文件（Berkeley 风格）
+#### lpr - 打印文件（Berkeley 风格）
 
 The lpr program can be used to send files to the printer. It may also be used in pipelines, as it accepts standard input. For example, to print the results of our multicolumn directory listing above, we could do this:
 
@@ -346,9 +342,7 @@ Table 22-2 shows some of the common options for lpr.
 </tr>
 </table>
 
-#### lp—Print Files (System V Style)
-
-#### lp——打印文件（System V 风格）
+#### lp - 打印文件（System V 风格）
 
 Like lpr, lp accepts either files or standard input for printing. It differs from lpr in that it supports a different (and slightly more sophisticated) option set. Table 22-3 lists the common options.
 
@@ -810,9 +804,7 @@ lpstat 的常用选项列于表22-5。
 </tr>
 </table>
 
-#### lpq—Display Printer Queue Status
-
-#### lpq——显示打印机队列状态
+#### lpq - 显示打印机队列状态
 
 To see the status of a printer queue, the lpq program is used. This allows us to view the status of the queue and the print jobs it contains. Here is an example of an empty queue for a system default printer named printer :
 
