@@ -441,11 +441,12 @@ code performs under three specific conditions:
 
 3. dir_name is empty
 
-<ol>
-  <li><p>dir_name 包含一个已经存在的目录的名字</p></li>
-  <li><p>dir_name 包含一个不存在的目录的名字</p></li>
-  <li><p>dir_name 为空</p></li>
-</ol>
+^
+1. dir_name 包含一个已经存在的目录的名字
+
+1. dir_name 包含一个不存在的目录的名字
+
+1. dir_name 为空
 
 By performing the test with each of these conditions, good test coverage is achieved.
 

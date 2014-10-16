@@ -27,12 +27,12 @@ In this case, the only way to get the desired program is to compile it from sour
 2. Timeliness. While some distributions specialize in cutting edge versions of programs, many do not.
 This means that in order to have the very latest version of a program, compiling is necessary.
 
-<ol>
-  <li>可用性。尽管系统发行版仓库中已经包含了大量的预编译程序，但是一些发行版本不可能包含所有期望的应用。
-    在这种情况下，得到所期望程序的唯一方式是编译程序源码。</li>
-  <li>及时性。虽然一些系统发行版专门打包前沿版本的应用程序，但是很多不是。这意味着，
-    为了拥有一个最新版本的程序，编译是必需的。</li>
-</ol>
+^
+1. 可用性。尽管系统发行版仓库中已经包含了大量的预编译程序，但是一些发行版本不可能包含所有期望的应用。
+在这种情况下，得到所期望程序的唯一方式是编译程序源码。
+
+1. 及时性。虽然一些系统发行版专门打包前沿版本的应用程序，但是很多不是。这意味着，
+为了拥有一个最新版本的程序，编译是必需的。
 
 Compiling software from source code can become very complex and technical;
 well beyond the reach of many users. However, many compiling tasks are
@@ -295,17 +295,17 @@ This directory contains the source tree. Let’s look inside:
 打开该 tar 文件，会创建一个新的目录，名为 diction-1.11。这个目录包含了源码树。让我们看一下里面的内容：
 
     [me@linuxbox src]$ cd diction-1.11
-    [me@linuxbox diction-1.11]$ ls        
+    [me@linuxbox diction-1.11]$ ls
     config.guess     diction.c          getopt.c      nl
     config.h.in      diction.pot        getopt.h      nl.po
-    config.sub       diction.spec       getopt_int.h  README 
+    config.sub       diction.spec       getopt_int.h  README
     configure        diction.spec.in    INSTALL       sentence.c
     configure.in     diction.texi.in    install-sh    sentence.h
     COPYING en       Makefile.in        style.1.in
     de               en_GB              misc.c        style.c
     de.po            en_GB.po           misc.h        test
     diction.1.in     getopt1.c          NEWS
-    
+
 
 In it, we see a number of files. Programs belonging to the GNU Project, as well as many
 others, will supply the documentation files README, INSTALL, NEWS, and COPYING.
@@ -363,7 +363,7 @@ Above the include statement for getopt.h, we see some other include statements s
     #include <stdlib.h>
     #include <string.h>
     #include <unistd.h>
-    
+
 These also refer to header files, but they refer to header files that live outside the current
 source tree. They are supplied by the system to support the compilation of every program.
 If we look in /usr/include, we can see them:
@@ -624,13 +624,13 @@ task that needs to maintain a target/dependency relationship, not just for compi
 
 * Wikipedia 上面有关于编译器和 make 程序的好文章：
 
-<http://en.wikipedia.org/wiki/Compiler>
+    <http://en.wikipedia.org/wiki/Compiler>
 
-<http://en.wikipedia.org/wiki/Make_(software)>
+    <http://en.wikipedia.org/wiki/Make_(software)>
 
 * The GNU Make Manual:
 
 * GNU Make 手册
 
-<http://www.gnu.org/software/make/manual/html_node/index.html>
+    <http://www.gnu.org/software/make/manual/html_node/index.html>
 
