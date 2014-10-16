@@ -88,10 +88,10 @@ def convert_tables(string)
       end.join
     len = case cols
           when 2
-            if %w(4-3 6-2 12-4 13-1 15-1 17-1 22-3 22-4 28-2 28-3 28-4 34-4).include?(table_number)
+            if %w(4-3 6-2 12-4 13-1 15-1 17-1 23-3 23-4 28-2 28-3 34-4 34-6).include?(table_number)
               '{p{5cm}p{8cm}}'
             elsif table_number == "34-3"
-              '{p{3cm}p{3cm}}'
+              '{p{2cm}p{5cm}}'
             else
               '{p{3cm}p{10cm}}'
             end
@@ -101,6 +101,8 @@ def convert_tables(string)
               '{p{8cm}p{2cm}p{3cm}}'
             when "18-5"
               '{p{4cm}p{3cm}p{6cm}}'
+            when "28-4"
+              '{p{3cm}p{3cm}p{3cm}}'
             when "21-1"
               '{p{1cm}p{4cm}p{8cm}}'
             when "4-1", "11-3", "16-1"

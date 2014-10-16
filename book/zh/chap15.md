@@ -134,7 +134,7 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 </tr>
 <tr>
 <td valign="top">Debian</td>
-<td valign="top">apt-get update <p>apt-cache search search_string</p></td>
+<td valign="top">apt-get update; apt-cache search search_string</td>
 </tr>
 <tr>
 <td valign="top">Red Hat</td>

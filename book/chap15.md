@@ -341,11 +341,11 @@ full dependency resolution.
 </tr>
 <tr>
 <td valign="top" >Debian</td>
-<td valign="top">apt-get update <p>apt-get install package\_name</p></td>
+<td valign="top">apt-get update; apt-get install package_name</td>
 </tr>
 <tr>
 <td valign="top">Red Hat</td>
-<td valign="top">yum install package\_name</td>
+<td valign="top">yum install package_name</td>
 </tr>
 </table>
 
@@ -357,11 +357,11 @@ full dependency resolution.
 </tr>
 <tr>
 <td valign="top" >Debian</td>
-<td valign="top">apt-get update <p>apt-get install package\_name</p></td>
+<td valign="top">apt-get update; apt-get install package_name</td>
 </tr>
 <tr>
 <td valign="top">Red Hat</td>
-<td valign="top">yum install package\_name</td>
+<td valign="top">yum install package_name</td>
 </tr>
 </table>
 

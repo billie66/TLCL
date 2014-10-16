@@ -989,7 +989,7 @@ end of the line:
 任意区间内的字符。例如，我们能够使用以下命令来从列表中抽取发行年份，通过展开
 此文件，再使用 cut 命令，来抽取从位置 23 开始到行尾的每一个字符：
 >
-> [me@linuxbox ~]$ expand distros.txt | cut -c 23-
+> [me@linuxbox ~]$ expand distros.txt \| cut -c 23-
 >
 > Coreutils also provides the unexpand program to substitute tabs for spaces.
 >
