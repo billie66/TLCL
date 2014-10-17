@@ -6,8 +6,10 @@ here = File.expand_path(File.dirname(__FILE__))
 case ARGV[0]
 when "en-cn"
   root = File.join("#{here}", '../../book')
+  tex_file = "tlcl-en-cn.tex"
 when "cn"
   root = File.join("#{here}", '../../book/zh')
+  tex_file = "tlcl-cn.tex"
 end
 
 def replace(string, &block)
@@ -155,12 +157,12 @@ tex = ERB.new(File.read("#{here}/template.tex.erb")).result()
 
 post_tex(tex)
 
-File.open("#{here}/tlcl.tex", "w+") do |f|
+File.open("#{here}/#{tex_file}", "w+") do |f|
   f.write(tex)
 end
 
 3.times do
-  system("xelatex #{here}/tlcl.tex")
+  system("xelatex #{here}/#{tex_file}")
 end
 
 # remove useless files

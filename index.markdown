@@ -5,8 +5,9 @@ layout: default
 为大家提供了多种不同的阅读方式。
 
 * [中英文混合版-html](book)
+* [中英文混合版-PDF-2014-10-17](http://media.happycasts.net/tlcl-en-cn.pdf)
 * [中文版-html](book/zh)
-* [中文版-PDF-2014-9-26](http://media.happycasts.net/tlcl.pdf)
+* [中文版-PDF-2014-10-17](http://media.happycasts.net/tlcl-cn.pdf)
 * [中文版-EPUB](http://billie66.gitbooks.io/tlcl-cn/)
 
 欢迎大家参与本书的翻译: [github](https://github.com/billie66/TLCL)
