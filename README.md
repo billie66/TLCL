@@ -1,5 +1,5 @@
 
-The Linux Command Line 英文书的中文版，为您提供了以下几种阅读方式：
+本项目是 The Linux Command Line 一书的中文翻译，为方便大家阅读，特此提供了以下几种方式：
 
 * 中英文双语版 HTML
 
