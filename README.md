@@ -1,8 +1,14 @@
 
-The Linux Command Line 英文书的中文版，分为三种格式：
+The Linux Command Line 英文书的中文版，为您提供了以下几种阅读方式：
 
-* 中英文混排网页
+* 中英文双语版 HTML
 
-* 中文网页
+* 中英文双语版 PDf
 
-* 中文PDF
+* 中文版 HTML
+
+* 中文版 PDF
+
+* 中文版 EPUB
+
+阅读，请移步到 <http://billie66.github.io/TLCL/>
