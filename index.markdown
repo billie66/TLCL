@@ -4,8 +4,8 @@ layout: default
 本书是 [The Linux Command Line](http://linuxcommand.org/) 的中文版,
 为大家提供了多种不同的阅读方式。
 
-* [中英文混合版-html](book)
-* [中英文混合版-PDF-2014-10-17](http://media.happycasts.net/tlcl-en-cn.pdf)
+* [中英文双语版-html](book)
+* [中英文双语版-PDF-2014-10-17](http://media.happycasts.net/tlcl-en-cn.pdf)
 * [中文版-html](book/zh)
 * [中文版-PDF-2014-10-17](http://media.happycasts.net/tlcl-cn.pdf)
 * [中文版-EPUB](http://billie66.gitbooks.io/tlcl-cn/)
