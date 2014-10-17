@@ -1147,7 +1147,7 @@ valign="top">匹配由数字 first 代表的文本行，然后随后的每个在
 目前为止，我们已经知道了两个 sed 的编辑命令，s 和 p。这里是一个更加全面的基本编辑命令列表：
 
 <table class="multi">
-<caption class="cap">表 21-8： sed 基本编辑命令 </caption>
+<caption class="cap">表21-8: sed 基本编辑命令 </caption>
 <tr>
 <th class="title">命令</th>
 <th class="title">说明</th>

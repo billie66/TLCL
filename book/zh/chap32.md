@@ -101,7 +101,7 @@ case 命令检查一个变量值，在我们这个例子中，就是 REPLY 变�
 这里 case 语句使用的模式和路径展开中使用的那些是一样的。模式以一个 “)” 为终止符。这里是一些有效的模式。
 
 <table class="multi">
-    <caption class="cap">表 32-1：case 模式实例</caption>
+    <caption class="cap">表32-1: case 模式实例</caption>
     <tr>
         <th class="title">模式</th>
         <th class="title">描述</th>

@@ -78,7 +78,7 @@ CUPS 通过创建并维护打印队列来管理打印机。如前所述，Unix �
 前面的章节我们也有提到过 pr 命令，现在我们来探讨一下这条命令结合打印使用的一些选项。我们知道，在打印的历史上，基于字符的打印机曾经用过等宽字体，致使每页只能打印固定的行数和字符数，而 pr 命令则能够根据不同的页眉和页边距排列文本使其适应指定的纸张。表23-1 总结了最常用的选项。
 
 <table class="multi">
-<caption class="cap">表22－1：常用 pr 选项</caption>
+<caption class="cap">表23-1: 常用 pr 选项</caption>
 <tr>
 <th class="title" width="20%">选项</th>
 <th class="title">描述</th>
@@ -160,7 +160,7 @@ printer_name 表示这台打印机的名称。若要查看系统已知的打印�
 表23-2 显示了 lpr 的一些常用选项
 
 <table class="multi">
-<caption class="cap">表22－2：常用 lpr 选项</caption>
+<caption class="cap">表23-2: 常用 lpr 选项</caption>
 <tr>
 <th class="title" width="20%">选项</th>
 <th class="title">描述</th>

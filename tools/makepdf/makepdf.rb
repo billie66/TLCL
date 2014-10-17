@@ -127,6 +127,7 @@ end
 
 @tex = ""
 @graphicspath = "#{root}/"
+@date = Time.now.strftime("%F")
 
 layout = /^---\nlayout:.*?\ntitle:(\p{Any}+?)\n---\n/
 
