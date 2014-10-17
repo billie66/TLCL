@@ -144,7 +144,7 @@ shell 环境中包含相当多的变量，虽然你的 shell 环境可能不同�
 <td valign="top">定义了字符集以及语言编码方式。</td>
 </tr>
 <tr>
-<td valign="top">OLD\_PWD </td>
+<td valign="top">OLD_PWD </td>
 <td valign="top">先前的工作目录。</td>
 </tr>
 <tr>

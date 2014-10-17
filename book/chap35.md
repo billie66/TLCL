@@ -422,7 +422,7 @@ There are four parameter expansions that perform upper/lowercase conversion:
 有四个参数展开，可以执行大小写转换操作：
 
 <table class="multi">
-    <caption class="cap">Table 34-1: Case Conversion Parameter Expansions</caption>
+    <caption class="cap">Table 35-1: Case Conversion Parameter Expansions</caption>
     <tr>
         <th class="title">Format</th>
         <th class="title">Result</th>
@@ -448,7 +448,7 @@ There are four parameter expansions that perform upper/lowercase conversion:
 </table>
 
 <table class="multi">
-    <caption class="cap">表 34-1: 大小写转换参数展开</caption>
+    <caption class="cap">表 35-1: 大小写转换参数展开</caption>
     <tr>
         <th class="title">格式</th>
         <th class="title">结果</th>
@@ -532,7 +532,7 @@ arithmetic expressions, the shell supports integer constants in any base.
 回到第9章，我们看过八进制（以8为底）和十六进制（以16为底）的数字。在算术表达式中，shell 支持任意进制的整形常量。
 
 <table class="multi">
-    <caption class="cap">Table 34-2: Specifying Different Number Bases</caption>
+    <caption class="cap">Table 35-2: Specifying Different Number Bases</caption>
     <tr>
         <th class="title">Notation</th>
         <th class="title">Description</th>
@@ -558,7 +558,7 @@ arithmetic expressions, the shell supports integer constants in any base.
 </table>
 
 <table class="multi">
-    <caption class="cap">表 34-2: 指定不同的数基</caption>
+    <caption class="cap">表 35-2: 指定不同的数基</caption>
     <tr>
         <th class="title">表示法</th>
         <th class="title">描述</th>
@@ -610,7 +610,7 @@ The ordinary arithmetic operators are listed in the table below:
 下表中列出了普通算术运算符：
 
 <table class="multi">
-    <caption class="cap">Table 34-3: Arithmetic Operators</caption>
+    <caption class="cap">Table 35-3: Arithmetic Operators</caption>
     <tr>
         <th class="title">Operator</th>
         <th class="title">Description</th>
@@ -641,7 +641,7 @@ The ordinary arithmetic operators are listed in the table below:
     </tr>
 </table>
 <table class="multi">
-    <caption class="cap">表 34-3: 算术运算符</caption>
+    <caption class="cap">表 35-3: 算术运算符</caption>
     <tr>
         <th class="title">运算符</th>
         <th class="title">描述</th>
@@ -768,7 +768,7 @@ signments:
 除了 = 运算符，shell 也提供了其它一些表示法，来执行一些非常有用的赋值运算：
 
 <table class="multi">
-    <caption class="cap">Table 34-4: Assignment Operators</caption>
+    <caption class="cap">Table 35-4: Assignment Operators</caption>
     <tr>
         <th class="title" width="25%">Notation</th>
         <th class="title">Description</th>
@@ -822,7 +822,7 @@ signments:
 </table>
 
 <table class="multi">
-    <caption class="cap">表34-4: 赋值运算符</caption>
+    <caption class="cap">表35-4: 赋值运算符</caption>
     <tr>
         <th class="title" width="25%">表示法</th>
         <th class="title">描述</th>
@@ -940,7 +940,7 @@ reading bit-flags.
 经常涉及到设置或读取位标志。
 
 <table class="multi">
-    <caption class="cap">Table 34-5: Bit Operators</caption>
+    <caption class="cap">Table 35-5: Bit Operators</caption>
     <tr>
         <th class="title">Operator</th>
         <th class="title">Description</th>
@@ -973,7 +973,7 @@ reading bit-flags.
 </table>
 
 <table class="multi">
-    <caption class="cap">表34-5: 位运算符</caption>
+    <caption class="cap">表35-5: 位运算符</caption>
     <tr>
         <th class="title">运算符</th>
         <th class="title">描述</th>
@@ -1033,7 +1033,7 @@ the complete list:
 这里是比较运算符的完整列表：
 
 <table class="multi">
-    <caption class="cap">Table 34-6: Comparison Operators</caption>
+    <caption class="cap">Table 35-6: Comparison Operators</caption>
     <tr>
         <th class="title">Operator</th>
         <th class="title">Description</th>
@@ -1079,7 +1079,7 @@ the complete list:
 </table>
 
 <table class="multi">
-    <caption class="cap">表34-6: 比较运算符</caption>
+    <caption class="cap">表35-6: 比较运算符</caption>
     <tr>
         <th class="title">运算符</th>
         <th class="title">描述</th>

@@ -597,7 +597,7 @@ what happens:
 怎么回事，我们需要看一下掩码的八进制形式。把掩码展开成二进制形式，然后与文件属性
 相比较，看看有什么区别：
 
-Original file mode | -\-- rw- rw- rw-
+Original file mode | -\-\- rw- rw- rw-
 Mask | 000 000 000 010
 Result | -\-- rw- rw- r-\-
 
@@ -740,11 +740,18 @@ are three ways to take on an alternate identity:
 用户特权，来执行一些管理任务，但是也有可能"变为"另一个普通用户，比如说测试一个帐号。
 有三种方式，可以拥有多重身份：
 
-1. Log out and log back in as the alternate user. &nbsp; 注销系统并以其他用户身份重新登录系统。
+1. Log out and log back in as the alternate user.
 
-2. Use the su command. &nbsp; 使用 su 命令。
+2. Use the su command.
 
-3. Use the sudo command. &nbsp; 使用 sudo 命令。
+3. Use the sudo command.
+
+^
+1. 注销系统并以其他用户身份重新登录系统。
+
+2. 使用 su 命令。
+
+3. 使用 sudo 命令。
 
 We will skip the first technique since we know how to do it and it lacks the convenience
 of the other two. From within our own shell session, the su command allows you to

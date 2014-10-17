@@ -205,12 +205,12 @@ a sequence of words for the for command.
 The next section gathers the data by running the stat program on each file in the directory.
 We use cut to extract the two-digit hour from the result. Inside the loop, we need to
 remove leading zeros from the hour field, since the shell will try (and ultimately fail) to
-interpret values “00” through “09” as octal numbers (see Table 34-1). Next, we increment
+interpret values “00” through “09” as octal numbers (see Table 35-1). Next, we increment
 the value of the array element corresponding with the hour of the day. Finally,
 we increment a counter (count) to track the total number of files in the directory.
 
 接下来的一部分收集数据，对目录中的每一个文件运行 stat 程序。我们使用 cut 命令从结果中抽取两位数字的小时字段。
-在循环里面，我们需要把小时字段开头的零清除掉，因为 shell 将试图（最终会失败）把从 “00” 到 “09” 的数值解释为八进制（见表34-1）。
+在循环里面，我们需要把小时字段开头的零清除掉，因为 shell 将试图（最终会失败）把从 “00” 到 “09” 的数值解释为八进制（见表35-1）。
 下一步，我们以小时为数组索引，来增加其对应的数组元素的值。最后，我们增加一个计数器的值（count），记录目录中总共的文件数目。
 
 The last section of the script displays the contents of the array. We first output a couple of
@@ -393,7 +393,7 @@ unset may also be used to delete single array elements:
     [me@linuxbox~]$ unset 'foo[2]'
     [me@linuxbox~]$ echo ${foo[@]}
     a b d e f
-    
+
 In this example, we delete the third element of the array, subscript 2. Remember, arrays
 start with subscript zero, not one! Notice also that the array element must be quoted to
 prevent the shell from performing pathname expansion.
@@ -420,7 +420,7 @@ Any reference to an array variable without a subscript refers to element zero of
     [me@linuxbox~]$ foo=A
     [me@linuxbox~]$ echo ${foo[@]}
     A b c d e f
-    
+
 ### 关联数组
 
 Recent versions of bash now support associative arrays. Associative arrays use strings
