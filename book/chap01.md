@@ -145,7 +145,7 @@ your boss has told you to administer a Linux server, or maybe you're just a
 desktop user who is tired of all the security problems and want to give Linux
 a try. That's fine.here.All are welcome
 
-这本书是为已经从其它平台移民到 Linux 系统的新手而写的。最有可能，你是使用某个 Windows 版本的 "超级用户"。
+这本书是为已经从其它平台移民到 Linux 系统的新手而写的。最有可能，你是使用某个 Windows 版本的高手。
 或许是老板让你去管理一个 Linux 服务器，或许你只是一个桌面用户，厌倦了系统出现的各种
 安全防御问题，而想要体验一下 Linux。很好，这里欢迎你们！
 
@@ -166,7 +166,7 @@ line is long lasting. The skills learned today will still be useful ten years
 from now. The command line has survived the test of time.
 
 另一方面，学习 Linux 命令行会让你受益匪浅，给你极大的回报。如果你认为，
-现在你已经是“超级用户”了。别急，其实你还不知道什么才是真正的权限。不像其他一些计算机技能，
+现在你已经是高手了。别急，其实你还不知道什么才是真正的高手。不像其他一些计算机技能，
 一段时间之后可能就被淘汰了，命令行知识却不会落伍，你今天所学到的，在十年以后，
 都会有用处。命令行通过了时间的检验。
 
