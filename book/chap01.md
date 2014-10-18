@@ -14,8 +14,8 @@ Unix-like operating system. That's an important story too, but most other Linux 
 have that one, as well.
 
 故事内容不是 Linus Torvalds 在1991年怎样写了 Linux 内核的第一个版本，
-因为这些内容你可以在许多 Linux 书籍中读到。我也不想告诉你，更早之前，Richard Stallman
-是如何开始 GNU 项目，设计了一个免费的类似 Unix 的操作系统。那也是一个很有意义的故事，
+因为这些内容你可以在许多 Linux 书籍中读到。我也不是来告诉你，更早之前，Richard Stallman
+是如何开始 GNU 项目，设计了一个免费的类Unix 的操作系统。那也是一个很有意义的故事，
 但大多数 Linux 书籍也讲到了它。
 
 No, I want to tell you the story of how you can take back control of your computer.
