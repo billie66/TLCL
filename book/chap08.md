@@ -168,8 +168,7 @@ a special meaning. When used at the beginning of a word, it expands into the nam
 home directory of the named user, or if no user is named, the home directory of the
 current user:
 
-可能你从我们对 cd 命令的介绍中回想起来，波浪线字符("~")有特殊的意思。当它用在一个
-单词的开头时，它会展开成指定用户的主目录名，如果没有指定用户名，则是当前用户的主目录：
+可能你从我们对 cd 命令的介绍中回想起来，波浪线字符("~")有特殊的意思。当它用在一个单词的开头时，它会展开成指定用户的主目录名，如果没有指定用户名，则是当前用户的主目录：
 
     [me@linuxbox ~]$ echo ~
     /home/me
