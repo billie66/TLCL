@@ -295,7 +295,7 @@ instead of two:
 Here is an example using the division and remainder operators. Notice the effect of
 integer division:
 
-这个一个使用除法和取余操作符的例子。注意整数除法的结果：
+这是一个使用除法和取余操作符的例子。注意整数除法的结果：
 
     [me@linuxbox ~]$ echo Five divided by two equals $((5/2))
     Five divided by two equals 2
@@ -420,6 +420,8 @@ Command substitution allows us to use the output of a command as an expansion:
     Videos
 
 One of my favorites goes something like this:
+
+我最喜欢用的一行命令是像这样的：
 
     [me@linuxbox ~]$ ls -l $(which cp)
     -rwxr-xr-x 1 root root 71516 2007-12-05 08:58 /bin/cp
