@@ -14,7 +14,7 @@ title: 从 shell 眼中看世界
 的字符完成几个步骤处理。我们已经知道两三个案例，怎样一个简单的字符序列，例如"\*",
 对 shell 来说，有很多的涵义。使这个发生的过程叫做（字符）展开。通过展开，
 你输入的字符，在 shell 对它起作用之前，会展开成为别的字符。为了说明我们所要
-表达的意思，让我们看一看 echo 命令。echo 是一个 shell 内部命令，来完成非常简单的认为。
+表达的意思，让我们看一看 echo 命令。echo 是一个 shell 内部命令，来完成非常简单的任务。
 它在标准输出中打印出它的文本参数。
 
     [me@linuxbox ~]$ echo this is a test
@@ -169,7 +169,7 @@ shell 允许算术表达式通过展开来执行。这允许我们把 shell 提�
     [me@linuxbox ~]$ echo $(((5**2) * 3))
     75
 
-这个一个使用除法和取余操作符的例子。注意整数除法的结果：
+这是一个使用除法和取余操作符的例子。注意整数除法的结果：
 
     [me@linuxbox ~]$ echo Five divided by two equals $((5/2))
     Five divided by two equals 2
@@ -252,6 +252,8 @@ echo 命令只简单地显示误键入的模式。通过参数展开，如果你
     [me@linuxbox ~]$ echo $(ls)
     Desktop Documents ls-output.txt Music Pictures Public Templates
     Videos
+
+我最喜欢用的一行命令是像这样的：
 
     [me@linuxbox ~]$ ls -l $(which cp)
     -rwxr-xr-x 1 root root 71516 2007-12-05 08:58 /bin/cp
