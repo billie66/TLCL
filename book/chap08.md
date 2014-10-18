@@ -29,7 +29,7 @@ output:
 的字符完成几个步骤处理。我们已经知道两三个案例，怎样一个简单的字符序列，例如"\*",
 对 shell 来说，有很多的涵义。使这个发生的过程叫做（字符）展开。通过展开，
 你输入的字符，在 shell 对它起作用之前，会展开成为别的字符。为了说明我们所要
-表达的意思，让我们看一看 echo 命令。echo 是一个 shell 内部命令，来完成非常简单的认为。
+表达的意思，让我们看一看 echo 命令。echo 是一个 shell 内部命令，来完成非常简单的任务。
 它在标准输出中打印出它的文本参数。
 
     [me@linuxbox ~]$ echo this is a test
@@ -168,8 +168,8 @@ a special meaning. When used at the beginning of a word, it expands into the nam
 home directory of the named user, or if no user is named, the home directory of the
 current user:
 
-可能你从我们对 cd 命令的介绍中回想起来，波浪线字符("~")有特殊的意思。当它用在一个
-单词的开头时，它会展开成指定用户的主目录名，如果没有指定用户名，则是当前用户的主目录：
+可能你从我们对 cd 命令的介绍中回想起来，波浪线字符("~")有特殊的意思。当它用在
+一个单词的开头时，它会展开成指定用户的主目录名，如果没有指定用户名，则是当前用户的主目录：
 
     [me@linuxbox ~]$ echo ~
     /home/me
@@ -295,7 +295,7 @@ instead of two:
 Here is an example using the division and remainder operators. Notice the effect of
 integer division:
 
-这个一个使用除法和取余操作符的例子。注意整数除法的结果：
+这是一个使用除法和取余操作符的例子。注意整数除法的结果：
 
     [me@linuxbox ~]$ echo Five divided by two equals $((5/2))
     Five divided by two equals 2
@@ -420,6 +420,8 @@ Command substitution allows us to use the output of a command as an expansion:
     Videos
 
 One of my favorites goes something like this:
+
+我最喜欢用的一行命令是像这样的：
 
     [me@linuxbox ~]$ ls -l $(which cp)
     -rwxr-xr-x 1 root root 71516 2007-12-05 08:58 /bin/cp

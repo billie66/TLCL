@@ -14,11 +14,12 @@ nodivcode 保留这样的块元素
 
 makepdf 目录是生成中文 pdf 的工具，首先需要安装 `kramdown`,
 
-```ruby
+```
 gem install kramdown
 ```
-然后，就可以运行以下命令生成中文 pdf 了
+然后，就可以运行以下命令生成 pdf 了
 
-```ruby
-ruby makepdf.rb
+```
+cd makepdf
+ruby makepdf.rb en-cn|cn
 ```
