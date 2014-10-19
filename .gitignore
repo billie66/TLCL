@@ -2,3 +2,4 @@
 *.pdf
 _site
 .vagrant/
+*.sublime-*

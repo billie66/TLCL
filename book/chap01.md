@@ -97,9 +97,6 @@ over, say, Windows NT was the powerful command line interface which made the
 Unix 在20世纪80年代初显赫一时(虽然，开发它在更早之前），结果，在普遍地使用图形界面之前，
 开发了一种广泛的命令行界面。事实上，很多人选择 Linux（而不是其他的系统，比如说 Windows NT）是因为其可以使“完成复杂的任务成为可能”的强大的命令行界面。
 
-
-What This Book Is About
-
 ### 这本书讲什么
 
 This book is a broad overview of “living” on the Linux command line. Unlike
@@ -134,8 +131,6 @@ __这本书是围绕 Linux 而写的__。许多书籍，为了扩大自身的影
 比如 Unix, MacOS X 等。这样做，很多内容只能比较空泛的去讲了。另一方面，
 这本书只研究了当代 Linux 发行版。虽然，对于使用其它类似于 Unix 系统的用户来说，
 书中95％的内容是有用的，但这本书主要面向的对象是现代 Linux 命令行用户。
-
-Who Should Read This Book
 
 ### 谁应该读这本书
 
@@ -268,6 +263,7 @@ test a computer for Linux compatibility prior to installation. The
 disadvantage of using a live CD is that it may be very slow compared to
 having Linux installed on your hard drive.  Both Ubuntu and Fedora (among
 others) have live CD versions.
+
 ^
 1. 在一台（不用很新）的电脑上安装 Linux。你选择哪个 Linux 发行版安装，是无关紧要的事。
    虽然大多数人一开始选择安装 Ubuntu, Fedora, 或者 OpenSUSE。如果你拿不定主意，那就先试试 Ubuntu。
@@ -277,7 +273,6 @@ others) have live CD versions.
 
 2. 使用“Live CD.” 许多 Linux 发行版都自带一个比较酷的功能，你可以直接从系统安装盘 CDROM 中运行 Linux，
    而不必安装 Linux。开机进入 BIOS 设置界面，更改引导项，设置为“从 CDROM 启动”。
-
 
 Regardless of how you install Linux, you will need to have occasional
 superuser (i.e., administrative) privileges to carry out the lessons in this
@@ -291,7 +286,6 @@ down and get typing!
 
 当你在自己的电脑上安装了 Linux 系统之后，就开始一边阅读本书，一边练习吧。本书大部分内容
 都可以自己动手练习，坐下来，敲入命令，体验一下吧。
-
 
 > Why I Don't Call It “GNU/Linux”
 >
