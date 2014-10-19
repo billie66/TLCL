@@ -369,7 +369,7 @@ would create three directokries named "dir1", "dir2", "dir3".
 
 ### cp - 复制文件和目录
 
-The cp command copies files or directories. It can be used two dfferent ways:
+The cp command copies files or directories. It can be used two different ways:
 
 cp 命令，复制文件或者目录。它有两种使用方法：
 
