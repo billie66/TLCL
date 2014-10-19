@@ -754,7 +754,7 @@ valign="top">在删除已存在的文件前，提示用户确认信息。
 confirmation before the deletion is performed.</td>
 </tr>
 <tr>
-<td valign="top">rm -r file1 file2</td>
+<td valign="top">rm -r file1 dir1</td>
 <td valign="top">Delete file1 and dir1 and its contents.</td>
 </tr>
 <tr>
