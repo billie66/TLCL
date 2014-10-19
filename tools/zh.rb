@@ -1,5 +1,4 @@
-#!/usr/bin/env ruby
-# coding: utf-8
+# encoding: utf-8
 
 root = File.expand_path(File.dirname(__FILE__), '../book')
 tmpdir = File.join(root, 'tmp')

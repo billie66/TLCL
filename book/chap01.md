@@ -175,8 +175,6 @@ we'll start you down that path as well.
 
 如果你没有编程经验，也不要担心，我会带你入门。
 
-What's In This Book
-
 ### 这本书的内容
 
 This material is presented in a carefully chosen sequence, much like a tutor
@@ -239,16 +237,12 @@ concepts that can be applied to many other programming languages.
   常见的计算任务，很容易学。通过学习 shell 编程，你会逐渐熟悉一些关于编程语言方面的概念，
   这些概念也适用于其他的编程语言。
 
-How To Read This Book
-
 ### 怎样阅读这本书
 
 Start at the beginning of the book and follow it to the end. It isn’t written as a reference
 work, it's really more like a story with a beginning, middle, and an end.
 
 从头到尾的阅读。它并不是一本技术参考手册，实际上它更像一本故事书，有开头，过程，结尾。
-
-Prerequisites
 
 #### 前提条件
 
@@ -344,7 +338,6 @@ AIX. I have chosen to use the popular format. If, however, you prefer to use
 也就是说，整个 Linux 生态系统，不只有 GNU 项目软件。在操作系统商界，好像喜欢使用单个词的名字，
 比如说 DOS, Windows, MacOS, Solaris, Irix, AIX. 所以我选择用流行的命名规则。然而，
 如果你喜欢用“GNU/Linux”，当你读这本书时，可以在脑子里搜索并替换“Linux”。我不介意。
-
 
 ### 拓展阅读
 
