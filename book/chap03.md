@@ -58,7 +58,7 @@ usually shown upended, that is, with the root at the top and the various
 branches descending below.
 
 ![](images/3.png) \\
-Figure 1: File system tree as shown by a graphical file manager
+图1: 由图形化文件管理器显示的文件系统树
 {: .figure}
 
 大多数人都可能熟悉图形文件管理器，它描述了文件系统树的结构，正如图1所示。

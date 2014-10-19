@@ -32,7 +32,11 @@ whistles it has.
 还有其他一些终端仿真器可供 Linux 使用，但基本上，它们都是为了完成同样的事情，
 让我们能访问 shell。也许，你会喜欢上这个或那个终端，由于它所附加的一系列花俏功能。
 
-好，开始吧。启动终端仿真器！一旦它运行起来，我们应该能够看到一行类似下面文字的输出：
+### 第一次按键
+
+So let's get started. Launch the terminal emulator! Once it comes up, we should see somehing like this:
+
+好，开始吧。启动终端仿真器！一旦它运行起来，我们应该看到一行像这样的文字：
 
     [me@linuxbox ~]$
 

@@ -284,8 +284,8 @@ numerals</td>
 </tr>
 </table>
 
-Wildcards can be used with any command that accepts filenames as arguments, but we’ll
-talk more about that in Chapter 8.
+Wildcards can be used with any command that accepts filenames as arguments,
+but we’ll talk more about that in Chapter 8.
 
 接受文件名作为参数的任何命令，都可以使用通配符，我们会在第八章更深入的谈到这个知识点。
 
@@ -326,12 +326,11 @@ files starting with a lowercase “u” in the /usr/bin directory, type “/usr/
 into the location bar and it will display the result.
 >
 > * 在 Nautilus (GNOME 文件管理器）中，可以通过 Edit/Select 模式菜单项来选择文件。
-输入一个用通配符表示的文件选择模式后，那么当前所浏览的目录中，所匹配的文件名
-就会高亮显示。
+输入一个用通配符表示的文件选择模式后，那么当前所浏览的目录中，所匹配的文件名就会高亮显示。
 >
-> * 在 Dolphin 和 Konqueror（KDE 文件管理器）中，可以在地址栏中直接输入通配符。例如，如果你
-想查看目录 /usr/bin 中，所有以小写字母 "u" 开头的文件，在地址栏中敲入 "/usr/bin/u*"，则
-文件管理器会显示匹配的结果。
+> * 在 Dolphin 和 Konqueror（KDE 文件管理器）中，可以在地址栏中直接输入通配符。例如，
+如果你想查看目录 /usr/bin 中，所有以小写字母 'u' 开头的文件，
+在地址栏中敲入 '/usr/bin/u*'，则 文件管理器会显示匹配的结果。
 >
 > Many ideas originally found in the command line interface make their way into
 the graphical interface, too. It is one of the many things that make the Linux
@@ -387,8 +386,7 @@ to copy multiple items (either files or directories) into a directory.
 
 ### 有用的选项和实例
 
-Here are some of the commonly used options (the short option and the equivalent long
-option) for cp:
+Here are some of the commonly used options (the short option and the equivalent long option) for cp:
 
 这里列举了 cp 命令一些有用的选项（短选项和等效的长选项）：
 
@@ -509,37 +507,37 @@ its contents) will be copied into dir2.
 </tr>
 <tr>
 <td valign="top" width="25%">cp file1 file2</td>
-<td valign="top">复制文件 file1内容到文件 file2。如果 file2已经存在，file2的内容会被 file1的
-内容重写。如果 file2不存在，则会创建 file2。</td>
+<td valign="top">复制文件 file1 内容到文件 file2。如果 file2 已经存在，
+file2 的内容会被 file1 的内容重写。如果 file2 不存在，则会创建 file2。</td>
 </tr>
 <tr>
 <td valign="top">cp -i file1 file2 </td>
-<td valign="top">这条命令和上面的命令一样，除了如果文件 file2存在的话，在文件 file2被重写之前，
+<td valign="top">这条命令和上面的命令一样，除了如果文件 file2 存在的话，在文件 file2 被重写之前，
 会提示用户确认信息。</td>
 </tr>
 <tr>
 <td valign="top">cp file1 file2 dir1 </td>
-<td valign="top">复制文件 file1和文件 file2到目录 dir1。目录 dir1必须存在。
+<td valign="top">复制文件 file1 和文件 file2 到目录 dir1。目录 dir1 必须存在。
 </td>
 </tr>
 <tr>
 <td valign="top">cp dir1/* dir2 </td>
-<td valign="top">使用一个通配符，在目录 dir1中的所有文件都被复制到目录 dir2中。
-dir2必须已经存在。</td>
+<td valign="top">使用一个通配符，在目录 dir1 中的所有文件都被复制到目录 dir2 中。
+dir2 必须已经存在。</td>
 </tr>
 <tr>
 <td valign="top">cp -r dir1 dir2 </td>
-<td valign="top">复制目录 dir1中的内容到目录 dir2。如果目录 dir2不存在，
-创建目录 dir2，操作完成后，目录 dir2中的内容和 dir1中的一样。
-如果目录 dir2存在，则目录 dir1(和目录中的内容)将会被复制到 dir2中。</td>
+<td valign="top">复制目录 dir1 中的内容到目录 dir2。如果目录 dir2 不存在，
+创建目录 dir2，操作完成后，目录 dir2 中的内容和 dir1 中的一样。
+如果目录 dir2 存在，则目录 dir1 (和目录中的内容)将会被复制到 dir2 中。</td>
 </tr>
 </table>
 
 ### mv - 移动和重命名文件
 
-The mv command performs both file moving and file renaming, depending on how it is
-used. In either case, the original filename no longer exists after the operation. mv is used
-in much the same way as cp:
+The mv command performs both file moving and file renaming, depending on how it is used.
+In either case, the original filename no longer exists after the operation.
+mv is used in much the same way as cp:
 
 mv 命令可以执行文件移动和文件命名任务，这依赖于你怎样使用它。任何一种
 情况下，完成操作之后，原来的文件名不再存在。mv 使用方法与 cp 很相像：
@@ -642,22 +640,22 @@ directory dir2.</td>
 <caption class="cap">表5-7: mv 实例</caption>
 <tr>
 <td class="title">mv file1 file2</td>
-<td class="title">移动 file1到 file2。<b>如果 file2存在，它的内容会被 file1的内容重写。
-</b>如果 file2不存在，则创建 file2。<b> 每种情况下，file1不再存在。</b></td>
+<td class="title">移动 file1 到 file2。<b>如果 file2 存在，它的内容会被 file1 的内容重写。
+</b>如果 file2 不存在，则创建 file2。<b> 每种情况下，file1 不再存在。</b></td>
 </tr>
 <tr>
 <td valign="top" width="25%">mv -i file1 file2</td>
-<td valign="top">除了如果 file2存在的话，在 file2被重写之前，用户会得到
+<td valign="top">除了如果 file2 存在的话，在 file2 被重写之前，用户会得到
 提示信息外，这个和上面的选项一样。</td>
 </tr>
 <tr>
 <td valign="top">mv file1 file2 dir1</td>
-<td valign="top">移动 file1和 file2到目录 dir1中。dir1必须已经存在。</td>
+<td valign="top">移动 file1 和 file2 到目录 dir1 中。dir1 必须已经存在。</td>
 </tr>
 <tr>
 <td valign="top">mv dir1 dir2</td>
-<td valign="top">如果目录 dir2不存在，创建目录 dir2，并且移动目录 dir1的内容到
-目录 dir2中，同时删除目录 dir1。如果目录 dir2存在，移动目录 dir1（及它的内容）到目录 dir2。</td>
+<td valign="top">如果目录 dir2 不存在，创建目录 dir2，并且移动目录 dir1 的内容到
+目录 dir2 中，同时删除目录 dir1。如果目录 dir2 存在，移动目录 dir1（及它的内容）到目录 dir2。</td>
 </tr>
 </table>
 
@@ -730,7 +728,7 @@ valign="top">在删除已存在的文件前，提示用户确认信息。
 </tr>
 <tr>
 <td valign="top">-f, --force</td>
-<td valign="top">忽视不存在的文件，不显示提示信息。这选项颠覆了"--interactive"选项。</td>
+<td valign="top">忽视不存在的文件，不显示提示信息。这选项颠覆了“--interactive”选项。</td>
 </tr>
 <tr>
 <td valign="top">-v, --verbose</td>
@@ -780,11 +778,11 @@ exist, rm will continue silently.</td>
 </tr>
 <tr>
 <td valign="top">rm -r file1 dir1</td>
-<td valign="top">删除文件 file1, 目录 dir1，及 dir1中的内容。</td>
+<td valign="top">删除文件 file1, 目录 dir1，及 dir1 中的内容。</td>
 </tr>
 <tr>
 <td valign="top">rm -rf file1 dir1</td>
-<td valign="top">同上，除了如果文件 file1，或目录 dir1不存在的话，rm 仍会继续执行。</td>
+<td valign="top">同上，除了如果文件 file1，或目录 dir1 不存在的话，rm 仍会继续执行。</td>
 </tr>
 </table>
 
@@ -799,24 +797,24 @@ you know what you're doing.
 > 类似于 Unix 的操作系统，比如说 Linux，没有复原命令。一旦你用 rm 删除了一些东西，
 它就消失了。Linux 假定你很聪明，你知道你在做什么。
 >
-> Be particularly careful with wildcards. Consider this classic example. Let's say
-you want to delete just the HTML files in a directory. To do this, you type:
+> Be particularly careful with wildcards. Consider this classic example.
+Let's say you want to delete just the HTML files in a directory.
+To do this, you type:
 >
 > rm *.html
 >
 > 尤其要小心通配符。思考一下这个经典的例子。假如说，你只想删除一个目录中的 HTML
 文件。输入： rm *.html
 >
-> which is correct, but if you accidentally place a space between the “*” and the
-“.html” like so:
+> which is correct, but if you accidentally place a space between the “*” and the “.html” like so:
 >
-> 这是正确的，如果你不小心在"*"和".html"之间多输入了一个空格，就像这样：
+> 这是正确的，如果你不小心在 “*” 和 “.html” 之间多输入了一个空格，就像这样：
 > rm * .html
 >
-> the rm command will delete all the files in the directory and then complain that
-there is no file called “.html”.
+> the rm command will delete all the files in the directory
+and then complain that there is no file called “.html”.
 >
-> 这个 rm 命令会删除目录中的所有文件，还会抱怨没有文件叫做".html"。
+> 这个 rm 命令会删除目录中的所有文件，还会抱怨没有文件叫做 “.html”。
 >
 > _Here is a useful tip._ Whenever you use wildcards with rm (besides carefully
 checking your typing!), test the wildcard first with ls. This will let you see the
@@ -922,13 +920,13 @@ one in our home directory and call it “playground.”
 
 下面我们将要做些真正的文件操作，让我们先建立一个安全地带，
 来玩一下文件操作命令。首先，我们需要一个工作目录。在我们的
-主目录下创建一个叫做"playground"的目录。
+主目录下创建一个叫做“playground”的目录。
 
 ### 创建目录
 
-The mkdir command is used to create a directory. To create our playground directory
-we will first make sure we are in our home directory and will then create the new
-directory:
+The mkdir command is used to create a directory. To create our playground
+directory we will first make sure we are in our home directory and will then
+create the new directory:
 
 mkdir 命令被用来创建目录。首先确定我们在我们的主目录下，来创建 playground 目录，
 然后创建这个新目录：
@@ -936,12 +934,12 @@ mkdir 命令被用来创建目录。首先确定我们在我们的主目录下�
     [me@linuxbox ~]$ cd
     [me@linuxbox ~]$ mkdir playground
 
-To make our playground a little more interesting, let's create a couple of directories inside
-it called “dir1” and “dir2”. To do this, we will change our current working directory to
-playground and execute another mkdir:
+To make our playground a little more interesting, let's create a couple of
+directories inside it called “dir1” and “dir2”. To do this, we will change
+our current working directory to playground and execute another mkdir:
 
 为了让我们的游戏场更加有趣，在 playground 目录下创建一对目录
-，分别叫做"dir1"和"dir2"。更改我们的当前工作目录到 playground，然后
+，分别叫做 “dir1” 和 “dir2”。更改我们的当前工作目录到 playground，然后
 执行 mkdir 命令：
 
     [me@linuxbox ~]$ cd playground
@@ -950,10 +948,7 @@ playground and execute another mkdir:
 Notice that the mkdir command will accept multiple arguments allowing us to create
 both directories with a single command.
 
-注意到 mkdir 命令可以接受多个参数，它允许我们用一个命令来创建这两个
-目录。
-
-###　Copying Files
+注意到 mkdir 命令可以接受多个参数，它允许我们用一个命令来创建这两个目录。
 
 ###　复制文件
 
@@ -962,7 +957,7 @@ cp command, we'll copy the passwd file from the /etc directory to the current
 working directory:
 
 下一步，让我们得到一些数据到我们的游戏场中。通过复制一个文件来实现目的。
-使用 cp 命令，我们从/etc 目录复制 passwd 文件到当前工作目录下：
+使用 cp 命令，我们从 /etc 目录复制 passwd 文件到当前工作目录下：
 
     [me@linuxbox playground]$ cp /etc/passwd .
 
@@ -985,10 +980,11 @@ Now, just for fun, let's repeat the copy using the “-v” option (verbose) to 
     [me@linuxbox playground]$ cp -v /etc/passwd .
     `/etc/passwd' -> `./passwd'
 
-The cp command performed the copy again, but this time displayed a concise message
-indicating what operation it was performing. Notice that cp overwrote the first copy
-without any warning. Again this is a case of cp assuming that you know what you’re are
-doing. To get a warning, we'll include the “-i” (interactive) option:
+The cp command performed the copy again, but this time displayed a concise
+message indicating what operation it was performing. Notice that cp overwrote
+the first copy without any warning. Again this is a case of cp assuming that
+you know what you’re are doing. To get a warning, we'll include
+the “-i” (interactive) option:
 
 cp 命令再一次执行了复制操作，但是这次显示了一条简洁的信息，指明它
 进行了什么操作。注意，cp 没有警告，就重写了第一次复制的文件。这是一个案例，
@@ -997,23 +993,22 @@ cp 假定你知道你的所作所为。为了得到警示信息，在命令中�
     [me@linuxbox playground]$ cp -i /etc/passwd .
     cp: overwrite `./passwd'?
 
-Responding to the prompt by entering a “y” will cause the file to be overwritten, any
-other character (for example, “n”) will cause cp to leave the file alone.
+Responding to the prompt by entering a “y” will cause the file to be
+overwritten, any other character (for example, “n”)
+will cause cp to leave the file alone.
 
-响应命令提示信息，输入"y"，文件就会被重写，其它的字符（例如，"n"）
-会导致 cp 命令不理会文件。
+响应命令提示信息，输入"y"，文件就会被重写，其它的字符（例如，"n"）会导致 cp 命令不理会文件。
 
 ### 移动和重命名文件
 
-Now, the name “passwd” doesn't seem very playful and this is a playground, so let's
-change it to something else:
+Now, the name “passwd” doesn't seem very playful and this is a playground,
+so let's change it to something else:
 
-现在，"passwd"这个名字，看起来不怎么有趣，这是个游戏场，所以我们给它改个名字：
+现在，"passwd" 这个名字，看起来不怎么有趣，这是个游戏场，所以我们给它改个名字：
 
     [me@linuxbox playground]$ mv passwd fun
 
-Let's pass the fun around a little by moving our renamed file to each of the directories and
-back again:
+Let's pass the fun around a little by moving our renamed file to each of the directories and back again:
 
 让我们来传送 fun 文件，通过移动重命名的文件到各个子目录，
 然后再把它移回到当前目录：
@@ -1022,21 +1017,22 @@ back again:
 
 to move it first to directory dir1, then:
 
-首先，把 fun 文件移动目录 dir1中，然后：
+首先，把 fun 文件移动目录 dir1 中，然后：
 
     [me@linuxbox playground]$ mv dir1/fun dir2
 
 to move it from dir1 to dir2, then:
 
-再把 fun 文件从 dir1移到目录 dir2, 然后：
+再把 fun 文件从 dir1 移到目录 dir2, 然后：
 
     [me@linuxbox playground]$ mv dir2/fun .
 
-to finally bringing it back to the current working directory. Next, let's see the effect of mv
-on directories. First we will move our data file into dir1 again:
+to finally bringing it back to the current working directory.
+Next, let's see the effect of mv on directories.
+First we will move our data file into dir1 again:
 
 最后，再把 fun 文件带回到当前工作目录。下一步，来看看移动目录的效果。
-首先，我们先移动我们的数据文件到 dir1目录：
+首先，我们先移动我们的数据文件到 dir1 目录：
 
     [me@linuxbox playground]$ mv fun dir1
 
@@ -1055,8 +1051,8 @@ then move dir1 into dir2 and confirm it with ls:
 Note that since dir2 already existed, mv moved dir1 into dir2. If dir2 had not
 existed, mv would have renamed dir1 to dir2. Lastly, let's put everything back:
 
-注意：因为目录 dir2已经存在，mv 命令移动 dir1到 dir2目录。如果 dir2不存在，
-mv 会重新命名 dir1为 dir2。最后，把所有的东西放回原处。
+注意：因为目录 dir2 已经存在，mv 命令移动 dir1 到 dir2 目录。如果 dir2 不存在，
+mv 会重新命名 dir1 为 dir2。最后，把所有的东西放回原处。
 
     [me@linuxbox playground]$ mv dir2/dir1 .
     [me@linuxbox playground]$ mv dir1/fun .
@@ -1085,13 +1081,14 @@ directory:
     -rw-r--r-- 4 me  me 1650 2008-01-10 16:33 fun
     -rw-r--r-- 4 me  me 1650 2008-01-10 16:33 fun-hard
 
-One thing you notice is that the second field in the listing for fun and fun-hard both
-contain a “4” which is the number of hard links that now exist for the file. You'll
-remember that a file will always have at least one because the file's name is created by a
-link. So, how do we know that fun and fun-hard are, in fact, the same file? In this
-case, ls is not very helpful. While we can see that fun and fun-hard are both the
-same size (field 5), our listing provides no way to be sure. To solve this problem, we're
-going to have to dig a little deeper.
+One thing you notice is that the second field in the listing
+for fun and fun-hard both contain a “4” which is the number of
+hard links that now exist for the file. You'll remember that a file will
+always have at least one because the file's name is created by a link. So, how
+do we know that fun and fun-hard are, in fact, the same file? In this case,
+ls is not very helpful. While we can see that fun and fun-hard are both the
+same size (field 5), our listing provides no way to be sure. To solve this
+problem, we're going to have to dig a little deeper.
 
 注意到一件事，列表中，文件 fun 和 fun-hard 的第二个字段是"4"，这个数字
 是文件"fun"的硬链接数目。你要记得一个文件至少有一个硬链接，因为文件
@@ -1100,11 +1097,12 @@ going to have to dig a little deeper.
 （第五字段），但我们的列表没有提供可靠的信息来确定（这两个文件一样）。
 为了解决这个问题，我们更深入的研究一下。
 
-When thinking about hard links, it is helpful to imagine that files are made up of two
-parts: the data part containing the file's contents and the name part which holds the file's
-name. When we create hard links, we are actually creating additional name parts that all
-refer to the same data part. The system assigns a chain of disk blocks to what is called an
-inode, which is then associated with the name part. Each hard link therefore refers to a
+When thinking about hard links, it is helpful to imagine that files are made
+up of two parts: the data part containing the file's contents and the name
+part which holds the file's name. When we create hard links, we are actually
+creating additional name parts that all refer to the same data part. The
+system assigns a chain of disk blocks to what is called an inode, which is
+then associated with the name part. Each hard link therefore refers to a
 specific inode containing the file's contents.
 
 当考虑到硬链接，想象文件是由两部分组成：数据部分包含文件的内容，
@@ -1124,9 +1122,9 @@ ls 命令有一种方法，来展示（文件索引节点）的信息。在命�
     12353538 -rw-r--r-- 4 me  me 1650  2008-01-10  16:33  fun
     12353538 -rw-r--r-- 4 me  me 1650  2008-01-10  16:33  fun-hard
 
-In this version of the listing, the first field is the inode number and, as we can see, both
-fun and fun-hard share the same inode number, which confirms they are the same
-file.
+In this version of the listing, the first field is the inode number and, as we
+can see, both fun and fun-hard share the same inode number, which confirms
+they are the same file.
 
 在这个版本的列表中，第一字段表示文件索引节点号，正如我们所见到的，
 fun 和 fun-hard 共享一样的索引节点号，这就证实这两个文件是一样的文件。
@@ -1171,7 +1169,7 @@ fun-sym, fun is in the directory above it. Notice too, that the length of the sy
 link file is 6, the number of characters in the string “../fun” rather than the length of the
 file to which it is pointing.
 
-目录 dir1中，fun-sym 的列表说明了它是一个符号链接，通过在第一字段中的首字符"l"
+目录 dir1 中，fun-sym 的列表说明了它是一个符号链接，通过在第一字段中的首字符"l"
 可知，并且它还指向"../fun"，也是正确的。相对于 fun-sym 的存储位置，fun 在它的
 上一个目录。同时注意，符号链接文件的长度是6，这是字符串"../fun"所包含的字符数，
 而不是符号链接所指向的文件长度。
@@ -1292,7 +1290,6 @@ copying, moving, or linking the file.
 在 GNOME 里面，当拖动文件时，同时按下 Ctrl+Shift 按键会创建一个链接，而不是
 复制（或移动）文件。在 KDE 中，无论什么时候放下一个文件，会弹出一个小菜单，
 这个菜单会提供复制，移动，或创建链接文件选项。
-
 
 ### 总结
 

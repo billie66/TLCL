@@ -40,7 +40,9 @@ this chapter are:
 
 * alias – 创建命令别名
 
-s 到底什么是命令？
+What Exactly Are Commands?
+
+到底什么是命令？
 
 A command can be one of four different things:
 
