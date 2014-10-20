@@ -24,14 +24,14 @@ Dir.glob("#{root}/#{en_cn}.md") do |file|
 
     File.open(file, 'r').each_line do |line|
       case line
-      when /^---$/, /^title:/
+      when /^---$/, /^title:/, /\{: \.figure\}/
         out << line
       when /^layout: book$/
         out << line.gsub('book', 'book-zh')
       when /^\#{3,4}/ # header
         out << line
-      when /^!\[\]/, /\{: \.figure\}/ # figure
-        out << line
+      when /^!\[\]/ # figure
+        out << line.gsub('images', '../images')
       when /^\s{4}/, /^>$/, /^>\s{2,5}/ # code blocks and blockquotes
         out << line
       when /^$/ # blank lines

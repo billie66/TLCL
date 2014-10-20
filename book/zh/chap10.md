@@ -271,7 +271,7 @@ chmod 命令支持一种符号表示法，来指定文件模式。符号表示�
 权限对话框。在 Nautilus (GNOME)和 Konqueror
 (KDE)中，右击一个文件或目录图标将会弹出一个属性对话框。下面这个例子来自 KDE 3.5：
 
-![](images/102.png) \\
+![](../images/102.png) \\
 图 2: KDE 3.5 文件属性对话框
 {: .figure}
 
@@ -552,7 +552,7 @@ janet 把这个文件的所有者更改为 tony:
 我们需要做的第一件事，是创建一个以 bill 和 karen 为成员的用户组。使用图形化的用户管理工具，
 bill 创建了一个叫做 music 的用户组，并且把用户 bill 和 karen 添加到用户组 music 中：
 
-![](images/103.png) \\
+![](../images/103.png) \\
 图 3: 用 GNOME 创建一个新的用户组
 {: .figure}
 
