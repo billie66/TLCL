@@ -19,15 +19,21 @@ In this chapter, we will work with the following commands:
 
 在这一章，我们将用到以下命令：
 
-* printenv – Print part or all of the environment 打印部分或所有的环境变量
+* printenv – Print part or all of the environment
 
-* set – Set shell options 设置 shell 选项
+* set – Set shell options
+
+* alias – Create an alias for a command
 
 * export – Export environment to subsequently executed programs
 
+* set - 设置 shell 选项
+
+* printenv - 打印部分或所有的环境变量
+
 * export — 导出环境变量，让随后执行的程序知道。
 
-* alias – Create an alias for a command 创建命令别名
+* alias - 创建命令别名
 
 ### 什么存储在环境变量中？
 
@@ -462,7 +468,7 @@ looks something like this:
 
 如果我们看一下典型的 .bash_profile 文件（来自于 CentOS 4 系统），它看起来像这样：
 
-    # .bash\_profile
+    # .bash_profile
     # Get the aliases and functions
     if [ -f ~/.bashrc ]; then
     . ~/.bashrc
@@ -815,7 +821,7 @@ Ah, much better! With our changes complete, type Ctrl-o to save our modified
 >
 > _为什么注释很重要？_
 >
->  Whenever you modify configuration files it's a good idea to add some comments
+> Whenever you modify configuration files it's a good idea to add some comments
 to document your changes. Sure, you will remember what you changed
 tomorrow, but what about six months from now? Do yourself a favor and add
 some comments. While you're at it, it’s not a bad idea to keep a log of what

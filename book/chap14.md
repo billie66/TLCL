@@ -387,7 +387,7 @@ a setting for the type of terminal emulation.
 相当复杂的子系统来处理终端控制领域的混乱局面（称为 termcap 和 terminfo）。如果你
 查看一下终端仿真器最底层的属性设置，可能会找到一个关于终端仿真器类型的设置。
 >
->  In an effort to make terminals speak some sort of common language, the
+> In an effort to make terminals speak some sort of common language, the
 American National Standards Institute (ANSI) developed a standard set of
 character sequences to control video terminals. Old time DOS users will
 remember the ANSI.SYS file that was used to enable interpretation of these
@@ -396,8 +396,6 @@ codes.
 > 为了努力使所有的终端都讲某种通用语言，美国国家标准委员会（ANSI）制定了
 一套标准的字符序列集合来控制视频终端。原先 DOS 用户会记得 ANSI.SYS 文件，
 这是一个用来使这些编码解释生效的文件。
-
-
 
 Character color is controlled by sending the terminal emulator an ANSI escape code
 embedded in the stream of characters to be displayed. The control code does not “print

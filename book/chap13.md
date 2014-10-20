@@ -163,7 +163,7 @@ To do this, you have a few options:
 >
 > 或者，使用这个命令在你的 vim 配置文件中添加一行：
 >
-> echo "set nocp" >\> ~/.vimrc
+>  _echo "set nocp" >\> ~/.vimrc_
 >
 > Different Linux distributions package vim in different ways. Some distributions
 install a minimal version of vim by default that only supports a limiting set of

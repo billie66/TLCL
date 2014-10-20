@@ -45,8 +45,6 @@ impossible) to do with their graphical counterparts.
 提供了强大且精致的图形管理程序来维护系统，但是学习命令行程序也非常重要。因为它们
 可以完成许多让图形化管理程序处理起来困难（或者不可能）的任务。
 
-Packaging Systems
-
 ### 打包系统
 
 Different distributions use different packaging systems and as a general rule, a package
@@ -92,8 +90,6 @@ Mandriva, PCLinuxOS</td>
 </tr>
 </table>
 
-How A Package System Works
-
 ### 软件包管理系统是怎样工作的
 
 The method of software distribution found in the proprietary software industry usually
@@ -112,8 +108,6 @@ later chapter.
 Linux 不是这样。Linux 系统中几乎所有的软件都可以在互联网上找到。其中大多数软件由发行商以
 包文件的形式提供，剩下的则以源码形式存在，可以手动安装。在后面章节里，我们将会谈谈怎样
 通过编译源码来安装软件。
-
-Package Files
 
 ### 包文件
 
@@ -141,8 +135,6 @@ improve the program's integration with the other parts of the Linux distribution
 从上游提供商（程序作者）那里得到软件源码，然后编辑源码，创建软件包元数据以及所需要的
 安装脚本。通常，软件包维护者要把所做的修改应用到最初的源码当中，来提高此软件与 Linux
 发行版其它部分的融合性。
-
-Repositories
 
 ### 资源库
 
@@ -183,8 +175,6 @@ configuration files for the package management system.
 生效的国家中起作用。这些资源库通常完全地独立于它们所支持的资源库，要想使用它们，
 你必须了解它们，手动地把它们包含到软件包管理系统的配置文件中。
 
-Dependencies
-
 ### 依赖性
 
 Programs seldom “standalone;” rather they rely on the presence of other software
@@ -201,8 +191,6 @@ are installed, too.
 为一个程序提供基本服务。如果一个软件包需要共享资源，比如说共享库，据说就有一个依赖。
 现代的软件包管理系统都提供了一些依赖项解析方法，以此来确保当安装软件包时，也安装了
 其所有的依赖程序。
-
-High And Low-level Package Tools
 
 ### 上层和底层软件包工具
 
@@ -261,8 +249,6 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 </tr>
 </table>
 
-Common Package Management Tasks
-
 ### 常见软件包管理任务
 
 There are many operations that can be performed with the command line package
@@ -275,8 +261,6 @@ contains the package.
 通过命令行软件包管理工具可以完成许多操作。我们将会看一下最常用的工具。注意底层工具也
 支持软件包文件的创建，这个话题超出了本书叙述的范围。在以下的讨论中，"package_name"
 这个术语是指软件包实际名称，而不是指"package_file"，它是包含在软件包中的文件名。
-
-Finding A Package In A Repository
 
 ### 查找资源库中的软件包
 
@@ -293,7 +277,7 @@ on its name or description.
 </tr>
 <tr>
 <td valign="top">Debian</td>
-<td valign="top">apt-get update <p>apt-cache search search_string</p></td>
+<td valign="top">apt-get update; apt-cache search search_string</td>
 </tr>
 <tr>
 <td valign="top">Red Hat</td>
@@ -309,7 +293,7 @@ on its name or description.
 </tr>
 <tr>
 <td valign="top">Debian</td>
-<td valign="top">apt-get update <p>apt-cache search search_string</p></td>
+<td valign="top">apt-get update; apt-cache search search_string</td>
 </tr>
 <tr>
 <td valign="top">Red Hat</td>
@@ -323,8 +307,6 @@ used:
 例如：搜索一个 yum 资源库来查找 emacs 文本编辑器，使用以下命令：
 
     yum search emacs
-
-Installing A Package From A Repository
 
 ### 从资源库中安装一个软件包
 
@@ -370,8 +352,6 @@ Example: To install the emacs text editor from an apt repository:
 例如：从一个 apt 资源库来安装 emacs 文本编辑器：
 
     apt-get update; apt-get install emacs
-
-Installing A Package From A Package File
 
 ### 通过软件包文件来安装软件
 
@@ -431,8 +411,6 @@ dependency, rpm will exit with an error.
 
 ---
 
-Removing A Package
-
 ### 卸载软件
 
 Packages can be uninstalled using either the high-level or low-tools. The high-level tools
@@ -477,8 +455,6 @@ Example: To uninstall the emacs package from a Debian-style system:
 例如：从 Debian 风格的系统中卸载 emacs 软件包：
 
     apt-get remove emacs
-
-Updating Packages From A Repository
 
 ### 经过资源库来更新软件包
 
@@ -530,8 +506,6 @@ system:
 例如：更新安装在 Debian 风格系统中的软件包：
 
     apt-get update; apt-get upgrade
-
-Upgrading A Package From A Package File
 
 ### 经过软件包文件来升级软件
 
@@ -589,8 +563,6 @@ installing one as rpm does.
 
 ---
 
-Listing Installed Packages
-
 ### 列出所安装的软件包
 
 These commands can be used to display a list of all the packages installed on the system:
@@ -628,8 +600,6 @@ These commands can be used to display a list of all the packages installed on th
 <td valign="top">rpm -qa</td>
 </tr>
 </table>
-
-Determining If A Package Is Installed
 
 ### 确定是否安装了一个软件包
 
@@ -674,8 +644,6 @@ Example: To determine if the emacs package is installed on a Debian style system
 例如：确定是否 Debian 风格的系统中安装了这个 emacs 软件包：
 
     dpkg --status emacs
-
-Displaying Info About An Installed Package
 
 ### 显示所安装软件包的信息
 
@@ -722,8 +690,6 @@ Example: To see a description of the emacs package on a Debian-style system:
 
     apt-cache show emacs
 
-Finding Which Package Installed A File
-
 ### 查找安装了某个文件的软件包
 
 To determine what package is responsible for the installation of a particular file, the
@@ -769,8 +735,6 @@ Example: To see what package installed the /usr/bin/vim file on a Red Hat system
 
     rpm -qf /usr/bin/vim
 
-Summing Up
-
 ### 总结归纳
 
 In the chapters that follow, we will explore many different programs covering a wide
@@ -787,7 +751,7 @@ management, we should have no problem installing and managing the programs we ne
 >
 > Linux 软件安装谣言
 >
->  People migrating from other platforms sometimes fall victim to the myth that
+> People migrating from other platforms sometimes fall victim to the myth that
 software is somehow difficult to install under Linux and that the variety of
 packaging schemes used by different distributions is a hindrance. Well, it is a
 hindrance, but only to proprietary software vendors who wish to distribute binary-
@@ -809,7 +773,7 @@ software, rather than having to search for each product's web site.
 他们的资源库中。这种方法保证了这款产品能很好地与系统发行版整合在一起，同时为用户
 “一站式采购”软件提供了方便，从而用户不必去搜索每个产品的网站。
 >
->  Device drivers are are handled in much the same way, except that instead of being
+> Device drivers are are handled in much the same way, except that instead of being
 separate items in a distribution's repository, they become part of the Linux kernel
 itself. Generally speaking, there is no such thing as a “driver disk” in Linux.
 Either the kernel supports a device or it doesn't, and the Linux kernel supports a
@@ -857,10 +821,6 @@ items.
 也不发布技术文档来让某人创建它。这意味着硬件供应商试图保密此设备的程序接口。因为我们
 不想在计算机中使用保密的设备，所以我建议删除这令人厌恶的软件，
 把它和其它无用的项目都仍到垃圾桶里。
-
-
-
-Further Reading
 
 ### 拓展阅读
 

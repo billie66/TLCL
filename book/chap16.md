@@ -71,8 +71,6 @@ We will look at the following commands:
 
 * md5sum – 计算 MD5检验码
 
-Mounting And Unmounting Storage Devices
-
 ### 挂载和卸载存储设备
 
 Recent advances in the Linux desktop have made storage device management extremely
@@ -240,8 +238,6 @@ systems should be checked with the fsck command.</td>
 <td valign="top">一位数字，指定 fsck 命令按照什么次序来检查文件系统。</td>
 </tr>
 </table>
-
-Viewing A List Of Mounted File Systems
 
 ### 查看挂载的文件系统列表
 
@@ -466,8 +462,6 @@ file system corruption, one of the worst things that can happen on a computer.
 没有卸载设备，就移除了它，就有可能没有把注定要发送到设备中的数据输送完毕。在某些情况下，
 这些数据可能包含重要的目录更新信息，这将导致文件系统损坏，这是发生在计算机中的最坏的事情之一。
 
-Determining Device Names
-
 ### 确定设备名称
 
 It's sometimes difficult to determine the name of a device. Back in the old days, it wasn't
@@ -671,8 +665,6 @@ computer and the computer is not rebooted.
 
 这个设备名称会保持不变只要设备与计算机保持连接并且计算机不会重新启动。
 
-Creating New File Systems
-
 ### 创建新的文件系统
 
 Let's say that we want to reformat the flash drive with a Linux native file system, rather
@@ -693,8 +685,6 @@ formatting (i.e., erasing) the wrong drive!
 注意！在下面的练习中，我们将要格式化一个闪存驱动器。拿一个不包含有用数据的驱动器
 作为实验品，因为它将会被擦除！再次，请确定你指定了正确的系统设备名称。未能注意此
 警告可能导致你格式化（即擦除）错误的驱动器！
-
-Manipulating Partitions With fdisk
 
 ### 用 fdisk 命令操作分区
 
@@ -805,8 +795,6 @@ the ominous sounding warning message.
 如果我们已经决定保持设备不变，可在提示符下输入"q"，这将退出程序而没有写更改。我们
 可以安全地忽略这些不祥的警告信息。
 
-Creating A New File System With mkfs
-
 ### 用 mkfs 命令创建一个新的文件系统
 
 With our partition editing done (lightweight though it might have been) it’s time to create
@@ -859,8 +847,6 @@ USB hard drives.
 任何时候添加额外的存储设备到系统中时，都可以使用这个分区和格式化的过程。虽然我们
 只以一个小小的闪存驱动器为例，同样的操作可以被应用到内部硬盘和其它可移动的存储设备上
 像 USB 硬盘驱动器。
-
-Testing And Repairing File Systems
 
 ### 测试和修复文件系统
 
@@ -917,9 +903,6 @@ where you are forced to run fsck.
 字母。这个尤其适用，因为你可能会说出上文提到的词，若你发现自己处于这种境况下，
 被强制来运行 fsck 命令时。
 
-
-Formatting Floppy Disks
-
 ### 格式化软盘
 
 For those of us still using computers old enough to be equipped with floppy diskette
@@ -948,8 +931,6 @@ allocation tables. After a diskette is prepared, it may be mounted like other de
 
 注意我们使用这个“msdos”文件系统类型来得到旧（小的）风格的文件分配表。当一个软磁盘
 被准备好之后，则可能像其它设备一样挂载它。
-
-Moving Data Directly To/From Devices
 
 ### 直接把数据移入/出设备
 
@@ -996,15 +977,13 @@ contents to an ordinary file for later restoration or copying:
 
 Warning! The dd command is very powerful. Though its name derives from “data
 definition,” it is sometimes called “destroy disk” because users often mistype either
-the if or of specifications. <b>Always double check your input and output
-specifications before pressing enter!</b>
+the if or of specifications. _Always double check your input and output
+specifications before pressing enter!_
 
 警告！这个 dd 命令非常强大。虽然它的名字来自于“数据定义”，有时候也把它叫做“清除磁盘”
-因为用户经常会误输入 if 或 of 的规范。<b>在按下回车键之前，要再三检查输入与输出规范！</b>
+因为用户经常会误输入 if 或 of 的规范。_在按下回车键之前，要再三检查输入与输出规范！_
 
 ---
-
-Creating CD-ROM Images
 
 ### 创建 CD-ROM 映像
 
@@ -1014,8 +993,6 @@ second, writing the image file onto the CD-ROM media.
 
 写入一个可记录的 CD-ROM（一个 CD-R 或者是 CD-RW）由两步组成；首先，构建一个 iso 映像文件，
 这就是一个 CD-ROM 的文件系统映像，第二步，把这个映像文件写入到 CD-ROM 媒介中。
-
-Creating An Image Copy Of A CD-ROM
 
 #### 创建一个 CD-ROM 的映像拷贝
 
@@ -1037,8 +1014,6 @@ not use a file system for storage. For audio CDs, look at the cdrdao command.
 
 这项技术也适用于 DVD 光盘，但是不能用于音频 CD，因为它们不使用文件系统来存储数据。
 对于音频 CD，看一下 cdrdao 命令。
-
-Creating An Image From A Collection Of Files
 
 #### 从文件集合中创建一个映像
 
@@ -1084,8 +1059,6 @@ genisoimage, respectively.
 这创建了一个与 GNU GPL 不相兼容的协议。结果，就 fork 了这个 cdrtools 项目，
 目前新项目里面包含了 cdrecord 和 mkisofs 的替代程序，分别是 wodim 和 genisoimage。
 
-Writing CD-ROM Images
-
 ### 写入 CD-ROM 镜像
 
 After we have an image file, we can burn it onto our optical media. Most of the
@@ -1094,8 +1067,6 @@ media.
 
 有了一个映像文件之后，我们可以把它烧写到光盘中。下面讨论的大多数命令对可
 记录的 CD-ROW 和 DVD 媒介都适用。
-
-Mounting An ISO Image Directly
 
 #### 直接挂载一个 ISO 镜像
 
@@ -1120,8 +1091,6 @@ image when it is no longer needed.
 image.iso 挂载到挂载点上。映像文件被挂载之后，可以把它当作，就好像它是一张
 真正的 CD-ROM 或者 DVD。当不再需要此映像文件后，记得卸载它。
 
-Blanking A Re-Writable CD-ROM
-
 #### 清除一张可重写入的 CD-ROM
 
 Rewritable CD-RW media needs to be erased or blanked before it can be reused. To do
@@ -1133,8 +1102,6 @@ blanking to be performed. The wodim program offers several types. The most minim
 设备名称和清空的类型。此 wodim 程序提供了几种清空类型。最小（且最快）的是 "fast" 类型：
 
     wodim dev=/dev/cdrw blank=fast
-
-Writing An Image
 
 #### 写入镜像
 
@@ -1155,8 +1122,6 @@ for recording music tracks.
 和 "－dao" 以 disk-at-once 模式写入光盘。如果你正在准备一张光盘为的是商业复制，那么应该使用这种模式。
 wodim 命令的默认模式是 track-at-once，这对于录制音乐很有用。
 
-Further Reading
-
 ### 拓展阅读
 
 We have just touched on the many ways that the command line can be used to manage
@@ -1168,8 +1133,6 @@ media.
 我们刚才谈到了很多方法，可以使用命令行管理存储介质。看看我们所讲过命令的手册页。
 一些命令支持大量的选项和操作。此外，寻找一些如何添加硬盘驱动器到 Linux 系统（有许多）的在线教程，
 这些教程也要适用于光介质存储设备。
-
-Extra Credit
 
 ### 友情提示
 
@@ -1222,5 +1185,3 @@ and the disk in the DVD reader /dev/dvd. Can you figure out how this works?
 以及 DVD 光驱中磁盘 /dev/dvd 文件的完整性。你能弄明白这是怎么回事吗？
 
     md5sum dvd-image.iso; dd if=/dev/dvd bs=2048 count=$(( $(stat -c "%s" dvd-image.iso) / 2048 )) | md5sum
-
-

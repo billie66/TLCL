@@ -427,13 +427,11 @@ in later chapters. If you are curious, try:
 默认情况下，Ubuntu 已经定义了一个相当大的规则集合。可编程自动补全是由 shell
 函数实现的，shell 函数是一种小巧的 shell 脚本，我们会在后面的章节中讨论到。如果你感到好奇，试一下：
 >
-> _set \| less_
+>  _set \| less_
 >
 > and see if you can find them. Not all distributions include them by default.
 >
 > 查看一下如果你能找到它们的话。默认情况下，并不是所有的发行版都包括它们。
-
-
 
 ### 利用历史命令
 
@@ -698,7 +696,7 @@ session and store it in a file. The basic syntax of the command is:
 这个程序可以记录整个 shell 会话，并把 shell
 会话存在一个文件里面。这个命令的基本语法是：
 >
-> script [file]
+>  _script [file]_
 >
 > where file is the name of the file used for storing the recording. If no
 file is specified, the file typescript is used. See the script man page for a
@@ -706,7 +704,6 @@ complete list of the program’s options and features.
 >
 > 命令中的 file 是指用来存储 shell 会话记录的文件名。如果没有指定文件名，则使用文件
 typescript。查看脚本的手册页，可以得到一个关于 script 程序选项和特点的完整列表。
-
 
 
 ### 总结归纳

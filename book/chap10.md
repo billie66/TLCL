@@ -289,19 +289,19 @@ has two numerals, zero and one. So in binary, counting looks like this:
 手指，因此它以二进制（以2为基数）来计数。它们的数字系统只有两个数值，0和1。
 因此在二进制中，计数看起来像这样：
 >
-> 0, 1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, 1011...
+>  0, 1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, 1011...
 >
 > In octal, counting is done with the numerals zero through seven, like so:
 >
 > 在八进制中，逢八进一，用数字0到7来计数，像这样：
 >
-> 0, 1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 20, 21...
+>  0, 1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 20, 21...
 >
 > Hexadecimal counting uses the numerals zero through nine plus the letters “A” through “F”:
 >
 > 十六进制中，使用数字0到9，加上大写字母"A"到"F"来计数，逢16进一：
 >
-> 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, 10, 11, 12, 13...
+>  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, 10, 11, 12, 13...
 >
 > While we can see the sense in binary (since computers only have one finger),
 what are octal and hexadecimal good for? The answer has to do with human
@@ -316,7 +316,7 @@ number:
 以 RGB 颜色为例来说明。大多数的计算机显示器，每个像素由三种颜色组成：8位红色，8位绿色，
 8位蓝色。这样，一种可爱的中蓝色就由24位数字来表示：
 >
-> 010000110110111111001101
+>  010000110110111111001101
 >
 > How would you like to read and write those kinds of numbers all day? I
 didn't think so. Here's where another number system would help. Each digit in a
@@ -328,7 +328,7 @@ condensed down to a six digit hexadecimal number:
 数字代表四个二进制。在八进制中，每个数字代表三个二进制数字。那么代表中蓝色的24位
 二进制能够压缩成6位十六进制数：
 >
-> 436FCD
+>  436FCD
 >
 > Since the digits in the hexadecimal number “line up” with the bits in the binary
 number we can see that the red component of our color is “43”, the green “6F”, and the blue “CD”.
@@ -343,8 +343,6 @@ be very useful...
 > 现在，十六进制表示法（经常叫做“hex”）比八进制更普遍，但是我们很快会看到，用八进制
 来表示3个二进制数非常有用处...
 
-
-
 With octal notation we use octal numbers to set the pattern of desired permissions. Since
 each digit in an octal number represents three binary digits, this maps nicely to the
 scheme used to store the file mode. This table shows what we mean:
@@ -354,15 +352,15 @@ scheme used to store the file mode. This table shows what we mean:
 我们所要表达的意思：
 
 
-Octal| Binary | File Mode|
-0 | 000 | -\-\-|
-1 | 001 | -\-x|
-2 | 010 | -w-|
-3 | 011 | -wx|
-4 | 100 | r-\-|
-5 | 101 | r-x|
-6 | 110 | rw-|
-7 | 111 | rwx|
+|Octal| Binary | File Mode|
+|0 | 000 | -\-\-|
+|1 | 001 | -\-x|
+|2 | 010 | -w-|
+|3 | 011 | -wx|
+|4 | 100 | r-\-|
+|5 | 101 | r-x|
+|6 | 110 | rw-|
+|7 | 111 | rwx|
 
 
 By using three octal digits, we can set the file mode for the owner, group owner, and
@@ -384,7 +382,7 @@ have to use a few common ones: 7 (rwx), 6 (rw-), 5 (r-x), 4 (r-\-), and 0 (-\-\-
 
 通过传递参数 “600”，我们能够设置文件所有者的权限为读写权限，而删除用户组和其他人的所有
 权限。虽然八进制到二进制的映射看起来不方便，但通常只会用到一些常见的映射关系：
-7 (rwx)， 6 (rw-)，5 (r-x)， 4 (r-\-)， and 0 (-\-\-)。
+7 (rwx)，6 (rw-)，5 (r-x)，4 (r-\-)，和 0 (-\-\-)。
 
 chmod also supports a symbolic notation for specifying file modes. Symbolic notation is
 divided into three parts: who the change will affect, which operation will be performed,
@@ -392,7 +390,7 @@ and what permission will be set. To specify who is affected, a combination of th
 characters “u”, “g”, “o”, and “a” is used as follows:
 
 chmod 命令支持一种符号表示法，来指定文件模式。符号表示法分为三部分：更改会影响谁，
-要执行哪个操作，要设置哪种权限。通过字符“u”， “g”， “o”， and “a”的组合来指定
+要执行哪个操作，要设置哪种权限。通过字符 “u”，“g”，“o”，和 “a” 的组合来指定
 要影响的对象，如下所示：
 
 <table class="multi">
@@ -446,7 +444,7 @@ are to be removed.
 Permissions are specified with the “r”, “w”, and “x” characters. Here are some examples
 of symbolic notation:
 
-权限由“r”, “w”, and “x”来指定。这里是一些符号表示法的实例：
+权限由 “r”，“w”，和 “x” 来指定。这里是一些符号表示法的实例：
 
 <table class="multi">
 <caption class="cap">Table 10-5: chmod Symbolic Notation Examples</caption>
@@ -536,7 +534,7 @@ Here is an example from KDE 3.5:
 (KDE)中，右击一个文件或目录图标将会弹出一个属性对话框。下面这个例子来自 KDE 3.5：
 
 ![](images/102.png) \\
-Figure 2: KDE 3.5 File properties Dialog
+图 2: KDE 3.5 文件属性对话框
 {: .figure}
 
 Here we can see the settings for the owner, group, and world. In KDE, clicking on the
@@ -597,9 +595,9 @@ what happens:
 怎么回事，我们需要看一下掩码的八进制形式。把掩码展开成二进制形式，然后与文件属性
 相比较，看看有什么区别：
 
-Original file mode | -\-\- rw- rw- rw-
-Mask | 000 000 000 010
-Result | -\-- rw- rw- r-\-
+|Original file mode | -\-\- rw- rw- rw-|
+|Mask | 000 000 000 010|
+|Result | -\-- rw- rw- r-\-|
 
 Ignore for the moment the leading zeros (we'll get to those in a minute) and observe that
 where the 1 appears in our mask, an attribute was removed—in this case, the world
@@ -613,9 +611,9 @@ does:
 掩码0022的作用：
 
 
-Original file mode | -\-\- rw- rw- rw-
-Mask | 000 000 010 010
-Result | -\-- rw- r-\- r-\-
+|Original file mode | -\-\- rw- rw- rw-|
+|Mask | 000 000 010 010|
+|Result | -\-- rw- r-\- r-\-|
 
 
 Again, where a 1 appears in the binary value, the corresponding attribute is unset. Play
@@ -696,38 +694,38 @@ special permissions. First assigning setuid to a program:
 > 这里有一些例子，使用 chmod 命令和符号表示法，来设置这些特殊的权限。首先，
 授予一个程序 setuid 权限。
 >
-> chmod u+s program
+>  _chmod u+s program_
 >
 > Next, assigning setgid to a directory:
 >
 > 下一步，授予一个目录 setgid 权限：
 >
-> chmod g+s dir
+>  _chmod g+s dir_
 >
 > Finally, assigning the sticky bit to a directory:
 >
 > 最后，授予一个目录 sticky 权限：
 >
-> chmod +t dir
+>  _chmod +t dir_
 >
 > When viewing the output from ls, you can determine the special permissions.
 Here are some examples. First, a program that is setuid:
 >
 > 当浏览 ls 命令的输出结果时，你可以确认这些特殊权限。这里有一些例子。首先，一个程序被设置为setuid属性：
 >
-> -rwsr-xr-x
+>  _-rwsr-xr-x_
 >
 > A directory that has the setgid attribute:
 >
 > 具有 setgid 属性的目录：
 >
-> drwxrwsr-x
+>  _drwxrwsr-x_
 >
 > A directory with the sticky bit set:
 >
 > 设置了 sticky 位的目录：
 >
-> drwxrwxrwt
+>  _drwxrwxrwt_
 
 ### 更改身份
 
@@ -796,7 +794,6 @@ this:
     Password:
     [root@linuxbox ~]#
 
-
 After entering the command, we are prompted for the superuser's password. If it is
 successfully entered, a new shell prompt appears indicating that this shell has superuser
 privileges (the trailing “#” rather than a “$”) and the current working directory is now the
@@ -812,14 +809,12 @@ shell:
     [root@linuxbox ~]# exit
     [me@linuxbox ~]$
 
-
 It is also possible to execute a single command rather than starting a new interactive
 command by using su this way:
 
 以这样的方式使用 su 命令，也可以只执行单个命令，而不是启动一个新的可交互的 shell：
 
     su -c 'command'
-
 
 Using this form, a single command line is passed to the new shell for execution. It is
 important to enclose the command in quotes, as we do not want expansion to occur in our
@@ -858,7 +853,6 @@ sudo 命令，从而允许一个普通用户以不同的身份（通常是超级
     [me@linuxbox ~]$ sudo backup_script
     Password:
     System Backup Starting...
-
 
 After entering the command, we are prompted for our password (not the superuser's) and
 once the authentication is complete, the specified command is carried out. One important
@@ -942,7 +936,6 @@ chown 命令被用来更改文件或目录的所有者和用户组。使用这�
 的语法看起来像这样：
 
     chown [owner][:[group]] file...
-
 
 chown can change the file owner and/or the file group owner depending on the first
 argument of the command. Here are some examples:
@@ -1053,8 +1046,8 @@ User bill has access to superuser privileges via sudo.
 
 到目前为止，我们已经知道了，权限这类东西是怎样工作的，现在是时候炫耀一下了。我们
 将展示一个常见问题的解决方案，这个问题是如何设置一个共享目录。假想我们有两个用户，
-他们分别是"bill"和"karen"。他们都有音乐 CD 收藏品，也愿意设置一个共享目录，在这个
-共享目录中，他们分别以 Ogg Vorbis 或 MP3的格式来存储他们的音乐文件。通过 sudo 命令，
+他们分别是 "bill" 和 "karen"。他们都有音乐 CD 收藏品，也愿意设置一个共享目录，在这个
+共享目录中，他们分别以 Ogg Vorbis 或 MP3 的格式来存储他们的音乐文件。通过 sudo 命令，
 用户 bill 具有超级用户访问权限。
 
 The first thing that needs to happen is creating a group that will have both bill and
@@ -1065,7 +1058,7 @@ called music and adds users bill and karen to it:
 bill 创建了一个叫做 music 的用户组，并且把用户 bill 和 karen 添加到用户组 music 中：
 
 ![](images/103.png) \\
-Figure 3: Creating A New Group With GNOME
+图 3: 用 GNOME 创建一个新的用户组
 {: .figure}
 
 Next, bill creates the directory for the music files:
@@ -1230,8 +1223,8 @@ groups. For more information, see the man pages for the following commands:
 
 还有一系列的命令行程序，可以用来创建和维护用户和用户组。更多信息，查看以下命令的手册页：
 
-* adduser
+* _adduser_
 
-* useradd
+* _useradd_
 
-* groupadd
+* _groupadd_

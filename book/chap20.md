@@ -67,7 +67,7 @@ So far, we have used grep with fixed strings, like so:
 This will list all the files in the /usr/bin directory whose names contain the substring
 “zip”.
 
-这个命令会列出，位于目录/usr/bin 中，文件名中包含子字符串“zip”的所有文件。
+这个命令会列出，位于目录 /usr/bin 中，文件名中包含子字符串“zip”的所有文件。
 
 The grep program accepts options and arguments this way:
 
@@ -342,11 +342,11 @@ alphabetical order. On my system, the words file contains just over 98,500
 words. To find possible answers to the crossword puzzle question above, we
 could do this:
 >
-> 你知道你的 Linux 系统中带有一本英文字典吗？千真万确。看一下/usr/share/dict 目录，你就能找到一本，
+> 你知道你的 Linux 系统中带有一本英文字典吗？千真万确。看一下 /usr/share/dict 目录，你就能找到一本，
 或几本。存储在此目录下的字典文件，其内容仅仅是一个长长的单词列表，每行一个单词，按照字母顺序排列。在我的
 系统中，这个文件仅包含98,000个单词。为了找到可能的上述字谜的答案，我们可以这样做：
 >
->     [me@linuxbox ~]$ grep -i '^..j.r$' /usr/share/dict/words </p>
+>     [me@linuxbox ~]$ grep -i '^..j.r$' /usr/share/dict/words
 >     Major
 >     major
 >
@@ -743,45 +743,45 @@ language as your Linux was installed.
 > 通过改变环境变量 LANG 的值，你可以选择让你的系统使用传统的（ASCII）排列规则。如上所示，这个
 LANG 变量包含了语种和字符集。这个值最初由你安装 Linux 系统时所选择的安装语言决定。
 >
->  To see the locale settings, use the locale command:
+> To see the locale settings, use the locale command:
 >
 > 使用 locale 命令，来查看 locale 的设置。
 >
-> [me@linuxbox ~]$ locale
+>      [me@linuxbox ~]$ locale
 >
-> LANG=en_US.UTF-8
+>      LANG=en_US.UTF-8
 >
-> LC_CTYPE="en_US.UTF-8"
+>      LC_CTYPE="en_US.UTF-8"
 >
-> LC_NUMERIC="en_US.UTF-8"
+>      LC_NUMERIC="en_US.UTF-8"
 >
-> LC_TIME="en_US.UTF-8"
+>      LC_TIME="en_US.UTF-8"
 >
-> LC_COLLATE="en_US.UTF-8"
+>      LC_COLLATE="en_US.UTF-8"
 >
-> LC_MONETARY="en_US.UTF-8"
+>      LC_MONETARY="en_US.UTF-8"
 >
-> LC_MESSAGES="en_US.UTF-8"
+>      LC_MESSAGES="en_US.UTF-8"
 >
-> LC_PAPER="en_US.UTF-8"
+>      LC_PAPER="en_US.UTF-8"
 >
-> LC_NAME="en_US.UTF-8"
+>      LC_NAME="en_US.UTF-8"
 >
-> LC_ADDRESS="en_US.UTF-8"
+>      LC_ADDRESS="en_US.UTF-8"
 >
-> LC_TELEPHONE="en_US.UTF-8"
+>      LC_TELEPHONE="en_US.UTF-8"
 >
-> LC_MEASUREMENT="en_US.UTF-8"
+>      LC_MEASUREMENT="en_US.UTF-8"
 >
-> LC_IDENTIFICATION="en_US.UTF-8"
+>      LC_IDENTIFICATION="en_US.UTF-8"
 >
-> LC_ALL=
+>      LC_ALL=
 >
 > To change the locale to use the traditional Unix behaviors, set the LANG variable to POSIX:
 >
 > 把这个 LANG 变量设置为 POSIX，来更改 locale，使其使用传统的 Unix 行为。
 >
-> [me@linuxbox ~]$ export LANG=POSIX
+>  _[me@linuxbox ~]$ export LANG=POSIX_
 >
 > Note that this change converts the system to use U.S. English (more specifically,
 ASCII) for its character set, so be sure if this is really what you want.
@@ -791,7 +791,7 @@ ASCII) for its character set, so be sure if this is really what you want.
 > 注意这个改动使系统为它的字符集使用 U.S.英语（更准确地说，ASCII），所以要确认一下这
 是否是你真正想要的效果。通过把这条语句添加到你的.bashrc 文件中，你可以使这个更改永久有效。
 >
-> export LANG=POSIX
+>  _export LANG=POSIX_
 
 ### POSIX 基本的 Vs.扩展的正则表达式
 
@@ -1246,11 +1246,11 @@ pathname characters.
 
 #### 用 locate 查找文件
 
-The locate program supports both basic (the --regexp option) and extended (the --
+The locate program supports both basic (the -\-regexp option) and extended (the -\-
 regex option) regular expressions. With it, we can perform many of the same
 operations that we performed earlier with our dirlist files:
 
-这个 locate 程序支持基本的（--regexp 选项）和扩展的（--regex 选项）正则表达式。通过
+这个 locate 程序支持基本的（-\-regexp 选项）和扩展的（-\-regex 选项）正则表达式。通过
 locate 命令，我们能够执行许多与先前操作 dirlist 文件时相同的操作：
 
     [me@linuxbox ~]$ locate --regex 'bin/(bz|gz|zip)'

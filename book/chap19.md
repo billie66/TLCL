@@ -125,7 +125,7 @@ permissions and time stamp as the original.
 
 在这个例子里，我们创建了一个名为 foo.txt 的文本文件，其内容包含一个目录的列表清单。
 接下来，我们运行 gzip 命令，它会把原始文件替换为一个叫做 foo.txt.gz 的压缩文件。在
-foo.\*文件列表中，我们看到原始文件已经被压缩文件替代了，并将这个压缩文件大约是原始
+foo.\* 文件列表中，我们看到原始文件已经被压缩文件替代了，并将这个压缩文件大约是原始
 文件的十五分之一。我们也能看到压缩文件与原始文件有着相同的权限和时间戳。
 
 Next, we run the gunzip program to uncompress the file. Afterward, we can see that
@@ -302,7 +302,7 @@ compressed with bzip2 is denoted with the extension .bz2:
 
 这个 bzip2 程序，由 Julian Seward 开发，与 gzip 程序相似，但是使用了不同的压缩算法，
 舍弃了压缩速度，而实现了更高的压缩级别。在大多数情况下，它的工作模式等同于 gzip。
-由 bzip2 压缩的文件，用扩展名.bz2 来表示：
+由 bzip2 压缩的文件，用扩展名 .bz2 来表示：
 
     [me@linuxbox ~]$ ls -l /etc > foo.txt
     [me@linuxbox ~]$ ls -l foo.txt
@@ -322,7 +322,7 @@ damaged .bz2 files.
 正如我们所看到的，bzip2 程序使用起来和 gzip 程序一样。我们之前讨论的 gzip 程序的所有选项（除了-r）
 ，bzip2 程序同样也支持。注意，然而，压缩级别选项（-number）对于 bzip2 程序来说，有少许不同的含义。
 伴随着 bzip2 程序，有 bunzip2 和 bzcat 程序来解压缩文件。bzip2 文件也带有 bzip2recover 程序，其会
-试图恢复受损的.bz2 文件。
+试图恢复受损的 .bz2 文件。
 
 > Don’t Be Compressive Compulsive
 >
@@ -334,7 +334,7 @@ this:
 >
 > 我偶然见到人们试图用高效的压缩算法，来压缩一个已经被压缩过的文件，通过这样做：
 >
-> <b>$ gzip picture.jpg </b>
+>  _$ gzip picture.jpg_
 >
 > Don’t do it. You’re probably just wasting time and space! If you apply
 compression to a file that is already compressed, you will actually end up a larger
@@ -371,11 +371,11 @@ command syntax works like this:
 
 在类似于 Unix 的软件世界中，这个 tar 程序是用来归档文件的经典工具。它的名字，是 tape
 archive 的简称，揭示了它的根源，它是一款制作磁带备份的工具。而它仍然被用来完成传统任务，
-它也同样适用于其它的存储设备。我们经常看到扩展名为.tar 或者.tgz 的文件，它们各自表示“普通”
+它也同样适用于其它的存储设备。我们经常看到扩展名为 .tar 或者 .tgz 的文件，它们各自表示“普通”
 的 tar 包和被 gzip 程序压缩过的 tar 包。一个 tar 包可以由一组独立的文件，一个或者多个目录，或者
 两者混合体组成。命令语法如下：
 
-tar mode[options] pathname...
+    tar mode[options] pathname...
 
 where mode is one of the following operating modes (only a partial list is shown here;
 see the tar man page for a complete list):
@@ -485,7 +485,7 @@ caveat, however: unless you are operating as the superuser, files and directorie
 from archives take on the ownership of the user performing the restoration, rather than
 the original owner.
 
-如果我们检查~/foo/playground 目录中的内容，会看到这个归档文件已经被成功地安装了，就是创建了
+如果我们检查 ~/foo/playground 目录中的内容，会看到这个归档文件已经被成功地安装了，就是创建了
 一个精确的原始文件的副本。有一个警告，然而：除非你是超级用户，要不然从归档文件中抽取的文件
 和目录的所有权由执行此复原操作的用户所拥有，而不属于原始所有者。
 
@@ -505,7 +505,7 @@ Remember, ~/playground will expand into /home/me/playground when we
 press the enter key, so we will get an absolute pathname for our demonstration. Next, we
 will extract the archive as before and watch what happens:
 
-记住，当按下回车键后，~/playground 会展开成/home/me/playground，所以我们将会得到一个
+记住，当按下回车键后，~/playground 会展开成 /home/me/playground，所以我们将会得到一个
 绝对路径名。接下来，和之前一样我们会抽取归档文件，观察发生什么事情：
 
     [me@linuxbox ~]$ cd foo
@@ -540,7 +540,7 @@ can do the following:
 
 让我们考虑一个假设，tar 命令的实际应用。假定我们想要复制主目录及其内容到另一个系统中，
 并且有一个大容量的 USB 硬盘，可以把它作为传输工具。在现代 Linux 系统中，
-这个硬盘会被“自动地”挂载到/media 目录下。我们也假定硬盘中有一个名为 BigDisk 的逻辑卷。
+这个硬盘会被“自动地”挂载到 /media 目录下。我们也假定硬盘中有一个名为 BigDisk 的逻辑卷。
 为了制作 tar 包，我们可以这样做：
 
     [me@linuxbox ~]$ sudo tar cf /media/BigDisk/home.tar /home
@@ -549,7 +549,7 @@ After the tar file is written, we unmount the drive and attach it to the second 
 Again, it is mounted at /media/BigDisk. To extract the archive, we do this:
 
 tar 包制作完成之后，我们卸载硬盘，然后把它连接到第二个计算机上。再一次，此硬盘被
-挂载到/media/BigDisk 目录下。为了抽取归档文件，我们这样做：
+挂载到 /media/BigDisk 目录下。为了抽取归档文件，我们这样做：
 
     [me@linuxbox2 ~]$ cd /
     [me@linuxbox2 /]$ sudo tar xf /media/BigDisk/home.tar
@@ -578,7 +578,7 @@ is an example using our previous playground.tar file:
 
 通过给命令添加末尾的路径名，tar 命令就只会恢复指定的文件。可以指定多个路径名。注意
 路径名必须是完全的，精准的相对路径名，就如存储在归档文件中的一样。当指定路径名的时候，
-通常不支持通配符；然而，GNU 版本的 tar 命令（在 Linux 发行版中最常出现）通过--wildcards 选项来
+通常不支持通配符；然而，GNU 版本的 tar 命令（在 Linux 发行版中最常出现）通过 -\-wildcards 选项来
 支持通配符。这个例子使用了之前 playground.tar 文件：
 
     [me@linuxbox ~]$ cd foo
@@ -634,10 +634,10 @@ also used sometimes.
 
 在这个例子里面，我们使用 find 程序产生了一个匹配文件列表，然后把它们管道到 tar 命令中。
 如果指定了文件名“-”，则其被看作是标准输入或输出，正是所需（顺便说一下，使用“-”来表示
-标准输入／输出的惯例，也被大量的其它程序使用）。这个--file-from 选项（也可以用-T 来指定）
+标准输入／输出的惯例，也被大量的其它程序使用）。这个 -\-file-from 选项（也可以用 -T 来指定）
 导致 tar 命令从一个文件而不是命令行来读入它的路径名列表。最后，这个由 tar 命令产生的归档
-文件被管道到 gzip 命令中，然后创建了压缩归档文件 playground.tgz。此.tgz 扩展名是命名
-由 gzip 压缩的 tar 文件的常规扩展名。有时候也会使用.tar.gz 这个扩展名。
+文件被管道到 gzip 命令中，然后创建了压缩归档文件 playground.tgz。此 .tgz 扩展名是命名
+由 gzip 压缩的 tar 文件的常规扩展名。有时候也会使用 .tar.gz 这个扩展名。
 
 While we used the gzip program externally to produced our compressed archive,
 modern versions of GNU tar support both gzip and bzip2 compression directly, with the
@@ -645,14 +645,14 @@ use of the z and j options, respectively. Using our previous example as a base, 
 simplify it this way:
 
 虽然我们使用 gzip 程序来制作我们的压缩归档文件，但是现在的 GUN 版本的 tar 命令
-，gzip 和 bzip2压缩两者都直接支持，各自使用 z 和 j 选项。以我们之前的例子为基础，
+，gzip 和 bzip2 压缩两者都直接支持，各自使用 z 和 j 选项。以我们之前的例子为基础，
 我们可以这样简化它：
 
     [me@linuxbox ~]$ find playground -name 'file-A' | tar czf playground.tgz -T -
 
 If we had wanted to create a bzip2 compressed archive instead, we could have done this:
 
-如果我们本要创建一个由 bzip2压缩的归档文件，我们可以这样做：
+如果我们本要创建一个由 bzip2 压缩的归档文件，我们可以这样做：
 
     [me@linuxbox ~]$ find playground -name 'file-A' | tar cjf playground.tbz -T -
 
@@ -664,8 +664,8 @@ running a Unix-like system equipped with tar and ssh. In such a scenario, we cou
 transfer a directory from a remote system (named remote-sys for this example) to our
 local system:
 
-通过简单地修改压缩选项，把 z 改为 j（并且把输出文件的扩展名改为.tbz，来指示一个 bzip2压缩文件），
-就使 bzip2命令压缩生效了。另一个 tar 命令与标准输入和输出的有趣使用，涉及到在系统之间经过
+通过简单地修改压缩选项，把 z 改为 j（并且把输出文件的扩展名改为 .tbz，来指示一个 bzip2 压缩文件），
+就使 bzip2 命令压缩生效了。另一个 tar 命令与标准输入和输出的有趣使用，涉及到在系统之间经过
 网络传输文件。假定我们有两台机器，每台都运行着类似于 Unix，且装备着 tar 和 ssh 工具的操作系统。
 在这种情景下，我们可以把一个目录从远端系统（名为 remote-sys）传输到我们的本地系统中：
 
@@ -868,7 +868,7 @@ rsync is invoked like this:
 
 rsync 被这样唤醒：
 
-rsync options source destination
+    rsync options source destination
 
 where source and destination are one of the following:
 

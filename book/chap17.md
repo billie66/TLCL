@@ -30,7 +30,7 @@ cover:
 * traceroute - 打印到一台网络主机的路由数据包
 
 * netstat - Print network connections, routing tables, interface statistics,
-            masquerade connections, and multicast memberships
+masquerade connections, and multicast memberships
 
 * netstat - 打印网络连接，路由表，接口统计数据，伪装连接，和多路广播成员
 
@@ -253,7 +253,7 @@ on the LAN. The next field, Gateway, is the name or IP address of the gateway
 asterisk in this field indicates that no gateway is needed.
 
 在这个简单的例子里面，我们看到了，位于防火墙之内的局域网中，一台客户端计算机的典型路由表。
-第一行显示了目的地192.168.1.0。IP 地址以零结尾是指网络，而不是个人主机，
+第一行显示了目的地 192.168.1.0。IP 地址以零结尾是指网络，而不是个人主机，
 所以这个目的地意味着局域网中的任何一台主机。下一个字段，Gateway，
 是网关（路由器）的名字或 IP 地址，用它来连接当前的主机和目的地的网络。
 若这个字段显示一个星号，则表明不需要网关。
@@ -264,7 +264,7 @@ example, we see that the gateway is defined as a router with the address of
 192.168.1.1, which presumably knows what to do with the destination traffic.
 
 最后一行包含目的地 default。指的是发往任何表上没有列出的目的地网络的流量。
-在我们的实例中，我们看到网关被定义为地址192.168.1.1的路由器，它应该能
+在我们的实例中，我们看到网关被定义为地址 192.168.1.1 的路由器，它应该能
 知道怎样来处理目的地流量。
 
 The netstat program has many options and we have only looked at a couple.

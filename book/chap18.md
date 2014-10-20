@@ -272,7 +272,7 @@ is megabytes. The following characters may be used to specify units:
 被用来指定测量单位：
 
 <table class="multi">
-<caption class="cap">表18-2: find Size Units</caption>
+<caption class="cap">Table 18-2: find Size Units</caption>
 <tr>
 <th class="title">Character</th>
 <th class="title">Unit</th>
@@ -304,7 +304,7 @@ is megabytes. The following characters may be used to specify units:
 </table>
 
 <table class="multi">
-<caption class="cap">Table 18-2: find 大小单位</caption>
+<caption class="cap">表18-2: find 大小单位</caption>
 <tr>
 <th class="title">字符</th>
 <th class="title">单位</th>
@@ -560,6 +560,31 @@ complicated once you get to know them. Here is the list:
 这里是操作符列表：
 
 <table class="multi">
+<caption class="cap">Table 18-4: find Logical Operators</caption>
+<tr>
+<th class="title">Operator</th>
+<th class="title">Description</th>
+</tr>
+<tr>
+<td valign="top" width="25%">-and</td>
+<td>Match if the tests on both sides of the operator are true. May be shortened to -a. Note that when no operator is present, -and is implied by default.</td>
+</tr>
+<tr>
+<td valign="top">-or</td>
+<td>Match if a test on either side of the operator is true. May be shortened to -o.</td>
+</tr>
+<tr>
+<td valign="top">-not</td>
+<td>Match if the test following the operator is false. May be abbreviated with an exclamation point (!).</td>
+</tr>
+<tr>
+<td valign="top">()</td>
+<td>Groups tests and operators together to form larger expressions. This is used to control the precedence of the
+logical evaluations. By default, find evaluates from left to right. It is often necessary to override the default evaluation order to obtain the desired result. Even if not needed, it is helpful sometimes to include the grouping characters to improve readability of the command. Note that since the parentheses characters have special meaning to the shell, they must be quoted when using them on the command line to allow them to be passed as arguments to find. Usually the backslash character is used to escape them.</td>
+</tr>
+</table>
+
+<table class="multi">
 <caption class="cap">表18-4: find 命令的逻辑操作符</caption>
 <tr>
 <th class="title">操作符</th>
@@ -567,16 +592,16 @@ complicated once you get to know them. Here is the list:
 </tr>
 <tr>
 <td valign="top" width="25%">-and</td>
-<td valign="top">匹配如果操作符两边的测试条件都是真。可以简写为 -a。
+<td valign="top">如果操作符两边的测试条件都是真，则匹配。可以简写为 -a。
 注意若没有使用操作符，则默认使用 -and。</td>
 </tr>
 <tr>
 <td valign="top">-or</td>
-<td valign="top">匹配若操作符两边的任一个测试条件为真。可以简写为 -o。</td>
+<td valign="top">若操作符两边的任一个测试条件为真，则匹配。可以简写为 -o。</td>
 </tr>
 <tr>
 <td valign="top">-not</td>
-<td valign="top">匹配若操作符后面的测试条件是真。可以简写为一个感叹号（!）。</td>
+<td valign="top">若操作符后面的测试条件是真，则匹配。可以简写为一个感叹号（!）。</td>
 </tr>
 <tr>
 <td valign="top">()</td>
@@ -1070,7 +1095,7 @@ accepts null separated input. Here’s an example:
 则会产生由 null 字符分离的输出，并且 xargs 命令有一个 --null 选项，这个选项会接受由 null 字符
 分离的输入。这里有一个例子：
 >
-> find ~ -iname '*.jpg' -print0 | xargs --null ls -l
+>  _find ~ -iname '*.jpg' -print0 \| xargs --null ls -l_
 >
 > Using this technique, we can ensure that all files, even those containing embedded
 spaces in their names, are handled correctly.
