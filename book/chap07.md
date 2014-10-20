@@ -636,12 +636,12 @@ line programs use standard error to display their informative messages.
 >
 > Linux 可以激发我们的想象
 >
->  When I am asked to explain the difference between Windows and Linux, I often
+> When I am asked to explain the difference between Windows and Linux, I often
 use a toy analogy.
 >
 > 当我被要求解释 Windows 与 Linux 之间的差异时，我经常拿玩具来作比喻。
 >
->  Windows is like a Game Boy. You go to the store and buy one all shiny new in
+> Windows is like a Game Boy. You go to the store and buy one all shiny new in
 the box. You take it home, turn it on and play with it. Pretty graphics, cute
 sounds. After a while though, you get tired of the game that came with it so you
 go back to the store and buy another one. This cycle repeats over and over.

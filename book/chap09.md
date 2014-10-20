@@ -262,7 +262,7 @@ word. If the cursor is at the beginning of a word, kill the previous word.</td>
 >
 > 元键
 >
->  If you venture into the Readline documentation, which can be found in the
+> If you venture into the Readline documentation, which can be found in the
 READLINE section of the bash man page, you will encounter the term “meta
 key.” On modern keyboards this maps to the Alt key but it wasn't always so.
 >

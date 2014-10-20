@@ -1041,7 +1041,7 @@ Joliet extensions, which permit long filenames for Windows.
 
 > A Program By Any Other Name...
 >
->一个有着其它名字的程序。。。
+> 一个有着其它名字的程序。。。
 >
 > If you look at on-line tutorials for creating and burning optical media like CD-
 ROMs and DVDs, you will frequently encounter two programs called mkisofs
