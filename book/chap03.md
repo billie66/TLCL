@@ -45,10 +45,9 @@ the computer. Storage devices are attached (or more correctly, mounted) at
 various points on the tree according to the whims of the system administrator,
 the person (or persons) responsible for the maintenance of the system.
 
-不同于 Windows 的是，Windows 每个存储设备都有一个独自的文件系统，类似于 Unix 的操作系统，
-比如 Linux，总是有一个单一的文件系统树，不管有多少个磁盘或者存储设备连接到计算机上。
-根据系统管理员的兴致，存储设备连接到（或着更精确些，是挂载到）目录树的各个节点上。
-系统管理员负责维护系统安全。
+注意(类 Unix 系统)不像 Windows ，每个存储设备都有一个独自的文件系统。类 Unix 操作系统，
+比如 Linux，总是只有一个单一的文件系统树，不管有多少个磁盘或者存储设备连接到计算机上。
+根据负责维护系统安全的系统管理员的兴致，存储设备连接到（或着更精确些，是挂载到）目录树的各个节点上。
 
 ### 当前工作目录
 
@@ -61,8 +60,8 @@ branches descending below.
 图1: 由图形化文件管理器显示的文件系统树
 {: .figure}
 
-大多数人都可能熟悉图形文件管理器，它描述了文件系统树的结构，正如图1所示。
-注意通常，这是一棵倒置的树，也就是说，树根在最上面，而各个枝干在下面展开。
+大多数人都可能熟悉如图1所示描述文件系统树的图形文件管理器。注意， 通常这是一棵
+倒置的树，也就是说，树根在最上面，而各个枝干在下面展开。
 
 However, the command line has no pictures, so to navigate the file system tree
 we need to think of it in a different way.
@@ -80,7 +79,7 @@ the pwd (print working directory) command.
 把文件系统想象成一个迷宫形状，就像一棵倒立的大树，我们站在迷宫的中间位置。
 在任意时刻，我们处于一个目录里面，我们能看到这个目录包含的所有文件，
 以及通往上面目录（父目录）的路径，和下面的各个子目录。我们所在的目录则称为
-当前工作目录。我们使用 pwd（打印工作目录）命令，来显示当前工作目录。
+当前工作目录。我们使用 pwd（print working directory(的缩写)）命令，来显示当前工作目录。
 
     [me@linuxbox ~]$ pwd
     /home/me
@@ -90,9 +89,9 @@ current working directory is set to our home directory. Each user account is
 given its own home directory and when operating as a regular user, the home
 directory is the only place the user is allowed to write files.
 
-当我首次登录系统后，（或者启动终端仿真器会话后），当前工作目录是我的主目录。
-每个用户都有他自己的主目录，当用户以普通用户的身份操控系统时，主目录是唯一
-允许用户编写文件的地方。
+当我们首次登录系统（或者启动终端仿真器会话）后，当前工作目录是我们的家目录。
+每个用户都有他自己的家目录，当用户以普通用户的身份操控系统时，主目录是唯一
+允许用户对文件进行写入的地方。
 
 ### 列出目录内容
 
@@ -121,9 +120,9 @@ specified in one of two different ways; as absolute pathnames or as relative
 pathnames. Let's deal with absolute pathnames first.
 
 要更改工作目录（此刻，我们站在树形迷宫里面），我们用 cd 命令。输入 cd,
-然后输入你想要的工作目录的路径名，就能实现愿望。路径名就是沿着目录树的分支
-到达想要的目录，期间所经过的路线。路径名可通过两种方式来指定，一个是绝对路径，
-另一个是相对路径。我们先来介绍绝对路径。
+然后输入你想要去的工作目录的路径名。路径名就是沿着目录树的分支
+到达想要的目录期间所经过的路线。路径名可通过两种方式来指定，一种是绝对路径，
+另一种是相对路径。我们先来介绍绝对路径。
 
 ### 绝对路径
 
@@ -135,7 +134,7 @@ This means from the root directory (represented by the leading slash in the
 pathname) there is a directory called "usr" which contains a directory called
 "bin".
 
-绝对路径开始于根目录，紧跟着目录树的一个个分支，一直到达期望的目录或文件。
+绝对路径开始于根目录，紧跟着目录树的一个个分支，一直到达所期望的目录或文件。
 例如，你的系统中有一个目录，大多数系统程序都安装在这个目录下。这个目录的
 路径名是 /usr/bin。它意味着从根目录（用开头的“/"表示）开始，有一个叫 "usr" 的
 目录包含了目录 "bin"。
@@ -151,8 +150,8 @@ and that it is full of files. Notice how the shell prompt has changed? As a
 convenience, it is usually set up to automatically display the name of the
 working directory.
 
-我们把工作目录转到 /usr/bin 目录下，里面装满了文件。注意 shell 提示符是怎样改变的。
-为了方便，通常设置提示符自动显示工作目录名。
+我们把工作目录转到 /usr/bin 目录下，里面装满了文件。注意 shell 提示符是怎样改变的吗？
+为了方便，通常终端提示符自动显示工作目录名。
 
 ### 相对路径
 
@@ -162,14 +161,15 @@ this, it uses a couple of special symbols to represent relative positions in
 the file system tree. These special symbols are "." (dot) and ".." (dot dot).
 
 绝对路径从根目录开始，直到它的目的地，而相对路径开始于工作目录。
-一对特殊符号来表示相对位置，在文件系统树中。这对特殊符号是 "." (点) 和 ".." (点点)。
+为了做到这个（用相对路径表示）， 我们在文件系统树中用一对特殊符号来表示相对位置。
+这对特殊符号是 "." (点) 和 ".." (点点)。
 
 The "." symbol refers to the working directory and the ".." symbol refers to
 the working directory's parent directory. Here is how it works. Let's change
 the working directory to /usr/bin again:
 
 符号 "." 指的是工作目录，".." 指的是工作目录的父目录。下面的例子说明怎样使用它。
-再次更改工作目录到 /usr/bin：
+让我们再次把工作目录切换到 /usr/bin：
 
     [me@linuxbox ~]$ cd /usr/bin
     [me@linuxbox bin]$ pwd
@@ -179,7 +179,7 @@ Okay, now let's say that we wanted to change the working directory to the
 parent of /usr/bin which is /usr. We could do that two different ways.
 Either with an absolute pathname:
 
-好的，比方说更改工作目录到 /usr/bin 的父目录 /usr。可以通过两种方法来实现。或者使用绝对路径名：
+好了，比方说我们想更改工作目录到 /usr/bin 的父目录 /usr。可以通过两种方法来实现。可以使用绝对路径名：
 
     [me@linuxbox bin]$ cd /usr
     [me@linuxbox usr]$ pwd
@@ -187,7 +187,7 @@ Either with an absolute pathname:
 
 Or, with a relative pathname:
 
-或者， 使用相对路径：
+或者， 也可以使用相对路径：
 
     [me@linuxbox bin]$ cd ..
     [me@linuxbox usr]$ pwd
@@ -196,12 +196,12 @@ Or, with a relative pathname:
 Two different methods with identical results. Which one should we use? The one
 that requires the least typing!
 
-两种不同的方法，一样的结果。我们应该选哪一个呢？ 输入量最少的那个。
+两种不同的方法，一样的结果。我们应该选哪一个呢？ 选输入量最少的那个！
 
 Likewise, we can change the working directory from /usr to /usr/bin in two
 different ways. Either using an absolute pathname:
 
-同样地，从目录 /usr/ 到 /usr/bin 也有两种途径。或者使用绝对路径：
+同样地，从目录 /usr/ 到 /usr/bin 也有两种途径。可以使用绝对路径：
 
     [me@linuxbox usr]$ cd /usr/bin
     [me@linuxbox bin]$ pwd
@@ -209,7 +209,7 @@ different ways. Either using an absolute pathname:
 
 Or, with a relative pathname:
 
-或者，用相对路径：
+或者，也可以用相对路径：
 
     [me@linuxbox usr]$ cd ./bin
     [me@linuxbox bin]$ pwd
@@ -271,7 +271,7 @@ the home directory of user “bob.” </td>
 <tbody>
 <tr>
 <td >cd</td>
-<td >更改工作目录到主目录。</td>
+<td >更改工作目录到你的家目录。</td>
 </tr>
 <tr>
 <td > cd -</td>
@@ -313,15 +313,15 @@ later.
 >关于文件名的重要规则
 >
 >1. 以 "." 字符开头的文件名是隐藏文件。这仅表示，ls 命令不能列出它们，
-除非使用 ls -a 命令。当你创建帐号后，几个配置帐号的隐藏文件被放置在
+用 ls -a 命令就可以了。当你创建帐号后，几个配置帐号的隐藏文件被放置在
 你的主目录下。稍后，我们会仔细研究一些隐藏文件，来定制你的系统环境。
 另外，一些应用程序也会把它们的配置文件以隐藏文件的形式放在你的主目录下面。
 >
 >2. 文件名和命令名是大小写敏感的。文件名 “File1” 和 “file1” 是指两个不同的文件名。
 >
 >3. Linux 没有“文件扩展名”的概念，不像其它一些系统。可以用你喜欢的任何名字
-来给文件起名。文件内容或用途由其它方法来决定。虽然类似 Unix 的操作系统，
-不用文件扩展名来决定文件的内容或用途，但是应用程序会。
+来给文件起名。文件内容或用途由其它方法来决定。虽然类 Unix 的操作系统，
+不用文件扩展名来决定文件的内容或用途，但是有些应用程序会。
 >
 >4. 虽然 Linux 支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限
 使用 “.”，“－”，下划线。最重要的是，不要在文件名中使用空格。如果你想表示词与
