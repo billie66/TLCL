@@ -120,8 +120,8 @@ title: 自顶向下设计
     3     # Shell function demo
     4
     5     function funct {
-    6         echo "Step 2"
-    7         return
+    6       echo "Step 2"
+    7       return
     8     }
     9
     10     # Main program starts here
@@ -234,7 +234,6 @@ shell 函数可以在脚本之间进行剪切和粘贴。
     <BODY>
     <H1>System Information Report For linuxbox</H1>
     <P>Generated 03/19/2009 04:02:10 PM EDT, by me</P>
-
     </BODY>
     </HTML>
 
@@ -309,8 +308,8 @@ shell 函数可以在脚本之间进行剪切和粘贴。
 只有用超级用户权限执行我们的脚本时，才会工作。一个更好的解决方案是让脚本能根据用户的使用权限来
 调整自己的行为。我们将在下一章中讨论这个问题。
 
-
-> _你的 .bashrc 文件中的 shell 函数_
+>
+> 你的 .bashrc 文件中的 shell 函数
 >
 > Shell 函数是更为完美的别名替代物，实际上是创建较小的个人所用命令的首选方法。别名
  非常局限于命令的种类和它们支持的 shell 功能，然而 shell 函数允许任何可以编写脚本的东西。
@@ -321,8 +320,6 @@ shell 函数可以在脚本之间进行剪切和粘贴。
 >       echo “Disk Space Utilization For $HOSTNAME”
 >       df -h
 >     }
-
-
 
 ### 总结归纳
 

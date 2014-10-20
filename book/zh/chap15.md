@@ -170,7 +170,6 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 
     apt-get update; apt-get install emacs
 
-
 ### 通过软件包文件来安装软件
 
 如果从某处而不是从资源库中下载了一个软件包文件，可以使用底层工具来直接（没有经过依赖解析）安装它。
@@ -227,7 +226,6 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 
     apt-get remove emacs
 
-
 ### 经过资源库来更新软件包
 
 最常见的软件包管理任务是保持系统中的软件包都是最新的。上层工具仅需一步就能完成
@@ -254,7 +252,6 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 例如：更新安装在 Debian 风格系统中的软件包：
 
     apt-get update; apt-get upgrade
-
 
 ### 经过软件包文件来升级软件
 
@@ -379,14 +376,14 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 
     rpm -qf /usr/bin/vim
 
-
 ### 总结归纳
 
 在随后的章节里面，我们将探讨许多不同的程序，这些程序涵盖了广泛的应用程序领域。虽然
 大多数程序一般是默认安装的，但是若所需程序没有安装在系统中，那么我们可能需要安装额外的软件包。
 通过我们新学到的（和了解的）软件包管理知识，我们应该没有问题来安装和管理所需的程序。
 
-> _Linux 软件安装谣言_
+>
+> Linux 软件安装谣言
 >
 > 从其它平台迁移过来的用户有时会成为谣言的受害者，说是在 Linux 系统中，安装软件有些
 困难，并且不同系统发行版所使用的各种各样的打包方案是一个障碍。唉，它是一个障碍，
@@ -416,8 +413,6 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 不想在计算机中使用保密的设备，所以我建议删除这令人厌恶的软件，
 把它和其它无用的项目都仍到垃圾桶里。
 
-
-
 ### 拓展阅读
 
 花些时间来了解你所用发行版中的软件包管理系统。每个发行版都提供了关于自带软件包管理工具的
@@ -425,17 +420,17 @@ Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发�
 
 * Debian GNU/Linux FAQ 关于软件包管理一章对软件包管理进行了概述：
 
-    <http://www.debian.org/doc/FAQ/ch-pkgtools.en.html>
+  <http://www.debian.org/doc/FAQ/ch-pkgtools.en.html>
 
 * RPM 工程的主页：
 
-    <http://www.rpm.org>
+  <http://www.rpm.org>
 
 * 杜克大学 YUM 工程的主页：
 
-    <http://linux.duke.edu/projects/yum/>
+  <http://linux.duke.edu/projects/yum/>
 
 * 了解一点儿背景知识，Wikipedia 上有一篇关于 metadata 的文章：
 
-    <http://en.wikipedia.org/wiki/Metadata>
+  <http://en.wikipedia.org/wiki/Metadata>
 

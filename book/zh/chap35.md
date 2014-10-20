@@ -16,13 +16,15 @@ title: 字符串和数字
 
 #### 基本参数
 
-最简单的参数展开形式反映在平常使用的变量上。例如：
+最简单的参数展开形式反映在平常使用的变量上。
 
-$a
+例如：
+
+_$a_
 
 当 $a 展开后，会变成变量 a 所包含的值。简单参数也可能用花括号引起来：
 
-${a}
+_${a}_
 
 虽然这对展开没有影响，但若该变量 a 与其它的文本相邻，可能会把 shell 搞糊涂了。在这个例子中，我们试图
 创建一个文件名，通过把字符串 “_file” 附加到变量 a 的值的后面。
@@ -38,13 +40,13 @@ ${a}
 
 我们已经知道通过把数字包裹在花括号中，可以访问大于9的位置参数。例如，访问第十一个位置参数，我们可以这样做：
 
-${11}
+_${11}_
 
 #### 管理空变量的展开
 
 几种用来处理不存在和空变量的参数展开形式。这些展开形式对于解决丢失的位置参数和给参数指定默认值的情况很方便。
 
-${parameter:-word}
+_${parameter:-word}_
 
 若 parameter 没有设置（例如，不存在）或者为空，展开结果是 word 的值。若 parameter 不为空，则展开结果是 parameter 的值。
 
@@ -59,7 +61,7 @@ ${parameter:-word}
     [me@linuxbox ~]$ echo $foo
     bar
 
-${parameter:=word}
+_${parameter:=word}_
 
 若 parameter 没有设置或为空，展开结果是 word 的值。另外，word 的值会赋值给 parameter。
 若 parameter 不为空，展开结果是 parameter 的值。
@@ -81,7 +83,7 @@ ${parameter:=word}
 
 ---
 
-${parameter:?word}
+_${parameter:?word}_
 
 若 parameter 没有设置或为空，这种展开导致脚本带有错误退出，并且 word 的内容会发送到标准错误。若 parameter 不为空，
 展开结果是 parameter 的值。
@@ -97,7 +99,7 @@ ${parameter:?word}
     [me@linuxbox ~]$ echo $?
     0
 
-${parameter:+word}
+_${parameter:+word}_
 
 若 parameter 没有设置或为空，展开结果为空。若 parameter 不为空，
 展开结果是 word 的值会替换掉 parameter 的值；然而，parameter 的值不会改变。
@@ -113,9 +115,9 @@ ${parameter:+word}
 
 shell 具有返回变量名的能力。这会用在一些相当独特的情况下。
 
-${!prefix*}
+_${!prefix*}_
 
-${!prefix@}
+_${!prefix@}_
 
 这种展开会返回以 prefix 开头的已有变量名。根据 bash 文档，这两种展开形式的执行结果相同。
 这里，我们列出了所有以 BASH 开头的环境变量名：
@@ -129,7 +131,7 @@ ${!prefix@}
 
 有大量的展开形式可用于操作字符串。其中许多展开形式尤其适用于路径名的展开。
 
-${#parameter}
+_${#parameter}_
 
 展开成由 parameter 所包含的字符串的长度。通常，parameter 是一个字符串；然而，如果 parameter 是 @ 或者是 * 的话，
 则展开结果是位置参数的个数。
@@ -138,9 +140,9 @@ ${#parameter}
     [me@linuxbox ~]$ echo "'$foo' is ${#foo} characters long."
     'This string is long.' is 20 characters long.
 
-${parameter:offset}
+_${parameter:offset}_
 
-${parameter:offset:length}
+_${parameter:offset:length}_
 
 这些展开用来从 parameter 所包含的字符串中提取一部分字符。提取的字符始于
 第 offset 个字符（从字符串开头算起）直到字符串的末尾，除非指定提取的长度。
@@ -162,9 +164,9 @@ ${parameter:offset:length}
     [me@linuxbox ~]$ echo ${foo: -5:2}
     lo
 
-${parameter#pattern}
+_${parameter#pattern}_
 
-${parameter##pattern}
+_${parameter##pattern}_
 
 这些展开会从 paramter 所包含的字符串中清除开头一部分文本，这些字符要匹配定义的 patten。pattern 是
 通配符模式，就如那些用在路径名展开中的模式。这两种形式的差异之处是该 # 形式清除最短的匹配结果，
@@ -176,9 +178,9 @@ ${parameter##pattern}
     [me@linuxbox ~]$ echo ${foo##*.}
     zip
 
-${parameter%pattern}
+_${parameter%pattern}_
 
-${parameter%%pattern}
+_${parameter%%pattern}_
 
 这些展开和上面的 # 和 ## 展开一样，除了它们清除的文本从 parameter 所包含字符串的末尾开始，而不是开头。
 
@@ -188,13 +190,13 @@ ${parameter%%pattern}
     [me@linuxbox ~]$ echo ${foo%%.*}
     file
 
-${parameter/pattern/string}
+_${parameter/pattern/string}_
 
-${parameter//pattern/string}
+_${parameter//pattern/string}_
 
-${parameter/#pattern/string}
+_${parameter/#pattern/string}_
 
-${parameter/%pattern/string}
+_${parameter/%pattern/string}_
 
 这种形式的展开对 parameter 的内容执行查找和替换操作。如果找到了匹配通配符 pattern 的文本，
 则用 string 的内容替换它。在正常形式下，只有第一个匹配项会被替换掉。在该 // 形式下，所有的匹配项都会被替换掉。
@@ -289,27 +291,27 @@ ${parameter/%pattern/string}
 有四个参数展开，可以执行大小写转换操作：
 
 <table class="multi">
-    <caption class="cap">表35-1: 大小写转换参数展开</caption>
-    <tr>
-        <th class="title">格式</th>
-        <th class="title">结果</th>
-    </tr>
-    <tr>
-        <td valign="top">${parameter,,} </td>
-        <td valign="top">把 parameter 的值全部展开成小写字母。</td>
-    </tr>
-    <tr>
-        <td valign="top">${parameter,} </td>
-        <td valign="top">仅仅把 parameter 的第一个字符展开成小写字母。</td>
-    </tr>
-    <tr>
-        <td valign="top">${parameter^^} </td>
-        <td valign="top">把 parameter 的值全部转换成大写字母。</td>
-    </tr>
-    <tr>
-        <td valign="top">${parameter^}</td>
-        <td valign="top">仅仅把 parameter 的第一个字符转换成大写字母（首字母大写）。</td>
-    </tr>
+<caption class="cap">表 35-1: 大小写转换参数展开</caption>
+<tr>
+<th class="title">格式</th>
+<th class="title">结果</th>
+</tr>
+<tr>
+<td valign="top">${parameter,,} </td>
+<td valign="top">把 parameter 的值全部展开成小写字母。</td>
+</tr>
+<tr>
+<td valign="top">${parameter,} </td>
+<td valign="top">仅仅把 parameter 的第一个字符展开成小写字母。</td>
+</tr>
+<tr>
+<td valign="top">${parameter^^} </td>
+<td valign="top">把 parameter 的值全部转换成大写字母。</td>
+</tr>
+<tr>
+<td valign="top">${parameter^}</td>
+<td valign="top">仅仅把 parameter 的第一个字符转换成大写字母（首字母大写）。</td>
+</tr>
 </table>
 
 这里是一个脚本，演示了这些展开格式：
@@ -338,7 +340,7 @@ ${parameter/%pattern/string}
 
 我们在第七章中已经接触过算术展开了。它被用来对整数执行各种算术运算。它的基本格式是：
 
-$((expression))
+    $((expression))
 
 这里的 expression 是一个有效的算术表达式。
 
@@ -351,27 +353,27 @@ $((expression))
 回到第9章，我们看过八进制（以8为底）和十六进制（以16为底）的数字。在算术表达式中，shell 支持任意进制的整形常量。
 
 <table class="multi">
-    <caption class="cap">表35-2: 指定不同的数基</caption>
-    <tr>
-        <th class="title">表示法</th>
-        <th class="title">描述</th>
-    </tr>
-    <tr>
-        <td valign="top">number</td>
-        <td valign="top">默认情况下，没有任何表示法的数字被看做是十进制数（以10为底）。</td>
-    </tr>
-    <tr>
-        <td valign="top">0number</td>
-        <td valign="top">在算术表达式中，以零开头的数字被认为是八进制数。</td>
-    </tr>
-    <tr>
-        <td valign="top">0xnumber</td>
-        <td valign="top">十六进制表示法</td>
-    </tr>
-    <tr>
-        <td valign="top">base#number</td>
-        <td valign="top">number 以 base 为底</td>
-    </tr>
+<caption class="cap">表 35-2: 指定不同的数基</caption>
+<tr>
+<th class="title">表示法</th>
+<th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top">number</td>
+<td valign="top">默认情况下，没有任何表示法的数字被看做是十进制数（以10为底）。</td>
+</tr>
+<tr>
+<td valign="top">0number</td>
+<td valign="top">在算术表达式中，以零开头的数字被认为是八进制数。</td>
+</tr>
+<tr>
+<td valign="top">0xnumber</td>
+<td valign="top">十六进制表示法</td>
+</tr>
+<tr>
+<td valign="top">base#number</td>
+<td valign="top">number 以 base 为底</td>
+</tr>
 </table>
 
 一些例子：
@@ -392,35 +394,35 @@ $((expression))
 下表中列出了普通算术运算符：
 
 <table class="multi">
-    <caption class="cap">表35-3: 算术运算符</caption>
-    <tr>
-        <th class="title">运算符</th>
-        <th class="title">描述</th>
-    </tr>
-    <tr>
-        <td valign="top">+</td>
-        <td valign="top">加</td>
-    </tr>
-    <tr>
-        <td valign="top">-</td>
-        <td valign="top">减</td>
-    </tr>
-    <tr>
-        <td valign="top">*</td>
-        <td valign="top">乘</td>
-    </tr>
-    <tr>
-        <td valign="top">/</td>
-        <td valign="top">整除</td>
-    </tr>
-    <tr>
-        <td valign="top">**</td>
-        <td valign="top">乘方</td>
-    </tr>
-    <tr>
-        <td valign="top">%</td>
-        <td valign="top">取模（余数）</td>
-    </tr>
+<caption class="cap">表 35-3: 算术运算符</caption>
+<tr>
+<th class="title">运算符</th>
+<th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top">+</td>
+<td valign="top">加</td>
+</tr>
+<tr>
+<td valign="top">-</td>
+<td valign="top">减</td>
+</tr>
+<tr>
+<td valign="top">*</td>
+<td valign="top">乘</td>
+</tr>
+<tr>
+<td valign="top">/</td>
+<td valign="top">整除</td>
+</tr>
+<tr>
+<td valign="top">**</td>
+<td valign="top">乘方</td>
+</tr>
+<tr>
+<td valign="top">%</td>
+<td valign="top">取模（余数）</td>
+</tr>
 </table>
 
 其中大部分运算符是不言自明的，但是整除和取模运算符需要进一步解释一下。
@@ -483,51 +485,51 @@ $((expression))
 除了 = 运算符，shell 也提供了其它一些表示法，来执行一些非常有用的赋值运算：
 
 <table class="multi">
-    <caption class="cap">表35-4: 赋值运算符</caption>
-    <tr>
-        <th class="title" width="25%">表示法</th>
-        <th class="title">描述</th>
-    </tr>
-    <tr>
-        <td valign="top">parameter = value</td>
-        <td valign="top">简单赋值。给 parameter 赋值。</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter += value</td>
-        <td valign="top">加。等价于 parameter = parameter + value。</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter -= value</td>
-        <td valign="top">减。等价于 parameter = parameter – value。</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter *= value</td>
-        <td valign="top">乘。等价于 parameter = parameter * value。</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter /= value</td>
-        <td valign="top">整除。等价于 parameter = parameter / value。</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter %= value</td>
-        <td valign="top"> 取模。等价于 parameter = parameter % value。</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter++ </td>
-        <td valign="top">后缀自增变量。等价于 parameter = parameter + 1 (但，要看下面的讨论)。</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter-- </td>
-        <td valign="top">后缀自减变量。等价于 parameter = parameter - 1。</td>
-    </tr>
-    <tr>
-        <td valign="top">++parameter</td>
-        <td valign="top">前缀自增变量。等价于 parameter = parameter + 1。</td>
-    </tr>
-    <tr>
-        <td valign="top">--parameter</td>
-        <td valign="top">前缀自减变量。等价于 parameter = parameter - 1。</td>
-    </tr>
+<caption class="cap">表35-4: 赋值运算符</caption>
+<tr>
+<th class="title" width="25%">表示法</th>
+<th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top">parameter = value</td>
+<td valign="top">简单赋值。给 parameter 赋值。</td>
+</tr>
+<tr>
+<td valign="top">parameter += value</td>
+<td valign="top">加。等价于 parameter = parameter + value。</td>
+</tr>
+<tr>
+<td valign="top">parameter -= value</td>
+<td valign="top">减。等价于 parameter = parameter – value。</td>
+</tr>
+<tr>
+<td valign="top">parameter *= value</td>
+<td valign="top">乘。等价于 parameter = parameter * value。</td>
+</tr>
+<tr>
+<td valign="top">parameter /= value</td>
+<td valign="top">整除。等价于 parameter = parameter / value。</td>
+</tr>
+<tr>
+<td valign="top">parameter %= value</td>
+<td valign="top"> 取模。等价于 parameter = parameter % value。</td>
+</tr>
+<tr>
+<td valign="top">parameter++ </td>
+<td valign="top">后缀自增变量。等价于 parameter = parameter + 1 (但，要看下面的讨论)。</td>
+</tr>
+<tr>
+<td valign="top">parameter-\- </td>
+<td valign="top">后缀自减变量。等价于 parameter = parameter - 1。</td>
+</tr>
+<tr>
+<td valign="top">++parameter</td>
+<td valign="top">前缀自增变量。等价于 parameter = parameter + 1。</td>
+</tr>
+<tr>
+<td valign="top">--parameter</td>
+<td valign="top">前缀自减变量。等价于 parameter = parameter - 1。</td>
+</tr>
 </table>
 
 这些赋值运算符为许多常见算术任务提供了快捷方式。特别关注一下自增（++）和自减（-\-）运算符，它们会把它们的参数值加1或减1。
@@ -574,35 +576,35 @@ $((expression))
 经常涉及到设置或读取位标志。
 
 <table class="multi">
-    <caption class="cap">表35-5: 位运算符</caption>
-    <tr>
-        <th class="title">运算符</th>
-        <th class="title">描述</th>
-    </tr>
-    <tr>
-        <td valign="top">~</td>
-        <td valign="top">按位取反。对一个数字所有位取反。</td>
-    </tr>
-    <tr>
-        <td valign="top"><<</td>
-        <td valign="top">位左移. 把一个数字的所有位向左移动。</td>
-    </tr>
-    <tr>
-        <td valign="top">>></td>
-        <td valign="top">位右移. 把一个数字的所有位向右移动。</td>
-    </tr>
-    <tr>
-        <td valign="top">&</td>
-        <td valign="top">位与。对两个数字的所有位执行一个 AND 操作。</td>
-    </tr>
-    <tr>
-        <td valign="top">|</td>
-        <td valign="top">位或。对两个数字的所有位执行一个 OR 操作。</td>
-    </tr>
-    <tr>
-        <td valign="top">^</td>
-        <td valign="top">位异或。对两个数字的所有位执行一个异或操作。</td>
-    </tr>
+<caption class="cap">表35-5: 位运算符</caption>
+<tr>
+<th class="title">运算符</th>
+<th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top">~</td>
+<td valign="top">按位取反。对一个数字所有位取反。</td>
+</tr>
+<tr>
+<td valign="top"><<</td>
+<td valign="top">位左移. 把一个数字的所有位向左移动。</td>
+</tr>
+<tr>
+<td valign="top">>></td>
+<td valign="top">位右移. 把一个数字的所有位向右移动。</td>
+</tr>
+<tr>
+<td valign="top">&</td>
+<td valign="top">位与。对两个数字的所有位执行一个 AND 操作。</td>
+</tr>
+<tr>
+<td valign="top">|</td>
+<td valign="top">位或。对两个数字的所有位执行一个 OR 操作。</td>
+</tr>
+<tr>
+<td valign="top">^</td>
+<td valign="top">位异或。对两个数字的所有位执行一个异或操作。</td>
+</tr>
 </table>
 
 注意除了按位取反运算符之外，其它所有位运算符都有相对应的赋值运算符（例如，<\<=）。
@@ -625,53 +627,52 @@ $((expression))
 这里是比较运算符的完整列表：
 
 <table class="multi">
-    <caption class="cap">表35-6: 比较运算符</caption>
-    <tr>
-        <th class="title">运算符</th>
-        <th class="title">描述</th>
-    </tr>
-    <tr>
-        <td valign="top"><=</td>
-        <td valign="top">小于或相等</td>
-    </tr>
-    <tr>
-        <td valign="top">>=</td>
-        <td valign="top">大于或相等</td>
-    </tr>
-    <tr>
-        <td valign="top"><</td>
-        <td valign="top">小于</td>
-    </tr>
-    <tr>
-        <td valign="top">></td>
-        <td valign="top">大于</td>
-    </tr>
-    <tr>
-        <td valign="top">==</td>
-        <td valign="top">相等</td>
-    </tr>
-    <tr>
-        <td valign="top">!=</td>
-        <td valign="top">不相等</td>
-    </tr>
-    <tr>
-        <td valign="top">&&</td>
-        <td valign="top">逻辑与</td>
-    </tr>
-    <tr>
-        <td valign="top">||</td>
-        <td valign="top">逻辑或</td>
-    </tr>
-     <tr>
-        <td valign="top">expr1?expr2:expr3</td>
-        <td valign="top">条件（三元）运算符。若表达式 expr1 的计算结果为非零值（算术真），则
-            执行表达式 expr2，否则执行表达式 expr3。</td>
-    </tr>
+<caption class="cap">表35-6: 比较运算符</caption>
+<tr>
+<th class="title">运算符</th>
+<th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top"><=</td>
+<td valign="top">小于或相等</td>
+</tr>
+<tr>
+<td valign="top">>=</td>
+<td valign="top">大于或相等</td>
+</tr>
+<tr>
+<td valign="top"><</td>
+<td valign="top">小于</td>
+</tr>
+<tr>
+<td valign="top">></td>
+<td valign="top">大于</td>
+</tr>
+<tr>
+<td valign="top">==</td>
+<td valign="top">相等</td>
+</tr>
+<tr>
+<td valign="top">!=</td>
+<td valign="top">不相等</td>
+</tr>
+<tr>
+<td valign="top">&&</td>
+<td valign="top">逻辑与</td>
+</tr>
+<tr>
+<td valign="top">||</td>
+<td valign="top">逻辑或</td>
+</tr>
+<tr>
+<td valign="top">expr1?expr2:expr3</td>
+<td valign="top">条件（三元）运算符。若表达式 expr1 的计算结果为非零值（算术真），则
+执行表达式 expr2，否则执行表达式 expr3。</td>
+</tr>
 </table>
 
 当表达式用于逻辑运算时，表达式遵循算术逻辑规则；也就是，表达式的计算结果是零，则认为假，而非零表达式认为真。
 该 (( )) 复合命令把结果映射成 shell 正常的退出码：
-
 
     [me@linuxbox ~]$ if ((1)); then echo "true"; else echo "false"; fi
     true
@@ -739,7 +740,7 @@ $((expression))
     9    81       729
     10   100      1000
 
-### bc — 一种高精度计算器语言
+### bc - 一种高精度计算器语言
 
 我们已经看到 shell 是可以处理所有类型的整形算术的，但是如果我们需要执行更高级的数学运算或仅使用浮点数，该怎么办？
 答案是，我们不能这样做。至少不能直接用 shell 完成此类运算。为此，我们需要使用外部程序。
@@ -793,7 +794,6 @@ bc 也能够交互使用：
 
 作为一个真实世界的例子，我们将构建一个脚本，用于计算每月的还贷金额。在下面的脚本中，
 我们使用了 here 文档把一个脚本传递给 bc：
-
 
     #!/bin/bash
     # loan-calc : script to calculate monthly loan payments
@@ -872,3 +872,4 @@ bc 也能够交互使用：
 * 还有一个对计算还贷金额公式的描述，我们的 loan-calc 脚本中用到了这个公式：
 
     <http://en.wikipedia.org/wiki/Amortization_calculator>
+

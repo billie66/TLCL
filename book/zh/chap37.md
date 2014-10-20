@@ -15,11 +15,11 @@ bash 允许把命令组合在一起。可以通过两种方式完成；要么用
 
 组命令：
 
-{ command1; command2; [command3; ...] }
+    { command1; command2; [command3; ...] }
 
 子 shell：
 
-(command1; command2; [command3;...])
+    (command1; command2; [command3;...])
 
 这两种形式的不同之处在于，组命令用花括号把它的命令包裹起来，而子 shell 用括号。值得注意的是，鉴于 bash 实现组命令的方式，
 花括号与命令之间必须有一个空格，并且最后一个命令必须用一个分号或者一个换行符终止。
@@ -61,8 +61,6 @@ bash 允许把命令组合在一起。可以通过两种方式完成；要么用
     /usr/bin/acpi_fakekey             root        root
     /usr/bin/acpi_listen              root        root
     /usr/bin/add-apt-repository       root        root
-    .
-    .
     .
     /usr/bin/zipgrep                  root        root
     /usr/bin/zipinfo                  root        root
@@ -204,13 +202,13 @@ owners 包含了属于索引的所有者的文件数目
     # pro-sub : demo of process substitution
     while read attr links owner group size date time filename; do
         cat <<- EOF
-            Filename:      $filename
-            Size:          $size
-            Owner:         $owner
-            Group:         $group
-            Modified:      $date $time
-            Links:         $links
-            Attributes:    $attr
+            Filename:     $filename
+            Size:         $size
+            Owner:        $owner
+            Group:        $group
+            Modified:     $date $time
+            Links:        $links
+            Attributes:   $attr
         EOF
     done < <(ls -l | tail -n +2)
 
@@ -255,7 +253,7 @@ owners 包含了属于索引的所有者的文件数目
 为满足这样需求，bash 提供了一种机制，众所周知的 trap。陷阱由被恰当命令的内部命令 trap 实现。
 trap 使用如下语法：
 
-trap argument signal [signal...]
+    trap argument signal [signal...]
 
 这里的 argument 是一个字符串，它被读取并被当作一个命令，signal 是一个信号的说明，它会触发执行所要解释的命令。
 
@@ -303,7 +301,6 @@ trap argument signal [signal...]
         sleep 5
     done
 
-
 这个脚本的特色是有两个 trap 命令，每个命令对应一个信号。每个 trap，依次，当接受到相应的特殊信号时，
 会执行指定的 shell 函数。注意每个信号处理函数中都包含了一个 exit 命令。没有 exit 命令，
 信号处理函数执行完后，该脚本将会继续执行。
@@ -315,6 +312,7 @@ trap argument signal [signal...]
     Iteration 2 of 5
     Script interrupted.
 
+>
 > _临时文件_
 >
 > 把信号处理程序包含在脚本中的一个原因是删除临时文件，在脚本执行期间，脚本可能会创建临时文件来存放中间结果。
@@ -324,7 +322,7 @@ trap argument signal [signal...]
 给临时文件一个不可预测的文件名是很重要的。这就避免了一种为大众所知的 temp race 攻击。
 一种创建一个不可预测的（但是仍有意义的）临时文件名的方法是，做一些像这样的事情：
 >
-> tempfile=/tmp/$(basename $0).$$.$RANDOM
+>  _tempfile=/tmp/$(basename $0).$$.$RANDOM_
 >
 > 这将创建一个由程序名字，程序进程的 ID（PID）文件名，和一个随机整数组成。注意，然而，该 $RANDOM shell 变量
 只能返回一个范围在1-32767内的整数值，这在计算机术语中不是一个很大的范围，所以一个单一的该变量实例是不足以克服一个坚定的攻击者的。
@@ -334,19 +332,17 @@ trap argument signal [signal...]
 随后这些字符会被相应数量的随机字母和数字替换掉。一连串的 “X” 字符越长，则一连串的随机字符也就越长。
 这里是一个例子：
 >
-> tempfile=$(mktemp /tmp/foobar.$$.XXXXXXXXXX)
+>  _tempfile=$(mktemp /tmp/foobar.$$.XXXXXXXXXX)_
 >
 > 这里创建了一个临时文件，并把临时文件的名字赋值给变量 tempfile。因为模板中的 “X” 字符会被随机字母和
 数字代替，所以最终的文件名（在这个例子中，文件名也包含了特殊参数 $$ 的展开值，进程的 PID）可能像这样：
 >
-> /tmp/foobar.6593.UOZuvM6654
+>  _/tmp/foobar.6593.UOZuvM6654_
 >
 > 对于那些由普通用户操作执行的脚本，避免使用 /tmp 目录，而是在用户主目录下为临时文件创建一个目录，
 通过像这样的一行代码：
 >
-> [[ -d $HOME/tmp ]] \|\| mkdir $HOME/tmp
- 
-
+>  _[[ -d $HOME/tmp ]] \|\| mkdir $HOME/tmp_
 
 ### 异步执行
 

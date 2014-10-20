@@ -10,13 +10,13 @@ title: shell 环境
 
 在这一章，我们将用到以下命令：
 
-* printenv – 打印部分或所有的环境变量
+* set - 设置 shell 选项
 
-* set – 设置 shell 选项
+* printenv - 打印部分或所有的环境变量
 
 * export — 导出环境变量，让随后执行的程序知道。
 
-* alias – 创建命令别名
+* alias - 创建命令别名
 
 ### 什么存储在环境变量中？
 
@@ -82,7 +82,6 @@ shell 环境中包含相当多的变量，虽然你的 shell 环境可能不同�
     LS_COLORS=no=00:fi=00:di=00;34:ln=00;36:pi=40;33:so=00;35:bd=40;33;01
     :cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:ex=00;32:\*.cmd=00;32:\*.exe:
 
-
 我们所看到的是环境变量及其数值的列表。例如，我们看到一个叫做 USER 的变量，这个变量值是
 "me"。printenv 命令也能够列出特定变量的数值：
 
@@ -99,7 +98,6 @@ shell 函数。不同于 printenv 命令，set 命令的输出结果很礼貌地
     [me@linuxbox ~]$ echo $HOME
     /home/me
 
-
 如果 shell 环境中的一个成员既不可用 set 命令也不可用 printenv 命令显示，则这个变量是别名。
 输入不带参数的 alias 命令来查看它们:
 
@@ -109,7 +107,6 @@ shell 函数。不同于 printenv 命令，set 命令的输出结果很礼貌地
     alias ls='ls --color=tty'
     alias vi='vim'
     alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
-
 
 ### 一些有趣的变量
 
@@ -266,7 +263,6 @@ valign="top">如果文件 ~/.bash_profile 或文件 ~/.bash_login 都没有找�
     PATH=$PATH:$HOME/bin
     export PATH
 
-
 以"#"开头的行是注释，shell 不会读取它们。它们在那里是为了方便人们阅读。第一件有趣的事情
 发生在第四行，伴随着以下代码：
 
@@ -394,7 +390,6 @@ vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stal
     alias l.='ls -d .* --color=auto'
     alias ll='ls -l --color=auto'
 
-
 注意：你的发行版可能已经包含其中的一些行，但是复制没有任何伤害。
 
 下表是所添加行的意义：
@@ -430,7 +425,6 @@ valign="top">创建一个新命令，叫做'l.'，这个命令会显示所有以
 </tr>
 </table>
 
-
 正如我们所看到的，我们的许多附加物意思直觉上并不是明显的，所以添加注释到我们的文件 .bashrc 中是
 一个好主意，可以帮助人们理解。使用编辑器，更改我们的附加物，让它们看起来像这样：
 
@@ -444,9 +438,9 @@ valign="top">创建一个新命令，叫做'l.'，这个命令会显示所有以
     alias l.='ls -d .* --color=auto'
     alias ll='ls -l --color=auto'
 
-
 啊，看起来好多了! 当我们完成修改后，输入 Ctrl-o 来保存我们修改的 .bashrc 文件，输入 Ctrl-x 退出 nano。
 
+>
 > _为什么注释很重要？_
 >
 > 不管什么时候你修改配置文件时，给你所做的更改加上注释都是一个好主意。的确，明天你会
@@ -468,7 +462,6 @@ valign="top">创建一个新命令，叫做'l.'，这个命令会显示所有以
 > 最后三行是有效的被注释掉的别名定义。如果你删除这三行开头的 "#" 符号，此技术程称为
 uncommenting (不注释)，这样你就会激活这些别名。相反地，如果你在一行的开头加上 "#" 符号，
 你可以注销掉这一行，但会保留它所包含的信息。
-
 
 ### 激活我们的修改
 
@@ -492,4 +485,3 @@ uncommenting (不注释)，这样你就会激活这些别名。相反地，如�
 ### 拓展阅读
 
 bash 手册页的 INVOCATION 部分非常详细地讨论了 bash 启动文件。
-

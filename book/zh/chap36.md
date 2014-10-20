@@ -184,9 +184,9 @@ bash 仅仅报告数组中有一个元素。这不同于一些其它语言的行
 因为 bash 允许赋值的数组下标包含 “间隔”，有时候确定哪个元素真正存在是很有用的。为做到这一点，
 可以使用以下形式的参数展开：
 
-${!array[*]}
+_${!array[*]}_
 
-${!array[@]}
+_${!array[@]}_
 
 这里的 array 是一个数组变量的名字。和其它使用符号 * 和 @ 的展开一样，用引号引起来的 @ 格式是最有用的，
 因为它能展开成分离的词。
@@ -301,7 +301,7 @@ ${!array[@]}
 
 数组和循环有一种天然的姻亲关系，它们经常被一起使用。该
 
-for ((expr; expr; expr))
+    for ((expr; expr; expr))
 
 形式的循环尤其适合计算数组下标。
 
@@ -312,3 +312,4 @@ for ((expr; expr; expr))
     <http://en.wikipedia.org/wiki/Scalar_(computing)>
 
     <http://en.wikipedia.org/wiki/Associative_array>
+

@@ -61,7 +61,7 @@ title: 归档和备份
 
 在这个例子里，我们创建了一个名为 foo.txt 的文本文件，其内容包含一个目录的列表清单。
 接下来，我们运行 gzip 命令，它会把原始文件替换为一个叫做 foo.txt.gz 的压缩文件。在
-foo.*文件列表中，我们看到原始文件已经被压缩文件替代了，并将这个压缩文件大约是原始
+foo.\* 文件列表中，我们看到原始文件已经被压缩文件替代了，并将这个压缩文件大约是原始
 文件的十五分之一。我们也能看到压缩文件与原始文件有着相同的权限和时间戳。
 
 接下来，我们运行 gunzip 程序来解压缩文件。随后，我们能见到压缩文件已经被原始文件替代了，
@@ -129,7 +129,6 @@ valign="top">解压缩。正如 gunzip 命令一样。也可以用--decompress �
 
 这个命令创建了一个目录列表的压缩文件。
 
-
 这个 gunzip 程序，会解压缩 gzip 文件，假定那些文件名的扩展名是.gz，所以没有必要指定它，
 只要指定的名字与现有的未压缩文件不冲突就可以：
 
@@ -143,7 +142,6 @@ valign="top">解压缩。正如 gunzip 命令一样。也可以用--decompress �
 它可以被用来如 cat 命令作用于 gzip 压缩文件：
 
     [me@linuxbox ~]$ zcat foo.txt.gz | less
-
 
 ---
 
@@ -168,21 +166,19 @@ _小贴士:_ 还有一个 zless 程序。它与上面的管道线有相同的功
 正如我们所看到的，bzip2 程序使用起来和 gzip 程序一样。我们之前讨论的 gzip 程序的所有选项（除了-r）
 ，bzip2 程序同样也支持。注意，然而，压缩级别选项（-number）对于 bzip2 程序来说，有少许不同的含义。
 伴随着 bzip2 程序，有 bunzip2 和 bzcat 程序来解压缩文件。bzip2 文件也带有 bzip2recover 程序，其会
-试图恢复受损的.bz2 文件。
+试图恢复受损的 .bz2 文件。
 
-
+>
 > 不要强迫性压缩
 >
 > 我偶然见到人们试图用高效的压缩算法，来压缩一个已经被压缩过的文件，通过这样做：
 >
-> _$ gzip picture.jpg_
+>  _$ gzip picture.jpg_
 >
 > 不要这样。你可能只是在浪费时间和空间！如果你再次压缩已经压缩过的文件，实际上你
 会得到一个更大的文件。这是因为所有的压缩技术都会涉及一些开销，文件中会被添加描述
 此次压缩过程的信息。如果你试图压缩一个已经不包含多余信息的文件，那么再次压缩不会节省
 空间，以抵消额外的花费。
-
-
 
 ### 归档文件
 
@@ -194,9 +190,11 @@ _小贴士:_ 还有一个 zless 程序。它与上面的管道线有相同的功
 
 在类似于 Unix 的软件世界中，这个 tar 程序是用来归档文件的经典工具。它的名字，是 tape
 archive 的简称，揭示了它的根源，它是一款制作磁带备份的工具。而它仍然被用来完成传统任务，
-它也同样适用于其它的存储设备。我们经常看到扩展名为.tar 或者.tgz 的文件，它们各自表示“普通”
+它也同样适用于其它的存储设备。我们经常看到扩展名为 .tar 或者 .tgz 的文件，它们各自表示“普通”
 的 tar 包和被 gzip 程序压缩过的 tar 包。一个 tar 包可以由一组独立的文件，一个或者多个目录，或者
 两者混合体组成。命令语法如下：
+
+    tar mode[options] pathname...
 
 这里的 mode 是指以下操作模式（这里只展示了一部分，查看 tar 的手册来得到完整列表）之一：
 
@@ -234,7 +232,6 @@ tar 命令使用了稍微有点奇怪的方式来表达它的选项，所以我�
 
     [me@linuxbox ~]$ tar cf playground.tar playground
 
-
 这个命令创建了一个名为 playground.tar 的 tar 包，其包含整个 playground 目录层次结果。我们
 可以看到模式 c 和选项 f，其被用来指定这个 tar 包的名字，模式和选项可以写在一起，而且不
 需要开头的短横线。注意，然而，必须首先指定模式，然后才是其它的选项。
@@ -256,7 +253,7 @@ tar 命令使用了稍微有点奇怪的方式来表达它的选项，所以我�
     [me@linuxbox ~]$ ls
     playground
 
-如果我们检查~/foo/playground 目录中的内容，会看到这个归档文件已经被成功地安装了，就是创建了
+如果我们检查 ~/foo/playground 目录中的内容，会看到这个归档文件已经被成功地安装了，就是创建了
 一个精确的原始文件的副本。有一个警告，然而：除非你是超级用户，要不然从归档文件中抽取的文件
 和目录的所有权由执行此复原操作的用户所拥有，而不属于原始所有者。
 
@@ -267,7 +264,7 @@ tar 命令另一个有趣的行为是它处理归档文件路径名的方式。�
     [me@linuxbox foo]$ cd
     [me@linuxbox ~]$ tar cf playground2.tar ~/playground
 
-记住，当按下回车键后，~/playground 会展开成/home/me/playground，所以我们将会得到一个
+记住，当按下回车键后，~/playground 会展开成 /home/me/playground，所以我们将会得到一个
 绝对路径名。接下来，和之前一样我们会抽取归档文件，观察发生什么事情：
 
     [me@linuxbox ~]$ cd foo
@@ -287,14 +284,13 @@ tar 命令另一个有趣的行为是它处理归档文件路径名的方式。�
 
 让我们考虑一个假设，tar 命令的实际应用。假定我们想要复制主目录及其内容到另一个系统中，
 并且有一个大容量的 USB 硬盘，可以把它作为传输工具。在现代 Linux 系统中，
-这个硬盘会被“自动地”挂载到/media 目录下。我们也假定硬盘中有一个名为 BigDisk 的逻辑卷。
+这个硬盘会被“自动地”挂载到 /media 目录下。我们也假定硬盘中有一个名为 BigDisk 的逻辑卷。
 为了制作 tar 包，我们可以这样做：
 
     [me@linuxbox ~]$ sudo tar cf /media/BigDisk/home.tar /home
 
-
 tar 包制作完成之后，我们卸载硬盘，然后把它连接到第二个计算机上。再一次，此硬盘被
-挂载到/media/BigDisk 目录下。为了抽取归档文件，我们这样做：
+挂载到 /media/BigDisk 目录下。为了抽取归档文件，我们这样做：
 
     [me@linuxbox2 ~]$ cd /
     [me@linuxbox2 /]$ sudo tar xf /media/BigDisk/home.tar
@@ -309,14 +305,13 @@ tar 包制作完成之后，我们卸载硬盘，然后把它连接到第二个�
 
 通过给命令添加末尾的路径名，tar 命令就只会恢复指定的文件。可以指定多个路径名。注意
 路径名必须是完全的，精准的相对路径名，就如存储在归档文件中的一样。当指定路径名的时候，
-通常不支持通配符；然而，GNU 版本的 tar 命令（在 Linux 发行版中最常出现）通过-\-wildcards 选项来
+通常不支持通配符；然而，GNU 版本的 tar 命令（在 Linux 发行版中最常出现）通过 -\-wildcards 选项来
 支持通配符。这个例子使用了之前 playground.tar 文件：
 
     [me@linuxbox ~]$ cd foo
-    [me@linuxbox foo]$ tar xf ../playground2.tar --wildcards 'home/me/playground/dir-*/file-A'
+    [me@linuxbox foo]$ tar xf ../playground2.tar --wildcards 'home/me/playground/dir-\*/file-A'
 
-
-这个命令将只会抽取匹配特定路径名的文件，路径名中包含了通配符 dir-*。
+这个命令将只会抽取匹配特定路径名的文件，路径名中包含了通配符 dir-\*。
 
 tar 命令经常结合 find 命令一起来制作归档文件。在这个例子里，我们将会使用 find 命令来
 产生一个文件集合，然后这些文件被包含到归档文件中。
@@ -338,24 +333,23 @@ tar 命令也可以利用标准输出和输入。这里是一个完整的例子:
 
 在这个例子里面，我们使用 find 程序产生了一个匹配文件列表，然后把它们管道到 tar 命令中。
 如果指定了文件名“-”，则其被看作是标准输入或输出，正是所需（顺便说一下，使用“-”来表示
-标准输入／输出的惯例，也被大量的其它程序使用）。这个-\-file-from 选项（也可以用-T 来指定）
+标准输入／输出的惯例，也被大量的其它程序使用）。这个 -\-file-from 选项（也可以用 -T 来指定）
 导致 tar 命令从一个文件而不是命令行来读入它的路径名列表。最后，这个由 tar 命令产生的归档
-文件被管道到 gzip 命令中，然后创建了压缩归档文件 playground.tgz。此.tgz 扩展名是命名
-由 gzip 压缩的 tar 文件的常规扩展名。有时候也会使用.tar.gz 这个扩展名。
+文件被管道到 gzip 命令中，然后创建了压缩归档文件 playground.tgz。此 .tgz 扩展名是命名
+由 gzip 压缩的 tar 文件的常规扩展名。有时候也会使用 .tar.gz 这个扩展名。
 
 虽然我们使用 gzip 程序来制作我们的压缩归档文件，但是现在的 GUN 版本的 tar 命令
-，gzip 和 bzip2压缩两者都直接支持，各自使用 z 和 j 选项。以我们之前的例子为基础，
+，gzip 和 bzip2 压缩两者都直接支持，各自使用 z 和 j 选项。以我们之前的例子为基础，
 我们可以这样简化它：
 
     [me@linuxbox ~]$ find playground -name 'file-A' | tar czf playground.tgz -T -
 
-如果我们本要创建一个由 bzip2压缩的归档文件，我们可以这样做：
+如果我们本要创建一个由 bzip2 压缩的归档文件，我们可以这样做：
 
     [me@linuxbox ~]$ find playground -name 'file-A' | tar cjf playground.tbz -T -
 
-
-通过简单地修改压缩选项，把 z 改为 j（并且把输出文件的扩展名改为.tbz，来指示一个 bzip2压缩文件），
-就使 bzip2命令压缩生效了。另一个 tar 命令与标准输入和输出的有趣使用，涉及到在系统之间经过
+通过简单地修改压缩选项，把 z 改为 j（并且把输出文件的扩展名改为 .tbz，来指示一个 bzip2 压缩文件），
+就使 bzip2 命令压缩生效了。另一个 tar 命令与标准输入和输出的有趣使用，涉及到在系统之间经过
 网络传输文件。假定我们有两台机器，每台都运行着类似于 Unix，且装备着 tar 和 ssh 工具的操作系统。
 在这种情景下，我们可以把一个目录从远端系统（名为 remote-sys）传输到我们的本地系统中：
 
@@ -468,6 +462,8 @@ zip 命令也支持把它的输出写入到标准输出，但是它的使用是�
 
 rsync 被这样唤醒：
 
+    rsync options source destination
+
 这里 source 和 destination 是下列选项之一：
 
 * 一个本地文件或目录
@@ -501,7 +497,6 @@ rsync 被这样唤醒：
     total size is 3230 speedup is 0.14
     45310.00 bytes/sec
 
-
 注意到没有文件列表。这是因为 rsync 程序检测到在目录~/playground 和 ~/foo/playground 之间
 不存在差异，因此它不需要复制任何数据。如果我们在 playground 目录中修改一个文件，然后
 再次运行 rsync 命令：
@@ -522,11 +517,11 @@ rsync 被这样唤醒：
     [me@linuxbox ~]$ mkdir /media/BigDisk/backup
     [me@linuxbox ~]$ sudo rsync -av --delete /etc /home /usr/local /media/BigDisk/backup
 
-在这个例子里，我们把 /etc，/home，和 /usr/local 目录从我们的系统中复制到假想的存储设备中。
-我们包含了-\-delete 这个选项，来删除可能在备份设备中已经存在但却不再存在于源设备中的文件，
+在这个例子里，我们把/etc，/home，和/usr/local 目录从我们的系统中复制到假想的存储设备中。
+我们包含了--delete 这个选项，来删除可能在备份设备中已经存在但却不再存在于源设备中的文件，
 （这与我们第一次创建备份无关，但是会在随后的复制操作中有用途）。挂载外部驱动器，运行
 rsync 命令，不断重复这个过程，是一个不错的（虽然不理想）方式来保存少量的系统备份文件。
-当然，别名会对这个操作更有帮助些。我们将会创建一个别名，并把它添加到 .bashrc 文件中，
+当然，别名会对这个操作更有帮助些。我们将会创建一个别名，并把它添加到.bashrc 文件中，
 来提供这个特性：
 
     alias backup='sudo rsync -av --delete /etc /home /usr/local /media/BigDisk/backup'
@@ -559,7 +554,6 @@ Hat 软件中心为它的 Fedora 发行版，维护着一个巨大的正在开�
     [me@linuxbox ~]$ rsync -av -delete rsync://rsync.gtlib.gatech.edu/fedora-linux-
      core/development/i386/os fedora-devel
 
-
 在这个例子里，我们使用了远端 rsync 服务器的 URI，其由协议（rsync://），远端主机名
 （rsync.gtlib.gatech.edu），和软件仓库的路径名组成。
 
@@ -569,3 +563,4 @@ Hat 软件中心为它的 Fedora 发行版，维护着一个巨大的正在开�
 GNU 版本的 tar 命令有一个不错的在线文档。可以在下面链接处找到：
 
     <http://www.gnu.org/software/tar/manual/index.html>
+

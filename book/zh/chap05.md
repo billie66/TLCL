@@ -141,7 +141,8 @@ title: 操作文件和目录
 
 接受文件名作为参数的任何命令，都可以使用通配符，我们会在第八章更深入的谈到这个知识点。
 
-> _字符范围_
+>
+> 字符范围
 >
 > 如果你用过别的类似 Unix 系统的操作环境，或者是读过这方面的书籍，你可能遇到过[A-Z]或
 [a-z]形式的字符范围表示法。这些都是传统的 Unix 表示法，并且在早期的 Linux 版本中仍有效。
@@ -153,15 +154,14 @@ title: 操作文件和目录
 > 通配符非常重要，不仅因为它们经常用在命令行中，而且一些图形文件管理器也支持它们。
 >
 > * 在 Nautilus (GNOME 文件管理器）中，可以通过 Edit/Select 模式菜单项来选择文件。
-输入一个用通配符表示的文件选择模式后，那么当前所浏览的目录中，所匹配的文件名
-就会高亮显示。
+输入一个用通配符表示的文件选择模式后，那么当前所浏览的目录中，所匹配的文件名就会高亮显示。
 >
-> * 在 Dolphin 和 Konqueror（KDE 文件管理器）中，可以在地址栏中直接输入通配符。例如，如果你
-想查看目录 /usr/bin 中，所有以小写字母 "u" 开头的文件，在地址栏中敲入 "/usr/bin/u*"，则
-文件管理器会显示匹配的结果。
+> * 在 Dolphin 和 Konqueror（KDE 文件管理器）中，可以在地址栏中直接输入通配符。例如，
+如果你想查看目录 /usr/bin 中，所有以小写字母 'u' 开头的文件，
+在地址栏中敲入 '/usr/bin/u*'，则 文件管理器会显示匹配的结果。
 >
 > 最初源于命令行界面中的想法，在图形界面中也适用。这就是使 Linux 桌面系统
-如此强大的众多原因中的一个。
+如此强大的众多原因中的一个
 
 ### mkdir - 创建目录
 
@@ -180,7 +180,7 @@ __注意表示法:__ 在描述一个命令时（如上所示），当有三个�
 
 会创建三个目录，名为 dir1, dir2, dir3。
 
-### cp — 复制文件和目录
+### cp - 复制文件和目录
 
 cp 命令，复制文件或者目录。它有两种使用方法：
 
@@ -236,8 +236,8 @@ cp 命令会默认重写文件。</td>
 </tr>
 <tr>
 <td valign="top" width="25%">cp file1 file2</td>
-<td valign="top">复制文件 file1 内容到文件 file2。如果 file2 已经存在，file2 的内容会被 file1 的
-内容重写。如果 file2 不存在，则会创建 file2。</td>
+<td valign="top">复制文件 file1 内容到文件 file2。如果 file2 已经存在，
+file2 的内容会被 file1 的内容重写。如果 file2 不存在，则会创建 file2。</td>
 </tr>
 <tr>
 <td valign="top">cp -i file1 file2 </td>
@@ -256,13 +256,13 @@ dir2 必须已经存在。</td>
 </tr>
 <tr>
 <td valign="top">cp -r dir1 dir2 </td>
-<td valign="top">复制目录 dir1中的内容到目录 dir2。如果目录 dir2 不存在，
+<td valign="top">复制目录 dir1 中的内容到目录 dir2。如果目录 dir2 不存在，
 创建目录 dir2，操作完成后，目录 dir2 中的内容和 dir1 中的一样。
-如果目录 dir2 存在，则目录 dir1(和目录中的内容)将会被复制到 dir2 中。</td>
+如果目录 dir2 存在，则目录 dir1 (和目录中的内容)将会被复制到 dir2 中。</td>
 </tr>
 </table>
 
-### mv — 移动和重命名文件
+### mv - 移动和重命名文件
 
 mv 命令可以执行文件移动和文件命名任务，这依赖于你怎样使用它。任何一种
 情况下，完成操作之后，原来的文件名不再存在。mv 使用方法与 cp 很相像：
@@ -315,13 +315,12 @@ mv 与 cp 共享了很多一样的选项：
 </tr>
 <tr>
 <td valign="top">mv file1 file2 dir1</td>
-<td valign="top">移动 file1 和 file2 到目录 dir1中。dir1 必须已经存在。</td>
+<td valign="top">移动 file1 和 file2 到目录 dir1 中。dir1 必须已经存在。</td>
 </tr>
 <tr>
 <td valign="top">mv dir1 dir2</td>
-<td valign="top">如果目录 dir2 不存在，创建目录 dir2，
-并且移动目录 dir1 的内容到目录 dir2 中，同时删除目录 dir1。
-如果目录 dir2 存在，移动目录 dir1（及它的内容）到目录 dir2。</td>
+<td valign="top">如果目录 dir2 不存在，创建目录 dir2，并且移动目录 dir1 的内容到
+目录 dir2 中，同时删除目录 dir1。如果目录 dir2 存在，移动目录 dir1（及它的内容）到目录 dir2。</td>
 </tr>
 </table>
 
@@ -345,7 +344,10 @@ rm 命令用来移除（删除）文件和目录：
 </tr>
 <tr>
 <td valign="top" width="25%">-i, --interactive </td>
-<td valign="top">在删除已存在的文件前，提示用户确认信息。<b>如果不指定这个选项，rm 会默默地删除文件</b></td>
+<td
+valign="top">在删除已存在的文件前，提示用户确认信息。
+<b>如果不指定这个选项，rm 会默默地删除文件</b>
+</td>
 </tr>
 <tr>
 <td valign="top">-r, --recursive</td>
@@ -354,7 +356,7 @@ rm 命令用来移除（删除）文件和目录：
 </tr>
 <tr>
 <td valign="top">-f, --force</td>
-<td valign="top">忽视不存在的文件，不显示提示信息。这选项颠覆了"--interactive"选项。</td>
+<td valign="top">忽视不存在的文件，不显示提示信息。这选项颠覆了“--interactive”选项。</td>
 </tr>
 <tr>
 <td valign="top">-v, --verbose</td>
@@ -378,30 +380,34 @@ rm 命令用来移除（删除）文件和目录：
 </tr>
 <tr>
 <td valign="top">rm -r file1 dir1</td>
-<td valign="top">删除文件 file1, 目录 dir1，及 dir1中的内容。</td>
+<td valign="top">删除文件 file1, 目录 dir1，及 dir1 中的内容。</td>
 </tr>
 <tr>
 <td valign="top">rm -rf file1 dir1</td>
-<td valign="top">同上，除了如果文件 file1，或目录 dir1不存在的话，rm 仍会继续执行。</td>
+<td valign="top">同上，除了如果文件 file1，或目录 dir1 不存在的话，rm 仍会继续执行。</td>
 </tr>
 </table>
 
-> _小心 rm!_
+>
+> 小心 rm!
 >
 > 类似于 Unix 的操作系统，比如说 Linux，没有复原命令。一旦你用 rm 删除了一些东西，
 它就消失了。Linux 假定你很聪明，你知道你在做什么。
 >
 > 尤其要小心通配符。思考一下这个经典的例子。假如说，你只想删除一个目录中的 HTML
-文件。输入： rm *.html
+文件。输入：
 >
-> 这是正确的，如果你不小心在 "*" 和 ".html" 之间多输入了一个空格，就像这样：
+>  _rm *.html_
 >
-> 这个 rm 命令会删除目录中的所有文件，还会抱怨没有文件叫做 ".html"。
+> 这是正确的，如果你不小心在 “*” 和 “.html” 之间多输入了一个空格，就像这样：
+>
+>  _rm * .html_
+>
+> 这个 rm 命令会删除目录中的所有文件，还会抱怨没有文件叫做 “.html”。
 >
 > _小贴士。_ 无论什么时候，rm 命令用到通配符（除了仔细检查输入的内容外！），
 用 ls 命令来测试通配符。这会让你看到要删除的文件列表。然后按下上箭头按键，重新调用
 刚刚执行的命令，用 rm 替换 ls。
-
 
 ### ln — 创建链接
 
@@ -413,7 +419,7 @@ ln 命令即可创建硬链接，也可以创建符号链接。可以用其中�
 
     ln -s item link
 
-创建符号链接，"item"可以是一个文件或是一个目录。
+创建符号链接，"item" 可以是一个文件或是一个目录。
 
 ### 硬链接
 
@@ -453,7 +459,7 @@ ln 命令即可创建硬链接，也可以创建符号链接。可以用其中�
 
 下面我们将要做些真正的文件操作，让我们先建立一个安全地带，
 来玩一下文件操作命令。首先，我们需要一个工作目录。在我们的
-主目录下创建一个叫做"playground"的目录。
+主目录下创建一个叫做“playground”的目录。
 
 ### 创建目录
 
@@ -464,19 +470,18 @@ mkdir 命令被用来创建目录。首先确定我们在我们的主目录下�
     [me@linuxbox ~]$ mkdir playground
 
 为了让我们的游戏场更加有趣，在 playground 目录下创建一对目录
-，分别叫做"dir1"和"dir2"。更改我们的当前工作目录到 playground，然后
+，分别叫做 “dir1” 和 “dir2”。更改我们的当前工作目录到 playground，然后
 执行 mkdir 命令：
 
     [me@linuxbox ~]$ cd playground
     [me@linuxbox playground]$ mkdir dir1 dir2
 
-注意到 mkdir 命令可以接受多个参数，它允许我们用一个命令来创建这两个
-目录。
+注意到 mkdir 命令可以接受多个参数，它允许我们用一个命令来创建这两个目录。
 
-### 复制文件
+###　复制文件
 
 下一步，让我们得到一些数据到我们的游戏场中。通过复制一个文件来实现目的。
-使用 cp 命令，我们从/etc 目录复制 passwd 文件到当前工作目录下：
+使用 cp 命令，我们从 /etc 目录复制 passwd 文件到当前工作目录下：
 
     [me@linuxbox playground]$ cp /etc/passwd .
 
@@ -501,12 +506,11 @@ cp 假定你知道你的所作所为。为了得到警示信息，在命令中�
     [me@linuxbox playground]$ cp -i /etc/passwd .
     cp: overwrite `./passwd'?
 
-响应命令提示信息，输入"y"，文件就会被重写，其它的字符（例如，"n"）
-会导致 cp 命令不理会文件。
+响应命令提示信息，输入"y"，文件就会被重写，其它的字符（例如，"n"）会导致 cp 命令不理会文件。
 
 ### 移动和重命名文件
 
-现在，"passwd"这个名字，看起来不怎么有趣，这是个游戏场，所以我们给它改个名字：
+现在，"passwd" 这个名字，看起来不怎么有趣，这是个游戏场，所以我们给它改个名字：
 
     [me@linuxbox playground]$ mv passwd fun
 
@@ -528,7 +532,7 @@ cp 假定你知道你的所作所为。为了得到警示信息，在命令中�
 
     [me@linuxbox playground]$ mv fun dir1
 
-然后移动 dir1 到 dir2 目录，用 ls 来确认执行结果:
+然后移动 dir1到 dir2目录，用 ls 来确认执行结果:
 
     [me@linuxbox playground]$ mv dir1 dir2
     [me@linuxbox playground]$ ls -l dir2
@@ -645,7 +649,6 @@ ls 命令的输出结果，比较容易理解。
     [me@linuxbox playground]$ rm -i fun
     rm: remove regular file `fun'?
 
-
 在提示符下输入"y"，删除文件。让我们看一下 ls 的输出结果。注意，fun-sym 发生了
 什么事? 因为它是一个符号链接，指向已经不存在的文件，链接已经坏了：
 
@@ -656,14 +659,12 @@ ls 命令的输出结果，比较容易理解。
     drwxrwxr-x 2 me  me     4096 2008-01-15 15:17 dir2
     lrwxrwxrwx 1 me  me        3 2008-01-15 15:15 fun-sym -> fun
 
-
 大多数 Linux 的发行版本配置 ls 显示损坏的链接。在 Fedora 系统中，坏的链接以闪烁的
 红色文本显示！损坏链接的出现，并不危险，但是相当混乱。如果我们试着使用
 损坏的链接，会看到以下情况：
 
     [me@linuxbox playground]$ less fun-sym
     fun-sym: No such file or directory
-
 
 稍微清理一下现场。删除符号链接：
 
@@ -672,7 +673,6 @@ ls 命令的输出结果，比较容易理解。
     total 8
     drwxrwxr-x 2 me  me    4096 2008-01-15 15:17 dir1
     drwxrwxr-x 2 me  me    4096 2008-01-15 15:17 dir2
-
 
 对于符号链接，有一点值得记住，执行的大多数文件操作是针对链接的对象，而不是链接本身。
 而 rm 命令是个特例。当你删除链接的时候，删除链接本身，而不是链接的对象。
@@ -684,14 +684,13 @@ ls 命令的输出结果，比较容易理解。
     [me@linuxbox playground]$ cd
     [me@linuxbox ~]$ rm -r playground
 
-
-> _用 GUI 来创建符号链接_
+>
+> 用 GUI 来创建符号链接
 >
 > 文件管理器 GNOME 和 KDE 都提供了一个简单而且自动化的方法来创建符号链接。
 在 GNOME 里面，当拖动文件时，同时按下 Ctrl+Shift 按键会创建一个链接，而不是
 复制（或移动）文件。在 KDE 中，无论什么时候放下一个文件，会弹出一个小菜单，
 这个菜单会提供复制，移动，或创建链接文件选项。
-
 
 ### 总结
 
@@ -700,3 +699,4 @@ ls 命令的输出结果，比较容易理解。
 命令和通配符，非常重要。空闲时，通过添加文件和目录来拓展 playground 练习，
 使用通配符来为各种各样的操作命令指定文件。关于链接的概念，在刚开始接触
 时会觉得有点迷惑，花些时间来学习它们是怎样工作的。它们能成为真正的救星。
+

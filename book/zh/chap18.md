@@ -22,7 +22,7 @@ title: 查找文件
 
 * stat – 显示文件或文件系统状态
 
-### locate – 查找文件的简单方法
+### locate - 查找文件的简单方法
 
 这个 locate 程序快速搜索路径名数据库，并且输出每个与给定字符串相匹配的文件名。比如说，
 例如，我们想要找到所有名字以“zip”开头的程序。因为我们正在查找程序，可以假定包含
@@ -68,7 +68,8 @@ locate 命令将会搜索它的路径名数据库，输出任一个包含字符�
 匹配（我们会在下一章中讨论）和通配符支持。查看 locate 命令的手册，从而确定安装了
 哪个版本的 locate 程序。
 
-> _locate 数据库来自何方？_
+>
+> locate 数据库来自何方？
 >
 > 你可能注意到了，在一些发行版中，仅仅在系统安装之后，locate 不能工作，
 但是如果你第二天再试一下，它就工作正常了。怎么回事呢？locate 数据库由另一个叫做 updatedb
@@ -78,8 +79,7 @@ updatedb 程序。因为数据库不能被持续地更新，所以当使用 loca
 目前最新的文件不会出现。为了克服这个问题，可以手动运行 updatedb 程序，
 更改为超级用户身份，在提示符下运行 updatedb 命令。
 
-
-### find – 查找文件的复杂方式
+### find - 查找文件的复杂方式
 
 locate 程序只能依据文件名来查找文件，而 find 程序能基于各种各样的属性，
 搜索一个给定目录（以及它的子目录），来查找文件。我们将要花费大量的时间学习 find 命令，因为
@@ -153,7 +153,7 @@ find 命令的最简单使用是，搜索一个或多个目录。例如，输出
 被用来指定测量单位：
 
 <table class="multi">
-<caption class="cap">Table 18-2: find 大小单位</caption>
+<caption class="cap">表18-2: find 大小单位</caption>
 <tr>
 <th class="title">字符</th>
 <th class="title">单位</th>
@@ -273,8 +273,6 @@ valign="top">匹配的文件或目录属于某个用户。这个用户可以通�
 </tr>
 </table>
 
-This is not a complete list. The find man page has all the details.
-
 这不是一个完整的列表。find 命令手册有更详细的说明。
 
 #### 操作符
@@ -298,16 +296,16 @@ This is not a complete list. The find man page has all the details.
 </tr>
 <tr>
 <td valign="top" width="25%">-and</td>
-<td valign="top">匹配如果操作符两边的测试条件都是真。可以简写为 -a。
+<td valign="top">如果操作符两边的测试条件都是真，则匹配。可以简写为 -a。
 注意若没有使用操作符，则默认使用 -and。</td>
 </tr>
 <tr>
 <td valign="top">-or</td>
-<td valign="top">匹配若操作符两边的任一个测试条件为真。可以简写为 -o。</td>
+<td valign="top">若操作符两边的任一个测试条件为真，则匹配。可以简写为 -o。</td>
 </tr>
 <tr>
 <td valign="top">-not</td>
-<td valign="top">匹配若操作符后面的测试条件是真。可以简写为一个感叹号（!）。</td>
+<td valign="top">若操作符后面的测试条件是真，则匹配。可以简写为一个感叹号（!）。</td>
 </tr>
 <tr>
 <td valign="top">()</td>
@@ -318,10 +316,6 @@ This is not a complete list. The find man page has all the details.
 用引号引起来，才能作为实参传递给 find 命令。通常反斜杠字符被用来转义圆括号字符。</td>
 </tr>
 </table>
-
-With this list of operators in hand, let’s deconstruct our find command. When viewed
-from the uppermost level, we see that our tests are arranged as two groupings separated
-by an -or operator:
 
 通过这张操作符列表，我们重建 find 命令。从最外层看，我们看到测试条件被分为两组，由一个
 -or 操作符分开：
@@ -389,10 +383,9 @@ by an -or operator:
 </tr>
 </table>
 
-
 为什么这会发生呢？这样做是为了提高性能。以 -and 为例，我们知道表达式 expr1 -and expr2
-不能为真，如果表达式 expr1 的结果为假，所以没有必要执行 expr2。同样地，如果我们有表达式
-expr1 -or expr2，并且表达式 expr1 的结果为真，那么就没有必要执行 expr2，因为我们已经知道
+不能为真，如果表达式 expr1的结果为假，所以没有必要执行 expr2。同样地，如果我们有表达式
+expr1 -or expr2，并且表达式 expr1的结果为真，那么就没有必要执行 expr2，因为我们已经知道
 表达式 expr1 -or expr2 为真。好，这样会执行快一些。为什么这个很重要？
 它很重要是因为我们能依靠这种行为来控制怎样来执行操作。我们会很快看到...
 
@@ -480,7 +473,7 @@ expr1 -or expr2，并且表达式 expr1 的结果为真，那么就没有必要�
 </tr>
 <tr>
 <td valign="top">-type f </td>
-<td valign="top">总是被执行，因为它是与-and 关系中的第一个测试／行为。</td>
+<td valign="top">总是被执行，因为它是与 -and 关系中的第一个测试／行为。</td>
 </tr>
 </table>
 
@@ -515,8 +508,7 @@ expr1 -or expr2，并且表达式 expr1 的结果为真，那么就没有必要�
     -rw-r--r-- 1 me    me 0 2008-09-19 12:53 /home/me/foo.txt
 
 在这个例子里面，我们搜索以字符串“foo”开头的文件名，并且对每个匹配的文件执行 ls -l 命令。
-使用-ok 行为，会在 ls 命令执行之前提示用户。
-
+使用 -ok 行为，会在 ls 命令执行之前提示用户。
 
 ### 提高效率
 
@@ -525,7 +517,6 @@ expr1 -or expr2，并且表达式 expr1 的结果为真，那么就没有必要�
 
     ls -l file1
     ls -l file2
-
 
 我们更喜欢这样执行命令：
 
@@ -570,7 +561,8 @@ xargs，另一种方法是，使用 find 命令自己的一个新功能。我们
 
 ---
 
-> _处理古怪的文件名_
+>
+> 处理古怪的文件名
 >
 > 类似于 Unix 的系统允许在文件名中嵌入空格（甚至换行符）。这就给一些程序，如为其它
 程序构建参数列表的 xargs 程序，造成了问题。一个嵌入的空格会被看作是一个界定符，生成的
@@ -580,7 +572,7 @@ xargs，另一种方法是，使用 find 命令自己的一个新功能。我们
 则会产生由 null 字符分离的输出，并且 xargs 命令有一个 --null 选项，这个选项会接受由 null 字符
 分离的输入。这里有一个例子：
 >
-> find ~ -iname '*.jpg' -print0 \| xargs --null ls -l
+>  _find ~ -iname '*.jpg' -print0 \| xargs --null ls -l_
 >
 > 使用这项技术，我们可以保证所有文件，甚至那些文件名中包含空格的文件，都能被正确地处理。
 
@@ -670,7 +662,6 @@ touch 了操练场中名为 file-B 的所有文件，所以现在它们“新于
 而不是这一个长长的复合命令，但是很高兴知道，我们能这样执行命令。这里最重要的一点是要
 理解怎样把操作符和行为结合起来使用，来执行有用的任务。
 
-
 #### 选项
 
 最后，我们有这些选项。这些选项被用来控制 find 命令的搜索范围。当构建 find 表达式的时候，
@@ -705,12 +696,11 @@ touch 了操练场中名为 file-B 的所有文件，所以现在它们“新于
 </tr>
 </table>
 
-
 ### 拓展阅读
 
 * 程序 locate，updatedb，find 和 xargs 都是 GNU 项目 findutils 软件包的一部分。
   这个 GUN 项目提供了大量的在线文档，这些文档相当出色，如果你在高安全性的
   环境中使用这些程序，你应该读读这些文档。
 
-    <http://www.gnu.org/software/findutils/>
+  <http://www.gnu.org/software/findutils/>
 

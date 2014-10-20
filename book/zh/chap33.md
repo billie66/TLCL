@@ -196,21 +196,21 @@ basename $0 的执行结果就很有用处。按照这种方式编码，可以�
 为此 shell 提供了两种特殊的参数。他们二者都能扩展成完整的位置参数列表，但以相当微妙的方式略有不同。它们是：
 
 <table class="multi">
-    <caption class="cap">表33-1: * 和 @ 特殊参数</caption>
-    <tr>
-        <th class="title" width="15%">参数</th>
-        <th class="title">描述</th>
-    </tr>
-    <tr>
-        <td valign="top">$*</td>
-        <td valign="top">展开成一个从1开始的位置参数列表。当它被用双引号引起来的时候，展开成一个由双引号引起来
-            的字符串，包含了所有的位置参数，每个位置参数由 shell 变量 IFS 的第一个字符（默认为一个空格）分隔开。</td>
-    </tr>
-    <tr>
-        <td valign="top">$@</td>
-        <td valign="top">展开成一个从1开始的位置参数列表。当它被用双引号引起来的时候，
-            它把每一个位置参数展开成一个由双引号引起来的分开的字符串。</td>
-    </tr>
+<caption class="cap">表 32-1: * 和 @ 特殊参数</caption>
+<tr>
+<th class="title" width="15%">参数</th>
+<th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top">$*</td>
+<td valign="top">展开成一个从1开始的位置参数列表。当它被用双引号引起来的时候，展开成一个由双引号引起来
+的字符串，包含了所有的位置参数，每个位置参数由 shell 变量 IFS 的第一个字符（默认为一个空格）分隔开。</td>
+</tr>
+<tr>
+<td valign="top">$@</td>
+<td valign="top">展开成一个从1开始的位置参数列表。当它被用双引号引起来的时候，
+它把每一个位置参数展开成一个由双引号引起来的分开的字符串。</td>
+</tr>
 </table>
 
 下面这个脚本用程序中展示了这些特殊参数：

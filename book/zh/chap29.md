@@ -33,7 +33,7 @@ title: 读取键盘输入
 每次我们想要改变 INT 数值的时候，我们必须编辑这个脚本。如果脚本能请求用户输入数值，那
 么它会更加有用处。在这个脚本中，我们将看一下我们怎样给程序增加交互性功能。
 
-### read – 从标准输入读取数值
+### read - 从标准输入读取数值
 
 这个 read 内部命令被用来从标准输入读取单行数据。这个命令可以用来读取键盘输入，当使用
 重定向的时候，读取文件中的一行数据。这个命令有以下语法形式：
@@ -41,10 +41,10 @@ title: 读取键盘输入
     read [-options] [variable...]
 
 这里的 options 是下面列出的可用选项中的一个或多个，且 variable 是用来存储输入数值的一个或多个变量名。
-如果没有提供变量名，shell 变量`REPLY`会包含数据行。
+如果没有提供变量名，shell 变量 REPLY 会包含数据行。
 
 基本上，read 会把来自标准输入的字段赋值给具体的变量。如果我们修改我们的整数求值脚本，让其使用
-read，它可能看起来像这样：
+ read ，它可能看起来像这样：
 
     #!/bin/bash
     # read-integer: evaluate the value of an integer.
@@ -78,7 +78,7 @@ read，它可能看起来像这样：
     5 is positive.
     5 is odd.
 
-`read`可以给多个变量赋值，正如下面脚本中所示：
+ read 可以给多个变量赋值，正如下面脚本中所示：
 
     #!/bin/bash
     # read-multiple: read multiple values from keyboard
@@ -90,7 +90,7 @@ read，它可能看起来像这样：
     echo "var4 = '$var4'"
     echo "var5 = '$var5'"
 
-在这个脚本中，我们给五个变量赋值并显示其结果。注意当给定不同个数的数值后，`read` 怎样操作：
+在这个脚本中，我们给五个变量赋值并显示其结果。注意当给定不同个数的数值后，read 怎样操作：
 
     [me@linuxbox ~]$ read-multiple
     Enter one or more values > a b c d e
@@ -114,8 +114,8 @@ read，它可能看起来像这样：
     var4 = 'd'
     var5 = 'e f g'
 
-如果 `read` 命令接受到变量值数目少于期望的数字，那么额外的变量值为空，而多余的输入数据则会
-被包含到最后一个变量中。如果 `read` 命令之后没有列出变量名，则一个 shell 变量，`REPLY`，将会包含
+如果 read 命令接受到变量值数目少于期望的数字，那么额外的变量值为空，而多余的输入数据则会
+被包含到最后一个变量中。如果 read 命令之后没有列出变量名，则一个 shell 变量，REPLY，将会包含
 所有的输入：
 
     #!/bin/bash
@@ -184,7 +184,7 @@ read 支持以下选送：
 </tbody>
 </table>
 
-使用各种各样的选项，我们能用 read 完成有趣的事情。例如，通过 -p 选项，我们能够提供提示信息：
+使用各种各样的选项，我们能用 read 完成有趣的事情。例如，通过-p 选项，我们能够提供提示信息：
 
     #!/bin/bash
     # read-single: read multiple values into default variable
@@ -206,14 +206,16 @@ read 支持以下选送：
 这个脚本提示用户输入一个密码，并等待输入10秒钟。如果在特定的时间内没有完成输入，
 则脚本会退出并返回一个错误。因为包含了一个 -s 选项，所以输入的密码不会出现在屏幕上。
 
+### IFS
+
 通常，shell 对提供给 read 的输入按照单词进行分离。正如我们所见到的，这意味着多个由一个或几个空格
-分离开的单词在输入行中变成独立的个体，并被 read 赋值给单独的变量。这种行为由 shell 变量 _IFS_
+分离开的单词在输入行中变成独立的个体，并被 read 赋值给单独的变量。这种行为由 shell 变量__IFS__
 （内部字符分隔符）配置。_IFS_ 的默认值包含一个空格，一个 tab，和一个换行符，每一个都会把
 字段分割开。
 
 我们可以调整 _IFS_ 的值来控制输入字段的分离。例如，这个 /etc/passwd 文件包含的数据行
-使用冒号作为字段分隔符。通过把 _IFS_ 的值更改为单个冒号，我们可以使 read 读取 /etc/passwd 中的内容，
-并成功地把字段分给不同的变量。这个就是做这样的事情：
+使用冒号作为字段分隔符。通过把 _IFS_ 的值更改为单个冒号，我们可以使用 read 读取
+/etc/passwd 中的内容，并成功地把字段分给不同的变量。这个就是做这样的事情：
 
     #!/bin/bash
     # read-ifs: read fields from a file
@@ -266,13 +268,14 @@ Shell 允许在一个命令之前立即发生一个或多个变量赋值。这�
 
     echo "$file_info" | IFS=":" read user pw uid gid name home shell
 
-> _你不能管道 read_
 >
-> echo "foo" \| read
+> 你不能管道 read
 >
-> 虽然通常 `read` 命令接受标准输入，但是你不能这样做：
+> 虽然通常 read 命令接受标准输入，但是你不能这样做：
 >
-> 我们期望这个命令能生效，但是它不能。这个命令将显示成功，但是 `REPLY` 变量
+>  _echo "foo" \| read_
+>
+> 我们期望这个命令能生效，但是它不能。这个命令将显示成功，但是 REPLY 变量
 总是为空。为什么会这样？
 >
 > 答案与 shell 处理管道线的方式有关系。在 bash（和其它 shells，例如 sh）中，管道线
@@ -285,7 +288,6 @@ Shell 允许在一个命令之前立即发生一个或多个变量赋值。这�
 但是当命令退出后，子 shell 和它的环境将被破坏掉，这样赋值的影响就会消失。
 >
 > 使用 here 字符串是解决此问题的一种方法。另一种方法将在37章中讨论。
-
 
 ### 校正输入
 
@@ -365,6 +367,7 @@ Shell 允许在一个命令之前立即发生一个或多个变量赋值。这�
         0. Quit
     "
     read -p "Enter selection [0-3] > "
+
     if [[ $REPLY =~ ^[0-3]$ ]]; then
         if [[ $REPLY == 0 ]]; then
             echo "Program terminated."
@@ -394,10 +397,10 @@ Shell 允许在一个命令之前立即发生一个或多个变量赋值。这�
         exit 1
     fi
 
-The presence of multiple｀exit｀points in a program is generally a bad idea (it makes
+The presence of multiple ｀exit｀ points in a program is generally a bad idea (it makes
 
 从逻辑上讲，这个脚本被分为两部分。第一部分显示菜单和用户输入。第二部分确认用户反馈，并执行
-选择的行动。注意脚本中使用的 exit 命令。在这里，在一个行动执行之后，exit 被用来阻止脚本执行不必要的代码。
+选择的行动。注意脚本中使用的 exit 命令。在这里，在一个行动执行之后， exit 被用来阻止脚本执行不必要的代码。
 通常在程序中出现多个 exit 代码是一个坏想法（它使程序逻辑较难理解），但是它在这个脚本中起作用。
 
 ### 总结归纳
@@ -414,7 +417,6 @@ The presence of multiple｀exit｀points in a program is generally a bad idea (i
 
 ### 拓展阅读
 
-* Bash 参考手册有一章关于内部命令的内容，其包括了 read 命令：
+* Bash 参考手册有一章关于内部命令的内容，其包括了`read`命令：
 
     <http://www.gnu.org/software/bash/manual/bashref.html#Bash-Builtins>
-

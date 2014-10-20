@@ -201,6 +201,7 @@ dir_name 中包含的目录名是否真正地存在：
 这条语句才返回一个 0 退出状态。而其它任何输入概不接受。有时候编写这类测试条件非常具有挑战性，
 但是为了能产出一个高质量的脚本，付出还是必要的。
 
+>
 > _设计是时间的函数_
 >
 > 当我还是一名大学生，在学习工业设计的时候，一位明智的教授说过一个项目的设计程度是由
@@ -212,7 +213,6 @@ dir_name 中包含的目录名是否真正地存在：
 但这个脚本只能被其作者使用一次。这类脚本很常见，为了节省气力也应该被快速地开发出来。
 所以这些脚本不需要太多的注释和防错检查。相反，如果一个脚本打算用于生产使用，也就是说，
 某个重要任务或者多个客户会不断地用到它，此时这个脚本就需要非常谨慎小心地开发了。
- 
 
 ### 测试
 
@@ -404,25 +404,25 @@ bash 还提供了一种名为追踪的方法，这种方法可通过 -x 选项�
 
 * Wikipedia 上面有两篇关于语法和逻辑错误的短文：
 
-    <http://en.wikipedia.org/wiki/Syntax_error>
+  <http://en.wikipedia.org/wiki/Syntax_error>
 
-    <http://en.wikipedia.org/wiki/logic_error>
+  <http://en.wikipedia.org/wiki/logic_error>
 
 * 网上有很多关于技术层面的 bash 编程的资源：
 
-    <http://mywiki.wooledge.org/BashPitfalls>
+  <http://mywiki.wooledge.org/BashPitfalls>
 
-    <http://tldp.org/LDP/abs/html/gotchas.html>
+  <http://tldp.org/LDP/abs/html/gotchas.html>
 
-    <http://www.gnu.org/software/bash/manual/html_node/Reserved-Word-Index.html>
+  <http://www.gnu.org/software/bash/manual/html_node/Reserved-Word-Index.html>
 
 * 想要学习从编写良好的 Unix 程序中得知的基本概念，可以参考 Eric Raymond 的《Unix 编程的艺术》这本
 伟大的著作。书中的许多想法都能适用于 shell 脚本：
 
-    <http://www.faqs.org/docs/artu/>
+  <http://www.faqs.org/docs/artu/>
 
-    <http://www.faqs.org/docs/artu/ch01s06.html>
+  <http://www.faqs.org/docs/artu/ch01s06.html>
 
 * 对于真正的高强度的调试，参考这个 Bash Debugger：
 
-    <http://bashdb.sourceforge.net/>
+  <http://bashdb.sourceforge.net/>

@@ -59,14 +59,12 @@ Linux 桌面系统的最新进展已经使存储设备管理对于桌面用户�
     proc                    /proc           proc        defaults        0   0
     LABEL=SWAP-sda3         /swap           swap        defaults        0   0
 
-
 在这个实例中所列出的大多数文件系统是虚拟的，并不适用于我们的讨论。就我们的目的而言，
 前三个是我们感兴趣的：
 
     LABEL=/12               /               ext3        defaults        1   1
     LABEL=/home             /home           ext3        defaults        1   2
     LABEL=/boot             /boot           ext3        defaults        1   2
-
 
 这些是硬盘分区。每行由六个字段组成，如下所示：
 
@@ -172,7 +170,6 @@ Linux 桌面系统的最新进展已经使存储设备管理对于桌面用户�
     /dev/hdc on /media/live-1.0.10-8 type iso9660 (ro,noexec,nosuid,
     nodev,uid=500)
 
-
 当我们插入光盘后，除了额外的一行之外，我们看到和原来一样的列表。在列表的末尾，我们
 看到 CD-ROW 已经挂载到了/media/live-1.0.10-8上，它的文件类型是 iso9660（CD-ROW）。
 就我们的实验目的而言，我们对这个设备的名字感兴趣。当你自己进行这个实验时，这个
@@ -197,11 +194,9 @@ umount（注意这个命令的拼写）来卸载光盘：
 
     [root@linuxbox ~]# mkdir /mnt/cdrom
 
-
 最后，我们把这个 CD-ROW 挂载到一个新的挂载点上。这个-t 选项用来指定文件系统类型：
 
     [root@linuxbox ~]# mount -t iso9660 /dev/hdc /mnt/cdrom
-
 
 之后，我们可以通过这个新挂载点来查看 CD-ROW 的内容：
 
@@ -222,7 +217,8 @@ umount（注意这个命令的拼写）来卸载光盘：
 
 现在这个设备成功卸载了。
 
-> _为什么卸载重要_
+>
+> 为什么卸载重要
 >
 > 如果你看一下 free 命令的输出结果，这个命令用来显示关于内存使用情况的统计信息，你
 会看到一个统计值叫做”buffers“。计算机系统旨在尽可能快地运行。系统运行速度的
@@ -249,8 +245,6 @@ umount（注意这个命令的拼写）来卸载光盘：
 没有卸载设备，就移除了它，就有可能没有把注定要发送到设备中的数据输送完毕。在某些情况下，
 这些数据可能包含重要的目录更新信息，这将导致文件系统损坏，这是发生在计算机中的最坏的事情之一。
 
-
-
 ### 确定设备名称
 
 有时很难来确定设备名称。在以前，这并不是很难。一台设备总是在某个固定的位置，也不会
@@ -264,7 +258,6 @@ Linux 已经发展地比其祖先更加灵活。在以上事例中，我们利�
 会看到许许多多的设备：
 
     [me@linuxbox ~]$ ls /dev
-
 
 这个列表的内容揭示了一些设备命名的模式。这里有几个：
 
@@ -311,7 +304,6 @@ SCSI 磁盘。在最近的 Linux 系统中，内核把所有类似于磁盘的�
 
     [me@linuxbox ~]$ sudo tail -f /var/log/messages
 
-
 这个文件的最后几行会被显示，然后停止。下一步，插入这个可移动的设备。在
 这个例子里，我们将使用一个16MB 闪存。瞬间，内核就会发现这个设备，
 并且探测它：
@@ -344,7 +336,6 @@ SCSI 磁盘。在最近的 Linux 系统中，内核把所有类似于磁盘的�
     Jul 23 10:07:59 linuxbox kernel: sd 3:0:0:0: Attached scsi generic
     sg3 type 0
 
-
 显示再次停止之后，输入 Ctrl-c，重新得到提示符。输出结果的有趣部分是一再提及“[sdb]”，
 这正好符和我们期望的 SCSI 磁盘设备名称。知道这一点后，有两行输出变得颇具启发性：
 
@@ -369,7 +360,6 @@ SCSI 磁盘。在最近的 Linux 系统中，内核把所有类似于磁盘的�
     /dev/sda1       147764      17277       122858      13%     /boot
     tmpfs           776808      0           776808      0%      /dev/shm
     /dev/sdb1       15560       0           15560       0%      /mnt/flash
-
 
 这个设备名称会保持不变只要设备与计算机保持连接并且计算机不会重新启动。
 
@@ -430,14 +420,12 @@ SCSI 磁盘。在最近的 Linux 系统中，内核把所有类似于磁盘的�
 
     t   change a partition's system id
 
-
 我们先输入“t”，再输入新的 ID 号：
 
     Command (m for help): t
     Selected partition 1
     Hex code (type L to list codes): 83
     Changed system type of partition 1 to 83 (Linux)
-
 
 这就完成了我们需要做得所有修改。到目前为止，还没有接触这个设备（所有修改都存储在内存中，
 而不是在此物理设备中），所以我们将会把修改过的分区表写入此设备，再退出。为此，我们输入
@@ -512,17 +500,16 @@ check"的简写）完成。每个 fstab 项中的最后一个数字指定了设�
     e2fsck 1.40.8 (13-Mar-2008)
     /dev/sdb1: clean, 11/3904 files, 1661/15608 blocks
 
-
 以我的经验，文件系统损坏情况相当罕见，除非硬件存在问题，如磁盘驱动器故障。
 在大多数系统中，系统启动阶段若探测到文件系统已经损坏了，则会导致系统停止下来，
 在系统继续执行之前，会指导你运行 fsck 程序。
 
+>
 > 什么是 fsck?
 >
 > 在 Unix 文化中，"fsck"这个单词往往会被用来代替一个流行的词，“fsck”和这个词共享了三个
 字母。这个尤其适用，因为你可能会说出上文提到的词，若你发现自己处于这种境况下，
 被强制来运行 fsck 命令时。
-
 
 ### 格式化软盘
 
@@ -534,7 +521,6 @@ check"的简写）完成。每个 fstab 项中的最后一个数字指定了设�
     Double-sided, 80 tracks, 18 sec/track. Total capacity 1440 kB.
     Formatting ... done
     Verifying ... done
-
 
 接下来，通过 mkfs 命令，给这个软盘创建一个 FAT 文件系统：
 
@@ -600,10 +586,10 @@ CD，用它来制作一个 iso 文件，以后我们可以用它来制作更多�
 
     genisoimage -o cd-rom.iso -R -J ~/cd-rom-files
 
-
 "-R"选项添加元数据为 Rock Ridge 扩展，这允许使用长文件名和 POSIX 风格的文件权限。
 同样地，这个"-J"选项使 Joliet 扩展生效，这样 Windows 中就支持长文件名了。
 
+>
 > 一个有着其它名字的程序。。。
 >
 > 如果你看一下关于创建和烧写光介质如 CD-ROMs 和 DVD 的在线文档，你会经常碰到两个程序
@@ -611,7 +597,6 @@ CD，用它来制作一个 iso 文件，以后我们可以用它来制作更多�
 编写成。在2006年春天，Schilling 先生更改了部分 cdrtools 软件包的协议，Linux 社区许多人的看法是，
 这创建了一个与 GNU GPL 不相兼容的协议。结果，就 fork 了这个 cdrtools 项目，
 目前新项目里面包含了 cdrecord 和 mkisofs 的替代程序，分别是 wodim 和 genisoimage。
-
 
 ### 写入 CD-ROM 镜像
 
@@ -626,7 +611,6 @@ CD，用它来制作一个 iso 文件，以后我们可以用它来制作更多�
 
     mkdir /mnt/iso_image
     mount -t iso9660 -o loop image.iso /mnt/iso_image
-
 
 上面的示例中，我们创建了一个挂载点叫做/mnt/iso_image，然后把此映像文件
 image.iso 挂载到挂载点上。映像文件被挂载之后，可以把它当作，就好像它是一张
@@ -644,7 +628,6 @@ image.iso 挂载到挂载点上。映像文件被挂载之后，可以把它当�
 写入一个映像文件，我们再次使用 wodim 命令，指定光盘设备名称和映像文件名：
 
     wodim dev=/dev/cdrw image.iso
-
 
 除了设备名称和映像文件之外，wodim 命令还支持非常多的选项。常见的两个选项是，"-v" 可详细输出，
 和 "－dao" 以 disk-at-once 模式写入光盘。如果你正在准备一张光盘为的是商业复制，那么应该使用这种模式。
@@ -683,5 +666,3 @@ wodim 命令的默认模式是 track-at-once，这对于录制音乐很有用。
 以及 DVD 光驱中磁盘 /dev/dvd 文件的完整性。你能弄明白这是怎么回事吗？
 
     md5sum dvd-image.iso; dd if=/dev/dvd bs=2048 count=$(( $(stat -c "%s" dvd-image.iso) / 2048 )) | md5sum
-
-
