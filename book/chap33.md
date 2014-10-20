@@ -275,42 +275,41 @@ complete list of positional parameters, but differ in rather subtle ways. They a
 为此 shell 提供了两种特殊的参数。他们二者都能扩展成完整的位置参数列表，但以相当微妙的方式略有不同。它们是：
 
 <table class="multi">
-    <caption class="cap">Table 32-1: The * And @ Special Parameters</caption>
-    <tr>
-        <th class="title" width="15%">Parameter</th>
-        <th class="title">Description</th>
-    </tr>
-    <tr>
-        <td valign="top">$*</td>
-        <td valign="top">Expands into the list of positional parameters, starting with 1.
-        When surrounded by double quotes, it expands into a double quoted string
-        containing all of the positional parameters, each separated by the first
-        character of the IFS shell variable (by default a space character).</td>
-    </tr>
-    <tr>
-        <td valign="top">$@</td>
-        <td valign="top">Expands into the list of positional parameters, starting with 1.
-            When surrounded by double quotes, it expands each positional
-            parameter into a separate word surrounded by double quotes.</td>
-    </tr>
+<caption class="cap">Table 32-1: The * And @ Special Parameters</caption>
+<tr>
+<th class="title" width="15%">Parameter</th>
+<th class="title">Description</th>
+</tr>
+<tr>
+<td valign="top">$*</td>
+<td valign="top">Expands into the list of positional parameters, starting with 1.
+When surrounded by double quotes, it expands into a double quoted string
+containing all of the positional parameters, each separated by the first
+character of the IFS shell variable (by default a space character).</td>
+</tr>
+<tr>
+<td valign="top">$@</td>
+<td valign="top">Expands into the list of positional parameters, starting with 1. When surrounded by double quotes, it expands each positional
+parameter into a separate word surrounded by double quotes.</td>
+</tr>
 </table>
 
 <table class="multi">
-    <caption class="cap">表 32-1: * 和 @ 特殊参数</caption>
-    <tr>
-        <th class="title" width="15%">参数</th>
-        <th class="title">描述</th>
-    </tr>
-    <tr>
-        <td valign="top">$*</td>
-        <td valign="top">展开成一个从1开始的位置参数列表。当它被用双引号引起来的时候，展开成一个由双引号引起来
-            的字符串，包含了所有的位置参数，每个位置参数由 shell 变量 IFS 的第一个字符（默认为一个空格）分隔开。</td>
-    </tr>
-    <tr>
-        <td valign="top">$@</td>
-        <td valign="top">展开成一个从1开始的位置参数列表。当它被用双引号引起来的时候，
-            它把每一个位置参数展开成一个由双引号引起来的分开的字符串。</td>
-    </tr>
+<caption class="cap">表 32-1: * 和 @ 特殊参数</caption>
+<tr>
+<th class="title" width="15%">参数</th>
+<th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top">$*</td>
+<td valign="top">展开成一个从1开始的位置参数列表。当它被用双引号引起来的时候，展开成一个由双引号引起来
+的字符串，包含了所有的位置参数，每个位置参数由 shell 变量 IFS 的第一个字符（默认为一个空格）分隔开。</td>
+</tr>
+<tr>
+<td valign="top">$@</td>
+<td valign="top">展开成一个从1开始的位置参数列表。当它被用双引号引起来的时候，
+它把每一个位置参数展开成一个由双引号引起来的分开的字符串。</td>
+</tr>
 </table>
 
 Here is a script that shows these special paramaters in action:
@@ -401,7 +400,7 @@ Our next addition will add several command line options to the program as follow
   either -i or -\-interactive.
 
 * __交互模式__。这个选项将提示用户输入一个输出文件名，然后判断是否指定的文件已经存在了。如果文件存在，
-在覆盖这个存在的文件之前会提示用户。这个选项可以通过 _-i_ 或者 _-\-interactive_ 来指定。
+在覆盖这个存在的文件之前会提示用户。这个选项可以通过 -i 或者 -\-interactive 来指定。
 
 * __Help__. Either _-h_ or _-\-help_ may be specified to cause the program to output an
   informative usage message.
@@ -681,13 +680,13 @@ We’re not done yet. There are still more things we can do and improvements we 
 
 * _Bash Hackers Wiki_ 上有一篇不错的关于位置参数的文章：
 
-<http://wiki.bash-hackers.org/scripting/posparams>
+    <http://wiki.bash-hackers.org/scripting/posparams>
 
 * The _Bash Reference Manual_ has an article on the special parameters, including $* and $@:
 
 * Bash 的参考手册有一篇关于特殊参数的文章，包括 $* 和 $@：
 
-<http://www.gnu.org/software/bash/manual/bashref.html#Special-Parameters>
+    <http://www.gnu.org/software/bash/manual/bashref.html#Special-Parameters>
 
 * In addition to the techniques discussed in this chapter, bash includes a builtin command called _getopts_,
 which can also be used for process command line arguments.
@@ -696,5 +695,5 @@ It is described in the SHELL BUILTIN COMMANDS section of the bash man page and a
 * 除了本章讨论的技术之外，bash 还包含一个叫做 getopts 的内部命令，此命令也可以用来处理命令行参数。
 bash 参考页面的 SHELL BUILTIN COMMANDS 一节介绍了这个命令，Bash Hackers Wiki 上也有对它的描述：
 
-<http://wiki.bash-hackers.org/howto/getopts_tutorial>
+    <http://wiki.bash-hackers.org/howto/getopts_tutorial>
 

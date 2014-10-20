@@ -27,13 +27,13 @@ Group command:
 
 组命令：
 
-{ command1; command2; [command3; ...] }
+    { command1; command2; [command3; ...] }
 
 Subshell:
 
 子 shell：
 
-(command1; command2; [command3;...])
+    (command1; command2; [command3;...])
 
 The two forms differ in that a group command surrounds its commands with braces and a
 subshell uses parentheses. It is important to note that, due to the way bash implements
@@ -399,7 +399,7 @@ with the appropriately named builtin command, trap. trap uses the following synt
 为满足这样需求，bash 提供了一种机制，众所周知的 trap。陷阱由被恰当命令的内部命令 trap 实现。
 trap 使用如下语法：
 
-trap argument signal [signal...]
+    trap argument signal [signal...]
 
 where argument is a string which will be read and treated as a command and signal is the
 specification of a signal that will trigger the execution of the interpreted command.
@@ -504,7 +504,7 @@ non-predictable (but still descriptive) name is to do something like this:
 给临时文件一个不可预测的文件名是很重要的。这就避免了一种为大众所知的 temp race 攻击。
 一种创建一个不可预测的（但是仍有意义的）临时文件名的方法是，做一些像这样的事情：
 >
-> tempfile=/tmp/$(basename $0).$$.$RANDOM
+>  _tempfile=/tmp/$(basename $0).$$.$RANDOM_
 >
 > This will create a filename consisting of the program’s name, followed by its
 process ID (PID), followed by a random integer. Note, however, that the $RANDOM
@@ -527,7 +527,7 @@ of “X” characters, the longer the series of random characters. Here is an ex
 随后这些字符会被相应数量的随机字母和数字替换掉。一连串的 “X” 字符越长，则一连串的随机字符也就越长。
 这里是一个例子：
 >
-> tempfile=$(mktemp /tmp/foobar.$$.XXXXXXXXXX)
+>  _tempfile=$(mktemp /tmp/foobar.$$.XXXXXXXXXX)_
 >
 > This creates a temporary file and assigns its name to the variable tempfile.
 The “X” characters in the template are replaced with random letters and numbers
@@ -537,7 +537,7 @@ value of the special parameter $$ to obtain the PID) might be something like:
 > 这里创建了一个临时文件，并把临时文件的名字赋值给变量 tempfile。因为模板中的 “X” 字符会被随机字母和
 数字代替，所以最终的文件名（在这个例子中，文件名也包含了特殊参数 $$ 的展开值，进程的 PID）可能像这样：
 >
-> /tmp/foobar.6593.UOZuvM6654
+>  _/tmp/foobar.6593.UOZuvM6654_
 >
 > For scripts that are executed by regular users, it may be wise to avoid the use of
 the /tmp directory and create a directory for temporary files within the user’s
@@ -546,9 +546,7 @@ home directory, with a line of code such as this:
 > 对于那些由普通用户操作执行的脚本，避免使用 /tmp 目录，而是在用户主目录下为临时文件创建一个目录，
 通过像这样的一行代码：
 >
-> [[ -d $HOME/tmp ]] \|\| mkdir $HOME/tmp
-
-
+>  _[[ -d $HOME/tmp ]] \|\| mkdir $HOME/tmp_
 
 ### 异步执行
 
@@ -760,16 +758,16 @@ substitution.
 
 * 《高级 Bash 脚本指南》也有对进程替换的讨论：
 
-<http://tldp.org/LDP/abs/html/process-sub.html>
+    <http://tldp.org/LDP/abs/html/process-sub.html>
 
 * Linux Journal has two good articles on named pipes. The first, from September 1997:
 
 * 《Linux 杂志》有两篇关于命令管道的好文章。第一篇，源于1997年9月：
 
-<http://www.linuxjournal.com/article/2156>
+    <http://www.linuxjournal.com/article/2156>
 
 * and the second, from March 2009:
 
 * 和第二篇，源于2009年3月：
 
-<http://www.linuxjournal.com/content/using-named-pipes-fifos-bash>
+    <http://www.linuxjournal.com/content/using-named-pipes-fifos-bash>

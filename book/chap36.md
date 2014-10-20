@@ -300,9 +300,9 @@ pansion using the following forms:
 因为 bash 允许赋值的数组下标包含 “间隔”，有时候确定哪个元素真正存在是很有用的。为做到这一点，
 可以使用以下形式的参数展开：
 
-${!array[*]}
+_${!array[*]}_
 
-${!array[@]}
+_${!array[@]}_
 
 where array is the name of an array variable. Like the other expansions that use * and @,
 the @ form enclosed in quotes is the most useful, as it expands into separate words:
@@ -471,7 +471,7 @@ Arrays and loops have a natural affinity and are often used together. The
 
 数组和循环有一种天然的姻亲关系，它们经常被一起使用。该
 
-for ((expr; expr; expr))
+    for ((expr; expr; expr))
 
 form of loop is particularly well-suited to calculating array subscripts.
 
@@ -483,7 +483,7 @@ form of loop is particularly well-suited to calculating array subscripts.
 
 * Wikipedia 上面有两篇关于在本章提到的数据结构的文章：
 
-<http://en.wikipedia.org/wiki/Scalar_(computing)>
+    <http://en.wikipedia.org/wiki/Scalar_(computing)>
 
-<http://en.wikipedia.org/wiki/Associative_array>
+    <http://en.wikipedia.org/wiki/Associative_array>
 

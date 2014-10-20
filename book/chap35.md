@@ -31,18 +31,21 @@ The shell provides many more.
 #### 基本参数
 
 The simplest form of parameter expansion is reflected in the ordinary use of variables.
+
+最简单的参数展开形式反映在平常使用的变量上。
+
 For example:
 
-最简单的参数展开形式反映在平常使用的变量上。例如：
+例如：
 
-$a
+_$a_
 
 when expanded, becomes whatever the variable a contains. Simple parameters may also
 be surrounded by braces:
 
 当 $a 展开后，会变成变量 a 所包含的值。简单参数也可能用花括号引起来：
 
-${a}
+_${a}_
 
 This has no effect on the expansion, but is required if the variable is adjacent to other
 text, which may confuse the shell. In this example, we attempt to create a filename by ap-
@@ -70,7 +73,7 @@ can do this:
 
 我们已经知道通过把数字包裹在花括号中，可以访问大于9的位置参数。例如，访问第十一个位置参数，我们可以这样做：
 
-${11}
+_${11}_
 
 #### 管理空变量的展开
 
@@ -80,7 +83,7 @@ to parameters.
 
 几种用来处理不存在和空变量的参数展开形式。这些展开形式对于解决丢失的位置参数和给参数指定默认值的情况很方便。
 
-${parameter:-word}
+_${parameter:-word}_
 
 If parameter is unset (i.e., does not exist) or is empty, this expansion results in the value
 of word. If parameter is not empty, the expansion results in the value of parameter.
@@ -98,7 +101,7 @@ of word. If parameter is not empty, the expansion results in the value of parame
     [me@linuxbox ~]$ echo $foo
     bar
 
-${parameter:=word}
+_${parameter:=word}_
 
 If parameter is unset or empty, this expansion results in the value of word. In addition,
 the value of word is assigned to parameter. If parameter is not empty, the expansion re-
@@ -126,7 +129,7 @@ Note: Positional and other special parameters cannot be assigned this way.
 
 ---
 
-${parameter:?word}
+_${parameter:?word}_
 
 If parameter is unset or empty, this expansion causes the script to exit with an error, and
 the contents of word are sent to standard error. If parameter is not empty, the expansion
@@ -146,7 +149,7 @@ results in the value of parameter.
     [me@linuxbox ~]$ echo $?
     0
 
-${parameter:+word}
+_${parameter:+word}_
 
 If parameter is unset or empty, the expansion results in nothing. If parameter is not
 empty, the value of word is substituted for parameter; however, the value of parameter is
@@ -169,9 +172,9 @@ used in some rather exotic situations.
 
 shell 具有返回变量名的能力。这会用在一些相当独特的情况下。
 
-${!prefix*}
+_${!prefix*}_
 
-${!prefix@}
+_${!prefix@}_
 
 This expansion returns the names of existing variables with names beginning with prefix.
 According to the bash documentation, both forms of the expansion perform identically.
@@ -192,7 +195,7 @@ expansions are particularly well suited for operations on pathnames.
 
 有大量的展开形式可用于操作字符串。其中许多展开形式尤其适用于路径名的展开。
 
-${#parameter}
+_${#parameter}_
 
 expands into the length of the string contained by parameter. Normally, parameter is a
 string; however, if parameter is either @ or *, then the expansion results in the number of
@@ -205,9 +208,9 @@ positional parameters.
     [me@linuxbox ~]$ echo "'$foo' is ${#foo} characters long."
     'This string is long.' is 20 characters long.
 
-${parameter:offset}
+_${parameter:offset}_
 
-${parameter:offset:length}
+_${parameter:offset:length}_
 
 These expansions are used to extract a portion of the string contained in parameter. The
 extraction begins at offset characters from the beginning of the string and continues until
@@ -241,9 +244,9 @@ starting at offset.
     [me@linuxbox ~]$ echo ${foo: -5:2}
     lo
 
-${parameter#pattern}
+_${parameter#pattern}_
 
-${parameter##pattern}
+_${parameter##pattern}_
 
 These expansions remove a leading portion of the string contained in parameter defined
 by pattern. pattern is a wildcard pattern like those used in pathname expansion. The dif-
@@ -260,9 +263,9 @@ removes the longest match.
     [me@linuxbox ~]$ echo ${foo##*.}
     zip
 
-${parameter%pattern}
+_${parameter%pattern}_
 
-${parameter%%pattern}
+_${parameter%%pattern}_
 
 These expansions are the same as the # and ## expansions above, except they remove
 text from the end of the string contained in parameter rather than from the beginning.
@@ -275,13 +278,13 @@ text from the end of the string contained in parameter rather than from the begi
     [me@linuxbox ~]$ echo ${foo%%.*}
     file
 
-${parameter/pattern/string}
+_${parameter/pattern/string}_
 
-${parameter//pattern/string}
+_${parameter//pattern/string}_
 
-${parameter/#pattern/string}
+_${parameter/#pattern/string}_
 
-${parameter/%pattern/string}
+_${parameter/%pattern/string}_
 
 This expansion performs a search-and-replace upon the contents of parameter. If text is
 found matching wildcard pattern, it is replaced with the contents of string. In the normal
@@ -422,53 +425,53 @@ There are four parameter expansions that perform upper/lowercase conversion:
 有四个参数展开，可以执行大小写转换操作：
 
 <table class="multi">
-    <caption class="cap">Table 35-1: Case Conversion Parameter Expansions</caption>
-    <tr>
-        <th class="title">Format</th>
-        <th class="title">Result</th>
-    </tr>
-    <tr>
-        <td valign="top">${parameter,,} </td>
-        <td valign="top">Expand the value of parameter into all lowercase.</td>
-    </tr>
-    <tr>
-        <td valign="top">${parameter,} </td>
-        <td valign="top">Expand the value of parameter changing only the first
-             character to lowercase.</td>
-    </tr>
-    <tr>
-        <td valign="top">${parameter^^} </td>
-        <td valign="top">Expand the value of parameter into all uppercase letters.</td>
-    </tr>
-    <tr>
-        <td valign="top">${parameter^}</td>
-        <td valign="top">Expand the value of parameter changing only the first
-            character to uppercase (capitalization).</td>
-    </tr>
+<caption class="cap">Table 35-1: Case Conversion Parameter Expansions</caption>
+<tr>
+<th class="title">Format</th>
+<th class="title">Result</th>
+</tr>
+<tr>
+<td valign="top">${parameter,,} </td>
+<td valign="top">Expand the value of parameter into all lowercase.</td>
+</tr>
+<tr>
+<td valign="top">${parameter,} </td>
+<td valign="top">Expand the value of parameter changing only the first
+character to lowercase.</td>
+</tr>
+<tr>
+<td valign="top">${parameter^^} </td>
+<td valign="top">Expand the value of parameter into all uppercase letters.</td>
+</tr>
+<tr>
+<td valign="top">${parameter^}</td>
+<td valign="top">Expand the value of parameter changing only the first
+character to uppercase (capitalization).</td>
+</tr>
 </table>
 
 <table class="multi">
-    <caption class="cap">表 35-1: 大小写转换参数展开</caption>
-    <tr>
-        <th class="title">格式</th>
-        <th class="title">结果</th>
-    </tr>
-    <tr>
-        <td valign="top">${parameter,,} </td>
-        <td valign="top">把 parameter 的值全部展开成小写字母。</td>
-    </tr>
-    <tr>
-        <td valign="top">${parameter,} </td>
-        <td valign="top">仅仅把 parameter 的第一个字符展开成小写字母。</td>
-    </tr>
-    <tr>
-        <td valign="top">${parameter^^} </td>
-        <td valign="top">把 parameter 的值全部转换成大写字母。</td>
-    </tr>
-    <tr>
-        <td valign="top">${parameter^}</td>
-        <td valign="top">仅仅把 parameter 的第一个字符转换成大写字母（首字母大写）。</td>
-    </tr>
+<caption class="cap">表 35-1: 大小写转换参数展开</caption>
+<tr>
+<th class="title">格式</th>
+<th class="title">结果</th>
+</tr>
+<tr>
+<td valign="top">${parameter,,} </td>
+<td valign="top">把 parameter 的值全部展开成小写字母。</td>
+</tr>
+<tr>
+<td valign="top">${parameter,} </td>
+<td valign="top">仅仅把 parameter 的第一个字符展开成小写字母。</td>
+</tr>
+<tr>
+<td valign="top">${parameter^^} </td>
+<td valign="top">把 parameter 的值全部转换成大写字母。</td>
+</tr>
+<tr>
+<td valign="top">${parameter^}</td>
+<td valign="top">仅仅把 parameter 的第一个字符转换成大写字母（首字母大写）。</td>
+</tr>
 </table>
 
 Here is a script that demonstrates these expansions:
@@ -508,7 +511,7 @@ operations on integers. Its basic form is:
 
 我们在第七章中已经接触过算术展开了。它被用来对整数执行各种算术运算。它的基本格式是：
 
-$((expression))
+    $((expression))
 
 where expression is a valid arithmetic expression.
 
@@ -532,53 +535,52 @@ arithmetic expressions, the shell supports integer constants in any base.
 回到第9章，我们看过八进制（以8为底）和十六进制（以16为底）的数字。在算术表达式中，shell 支持任意进制的整形常量。
 
 <table class="multi">
-    <caption class="cap">Table 35-2: Specifying Different Number Bases</caption>
-    <tr>
-        <th class="title">Notation</th>
-        <th class="title">Description</th>
-    </tr>
-    <tr>
-        <td valign="top">number</td>
-        <td valign="top">By default, numbers without any notation are treated as decimal
-      (base 10) integers.</td>
-    </tr>
-    <tr>
-        <td valign="top">0number</td>
-        <td valign="top">In arithmetic expressions, numbers with a leading zero are
-       considered octal.</td>
-    </tr>
-    <tr>
-        <td valign="top">0xnumber</td>
-        <td valign="top">Hexadecimal notation</td>
-    </tr>
-    <tr>
-        <td valign="top">base#number</td>
-        <td valign="top">number is in base</td>
-    </tr>
+<caption class="cap">Table 35-2: Specifying Different Number Bases</caption>
+<tr>
+<th class="title">Notation</th>
+<th class="title">Description</th>
+</tr>
+<tr>
+<td valign="top">number</td>
+<td valign="top">By default, numbers without any notation are treated as decimal (base 10) integers.</td>
+</tr>
+<tr>
+<td valign="top">0number</td>
+<td valign="top">In arithmetic expressions, numbers with a leading zero are
+considered octal.</td>
+</tr>
+<tr>
+<td valign="top">0xnumber</td>
+<td valign="top">Hexadecimal notation</td>
+</tr>
+<tr>
+<td valign="top">base#number</td>
+<td valign="top">number is in base</td>
+</tr>
 </table>
 
 <table class="multi">
-    <caption class="cap">表 35-2: 指定不同的数基</caption>
-    <tr>
-        <th class="title">表示法</th>
-        <th class="title">描述</th>
-    </tr>
-    <tr>
-        <td valign="top">number</td>
-        <td valign="top">默认情况下，没有任何表示法的数字被看做是十进制数（以10为底）。</td>
-    </tr>
-    <tr>
-        <td valign="top">0number</td>
-        <td valign="top">在算术表达式中，以零开头的数字被认为是八进制数。</td>
-    </tr>
-    <tr>
-        <td valign="top">0xnumber</td>
-        <td valign="top">十六进制表示法</td>
-    </tr>
-    <tr>
-        <td valign="top">base#number</td>
-        <td valign="top">number 以 base 为底</td>
-    </tr>
+<caption class="cap">表 35-2: 指定不同的数基</caption>
+<tr>
+<th class="title">表示法</th>
+<th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top">number</td>
+<td valign="top">默认情况下，没有任何表示法的数字被看做是十进制数（以10为底）。</td>
+</tr>
+<tr>
+<td valign="top">0number</td>
+<td valign="top">在算术表达式中，以零开头的数字被认为是八进制数。</td>
+</tr>
+<tr>
+<td valign="top">0xnumber</td>
+<td valign="top">十六进制表示法</td>
+</tr>
+<tr>
+<td valign="top">base#number</td>
+<td valign="top">number 以 base 为底</td>
+</tr>
 </table>
 
 
@@ -610,66 +612,67 @@ The ordinary arithmetic operators are listed in the table below:
 下表中列出了普通算术运算符：
 
 <table class="multi">
-    <caption class="cap">Table 35-3: Arithmetic Operators</caption>
-    <tr>
-        <th class="title">Operator</th>
-        <th class="title">Description</th>
-    </tr>
-    <tr>
-        <td valign="top">+</td>
-        <td valign="top">Addition</td>
-    </tr>
-    <tr>
-        <td valign="top">-</td>
-        <td valign="top">Subtraction</td>
-    </tr>
-    <tr>
-        <td valign="top">*</td>
-        <td valign="top">Multiplication</td>
-    </tr>
-    <tr>
-        <td valign="top">/</td>
-        <td valign="top">Integer division</td>
-    </tr>
-    <tr>
-        <td valign="top">**</td>
-        <td valign="top">Exponentiation</td>
-    </tr>
-    <tr>
-        <td valign="top">%</td>
-        <td valign="top">Modulo (remainder)</td>
-    </tr>
+<caption class="cap">Table 35-3: Arithmetic Operators</caption>
+<tr>
+<th class="title">Operator</th>
+<th class="title">Description</th>
+</tr>
+<tr>
+<td valign="top">+</td>
+<td valign="top">Addition</td>
+</tr>
+<tr>
+<td valign="top">-</td>
+<td valign="top">Subtraction</td>
+</tr>
+<tr>
+<td valign="top">*</td>
+<td valign="top">Multiplication</td>
+</tr>
+<tr>
+<td valign="top">/</td>
+<td valign="top">Integer division</td>
+</tr>
+<tr>
+<td valign="top">**</td>
+<td valign="top">Exponentiation</td>
+</tr>
+<tr>
+<td valign="top">%</td>
+<td valign="top">Modulo (remainder)</td>
+</tr>
 </table>
+
 <table class="multi">
-    <caption class="cap">表 35-3: 算术运算符</caption>
-    <tr>
-        <th class="title">运算符</th>
-        <th class="title">描述</th>
-    </tr>
-    <tr>
-        <td valign="top">+</td>
-        <td valign="top">加</td>
-    </tr>
-    <tr>
-        <td valign="top">-</td>
-        <td valign="top">减</td>
-    </tr>
-    <tr>
-        <td valign="top">*</td>
-        <td valign="top">乘</td>
-    </tr>
-    <tr>
-        <td valign="top">/</td>
-        <td valign="top">整除</td>
-    </tr>
-    <tr>
-        <td valign="top">**</td>
-        <td valign="top">乘方</td>
-    </tr>
-    <tr>
-        <td valign="top">%</td>
-        <td valign="top">取模（余数）</td>
-    </tr>
+<caption class="cap">表 35-3: 算术运算符</caption>
+<tr>
+<th class="title">运算符</th>
+<th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top">+</td>
+<td valign="top">加</td>
+</tr>
+<tr>
+<td valign="top">-</td>
+<td valign="top">减</td>
+</tr>
+<tr>
+<td valign="top">*</td>
+<td valign="top">乘</td>
+</tr>
+<tr>
+<td valign="top">/</td>
+<td valign="top">整除</td>
+</tr>
+<tr>
+<td valign="top">**</td>
+<td valign="top">乘方</td>
+</tr>
+<tr>
+<td valign="top">%</td>
+<td valign="top">取模（余数）</td>
+</tr>
 </table>
 
 Most of these are self-explanatory, but integer division and modulo require further discussion.
@@ -768,105 +771,99 @@ signments:
 除了 = 运算符，shell 也提供了其它一些表示法，来执行一些非常有用的赋值运算：
 
 <table class="multi">
-    <caption class="cap">Table 35-4: Assignment Operators</caption>
-    <tr>
-        <th class="title" width="25%">Notation</th>
-        <th class="title">Description</th>
-    </tr>
-    <tr>
-        <td valign="top">parameter = value</td>
-        <td valign="top">Simple assignment. Assigns value to parameter.</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter += value</td>
-        <td valign="top">Addition. Equivalent to parameter = parameter + value.</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter -= value</td>
-        <td valign="top">Subtraction. Equivalent to parameter = parameter – value.</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter *= value</td>
-        <td valign="top">Multiplication. Equivalent to parameter = parameter * value.</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter /= value</td>
-        <td valign="top">Integer division. Equivalent to parameter =
-                  parameter / value.</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter %= value</td>
-        <td valign="top"> Modulo. Equivalent to parameter = parameter %
-                  value.</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter++ </td>
-        <td valign="top">Variable post-increment. Equivalent to parameter =
-           parameter + 1 (however, see discussion below).</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter-\- </td>
-        <td valign="top">Variable post-decrement. Equivalent to parameter =
-               parameter - 1.</td>
-    </tr>
-    <tr>
-        <td valign="top">++parameter</td>
-        <td valign="top">Variable pre-increment. Equivalent to parameter =
-           parameter + 1.</td>
-    </tr>
-    <tr>
-        <td valign="top">--parameter</td>
-        <td valign="top">Variable pre-decrement. Equivalent to parameter =
-           parameter - 1.</td>
-    </tr>
+<caption class="cap">Table 35-4: Assignment Operators</caption>
+<tr>
+<th class="title" width="25%">Notation</th>
+<th class="title">Description</th>
+</tr>
+<tr>
+<td valign="top">parameter = value</td>
+<td valign="top">Simple assignment. Assigns value to parameter.</td>
+</tr>
+<tr>
+<td valign="top">parameter += value</td>
+<td valign="top">Addition. Equivalent to parameter = parameter + value.</td>
+</tr>
+<tr>
+<td valign="top">parameter -= value</td>
+<td valign="top">Subtraction. Equivalent to parameter = parameter - value.</td>
+</tr>
+<tr>
+<td valign="top">parameter *= value</td>
+<td valign="top">Multiplication. Equivalent to parameter = parameter * value.</td>
+</tr>
+<tr>
+<td valign="top">parameter /= value</td>
+<td valign="top">Integer division. Equivalent to parameter = parameter / value.</td>
+</tr>
+<tr>
+<td valign="top">parameter %= value</td>
+<td valign="top"> Modulo. Equivalent to parameter = parameter % value.</td>
+</tr>
+<tr>
+<td valign="top">parameter++ </td>
+<td valign="top">Variable post-increment. Equivalent to parameter = parameter + 1 (however, see discussion below).</td>
+</tr>
+<tr>
+<td valign="top">parameter-\- </td>
+<td valign="top">Variable post-decrement. Equivalent to parameter = parameter - 1.</td>
+</tr>
+<tr>
+<td valign="top">++parameter</td>
+<td valign="top">Variable pre-increment. Equivalent to parameter = parameter + 1.</td>
+</tr>
+<tr>
+<td valign="top">--parameter</td>
+<td valign="top">Variable pre-decrement. Equivalent to parameter = parameter - 1.</td>
+</tr>
 </table>
 
 <table class="multi">
-    <caption class="cap">表35-4: 赋值运算符</caption>
-    <tr>
-        <th class="title" width="25%">表示法</th>
-        <th class="title">描述</th>
-    </tr>
-    <tr>
-        <td valign="top">parameter = value</td>
-        <td valign="top">简单赋值。给 parameter 赋值。</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter += value</td>
-        <td valign="top">加。等价于 parameter = parameter + value。</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter -= value</td>
-        <td valign="top">减。等价于 parameter = parameter – value。</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter *= value</td>
-        <td valign="top">乘。等价于 parameter = parameter * value。</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter /= value</td>
-        <td valign="top">整除。等价于 parameter = parameter / value。</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter %= value</td>
-        <td valign="top"> 取模。等价于 parameter = parameter % value。</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter++ </td>
-        <td valign="top">后缀自增变量。等价于 parameter = parameter + 1 (但，要看下面的讨论)。</td>
-    </tr>
-    <tr>
-        <td valign="top">parameter-\- </td>
-        <td valign="top">后缀自减变量。等价于 parameter = parameter - 1。</td>
-    </tr>
-    <tr>
-        <td valign="top">++parameter</td>
-        <td valign="top">前缀自增变量。等价于 parameter = parameter + 1。</td>
-    </tr>
-    <tr>
-        <td valign="top">--parameter</td>
-        <td valign="top">前缀自减变量。等价于 parameter = parameter - 1。</td>
-    </tr>
+<caption class="cap">表35-4: 赋值运算符</caption>
+<tr>
+<th class="title" width="25%">表示法</th>
+<th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top">parameter = value</td>
+<td valign="top">简单赋值。给 parameter 赋值。</td>
+</tr>
+<tr>
+<td valign="top">parameter += value</td>
+<td valign="top">加。等价于 parameter = parameter + value。</td>
+</tr>
+<tr>
+<td valign="top">parameter -= value</td>
+<td valign="top">减。等价于 parameter = parameter – value。</td>
+</tr>
+<tr>
+<td valign="top">parameter *= value</td>
+<td valign="top">乘。等价于 parameter = parameter * value。</td>
+</tr>
+<tr>
+<td valign="top">parameter /= value</td>
+<td valign="top">整除。等价于 parameter = parameter / value。</td>
+</tr>
+<tr>
+<td valign="top">parameter %= value</td>
+<td valign="top"> 取模。等价于 parameter = parameter % value。</td>
+</tr>
+<tr>
+<td valign="top">parameter++ </td>
+<td valign="top">后缀自增变量。等价于 parameter = parameter + 1 (但，要看下面的讨论)。</td>
+</tr>
+<tr>
+<td valign="top">parameter-\- </td>
+<td valign="top">后缀自减变量。等价于 parameter = parameter - 1。</td>
+</tr>
+<tr>
+<td valign="top">++parameter</td>
+<td valign="top">前缀自增变量。等价于 parameter = parameter + 1。</td>
+</tr>
+<tr>
+<td valign="top">--parameter</td>
+<td valign="top">前缀自减变量。等价于 parameter = parameter - 1。</td>
+</tr>
 </table>
 
 These assignment operators provide a convenient shorthand for many common arithmetic
@@ -940,68 +937,68 @@ reading bit-flags.
 经常涉及到设置或读取位标志。
 
 <table class="multi">
-    <caption class="cap">Table 35-5: Bit Operators</caption>
-    <tr>
-        <th class="title">Operator</th>
-        <th class="title">Description</th>
-    </tr>
-    <tr>
-        <td valign="top">~ </td>
-        <td valign="top">Bitwise negation. Negate all the bits in a number.</td>
-    </tr>
-    <tr>
-        <td valign="top"><<</td>
-        <td valign="top">Left bitwise shift. Shift all the bits in a number to the left.</td>
-    </tr>
-    <tr>
-        <td valign="top">>></td>
-        <td valign="top">Right bitwise shift. Shift all the bits in a number to the right.</td>
-    </tr>
-    <tr>
-        <td valign="top">&</td>
-        <td valign="top">Bitwise AND. Perform an AND operation on all the bits in two numbers.</td>
-    </tr>
-    <tr>
-        <td valign="top">|</td>
-        <td valign="top">Bitwise OR. Perform an OR operation on all the bits in two numbers.</td>
-    </tr>
-    <tr>
-        <td valign="top">^</td>
-        <td valign="top">Bitwise XOR. Perform an exclusive OR operation on all the
- bits in two numbers.</td>
-    </tr>
+<caption class="cap">Table 35-5: Bit Operators</caption>
+<tr>
+<th class="title">Operator</th>
+<th class="title">Description</th>
+</tr>
+<tr>
+<td valign="top">~</td>
+<td valign="top">Bitwise negation. Negate all the bits in a number.</td>
+</tr>
+<tr>
+<td valign="top"><<</td>
+<td valign="top">Left bitwise shift. Shift all the bits in a number to the left.</td>
+</tr>
+<tr>
+<td valign="top">>></td>
+<td valign="top">Right bitwise shift. Shift all the bits in a number to the right.</td>
+</tr>
+<tr>
+<td valign="top">&</td>
+<td valign="top">Bitwise AND. Perform an AND operation on all the bits in two numbers.</td>
+</tr>
+<tr>
+<td valign="top">|</td>
+<td valign="top">Bitwise OR. Perform an OR operation on all the bits in two numbers.</td>
+</tr>
+<tr>
+<td valign="top">^</td>
+<td valign="top">Bitwise XOR. Perform an exclusive OR operation on all the
+bits in two numbers.</td>
+</tr>
 </table>
 
 <table class="multi">
-    <caption class="cap">表35-5: 位运算符</caption>
-    <tr>
-        <th class="title">运算符</th>
-        <th class="title">描述</th>
-    </tr>
-    <tr>
-        <td valign="top">~</td>
-        <td valign="top">按位取反。对一个数字所有位取反。</td>
-    </tr>
-    <tr>
-        <td valign="top"><<</td>
-        <td valign="top">位左移. 把一个数字的所有位向左移动。</td>
-    </tr>
-    <tr>
-        <td valign="top">>></td>
-        <td valign="top">位右移. 把一个数字的所有位向右移动。</td>
-    </tr>
-    <tr>
-        <td valign="top">&</td>
-        <td valign="top">位与。对两个数字的所有位执行一个 AND 操作。</td>
-    </tr>
-    <tr>
-        <td valign="top">|</td>
-        <td valign="top">位或。对两个数字的所有位执行一个 OR 操作。</td>
-    </tr>
-    <tr>
-        <td valign="top">^</td>
-        <td valign="top">位异或。对两个数字的所有位执行一个异或操作。</td>
-    </tr>
+<caption class="cap">表35-5: 位运算符</caption>
+<tr>
+<th class="title">运算符</th>
+<th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top">~</td>
+<td valign="top">按位取反。对一个数字所有位取反。</td>
+</tr>
+<tr>
+<td valign="top"><<</td>
+<td valign="top">位左移. 把一个数字的所有位向左移动。</td>
+</tr>
+<tr>
+<td valign="top">>></td>
+<td valign="top">位右移. 把一个数字的所有位向右移动。</td>
+</tr>
+<tr>
+<td valign="top">&</td>
+<td valign="top">位与。对两个数字的所有位执行一个 AND 操作。</td>
+</tr>
+<tr>
+<td valign="top">|</td>
+<td valign="top">位或。对两个数字的所有位执行一个 OR 操作。</td>
+</tr>
+<tr>
+<td valign="top">^</td>
+<td valign="top">位异或。对两个数字的所有位执行一个异或操作。</td>
+</tr>
 </table>
 
 Note that there are also corresponding assignment operators (for example, <\<=) for all
@@ -1033,94 +1030,94 @@ the complete list:
 这里是比较运算符的完整列表：
 
 <table class="multi">
-    <caption class="cap">Table 35-6: Comparison Operators</caption>
-    <tr>
-        <th class="title">Operator</th>
-        <th class="title">Description</th>
-    </tr>
-    <tr>
-        <td valign="top"><=</td>
-        <td valign="top">Less than or equal to</td>
-    </tr>
-    <tr>
-        <td valign="top">>=</td>
-        <td valign="top">great than or equal to</td>
-    </tr>
-    <tr>
-        <td valign="top"><</td>
-        <td valign="top">less than</td>
-    </tr>
-    <tr>
-        <td valign="top">></td>
-        <td valign="top">greater than</td>
-    </tr>
-    <tr>
-        <td valign="top">==</td>
-        <td valign="top">Equal to</td>
-    </tr>
-    <tr>
-        <td valign="top">!=</td>
-        <td valign="top">Not equal to</td>
-    </tr>
-    <tr>
-        <td valign="top">&&</td>
-        <td valign="top">Logical AND</td>
-    </tr>
-    <tr>
-        <td valign="top">||</td>
-        <td valign="top">Logical OR</td>
-    </tr>
-     <tr>
-        <td valign="top">expr1?expr2:expr3</td>
-        <td valign="top">Comparison (ternary) operator. If expression expr1
-                 evaluates to be non-zero (arithmetic true) then expr2,
-                else expr3.</td>
-    </tr>
+<caption class="cap">Table 35-6: Comparison Operators</caption>
+<tr>
+<th class="title">Operator</th>
+<th class="title">Description</th>
+</tr>
+<tr>
+<td valign="top"><=</td>
+<td valign="top">Less than or equal to</td>
+</tr>
+<tr>
+<td valign="top">>=</td>
+<td valign="top">great than or equal to</td>
+</tr>
+<tr>
+<td valign="top"><</td>
+<td valign="top">less than</td>
+</tr>
+<tr>
+<td valign="top">></td>
+<td valign="top">greater than</td>
+</tr>
+<tr>
+<td valign="top">==</td>
+<td valign="top">Equal to</td>
+</tr>
+<tr>
+<td valign="top">!=</td>
+<td valign="top">Not equal to</td>
+</tr>
+<tr>
+<td valign="top">&&</td>
+<td valign="top">Logical AND</td>
+</tr>
+<tr>
+<td valign="top">||</td>
+<td valign="top">Logical OR</td>
+</tr>
+<tr>
+<td valign="top">expr1?expr2:expr3</td>
+<td valign="top">Comparison (ternary) operator. If expression expr1
+ evaluates to be non-zero (arithmetic true) then expr2,
+else expr3.</td>
+</tr>
 </table>
 
 <table class="multi">
-    <caption class="cap">表35-6: 比较运算符</caption>
-    <tr>
-        <th class="title">运算符</th>
-        <th class="title">描述</th>
-    </tr>
-    <tr>
-        <td valign="top"><=</td>
-        <td valign="top">小于或相等</td>
-    </tr>
-    <tr>
-        <td valign="top">>=</td>
-        <td valign="top">大于或相等</td>
-    </tr>
-    <tr>
-        <td valign="top"><</td>
-        <td valign="top">小于</td>
-    </tr>
-    <tr>
-        <td valign="top">></td>
-        <td valign="top">大于</td>
-    </tr>
-    <tr>
-        <td valign="top">==</td>
-        <td valign="top">相等</td>
-    </tr>
-    <tr>
-        <td valign="top">!=</td>
-        <td valign="top">不相等</td>
-    </tr>
-    <tr>
-        <td valign="top">&&</td>
-        <td valign="top">逻辑与</td>
-    </tr>
-    <tr>
-        <td valign="top">||</td>
-        <td valign="top">逻辑或</td>
-    </tr>
-     <tr>
-        <td valign="top">expr1?expr2:expr3</td>
-        <td valign="top">条件（三元）运算符。若表达式 expr1 的计算结果为非零值（算术真），则
-            执行表达式 expr2，否则执行表达式 expr3。</td>
-    </tr>
+<caption class="cap">表35-6: 比较运算符</caption>
+<tr>
+<th class="title">运算符</th>
+<th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top"><=</td>
+<td valign="top">小于或相等</td>
+</tr>
+<tr>
+<td valign="top">>=</td>
+<td valign="top">大于或相等</td>
+</tr>
+<tr>
+<td valign="top"><</td>
+<td valign="top">小于</td>
+</tr>
+<tr>
+<td valign="top">></td>
+<td valign="top">大于</td>
+</tr>
+<tr>
+<td valign="top">==</td>
+<td valign="top">相等</td>
+</tr>
+<tr>
+<td valign="top">!=</td>
+<td valign="top">不相等</td>
+</tr>
+<tr>
+<td valign="top">&&</td>
+<td valign="top">逻辑与</td>
+</tr>
+<tr>
+<td valign="top">||</td>
+<td valign="top">逻辑或</td>
+</tr>
+<tr>
+<td valign="top">expr1?expr2:expr3</td>
+<td valign="top">条件（三元）运算符。若表达式 expr1 的计算结果为非零值（算术真），则
+执行表达式 expr2，否则执行表达式 expr3。</td>
+</tr>
 </table>
 
 When used for logical operations, expressions follow the rules of arithmetic logic; that is,
@@ -1263,7 +1260,7 @@ The first line of the script is a comment. bc uses the same syntax for comments 
 programming language. Comments, which may span multiple lines, begin with `/*` and
 end with `*/`.
 
-脚本的第一行是一行注释。bc 使用和 C编程语言一样的注释语法。注释，可能会跨越多行，开始于 `/*` 结束于 `*/`。
+脚本的第一行是一行注释。bc 使用和 C 编程语言一样的注释语法。注释，可能会跨越多行，开始于 `/*` 结束于 `*/`。
 
 #### 使用 bc
 
@@ -1406,31 +1403,30 @@ user to input the principal, interest rate, and term of the loan.
 
 * 《Bash Hackers Wiki》对参数展开有一个很好的论述：
 
-<http://wiki.bash-hackers.org/syntax/pe>
+    <http://wiki.bash-hackers.org/syntax/pe>
 
 * The Bash Reference Manual covers this, too:
 
 * 《Bash 参考手册》也介绍了这个：
 
-<http://www.gnu.org/software/bash/manual/bashref.html#Shell-Parameter-Expansion>
+    <http://www.gnu.org/software/bash/manual/bashref.html#Shell-Parameter-Expansion>
 
 * The Wikipedia has a good article describing bit operations:
 
 * Wikipedia 上面有一篇很好的文章描述了位运算：
 
-<http://en.wikipedia.org/wiki/Bit_operation>
+    <http://en.wikipedia.org/wiki/Bit_operation>
 
 * and an article on ternary operations:
 
 * 和一篇关于三元运算的文章：
 
-<http://en.wikipedia.org/wiki/Ternary_operation>
+    <http://en.wikipedia.org/wiki/Ternary_operation>
 
-* as well as a description of the formula for calculating loan payments used in our
-  loan-calc script:
+* as well as a description of the formula for calculating loan payments used in our loan-calc script:
 
 * 还有一个对计算还贷金额公式的描述，我们的 loan-calc 脚本中用到了这个公式：
 
-<http://en.wikipedia.org/wiki/Amortization_calculator>
+    <http://en.wikipedia.org/wiki/Amortization_calculator>
 
 

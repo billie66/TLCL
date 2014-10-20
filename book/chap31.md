@@ -117,19 +117,19 @@ The result is this:
 Again, the error message points to a error that occurs later than the actual problem. What
 happens is really pretty interesting. As we recall, if accepts a list of commands and
 evaluates the exit code of the last command in the list. In our program, we intend this list
-to consist of a single command, \[, a synonym for test. The \[ command takes what
-follows it as a list of arguments. In our case, three arguments: $number, =, and \]. With
+to consist of a single command, [, a synonym for test. The [ command takes what
+follows it as a list of arguments. In our case, three arguments: $number, =, and ]. With
 the semicolon removed, the word then is added to the list of arguments, which is
 syntactically legal. The following echo command is legal, too. It’s interpreted as
 another command in the list of commands that if will evaluate for an exit code. The
 else is encountered next, but it’s out of place, since the shell recognizes it as a reserved
-word \(a word that has special meaning to the shell\) and not the name of a command,
+word (a word that has special meaning to the shell) and not the name of a command,
 hence the error message.
 
 再次，错误信息指向一个错误，其出现的位置靠后于实际问题所在的文本行。所发生的事情真是相当有意思。我们记得，
 if 能够接受一系列命令，并且会计算列表中最后一个命令的退出代码。在我们的程序中，我们打算这个列表由
-单个命令组成，即 \[，测试的同义词。这个 \[ 命令把它后面的东西看作是一个参数列表。在我们这种情况下，
-有三个参数： $number，=，和 \]。由于删除了分号，单词 then 被添加到参数列表中，从语法上讲，
+单个命令组成，即 [，测试的同义词。这个 [ 命令把它后面的东西看作是一个参数列表。在我们这种情况下，
+有三个参数： $number，=，和 ]。由于删除了分号，单词 then 被添加到参数列表中，从语法上讲，
 这是合法的。随后的 echo 命令也是合法的。它被解释为命令列表中的另一个命令，if
 将会计算命令的 退出代码。接下来遇到单词 else，但是它出局了，因为 shell 把它认定为一个
 保留字（对于 shell 有特殊含义的单词），而不是一个命令名，因此报告错误信息。
@@ -353,7 +353,7 @@ up with a laser-guided “anti-fly system” instead.
 的产品，你会设计出一个苍蝇拍。如果给你五个月的时间，你可能会制作出激光制导的
 “反苍蝇系统”。
 >
->  The same principle applies to programming. Sometimes a “quick and dirty”
+> The same principle applies to programming. Sometimes a “quick and dirty”
 script will do if it’s only going to be used once and only used by the programmer.
 That kind of script is common and should be developed quickly to make the effort
 economical. Such scripts don’t need a lot of comments and defensive checks. On

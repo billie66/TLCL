@@ -170,8 +170,6 @@ It also led to the following Fortran-based witticism:
 >
 > “神是真实的，除非是声明的整数。”
 
-
-
 ### for: C 语言格式
 
 Recent versions of bash have added a second form of for command syntax, one that
@@ -306,10 +304,10 @@ made use of printf to format some of the output.
 
 * 《高级 Bash 脚本指南》有一章关于循环的内容，其中列举了各种各样的 for 循环实例：
 
-<http://tldp.org/LDP/abs/html/loops1.html>
+    <http://tldp.org/LDP/abs/html/loops1.html>
 
 * The Bash Reference Manual describes the looping compound commands, including for:
 
 * 《Bash 参考手册》描述了循环复合命令，包括了 for 循环：
 
-<http://www.gnu.org/software/bash/manual/bashref.html#Looping-Constructs>
+    <http://www.gnu.org/software/bash/manual/bashref.html#Looping-Constructs>

@@ -122,63 +122,63 @@ are terminated with a “)” character. Here are some valid patterns:
 这里 case 语句使用的模式和路径展开中使用的那些是一样的。模式以一个 “)” 为终止符。这里是一些有效的模式。
 
 <table class="multi">
-    <caption class="cap">Table 32-1: case Pattern Examples</caption>
-    <tr>
-        <th class="title">Pattern</th>
-        <th class="title">Description</th>
-    </tr>
-    <tr>
-        <td valign="top">a)</td>
-        <td valign="top">Matches if word equals "a".</td>
-    </tr>
-    <tr>
-        <td valign="top">[[:alpha:]])</td>
-        <td valign="top">Matches if word is a single alphabetic character.</td>
-    </tr>
-    <tr>
-        <td valign="top">???)</td>
-        <td valign="top">Matches if word is exactly three characters long.</td>
-    </tr>
-    <tr>
-        <td valign="top">*.txt)</td>
-        <td valign="top">Matches if word ends with the characters “.txt”.</td>
-    </tr>
-    <tr>
-        <td valign="top">*)</td>
-        <td valign="top">Matches any value of word. It is good practice to include
-        this as the last pattern in a case command, to catch any values of word
-        that did not match a previous pattern; that is, to catch any possible invalid values.</td>
-    </tr>
+<caption class="cap">Table 32-1: case Pattern Examples</caption>
+<tr>
+<th class="title">Pattern</th>
+<th class="title">Description</th>
+</tr>
+<tr>
+<td valign="top">a)</td>
+<td valign="top">Matches if word equals "a".</td>
+</tr>
+<tr>
+<td valign="top">[[:alpha:]])</td>
+<td valign="top">Matches if word is a single alphabetic character.</td>
+</tr>
+<tr>
+<td valign="top">???)</td>
+<td valign="top">Matches if word is exactly three characters long.</td>
+</tr>
+<tr>
+<td valign="top">*.txt)</td>
+<td valign="top">Matches if word ends with the characters “.txt”.</td>
+</tr>
+<tr>
+<td valign="top">*)</td>
+<td valign="top">Matches any value of word. It is good practice to include
+this as the last pattern in a case command, to catch any values of word
+that did not match a previous pattern; that is, to catch any possible invalid values.</td>
+</tr>
 </table>
 
 <table class="multi">
-    <caption class="cap">表 32-1: case 模式实例</caption>
-    <tr>
-        <th class="title">模式</th>
-        <th class="title">描述</th>
-    </tr>
-    <tr>
-        <td valign="top">a)</td>
-        <td valign="top">若单词为 “a”，则匹配</td>
-    </tr>
-    <tr>
-        <td valign="top">[[:alpha:]])</td>
-        <td valign="top">若单词是一个字母字符，则匹配</td>
-    </tr>
-     <tr>
-        <td valign="top">???)</td>
-        <td valign="top">若单词只有3个字符，则匹配</td>
-    </tr>
-    <tr>
-        <td valign="top">*.txt)</td>
-        <td valign="top">若单词以 “.txt” 字符结尾，则匹配</td>
-    </tr>
-    <tr>
-        <td valign="top">*)</td>
-        <td valign="top">匹配任意单词。把这个模式做为 case 命令的最后一个模式，是一个很好的做法，
-        可以捕捉到任意一个与先前模式不匹配的数值；也就是说，捕捉到任何可能的无效值。
-        </td>
-    </tr>
+<caption class="cap">表32-1: case 模式实例</caption>
+<tr>
+<th class="title">模式</th>
+<th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top">a)</td>
+<td valign="top">若单词为 “a”，则匹配</td>
+</tr>
+<tr>
+<td valign="top">[[:alpha:]])</td>
+<td valign="top">若单词是一个字母字符，则匹配</td>
+</tr>
+ <tr>
+<td valign="top">???)</td>
+<td valign="top">若单词只有3个字符，则匹配</td>
+</tr>
+<tr>
+<td valign="top">*.txt)</td>
+<td valign="top">若单词以 “.txt” 字符结尾，则匹配</td>
+</tr>
+<tr>
+<td valign="top">*)</td>
+<td valign="top">匹配任意单词。把这个模式做为 case 命令的最后一个模式，是一个很好的做法，
+可以捕捉到任意一个与先前模式不匹配的数值；也就是说，捕捉到任何可能的无效值。
+</td>
+</tr>
 </table>
 
 Here is an example of patterns at work:
@@ -327,10 +327,10 @@ case command in detail:
 
 * Bash 参考手册的条件构造一节详尽的介绍了 case 命令：
 
-<http://tiswww.case.edu/php/chet/bash/bashref.html#SEC21>
+    <http://tiswww.case.edu/php/chet/bash/bashref.html#SEC21>
 
 * The Advanced Bash-Scripting Guide provides further examples of case applications:
 
 * 高级 Bash 脚本指南提供了更深一层的 case 应用实例：
 
-<http://tldp.org/LDP/abs/html/testbranch.html>
+    <http://tldp.org/LDP/abs/html/testbranch.html>
