@@ -301,7 +301,7 @@ be very careful with them because they will not produce the expected results
 unless properly configured. For now, you should avoid using them and use
 character classes instead.
 >
-> 如果你用过别的类似 Unix 系统的操作环境，或者是读过这方面的书籍，你可能遇到过[A-Z]或
+> 如果你用过别的类 Unix 系统的操作环境，或者是读过这方面的书籍，你可能遇到过[A-Z]或
 [a-z]形式的字符范围表示法。这些都是传统的 Unix 表示法，并且在早期的 Linux 版本中仍有效。
 虽然它们仍然起作用，但是你必须小心地使用它们，因为它们不会产生你期望的输出结果，除非
 你合理地配置它们。从现在开始，你应该避免使用它们，并且用字符类来代替它们。

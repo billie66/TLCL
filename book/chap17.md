@@ -497,7 +497,7 @@ flaw that the ftp program does; they transmit all their communications (includin
 names and passwords) in cleartext. This makes them wholly inappropriate for use in the
 Internet age.
 
-通过网络来远程操控类似 Unix 的操作系统已经有很多年了。早些年，在因特网普遍推广之前，有
+通过网络来远程操控类 Unix 的操作系统已经有很多年了。早些年，在因特网普遍推广之前，有
 一些受欢迎的程序被用来登录远程主机。它们是 rlogin 和 telnet 程序。然而这些程序，拥有和 ftp 程序
 一样的致命缺点；它们以明码形式来传输所有的交流信息（包括登录命令和密码）。这使它们完全不
 适合使用在因特网时代。
