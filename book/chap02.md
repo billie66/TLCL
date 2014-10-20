@@ -11,9 +11,9 @@ program from the GNU Project called bash. The name “bash” is an acronym for
 for sh, the original Unix shell program written by Steve Bourne.
 
 一说到命令行，我们真正指的是 shell。shell 就是一个程序，它接受从键盘输入的命令，
-然后把命令传递给操作系统去执行。几乎所有的 Linux 发行版都提供一个名为 bash 的程序，
-bash 是 shell 的一种，来自于 GNU 项目。“bash”是“Bourne Again SHell”的首字母缩写，
-所指的是这样一个事实，bash 是 sh 的增强版，sh 是最初 Unix 的 shell 程序，由 Steve Bourne 写成。
+然后把命令传递给操作系统去执行。几乎所有的 Linux 发行版都提供一个名为 bash 的
+来自 GNU 项目的 shell 程序。“bash” 是 “Bourne Again SHell” 的首字母缩写，
+所指的是这样一个事实，bash 是最初 Unix 上由 Steve Bourne 写成 shell 程序 sh 的增强版。
 
 ### 终端仿真器
 
@@ -26,11 +26,11 @@ basically do the same thing; give us access to the shell. You will probably
 develop a preference for one or another based on the number of bells and
 whistles it has.
 
-当使用图形用户界面时，我们需要另一个叫做终端仿真器的程序，去和 shell 交互。
-浏览一下我们的桌面菜单，我们可能会找到一个。虽然在菜单里它可能都
-被简单地称为“terminal”，但是 KDE 用的是 konsole 程序, 而 GNOME 则使用 gnome-terminal。
-还有其他一些终端仿真器可供 Linux 使用，但基本上，它们都是为了完成同样的事情，
-让我们能访问 shell。也许，你会喜欢上这个或那个终端，由于它所附加的一系列花俏功能。
+当使用图形用户界面时，我们需要另一个和 shell 交互的叫做终端仿真器的程序。
+如果我们浏览一下桌面菜单，可能会找到一个。虽然在菜单里它可能都
+被简单地称为 “terminal”，但是 KDE 用的是 konsole , 而 GNOME 则使用 gnome-terminal。
+还有其他一些终端仿真器可供 Linux 使用，但基本上，它们都完成同样的事情，
+让我们能访问 shell。也许，你可能会因为附加的一系列花俏功能而喜欢上某个终端。
 
 ### 第一次按键
 
@@ -46,7 +46,7 @@ distribution, it will usually include your username@machinename, followed by
 the current working directory (more about that in a little bit) and a dollar
 sign.
 
-这叫做 shell 提示符，当 shell 准备好了去接受输入时，它就会出现。然而，
+这叫做 shell 提示符，无论何时当 shell 准备好了去接受输入时，它就会出现。然而，
 它可能会以各种各样的面孔显示，这则取决于不同的 Linux 发行版，
 它通常包括你的用户名@主机名，紧接着当前工作目录（稍后会有更多介绍）和一个美元符号。
 
@@ -56,13 +56,13 @@ logged in as the root user or we selected a terminal emulator that provides
 superuser (administrative) privileges.
 
 如果提示符的最后一个字符是“#”, 而不是“$”, 那么这个终端会话就有超级用户权限。
-这意味着，我们或者是以根用户的身份登录，或者是我们选择的终端仿真器提供超级用户（管理员）权限。
+这意味着，我们或者是以 root 用户的身份登录，或者是我们选择的终端仿真器提供超级用户（管理员）权限。
 
 Assuming that things are good so far, let's try some typing. Type some
 gibberish at the prompt like so:
 
-假定到目前为止，所有事情都进行顺利，那我们试着打字吧。在提示符下敲入
-一些乱七八糟的无用数据，如下所示：
+假定到目前为止，所有事情都进行顺利，那我们试着键入字符吧。在提示符下敲入
+一些像下面一样的乱七八糟的字符：
 
     [me@linuxbox ~]$ kaekfjaeifj
 
@@ -105,7 +105,7 @@ be pasted at the cursor location. Try it.
 
 虽然，shell 是和键盘打交道的，但你也可以在终端仿真器里使用鼠标。X 窗口系统
 （使 GUI 工作的底层引擎）内建了一种机制，支持快速拷贝和粘贴技巧。
-如果你想高亮一些文本，可以按下鼠标左键，沿着文本拖动鼠标（或者双击一个单词），
+如果你按下鼠标左键，沿着文本拖动鼠标（或者双击一个单词）高亮了一些文本，
 那么这些高亮的文本就被拷贝到了一个由 X 管理的缓冲区里面。然后按下鼠标中键，
 这些文本就被粘贴到光标所在的位置。试试看。
 
@@ -113,8 +113,9 @@ Note: Don't be tempted to use Ctrl-c and Ctrl-v to perform copy and paste
 inside a terminal window. They don't work. These control codes have different
 meanings to the shell and were assigned many years before Microsoft Windows.
 
-注意： 不要在一个终端窗口里，使用 Ctrl-c 和 Ctrl-v 快捷键，来执行拷贝和粘贴操作。
-它们不起作用。对于 shell 来说，这些控制代码有着不同的含义，它们被赋值，早于 Microsoft Windows 许多年。
+注意： 不要在一个终端窗口里使用 Ctrl-c 和 Ctrl-v 快捷键来执行拷贝和粘贴操作。
+它们不起作用。对于 shell 来说，这两个控制代码有着不同的含义，它们在早于 
+Microsoft Windows （定义复制粘贴的含义）许多年之前就赋予了不同的意义。
 
 Your graphical desktop environment (most likely KDE or GNOME), in an effort
 to behave like Windows, probably has its focus policy set to “click to focus.”
@@ -128,11 +129,11 @@ you will prefer it. You will find this setting in the configuration program for 
 window manager.
 
 你的图形桌面环境（像 KDE 或 GNOME），努力想和 Windows 一样，可能会把它的聚焦策略
-设置成“单击聚焦”。这意味着，为了让窗口聚焦（变得活跃）你需要单击它。
-这与“聚焦跟随着鼠标”的传统 X 行为不同，传统 X 行为是指只要把鼠标移动到一个窗口的上方，
-这个窗口就成为活动窗口。这个窗口不会成为前端窗口，直到你单击它，但它能接受输入。
-设置聚焦策略为“聚焦跟随着鼠标”，可以使拷贝和粘贴技巧更有益。尝试一下。
-给它一个机会，我想你会喜欢上它的。在窗口管理器的配置程序中，你会找到这个设置。
+设置成“单击聚焦”。这意味着，为了让窗口聚焦（变成活动窗口）你需要单击它。
+这与“聚焦跟随着鼠标”的传统 X 行为不同，传统 X 行为是指只要把鼠标移动到一个窗口的上方。
+它能接受输入， 但是直到你单击窗口之前它都不会成为前端窗口。
+设置聚焦策略为“聚焦跟随着鼠标”，可以使拷贝和粘贴更方便易用。尝试一下。
+我想如果你试了一下你会喜欢上它的。你能在窗口管理器的配置程序中找到这个设置。
 
 ### 试试运行一些简单命令
 
@@ -185,7 +186,7 @@ Likewise, to display the amount of free memory, type the free command.
 We can end a terminal session by either closing the terminal emulator window, or by
 entering the exit command at the shell prompt:
 
-我们可以终止一个终端会话，通过关闭终端仿真器窗口，或者是在 shell 提示符下输入 exit 命令：
+我们可以通过关闭终端仿真器窗口，或者是在 shell 提示符下输入 exit 命令来终止一个终端会话：
 
     [me@linuxbox ~]$ exit
 
@@ -199,11 +200,11 @@ is accessed, it presents a login prompt into which we can enter our user name
 and password.  To switch from one virtual console to another, press Alt and
 F1-F6. To return to the graphical desktop, press Alt-F7.
 
-即使，终端仿真器没有运行，几个终端会话仍然在后台运行着。它们叫做虚拟终端
-或者是虚拟控制台。在大多数 Linux 发行版中，这些终端会话都可以访问，
-按下 Ctrl-Alt-F1 到 Ctrl-Alt-F6 访问不同的虚拟终端。当一个会话被访问的时候，
-它会显示登录提示框，我们需要输入用户名和密码。从一个虚拟控制台转换到另一个，
-按下 Alt 和 F1-F6。返回图形桌面，按下 Alt-F7。
+即使终端仿真器没有运行，在后台仍然有几个终端会话运行着。它们叫做虚拟终端
+或者是虚拟控制台。在大多数 Linux 发行版中，这些终端会话都可以通过按下
+Ctrl-Alt-F1 到 Ctrl-Alt-F6 访问。当一个会话被访问的时候，
+它会显示登录提示框，我们需要输入用户名和密码。要从一个虚拟控制台转换到另一个，
+按下 Alt 和 F1-F6(中的一个)。返回图形桌面，按下 Alt-F7。
 
 ### 拓展阅读
 
