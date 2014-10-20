@@ -315,23 +315,23 @@ as they are typed.
 Normally, the shell performs word splitting on the input provided to `read`. As we have
 seen, this means that multiple words separated by one or more spaces become separate
 items on the input line, and are assigned to separate variables by read. This behavior is
-configured by a shell variable named __IFS__ (for Internal Field Separator). The default
+configured by a shell variable named _IFS_ (for Internal Field Separator). The default
 value of __IFS__ contains a space, a tab, and a newline character, each of which will separate
 items from one another.
 
 通常，shell 对提供给 read 的输入按照单词进行分离。正如我们所见到的，这意味着多个由一个或几个空格
 分离开的单词在输入行中变成独立的个体，并被 read 赋值给单独的变量。这种行为由 shell 变量__IFS__
-（内部字符分隔符）配置。__IFS__的默认值包含一个空格，一个 tab，和一个换行符，每一个都会把
+（内部字符分隔符）配置。_IFS_ 的默认值包含一个空格，一个 tab，和一个换行符，每一个都会把
 字段分割开。
 
-We can adjust the value of __IFS__ to control the separation of fields input to `read`. For
+We can adjust the value of _IFS_ to control the separation of fields input to `read`. For
 example, the /etc/passwd file contains lines of data that use the colon character as a
-field separator. By changing the value of __IFS__ to a single colon, we can use read to
+field separator. By changing the value of _IFS_ to a single colon, we can use read to
 input the contents of /etc/passwd and successfully separate fields into different
 variables. Here we have a script that does just that:
 
-我们可以调整__IFS__的值来控制输入字段的分离。例如，这个 /etc/passwd 文件包含的数据行
-使用冒号作为字段分隔符。通过把__IFS__的值更改为单个冒号，我们可以使用 read 读取
+我们可以调整 _IFS_ 的值来控制输入字段的分离。例如，这个 /etc/passwd 文件包含的数据行
+使用冒号作为字段分隔符。通过把 _IFS_ 的值更改为单个冒号，我们可以使用 read 读取
 /etc/passwd 中的内容，并成功地把字段分给不同的变量。这个就是做这样的事情：
 
     #!/bin/bash
@@ -361,11 +361,11 @@ script contains two interesting lines. The first is:
 
     file_info=$(grep "^$user_name:" $FILE)
 
-This line assigns the results of a grep command to the variable file\_info. The
+This line assigns the results of a grep command to the variable file_info. The
 regular expression used by grep assures that the user name will only match a single line
 in the /etc/passwd file.
 
-这一行把 grep 命令的输入结果赋值给变量 file_info 。grep 命令使用的正则表达式
+这一行把 grep 命令的输入结果赋值给变量 file_info。grep 命令使用的正则表达式
 确保用户名只会在 /etc/passwd 文件中匹配一个文本行。
 
 The second interesting line is this one:
@@ -423,7 +423,7 @@ do this:
 >
 > 虽然通常 read 命令接受标准输入，但是你不能这样做：
 >
-> echo "foo" \| read
+>  _echo "foo" \| read_
 >
 > We would expect this to work, but it does not. The command will appear to
 succeed but the REPLY variable will always be empty. Why is this?
@@ -636,4 +636,4 @@ read command:
 
 * Bash 参考手册有一章关于内部命令的内容，其包括了`read`命令：
 
-  <http://www.gnu.org/software/bash/manual/bashref.html#Bash-Builtins>
+    <http://www.gnu.org/software/bash/manual/bashref.html#Bash-Builtins>

@@ -350,7 +350,7 @@ option to correct this:
 
 Much better. By adding the -c option, we now have the desired result.
 
-好多了。通过加了 -c 选项，我们现在有了我们想要的结果 。
+好多了。通过加了 -c 选项，我们现在有了我们想要的结果。
 
 fmt has some interesting options:
 
@@ -379,5 +379,4 @@ and lines of “code” which do not. Now, using fmt, we can format the comments
 leave the code untouched:
 
 我们的示例文件包含了用 “#” 开始的注释（一个 # 后跟着一个空白符）和代码。现在，使用 fmt，我们能格式注释并且
-不让代码被触及 。
-
+不让代码被触及。

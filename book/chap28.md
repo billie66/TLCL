@@ -768,7 +768,7 @@ This makes `[[ ]]` useful for evaluating file and path names.
 
 这就使`[[ ]]`有助于计算文件和路径名。
 
-### ((&nbsp;)) - 为整数设计
+### (( )) - 为整数设计
 
 In addition to the `[[ ]]` compound command, bash also provides the `(( ))`
 compound command, which is useful for operating on integers. It supports a full set of
@@ -867,7 +867,7 @@ represent these operations :
 <tr>
 <th class="title" width="34%">操作符</th>
 <th class="title">测试</th>
-<th class="title" width="34%">[[]] and (())</th>
+<th class="title" width="34%">[[ ]] and (( ))</th>
 </tr>
 <tr>
 <td valign="top">AND</td>
@@ -882,7 +882,7 @@ represent these operations :
 <tr>
 <td valign="top">NOT</td>
 <td valign="top">!</td>
-<td valign="top">!</td>
+<td valign="top"> ! </td>
 </tr>
 </table>
 
@@ -995,6 +995,8 @@ bash 支持两种可以执行分支任务的控制操作符。这个 `&&（AND�
 
 and
 
+和
+
     command1 || command2
 
 It is important to understand the behavior of these. With the && operator, command1 is
@@ -1088,7 +1090,7 @@ bash 手册页中有几部分对本章中涵盖的主题提供了更详细的内
 
 * Compound Commands ( 讨论 `[[ ]]`, `(( ))` 和 if )
 
-* CONDITIONAL EXPRESSIONS
+* CONDITIONAL EXPRESSIONS （条件表达式）
 
 * SHELL BUILTIN COMMANDS ( 讨论 test )
 
@@ -1096,5 +1098,5 @@ Further, the Wikipedia has a good article on the concept of pseudocode:
 
 进一步，Wikipedia 中有一篇关于伪代码概念的好文章：
 
-<http://en.wikipedia.org/wiki/Pseudocode>
+  <http://en.wikipedia.org/wiki/Pseudocode>
 

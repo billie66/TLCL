@@ -342,7 +342,7 @@ common options that can facilitate script writing:
 >
 > 这个 vim 文本编辑器有许多许多的配置设置。有几个常见的选项能够有助于脚本书写：
 >
-> _:syntax on_
+>  _:syntax on_
 >
 > turns on syntax highlighting. With this setting, different elements of shell syntax
 will be displayed in different colors when viewing a script. This is helpful for
@@ -356,7 +356,7 @@ have difficulty with the command above, try _:set syntax=sh_ instead.
 必须安装了一个完整的 vim 版本，并且你编辑的文件必须有一个 shebang，来说明这个文件是
 一个 shell 脚本。如果对于上面的命令，你遇到了困难，试试 _:set syntax=sh_。
 >
-> _:set hlsearch_
+>  _:set hlsearch_
 >
 > turns on the option to highlight search results. Say we search for the word
 “echo.” With this option on, each instance of the word will be highlighted.
@@ -364,7 +364,7 @@ have difficulty with the command above, try _:set syntax=sh_ instead.
 > 打开这个选项是为了高亮查找结果。比如说我们查找单词“echo”。通过设置这个选项，这个
 单词的每个实例会高亮显示。
 >
-> _:set tabstop=4_
+>  _:set tabstop=4_
 >
 > sets the number of columns occupied by a tab character. The default is eight
 columns. Setting the value to four (which is a common practice) allows long
@@ -372,7 +372,7 @@ lines to fit more easily on the screen.
 >> 设置一个 tab 字符所占据的列数。默认是8列。把这个值设置为4（一种常见做法），
 从而让长文本行更容易适应屏幕。
 >
-> _:set autoindent_
+>  _:set autoindent_
 >
 > turns on the “auto indent” feature. This causes vim to indent a new line the same
 amount as the line just typed. This speeds up typing on many kinds of

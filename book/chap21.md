@@ -989,12 +989,11 @@ end of the line:
 任意区间内的字符。例如，我们能够使用以下命令来从列表中抽取发行年份，通过展开
 此文件，再使用 cut 命令，来抽取从位置 23 开始到行尾的每一个字符：
 >
-> [me@linuxbox ~]$ expand distros.txt \| cut -c 23-
+>  _[me@linuxbox ~]$ expand distros.txt \| cut -c 23-_
 >
 > Coreutils also provides the unexpand program to substitute tabs for spaces.
 >
 > Coreutils 软件包也提供了 unexpand 程序，用 tab 来代替空格。
-
 
 When working with fields, it is possible to specify a different field delimiter rather than
 the tab character. Here we will extract the first field from the /etc/passwd file:
@@ -1342,15 +1341,15 @@ appeared at range r2 in the second file.</td>
 </tr>
 <tr>
 <td valign="top" width="25%">r1ar2</td>
-<td valign="top">把第二个文件中位置 r2处的文件行添加到第一个文件中的 r1处。</td>
+<td valign="top">把第二个文件中位置 r2 处的文件行添加到第一个文件中的 r1 处。</td>
 </tr>
 <tr>
 <td valign="top">r1cr2</td>
-<td valign="top">用第二个文件中位置 r2处的文本行更改（替代）位置 r1处的文本行。</td>
+<td valign="top">用第二个文件中位置 r2 处的文本行更改（替代）位置 r1 处的文本行。</td>
 </tr>
 <tr>
 <td valign="top">r1dr2</td>
-<td valign="top">删除第一个文件中位置 r1处的文本行，这些文本行将会出现在第二个文件中位置 r2 处。</td>
+<td valign="top">删除第一个文件中位置 r1 处的文本行，这些文本行将会出现在第二个文件中位置 r2 处。</td>
 </tr>
 </table>
 
@@ -1701,24 +1700,24 @@ text restores it to its original form. To perform this encoding with tr:
 这个方法就是简单地把每个字符在字母表中向前移动13位。因为移动的位数是可能的26个字符的一半，
 所以对文本再次执行这个算法，就恢复到了它最初的形式。通过 tr 命令来执行这种编码：
 >
-> <b>echo "secret text" | tr a-zA-Z n-za-mN-ZA-M</b>
+>  _echo "secret text" | tr a-zA-Z n-za-mN-ZA-M_
 >
-> frperg grkg
+>   frperg grkg
 >
 > Performing the same procedure a second time results in the translation:
 >
 > 再次执行相同的过程，得到翻译结果：
 >
-> <b>echo "frperg grkg" | tr a-zA-Z n-za-mN-ZA-M</b>
+>  _echo "frperg grkg" | tr a-zA-Z n-za-mN-ZA-M+
 >
-> secret text
+>  secret text
 >
 > A number of email programs and USENET news readers support ROT13
 encoding. Wikipedia contains a good article on the subject:
 >
 > 大量的 email 程序和 USENET 新闻读者都支持 ROT13 编码。Wikipedia 上面有一篇关于这个主题的好文章：
 >
-> http://en.wikipedia.org/wiki/ROT13
+>  <http://en.wikipedia.org/wiki/ROT13>
 
 tr can perform another trick, too. Using the -s option, tr can “squeeze” (delete)
 repeated instances of a character:
@@ -2431,7 +2430,7 @@ Unless told otherwise via the command line option --dont-backup, aspell creates
 a backup file containing the original text by appending the extension .bak to the
 filename.
 
-除非由命令行选项--dont-backup 告诉 aspell，否则通过追加扩展名.bak 到文件名中,
+除非由命令行选项 -\-dont-backup 告诉 aspell，否则通过追加扩展名.bak 到文件名中,
 aspell 会创建一个包含原始文本的备份文件。
 
 Showing off our sed editing prowess, we’ll put our spelling mistakes back in so we can
@@ -2565,6 +2564,8 @@ GNU 项目网站包含了本章中所讨论工具的许多在线指南。
 
 * From the Coreutils package:
 
+* 来自 Coreutils 软件包：
+
   <http://www.gnu.org/software/coreutils/manual/coreutils.html#Output-of-entire-files>
 
   <http://www.gnu.org/software/coreutils/manual/coreutils.html#Operating-on-sorted-files>
@@ -2575,23 +2576,29 @@ GNU 项目网站包含了本章中所讨论工具的许多在线指南。
 
 * From the Diffutils package:
 
+* 来自 Diffutils 软件包：
+
   <http://www.gnu.org/software/diffutils/manual/html_mono/diff.html>
 
-* sed
+* sed 工具
 
   <http://www.gnu.org/software/sed/manual/sed.html>
 
-* aspell
+* aspell 工具
 
   <http://aspell.net/man-html/index.html>
 
 * There are many other online resources for sed, in particular:
+
+* 尤其对于 sed 工具，还有很多其它的在线资源：
 
   <http://www.grymoire.com/Unix/Sed.html>
 
   <http://sed.sourceforge.net/sed1line.txt>
 
 * Also try googling “sed one liners”, “sed cheat sheets”
+
+* 试试用 google 搜索 “sed one liners”, “sed cheat sheets” 关键字
 
 ### 友情提示
 

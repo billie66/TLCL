@@ -188,13 +188,19 @@ bash 提供了两个内部命令，它们可以用来在循环内部控制程序
 下一次循环。这里我们看看采用了 break 和 continue 两个命令的 while-menu 程序版本：
 
     #!/bin/bash
+    # while-menu2: a menu driven system information program
+    DELAY=3 # Number of seconds to display results
+    while true; do
         clear
         cat <<- _EOF_
             Please Select:
+            1. Display System Information
             2. Display Disk Space
             3. Display Home Space Utilization
             0. Quit
+        _EOF_
         read -p "Enter selection [0-3] > "
+        if [[ $REPLY =~ ^[0-3]$ ]]; then
             if [[ $REPLY == 1 ]]; then
             echo "Hostname: $HOSTNAME"
             uptime
@@ -283,9 +289,7 @@ while 和 until 能够处理标准输入。这就可以使用 while 和 until �
 我们将显示在前面章节中使用的 distros.txt 文件的内容：
 
     #!/bin/bash
-
     # while-read: read lines from a file
-
     while read distro version release; do
         printf "Distro: %s\tVersion: %s\tReleased: %s\n" \
             $distro \
@@ -304,11 +308,8 @@ possible to pipe standard input into a loop:
 退出状态为非零数值，因此终止循环。也有可能把标准输入管道到循环中。
 
     #!/bin/bash
-
     # while-read2: read lines from a file
-
     sort -k 1,1 -k 2n distros.txt | while read distro version release; do
-
         printf "Distro: %s\tVersion: %s\tReleased: %s\n" \
             $distro \
             $version \
@@ -338,12 +339,12 @@ more examples of while loops:
 
 * Linux 文档工程中的 Bash 初学者指南一书中介绍了更多的 while 循环实例：
 
-  <http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_09_02.html>
+    <http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_09_02.html>
 
 * The Wikipedia has an article on loops, which is part of a larger article on flow
 control:
 
 * Wikipedia 中有一篇关于循环的文章，其是一篇比较长的关于流程控制的文章中的一部分：
 
-  <http://en.wikipedia.org/wiki/Control_flow#Loops>
+    <http://en.wikipedia.org/wiki/Control_flow#Loops>
 

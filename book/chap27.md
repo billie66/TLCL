@@ -212,20 +212,20 @@ Below we see a script that demonstrates the use of a shell function:
 
 两种形式是等价的，可以交替使用。下面我们将查看一个说明 shell 函数使用方法的脚本：
 
-       1     #!/bin/bash
-       2
-       3     # Shell function demo
-       4
-       5     function funct {
-       6       echo "Step 2"
-       7       return
-       8     }
-       9
-       10     # Main program starts here
-       11
-       12     echo "Step 1"
-       13     funct
-       14     echo "Step 3"
+    1     #!/bin/bash
+    2
+    3     # Shell function demo
+    4
+    5     function funct {
+    6       echo "Step 2"
+    7       return
+    8     }
+    9
+    10     # Main program starts here
+    11
+    12     echo "Step 1"
+    13     funct
+    14     echo "Step 3"
 
 As the shell reads the script, it passes over lines 1 through 11, as those lines consist of
 comments and the function definition. Execution begins at line 12, with an echo
@@ -394,7 +394,7 @@ sure of the cause. If we change the functions to include some feedback:
 修改这些函数，让它们包含一些反馈信息：
 
     report_uptime () {
-    echo "Function report_uptime executed."
+      echo "Function report_uptime executed."
       return
     }
     report_disk_space () {
@@ -528,7 +528,7 @@ to be reusable by allowing them to be placed in multiple programs; a great time 
 
 * Wikipedia 上面有许多关于软件设计原理的文章。这里是一些好文章：
 
-  <http://en.wikipedia.org/wiki/Top-down_design>
+    <http://en.wikipedia.org/wiki/Top-down_design>
 
-  <http://en.wikipedia.org/wiki/Subroutines>
+    <http://en.wikipedia.org/wiki/Subroutines>
 

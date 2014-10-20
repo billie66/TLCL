@@ -476,7 +476,7 @@ Instead of using echo, our script now uses cat and a here document. The string \
 end of the embedded text. Note that the token must appear alone and that there must not
 be trailing spaces on the line.
 
-取代 echo 命令，现在我们的脚本使用 cat 命令和一个 here document。这个字符串\_EOF\_（意思是“文件结尾”，
+取代 echo 命令，现在我们的脚本使用 cat 命令和一个 here document。这个字符串_EOF\_（意思是“文件结尾”，
 一个常见用法）被选作为 token，并标志着嵌入文本的结尾。注意这个 token 必须在一行中单独出现，并且文本行中
 没有末尾的空格。
 
@@ -569,11 +569,11 @@ methods for embedding blocks of text.
 
 * 关于 HTML 的更多信息，查看下面的文章和教材：
 
-  <http://en.wikipedia.org/wiki/Html>
+    <http://en.wikipedia.org/wiki/Html>
 
-  <http://en.wikibooks.org/wiki/HTML_Programming>
+    <http://en.wikibooks.org/wiki/HTML_Programming>
 
-  <http://html.net/tutorials/html/>
+    <http://html.net/tutorials/html/>
 
 * The bash man page includes a section entitled “HERE DOCUMENTS,” which
   has a full description of this feature.
