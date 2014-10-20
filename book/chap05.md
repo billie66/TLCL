@@ -801,15 +801,16 @@ you know what you're doing.
 Let's say you want to delete just the HTML files in a directory.
 To do this, you type:
 >
-> rm *.html
->
 > 尤其要小心通配符。思考一下这个经典的例子。假如说，你只想删除一个目录中的 HTML
-文件。输入： rm *.html
+文件。输入：
+>
+>  _rm *.html_
 >
 > which is correct, but if you accidentally place a space between the “*” and the “.html” like so:
 >
 > 这是正确的，如果你不小心在 “*” 和 “.html” 之间多输入了一个空格，就像这样：
-> rm * .html
+>
+>  _rm * .html_
 >
 > the rm command will delete all the files in the directory
 and then complain that there is no file called “.html”.
@@ -842,7 +843,7 @@ to create a hard link, and:
 
 to create a symbolic link where "item" is either a file or a directory.
 
-创建符号链接，"item"可以是一个文件或是一个目录。
+创建符号链接，"item" 可以是一个文件或是一个目录。
 
 ### 硬链接
 

@@ -114,7 +114,7 @@ Pathname expansion also respects this behavior. An expansion such as:
 > 正如我们知道的，以圆点字符开头的文件名是隐藏文件。路径名展开也尊重这种
 行为。像这样的展开：
 >
-> echo *
+>  _echo *_
 >
 > does not reveal hidden files.
 >
@@ -126,7 +126,7 @@ expansion by starting the pattern with a leading period, like this:
 > 要是展开模式以一个圆点开头，我们就能够在展开模式中包含隐藏文件，
 而且隐藏文件可能会出现在第一位置，就像这样：
 >
-> echo .*
+>  _echo .*_
 >
 > It almost works. However, if we examine the results closely, we will see
 that the names “.” and “..” will also appear in the results. Since these names
@@ -138,7 +138,7 @@ command:
 和".."也出现在结果中。因为这些名字是指当前工作目录和它的父目录，使用这种
 模式可能会产生不正确的结果。我们能看到这样的结果，如果我们试一下这个命令：
 >
-> ls -d .* \| less
+>  _ls -d .* \| less_
 >
 > To correctly perform pathname expansion in this situation, we have to
 employ a more specific pattern. This will work correctly:
@@ -146,7 +146,7 @@ employ a more specific pattern. This will work correctly:
 > 为了在这种情况下正确地完成路径名展开，我们应该雇佣一个更精确些的模式。
 这个模式会正确地工作：
 >
-> ls -d .[!.]?*
+>  _ls -d .[!.]?*_
 >
 > This pattern expands into every filename that begins with a period, does not
 include a second period, contains at least one additional character and can be
@@ -159,7 +159,7 @@ option (“almost all”) will provide a correct listing of hidden files:
 （但仍将不能包含以多个圆点开头的文件名）这个带有 -A 选项（“几乎所有”）的 ls
 命令能够提供一份正确的隐藏文件清单：
 >
-> ls -A
+>  _ls -A_
 
 ### 波浪线展开
 
@@ -645,19 +645,15 @@ acknowledge).
 一样的设备。一些编码是众所周知的（制表符，退格符，换行符，和回车符），其它
 一些编码就不熟悉了（空值，传输结束码，和确认）。
 >
-> |---
 > |Escape Sequence|Meaning
-> |:-|:-
 > |\a|Bell("Alert"-causes the computer to beep)
 > |\b|Backspace
 > |\n|Newline. On Unix-like systems, this produces a linefeed.
 > |\r|Carriage return
 > |\t|Tab
 >
-> |---
-> |转义序列|意思
-> |:-:|:-:
-> |\a|响铃（"警告"－导致计算机嘟嘟响
+> |转义序列|含义
+> |\a|响铃（"警告"－导致计算机嘟嘟响）
 > |\b|退格符
 > |\n|新的一行。在类似 Unix 系统中，产生换行。
 > |\r|回车符
@@ -679,12 +675,12 @@ we can create a primitive countdown timer:
 以下例子，使用 sleep 命令，一个简单的程序，它会等待指定的秒数，然后退出。
 我们可以创建一个简单的倒数计数器：
 >
-> _sleep 10; echo -e  "Time's up\a"_
+>  _sleep 10; echo -e \"Time\'s up\a\"_
 >
 > We could also do this:
 > 我们也可以这样做：
 >
-> _sleep 10; echo "Time's up" $\'\a\'_
+>  _sleep 10; echo \"Time\'s up\" $\'\a\'_
 
 
 ### 总结归纳
