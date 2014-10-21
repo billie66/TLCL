@@ -1106,11 +1106,10 @@ system assigns a chain of disk blocks to what is called an inode, which is
 then associated with the name part. Each hard link therefore refers to a
 specific inode containing the file's contents.
 
-当考虑到硬链接，想象文件是由两部分组成：数据部分包含文件的内容，
-名字部分包含文件的名字，这样可以帮助理解。当我们创建了文件的硬链接，
-实际上，我们给文件添加了额外的名字，这些名字都涉及一样的数据内容。
-系统分配了一系列的盘块给所谓的索引节点，它和文件名字想关联。因此每个硬
-链接都关系到一个具体的索引节点，这个节点包含了文件的内容。
+当考虑到硬链接的时候，我们可以假设文件由两部分组成：包含文件内容的数据部分和持有文件名的名字部分
+，这将有助于我们理解这个概念。当我们创建文件硬链接的时候，实际上是为文件创建了额外的名字部分，
+并且这些名字都关系到相同的数据部分。这时系统会分配一连串的磁盘给所谓的索引节点，然后索引节点与文
+件名字部分相关联。因此每一个硬链接都关系到一个具体的包含文件内容的索引节点。
 
 The ls command has a way to reveal this information. It is invoked with the “-i” option:
 
