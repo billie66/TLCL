@@ -13,7 +13,7 @@ tools are:
 
 因为我们已经浏览了 Linux 系统，所以一件事已经变得非常清楚：一个典型的 Linux 系统包含很多文件！
 这就引发了一个问题，“我们怎样查找东西？”。虽然我们已经知道 Linux 文件系统良好的组织结构，是源自
-类似于 Unix 的操作系统代代传承的习俗。但是仅文件数量就会引起可怕的问题。在这一章中，我们将察看
+类 Unix 的操作系统代代传承的习俗。但是仅文件数量就会引起可怕的问题。在这一章中，我们将察看
 两个用来在系统中查找文件的工具。这些工具是：
 
 * locate – Find files by name
@@ -1087,7 +1087,7 @@ character, which is defined in ASCII as the character represented by the number
 separated output, and the xargs command has the --null option, which
 accepts null separated input. Here’s an example:
 >
-> 类似于 Unix 的系统允许在文件名中嵌入空格（甚至换行符）。这就给一些程序，如为其它
+> 类 Unix 的系统允许在文件名中嵌入空格（甚至换行符）。这就给一些程序，如为其它
 程序构建参数列表的 xargs 程序，造成了问题。一个嵌入的空格会被看作是一个界定符，生成的
 命令会把每个空格分离的单词解释为单独的参数。为了解决这个问题，find 命令和 xarg 程序
 允许可选择的使用一个 null 字符作为参数分隔符。一个 null 字符被定义在 ASCII 码中，由数字
@@ -1319,7 +1319,7 @@ systems and CD-ROMs.</td>
 </tr>
 <tr>
 <td valign="top">-noleaf </td>
-<td valign="top">指导 find 程序不要基于搜索类似于 Unix 的文件系统做出的假设，来优化它的搜索。</td>
+<td valign="top">指导 find 程序不要基于搜索类 Unix 的文件系统做出的假设，来优化它的搜索。</td>
 </tr>
 </table>
 

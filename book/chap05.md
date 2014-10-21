@@ -794,7 +794,7 @@ exist, rm will continue silently.</td>
 Once you delete something with rm, it's gone. Linux assumes you're smart and
 you know what you're doing.
 >
-> 类似于 Unix 的操作系统，比如说 Linux，没有复原命令。一旦你用 rm 删除了一些东西，
+> 类 Unix 的操作系统，比如说 Linux，没有复原命令。一旦你用 rm 删除了一些东西，
 它就消失了。Linux 假定你很聪明，你知道你在做什么。
 >
 > Be particularly careful with wildcards. Consider this classic example.

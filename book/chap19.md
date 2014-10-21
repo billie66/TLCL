@@ -369,7 +369,7 @@ well. We often see filenames that end with the extension .tar or .tgz which indi
 group of separate files, one or more directory hierarchies, or a mixture of both. The
 command syntax works like this:
 
-在类似于 Unix 的软件世界中，这个 tar 程序是用来归档文件的经典工具。它的名字，是 tape
+在类 Unix 的软件世界中，这个 tar 程序是用来归档文件的经典工具。它的名字，是 tape
 archive 的简称，揭示了它的根源，它是一款制作磁带备份的工具。而它仍然被用来完成传统任务，
 它也同样适用于其它的存储设备。我们经常看到扩展名为 .tar 或者 .tgz 的文件，它们各自表示“普通”
 的 tar 包和被 gzip 程序压缩过的 tar 包。一个 tar 包可以由一组独立的文件，一个或者多个目录，或者
@@ -666,7 +666,7 @@ local system:
 
 通过简单地修改压缩选项，把 z 改为 j（并且把输出文件的扩展名改为 .tbz，来指示一个 bzip2 压缩文件），
 就使 bzip2 命令压缩生效了。另一个 tar 命令与标准输入和输出的有趣使用，涉及到在系统之间经过
-网络传输文件。假定我们有两台机器，每台都运行着类似于 Unix，且装备着 tar 和 ssh 工具的操作系统。
+网络传输文件。假定我们有两台机器，每台都运行着类 Unix，且装备着 tar 和 ssh 工具的操作系统。
 在这种情景下，我们可以把一个目录从远端系统（名为 remote-sys）传输到我们的本地系统中：
 
     [me@linuxbox ~]$ mkdir remote-stuff
@@ -859,7 +859,7 @@ rsync very fast and economical to use, compared to other kinds of copy programs.
 
 维护系统备份的常见策略是保持一个或多个目录与另一个本地系统（通常是某种可移动的存储设备）
 或者远端系统中的目录（或多个目录）同步。我们可能，例如有一个正在开发的网站的本地备份，
-需要时不时的与远端网络服务器中的文件备份保持同步。在类似于 Unix 系统的世界里，能完成此任务且
+需要时不时的与远端网络服务器中的文件备份保持同步。在类 Unix 系统的世界里，能完成此任务且
 备受人们喜爱的工具是 rsync。这个程序能同步本地与远端的目录，通过使用 rsync 远端更新协议，此协议
 允许 rsync 快速地检测两个目录的差异，执行最小量的复制来达到目录间的同步。比起其它种类的复制程序，
 这就使 rsync 命令非常快速和高效。

@@ -9,7 +9,7 @@ before we can fully appreciate all of the features offered by these tools, we ha
 examine a technology that is frequently associated with the most sophisticated uses of
 these tools — regular expressions.
 
-接下来的几章中，我们将会看一下一些用来操作文本的工具。正如我们所见到的，在类似于 Unix 的
+接下来的几章中，我们将会看一下一些用来操作文本的工具。正如我们所见到的，在类 Unix 的
 操作系统中，比如 Linux 中，文本数据起着举足轻重的作用。但是在我们能完全理解这些工具提供的
 所有功能之前，我们不得不先看看，经常与这些工具的高级使用相关联的一门技术——正则表达式。
 
@@ -867,8 +867,8 @@ end for extra snappiness), was suggested by Richard Stallman (yes, that Richard
 Stallman), and was adopted by the IEEE.
 >
 > 然后进入 IEEE（ 电气与电子工程师协会 ）时代。在上世纪 80 年代中叶，IEEE 开始制定一套标准，
-其将会定义 Unix 系统（ 以及类似于 Unix 的系统 ）如何执行。这些标准，正式成为 IEEE 1003，
-定义了应用程序编程接口（ APIs ），shell 和一些实用程序，其将会在标准的类似于 Unix
+其将会定义 Unix 系统（ 以及类 Unix 的系统 ）如何执行。这些标准，正式成为 IEEE 1003，
+定义了应用程序编程接口（ APIs ），shell 和一些实用程序，其将会在标准的类 Unix
 操作系统中找到。“POSIX” 这个名字，象征着可移植的操作系统接口（为了额外的，添加末尾的 “X” ），
 是由 Richard Stallman 建议的（ 是的，的确是 Richard Stallman ），后来被 IEEE 采纳。
 

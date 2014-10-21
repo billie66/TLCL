@@ -389,7 +389,7 @@ careful review to ensure that I was covering most of its topics. When printed, i
 over eighty pages long and extremely dense, and its structure makes absolutely no
 sense to a new user.
 >
-> 正如我们所看到的，Linux 和类似于 Unix 的系统提供的手册页，只是打算作为参考手册使用，
+> 正如我们所看到的，Linux 和类 Unix 的系统提供的手册页，只是打算作为参考手册使用，
 而不是教材。许多手册页都很难阅读，但是我认为由于阅读难度而能拿到特等奖的手册页应该是 bash
 手册页。因为我正在为这本书做我的研究，所以我很仔细地浏览了整个 bash 手册，为的是确保我讲述了
 大部分的 bash 主题。当把 bash 参考手册整个打印出来，其篇幅有八十多页且内容极其紧密，
