@@ -449,7 +449,7 @@ the variable REPLY in its subshell’s environment, but when the command exits,
 the subshell and its environment are destroyed, and the effect of the assignment is
 lost.
 >
-> 在类似于 Unix 的系统中，子 shell 执行的时候，会为进程创建父环境的副本。当进程结束
+> 在类 Unix 的系统中，子 shell 执行的时候，会为进程创建父环境的副本。当进程结束
 之后，环境副本就会被破坏掉。这意味着一个子 shell 永远不能改变父进程的环境。read 赋值变量，
 然后会变为环境的一部分。在上面的例子中，read 在它的子 shell 环境中，把 foo 赋值给变量 REPLY，
 但是当命令退出后，子 shell 和它的环境将被破坏掉，这样赋值的影响就会消失。

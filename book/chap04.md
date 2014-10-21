@@ -7,7 +7,7 @@ Now that we know how to move around the file system, it's time for a guided tour
 Linux system. Before we start however, we’re going to learn some more commands that
 will be useful along the way:
 
-既然我们已经知道了如何在文件系统中跳转，是时候开始 Linux 操作系统之旅了。在开始之前，我们先学习一些对研究
+既然我们已经知道了如何在文件系统中跳转，是时候开始 Linux 操作系统之旅了。然而在开始之前，我们先学习一些对研究
 Linux 系统有帮助的命令。
 
 * ls – List directory contents
@@ -30,14 +30,14 @@ attributes. As we have seen, we can simply type ls to see a list of files and
 subdirectories contained in the current working directory:
 
 有充分的理由证明，ls 可能是用户最常使用的命令。通过它，我们可以知道目录的内容，以及各种各样重要文件和目录的
-属性。正如我们所知道的，只简单的输入 ls 就能看到在当前目录下所包含的文件和子目录列表。
+属性。正如我们所知道的，只要简单的输入 ls 就能看到在当前目录下所包含的文件和子目录列表。
 
     [me@linuxbox ~]$ ls
     Desktop Documents Music Pictures Publica Templates Videos
 
 Besides the current working directory, we can specify the directory to list, like so:
 
-除了当前工作目录以外，也可以列出指定目录的内容，就像这样：
+除了当前工作目录以外，也可以指定要列出内容的目录，就像这样：
 
     me@linuxbox ~]$ ls /usr
     bin games   kerberos    libexec  sbin   src
@@ -348,8 +348,8 @@ There are many kinds of files. In fact, one of the common ideas in Unix-like ope
 systems such as Linux is that “everything is a file.” As we proceed with our lessons, we
 will see just how true that statement is.
 
-有许多类型的文件。事实上，在类似于 Unix 操作系统中比如说 Linux，有个普遍的观念就是“任何东西都是一个文件”。
-随着课程的进行，我们将会明白这句话的真谛。
+有许多种类型的文件。事实上，在类 Unix 操作系统中比如说 Linux 中，有个普遍的观念就是“一切皆文件”。
+随着课程的进行，我们将会明白这句话是多么的正确。
 
 While many of the files on your system are familiar, for example MP3 and JPEG, there
 are many kinds that are a little less obvious and a few that are quite strange.
@@ -374,7 +374,7 @@ will be used to represent it. Computers, after all, only understand numbers and 
 data is converted to numeric representation.
 >
 > 在计算机中，有许多方法可以表达信息。所有的方法都涉及到，在信息与一些数字之间确立一种关系，而这些数字可以
-用来表达信息。毕竟，计算机只能理解数字，这样所有的数据都被转换成数值表示法。
+用来代表信息。毕竟，计算机只能理解数字，这样所有的数据都被转换成数值来表示。
 >
 > Some of these representation systems are very complex (such as compressed
 video files), while others are rather simple. One of the earliest and simplest is

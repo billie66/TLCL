@@ -9,7 +9,7 @@ chapter, we will look at programs that are used to “slice and dice” text. In
 chapter, we will look at more text processing, focusing on programs that are used to
 format text for printing and other kinds of human consumption.
 
-所有类似于 Unix 的操作系统都非常依赖于被用于几种数据类型存储的文本文件。所以这很有道理，
+所有类 Unix 的操作系统都非常依赖于被用于几种数据类型存储的文本文件。所以这很有道理，
 有许多用于处理文本的工具。在这一章中，我们将看一些被用来“切割”文本的程序。在下一章中，
 我们将查看更多的文本处理程序，但主要集中于文本格式化输出程序和其它一些人们需要的工具。
 
@@ -117,7 +117,7 @@ On Unix-like systems, output destined for a printer is sent as plain text or, if
 contains graphics, is converted into a text format page description language known as
 PostScript, which is then sent to a program that generates the graphic dots to be printed.
 
-在类似于 Unix 的系统中，输出会以纯文本格式发送到打印机，或者如果页面包含图形，其会被转换成
+在类 Unix 的系统中，输出会以纯文本格式发送到打印机，或者如果页面包含图形，其会被转换成
 一种文本格式的页面描述语言，以 PostScript 著称，然后再被发送给一款能产生图形点阵的程序，
 最后被打印出来。
 
@@ -130,7 +130,7 @@ reason text processing is important to software developers is that all software 
 text. Source code, the part of the program the programmer actually writes, is always in
 text format.
 
-在类似于 Unix 系统中会发现许多命令行程序被用来支持系统管理和软件开发，并且文本处理程序也不例外。
+在类 Unix 系统中会发现许多命令行程序被用来支持系统管理和软件开发，并且文本处理程序也不例外。
 许多文本处理程序被设计用来解决软件开发问题。文本处理对于软件开发者来言至关重要是因为所有的软件
 都起始于文本格式。源代码，程序员实际编写的一部分程序，总是文本格式。
 

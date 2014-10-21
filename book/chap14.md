@@ -383,7 +383,7 @@ you look in the deepest recesses of your terminal emulator settings you may find
 a setting for the type of terminal emulation.
 >
 > 回溯到终端连接到远端计算机的时代，有许多竞争的终端品牌，它们各自工作不同。
-它们有着不同的键盘，以不同的方式来解释控制信息。Unix 和类似于 Unix 的系统有两个
+它们有着不同的键盘，以不同的方式来解释控制信息。Unix 和类 Unix 的系统有两个
 相当复杂的子系统来处理终端控制领域的混乱局面（称为 termcap 和 terminfo）。如果你
 查看一下终端仿真器最底层的属性设置，可能会找到一个关于终端仿真器类型的设置。
 >

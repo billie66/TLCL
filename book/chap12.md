@@ -304,12 +304,12 @@ this variable.</td>
 </tr>
 <tr>
 <td valign="top">TERM </td>
-<td valign="top">终端类型名。类似于 Unix 的系统支持许多终端协议；这个变量设置你的终端仿真器所用的协议。
+<td valign="top">终端类型名。类 Unix 的系统支持许多终端协议；这个变量设置你的终端仿真器所用的协议。
 </td>
 </tr>
 <tr>
 <td valign="top">TZ</td>
-<td valign="top">指定你所在的时区。大多数类似于 Unix 的系统按照协调时间时 (UTC) 来维护计算机内部的时钟
+<td valign="top">指定你所在的时区。大多数类 Unix 的系统按照协调时间时 (UTC) 来维护计算机内部的时钟
 ，然后应用一个由这个变量指定的偏差来显示本地时间。
 </td>
 </tr>
@@ -631,7 +631,7 @@ installed on most Linux systems by default.
 
 有许多基于文本的编辑器。你将会遇到一些流行的编辑器，它们是 nano，vi，和 emacs。这个 nano 编辑器
 是一个简单的，容易使用的编辑器，它是 pico 编辑器的替代物，pico 编辑器由 PINE 邮件套件提供。vi 编辑器
-（在大多数 Linux 系统中被 vim 替代，vim 是 "Vi IMproved"的简写）是类似于 Unix 操作系统的传统编辑器。
+（在大多数 Linux 系统中被 vim 替代，vim 是 "Vi IMproved"的简写）是类 Unix 操作系统的传统编辑器。
 vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stallman 写成。emacs 是一个庞大的，多用途的，
 可做任何事情的编程环境。虽然 emacs 很容易获取，但是大多数 Linux 系统很少默认安装它。
 

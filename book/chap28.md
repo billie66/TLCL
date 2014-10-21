@@ -948,7 +948,7 @@ write should be able to run, unchanged, on any Unix-like system.
 >
 > 如果你和“真正的”Unix 用户交谈，你很快就会发现他们大多数人不是非常喜欢 Linux。他们
 认为 Linux 肮脏且不干净。Unix 追随者的一个宗旨是，一切都应“可移植的”。这意味着你编写
-的任意一个脚本都应当无需修改，就能运行在任何一个类似于 Unix 的系统中。
+的任意一个脚本都应当无需修改，就能运行在任何一个类 Unix 的系统中。
 >
 > Unix people have good reason to believe this. Having seen what proprietary
 extensions to commands and shells did to the Unix world before POSIX, they are

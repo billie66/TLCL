@@ -92,7 +92,7 @@ operating systems such as MS-DOS and Windows that maintain separate trees for ea
 device (for example C:\, D:\, etc.).
 
 管理存储设备的第一步是把设备连接到文件系统树中。这个过程叫做挂载，允许设备参与到操作系统中。
-回想一下第三章，类似于 Unix 的操作系统，像 Linux，维护单一文件系统树，设备连接到各个结点上。
+回想一下第三章，类 Unix 的操作系统，像 Linux，维护单一文件系统树，设备连接到各个结点上。
 这与其它操作系统形成对照，比如说 MS-DOS 和 Windows 系统中，每个设备（例如 C:\，D:\，等）
 保持着单独的文件系统树。
 
@@ -476,7 +476,7 @@ if we are managing a server or some other environment where this does not occur?
 can we figure it out?
 
 有时很难来确定设备名称。在以前，这并不是很难。一台设备总是在某个固定的位置，也不会
-挪动它。类似于 Unix 的系统喜欢设备那样安排。之前在开发 Unix 系统的时候，“更改一个磁盘驱动器”要用一辆
+挪动它。类 Unix 的系统喜欢设备那样安排。之前在开发 Unix 系统的时候，“更改一个磁盘驱动器”要用一辆
 叉车从机房中移除一台如洗衣机大小的设备。最近几年，典型的桌面硬件配置已经变得相当动态，并且
 Linux 已经发展地比其祖先更加灵活。在以上事例中，我们利用现代 Linux 桌面系统的功能来“自动地”挂载
 设备，然后再确定设备名称。但是如果我们正在管理一台服务器或者是其它一些（这种自动挂载功能）不会
@@ -870,7 +870,7 @@ like file systems, recovered portions of files are placed in the lost+found dire
 located in the root of each file system.
 
 除了检查文件系统的完整性之外，fsck 还能修复受损的文件系统，其成功度依赖于损坏的数量。
-在类似于 Unix 的文件系统中，文件恢复的部分被放置于 lost+found 目录里面，位于每个文件
+在类 Unix 的文件系统中，文件恢复的部分被放置于 lost+found 目录里面，位于每个文件
 系统的根目录下面。
 
 To check our flash drive (which should be unmounted first), we could do the following:
