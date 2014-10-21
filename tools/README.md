@@ -1,18 +1,4 @@
-layout.rb  用 book-zh 模板替换 book 模板
-
-getchinese 从中英文混合版中提取中文（bash 脚本）
-
-zh.rb 也是从中英文混合版中提取中文（ruby 实现）
-
-nodivcode 保留这样的块元素
-
-```html
-<div class="single">
-  blabla...
-</div>
-```
-
-makepdf 目录是生成中文 pdf 的工具，首先需要安装 `kramdown`,
+* makepdf 目录是生成中文 pdf 的工具，首先需要安装 `kramdown`,
 
 ```
 gem install kramdown
@@ -23,3 +9,18 @@ gem install kramdown
 cd makepdf
 ruby makepdf.rb en-cn|cn
 ```
+
+* getcn.rb 程序的功能是用来把中文从中英文件中分离出来
+
+```
+ruby getcn.rb all|file_name
+```
+
+这里的 all 参数，是处理全部的中英文件（01-37），file_name 是单个文件名，
+注意没有文件扩展名 .md，比如说处理文件 chap01.md，运行这样的命令：
+
+```
+ruby getcn.rb chap01
+```
+
+* old 目录是之前写过的 bash 脚本，不再使用。
