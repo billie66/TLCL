@@ -538,7 +538,7 @@ drive is “automagically” mounted in the /media directory. Let’s also imagi
 disk has a volume name of BigDisk when we attach it. To make the tar archive, we
 can do the following:
 
-让我们考虑一个假设，tar 命令的实际应用。假定我们想要复制主目录及其内容到另一个系统中，
+让我们考虑一个假设，tar 命令的实际应用。假定我们想要复制家目录及其内容到另一个系统中，
 并且有一个大容量的 USB 硬盘，可以把它作为传输工具。在现代 Linux 系统中，
 这个硬盘会被“自动地”挂载到 /media 目录下。我们也假定硬盘中有一个名为 BigDisk 的逻辑卷。
 为了制作 tar 包，我们可以这样做：

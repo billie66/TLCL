@@ -307,7 +307,7 @@ this works. Given a home directory that looks like this:
 
 shell 能帮助你的另一种方式是通过一种叫做自动补全的机制。当你敲入一个命令时，
 按下 tab 键，自动补全就会发生。让我们看一下这是怎样工作的。给出一个看起来
-像这样的主目录：
+像这样的家目录：
 
     [me@linuxbox ~]$ ls
     Desktop   ls-output.txt   Pictures   Templates   Videos
@@ -441,7 +441,7 @@ entered. This list of commands is kept in your home directory in a file called
 typing you have to do, especially when combined with command line editing.
 
 正如我们在第二章中讨论到的，bash 维护着一个已经执行过的命令的历史列表。这个命令列表
-被保存在你主目录下，一个叫做 .bash_history 的文件里。这个 history 工具是个有用资源，
+被保存在你家目录下，一个叫做 .bash_history 的文件里。这个 history 工具是个有用资源，
 因为它可以减少你敲键盘的次数，尤其当和命令行编辑联系起来时。
 
 ### 搜索历史命令

@@ -1045,7 +1045,7 @@ knowledge of if, we can solve the problem by adding this code to the
 `report_home_space` function:
 
 这一章开始于一个问题。我们怎样使 `sys_info_page` 脚本来检测是否用户拥有权限来读取所有的
-主目录？根据我们的 if 知识，我们可以解决这个问题，通过把这些代码添加到 `report_home_space` 函数中：
+家目录？根据我们的 if 知识，我们可以解决这个问题，通过把这些代码添加到 `report_home_space` 函数中：
 
     report_home_space () {
         if [[ $(id -u) -eq 0 ]]; then
@@ -1070,7 +1070,7 @@ user’s own home directory.
 
 我们计算 id 命令的输出结果。通过带有 -u 选项的 id 命令，输出有效用户的数字用户 ID 号。
 超级用户总是零，其它每个用户是一个大于零的数字。知道了这点，我们能够构建两种不同的 here 文档，
-一个利用超级用户权限，另一个限制于用户拥有的主目录。
+一个利用超级用户权限，另一个限制于用户拥有的家目录。
 
 We are going to take a break from the sys_info_page program, but don’t worry. It
 will be back. In the meantime, we’ll cover some topics that we’ll need when we resume

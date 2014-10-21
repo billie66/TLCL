@@ -272,7 +272,7 @@ this variable.</td>
 </tr>
 <tr>
 <td valign="top">HOME</td>
-<td valign="top">用户主目录。</td>
+<td valign="top">用户家目录。</td>
 </tr>
 <tr>
 <td valign="top">LANG</td>
@@ -332,7 +332,7 @@ personal environment. The exact sequence depends on the type of shell session be
 started. There are two kinds: a login shell session and a non-login shell session.
 
 当我们登录系统后，启动 bash 程序，并且会读取一系列称为启动文件的配置脚本，
-这些文件定义了默认的可供所有用户共享的 shell 环境。然后是读取更多位于我们自己主目录中
+这些文件定义了默认的可供所有用户共享的 shell 环境。然后是读取更多位于我们自己家目录中
 的启动文件，这些启动文件定义了用户个人的 shell 环境。精确的启动顺序依赖于要运行的 shell 会话
 类型。有两种 shell 会话类型：一个是登录 shell 会话，另一个是非登录 shell 会话。
 
@@ -540,7 +540,7 @@ for storing our own private programs, the shell is ready to accommodate us. All 
 to do is call it bin, and we're ready to go.
 
 使用这种技巧，我们可以把文本附加到一个变量值的末尾。通过添加字符串 $HOME/bin 到 PATH 变量值
-的末尾，则目录 $HOME/bin 就添加到了命令搜索目录列表中。这意味着当我们想要在自己的主目录下，
+的末尾，则目录 $HOME/bin 就添加到了命令搜索目录列表中。这意味着当我们想要在自己的家目录下，
 创建一个目录来存储我们自己的私人程序时，shell 已经给我们准备好了。我们所要做的事就是
 把创建的目录叫做 bin，赶快行动吧。
 
@@ -582,7 +582,7 @@ many cases it would be sensible to do so, but for now, let's play it safe.
 按照通常的规则，添加目录到你的 PATH 变量或者是定义额外的环境变量，要把这些更改放置到
  .bash_profile 文件中（或者其替代文件中，根据不同的发行版。例如，Ubuntu 使用 .profile 文件）。
 对于其它的更改，要放到 .bashrc 文件中。除非你是系统管理员，需要为系统中的所有用户修改
-默认设置，那么则限定你只能对自己主目录下的文件进行修改。当然，有可能会更改 /etc 目录中的
+默认设置，那么则限定你只能对自己家目录下的文件进行修改。当然，有可能会更改 /etc 目录中的
 文件，比如说 profile 文件，而且在许多情况下，修改这些文件也是明智的，但是现在，我们要
 安全起见。
 

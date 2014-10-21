@@ -155,7 +155,7 @@ and 8. These will include:
 
 * 磁盘空间。系统中存储设备的总使用量。
 
-* 主目录空间。每个用户所使用的存储空间数量。
+* 家目录空间。每个用户所使用的存储空间数量。
 
 If we had a command for each of these tasks, we could add them to our script simply
 through command substitution:
@@ -479,7 +479,7 @@ have the script could adjust its behavior according to the privileges of the use
 take this up in the next chapter.
 
 我们使用带有 -sh 选项的 du 命令来完成这个任务。然而，这并不是此问题的完整解决方案。虽然它会
-在一些系统（例如 Ubuntu）中起作用，但是在其它系统中它不工作。这是因为许多系统会设置主目录的
+在一些系统（例如 Ubuntu）中起作用，但是在其它系统中它不工作。这是因为许多系统会设置家目录的
 权限，以此阻止其它用户读取它们，这是一个合理的安全措施。在这些系统中，这个 report_home_space 函数，
 只有用超级用户权限执行我们的脚本时，才会工作。一个更好的解决方案是让脚本能根据用户的使用权限来
 调整自己的行为。我们将在下一章中讨论这个问题。
