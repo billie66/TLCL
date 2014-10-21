@@ -69,7 +69,7 @@ of the techniques that we employed in our earlier chapters, we will see that the
 expansions. Given a home directory that looks like this:
 
 这种通配符工作机制叫做路径名展开。如果我们试一下在之前的章节中使用的技巧，
-我们会看到它们真是要展开的字符。给出一个主目录，它看起来像这样：
+我们会看到它们真是要展开的字符。给出一个家目录，它看起来像这样：
 
     [me@linuxbox ~]$ ls
     Desktop   ls-output.txt   Pictures   Templates
@@ -98,7 +98,7 @@ or even:
 
 and looking beyond our home directory:
 
-查看主目录之外的目录：
+查看家目录之外的目录：
 
     [me@linuxbox ~]$ echo /usr/*/share
     /usr/kerberos/share  /usr/local/share
@@ -169,7 +169,7 @@ home directory of the named user, or if no user is named, the home directory of 
 current user:
 
 可能你从我们对 cd 命令的介绍中回想起来，波浪线字符("~")有特殊的意思。当它用在
-一个单词的开头时，它会展开成指定用户的主目录名，如果没有指定用户名，则是当前用户的主目录：
+一个单词的开头时，它会展开成指定用户的家目录名，如果没有指定用户名，则是当前用户的家目录：
 
     [me@linuxbox ~]$ echo ~
     /home/me
@@ -655,7 +655,7 @@ acknowledge).
 > |转义序列|含义
 > |\a|响铃（"警告"－导致计算机嘟嘟响）
 > |\b|退格符
-> |\n|新的一行。在类似 Unix 系统中，产生换行。
+> |\n|新的一行。在类 Unix 系统中，产生换行。
 > |\r|回车符
 > |\t|制表符
 >

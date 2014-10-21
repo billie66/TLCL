@@ -1152,7 +1152,7 @@ saving our modified text. Next, we'll create an additional file in our home dire
 we can play with. We'll create the file by capturing some output from the ls command:
 
 我们先退出已经存在的 vi 会话，然后创建一个新文件来编辑。输入:wq 来退出 vi 并且保存了所做的修改。
-下一步，我们将在主目录下创建一个额外的用来玩耍的文件。通过获取从 ls 命令的输出，来创建这个文件。
+下一步，我们将在家目录下创建一个额外的用来玩耍的文件。通过获取从 ls 命令的输出，来创建这个文件。
 
     [me@linuxbox ~]$ ls -l /usr/bin > ls-output.txt
 

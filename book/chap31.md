@@ -284,7 +284,7 @@ avoided by checking to see that dir_name actually contains the name of an existi
 directory:
 
 这样，如果 cd 命令运行失败后，rm 命令将不会执行。这样比较好，但是仍然有可能未设置变量
-dir_name 或其变量值为空，从而导致删除了用户主目录下面的所有文件。这个问题也能够避免，通过检验变量
+dir_name 或其变量值为空，从而导致删除了用户家目录下面的所有文件。这个问题也能够避免，通过检验变量
 dir_name 中包含的目录名是否真正地存在：
 
     [[ -d $dir_name ]] && cd $dir_name && rm *

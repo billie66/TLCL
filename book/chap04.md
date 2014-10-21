@@ -46,7 +46,7 @@ Besides the current working directory, we can specify the directory to list, lik
 Or even specify multiple directories. In this example we will list both the user's home
 directory (symbolized by the “~” character) and the /usr directory:
 
-甚至可以列出多个指定目录的内容。在这个例子中，将会列出用户主目录（用字符“~”代表）和/usr 目录的内容：
+甚至可以列出多个指定目录的内容。在这个例子中，将会列出用户家目录（用字符“~”代表）和/usr 目录的内容：
 
     [me@linuxbox ~]$ ls ~ /usr
     /home/me:
@@ -563,7 +563,7 @@ systems. The design is actually specified in a published standard called the Lin
 Filesystem Hierarchy Standard. Not all Linux distributions conform to the standard
 exactly but most come pretty close.
 
-Linux 系统中，文件系统布局与类似 Unix 系统的文件布局很相似。实际上，一个已经发布的标准，
+Linux 系统中，文件系统布局与类 Unix 系统的文件布局很相似。实际上，一个已经发布的标准，
 叫做 Linux 文件系统层次标准，详细说明了这种设计模式。不是所有Linux发行版都根据这个标准，但
 大多数都是。
 
@@ -852,7 +852,7 @@ some systems, you must be the superuser to view log files.</td>
 </tr>
 <tr>
 <td>/root</td>
-<td>root 帐户的主目录。</td>
+<td>root 帐户的家目录。</td>
 </tr>
 <tr>
 <td>/sbin</td>

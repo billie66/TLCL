@@ -497,7 +497,7 @@ flaw that the ftp program does; they transmit all their communications (includin
 names and passwords) in cleartext. This makes them wholly inappropriate for use in the
 Internet age.
 
-通过网络来远程操控类似 Unix 的操作系统已经有很多年了。早些年，在因特网普遍推广之前，有
+通过网络来远程操控类 Unix 的操作系统已经有很多年了。早些年，在因特网普遍推广之前，有
 一些受欢迎的程序被用来登录远程主机。它们是 rlogin 和 telnet 程序。然而这些程序，拥有和 ftp 程序
 一样的致命缺点；它们以明码形式来传输所有的交流信息（包括登录命令和密码）。这使它们完全不
 适合使用在因特网时代。
@@ -748,7 +748,7 @@ current working directory on our local system, we could do this:
 这个 OpenSSH 软件包也包含两个程序，它们可以利用 SSH 加密通道在网络间复制文件。
 第一个，scp（安全复制）被用来复制文件，与熟悉的 cp 程序非常相似。最显著的区别就是
 源或者目标路径名要以远端主机的名字，后跟一个冒号字符开头。例如，如果我们想要
-从远端系统，remote-sys，的主目录下复制文档 document.txt，到我们本地系统的当前工作目录下，
+从远端系统，remote-sys，的家目录下复制文档 document.txt，到我们本地系统的当前工作目录下，
 可以这样操作：
 
     [me@linuxbox ~]$ scp remote-sys:document.txt .
