@@ -45,8 +45,8 @@ programmatic data, namely aliases and shell functions. We covered aliases in Cha
 and shell functions (which are related to shell scripting) will be covered in Part 5.
 
 shell 在环境中存储了两种基本类型的数据，虽然对于 bash 来说，很大程度上这些类型是不可
-辨别的。它们是环境变量和 shell 变量。Shell 变量是由 bash 存放的一很少数据，而环境变量基本上
-就是其它的所有数据。除了变量，shell 也存储了一些可编程的数据，命名为别名和 shell 函数。我们
+辨别的。它们是环境变量和 shell 变量。Shell 变量是由 bash 存放的少量数据，而剩下的基本上
+都是环境变量。除了变量，shell 也存储了一些可编程的数据，命名为别名和 shell 函数。我们
 已经在第六章讨论了别名，而 shell 函数（涉及到 shell 脚本）将会在第五部分叙述。
 
 ### 检查环境变量
