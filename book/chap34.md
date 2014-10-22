@@ -262,7 +262,7 @@ like this:
 Next, we will rewrite it to provide more detail for each user’s home directory, and include
 the total number of files and subdirectories in each:
 
-下一步，我们将重写它，以便提供每个用户家目录的更详尽信息，并且包含用户家目录中文件和目录的总个数：
+下一步，我们将重写它，以便提供每个用户主目录的更详尽信息，并且包含用户主目录中文件和目录的总个数：
 
     report_home_space () {
         local format="%8s%10s%10s\n"

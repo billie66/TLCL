@@ -543,7 +543,7 @@ value of the special parameter $$ to obtain the PID) might be something like:
 the /tmp directory and create a directory for temporary files within the user’s
 home directory, with a line of code such as this:
 >
-> 对于那些由普通用户操作执行的脚本，避免使用 /tmp 目录，而是在用户家目录下为临时文件创建一个目录，
+> 对于那些由普通用户操作执行的脚本，避免使用 /tmp 目录，而是在用户主目录下为临时文件创建一个目录，
 通过像这样的一行代码：
 >
 >  _[[ -d $HOME/tmp ]] \|\| mkdir $HOME/tmp_

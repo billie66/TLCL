@@ -301,7 +301,7 @@ be very careful with them because they will not produce the expected results
 unless properly configured. For now, you should avoid using them and use
 character classes instead.
 >
-> 如果你用过别的类 Unix 系统的操作环境，或者是读过这方面的书籍，你可能遇到过[A-Z]或
+> 如果你用过别的类似 Unix 系统的操作环境，或者是读过这方面的书籍，你可能遇到过[A-Z]或
 [a-z]形式的字符范围表示法。这些都是传统的 Unix 表示法，并且在早期的 Linux 版本中仍有效。
 虽然它们仍然起作用，但是你必须小心地使用它们，因为它们不会产生你期望的输出结果，除非
 你合理地配置它们。从现在开始，你应该避免使用它们，并且用字符类来代替它们。
@@ -921,7 +921,7 @@ one in our home directory and call it “playground.”
 
 下面我们将要做些真正的文件操作，让我们先建立一个安全地带，
 来玩一下文件操作命令。首先，我们需要一个工作目录。在我们的
-家目录下创建一个叫做“playground”的目录。
+主目录下创建一个叫做“playground”的目录。
 
 ### 创建目录
 
@@ -929,7 +929,7 @@ The mkdir command is used to create a directory. To create our playground
 directory we will first make sure we are in our home directory and will then
 create the new directory:
 
-mkdir 命令被用来创建目录。首先确定我们在我们的家目录下，来创建 playground 目录，
+mkdir 命令被用来创建目录。首先确定我们在我们的主目录下，来创建 playground 目录，
 然后创建这个新目录：
 
     [me@linuxbox ~]$ cd
@@ -1269,7 +1269,7 @@ and use rm with the recursive option (-r) to delete playground and all of its co
 including its subdirectories:
 
 最后，我们将删除我们的游戏场。为了完成这个工作，我们将返回到
-我们的家目录，然后用 rm 命令加上选项(-r)，来删除目录 playground，
+我们的主目录，然后用 rm 命令加上选项(-r)，来删除目录 playground，
 和目录下的所有内容，包括子目录：
 
     [me@linuxbox playground]$ cd

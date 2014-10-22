@@ -147,7 +147,7 @@ locate 程序只能依据文件名来查找文件，而 find 程序能基于各�
 In its simplest use, find is given one or more names of directories to search. For
 example, to produce a list of our home directory:
 
-find 命令的最简单使用是，搜索一个或多个目录。例如，输出我们的家目录列表。
+find 命令的最简单使用是，搜索一个或多个目录。例如，输出我们的主目录列表。
 
     [me@linuxbox ~]$ find ~
 
@@ -831,7 +831,7 @@ which produced a list of every file and subdirectory contained within our home d
 It produced a list because the -print action is implied if no other action is specified.
 Thus our command could also be expressed as:
 
-这个命令输出了我们家目录中包含的每个文件和子目录。它会输出一个列表，因为会默认使用-print 操作
+这个命令输出了我们主目录中包含的每个文件和子目录。它会输出一个列表，因为会默认使用-print 操作
 ，如果没有指定其它操作的话。因此我们的命令也可以这样表述：
 
     find ~ -print
@@ -848,7 +848,7 @@ could use this command:
 In this example, every file in the user’s home directory (and its subdirectories) is searched
 for filenames ending in .BAK. When they are found, they are deleted.
 
-在这个例子里面，用户家目录（和它的子目录）下搜索每个以.BAK 结尾的文件名。当找到后，就删除它们。
+在这个例子里面，用户主目录（和它的子目录）下搜索每个以.BAK 结尾的文件名。当找到后，就删除它们。
 
 ---
 
