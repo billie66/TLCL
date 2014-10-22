@@ -148,7 +148,7 @@ accounts, there are accounts for the superuser (uid 0) and various other system 
 那么这些信息来源于哪里呢？像 Linux 系统中的许多东西一样，来自一系列的文本文件。用户帐户
 定义在/etc/passwd 文件里面，用户组定义在/etc/group 文件里面。当用户帐户和用户组创建以后，
 这些文件随着文件/etc/shadow 的变动而修改，文件/etc/shadow 包含了关于用户密码的信息。
-对于每个用户帐号，文件/etc/passwd 定义了用户（登录）名，uid，gid，帐号的真实姓名，家目录，
+对于每个用户帐号，文件/etc/passwd 定义了用户（登录）名，uid，gid，帐号的真实姓名，主目录，
 和登录 shell。如果你查看一下文件/etc/passwd 和文件/etc/group 的内容，你会注意到除了普通
 用户帐号之外，还有超级用户（uid 0）帐号，和各种各样的系统用户。
 
@@ -786,7 +786,7 @@ specified, the superuser is assumed. Notice that (strangely) the “-l” may be
 this:
 
 如果包含"-l"选项，那么会为指定用户启动一个需要登录的 shell。这意味着会加载此用户的 shell 环境，
-并且工作目录会更改到这个用户的家目录。这通常是我们所需要的。如果不指定用户，那么就假定是
+并且工作目录会更改到这个用户的主目录。这通常是我们所需要的。如果不指定用户，那么就假定是
 超级用户。注意（不可思议地），选项"-l"可以缩写为"-"，这是经常用到的形式。启动超级用户的 shell，
 我们可以这样做：
 
@@ -802,7 +802,7 @@ out commands as the superuser. When finished, type “exit” to return to the p
 shell:
 
 按下回车符之后，shell 提示我们输入超级用户的密码。如果密码输入正确，出现一个新的 shell 提示符，
-这表明这个 shell 具有超级用户特权（提示符的末尾字符是"#"而不是"$"），并且当前工作目录是超级用户的家目录
+这表明这个 shell 具有超级用户特权（提示符的末尾字符是"#"而不是"$"），并且当前工作目录是超级用户的主目录
 （通常是/root）。一旦进入一个新的 shell，我们能执行超级用户所使用的命令。当工作完成后，
 输入"exit"，则返回到原来的 shell:
 
@@ -998,7 +998,7 @@ home directory of user tony. Since user janet wants tony to be able to edit the 
 janet changes the ownership of the copied file from janet to tony:
 
 比方说，我们有两个用户，janet，拥有超级用户访问权限，而 tony 没有。用户 jant 想要从
-她的家目录复制一个文件到用户 tony 的家目录。因为用户 jant 想要 tony 能够编辑这个文件，
+她的主目录复制一个文件到用户 tony 的主目录。因为用户 jant 想要 tony 能够编辑这个文件，
 janet 把这个文件的所有者更改为 tony:
 
     [janet@linuxbox ~]$ sudo cp myfile.txt ~tony
@@ -1015,7 +1015,7 @@ sudo) to tony. Using the trailing colon in the first argument, janet also change
 group ownership of the file to the login group of tony, which happens to be group
 tony.
 
-这里，我们看到用户 janet 把文件从她的目录复制到 tony 的家目录。下一步，janet 把文件所有者
+这里，我们看到用户 janet 把文件从她的目录复制到 tony 的主目录。下一步，janet 把文件所有者
 从 root（使用 sudo 命令的原因）改到 tony。通过在第一个参数中使用末尾的":"字符，janet 同时把
 文件用户组改为 tony 登录系统时，所属的用户组，碰巧是用户组 tony。
 
@@ -1071,7 +1071,7 @@ Next, bill creates the directory for the music files:
 Since bill is manipulating files outside his home directory, superuser privileges are
 required. After the directory is created, it has the following ownerships and permissions:
 
-因为 bill 正在他的家目录之外操作文件，所以需要超级用户权限。这个目录创建之后，它具有
+因为 bill 正在他的主目录之外操作文件，所以需要超级用户权限。这个目录创建之后，它具有
 以下所有权和权限：
 
     [bill@linuxbox ~]$ ls -ld /usr/local/share/Music
