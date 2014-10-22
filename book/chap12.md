@@ -66,47 +66,6 @@ Doing so, we should get something that looks like this:
 
 执行以上命令之后，我们应该能得到类似以下内容：
 
-What we see is a list of environment variables and their values. For example, we see a
-variable called USER, which contains the value “me”. The printenv command can
-also list the value of a specific variable:
-
-我们所看到的是环境变量及其数值的列表。例如，我们看到一个叫做 USER 的变量，这个变量值是
-“me”。printenv 命令也能够列出特定变量的数值：
-
-    [me@linuxbox ~]$ printenv USER
-    me
-
-The set command, when used without options or arguments, will display both the shell
-and environment variables, as well as any defined shell functions. Unlike printenv,
-its output is courteously sorted in alphabetical order:
-
-当使用没有带选项和参数的 set 命令时，shell 和环境变量二者都会显示，同时也会显示定义的
-shell 函数。不同于 printenv 命令，set 命令的输出结果很礼貌地按照字母顺序排列：
-
-    [me@linuxbox ~]$ set | less
-
-It is also possible to view the contents of a variable using the echo command, like this:
-
-也可以通过 echo 命令来查看一个变量的内容，像这样：
-
-    [me@linuxbox ~]$ echo $HOME
-    /home/me
-
-One element of the environment that neither set nor printenv displays is aliases. To
-see them, enter the alias command without arguments:
-
-如果 shell 环境中的一个成员既不可用 set 命令也不可用 printenv 命令显示，则这个变量是别名。
-输入不带参数的 alias 命令来查看它们:
-
-### 一些有趣的变量
-
-The environment contains quite a few variables, and though your environment may differ
-from the one presented here, you will likely see the following variables in your
-environment:
-
-shell 环境中包含相当多的变量，虽然你的 shell 环境可能不同于这里展示的，但是你可能会看到
-以下变量在你的 shell 环境中：
-
     KDE_MULTIHEAD=false
     SSH_AGENT_PID=6666
     HOSTNAME=linuxbox
