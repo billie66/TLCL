@@ -474,7 +474,7 @@ ID.</td>
 </tr>
 <tr>
 <td valign="top">-iname pattern </td>
-<td valign="top">就像-name 测试条件，但是大小写敏感。</td>
+<td valign="top">就像-name 测试条件，但是不区分大小写。</td>
 </tr>
 <tr>
 <td valign="top">-inum n </td>

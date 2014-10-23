@@ -216,7 +216,7 @@ find 命令支持大量不同的测试条件。下表是列出了一些常见的
 </tr>
 <tr>
 <td valign="top">-iname pattern </td>
-<td valign="top">就像-name 测试条件，但是大小写敏感。</td>
+<td valign="top">就像-name 测试条件，但是不区分大小写。</td>
 </tr>
 <tr>
 <td valign="top">-inum n </td>
