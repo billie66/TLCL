@@ -498,7 +498,7 @@ Again, press the Esc key to exit insert mode.
 As we can see, the “A” command is more useful as it moves the cursor to the end of the
 line before starting insert mode.
 
-正如我们所看到的，大 A 命令非常有用，因为在启动插入模式之前，它把光标移动了行尾。
+正如我们所看到的，大 A 命令非常有用，因为在启动插入模式之前，它把光标移到了行尾。
 
 Opening A Line
 
@@ -837,7 +837,7 @@ Let's try some copy and paste. Place the cursor on the first line of the text an
 copy the current line. Next, move the cursor to the last line (G) and type p to paste the
 line below the current line:
 
-我们试着做些复制和粘贴工作。把光标放到文本第一行，输入 yy 来复制当前行。下一步，把光标移动
+我们试着做些复制和粘贴工作。把光标放到文本第一行，输入 yy 来复制当前行。下一步，把光标移到
 最后一行（G），输入小写的 p 把复制的一行粘贴到当前行的下面：
 
     The quick brown fox jumped over the lazy dog. It was cool.
