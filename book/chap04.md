@@ -499,19 +499,19 @@ The table below lists the most common keyboard commands used by less.
 </tr>
 <tr>
 <td valign="top">Page UP or b</td>
-<td valign="top">向后翻滚一页</td>
+<td valign="top">向上翻滚一页</td>
 </tr>
 <tr>
 <td valign="top">Page Down or space</td>
-<td valign="top">向前翻动一页</td>
+<td valign="top">向下翻滚一页</td>
 </tr>
 <tr>
 <td valign="top">UP Arrow</td>
-<td valign="top">向前移动一行</td>
+<td valign="top">向上翻滚一行</td>
 </tr>
 <tr>
 <td valign="top">Down Arrow</td>
-<td valign="top">向后移动一行</td>
+<td valign="top">向下翻滚一行</td>
 </tr>
 <tr>
 <td valign="top">G</td>
