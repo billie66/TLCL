@@ -112,7 +112,7 @@ an example:
     [me@linuxbox ~]$ gzip foo.txt
     [me@linuxbox ~]$ ls -l foo.*
     -rw-r--r-- 1 me     me 3230 2008-10-14 07:15 foo.txt.gz
-    [me@linuxbox ~]$ gunzip foo.txt
+    [me@linuxbox ~]$ gunzip foo.txt.gz
     [me@linuxbox ~]$ ls -l foo.*
     -rw-r--r-- 1 me     me 15738 2008-10-14 07:15 foo.txt
 
