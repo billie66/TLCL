@@ -21,8 +21,8 @@ title: shell 环境
 ### 什么存储在环境变量中？
 
 shell 在环境中存储了两种基本类型的数据，虽然对于 bash 来说，很大程度上这些类型是不可
-辨别的。它们是环境变量和 shell 变量。Shell 变量是由 bash 存放的一很少数据，而环境变量基本上
-就是其它的所有数据。除了变量，shell 也存储了一些可编程的数据，命名为别名和 shell 函数。我们
+辨别的。它们是环境变量和 shell 变量。Shell 变量是由 bash 存放的少量数据，而剩下的基本上
+都是环境变量。除了变量，shell 也存储了一些可编程的数据，命名为别名和 shell 函数。我们
 已经在第六章讨论了别名，而 shell 函数（涉及到 shell 脚本）将会在第五部分叙述。
 
 ### 检查环境变量
@@ -34,30 +34,6 @@ shell 在环境中存储了两种基本类型的数据，虽然对于 bash 来�
     [me@linuxbox ~]$ printenv | less
 
 执行以上命令之后，我们应该能得到类似以下内容：
-
-我们所看到的是环境变量及其数值的列表。例如，我们看到一个叫做 USER 的变量，这个变量值是
-“me”。printenv 命令也能够列出特定变量的数值：
-
-    [me@linuxbox ~]$ printenv USER
-    me
-
-当使用没有带选项和参数的 set 命令时，shell 和环境变量二者都会显示，同时也会显示定义的
-shell 函数。不同于 printenv 命令，set 命令的输出结果很礼貌地按照字母顺序排列：
-
-    [me@linuxbox ~]$ set | less
-
-也可以通过 echo 命令来查看一个变量的内容，像这样：
-
-    [me@linuxbox ~]$ echo $HOME
-    /home/me
-
-如果 shell 环境中的一个成员既不可用 set 命令也不可用 printenv 命令显示，则这个变量是别名。
-输入不带参数的 alias 命令来查看它们:
-
-### 一些有趣的变量
-
-shell 环境中包含相当多的变量，虽然你的 shell 环境可能不同于这里展示的，但是你可能会看到
-以下变量在你的 shell 环境中：
 
     KDE_MULTIHEAD=false
     SSH_AGENT_PID=6666
@@ -166,12 +142,12 @@ shell 环境中包含相当多的变量，虽然你的 shell 环境可能不同�
 </tr>
 <tr>
 <td valign="top">TERM </td>
-<td valign="top">终端类型名。类似于 Unix 的系统支持许多终端协议；这个变量设置你的终端仿真器所用的协议。
+<td valign="top">终端类型名。类 Unix 的系统支持许多终端协议；这个变量设置你的终端仿真器所用的协议。
 </td>
 </tr>
 <tr>
 <td valign="top">TZ</td>
-<td valign="top">指定你所在的时区。大多数类似于 Unix 的系统按照协调时间时 (UTC) 来维护计算机内部的时钟
+<td valign="top">指定你所在的时区。大多数类 Unix 的系统按照协调时间时 (UTC) 来维护计算机内部的时钟
 ，然后应用一个由这个变量指定的偏差来显示本地时间。
 </td>
 </tr>
@@ -341,7 +317,7 @@ KDE 通常自带了三种编辑器，分别是（按照复杂度递增的顺序�
 
 有许多基于文本的编辑器。你将会遇到一些流行的编辑器，它们是 nano，vi，和 emacs。这个 nano 编辑器
 是一个简单的，容易使用的编辑器，它是 pico 编辑器的替代物，pico 编辑器由 PINE 邮件套件提供。vi 编辑器
-（在大多数 Linux 系统中被 vim 替代，vim 是 "Vi IMproved"的简写）是类似于 Unix 操作系统的传统编辑器。
+（在大多数 Linux 系统中被 vim 替代，vim 是 "Vi IMproved"的简写）是类 Unix 操作系统的传统编辑器。
 vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stallman 写成。emacs 是一个庞大的，多用途的，
 可做任何事情的编程环境。虽然 emacs 很容易获取，但是大多数 Linux 系统很少默认安装它。
 

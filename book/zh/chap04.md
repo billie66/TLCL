@@ -3,7 +3,7 @@ layout: book-zh
 title: 探究操作系统
 ---
 
-既然我们已经知道了如何在文件系统中跳转，是时候开始 Linux 操作系统之旅了。在开始之前，我们先学习一些对研究
+既然我们已经知道了如何在文件系统中跳转，是时候开始 Linux 操作系统之旅了。然而在开始之前，我们先学习一些对研究
 Linux 系统有帮助的命令。
 
 * ls — 列出目录内容
@@ -15,12 +15,12 @@ Linux 系统有帮助的命令。
 ### ls 乐趣
 
 有充分的理由证明，ls 可能是用户最常使用的命令。通过它，我们可以知道目录的内容，以及各种各样重要文件和目录的
-属性。正如我们所知道的，只简单的输入 ls 就能看到在当前目录下所包含的文件和子目录列表。
+属性。正如我们所知道的，只要简单的输入 ls 就能看到在当前目录下所包含的文件和子目录列表。
 
     [me@linuxbox ~]$ ls
     Desktop Documents Music Pictures Publica Templates Videos
 
-除了当前工作目录以外，也可以列出指定目录的内容，就像这样：
+除了当前工作目录以外，也可以指定要列出内容的目录，就像这样：
 
     me@linuxbox ~]$ ls /usr
     bin games   kerberos    libexec  sbin   src
@@ -192,8 +192,8 @@ JPEG 压缩图像，但 Linux 却不这样要求它。可以这样调用 file �
     [me@linuxbox ~]$ file picture.jpg
     picture.jpg: JPEG image data, JFIF standard 1.01
 
-有许多类型的文件。事实上，在类似于 Unix 操作系统中比如说 Linux，有个普遍的观念就是“任何东西都是一个文件”。
-随着课程的进行，我们将会明白这句话的真谛。
+有许多种类型的文件。事实上，在类 Unix 操作系统中比如说 Linux 中，有个普遍的观念就是“一切皆文件”。
+随着课程的进行，我们将会明白这句话是多么的正确。
 
 虽然系统中许多文件格式是熟悉的，例如 MP3和 JPEG 文件，但也有一些文件格式比较含蓄，极少数文件相当陌生。
 
@@ -205,7 +205,7 @@ less 命令是一个用来浏览文本文件的程序。纵观 Linux 系统，�
 > 什么是“文本”
 >
 > 在计算机中，有许多方法可以表达信息。所有的方法都涉及到，在信息与一些数字之间确立一种关系，而这些数字可以
-用来表达信息。毕竟，计算机只能理解数字，这样所有的数据都被转换成数值表示法。
+用来代表信息。毕竟，计算机只能理解数字，这样所有的数据都被转换成数值来表示。
 >
 > 有些数值表达法非常复杂（例如压缩的视频文件），而其它的就相当简单。最早也是最简单的一种表达法，叫做
 ASCII 文本。ASCII（发音是"As-Key"）是美国信息交换标准码的简称。这是一个简单的编码方法，它首先
@@ -245,19 +245,19 @@ less 命令是这样使用的：
 </tr>
 <tr>
 <td valign="top">Page UP or b</td>
-<td valign="top">向后翻滚一页</td>
+<td valign="top">向上翻滚一页</td>
 </tr>
 <tr>
 <td valign="top">Page Down or space</td>
-<td valign="top">向前翻动一页</td>
+<td valign="top">向下翻滚一页</td>
 </tr>
 <tr>
 <td valign="top">UP Arrow</td>
-<td valign="top">向前移动一行</td>
+<td valign="top">向上翻滚一行</td>
 </tr>
 <tr>
 <td valign="top">Down Arrow</td>
-<td valign="top">向后移动一行</td>
+<td valign="top">向下翻滚一行</td>
 </tr>
 <tr>
 <td valign="top">G</td>
