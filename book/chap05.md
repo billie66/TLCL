@@ -902,10 +902,10 @@ distinguishing color, such as red, to reveal their presence.
 
 一个符号链接指向一个文件，而且这个符号链接本身与其它的符号链接几乎没有区别。
 例如，如果你往一个符号链接里面写入东西，那么相关联的文件也被写入。然而，
-当你删除一个符号链接时，只有这个链接被删除，而不是文件自身。如果删除这个文件
-早于文件的符号链接，这个链接仍然存在，但是不指向任何东西。在这种情况下，
-这个链接被称为坏链接。在许多实现中，ls 命令会以不同的颜色展示坏链接，比如说
-红色，来显示它们的存在。
+当你删除一个符号链接时，只有这个链接被删除，而不是文件自身。如果先于符号链接
+删除文件，这个链接仍然存在，但是不指向任何东西。在这种情况下，这个链接被称为
+坏链接。在许多实现中，ls 命令会以不同的颜色展示坏链接，比如说红色，来显示它们
+的存在。
 
 The concept of links can seem very confusing, but hang in there. We're going to try all
 this stuff and it will, hopefully, become clear.
