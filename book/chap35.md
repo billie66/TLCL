@@ -364,7 +364,7 @@ version, using parameter expansion, takes only 0.06 seconds — a very significa
 Recent versions of bash have support for upper/lowercase conversion of strings. bash
 has four parameter expansions and two options to the declare command to support it.
 
-最新的 bash 版本已经支持字符串的大小写转换了。bash 有四个参数展开和 delare 命令的两个选项来支持大小写转换。
+最新的 bash 版本已经支持字符串的大小写转换了。bash 有四个参数展开和 declare 命令的两个选项来支持大小写转换。
 
 So what is case conversion good for? Aside from the obvious aesthetic value, it has an
 important role in programming. Let's consider the case of a database look-up. Imagine
