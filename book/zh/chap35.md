@@ -519,7 +519,7 @@ _${parameter/%pattern/string}_
 <td valign="top">后缀自增变量。等价于 parameter = parameter + 1 (但，要看下面的讨论)。</td>
 </tr>
 <tr>
-<td valign="top">parameter-\- </td>
+<td valign="top">parameter-- </td>
 <td valign="top">后缀自减变量。等价于 parameter = parameter - 1。</td>
 </tr>
 <tr>
@@ -532,7 +532,7 @@ _${parameter/%pattern/string}_
 </tr>
 </table>
 
-这些赋值运算符为许多常见算术任务提供了快捷方式。特别关注一下自增（++）和自减（-\-）运算符，它们会把它们的参数值加1或减1。
+这些赋值运算符为许多常见算术任务提供了快捷方式。特别关注一下自增（++）和自减（--）运算符，它们会把它们的参数值加1或减1。
 这种风格的表示法取自C 编程语言并且被其它几种编程语言吸收，包括 bash。
 
 自增和自减运算符可能会出现在参数的前面或者后面。然而它们都是把参数值加1或减1，这两个位置有个微小的差异。
