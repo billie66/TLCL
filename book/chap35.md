@@ -805,7 +805,7 @@ signments:
 <td valign="top">Variable post-increment. Equivalent to parameter = parameter + 1 (however, see discussion below).</td>
 </tr>
 <tr>
-<td valign="top">parameter-\- </td>
+<td valign="top">parameter-- </td>
 <td valign="top">Variable post-decrement. Equivalent to parameter = parameter - 1.</td>
 </tr>
 <tr>
@@ -853,7 +853,7 @@ signments:
 <td valign="top">后缀自增变量。等价于 parameter = parameter + 1 (但，要看下面的讨论)。</td>
 </tr>
 <tr>
-<td valign="top">parameter-\- </td>
+<td valign="top">parameter-- </td>
 <td valign="top">后缀自减变量。等价于 parameter = parameter - 1。</td>
 </tr>
 <tr>
