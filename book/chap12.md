@@ -744,7 +744,7 @@ format directory listing.</td>
 <tr>
 <td valign="top" width="25%">alias l.='ls -d .* --color=auto' </td>
 <td
-valign="top">创建一个新命令，叫做'l.'，这个命令会显示所有以点开头的目录名。</td>
+valign="top">创建一个新命令，叫做'l.'，这个命令会显示所有以点开头的目录项。</td>
 </tr>
 <tr>
 <td valign="top" width="25%">alias ll='ls -l --color=auto'
