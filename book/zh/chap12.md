@@ -10,9 +10,9 @@ title: shell 环境
 
 在这一章，我们将用到以下命令：
 
-* set - 设置 shell 选项
-
 * printenv - 打印部分或所有的环境变量
+
+* set - 设置 shell 选项
 
 * export — 导出环境变量，让随后执行的程序知道。
 
@@ -392,7 +392,7 @@ vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stal
 <tr>
 <td valign="top" width="25%">alias l.='ls -d .* --color=auto' </td>
 <td
-valign="top">创建一个新命令，叫做'l.'，这个命令会显示所有以点开头的目录名。</td>
+valign="top">创建一个新命令，叫做'l.'，这个命令会显示所有以点开头的目录项。</td>
 </tr>
 <tr>
 <td valign="top" width="25%">alias ll='ls -l --color=auto'
