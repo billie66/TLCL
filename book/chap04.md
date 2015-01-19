@@ -623,7 +623,7 @@ the system to boot and run.</td>
 </tr>
 <tr>
 <td valign="top">/boot</td>
-<td valign="top">Contains the linux kernel, intial RMA disk image (for
+<td valign="top">Contains the linux kernel, intial RAM disk image (for
 drivers needed at boot time), and the boot loader.
 <p>Interesting files:</p>
 <ul>
@@ -788,7 +788,7 @@ some systems, you must be the superuser to view log files.</td>
 </tr>
 <tr>
 <td valign="top">/boot</td>
-<td valign="top"><p>包含 Linux 内核，最初的 RMA 磁盘映像（系统启动时，由驱动程序所需），和
+<td valign="top"><p>包含 Linux 内核，最初的 RAM 磁盘映像（系统启动时，由驱动程序所需），和
 启动加载程序。</p>
 <p>有趣的文件：</p>
 <ul>
