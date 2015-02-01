@@ -857,8 +857,8 @@ the last line of the file, type P to paste the text above the current line:
     Line 2
     Line 3
     Line 4
-    Line 5
     The quick brown fox jumped over the lazy dog. It was cool.
+    Line 5
 
 Try out some of the other y commands in the table above and get to know the behavior of
 both the p and P commands. When you are done, return the file to its original state.
