@@ -1209,6 +1209,51 @@ files at the bottom of the display:
     2 %a    "ls-output.txt"           line 0
     Press ENTER or type command to continue
 
+To switch to another buffer (file), type :buffer followed by the number of the buffer
+you wish to edit. For example, to switch from buffer 1 which contains the file foo.txt
+to buffer 2 containing the file ls-output.txt we would type this:
+
+要切换到另一个缓冲区（文件），输入 :buffer, 紧跟着你想要编辑的缓冲器编号。比如，要从包含文件 foo.txt
+的1号缓冲区切换到包含文件 ls-output.txt 的2号缓冲区，我们会这样输入：
+
+    :buffer 2
+
+and our screen now displays the second file.
+
+我们的屏幕现在会显示第二个文件。
+
+Opening Additional Files For Editing
+
+#### 打开另一个文件并编辑
+
+It's also possible to add files to our current editing session. The ex command :e (short for
+“edit”) followed by a filename will open an additional file. Let's end our current editing
+session and return to the command line.
+
+在我们的当前的编辑会话里也能添加别的文件。ex 命令 :e (编辑(edit) 的简写) 紧跟要打开的文件名将会打开
+另外一个文件。 让我们结束当前的会话回到命令行。
+
+Start vi again with just one file:
+
+重新启动vi并只打开一个文件
+
+    [me@linuxbox ~]$ vi foo.txt
+
+To add our second file, enter:
+
+要加入我们的第二个文件，输入：
+
+    :e ls-output.txt
+
+And it should appear on the screen. The first file is still present as we can verify:
+
+它应该显示在屏幕上。 我们可以这样来确认第一个文件仍然存在：
+
+:buffers
+ 1 # "foo.txt" line 1
+ 2 %a "ls-output.txt" line 0
+Press ENTER or type command to continue 
+
 Note: You cannot switch to files loaded with the :e command using either the :n
 or :N command. To switch files, use the :buffer command followed by the
 buffer number.
