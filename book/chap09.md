@@ -41,7 +41,7 @@ important to learn all of them, but many of them are very useful. Pick and choos
 desired.
 
 Bash 使用了一个名为 Readline 的库（共享的线程集合，可以被不同的程序使用），
-来实现命令行编辑。我们已经看到一些例子。我们知道，例如，箭头按键可以移动鼠标，
+来实现命令行编辑。我们已经看到一些例子。我们知道，例如，箭头按键可以移动光标，
 此外还有许多特性。想想这些额外的工具，我们可以在工作中使用。学会所有的特性
 并不重要，但许多特性非常有帮助。选择自己需要的特性。
 
