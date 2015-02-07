@@ -437,7 +437,7 @@ tar 命令使用了稍微有点奇怪的方式来表达它的选项，所以我�
 怎样工作的。首先，让我们重新创建之前我们用过的操练场:
 
     [me@linuxbox ~]$ mkdir -p playground/dir-{00{1..9},0{10..99},100}
-    [me@linuxbox ~]$ touch playground/dir-{00{1..9},0{10..99},100}/file-{A-Z}
+    [me@linuxbox ~]$ touch playground/dir-{00{1..9},0{10..99},100}/file-{A..Z}
 
 Next, let’s create a tar archive of the entire playground:
 

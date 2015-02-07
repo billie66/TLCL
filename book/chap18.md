@@ -248,13 +248,13 @@ Here are the common file type tests supported by find:
 </table>
 
 We can also search by file size and filename by adding some additional tests: Let’s look
-for all the regular files that match the wild card pattern “\*.JPG” and are larger than one
+for all the regular files that match the wild card pattern “*.JPG” and are larger than one
 megabyte:
 
 我们也可以通过加入一些额外的测试条件，根据文件大小和文件名来搜索：让我们查找所有文件名匹配
 通配符模式“\*.JPG”和文件大小大于1M 的文件：
 
-    [me@linuxbox ~]$ find ~ -type f -name "\*.JPG" -size +1M | wc -l
+    [me@linuxbox ~]$ find ~ -type f -name "*.JPG" -size +1M | wc -l
     840
 
 In this example, we add the -name test followed by the wild card pattern. Notice how
