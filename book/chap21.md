@@ -406,7 +406,7 @@ the results of a summary in pathname order:
 通过这个选项，有可能基于数值进行排序。我们通过对 du 命令的输出结果排序来说明这个选项，du 命令可以
 确定最大的磁盘空间用户。通常，这个 du 命令列出的输出结果按照路径名来排序：
 
-    [me@linuxbox ~]$ du -s /usr/share/\* | head
+    [me@linuxbox ~]$ du -s /usr/share/* | head
     252     /usr/share/aclocal
     96      /usr/share/acpi-support
     8       /usr/share/adduser
@@ -1581,8 +1581,8 @@ We’ll demonstrate with our test file:
 
 我们将使用测试文件来说明：
 
-    [me@linuxbox ~]$ diff -Naur file1.txt file2.txt &gt; patchfile.txt
-    [me@linuxbox ~]$ patch &lt; patchfile.txt
+    [me@linuxbox ~]$ diff -Naur file1.txt file2.txt > patchfile.txt
+    [me@linuxbox ~]$ patch < patchfile.txt
     patching file file1.txt
     [me@linuxbox ~]$ cat file1.txt
     b
@@ -1700,7 +1700,7 @@ text restores it to its original form. To perform this encoding with tr:
 这个方法就是简单地把每个字符在字母表中向前移动13位。因为移动的位数是可能的26个字符的一半，
 所以对文本再次执行这个算法，就恢复到了它最初的形式。通过 tr 命令来执行这种编码：
 >
->  _echo "secret text" | tr a-zA-Z n-za-mN-ZA-M_
+>  echo "secret text" | tr a-zA-Z n-za-mN-ZA-M
 >
 >   frperg grkg
 >
@@ -1708,7 +1708,7 @@ text restores it to its original form. To perform this encoding with tr:
 >
 > 再次执行相同的过程，得到翻译结果：
 >
->  _echo "frperg grkg" | tr a-zA-Z n-za-mN-ZA-M+
+>  echo "frperg grkg" | tr a-zA-Z n-za-mN-ZA-M
 >
 >  secret text
 >
@@ -1784,7 +1784,7 @@ sed 中的命令开始于单个字符。在上面的例子中，这个替换命�
 和替代字符串，斜杠字符做为分隔符。分隔符的选择是随意的。按照惯例，经常使用斜杠字符，
 但是 sed 将会接受紧随命令之后的任意字符做为分隔符。我们可以按照这种方式来执行相同的命令：
 
-    [me@linuxbox ~]$ echo "front" | sed 's\_front\_back\_'
+    [me@linuxbox ~]$ echo "front" | sed 's_front_back_'
     back
 
 By using the underscore character immediately after the command, it becomes the
@@ -2512,13 +2512,15 @@ which will result in this:
               <p>The quick brown fox jimped over the laxy dog.</p>
         </body>
     </html>
-    1) HTML                     4) Hamel
-    2) ht ml                    5) Hamil
-    3) ht-ml                    6) hotel
-    i) Ignore                   I) Ignore all
-    r) Replace                  R) Replace all
-    a) Add                      l) Add Lower
-    b) Abort                    x) Exit
+    1) Mi spelled              6) Misapplied
+    2) Mi-spelled              7) Miscalled
+    3) Misspelled              8) Respelled
+    4) Dispelled               9) Misspell
+    5) Spelled                 0) Misled
+    i) Ignore                  I) Ignore all
+    r) Replace                 R) Replace all
+    a) Add                     l) Add Lower
+    b) Abort                   x) Exit 
     ?
 
 The HTML is ignored and only the non-markup portions of the file are checked. In this
