@@ -252,7 +252,7 @@ for all the regular files that match the wild card pattern “*.JPG” and are l
 megabyte:
 
 我们也可以通过加入一些额外的测试条件，根据文件大小和文件名来搜索：让我们查找所有文件名匹配
-通配符模式“\*.JPG”和文件大小大于1M 的文件：
+通配符模式“*.JPG”和文件大小大于1M 的文件：
 
     [me@linuxbox ~]$ find ~ -type f -name "*.JPG" -size +1M | wc -l
     840
@@ -363,7 +363,7 @@ last modified more recently than those of file.</td>
 <tr>
 <td valign="top">-ctime n </td>
 <td valign="top">Match files or directories whose contents or attributes were
-last modified n\*24 hours ago.</td>
+last modified n*24 hours ago.</td>
 </tr>
 <tr>
 <td valign="top">-empty </td>
@@ -392,7 +392,7 @@ minutes ago.</td>
 <tr>
 <td valign="top">-mtime n </td>
 <td valign="top">Match files or directories whose contents were modified
-n\*24 hours ago.</td>
+n*24 hours ago.</td>
 </tr>
 <tr>
 <td valign="top">-name pattern </td>
@@ -462,7 +462,7 @@ ID.</td>
 </tr>
 <tr>
 <td valign="top">-ctime n </td>
-<td valign="top">匹配的文件和目录的内容和属性最后修改时间在 n\*24小时之前。</td>
+<td valign="top">匹配的文件和目录的内容和属性最后修改时间在 n*24小时之前。</td>
 </tr>
 <tr>
 <td valign="top">-empty </td>
@@ -486,7 +486,7 @@ ID.</td>
 </tr>
 <tr>
 <td valign="top">-mtime n </td>
-<td valign="top">匹配的文件或目录的内容被修改于 n\*24小时之前。 </td>
+<td valign="top">匹配的文件或目录的内容被修改于 n*24小时之前。 </td>
 </tr>
 <tr>
 <td valign="top">-name pattern </td>
@@ -869,14 +869,14 @@ Consider the following command:
     find ~ -type f -name '*.BAK' -print
 
 As we have seen, this command will look for every regular file (-type f) whose name
-ends with .BAK (-name '\*.BAK') and will output the relative pathname of each
+ends with .BAK (-name '*.BAK') and will output the relative pathname of each
 matching file to standard output (-print). However, the reason the command performs
 the way it does is determined by the logical relationships between each of the tests and
 actions. Remember, there is, by default, an implied -and relationship between each test
 and action. We could also express the command this way to make the logical
 relationships easier to see:
 
-正如我们所见到的，这个命令会查找每个文件名以.BAK (-name '\*.BAK') 结尾的普通文件 (-type f)，
+正如我们所见到的，这个命令会查找每个文件名以.BAK (-name '*.BAK') 结尾的普通文件 (-type f)，
 并把每个匹配文件的相对路径名输出到标准输出 (-print)。然而，此命令按这个方式执行的原因，是
 由每个测试和操作之间的逻辑关系决定的。记住，在每个测试和操作之间会默认应用 -and 逻辑运算符。
 我们也可以这样表达这个命令，使逻辑关系更容易看出：
@@ -895,7 +895,7 @@ execution:
 </tr>
 <tr>
 <td valign="top" width="25%">-print</td>
-<td valign="top">-type f and -name '\*.BAK' are true</td>
+<td valign="top">-type f and -name '*.BAK' are true</td>
 </tr>
 <tr>
 <td valign="top">-name ‘*.BAK’ </td>
@@ -1044,7 +1044,7 @@ we would use it like this:
 这个 xargs 命令会执行一个有趣的函数。它从标准输入接受输入，并把输入转换为一个特定命令的
 参数列表。对于我们的例子，我们可以这样使用它：
 
-    find ~ -type f -name 'foo\*' -print | xargs ls -l
+    find ~ -type f -name 'foo*' -print | xargs ls -l
     -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
     -rw-r--r-- 1 me     me 0 2008-09-19 12:53 /home/me/foo.txt
 
@@ -1095,7 +1095,7 @@ accepts null separated input. Here’s an example:
 则会产生由 null 字符分离的输出，并且 xargs 命令有一个 --null 选项，这个选项会接受由 null 字符
 分离的输入。这里有一个例子：
 >
->  _find ~ -iname '*.jpg' -print0 \| xargs --null ls -l_
+>  find ~ -iname '*.jpg' -print0 | xargs --null ls -l
 >
 > Using this technique, we can ensure that all files, even those containing embedded
 spaces in their names, are handled correctly.
