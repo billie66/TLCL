@@ -72,6 +72,46 @@ nl 在计算文件行数的时候支持一个叫“逻辑页面”的概念 。�
 这样的元素。在每一个部分中，数行数可以被重设，并且/或被设置成另外一个格式。如果nl同时处理多个文件，它会把他们当成一个单一的
 文本流。文本流中的部分被一些相当古怪的标记的存在加进了文本：
 
+<table class="multi">
+<caption class="cap">Table 22-1: nl Markup</caption>
+<tr>
+<th class="title">MarkUp</th>
+<th class="title">Meaning</th>
+</tr>
+<tr>
+<td valign="top">\:\:\: </td>
+<td valign="top">Start of logical page header</td>
+</tr>
+<tr>
+<td valign="top">\:\:</td>
+<td valign="top">Start of logical page body</td>
+</tr>
+<tr>
+<td valign="top">\:</td>
+<td valign="top">Start of logical page footer</td>
+</tr>
+</table">
+
+<table class="multi">
+<caption class="cap">Table 22-1: nl 标记</caption>
+<tr>
+<th class="title">标记</th>
+<th class="title">含义</th>
+</tr>
+<tr>
+<td valign="top">\:\:\: </td>
+<td valign="top">逻辑页页眉开始处</td>
+</tr>
+<tr>
+<td valign="top">\:\:</td>
+<td valign="top">逻辑页主体开始处</td>
+</tr>
+<tr>
+<td valign="top">\:</td>
+<td valign="top">逻辑页页脚开始处</td>
+</tr>
+</table">
+
 Each of the above markup elements must appear alone on its own line. After processing
 a markup element, nl deletes it from the text stream.
 
@@ -275,7 +315,7 @@ commands, fold accepts either one or more text files or standard input. If we se
 fold a simple stream of text, we can see how it works:
 
 折叠是将文本的行限制到特定的宽的过程。像我们的其他命令，fold 接受一个或多个文件及标准输入。如果我们将
-一个简单的文本流 fold，我们可以看到它工具的方式：
+一个简单的文本流 fold，我们可以看到它工作的方式：
 
     [me@linuxbox ~]$ echo "The quick brown fox jumped over the lazy dog."
     | fold -w 12
@@ -314,6 +354,24 @@ fmt 程序同样折叠文本，外加很多功能。它接受文本或标准输�
 To demonstrate, we’ll need some text. Let’s lift some from the fmt info page:
 
 为了解释，我们将需要一些文本。让我们抄一些 fmt 主页上的东西吧：
+
+    ‘fmt’ reads from the specified FILE arguments (or standard input if
+    none are given), and writes to standard output.
+
+       By default, blank lines, spaces between words, and indentation are
+    preserved in the output; successive input lines with different
+    indentation are not joined; tabs are expanded on input and introduced on
+    output.
+
+       ‘fmt’ prefers breaking lines at the end of a sentence, and tries to
+    avoid line breaks after the first word of a sentence or before the last
+    word of a sentence.  A "sentence break" is defined as either the end of
+    a paragraph or a word ending in any of ‘.?!’, followed by two spaces or
+    end of line, ignoring any intervening parentheses or quotes.  Like TeX,
+    ‘fmt’ reads entire “paragraphs” before choosing line breaks; the
+    algorithm is a variant of that given by Donald E. Knuth and Michael F.
+    Plass in “Breaking Paragraphs Into Lines”, ‘Software—Practice &
+    Experience’ 11, 11 (November 1981), 1119–1184.
 
 We’ll copy this text into our text editor and save the file as fmt-info.txt. Now, let’s
 say we wanted to reformat this text to fit a fifty character wide column. We could do this
