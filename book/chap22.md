@@ -90,7 +90,7 @@ nl 在计算文件行数的时候支持一个叫“逻辑页面”的概念 。�
 <td valign="top">\:</td>
 <td valign="top">Start of logical page footer</td>
 </tr>
-</table">
+</table>
 
 <table class="multi">
 <caption class="cap">Table 22-1: nl 标记</caption>
@@ -110,7 +110,7 @@ nl 在计算文件行数的时候支持一个叫“逻辑页面”的概念 。�
 <td valign="top">\:</td>
 <td valign="top">逻辑页页脚开始处</td>
 </tr>
-</table">
+</table>
 
 Each of the above markup elements must appear alone on its own line. After processing
 a markup element, nl deletes it from the text stream.
