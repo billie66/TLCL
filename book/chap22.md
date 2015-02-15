@@ -744,9 +744,11 @@ troff as the tool of choice for typesetter output. We won’t be covering TEX
 here, due both to its complexity (there are entire books about it) and to the fact that it is
 not installed by default on most modern Linux systems.
 
+---
 Tip: For those interested in installing TEX, check out the texlive package
 which can be found in most distribution repositories, and the LyX graphical content
 editor.
+---
 
 #### groff
 
@@ -846,10 +848,12 @@ Script file into a PDF (Portable Document Format) file with this command:
 The ps2pdf program is part of the ghostscript package, which is installed on most
 Linux systems that support printing.
 
+---
 Tip: Linux systems often include many command line programs for file format
 conversion. They are often named using the convention of format2format. Try using
-the command ls /usr/bin/*[[:alpha:]]2[[:alpha:]]* to identify
+the command `ls /usr/bin/*[[:alpha:]]2[[:alpha:]]*` to identify
 them. Also try searching for programs named formattoformat.
+---
 
 For our last exercise with groff, we will revisit our old friend distros.txt once
 more. This time, we will use the tbl program which is used to format tables to typeset
@@ -933,25 +937,24 @@ many people who do!), but it’s good to know that we could.
 
 * groff User’s Guide
 
-<http://www.gnu.org/software/groff/manual/>
+  <http://www.gnu.org/software/groff/manual/>
 
 * Writing Papers With nroff Using -me:
 
-<http://docs.freebsd.org/44doc/usd/19.memacros/paper.pdf>
+  <http://docs.freebsd.org/44doc/usd/19.memacros/paper.pdf>
 
 * -me Reference Manual:
 
-<http://docs.freebsd.org/44doc/usd/20.meref/paper.pdf>
+  <http://docs.freebsd.org/44doc/usd/20.meref/paper.pdf>
 
 * Tbl – A Program To Format Tables:
 
-<http://plan9.bell-labs.com/10thEdMan/tbl.pdf>
+  <http://plan9.bell-labs.com/10thEdMan/tbl.pdf>
 
 * And, of course, try the following articles at Wikipedia:
 
-<http://en.wikipedia.org/wiki/TeX>
+  <http://en.wikipedia.org/wiki/TeX>
 
-<http://en.wikipedia.org/wiki/Donald_Knuth>
+  <http://en.wikipedia.org/wiki/Donald_Knuth>
 
-<http://en.wikipedia.org/wiki/Typesetting>
-
+  <http://en.wikipedia.org/wiki/Typesetting>
