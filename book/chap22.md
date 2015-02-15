@@ -425,9 +425,11 @@ that simulates a program that uses comments:
 
     [me@linuxbox ~]$ cat > fmt-code.txt
     # This file contains code with comments.
+    
     # This line is a comment.
     # Followed by another comment line.
     # And another.
+    
     This, on the other hand, is a line of code.
     And another line of code.
     And another.
@@ -438,3 +440,508 @@ leave the code untouched:
 
 我们的示例文件包含了用 “#” 开始的注释（一个 # 后跟着一个空白符）和代码。现在，使用 fmt，我们能格式注释并且
 不让代码被触及。
+
+    [me@linuxbox ~]$ fmt -w 50 -p '# ' fmt-code.txt
+    # This file contains code with comments.
+    
+    # This line is a comment. Followed by another
+    # comment line. And another.
+    
+    This, on the other hand, is a line of code.
+    And another line of code.
+    And another.
+
+Notice that the adjoining comment lines are joined, while the blank lines and the lines
+that do not begin with the specified prefix are preserved.
+
+注意相邻的注释行被合并了，空行和非注释行被保留了。
+
+#### pr – Format Text For Printing
+
+The pr program is used to paginate text. When printing text, it is often desirable to separate
+the pages of output with several lines of whitespace, to provide a top and bottom
+margin for each page. Further, this whitespace can be used to insert a header and footer
+on each page.
+We’ll demonstrate pr by formatting our distros.txt file into a series of very short
+pages (only the first two pages are shown):
+
+    [me@linuxbox ~]$ pr -l 15 -w 65 distros.txt
+    2008-12-11 18:27        distros.txt         Page 1
+    
+    
+    
+    
+    SUSE        10.2     12/07/2006
+    Fedora      10       11/25/2008
+    SUSE        11.0     06/19/2008
+    Ubuntu      8.04     04/24/2008
+    Fedora      8        11/08/2007
+    
+    
+    
+    
+    
+    2008-12-11 18:27        distros.txt         Page 2
+    
+    
+    
+    
+    SUSE        10.3     10/04/2007
+    Ubuntu      6.10     10/26/2006
+    Fedora      7        05/31/2007
+    Ubuntu      7.10     10/18/2007
+    Ubuntu      7.04     04/19/2007
+
+In this example, we employ the -l option (for page length) and the -w option (page
+width) to define a “page” that is 65 columns wide and 15 lines long. pr paginates the
+contents of the distros.txt file, separates each page with several lines of whitespace
+and creates a default header containing the file modification time, filename, and page
+number. The pr program provides many options to control page layout. We’ll take a look
+at more of them in the next chapter.
+
+#### printf – Format And Print Data
+
+Unlike the other commands in this chapter, the printf command is not used for pipelines
+(it does not accept standard input) nor does it find frequent application directly on
+the command line (it’s mostly used in scripts). So why is it important? Because it is so
+widely used.
+printf (from the phrase “print formatted”) was originally developed for the C programming
+language and has been implemented in many programming languages including
+the shell. In fact, in bash, printf is a builtin.
+printf works like this:
+printf “format” arguments
+The command is given a string containing a format description which is then applied to a
+list of arguments. The formatted result is sent to standard output. Here is a trivial example:
+
+    [me@linuxbox ~]$ printf "I formatted the string: %s\n" foo
+    I formatted the string: foo
+
+The format string may contain literal text (like “I formatted the string:”), escape sequences
+(such as \n, a newline character), and sequences beginning with the % character,
+which are called conversion specifications. In the example above, the conversion specification
+%s is used to format the string “foo” and place it in the command’s output. Here it
+is again:
+
+    [me@linuxbox ~]$ printf "I formatted '%s' as a string.\n" foo
+    I formatted 'foo' as a string.
+
+As we can see, the %s conversion specification is replaced by the string “foo” in the command’s
+output. The s conversion is used to format string data. There are other specifiers
+for other kinds of data. This table lists the commonly used data types:
+
+<table class="multi">
+<caption class="cap">Table 22-5: printf Conversion Specification Components </caption>
+<tr>
+<th class="title">Component</th>
+<th class="title">Description</th>
+</tr>
+<tr>
+<td valign="top">d</td>
+<td valign="top">Format a number as a signed decimal integer.</td>
+</tr>
+<tr>
+<td valign="top">f</td>
+<td valign="top">Format and output a floating point number.</td>
+</tr>
+<tr>
+<td valign="top">o</td>
+<td valign="top">Format an integer as an octal number.</td>
+</tr>
+<tr>
+<td valign="top">s</td>
+<td valign="top">Format a string.</td>
+</tr>
+<tr>
+<td valign="top">x</td>
+<td valign="top">Format an integer as a hexadecimal number using lowercase a-f where
+needed.</td>
+</tr>
+<tr>
+<td valign="top">X</td>
+<td valign="top">Same as x but use uppercase letters.</td>
+</tr>
+<tr>
+<td valign="top">%</td>
+<td valign="top">Print a literal % symbol (i.e., specify “%%”)</td>
+</tr>
+</table">
+
+We’ll demonstrate the effect each of the conversion specifiers on the string “380”:
+
+    [me@linuxbox ~]$ printf "%d, %f, %o, %s, %x, %X\n" 380 380 380 380
+    380 380
+    380, 380.000000, 574, 380, 17c, 17C
+
+Since we specified six conversion specifiers, we must also supply six arguments for
+printf to process. The six results show the effect of each specifier.
+Several optional components may be added to the conversion specifier to adjust its output.
+A complete conversion specification may consist of the following:
+%[flags][width][.precision]conversion_specification
+Multiple optional components, when used, must appear in the order specified above to be
+properly interpreted. Here is a description of each:
+
+<table class="multi">
+<caption class="cap">Table 22-5: printf Conversion Specification Components</caption>
+<tr>
+<th class="title">Component</th>
+<th class="title">Description</th>
+</tr>
+<tr>
+<td valign="top" width="25%">flags</td>
+<td valign="top">There are five different flags:
+<p># – Use the “alternate format” for output. This varies by data
+type. For o (octal number) conversion, the output is prefixed with
+0. For x and X (hexadecimal number) conversions, the output is
+prefixed with 0x or 0X respectively.</p>
+<p>0–(zero) Pad the output with zeros. This means that the field will
+be filled with leading zeros, as in “000380”.</p>
+<p>- – (dash) Left-align the output. By default, printf right-aligns
+output.</p>
+<p>‘ ’ – (space) Produce a leading space for positive numbers.</p>
+<p>+ – (plus sign) Sign positive numbers. By default, printf only signs negative numbers.</p>
+</td>
+</tr>
+<tr>
+<td valign="top">width</td>
+<td valign="top">A number specifying the minimum field width.</td>
+</tr>
+<tr>
+<td valign="top">.precision</td>
+<td valign="top">For floating point numbers, specify the number of digits of
+precision to be output after the decimal point. For string conversion, precision specifies the number of characters to output.</td>
+</tr>
+</table>
+
+Here are some examples of different formats in action:
+
+<table class="multi">
+<caption class="cap">Table 22-6: print Conversion Specification Examples</caption>
+<tr>
+<th class="title">Argument</th>
+<th class="title">Format</th>
+<th class="title">Result</th>
+<th class="title">Notes</th>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%d"</td>
+<td valign="top">380</td>
+<td valign="top">Simple formatting of an integer.</td>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%#x"</td>
+<td valign="top">0x17c</td>
+<td valign="top">Integer formatted as a hexadecimal number using the “alternate format” flag.</td>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%05d"</td>
+<td valign="top">00380</td>
+<td valign="top">Integer formatted with leading zeros (padding) and a minimum field width of five characters.</td>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%05.5f"</td>
+<td valign="top">380.00000</td>
+<td valign="top">Number formatted as a floating point number with padding and five decimal places of precision. Since the specified minimum field width (5) is less than the actual width of the formatted number, the padding has no effect.</td>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%010.5f"</td>
+<td valign="top">0380.00000</td>
+<td valign="top">By increasing the minimum field width to 10 the padding is now visible.</td>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%+d"</td>
+<td valign="top">+380</td>
+<td valign="top">The + flag signs a positive number.</td>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%-d"</td>
+<td valign="top">380</td>
+<td valign="top">The - flag left aligns the formatting.</td>
+</tr>
+<tr>
+<td valign="top">abcdefghijk</td>
+<td valign="top">"%5s"</td>
+<td valign="top">abcedfghijk</td>
+<td valign="top">A string formatted with a minimum field width.</td>
+</tr>
+<tr>
+<td valign="top">abcdefghijk</td>
+<td valign="top">"%d"</td>
+<td valign="top">abcde</td>
+<td valign="top">By applying precision to a string, it is truncated.</td>
+</tr>
+</table>
+
+Again, printf is used mostly in scripts where it is employed to format tabular data,
+rather than on the command line directly. But we can still show how it can be used to
+solve various formatting problems. First, let’s output some fields separated by tab characters:
+
+    [me@linuxbox ~]$ printf "%s\t%s\t%s\n" str1 str2 str3
+    str1 str2 str3
+
+By inserting \t (the escape sequence for a tab), we achieve the desired effect. Next,
+some numbers with neat formatting:
+
+    [me@linuxbox ~]$ printf "Line: %05d %15.3f Result: %+15d\n" 1071
+    3.14156295 32589
+    Line: 01071 3.142 Result: +32589
+
+This shows the effect of minimum field width on the spacing of the fields. Or how about
+formatting a tiny web page:
+
+    [me@linuxbox ~]$ printf "<html>\n\t<head>\n\t\t<title>%s</title>\n
+    \t</head>\n\t<body>\n\t\t<p>%s</p>\n\t</body>\n</html>\n" "Page Tit
+    le" "Page Content"
+    <html>
+    <head>
+    <title>Page Title</title>
+    </head>
+    <body>
+    <p>Page Content</p>
+    </body>
+    </html>
+
+### Document Formatting Systems
+
+So far, we have examined the simple text-formatting tools. These are good for small, sim-
+
+ple tasks, but what about larger jobs? One of the reasons that Unix became a popular operating
+system among technical and scientific users (aside from providing a powerful
+multitasking, multiuser environment for all kinds of software development) is that it offered
+tools that could be used to produce many types of documents, particularly scientific
+and academic publications. In fact, as the GNU documentation describes, document
+preparation was instrumental to the development of Unix:
+
+The first version of UNIX was developed on a PDP-7 which was sitting around Bell
+Labs. In 1971 the developers wanted to get a PDP-11 for further work on the
+operating system. In order to justify the cost for this system, they proposed that they
+would implement a document formatting system for the AT&T patents division. This
+first formatting program was a reimplementation of McIllroy's `roff', written by J.
+F. Ossanna.
+
+Two main families of document formatters dominate the field: those descended from the
+original roff program, including nroff and troff, and those based on Donald
+Knuth’s TEX (pronounced “tek”) typesetting system. And yes, the dropped “E” in the
+middle is part of its name.
+
+The name “roff” is derived from the term “run off” as in, “I’ll run off a copy for you.”
+The nroff program is used to format documents for output to devices that use
+monospaced fonts, such as character terminals and typewriter-style printers. At the time
+of its introduction, this included nearly all printing devices attached to computers. The
+later troff program formats documents for output on typesetters, devices used to produce
+“camera-ready” type for commercial printing. Most computer printers today are able
+to simulate the output of typesetters. The roff family also includes some other programs
+that are used to prepare portions of documents. These include eqn (for mathematical
+equations) and tbl (for tables).
+
+The TEX system (in stable form) first appeared in 1989 and has, to some degree, displaced
+troff as the tool of choice for typesetter output. We won’t be covering TEX
+here, due both to its complexity (there are entire books about it) and to the fact that it is
+not installed by default on most modern Linux systems.
+
+Tip: For those interested in installing TEX, check out the texlive package
+which can be found in most distribution repositories, and the LyX graphical content
+editor.
+
+#### groff
+
+groff is a suite of programs containing the GNU implementation of troff. It also includes
+a script that is used to emulate nroff and the rest of the roff family as well.
+
+While roff and its descendants are used to make formatted documents, they do it in a
+way that is rather foreign to modern users. Most documents today are produced using
+word processors that are able to perform both the composition and layout of a document
+in a single step. Prior to the advent of the graphical word processor, documents were often
+produced in a two-step process involving the use of a text editor to perform composition,
+and a processor, such as troff, to apply the formatting. Instructions for the formatting
+program were embedded into the composed text through the use of a markup language.
+The modern analog for such a process is the web page, which is composed using a
+text editor of some kind and then rendered by a web browser using HTML as the markup
+language to describe the final page layout.
+
+We’re not going to cover groff in its entirety, as many elements of its markup language
+deal with rather arcane details of typography. Instead we will concentrate on one of its
+macro packages that remains in wide use. These macro packages condense many of its
+low-level commands into a smaller set of high-level commands that make using groff
+much easier.
+
+For a moment, let’s consider the humble man page. It lives in the /usr/share/man
+directory as a gzip compressed text file. If we were to examine its uncompressed contents,
+we would see the following (the man page for ls in section 1 is shown):
+
+    [me@linuxbox ~]$ zcat /usr/share/man/man1/ls.1.gz | head
+    .\" DO NOT MODIFY THIS FILE! It was generated by help2man 1.35.
+    .TH LS "1" "April 2008" "GNU coreutils 6.10" "User Commands"
+    .SH NAME
+    ls \- list directory contents
+    .SH SYNOPSIS
+    .B ls
+    [\fIOPTION\fR]... [\fIFILE\fR]...
+    .SH DESCRIPTION
+    .\" Add any additional description here
+    .PP
+
+Compared to the man page in its normal presentation, we can begin to see a correlation
+between the markup language and its results:
+
+    [me@linuxbox ~]$ man ls | head
+    LS(1) User Commands LS(1)
+    NAME
+    ls - list directory contents
+    
+    SYNOPSIS
+    ls [OPTION]... [FILE]...
+
+The reason this is of interest is that man pages are rendered by groff, using the mandoc
+macro package. In fact, we can simulate the man command with the following pipeline:
+
+    [me@linuxbox ~]$ zcat /usr/share/man/man1/ls.1.gz | groff -mandoc -T
+    ascii | head
+    LS(1) User Commands LS(1)
+    NAME
+    ls - list directory contents
+    SYNOPSIS
+    ls [OPTION]... [FILE]...
+
+Here we use the groff program with the options set to specify the mandoc macro
+package and the output driver for ASCII. groff can produce output in several formats.
+If no format is specified, PostScript is output by default:
+
+    [me@linuxbox ~]$ zcat /usr/share/man/man1/ls.1.gz | groff -mandoc |
+    head
+    %!PS-Adobe-3.0
+    %%Creator: groff version 1.18.1
+    %%CreationDate: Thu Feb 5 13:44:37 2009
+    %%DocumentNeededResources: font Times-Roman
+    %%+ font Times-Bold
+    %%+ font Times-Italic
+    %%DocumentSuppliedResources: procset grops 1.18 1
+    %%Pages: 4
+    %%PageOrder: Ascend
+    %%Orientation: Portrait
+
+We briefly mentioned PostScript in the previous chapter, and will again in the next chapter.
+PostScript is a page description language that is used to describe the contents of a
+printed page to a typesetter-like device. If we take the output of our command and store it
+to a file (assuming that we are using a graphical desktop with a Desktop directory):
+
+    [me@linuxbox ~]$ zcat /usr/share/man/man1/ls.1.gz | groff -mandoc >
+    ~/Desktop/foo.ps
+
+An icon for the output file should appear on the desktop. By double-clicking the icon, a
+page viewer should start up and reveal the file in its rendered form:
+
+Figure 4: Viewing PostScript Output With A Page Viewer In GNOME
+
+What we see is a nicely typeset man page for ls! In fact, it’s possible to convert the Post-
+Script file into a PDF (Portable Document Format) file with this command:
+
+    [me@linuxbox ~]$ ps2pdf ~/Desktop/foo.ps ~/Desktop/ls.pdf
+
+The ps2pdf program is part of the ghostscript package, which is installed on most
+Linux systems that support printing.
+
+Tip: Linux systems often include many command line programs for file format
+conversion. They are often named using the convention of format2format. Try using
+the command ls /usr/bin/*[[:alpha:]]2[[:alpha:]]* to identify
+them. Also try searching for programs named formattoformat.
+
+For our last exercise with groff, we will revisit our old friend distros.txt once
+more. This time, we will use the tbl program which is used to format tables to typeset
+our list of Linux distributions. To do this, we are going to use our earlier sed script to
+add markup to a text stream that we will feed to groff.
+
+First, we need to modify our sed script to add the necessary requests that tbl requires.
+Using a text editor, we will change distros.sed to the following:
+
+    # sed script to produce Linux distributions report
+    1 i\
+    .TS\
+    center box;\
+    cb s s\
+    cb cb cb\
+    l n c.\
+    Linux Distributions Report\
+    =\
+    Name Version Released\
+    _
+    s/\([0-9]\{2\}\)\/\([0-9]\{2\}\)\/\([0-9]\{4\}\)$/\3-\1-\2/
+    $ a\
+    .TE
+
+Note that for the script to work properly, care must been taken to see that the words
+“Name Version Released” are separated by tabs, not spaces. We’ll save the resulting file
+as distros-tbl.sed. tbl uses the .TS and .TE requests to start and end the table.
+The rows following the .TS request define global properties of the table which, for our
+example, are centered horizontally on the page and surrounded by a box. The remaining
+lines of the definition describe the layout of each table row. Now, if we run our reportgenerating
+pipeline again with the new sed script, we’ll get the following :
+
+    [me@linuxbox ~]$ sort -k 1,1 -k 2n distros.txt | sed -f distros-tbl
+    .sed | groff -t -T ascii 2>/dev/null
+    +------------------------------+
+    | Linux Distributions Report |
+    +------------------------------+
+    | Name Version Released |
+    +------------------------------+
+    |Fedora 5 2006-03-20 |
+    |Fedora 6 2006-10-24 |
+    |Fedora 7 2007-05-31 |
+    |Fedora 8 2007-11-08 |
+    |Fedora 9 2008-05-13 |
+    |Fedora 10 2008-11-25 |
+    |SUSE 10.1 2006-05-11 |
+    |SUSE 10.2 2006-12-07 |
+    |SUSE 10.3 2007-10-04 |
+    |SUSE 11.0 2008-06-19 |
+    |Ubuntu 6.06 2006-06-01 |
+    |Ubuntu 6.10 2006-10-26 |
+    |Ubuntu 7.04 2007-04-19 |
+    |Ubuntu 7.10 2007-10-18 |
+    |Ubuntu 8.04 2008-04-24 |
+    |Ubuntu 8.10 2008-10-30 |
+    +------------------------------+
+
+Adding the -t option to groff instructs it to pre-process the text stream with tbl.
+Likewise, the -T option is used to output to ASCII rather than the default output medium,
+PostScript.
+
+The format of the output is the best we can expect if we are limited to the capabilities of a
+terminal screen or typewriter-style printer. If we specify PostScript output and graphically
+view the resulting output, we get a much more satisfying result:
+
+[me@linuxbox ~]$ sort -k 1,1 -k 2n distros.txt | sed -f distros-tbl
+.sed | groff -t > ~/Desktop/foo.ps
+
+Figure 5: Viewing The Finished Table
+
+### Summing Up
+
+Given that text is so central to the character of Unix-like operating systems, it makes
+sense that there would be many tools that are used to manipulate and format text. As we
+have seen, there are! The simple formatting tools like fmt and pr will find many uses in
+scripts that produce short documents, while groff (and friends) can be used to write
+books. We may never write a technical paper using command line tools (though there are
+many people who do!), but it’s good to know that we could.
+
+### Further Reading
+
+* groff User’s Guide
+    <http://www.gnu.org/software/groff/manual/>
+* Writing Papers With nroff Using -me:
+    <http://docs.freebsd.org/44doc/usd/19.memacros/paper.pdf>
+* -me Reference Manual:
+    <http://docs.freebsd.org/44doc/usd/20.meref/paper.pdf>
+* Tbl – A Program To Format Tables:
+    <http://plan9.bell-labs.com/10thEdMan/tbl.pdf>
+* And, of course, try the following articles at Wikipedia:
+    <http://en.wikipedia.org/wiki/TeX>
+    <http://en.wikipedia.org/wiki/Donald_Knuth>
+    <http://en.wikipedia.org/wiki/Typesetting>
+
