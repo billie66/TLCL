@@ -3,6 +3,11 @@
 ```
 gem install kramdown
 ```
+Linux下需要安装 texlive-xetex 及相关软件包。 在Ubuntu14.10下：
+
+```
+sudo apt-get install -y texlive-xetex texlive-latex-recommended texlive-pictures texlive-latex-extra
+```
 然后，就可以运行以下命令生成 pdf 了
 
 ```
