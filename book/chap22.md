@@ -915,8 +915,8 @@ The format of the output is the best we can expect if we are limited to the capa
 terminal screen or typewriter-style printer. If we specify PostScript output and graphically
 view the resulting output, we get a much more satisfying result:
 
-[me@linuxbox ~]$ sort -k 1,1 -k 2n distros.txt | sed -f distros-tbl
-.sed | groff -t > ~/Desktop/foo.ps
+    [me@linuxbox ~]$ sort -k 1,1 -k 2n distros.txt | sed -f distros-tbl
+    .sed | groff -t > ~/Desktop/foo.ps
 
 Figure 5: Viewing The Finished Table
 
@@ -932,15 +932,26 @@ many people who do!), but it’s good to know that we could.
 ### Further Reading
 
 * groff User’s Guide
-    <http://www.gnu.org/software/groff/manual/>
+
+<http://www.gnu.org/software/groff/manual/>
+
 * Writing Papers With nroff Using -me:
-    <http://docs.freebsd.org/44doc/usd/19.memacros/paper.pdf>
+
+<http://docs.freebsd.org/44doc/usd/19.memacros/paper.pdf>
+
 * -me Reference Manual:
-    <http://docs.freebsd.org/44doc/usd/20.meref/paper.pdf>
+
+<http://docs.freebsd.org/44doc/usd/20.meref/paper.pdf>
+
 * Tbl – A Program To Format Tables:
-    <http://plan9.bell-labs.com/10thEdMan/tbl.pdf>
+
+<http://plan9.bell-labs.com/10thEdMan/tbl.pdf>
+
 * And, of course, try the following articles at Wikipedia:
-    <http://en.wikipedia.org/wiki/TeX>
-    <http://en.wikipedia.org/wiki/Donald_Knuth>
-    <http://en.wikipedia.org/wiki/Typesetting>
+
+<http://en.wikipedia.org/wiki/TeX>
+
+<http://en.wikipedia.org/wiki/Donald_Knuth>
+
+<http://en.wikipedia.org/wiki/Typesetting>
 
