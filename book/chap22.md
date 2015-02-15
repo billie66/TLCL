@@ -425,11 +425,11 @@ that simulates a program that uses comments:
 
     [me@linuxbox ~]$ cat > fmt-code.txt
     # This file contains code with comments.
-    
+
     # This line is a comment.
     # Followed by another comment line.
     # And another.
-    
+
     This, on the other hand, is a line of code.
     And another line of code.
     And another.
@@ -443,10 +443,10 @@ leave the code untouched:
 
     [me@linuxbox ~]$ fmt -w 50 -p '# ' fmt-code.txt
     # This file contains code with comments.
-    
+
     # This line is a comment. Followed by another
     # comment line. And another.
-    
+
     This, on the other hand, is a line of code.
     And another line of code.
     And another.
@@ -462,30 +462,24 @@ The pr program is used to paginate text. When printing text, it is often desirab
 the pages of output with several lines of whitespace, to provide a top and bottom
 margin for each page. Further, this whitespace can be used to insert a header and footer
 on each page.
+
 We’ll demonstrate pr by formatting our distros.txt file into a series of very short
 pages (only the first two pages are shown):
 
     [me@linuxbox ~]$ pr -l 15 -w 65 distros.txt
     2008-12-11 18:27        distros.txt         Page 1
-    
-    
-    
-    
+
+
     SUSE        10.2     12/07/2006
     Fedora      10       11/25/2008
     SUSE        11.0     06/19/2008
     Ubuntu      8.04     04/24/2008
     Fedora      8        11/08/2007
-    
-    
-    
-    
-    
+
+
     2008-12-11 18:27        distros.txt         Page 2
-    
-    
-    
-    
+
+
     SUSE        10.3     10/04/2007
     Ubuntu      6.10     10/26/2006
     Fedora      7        05/31/2007
@@ -505,11 +499,14 @@ Unlike the other commands in this chapter, the printf command is not used for pi
 (it does not accept standard input) nor does it find frequent application directly on
 the command line (it’s mostly used in scripts). So why is it important? Because it is so
 widely used.
+
 printf (from the phrase “print formatted”) was originally developed for the C programming
 language and has been implemented in many programming languages including
 the shell. In fact, in bash, printf is a builtin.
 printf works like this:
-printf “format” arguments
+
+    printf “format” arguments
+
 The command is given a string containing a format description which is then applied to a
 list of arguments. The formatted result is sent to standard output. Here is a trivial example:
 
@@ -564,7 +561,7 @@ needed.</td>
 <td valign="top">%</td>
 <td valign="top">Print a literal % symbol (i.e., specify “%%”)</td>
 </tr>
-</table">
+</table>
 
 We’ll demonstrate the effect each of the conversion specifiers on the string “380”:
 
@@ -576,7 +573,9 @@ Since we specified six conversion specifiers, we must also supply six arguments 
 printf to process. The six results show the effect of each specifier.
 Several optional components may be added to the conversion specifier to adjust its output.
 A complete conversion specification may consist of the following:
-%[flags][width][.precision]conversion_specification
+
+    %[flags][width][.precision]conversion_specification
+
 Multiple optional components, when used, must appear in the order specified above to be
 properly interpreted. Here is a description of each:
 
@@ -794,7 +793,7 @@ between the markup language and its results:
     LS(1) User Commands LS(1)
     NAME
     ls - list directory contents
-    
+
     SYNOPSIS
     ls [OPTION]... [FILE]...
 
