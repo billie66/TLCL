@@ -384,6 +384,9 @@ If we look at the output of our script now:
     <BODY>
     <H1>System Information Report For linuxbox</H1>
     <P>Generated 03/19/2009 04:02:10 PM EDT, by me</P>
+    
+    
+    
     </BODY>
     </HTML>
 

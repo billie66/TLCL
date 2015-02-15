@@ -1249,10 +1249,10 @@ And it should appear on the screen. The first file is still present as we can ve
 
 它应该显示在屏幕上。 我们可以这样来确认第一个文件仍然存在：
 
-:buffers
- 1 # "foo.txt" line 1
- 2 %a "ls-output.txt" line 0
-Press ENTER or type command to continue 
+    :buffers
+     1 # "foo.txt" line 1
+     2 %a "ls-output.txt" line 0
+    Press ENTER or type command to continue 
 
 Note: You cannot switch to files loaded with the :e command using either the :n
 or :N command. To switch files, use the :buffer command followed by the

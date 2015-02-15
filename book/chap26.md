@@ -312,10 +312,10 @@ convention:
     TITLE="System Information Report For $HOSTNAME"
     echo "<HTML>
             <HEAD>
-                    <TITLE>$title</TITLE>
+                    <TITLE>$TITLE</TITLE>
             </HEAD>
             <BODY>
-                    <H1>$title</H1>
+                    <H1>$TITLE</H1>
             </BODY>
     </HTML>"
 
