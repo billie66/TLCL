@@ -853,9 +853,11 @@ Linux systems that support printing.
 ---
 
 Tip: Linux systems often include many command line programs for file format
-conversion. They are often named using the convention of format2format.
-Try using the command __ls /usr/bin/*[[:alpha:]]2[[:alpha:]]*__ to identify
-them. Also try searching for programs named formattoformat.
+conversion. They are often named using the convention of format2format. Try using the command
+
+    ls /usr/bin/*[[:alpha:]]2[[:alpha:]]*
+
+to identify them. Also try searching for programs named formattoformat.
 
 ---
 
