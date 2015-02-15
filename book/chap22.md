@@ -745,9 +745,11 @@ here, due both to its complexity (there are entire books about it) and to the fa
 not installed by default on most modern Linux systems.
 
 ---
+
 Tip: For those interested in installing TEX, check out the texlive package
 which can be found in most distribution repositories, and the LyX graphical content
 editor.
+
 ---
 
 #### groff
@@ -849,10 +851,12 @@ The ps2pdf program is part of the ghostscript package, which is installed on mos
 Linux systems that support printing.
 
 ---
+
 Tip: Linux systems often include many command line programs for file format
-conversion. They are often named using the convention of format2format. Try using
-the command `ls /usr/bin/*[[:alpha:]]2[[:alpha:]]*` to identify
+conversion. They are often named using the convention of format2format.
+Try using the command __ls /usr/bin/*[[:alpha:]]2[[:alpha:]]*__ to identify
 them. Also try searching for programs named formattoformat.
+
 ---
 
 For our last exercise with groff, we will revisit our old friend distros.txt once
