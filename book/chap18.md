@@ -165,7 +165,7 @@ Wow, we’ve been busy! The beauty of find is that it can be used to identify fi
 meet specific criteria. It does this through the (slightly strange) application of options,
 tests, and actions. We’ll look at the tests first.
 
-哇，我们一直很忙！find 命令的美丽所在就是它能够被用来识别符合特定标准的文件。它通过
+哇，我们一直很忙！find 命令的魅力所在就是它能够被用来识别符合特定标准的文件。它通过
 （有点奇怪）应用选项，测试条件，和操作来完成搜索。我们先看一下测试条件。
 
 #### Tests
