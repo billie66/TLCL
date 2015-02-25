@@ -7,8 +7,8 @@ In this chapter we are going to look at some of the "magic" that occurs on the c
 line when you press the enter key. While we will examine several interesting and
 complex features of the shell, we will do it with just one new command:
 
-在这一章我们将看一下，当你按下 enter 键后，发生在命令行中的一些“魔法”。虽然我们会
-仔细查看几个复杂有趣的 shell 特点，但我们只使用一个新命令来处理这些特性。
+在这一章我们将看到，当你按下 enter 键后，发生在命令行中的一些“魔法”。尽管我们会
+深入研究几个复杂而有趣的 shell 特性，但我们只需要使用一个新命令：
 
 * echo - Display a line of text
 
@@ -25,12 +25,12 @@ demonstrate what we mean by this, let's take a look at the echo command. echo is
 shell builtin that performs a very simple task. It prints out its text arguments on standard
 output:
 
-每一次你输入一个命令，然后按下 enter 键，在 bash 执行你的命令之前，bash 会对输入
-的字符完成几个步骤处理。我们已经知道两三个案例，怎样一个简单的字符序列，例如"\*",
-对 shell 来说，有很多的涵义。使这个发生的过程叫做（字符）展开。通过展开，
-你输入的字符，在 shell 对它起作用之前，会展开成为别的字符。为了说明我们所要
-表达的意思，让我们看一看 echo 命令。echo 是一个 shell 内部命令，来完成非常简单的任务。
-它在标准输出中打印出它的文本参数。
+每当你输入一个命令，然后按下 enter 键后，bash 会在执行你的命令之前对输入
+的字符完成几个步骤的处理。我们已经见过几个例子：例如一个简单的字符序列"\*",
+对 shell 来说有着多么丰富的涵义。这背后的的过程叫做（字符）展开。通过展开，
+你输入的字符，在 shell 对它起作用之前，会展开成为别的字符。为了说明这一点
+，让我们看一看 echo 命令。echo 是一个 shell 内部命令，可以完成非常简单的任务。
+它将它的文本参数打印到标准输出中。
 
     [me@linuxbox ~]$ echo this is a test
     this is a test
@@ -54,13 +54,13 @@ automatically expands any qualifying characters on the command line before the
 command is carried out, so the echo command never saw the "\*", only its
 expanded result. Knowing this, we can see that echo behaved as expected.
 
-那么刚才发生了什么事情呢？ 为什么 echo 不打印"\*"呢？随着你回想起我们所学过的
-关于通配符的内容，这个"\*"字符意味着匹配文件名中的任意字符，但是在原先的讨论
-中我们却不知道 shell 是怎样实现这个功能的。最简单的答案就是 shell 把"\*"展开成了
-另外的东西（在这种情况下，就是在当前工作目录下的文件名字），在 echo 命令被执行
-前。当回车键被按下时，shell 在命令被执行前在命令行上自动展开任何符合条件的字符，
-所以 echo 命令从不会发现"\*",只把它展开成结果。知道了这个以后，我们能看到 echo 执行
-的结果和我们想象的一样。
+那么刚才发生了什么事情呢？ 为什么 echo 不打印"\*"呢？如果你回忆起我们所学过的
+关于通配符的内容，这个"\*"字符意味着匹配文件名中的任意字符，但在原先的讨论
+中我们并不知道 shell 是怎样实现这个功能的。简单的答案就是 shell 在 echo 命
+令被执行前把"\*"展开成了另外的东西（在这里，就是在当前工作目录下的文件名字）。
+当回车键被按下时，shell 在命令被执行前在命令行上自动展开任何符合条件的字符，
+所以 echo 命令的实际参数并不是"\*"，而是它展开后的结果。知道了这个以后，
+我们就能明白 echo 的行为符合预期。
 
 ### 路径名展开
 
@@ -68,8 +68,8 @@ The mechanism by which wildcards work is called pathname expansion. If we try so
 of the techniques that we employed in our earlier chapters, we will see that they are really
 expansions. Given a home directory that looks like this:
 
-这种通配符工作机制叫做路径名展开。如果我们试一下在之前的章节中使用的技巧，
-我们会看到它们真是要展开的字符。给出一个家目录，它看起来像这样：
+通配符所依赖的工作机制叫做路径名展开。如果我们试一下在之前的章节中使用的技巧，
+我们会看到它们实际上是展开。给定一个主目录，它看起来像这样：
 
     [me@linuxbox ~]$ ls
     Desktop   ls-output.txt   Pictures   Templates
@@ -77,7 +77,7 @@ expansions. Given a home directory that looks like this:
 
 we could carry out the following expansions:
 
-我们能够执行以下参数展开模式：
+我们能够执行以下的展开：
 
     [me@linuxbox ~]$ echo D*
     Desktop  Documents
@@ -98,7 +98,7 @@ or even:
 
 and looking beyond our home directory:
 
-查看家目录之外的目录：
+查看主目录之外的目录：
 
     [me@linuxbox ~]$ echo /usr/*/share
     /usr/kerberos/share  /usr/local/share
@@ -123,8 +123,8 @@ Pathname expansion also respects this behavior. An expansion such as:
 > It might appear at first glance that we could include hidden files in an
 expansion by starting the pattern with a leading period, like this:
 >
-> 要是展开模式以一个圆点开头，我们就能够在展开模式中包含隐藏文件，
-而且隐藏文件可能会出现在第一位置，就像这样：
+> 直觉告诉我们，如果展开模式以一个圆点开头，我们就能够在展开中包含隐藏文件，
+就像这样：
 >
 >  _echo .*_
 >
@@ -134,16 +134,16 @@ refer to the current working directory and its parent directory, using this
 pattern will likely produce an incorrect result. We can see this if we try the
 command:
 >
-> 它几乎是起作用了。然而，如果我们仔细检查一下输出结果，我们会看到名字"."
-和".."也出现在结果中。因为这些名字是指当前工作目录和它的父目录，使用这种
-模式可能会产生不正确的结果。我们能看到这样的结果，如果我们试一下这个命令：
+> 它几乎要起作用了。然而，如果我们仔细检查一下输出结果，我们会看到名字"."
+和".."也出现在结果中。由于它们是指当前工作目录和父目录，使用这种
+模式可能会产生不正确的结果。我们可以通过这个命令来验证：
 >
 >  _ls -d .* \| less_
 >
 > To correctly perform pathname expansion in this situation, we have to
 employ a more specific pattern. This will work correctly:
 >
-> 为了在这种情况下正确地完成路径名展开，我们应该雇佣一个更精确些的模式。
+> 为了在这种情况下正确地完成路径名展开，我们应该使用一个更精确的模式。
 这个模式会正确地工作：
 >
 >  _ls -d .[!.]?*_
@@ -154,9 +154,9 @@ followed by any other characters. This will work correctly with most hidden file
 include filenames with multiple leading periods). The ls command with the -A
 option (“almost all”) will provide a correct listing of hidden files:
 >
-> 这种模式展开成为文件名，每个文件名以圆点开头，第二个字符不包含圆点，再包含至少一个字符，
-并且这个字符之后紧接着任意多个字符。这将列出大多数的隐藏文件
-（但仍将不能包含以多个圆点开头的文件名）这个带有 -A 选项（“几乎所有”）的 ls
+> 这种模式展开成所有以圆点开头，第二个字符不包含圆点，再包含至少一个字符，
+并且这个字符之后紧接着任意多个字符的文件名。这个命令将正确列出大多数的隐藏文件
+（但仍不能包含以多个圆点开头的文件名）。带有 -A 选项（“几乎所有”）的 ls
 命令能够提供一份正确的隐藏文件清单：
 >
 >  _ls -A_
@@ -168,15 +168,15 @@ a special meaning. When used at the beginning of a word, it expands into the nam
 home directory of the named user, or if no user is named, the home directory of the
 current user:
 
-可能你从我们对 cd 命令的介绍中回想起来，波浪线字符("~")有特殊的意思。当它用在
-一个单词的开头时，它会展开成指定用户的家目录名，如果没有指定用户名，则是当前用户的家目录：
+可能你从我们对 cd 命令的介绍中回想起来，波浪线字符("~")有特殊的含义。当它用在
+一个单词的开头时，它会展开成指定用户的主目录名，如果没有指定用户名，则展开成当前用户的主目录：
 
     [me@linuxbox ~]$ echo ~
     /home/me
 
 If user “foo” has an account, then:
 
-如果有用户"foo"这个帐号，然后：
+如果有用户"foo"这个帐号，那么：
 
     [me@linuxbox ~]$ echo ~foo
     /home/foo
@@ -186,7 +186,7 @@ If user “foo” has an account, then:
 The shell allows arithmetic to be performed by expansion. This allow us to use the shell
 prompt as a calculator:
 
-shell 允许算术表达式通过展开来执行。这允许我们把 shell 提示当作计算器来使用：
+shell 在展开中执行算数表达式。这允许我们把 shell 提示当作计算器来使用：
 
     [me@linuxbox ~]$ echo $((2 + 2))
     4
@@ -323,13 +323,14 @@ comma-separated list of strings, or a range of integers or single characters. Th
 may not contain embedded whitespace. Here is an example using a range of integers:
 
 花括号展开模式可能包含一个开头部分叫做报头，一个结尾部分叫做附言。花括号表达式本身可
-能包含一个由逗号分开的字符串列表，或者一系列整数，或者单个的字符串。这种模式不能
+能包含一个由逗号分开的字符串列表，或者一系列的整数，或者单个的字符串。这种模式不能
 嵌入空白字符。这个例题使用了一系列整数：
 
     [me@linuxbox ~]$ echo Number_{1..5}
     Number_1  Number_2  Number_3  Number_4  Number_5
 
 A range of letters in reverse order:
+
 一系列以倒序排列的字母：
 
     [me@linuxbox ~]$ echo {Z..A}
@@ -350,11 +351,11 @@ way, the directory names will sort in chronological order. We could type out a c
 list of directories, but that's a lot of work and it's error-prone too. Instead, we could do
 this:
 
-那么这对什么有好处呢？最普遍的应用是，创建一系列的文件或目录列表。例如，
+那么这对什么有好处呢？最常见的应用是，创建一系列的文件或目录列表。例如，
 如果我们是摄影师，有大量的相片。我们想把这些相片按年月先后组织起来。首先，
-我们要创建一系列以数值"年－月"形式命名的目录。通过这种方式，目录名按照
-年代顺序排列。我们可以键入整个目录列表，但是工作量太大了，并且易于出错。
-反而，我们可以这样做：
+我们要创建一系列以数值"年－月"形式命名的目录。通过这种方式，可以使目录名按照
+年代顺序排列。我们可以手动键入整个目录列表，但是工作量太大了，并且易于出错。
+反之，我们可以这样做：
 
     [me@linuxbox ~]$ mkdir Pics
     [me@linuxbox ~]$ cd Pics
@@ -384,15 +385,15 @@ contents of USER you would do this:
 在这一章我们将会简单地介绍参数展开，只是皮毛而已。后续章节我们会广泛地
 讨论参数展开。这个特性在 shell 脚本中比直接在命令行中更有用。它的许多性能
 和系统存储小块数据，并给每块数据命名的能力有关系。许多像这样的小块数据，
-更适当些应叫做变量，可以方便地检查它们。例如，叫做"USER"的变量包含你的
-用户名。唤醒参数展开，揭示 USER 中的内容，可以这样做：
+更恰当的称呼应该是变量，可供你方便地检查它们。例如，叫做"USER"的变量包含你的
+用户名。可以这样做来调用参数，并查看 USER 中的内容，：
 
     [me@linuxbox ~]$ echo $USER
     me
 
 To see a list of available variables, try this:
 
-查看有效的变量列表，试试这个：
+要查看有效的变量列表，可以试试这个：
 
     [me@linuxbox ~]$ printenv | less
 
