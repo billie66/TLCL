@@ -69,7 +69,7 @@ of the techniques that we employed in our earlier chapters, we will see that the
 expansions. Given a home directory that looks like this:
 
 通配符所依赖的工作机制叫做路径名展开。如果我们试一下在之前的章节中使用的技巧，
-我们会看到它们实际上是展开。给定一个主目录，它看起来像这样：
+我们会看到它们实际上是展开。给定一个家目录，它看起来像这样：
 
     [me@linuxbox ~]$ ls
     Desktop   ls-output.txt   Pictures   Templates
@@ -98,7 +98,7 @@ or even:
 
 and looking beyond our home directory:
 
-查看主目录之外的目录：
+查看家目录之外的目录：
 
     [me@linuxbox ~]$ echo /usr/*/share
     /usr/kerberos/share  /usr/local/share
@@ -169,7 +169,7 @@ home directory of the named user, or if no user is named, the home directory of 
 current user:
 
 可能你从我们对 cd 命令的介绍中回想起来，波浪线字符("~")有特殊的含义。当它用在
-一个单词的开头时，它会展开成指定用户的主目录名，如果没有指定用户名，则展开成当前用户的主目录：
+一个单词的开头时，它会展开成指定用户的家目录名，如果没有指定用户名，则展开成当前用户的家目录：
 
     [me@linuxbox ~]$ echo ~
     /home/me
@@ -402,9 +402,9 @@ expansion will not take place and the echo command will simply display the misty
 pattern. With parameter expansion, if you misspell the name of a variable, the expansion
 will still take place, but will result in an empty string:
 
-你可能注意到其它展开类型，如果你误输入一个模式，展开就不会发生。这时
-echo 命令只简单地显示误键入的模式。通过参数展开，如果你拼写错了一个变量名，
-展开仍然会进行，只是展成一个空字符串：
+你可能注意到在其它展开类型中，如果你误输入一个模式，展开就不会发生。这时
+echo 命令只简单地显示误键入的模式。但在参数展开中，如果你拼写错了一个变量名，
+展开仍然会进行，只是展开的结果是一个空字符串：
 
     [me@linuxbox ~]$ echo $SUER
 
@@ -432,8 +432,8 @@ getting the listing of of the cp program without having to know its full pathnam
 not limited to just simple commands. Entire pipelines can be used (only partial output
 shown):
 
-这里我们把 which cp 的执行结果作为一个参数传递给 ls 命令，因此要想得到 cp 程序的
-输出列表，不必知道它完整的路径名。我们不只限制于简单命令。也可以使用整个管道线
+这里我们把 which cp 的执行结果作为一个参数传递给 ls 命令，因此可以在不知到 cp 命令
+完整路径名的情况下得到它的文件属性列表。我们不只限制于简单命令。也可以使用整个管道线
 （只展示部分输出）：
 
     [me@linuxbox ~]$ file $(ls /usr/bin/* | grep zip)
@@ -477,7 +477,7 @@ command's list of arguments. In the second example, parameter expansion substitu
 empty string for the value of “$1” because it was an undefined variable. The shell
 provides a mechanism called quoting to selectively suppress unwanted expansions.
 
-在第一个例子中，shell 从 echo 命令的参数列表中，删除多余的空格。在第二个例子中，
+在第一个例子中，shell 利用单词分割删除掉 echo 命令的参数列表中多余的空格。在第二个例子中，
 参数展开把 `$1` 的值替换为一个空字符串，因为 `1` 是没有定义的变量。shell 提供了一种
 叫做引用的机制，来有选择地禁止不需要的展开。
 
@@ -495,9 +495,9 @@ we tried to use this on the command line, word-splitting would cause this to
 be treated as two separate arguments rather than the desired single argument:
 
 我们将要看一下引用的第一种类型，双引号。如果你把文本放在双引号中，
-shell 使用的特殊字符，除了 $，\\ (反斜杠），和 \`（倒引号）之外，
-则失去它们的特殊含义，被当作普通字符来看待。这意味着单词分割，路径名展开，
-波浪线展开，和花括号展开都被禁止，然而参数展开，算术展开，和命令替换
+shell 使用的特殊字符，都失去它们的特殊含义，被当作普通字符来看待。
+有几个例外： $，\\ (反斜杠），和 \`（倒引号）。这意味着单词分割，路径名展开，
+波浪线展开，和花括号展开都将失效，然而参数展开，算术展开，和命令替换
 仍然执行。使用双引号，我们可以处理包含空格的文件名。比方说我们是不幸的
 名为 _two words.txt_ 文件的受害者。如果我们试图在命令行中使用这个
 文件，单词分割机制会导致这个文件名被看作两个独自的参数，而不是所期望
@@ -549,7 +549,8 @@ command line contains a command followed by four distinct arguments. If we add
 double quotes:
 
 在默认情况下，单词分割机制会在单词中寻找空格，制表符，和换行符，并把它们看作
-单词之间的界定符。它们只作为分隔符使用。因为它们把单词分为不同的参数，在范例中，
+单词之间的界定符。这意味着无引用的空格，制表符和换行符都不是文本的一部分，
+它们只作为分隔符使用。由于它们把单词分为不同的参数，所以在上面的例子中，
 命令行包含一个带有四个不同参数的命令。如果我们加上双引号：
 
     [me@linuxbox ~]$ echo "this is a    test"
@@ -587,7 +588,7 @@ includes the embedded spaces and newlines.
 If we need to suppress all expansions, we use single quotes. Here is a comparison of
 unquoted, double quotes, and single quotes:
 
-如果需要禁止所有的展开，我们使用单引号。以下例子是无引用，双引号，和单引号的比较结果：
+如果需要禁止所有的展开，我们要使用单引号。以下例子是无引用，双引号，和单引号的比较结果：
 
     [me@linuxbox ~]$ echo text ~/*.txt {a,b} $(echo foo) $((2+2)) $USER
     text /home/me/ls-output.txt a b foo 4 me
@@ -607,7 +608,7 @@ Sometimes we only want to quote a single character. To do this, we can precede a
 character with a backslash, which in this context is called the escape character. Often
 this is done inside double quotes to selectively prevent an expansion:
 
-有时候我们只想引用单个字符。我们可以在字符之前加上一个反斜杠，在这个上下文中叫做转义字符。
+有时候我们只想引用单个字符。我们可以在字符之前加上一个反斜杠，在这里叫做转义字符。
 经常在双引号中使用转义字符，来有选择地阻止展开。
 
     [me@linuxbox ~]$ echo "The balance for user $USER is: \$5.00"
@@ -619,7 +620,7 @@ special meaning to the shell. These would include “$”, “!”, “&”, “
 include a special character in a filename you can to this:
 
 使用转义字符来消除文件名中一个字符的特殊含义，是很普遍的。例如，在文件名中可能使用
-一些对于 shell 来说，有特殊含义的字符。这些字符包括"$", "!", " "等字符。在文件名
+一些对于 shell 来说有特殊含义的字符。这些字符包括"$", "!", " "等字符。在文件名
 中包含特殊字符，你可以这样做：
 
     [me@linuxbox ~]$ mv bad\&filename good_filename
@@ -641,9 +642,9 @@ to teletype-like devices. Some of these codes are familiar (tab, backspace,
 linefeed, and carriage return), while others are not (null, end-of-transmission, and
 acknowledge).
 >
-> 反斜杠除了作为转义字符外，反斜杠也是一种表示法的一部分，这种表示法代表某种
-特殊字符，叫做控制码。ASCII 编码表中前32个字符被用来把命令转输到像电报机
-一样的设备。一些编码是众所周知的（制表符，退格符，换行符，和回车符），其它
+> 反斜杠除了作为转义字符外，也可以构成一种表示法，来代表某种
+特殊字符，这些特殊字符叫做控制码。ASCII 编码表中前32个字符被用来把命令转输到电报机
+之类的设备。一些编码是众所周知的（制表符，退格符，换行符，和回车符），而其它
 一些编码就不熟悉了（空值，传输结束码，和确认）。
 >
 > |Escape Sequence|Meaning
@@ -664,7 +665,7 @@ acknowledge).
 behind this representation using the backslash originated in the C programming
 language and has been adopted by many others, including the shell.
 >
-> 上表列出了一些常见的反斜杠转义字符。反斜杠表示法背后的思想来源于 C 编程语言，
+> 上表列出了一些常见的反斜杠转义字符序列。这种利用反斜杠的表示法背后的思想来源于 C 编程语言，
 许多其它语言也采用了这种表示方法，包括 shell。
 >
 > Adding the '-e' option to echo will enable interpretation of escape sequences.
@@ -673,8 +674,8 @@ simple program that just waits for the specified number of seconds and then exit
 we can create a primitive countdown timer:
 >
 > echo 命令带上 '-e' 选项，能够解释转义序列。你可以把转义序列放在 $\' \' 里面。
-以下例子，使用 sleep 命令，一个简单的程序，它会等待指定的秒数，然后退出。
-我们可以创建一个简单的倒数计数器：
+以下例子中，我们可以使用 sleep 命令创建一个简单的倒数计数器（ sleep 是一个简单的程序，
+它会等待指定的秒数，然后退出）：
 >
 >  _sleep 10; echo -e \"Time\'s up\a\"_
 >
@@ -693,7 +694,7 @@ learn about the shell. Without a proper understanding of expansion, the shell wi
 be a source of mystery and confusion, and much of it potential power wasted.
 
 随着我们继续学习 shell，你会发现使用展开和引用的频率逐渐多起来，所以能够很好的
-理解他们的工作方式很有意义。事实上，可以这样说，他们是学习 shell 的最重要的主题。
+理解它们的工作方式很有意义。事实上，可以这样说，它们是学习 shell 的最重要的主题。
 如果没有准确地理解展开模式，shell 总是神秘和混乱的源泉，并且 shell 潜在的能力也
 浪费掉了。
 
