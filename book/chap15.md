@@ -559,8 +559,9 @@ package file emacs-22.1-7.fc7-i386.rpm on a Red Hat system:
 Note: dpkg does not have a specific option for upgrading a package versus
 installing one as rpm does.
 
-注意：rpm 程序安装一个软件包和升级一个软件包所用的选项是不同的，而 dpkg 程序所用的选项是相同的。
 ---
+
+注意：rpm 程序安装一个软件包和升级一个软件包所用的选项是不同的，而 dpkg 程序所用的选项是相同的。
 
 ### 列出所安装的软件包
 
