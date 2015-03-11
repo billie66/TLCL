@@ -136,24 +136,24 @@ We can use a `while` loop to improve the read-menu program from the previous cha
         read -p "Enter selection [0-3] > "
         if [[ $REPLY =~ ^[0-3]$ ]]; then
             if [[ $REPLY == 1 ]]; then
-            echo "Hostname: $HOSTNAME"
-            uptime
-            sleep $DELAY
+                echo "Hostname: $HOSTNAME"
+                uptime
+                sleep $DELAY
             fi
-        if [[ $REPLY == 2 ]]; then
-            df -h
-            sleep $DELAY
-        fi
-        if [[ $REPLY == 3 ]]; then
-            if [[ $(id -u) -eq 0 ]]; then
-                echo "Home Space Utilization (All Users)"
-                du -sh /home/*
-            else
-                echo "Home Space Utilization ($USER)"
-                du -sh $HOME
+            if [[ $REPLY == 2 ]]; then
+                df -h
+                sleep $DELAY
             fi
-        sleep $DELAY
-        fi
+            if [[ $REPLY == 3 ]]; then
+                if [[ $(id -u) -eq 0 ]]; then
+                    echo "Home Space Utilization (All Users)"
+                    du -sh /home/*
+                else
+                    echo "Home Space Utilization ($USER)"
+                    du -sh $HOME
+                fi
+                sleep $DELAY
+            fi
         else
             echo "Invalid entry."
             sleep $DELAY
@@ -202,30 +202,30 @@ bash 提供了两个内部命令，它们可以用来在循环内部控制程序
         read -p "Enter selection [0-3] > "
         if [[ $REPLY =~ ^[0-3]$ ]]; then
             if [[ $REPLY == 1 ]]; then
-            echo "Hostname: $HOSTNAME"
-            uptime
-            sleep $DELAY
-            continue
-        fi
-        if [[ $REPLY == 2 ]]; then
-            df -h
-            sleep $DELAY
-            continue
-        fi
-        if [[ $REPLY == 3 ]]; then
-            if [[ $(id -u) -eq 0 ]]; then
-                echo "Home Space Utilization (All Users)"
-                du -sh /home/*
-            else
-                echo "Home Space Utilization ($USER)"
-                du -sh $HOME
+                echo "Hostname: $HOSTNAME"
+                uptime
+                sleep $DELAY
+                continue
             fi
-            sleep $DELAY
-            continue
-        fi
-        if [[ $REPLY == 0 ]]; then
-            break
-        fi
+            if [[ $REPLY == 2 ]]; then
+                df -h
+                sleep $DELAY
+                continue
+            fi
+            if [[ $REPLY == 3 ]]; then
+                if [[ $(id -u) -eq 0 ]]; then
+                    echo "Home Space Utilization (All Users)"
+                    du -sh /home/*
+                else
+                    echo "Home Space Utilization ($USER)"
+                    du -sh $HOME
+                fi
+                sleep $DELAY
+                continue
+            fi
+            if [[ $REPLY == 0 ]]; then
+                break
+            fi
         else
             echo "Invalid entry."
             sleep $DELAY
