@@ -151,7 +151,6 @@ evaluated:
     It's true.
     [me@linuxbox ~]$ if true; false; then echo "It's true."; fi
     [me@linuxbox ~]$
-    3
 
 ### 测试
 
@@ -195,7 +194,7 @@ filenames refer to the same file by hard linking).  </td>
 </tr>
 <tr>
 <td valign="top">file1 -nt file2 </td>
-<td valign="top">not equal 5"; fi	x=0 </td>
+<td valign="top">file 1 is newer than file2.  </td>
 </tr>
 <tr>
 <td valign="top">file1 -ot file2 </td>
