@@ -29,15 +29,15 @@ can see directory contents and determine a variety of important file and directo
 attributes. As we have seen, we can simply type ls to see a list of files and
 subdirectories contained in the current working directory:
 
-有充分的理由证明，ls 可能是用户最常使用的命令。通过它，我们可以知道目录的内容，以及各种各样重要文件和目录的
-属性。正如我们所知道的，只要简单的输入 ls 就能看到在当前目录下所包含的文件和子目录列表。
+ls 可能是用户最常使用的命令了，这自有它的道理。通过它，我们可以知道目录的内容，以及各种各样重要文件和目录的
+属性。正如我们已经见到的，只要简单的输入 ls 就能看到在当前目录下所有文件和子目录的列表。
 
     [me@linuxbox ~]$ ls
     Desktop Documents Music Pictures Publica Templates Videos
 
 Besides the current working directory, we can specify the directory to list, like so:
 
-除了当前工作目录以外，也可以指定要列出内容的目录，就像这样：
+除了当前工作目录以外，也可以指定别的目录，就像这样：
 
     me@linuxbox ~]$ ls /usr
     bin games   kerberos    libexec  sbin   src
