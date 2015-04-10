@@ -398,21 +398,20 @@ Well, that’s an awkward result. Perhaps we should actually read this text, sin
 output; successive input lines with different indentation are not joined; tabs are
 expanded on input and introduced on output.”
 
-默认来说，空白行，单词间距，还有缩进都会在输出中保留；持续输入不同的缩进的流不会被结合；tabs被用来扩展
-输入并且引入输出。
+默认情况下，输出会保留空行，单词之间的空格，和缩进；持续输入的具有不同缩进的文本行不会连接在一起；tab 字符在输入时会展开，输出时复原 。
 
 So, fmt is preserving the indentation of the first line. Fortunately, fmt provides an
 option to correct this:
 
-所以，fmt 保留了第一行的缩进。幸运的是，fmt 提供一个修正这个的选项：
+所以，fmt 会保留第一行的缩进。幸运的是，fmt 提供了一个选项来更正这种行为：
 
 Much better. By adding the -c option, we now have the desired result.
 
-好多了。通过加了 -c 选项，我们现在有了我们想要的结果。
+好多了。通过添加 -c 选项，现在我们得到了所期望的结果。
 
 fmt has some interesting options:
 
-fmt 有一些有趣的选项：
+fmt 有一些有意思的选项：
 
 The -p option is particularly interesting. With it, we can format selected portions of a
 file, provided that the lines to be formatted all begin with the same sequence of
@@ -420,7 +419,7 @@ characters. Many programming languages use the pound sign (#) to indicate the
 beginning of a comment and thus can be formatted using this option. Let’s create a file
 that simulates a program that uses comments:
 
--p 选项特别有趣。通过它，我们可以格式文件选中的部分，通过在开头使用一样的符号。
+这个 -p 选项尤为有趣。通过它，我们可以格式文件选中的部分，通过在开头使用一样的符号。
 很多编程语言使用锚标记（#）去提醒注释的开始，而且它可以通过这个选项来被格式。让我们创建一个有用到注释的程序。
 
     [me@linuxbox ~]$ cat > fmt-code.txt
