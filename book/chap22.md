@@ -455,12 +455,14 @@ that do not begin with the specified prefix are preserved.
 
 注意相邻的注释行被合并了，空行和非注释行被保留了。
 
-#### pr – Format Text For Printing
+#### pr – 格式化打印文本
 
 The pr program is used to paginate text. When printing text, it is often desirable to separate
 the pages of output with several lines of whitespace, to provide a top and bottom
 margin for each page. Further, this whitespace can be used to insert a header and footer
 on each page.
+
+pr 程序用来把文本分页。当打印文本的时候，经常希望用几个空行把输出的页面
 
 We’ll demonstrate pr by formatting our distros.txt file into a series of very short
 pages (only the first two pages are shown):
