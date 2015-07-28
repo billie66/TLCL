@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-
+﻿#!/usr/bin/env bash
+#我只是做下实验并没有任何贡献
 cd ../book
 
 if [ -d nodico ]; then
