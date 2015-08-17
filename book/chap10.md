@@ -253,10 +253,146 @@ everybody else:
 
 剩下的九个字符，叫做文件模式，代表着文件所有者，文件组所有者，和其他人的读，写，执行权限。
 
+![](images/101.png) \\
+图 1: 权限属性
+{: .figure}
+
 When set, the r, w, and x mode attributes have the following effect on files and
 directories:
 
 当设置文件模式后，r，w，x 模式属性对文件和目录会产生以下影响：
+
+<table class="multi">
+<caption class="cap">Table 10-2: Permission Attributes</caption>
+<tr>
+<th class="title" width="15%">Attribute</th>
+<th class="title">Files</th>
+<th class="title">Directories</th>
+</tr>
+<tr>
+<td valign="top">r</td>
+<td valign="top">Allows a file to be opened and read.</td>
+<td valign="top">Allows a directory's contents to be listed if the execute attribute is also set.</td>
+</tr>
+<tr>
+<td valign="top">w</td>
+<td valign="top">Allows a file to be written to or truncated, however this attribute does not allow files to be renamed or deleted. The ability to delete or rename files is determined by directory attributes.</td>
+<td valign="top">Allows files within a directory to be created, deleted, and renamed if the execute attribute is also set.</td>
+</tr>
+<tr>
+<td valign="top">x</td>
+<td valign="top">Allows a file to be treated as a program and executed. Program files written in scripting languages must also be set as readable to be executed.</td>
+<td valign="top">Allows a directory to be entered, e.g., cd directory.</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表 10-2: 权限属性</caption>
+<tr>
+<th class="title" width="15%">属性</th>
+<th class="title">文件</th>
+<th class="title">目录</th>
+</tr>
+<tr>
+<td valign="top">r</td>
+<td valign="top">允许打开并读取文件内容。</td>
+<td valign="top">允许列出目录中的内容，前提是目录必须设置了可执行属性（x）。</td>
+</tr>
+<tr>
+<td valign="top">w</td>
+<td valign="top">允许写入文件内容或截断文件。但是不允许对文件进行重命名或删除，重命名或删除是由目录的属性决定的。</td>
+<td valign="top">允许在目录下新建、删除或重命名文件，前提是目录必须设置了可执行属性（x）。</td>
+</tr>
+<tr>
+<td valign="top">x</td>
+<td valign="top">允许将文件作为程序来执行，使用脚本语言编写的程序必须设置为可读才能被执行。</td>
+<td valign="top">允许进入目录，例如：cd directory 。</td>
+</tr>
+</table>
+
+Here are some examples of file attribute settings:
+
+下面是权限属性的一些例子：
+
+<table class="multi">
+<caption class="cap">Table 10-3: Permission Attribute Examples</caption>
+<tr>
+<th class="title" width="15%">File Attributes</th>
+<th class="title">Meaning</th>
+</tr>
+<tr>
+<td valign="top">-rwx------</td>
+<td valign="top">A regular file that is readable, writable, and executable by the file's owner. No one else has any access.</td>
+</tr>
+<tr>
+<td valign="top">-rw-------</td>
+<td valign="top">A regular file that is readable and writable by the file's owner. No one else has any access.</td>
+</tr>
+<tr>
+<td valign="top">-rw-r--r--</td>
+<td valign="top">A regular file that is readable and writable by the file's owner. Members of the file's owner group may read the file. The file is world-readable.</td>
+</tr>
+<tr>
+<td valign="top">-rwxr-xr-x</td>
+<td valign="top">A regular file that is readable, writable, and executable by the file's owner. The file may be read and executed by everybody else.</td>
+</tr>
+<tr>
+<td valign="top">-rw-rw----</td>
+<td valign="top">A regular file that is readable and writable by the file's owner and members of the file's group owner only.</td>
+</tr>
+<tr>
+<td valign="top">lrwxrwxrwx</td>
+<td valign="top">A symbolic link. All symbolic links have “dummy” permissions. The real permissions are kept with the actual file pointed to by the symbolic link.</td>
+</tr>
+<tr>
+<td valign="top">drwxrwx---</td>
+<td valign="top">A directory. The owner and the members of the owner group may enter the directory and, create, rename and remove files within the directory.</td>
+</tr>
+<tr>
+<td valign="top">drwxr-x---</td>
+<td valign="top">A directory. The owner may enter the directory and create, rename and delete files within the directory. Members of the owner group may enter the directory but cannot create, delete or rename files.</td>
+</tr>
+</table>
+
+<table class="multi">
+<caption class="cap">表 10-3: 权限属性示例</caption>
+<tr>
+<th class="title" width="15%">文件属性</th>
+<th class="title">含义</th>
+</tr>
+<tr>
+<td valign="top">-rwx------</td>
+<td valign="top">一个普通文件，对文件所有者来说可读、可写、可执行。其他人无法访问。</td>
+</tr>
+<tr>
+<td valign="top">-rw-------</td>
+<td valign="top">一个普通文件，对文件所有者来说可读可写。其他人无法访问。</td>
+</tr>
+<tr>
+<td valign="top">-rw-r--r--</td>
+<td valign="top">一个普通文件，对文件所有者来说可读可写，文件所有者的组成员可以读该文件，其他所有人都可以读该文件。</td>
+</tr>
+<tr>
+<td valign="top">-rwxr-xr-x</td>
+<td valign="top">一个普通文件，对文件所有者来说可读、可写、可执行。也可以被其他的所有人读取和执行。</td>
+</tr>
+<tr>
+<td valign="top">-rw-rw----</td>
+<td valign="top">一个普通文件，对文件所有者以及文件所有者的组成员来说可读可写。</td>
+</tr>
+<tr>
+<td valign="top">lrwxrwxrwx</td>
+<td valign="top">一个符号链接，符号链接的权限都是虚拟的，真实的权限应该以符号链接指向的文件为准。</td>
+</tr>
+<tr>
+<td valign="top">drwxrwx---</td>
+<td valign="top">一个目录，文件所有者以及文件所有者的组成员可以访问该目录，并且可以在该目录下新建、重命名、删除文件。</td>
+</tr>
+<tr>
+<td valign="top">drwxr-x---</td>
+<td valign="top">一个目录，文件所有者可以访问该目录，并且可以在该目录下新建、重命名、删除文件，文件所有者的组成员可以访问该目录，但是不能新建、重命名、删除文件。</td>
+</tr>
+</table>
 
 ### chmod － 更改文件模式
 
