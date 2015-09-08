@@ -580,7 +580,7 @@ command. Let's try “test”. Before we do that, it would be a good idea to fin
 name “test” is already being used. To find out, we can use the type command again:
 
 正如我们看到的，我们在一行上联合了三个命令。首先更改目录到/usr，然后列出目录
-内容，最后回到原始目录（用命令"cd -"）,结束在开始的地方。现在，通过 alia 命令
+内容，最后回到原始目录（用命令"cd -"）,结束在开始的地方。现在，通过 alias 命令
 把这一串命令转变为一个命令。我们要做的第一件事就是为我们的新命令构想一个名字。
 比方说"test"。在使用"test"之前，查明是否"test"命令名已经存在系统中，是个很不错
 的主意。为了查清此事，可以使用 type 命令：
