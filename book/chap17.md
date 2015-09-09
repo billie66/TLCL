@@ -91,11 +91,11 @@ and operation of a network.
 #### ping
 
 The most basic network command is ping. The ping command sends a special
-network packet called an IMCP ECHO_REQUEST to a specified host. Most network
+network packet called an ICMP ECHO_REQUEST to a specified host. Most network
 devices receiving this packet will reply to it, allowing the network connection to be
 verified.
 
-最基本的网络命令是 ping。这个 ping 命令发送一个特殊的网络数据包，叫做 IMCP ECHO_REQUEST，到
+最基本的网络命令是 ping。这个 ping 命令发送一个特殊的网络数据包，叫做 ICMP ECHO_REQUEST，到
 一台指定的主机。大多数接收这个包的网络设备将会回复它，来允许网络连接验证。
 
 ---
@@ -217,7 +217,7 @@ is the loopback interface, a virtual interface that the system uses to “talk
 to itself.”
 
 在上述实例中，我们看到我们的测试系统有两个网络接口。第一个，叫做 eth0，是
-因特网接口，和第二个，叫做 lo，是内部回环网络接口，它是一个虚拟接口，系统用它来
+以太网接口，和第二个，叫做 lo，是内部回环网络接口，它是一个虚拟接口，系统用它来
 “自言自语”。
 
 When performing causal network diagnostics, the important things to look for
