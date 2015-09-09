@@ -217,7 +217,7 @@ is the loopback interface, a virtual interface that the system uses to “talk
 to itself.”
 
 在上述实例中，我们看到我们的测试系统有两个网络接口。第一个，叫做 eth0，是
-因特网接口，和第二个，叫做 lo，是内部回环网络接口，它是一个虚拟接口，系统用它来
+以太网接口，和第二个，叫做 lo，是内部回环网络接口，它是一个虚拟接口，系统用它来
 “自言自语”。
 
 When performing causal network diagnostics, the important things to look for
