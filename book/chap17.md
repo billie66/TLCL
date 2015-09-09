@@ -91,11 +91,11 @@ and operation of a network.
 #### ping
 
 The most basic network command is ping. The ping command sends a special
-network packet called an IMCP ECHO_REQUEST to a specified host. Most network
+network packet called an ICMP ECHO_REQUEST to a specified host. Most network
 devices receiving this packet will reply to it, allowing the network connection to be
 verified.
 
-最基本的网络命令是 ping。这个 ping 命令发送一个特殊的网络数据包，叫做 IMCP ECHO_REQUEST，到
+最基本的网络命令是 ping。这个 ping 命令发送一个特殊的网络数据包，叫做 ICMP ECHO_REQUEST，到
 一台指定的主机。大多数接收这个包的网络设备将会回复它，来允许网络连接验证。
 
 ---
