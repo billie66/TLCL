@@ -13,7 +13,7 @@ story of how, some years earlier, Richard Stallman began the GNU Project to crea
 Unix-like operating system. That's an important story too, but most other Linux books
 have that one, as well.
 
-故事内容不是 Linus Torvalds 在1991年怎样写了 Linux 内核的第一个版本，
+【我做了一点修改，可以吗？】故事内容不是 Linus Torvalds 在1991年怎样写了 Linux 内核的第一个版本，
 因为这些内容你可以在许多 Linux 书籍中读到。我也不是来告诉你，更早之前，Richard Stallman
 是如何开始 GNU 项目，设计了一个免费的类Unix 的操作系统。那也是一个很有意义的故事，
 但大多数 Linux 书籍也讲到了它。
