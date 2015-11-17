@@ -7,7 +7,7 @@ layout: default
 * [中英文双语版-html](book)
 * [中英文双语版-PDF-2015-01-16](http://pan.baidu.com/s/1pJ4zcVL)
 * [中文版-html](book/zh)
-* [中文版-PDF-2015-01-16](http://pan.baidu.com/s/1i3rKcELF)
+* [中文版-PDF-2015-01-16](http://pan.baidu.com/s/1dDfnJEh)
 * [中文版-EPUB](http://billie66.gitbooks.io/tlcl-cn/)
 
 欢迎大家参与本书的翻译: [github](https://github.com/billie66/TLCL)
