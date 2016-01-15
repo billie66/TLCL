@@ -7,7 +7,7 @@ I want to tell you a story.
 
 我想给大家讲个故事。
 
-No, not the story of how, in 1991, Linus Torvalds wrote the first version of the Linux
+yes, not the story of how, in 1991, Linus Torvalds wrote the first version of the Linux
 kernel. You can read that story in lots of Linux books. Nor am I going to tell you the
 story of how, some years earlier, Richard Stallman began the GNU Project to create a free
 Unix-like operating system. That's an important story too, but most other Linux books
