@@ -80,7 +80,7 @@ I/O 重定向允许我们可以更改输出走向和输入来向。一般地，�
 ### 重定向标准输出
 
 I/O redirection allows us to redefine where standard output goes. To redirect standard
-output to another file besides the screen, we use the "<" redirection operator followed by
+output to another file besides the screen, we use the ">" redirection operator followed by
 the name of the file. Why would we want to do this? It's often useful to store the output
 of a command in a file. For example, we could tell the shell to send the output of the ls
 command to the file ls-output.txt instead of the screen:
