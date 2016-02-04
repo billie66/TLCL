@@ -17,7 +17,8 @@ body {
 #wrapper {
   margin: 0 auto;
   padding: 3% 5%;
-  min-width: 480px;
+  width: 95%;
+  max-width: 960px;
   width: 960px;
   border: 1px solid #ddd;
   -webkit-border-radius: 5px;
