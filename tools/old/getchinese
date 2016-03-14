@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+cd ../book
+
+if [ -d chinese ]; then
+    rm -r chinese
+fi
+if [ -d zh ]; then
+    rm -r zh
+fi
+
+mkdir zh chinese
+
+flag="0"
+single="<div class=\"single\">"
+multi="<table class=\"multi\">"
+
+# In order to keep the original format of each line, 
+# the value of IFS should be empty.
+
+for file in *.md; do
+  echo "It is processing $file, please wait..."
+  while IFS= read -r line; do
+    if [ -n "$line" ]; then
+      case "$line" in
+        "---" | "layout: book" | "$single" | "</div>" )
+          echo "$line" >>zh/$file
+          continue
+          ;;
+      esac
+      if [[ "$line" =~ ^title:* || "$line" =~ ^\  ]]; then
+        echo "$line" >>zh/$file
+      elif [[ "$line" =~ ^\<p\ style* || "$line" =~ ^\<p\ class* ]]; then
+        echo "$line" >>zh/$file
+      elif [ "$line" == "$multi" ]; then
+        flag="1"
+        echo "$line" >>tmp
+        continue
+      elif [ "$flag" == "1" ]; then
+          echo "$line" >>tmp
+          if [[ "$line" =~ table\>$ ]]; then
+            flag="0"
+            con=$(echo $(cat tmp))
+            local=$(echo "$con" | sed 's/[[:punct:]]//g' -e 's/\ //g')
+            if [[ !( "$local" =~ ^[A-Za-z0-9]*$ ) ]]; then
+              cat tmp >>zh/$file
+              echo >tmp
+            else
+              echo >tmp
+            fi
+          fi
+      else
+        local=$(echo "$line" | sed -e 's/[[:punct:]]//g' -e 's/\ //g')
+        if [[ !( "$local" =~ ^[A-Za-z0-9]*$ ) ]]; then
+          echo "$line" >>zh/$file
+        fi
+      fi
+    else
+        echo >>zh/$file
+    fi
+  done < $file
+  uniq zh/$file > chinese/$file
+done
+
+rm -r zh tmp
+echo "Congrats, it's done!"

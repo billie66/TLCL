@@ -1,0 +1,5 @@
+*.swp
+*.pdf
+_site
+.vagrant/
+*.sublime-*

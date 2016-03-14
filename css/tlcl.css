@@ -1,0 +1,104 @@
+html {
+  background-color: #F5F5F5;
+  -webkit-text-size-adjust: 100%;
+  background-image: -moz-linear-gradient(rgba(255, 255, 128, 0.1), rgba(255, 255, 128, 0.1)), url("/TLCL/images/bg.png");
+  background-image: -webkit-linear-gradient(rgba(255, 255, 128, 0.1), rgba(255, 255, 128, 0.1)), url("/TLCL/images/bg.png");
+  background-image: -o-linear-gradient(rgba(255, 255, 128, 0.1), rgba(255, 255, 128, 0.1)), url("/TLCL/images/bg.png");
+  background-image: -ms-linear-gradient(rgba(255, 255, 128, 0.1), rgba(255, 255, 128, 0.1)), url("/TLCL/images/bg.png");
+  background-image: linear-gradient(rgba(255, 255, 128, 0.1), rgba(255, 255, 128, 0.1)), url("/TLCL/images/bg.png");
+}
+
+body {
+  font-size: 16px;
+  line-height: 2.0em;
+  font-family: 'Georgia', "Hiragino Sans GB", serif;
+  color: #3C3C3C;
+}
+#wrapper {
+  margin: 0 auto;
+  padding: 3% 5%;
+  width: 95%;
+  max-width: 960px;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: white;
+  letter-spacing: 0.5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.contents .title {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+p.figure {
+  font-style: italic;
+  text-align: center;
+}
+
+pre {
+  border: 1px solid #E7E5DC;
+  border-width: 1px 0 4px 6px;
+  font-size: 13px;
+  overflow: auto;
+}
+
+pre code {
+  border: none;
+}
+
+hr {
+  height: 5px;
+  width: 100%;
+  background-color: #ddd;
+  border: none;
+}
+
+
+table.multi {
+  text-align: left;
+  border: 1px;
+  margin: 20px 0 30px;
+}
+
+td {
+  vertical-align: top;
+}
+
+caption.cap {
+  font-style: italic;
+  text-align: left;
+}
+
+th.title {
+  background-color: #f1f1f1;
+}
+
+#tdlist {
+  width: 20%;
+}
+
+.footer {
+  display: block;
+  text-align: right;
+}
+
+.version {
+  font-size: 15px;
+}
+
+.contents {
+  margin-top: 10px;
+}
+
+blockquote {
+  border: 2px solid #E7E5DC;
+  margin: 20px 0;
+  padding: 0.6em 1em;
+  background-color: #F1F1F1;
+}

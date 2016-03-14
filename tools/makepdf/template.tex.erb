@@ -1,0 +1,53 @@
+\documentclass[oneside, 11pt, a4paper]{book}
+\usepackage[
+  urlcolor = blue,
+  colorlinks = true,
+  linkcolor = black
+]{hyperref}
+\usepackage[labelformat=empty]{caption}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{longtable}
+\usepackage{framed}
+\usepackage[usenames,dvipsnames]{color}
+
+\usepackage{listings}
+\usepackage{xeCJK}
+\usepackage{titlesec} % texlive-latex-extra package
+
+\setCJKmainfont{AR PL UMing CN}
+\lstset{breaklines = true} % break long code lines
+\linespread{1.5}
+\graphicspath{{<%= @graphicspath %>}}
+
+\definecolor{shadecolor}{gray}{0.9}
+
+
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
+
+\titleformat{\section}
+{\color{ForestGreen}\normalfont\Large\bfseries}
+{\color{ForestGreen}\thesection}{1em}{}
+\titleformat{\subsection}
+{\color{ForestGreen}\normalfont\large\bfseries}
+{\color{ForestGreen}\thesubsection}{1em}{}
+
+%% turn Chinese line breaks on
+\XeTeXlinebreaklocale{zh}
+\XeTeXlinebreakskip=0em plus 0.1em minus 0.01em
+\XeTeXlinebreakpenalty=0
+%%end
+
+\begin{document}
+\title{\Huge{快乐的 Linux 命令行} \\[0.4cm]
+  \small{\href{http://billie66.github.io/TLCL/}{http://billie66.github.io/TLCL/}}
+}
+\date{<%= @date %>}
+\maketitle
+\tableofcontents\newpage
+
+<%= @tex %>
+\end{document}

@@ -1,0 +1,47 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+$script = <<SCRIPT
+sudo apt-get update
+
+# latext stuff: http://happycasts.net/episodes/19?autoplay=true
+sudo apt-get -y install texlive
+
+
+# install ruby
+sudo apt-get install -y git-core curl zlib1g-dev build-essential \
+                     libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 \
+                     libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common
+cd
+git clone git://github.com/sstephenson/rbenv.git .rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+export PATH=$PATH:/home/vagrant/.rbenv/bin/
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+rbenv install 2.1.3
+rbenv global 2.1.3 # match whatever in .ruby-version file
+
+
+# kramdown
+gem install kramdown
+
+SCRIPT
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "ubuntu/trusty64"
+  config.vm.provision "shell", inline: $script, privileged: false
+
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
+  # https://laracasts.com/lessons/get-off-mamp-now MUCH better than
+  # forwarded_port
+  config.vm.network :private_network, ip: "192.168.33.22"
+
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 2048
+  end
+end

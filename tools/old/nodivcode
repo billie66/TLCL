@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+cd ../book
+
+if [ -d nodico ]; then
+    rm -r nodico
+fi
+mkdir nodico
+
+flag="0"
+sin="<div class=\"single\">"
+
+# In order to keep the original format of each line, 
+# the value of IFS should be empty.
+
+for file in *.md; do
+  echo "It is processing $file, please wait..."
+  while IFS= read -r line; do
+    if [[ "$line" =~ ^\<div && ("$line" != "$sin") ]]; then 
+      flag="1"
+      continue
+    elif [ "$flag" == "1" ]; then
+      if [[ "$line" =~ div\>$ ]]; then
+        flag="0"
+      fi
+      code=$(echo "$line"|sed 's/<\/*[a-z]*>//g; s/\&lt;/\</g; s/\&gt;/\>/g')
+      echo "    $code" >>nodico/$file
+    else
+      if [ "$line" =~ ^\<hr  ]; then
+        echo "---" >>nodico/$file
+      else
+        echo "$line" >>nodico/$file
+      fi
+    fi
+  done < $file
+done
+
+rm *.md
+cp nodico/*.md .
+rm -rf nodico
+
+echo "Congrats, it's done!"
