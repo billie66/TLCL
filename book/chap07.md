@@ -11,7 +11,7 @@ we will introduce the following commands:
 
 这堂课，我们来介绍可能是命令行最酷的特性。它叫做 I/O 重定向。"I/O"代表输入/输出，
 通过这个工具，你可以重定向命令的输入输出，命令的输入来自文件，而输出也存到文件。
-也可以把多个命令连接起来组成一个强大的命令管道。为了炫耀这个工具，我们将叙述
+也可以把多个命令连接起来组成一个强大的命令管道。为了展示这个工具，我们将叙述
 以下命令：
 
 * cat - Concatenate files
@@ -43,6 +43,7 @@ we will introduce the following commands:
 * head － 输出文件第一部分
 
 * tail - 输出文件最后一部分
+* tee - 从标准输入读取数据，并同时写到标准输出和文件
 
 ### 标准输入，输出，和错误
 
@@ -126,7 +127,7 @@ output and not standard error, the error message was still sent to the screen. W
 how to redirect standard error in just a minute, but first, let's look at what happened to our
 output file:
 
-我们收到一个错误信息。这很有意义，因为我们指定了一个不存在的目录/bin/usr,
+我们收到一个错误信息。这讲得通，因为我们指定了一个不存在的目录/bin/usr,
 但是为什么这条错误信息显示在屏幕上而不是被重定向到文件 ls-output.txt？答案是，
 ls 程序不把它的错误信息输送到标准输出。反而，像许多写得不错的 Unix 程序，ls 把
 错误信息送到标准错误。因为我们只是重定向了标准输出，而没有重定向标准错误，
@@ -143,7 +144,7 @@ operation started to rewrite the file and then stopped because of the error, res
 truncation. In fact, if we ever need to actually truncate a file (or create a new, empty file)
 we can use a trick like this:
 
-文件长度成为零！这是因为，当我们使用 ">" 重定向符来重定向输出结果时，目标文件总是从开头被重写。
+文件长度为零！这是因为，当我们使用 ">" 重定向符来重定向输出结果时，目标文件总是从开头被重写。
 因为我们 ls 命令没有产生运行结果，只有错误信息，重定向操作开始重写文件，然后
 由于错误而停止，导致文件内容删除。事实上，如果我们需要删除一个文件内容（或者创建一个
 新的空文件），可以使用这样的技巧：
@@ -373,7 +374,7 @@ we see our line of text repeated. We can use this behavior to create short text 
 say that we wanted to create a file called “lazy_dog.txt” containing the text in our
 example. We would do this:
 
-由于文件名参数的缺席，cat 复制标准输入到标准输出，所以我们看到文本行重复出现。
+由于没有文件名参数，cat 复制标准输入到标准输出，所以我们看到文本行重复出现。
 我们可以使用这种行为来创建简短的文本文件。比方说，我们想创建一个叫做"lazy_dog.txt"
 的文件，这个文件包含例子中的文本。我们这样做：
 
@@ -408,8 +409,8 @@ argument, but it serves to demonstrate using a file as a source of standard inpu
 commands make better use of standard input, as we shall soon see.
 
 使用“<”重定向操作符，我们把标准输入源从键盘改到文件 lazy_dog.tx。我们看到结果
-和传递单个文件名作为参数的执行结果一样。把这和传递一个文件名参数作比较，尤其没有意义，
-但它是用来说明把一个文件作为标准输入源。
+和传递单个文件名作为参数的执行结果一样。把这和传递一个文件名参数作比较，不是特别有意义，
+但它是用来说明把一个文件作为标准输入源。有其他的命令更好地利用了标准输入，我们不久将会看到。
 
 Before we move on, check out the man page for cat, as it has several interesting options.
 
