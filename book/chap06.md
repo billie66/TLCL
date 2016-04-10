@@ -547,7 +547,7 @@ of gzip-compressed text files.
 许多安装在你系统中的软件，都有自己的文档文件，这些文件位于/usr/share/doc 目录下。
 这些文件大多数是以文本文件的形式存储的，可用 less 阅读器来浏览。一些文件是 HTML 格式，
 可用网页浏览器来阅读。我们可能遇到许多以".gz"结尾的文件。这表示 gzip 压缩程序
-已经压缩了这些程序。gzip 软件包包括一个特殊的 less 版本，叫做 zless，zless 可以显示由
+已经压缩了这些文件。gzip 软件包包括一个特殊的 less 版本，叫做 zless，zless 可以显示由
 gzip 压缩的文本文件的内容。
 
 ### 用别名（alias）创建你自己的命令
