@@ -831,7 +831,7 @@ replace the ls with rm.
 The ln command is used to create either hard or symbolic links. It is used in one of two
 ways:
 
-ln 命令即可创建硬链接，也可以创建符号链接。可以用其中一种方法来使用它：
+ln 命令既可创建硬链接，也可以创建符号链接。可以用其中一种方法来使用它：
 
     ln file link
 
