@@ -77,7 +77,7 @@ the basic goal remains the same—get rid of redundant data.
 一张单色图像包含的数据全是多余的。我们要是聪明的话，可以用这种方法来编码这些数据，
 我们只要简单地描述这个事实，我们有3万个黑色的像素数据块。所以，我们不存储包含3万个0
 （通常在图像文件中，黑色由0来表示）的数据块，取而代之，我们把这些数据压缩为数字30,000，
-后跟一个0，来表示我们的数据。这种数据压缩方案被称为游程编码，是一种最基本的压缩技术。
+后跟一个0，来表示我们的数据。这种数据压缩方案被称为游程编码，是一种最基本的压缩技术。今天的技术更加先进和复杂，但是基本目标依然不变——避免多余数据。
 
 Compression algorithms (the mathematical techniques used to carry out the compression)
 fall into two general categories, lossless and lossy. Lossless compression preserves all
@@ -126,7 +126,7 @@ permissions and time stamp as the original.
 在这个例子里，我们创建了一个名为 foo.txt 的文本文件，其内容包含一个目录的列表清单。
 接下来，我们运行 gzip 命令，它会把原始文件替换为一个叫做 foo.txt.gz 的压缩文件。在
 foo.\* 文件列表中，我们看到原始文件已经被压缩文件替代了，并将这个压缩文件大约是原始
-文件的十五分之一。我们也能看到压缩文件与原始文件有着相同的权限和时间戳。
+文件的五分之一。我们也能看到压缩文件与原始文件有着相同的权限和时间戳。
 
 Next, we run the gunzip program to uncompress the file. Afterward, we can see that
 the compressed version of the file has been replaced with the original, again with the
