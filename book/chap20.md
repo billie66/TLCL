@@ -981,7 +981,7 @@ Let’s try it:
 让我们试一下：
 
     [me@linuxbox ~]$ echo "(555) 123-4567" | grep -E '^\(?[0-9][0-9][0-9]
-    \)? [0-9][0-9][0-9]$'
+    \)? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'
     (555) 123-4567
     [me@linuxbox ~]$ echo "555 123-4567" | grep -E '^\(?[0-9][0-9][0-9]\)
     ? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'
@@ -1021,11 +1021,11 @@ match:
 两个字符集以及一个空格的中括号表达式，和一个被反斜杠字符转义过的圆点。第二个元素末尾带有一个
 \*元字符，所以在开头的大写字母之后，可能会跟随着任意数目的大写和小写字母和空格，并且匹配：
 
-    [me@linuxbox ~]$ echo "This works." | grep -E '[[:upper:]][[:upper:][[:lower:]]*.'
+    [me@linuxbox ~]$ echo "This works." | grep -E '[[:upper:]][[:upper:][:lower:] ]*\.'
     This works.
-    [me@linuxbox ~]$ echo "This Works." | grep -E '[[:upper:]][[:upper:][[:lower:]]*.'
+    [me@linuxbox ~]$ echo "This Works." | grep -E '[[:upper:]][[:upper:][:lower:] ]*\.'
     This Works.
-    [me@linuxbox ~]$ echo "this does not" | grep -E '[[:upper:]][[:upper: ][[:lower:]]*.'
+    [me@linuxbox ~]$ echo "this does not" | grep -E '[[:upper:]][[:upper:][:lower:] ]*\.'
     [me@linuxbox ~]$
 
 The expression matches the first two tests, but not the third, since it lacks the required

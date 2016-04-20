@@ -367,7 +367,7 @@ the fact that the top program is used to see the “top” processes on the syst
 display consists of two parts: a system summary at the top of the display, followed by a
 table of processes sorted by CPU activity:
 
-top 程序连续显示系统进程更新的信息（默认情况下，每三分钟更新一次），"top"这个名字
+top 程序连续显示系统进程更新的信息（默认情况下，每三秒钟更新一次），"top"这个名字
 来源于这个事实，top 程序是用来查看系统中“顶端”进程的。top 显示结果由两部分组成：
 最上面是系统概要，下面是进程列表，以 CPU 的使用率排序。
 
