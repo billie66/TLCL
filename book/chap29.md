@@ -296,11 +296,11 @@ if the input is not completed in a specified time:
     #!/bin/bash
     # read-secret: input a secret pass phrase
     if read -t 10 -sp "Enter secret pass phrase > " secret_pass; then
-        echo -e "\nSecret pass phrase = '$secret_pass'"
+        echo "\nSecret pass phrase = '$secret_pass'"
     else
-        echo -e "\nInput timed out" >&2
+        echo "\nInput timed out" >&2
         exit 1
-    if
+    fi
 
 The script prompts the user for a secret pass phrase and waits ten seconds for input. If
 the entry is not completed within the specified time, the script exits with an error. Since
