@@ -3,3 +3,4 @@
 _site
 .vagrant/
 *.sublime-*
+*.bak
