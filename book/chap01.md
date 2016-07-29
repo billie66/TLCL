@@ -5,7 +5,7 @@ title: 引言
 
 I want to tell you a story.
 
-我想给大家讲个故事。
+我想给大家讲个故事。/我想给大家讲个故事
 
 No, not the story of how, in 1991, Linus Torvalds wrote the first version of the Linux
 kernel. You can read that story in lots of Linux books. Nor am I going to tell you the
