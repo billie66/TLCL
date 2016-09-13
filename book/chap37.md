@@ -644,7 +644,7 @@ pipe. Named pipes are used to create a connection between two processes and can 
 used just like other types of files. They are not that popular, but they’re good to know
 about.
 
-在大多数类似也 Unix 的操作系统中，有可能创建一种特殊类型的饿文件，叫做命名管道。命名管道用来在
+在大多数类似也 Unix 的操作系统中，有可能创建一种特殊类型的文件，叫做命名管道。命名管道用来在
 两个进程之间建立连接，也可以像其它类型的文件一样使用。虽然它们不是那么流行，但是它们值得我们去了解。
 
 There is a common programming architecture called client-server, which can make use of
