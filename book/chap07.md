@@ -549,7 +549,7 @@ There are a couple of handy options for grep: “-i” which causes grep to igno
 when performing the search (normally searches are case sensitive) and “-v” which tells
 grep to only print lines that do not match the pattern.
 
-grep 有－对方便的选项："-i"导致 grep 忽略大小写当执行搜索时（通常，搜索是大小写
+grep 有一些方便的选项："-i"使得 grep 在执行搜索时忽略大小写（通常，搜索是大小写
 敏感的），"-v"选项会告诉 grep 只打印不匹配的行。
 
 ### head / tail － 打印文件开头部分/结尾部分
