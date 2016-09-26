@@ -595,7 +595,7 @@ tail 有一个选项允许你实时的浏览文件。当观察日志文件的进
 Using the “-f” option, tail continues to monitor the file and when new lines are
 appended, they immediately appear on the display. This continues until you type Ctrl-c.
 
-使用"-f"选项，tail 命令继续监测这个文件，当新的内容添加到文件后，它们会立即
+使用"-f"选项，tail 命令继续监测这个文件，当新的内容添加到文件后，它们会立刻
 出现在屏幕上。这会一直继续下去直到你输入 Ctrl-c。
 
 ### tee － 从 Stdin 读取数据，并同时输出到 Stdout 和文件
