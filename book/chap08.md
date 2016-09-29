@@ -432,7 +432,7 @@ getting the listing of of the cp program without having to know its full pathnam
 not limited to just simple commands. Entire pipelines can be used (only partial output
 shown):
 
-这里我们把 which cp 的执行结果作为一个参数传递给 ls 命令，因此可以在不知到 cp 命令
+这里我们把 which cp 的执行结果作为一个参数传递给 ls 命令，因此可以在不知道 cp 命令
 完整路径名的情况下得到它的文件属性列表。我们不只限制于简单命令。也可以使用整个管道线
 （只展示部分输出）：
 
