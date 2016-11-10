@@ -72,7 +72,7 @@ least a little busy performing routine stuff.
 The fact that a program can launch other programs is expressed in the process scheme as
 a parent process producing a child process.
 
-一个程序可以发动另一个程序，这个事实在进程方案中，表述为一个父进程创建了一个子进程。
+在进程方案中，一个程序可以发动另一个程序被表述为一个父进程可以产生一个子进程。
 
 The kernel maintains information about each process to help keep things organized. For
 example, each process is assigned a number called a process ID or PID. PIDs are
@@ -356,7 +356,7 @@ While the ps command can reveal a lot about what the machine is doing, it provid
 a snapshot of the machine's state at the moment the ps command is executed. To see a
 more dynamic view of the machine's activity, we use the top command:
 
-虽然 ps 命令能够展示许多计算机运行状态的信息，但是它只是提供，ps 命令执行时刻的机器状态快照。
+虽然 ps 命令能够展示许多计算机运行状态的信息，但是它只是提供 ps 命令执行时刻的机器状态快照。
 为了看到更多动态的信息，我们使用 top 命令：
 
     [me@linuxbox ~]$ top
@@ -368,7 +368,7 @@ display consists of two parts: a system summary at the top of the display, follo
 table of processes sorted by CPU activity:
 
 top 程序连续显示系统进程更新的信息（默认情况下，每三秒钟更新一次），"top"这个名字
-来源于这个事实，top 程序是用来查看系统中“顶端”进程的。top 显示结果由两部分组成：
+来源于 top 程序是用来查看系统中“顶端”进程的。top 显示结果由两部分组成：
 最上面是系统概要，下面是进程列表，以 CPU 的使用率排序。
 
     top - 14:59:20 up 6:30, 2 users, load average: 0.07, 0.02, 0.00
@@ -613,7 +613,7 @@ sizable window containing the X logo. First, we'll get to know our test subject:
 
 现在我们可以看到和监测进程，然后得到一些对它们的控制权。为了我们的实验，我们将使用
 一个叫做 xlogo 的小程序，作为我们的实验品。这个 xlogo 程序是 X 窗口系统
-（底层引擎使图形界面显示在屏幕上）提供的实例程序，这个实例简单地显示一个大小可调的
+（使图形界面显示在屏幕上的底层引擎）提供的实例程序，这个实例仅显示一个大小可调的
 包含 X 标志的窗口。首先，我们需要知道测试的主题：
 
     [me@linuxbox ~]$ xlogo

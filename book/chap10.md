@@ -646,8 +646,8 @@ Some people prefer to use octal notation, some folks really like the symbolic. S
 notation does offer the advantage of allowing you to set a single attribute without
 disturbing any of the others.
 
-一些人喜欢使用八进制表示法，而另些人真正地喜欢符号表示法。符号表示法的优点是，
-允许你设置文件模式的单个组成部分的属性，而没有影响其他的部分。
+一些人喜欢使用八进制表示法，而另一些人则非常喜欢符号表示法。符号表示法的优点是，
+允许你设置文件模式的某个属性，而不影响其他的属性。
 
 Take a look at the chmod man page for more details and a list of options. A word of
 caution regarding the “--recursive” option: it acts on both files and directories, so it's not
@@ -1049,8 +1049,8 @@ system to that of a Windows system. Not a good idea.
 > 几年前，大多数的 Linux 发行版都依赖于 su 命令，来达到目的。su 命令不需要 sudo 命令
 所要求的配置，su 命令拥有一个 root 帐号，是 Unix 中的传统。但这会引起问题。所有用户
 会企图以 root 用户帐号来操纵系统。事实上，一些用户专门以 root 用户帐号来操作系统，
-因为这样做，的确消除了所有那些讨厌的“权限被拒绝”的消息。相比于 Windows 系统安全性而言，
-这样做，你就削弱了 Linux 系统安全性能。不是一个好主意。
+因为这样做，的确消除了所有那些讨厌的“权限被拒绝”的消息。你这样做就会使得 Linux 系统的
+安全性能被降低到和 Windows 系统相同的级别。不是一个好主意。
 >
 > When Ubuntu was introduced, its creators took a different tack. By default,
 Ubuntu disables logins to the root account (by failing to set a password for the
@@ -1076,7 +1076,7 @@ chown 命令被用来更改文件或目录的所有者和用户组。使用这�
 chown can change the file owner and/or the file group owner depending on the first
 argument of the command. Here are some examples:
 
-chown 命令可以更改文件所有者和/或文件用户组，依据于这个命令的第一个参数。这里有
+chown 可以根据这个命令的第一个参数更改文件所有者和/或文件用户组。这里有
 一些例子：
 
 <table class="multi">
