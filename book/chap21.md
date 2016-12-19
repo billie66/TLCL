@@ -2162,7 +2162,7 @@ follows:
 
 which gives us the year, a dash, the month, a dash, and the day.
 
-此表达式给出了年份，一个斜杠，月份，一个斜杠，和某天。
+此表达式给出了年份，一个短划线，月份，一个短划线，和某天。
 
 Now, our command looks like this:
 
@@ -2308,7 +2308,7 @@ the end of the i command.
 Note: A line continuation character is formed by a backslash followed immediately
 by a carriage return. No intermediary spaces are permitted.
 
-注意：一个连行符由一个斜杠字符其后紧跟一个回车符组成。它们之间不允许有空白字符。
+注意：一个连行符由一个反斜杠字符其后紧跟一个回车符组成。它们之间不允许有空白字符。
 
 ---
 
@@ -2520,7 +2520,7 @@ which will result in this:
     i) Ignore                  I) Ignore all
     r) Replace                 R) Replace all
     a) Add                     l) Add Lower
-    b) Abort                   x) Exit 
+    b) Abort                   x) Exit
     ?
 
 The HTML is ignored and only the non-markup portions of the file are checked. In this
