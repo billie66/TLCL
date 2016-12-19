@@ -602,7 +602,7 @@ background colors do not support the bold attribute.
 <td valign="top">\033[0;41m </td>
 <td valign="top">红色</td>
 <td valign="top">\033[1;45m </td>
-<td valign="top">粉红</td>
+<td valign="top">紫色</td>
 </tr>
 <tr>
 <td valign="top">\033[0;42m </td>
