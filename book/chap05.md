@@ -154,7 +154,7 @@ Table 5-2 lists the most commonly used character classes:
 <td>Matches any lowercase letter</td>
 </tr>
 <tr>
-<td>[:upper]</td>
+<td>[:upper:]</td>
 <td>Matches any uppercase letter</td>
 </tr>
 </table>
@@ -182,7 +182,7 @@ Table 5-2 lists the most commonly used character classes:
 <td>匹配任意一个小写字母</td>
 </tr>
 <tr>
-<td width="25%">[:upper]</td>
+<td width="25%">[:upper:]</td>
 <td>匹配任意一个大写字母</td>
 </tr>
 </table>
