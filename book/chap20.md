@@ -386,7 +386,7 @@ is used to indicate a character range.
 
 一个字符集合可能包含任意多个字符，并且元字符被放置到中括号里面后会失去了它们的特殊含义。
 然而，在两种情况下，会在中括号表达式中使用元字符，并且有着不同的含义。第一个元字符
-是插入字符，其被用来表示否定；第二个是连字符字符，其被用来表示一个字符区域。
+是插入字符，其被用来表示否定；第二个是连字符字符，其被用来表示一个字符范围。
 
 ### 否定
 
@@ -456,7 +456,7 @@ By using a three character range, we can abbreviate the twenty-six letters. Any 
 characters can be expressed this way including multiple ranges, such as this expression
 that matches all filenames starting with letters and numbers:
 
-通过使用一个三字符区域，我们能够缩写26个字母。任意字符的区域都能按照这种方式表达，包括多个区域，
+通过使用一个三个符区域，我们能够缩写26个字母。任意字符的区域都能按照这种方式表达，包括多个区域，
 比如下面这个表达式就匹配了所有以字母和数字开头的文件名：
 
     [me@linuxbox ~]$ grep -h '^[A-Za-z0-9]' dirlist*.txt
@@ -487,8 +487,8 @@ problem of quickly specifying sets of characters. Unfortunately, they don’t al
 While we have not encountered any problems with our use of `grep` so far, we might run
 into problems using other programs.
 
-这个传统的字符区域在处理快速地指定字符集合的问题方面，是一个易于理解的和有效的方式。
-不幸地是，它们不总是工作。到目前为止，虽然我们在使用 grep 程序的时候没有遇到任何问题，
+传统的字符区域是一个易于理解和有效的方法，用来处理快速指定字符集合的问题。
+不幸的是，它们不总是工作。到目前为止，虽然我们在使用 grep 程序的时候没有遇到任何问题，
 但是我们可能在使用其它程序的时候会遭遇困难。
 
 Back in Chapter 5, we looked at how wildcards are used to perform pathname expansion.
@@ -869,7 +869,7 @@ Stallman), and was adopted by the IEEE.
 > 然后进入 IEEE（ 电气与电子工程师协会 ）时代。在上世纪 80 年代中叶，IEEE 开始制定一套标准，
 其将会定义 Unix 系统（ 以及类 Unix 的系统 ）如何执行。这些标准，正式成为 IEEE 1003，
 定义了应用程序编程接口（ APIs ），shell 和一些实用程序，其将会在标准的类 Unix
-操作系统中找到。“POSIX” 这个名字，象征着可移植的操作系统接口（为了额外的，添加末尾的 “X” ），
+操作系统中找到。“POSIX” 这个名字，象征着可移植的操作系统接口（为了时髦一点，添加了末尾的 “X” ），
 是由 Richard Stallman 建议的（ 是的，的确是 Richard Stallman ），后来被 IEEE 采纳。
 
 ### Alternation
@@ -1158,9 +1158,9 @@ will be magic because we have not covered most of the commands involved, but wor
 not. We will get there in future chapters. Here is the incantation:
 
 在我们先前的例子中，我们查看过单个电话号码，并且检查了它们的格式。一个更现实的
-情形是检查一个数字列表，所以我们先创建一个列表。我们将背诵一个神奇的咒语到命令行中。
+情形是检查一个数字列表，所以我们先创建一个列表。我们将念一个神奇的咒语到命令行中。
 它会很神奇，因为我们还没有涵盖所涉及的大部分命令，但是不要担心。我们将在后面的章节里面
-讨论那些命令。这里是这个咒语：
+讨论那些命令。这就是那个咒语：
 
     [me@linuxbox ~]$ for i in {1..10}; do echo "(${RANDOM:0:3}) ${RANDO
     M:0:3}-${RANDOM:0:4}" >> phonelist.txt; done

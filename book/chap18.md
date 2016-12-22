@@ -630,7 +630,7 @@ know if it is either a file with bad permissions or a directory with bad permiss
 can’t be both at the same time. So if we expand the grouped expressions, we can see it
 this way:
 
-这很有意义，因为我们正在搜索具有不同权限集合的文件和目录。如果我们文件和目录两者都查找，
+这看起来合理，因为我们正在搜索具有不同权限集合的文件和目录。如果我们文件和目录两者都查找，
 那为什么要用 -or 来代替 -and 呢？因为 find 命令扫描文件和目录时，会计算每一个对象，看看它是否
 匹配指定的测试条件。我们想要知道它是具有错误权限的文件还是有错误权限的目录。它不可能同时符合这
 两个条件。所以如果展开组合起来的表达式，我们能这样解释它：

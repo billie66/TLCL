@@ -543,7 +543,7 @@ many cases it would be sensible to do so, but for now, let's play it safe.
 对于其它的更改，要放到 .bashrc 文件中。除非你是系统管理员，需要为系统中的所有用户修改
 默认设置，那么则限定你只能对自己家目录下的文件进行修改。当然，有可能会更改 /etc 目录中的
 文件，比如说 profile 文件，而且在许多情况下，修改这些文件也是明智的，但是现在，我们要
-安全起见。
+谨慎行事。
 
 ### 文本编辑器
 
@@ -558,7 +558,7 @@ manage the configuration files that control the system.
 为了编辑（例如，修改）shell 的启动文件，还有系统中大多数其它配置文件，我们使用一个叫做文本
 编辑器的程序。文件编辑器是一个，在某些方面，类似于文字处理器的程序，比如说随着鼠标的移动，
 它允许你在屏幕上编辑文字。只有一点，文本编辑器不同于文字处理器，就是它只能支持纯文本，并且
-经常包含为便于写程序而设计的特性。文本编辑器是软件开发人员用来写代码，和系统管理原员用来管理
+经常包含为便于写程序而设计的特性。文本编辑器是软件开发人员用来写代码，和系统管理员用来管理
 系统配置文件的重要工具。
 
 There are a lot of different text editors available for Linux; your system probably has
@@ -617,7 +617,7 @@ Whenever we edit an important configuration file, it is always a good idea to cr
 backup copy of the file first. This protects us in case we mess the file up while editing.
 To create a backup of the .bashrc file, do this:
 
-所有的图形文本编辑器都相当不言自明的，所以我们在这里不会介绍它们。反之，我们将集中精力在
+所有的图形文本编辑器很大程度上都是不需要解释的，所以我们在这里不会介绍它们。反之，我们将集中精力在
 我们第一个基于文本的文本编辑器，nano。让我们启动 nano，并且编辑文件 .bashrc。但是在我们这样
 做之前，先练习一些"安全计算"。当我们编辑一个重要的配置文件时，首先创建一个这个文件的备份
 总是一个不错的主意。这样能避免我们在编辑文件时弄乱文件。创建文件 .bashrc 的备份文件，这样做：
@@ -757,8 +757,8 @@ As we can see, many of our additions are not intuitively obvious, so it would be
 idea to add some comments to our .bashrc file to help explain things to the humans.
 Using the editor, change our additions to look like this:
 
-正如我们所看到的，我们的许多附加物意思直觉上并不是明显的，所以添加注释到我们的文件 .bashrc 中是
-一个好主意，可以帮助人们理解。使用编辑器，更改我们的附加物，让它们看起来像这样：
+正如我们所看到的，我们添加的许多代码的意思直觉上并不是明显的，所以添加注释到我们的文件 .bashrc 中是
+一个好主意，可以帮助人们理解。使用编辑器，更改我们添加的代码，让它们看起来像这样：
 
     # Change umask to make directory sharing easier
     umask 0002
@@ -819,7 +819,7 @@ symbol to the beginning of a line, you can deactivate a configuration line while
 preserving the information it contains.
 >
 > 最后三行是有效的被注释掉的别名定义。如果你删除这三行开头的 "#" 符号，此技术程称为
-uncommenting (不注释)，这样你就会激活这些别名。相反地，如果你在一行的开头加上 "#" 符号，
+uncommenting (取消注释)，这样你就会激活这些别名。相反地，如果你在一行的开头加上 "#" 符号，
 你可以注销掉这一行，但会保留它所包含的信息。
 
 ### 激活我们的修改
