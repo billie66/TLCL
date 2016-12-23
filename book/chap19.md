@@ -486,7 +486,7 @@ from archives take on the ownership of the user performing the restoration, rath
 the original owner.
 
 如果我们检查 ~/foo/playground 目录中的内容，会看到这个归档文件已经被成功地安装了，就是创建了
-一个精确的原始文件的副本。有一个警告，然而：除非你是超级用户，要不然从归档文件中抽取的文件
+一个精确的原始文件的副本。然而，这里有一个警告：除非你是超级用户，要不然从归档文件中抽取的文件
 和目录的所有权由执行此复原操作的用户所拥有，而不属于原始所有者。
 
 Another interesting behavior of tar is the way it handles pathnames in archives. The

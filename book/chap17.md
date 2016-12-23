@@ -717,7 +717,7 @@ called linuxbox which is running an X server, and we want to run the xload
 program on a remote system named remote-sys and see the program’s
 graphical output on our local system. We could do this:
 >
-> 可能这个特性的最普遍使用是允许传递 X 窗口系统流量。在运行着 X 服务器（也就是，
+> 可能这个特性的最普遍的用法是允许传递 X 窗口系统流量。在运行着 X 服务器（也就是，
 能显示 GUI 的机器）的系统中，有可能在远端启动和运行一个 X 客户端程序（一个图形化应用程序），
 而应用程序的显示结果出现在本地。这很容易完成，这里有个例子：假设我们正坐在一台装有 Linux 系统，
 叫做 linuxbox 的机器之前，且系统中运行着 X 服务器，现在我们想要在名为 remote-sys 的远端系统中

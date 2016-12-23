@@ -24,8 +24,8 @@ To carry out the exercises in this chapter, we will use a USB flash drive, a CD-
 (for systems equipped with a CD-ROM burner) and a floppy disk (again, if the system is
 so equipped.)
 
-我们将会使用 USB 闪存，CD-RW 光盘（因为系统配备了 CD-ROM 烧写器）和一张软盘（若系统这样配备），
-来做这章的练习题。
+为了做这一章的练习，我们将会使用 USB 闪存，CD-RW 光盘（因为系统配备了 CD-ROM 烧录器）
+和一张软盘（若系统这样配备）。
 
 We will look at the following commands:
 
@@ -91,8 +91,8 @@ file system tree with devices attached at various points. This contrasts with ot
 operating systems such as MS-DOS and Windows that maintain separate trees for each
 device (for example C:\, D:\, etc.).
 
-管理存储设备的第一步是把设备连接到文件系统树中。这个过程叫做挂载，允许设备参与到操作系统中。
-回想一下第三章，类 Unix 的操作系统，像 Linux，维护单一文件系统树，设备连接到各个结点上。
+管理存储设备的第一步是把设备连接到文件系统树中。这个叫做挂载的过程允许设备参与到操作系统中。
+回想一下第三章，类 Unix 的操作系统，像 Linux，将连接在各种结点上的设备在一个单一文件系统树中维护。
 这与其它操作系统形成对照，比如说 MS-DOS 和 Windows 系统中，每个设备（例如 C:\，D:\，等）
 保持着单独的文件系统树。
 
@@ -269,7 +269,7 @@ has two interesting entries at the bottom of the list. The next to last entry sh
 gigabyte SD memory card in a card reader mounted at /media/disk, and the last entry
 is a network drive mounted at /misc/musicbox.
 
-这个列表的格式是：设备 on 挂载点 type 文件系统类型（可选的）。例如，第一行所示设备/dev/sda2
+这个列表的格式是：设备 on 挂载点 type 文件系统类型（选项）。例如，第一行所示设备/dev/sda2
 作为根文件系统被挂载，文件系统类型是 ext3，并且可读可写（这个“rw”选项）。在这个列表的底部有
 两个有趣的条目。倒数第二行显示了在读卡器中的一张2G 的 SD 内存卡，挂载到了/media/disk 上。最后一行
 是一个网络设备，挂载到了/misc/musicbox 上。
@@ -438,8 +438,8 @@ will notice that the system seems to fill up memory the longer it is used. This
 does not mean Linux is “using“ all the memory, it means that Linux is taking
 advantage of all the available memory to do as much buffering as it can.
 >
-> 缓存被广泛地应用于计算机中，使其运行地更快。别让偶尔地需要读取或写入慢设备阻碍了
-系统的运行速度。在实际与慢设备交互之前，操作系统会尽可能多的读取或写入数据到内存中的
+> 缓存被广泛地应用于计算机中，使其运行地更快。别让偶尔地读取或写入慢设备的需求阻碍了
+系统的运行速度。在真正与比较慢的设备交互之前，操作系统会尽可能多的读取或写入数据到内存中的
 存储设备里。以 Linux 操作系统为例，你会注意到系统看似填充了多于它所需要的内存。
 这不意味着 Linux 正在使用所有的内存，它意味着 Linux 正在利用所有可用的内存，来作为缓存区。
 >

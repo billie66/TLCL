@@ -9,8 +9,8 @@ chapter, we will look at programs that are used to “slice and dice” text. In
 chapter, we will look at more text processing, focusing on programs that are used to
 format text for printing and other kinds of human consumption.
 
-所有类 Unix 的操作系统都非常依赖于被用于几种数据类型存储的文本文件。所以这很有道理，
-有许多用于处理文本的工具。在这一章中，我们将看一些被用来“切割”文本的程序。在下一章中，
+所有类 Unix 的操作系统都严重依赖于几种数据存储类型的文本文件。所以，
+有许多用于处理文本的工具就说的通了。在这一章中，我们将看一些被用来“切割”文本的程序。在下一章中，
 我们将查看更多的文本处理程序，但主要集中于文本格式化输出程序和其它一些人们需要的工具。
 
 This chapter will revisit some old friends and introduce us to some new ones:

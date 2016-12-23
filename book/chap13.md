@@ -148,7 +148,7 @@ To do this, you have a few options:
 >
 >上面实例中的启动屏幕（来自于 Ubuntu
 8.04），我们看到一行文字“以 Vi 兼容的模式运行”。这意味着 vim 将以近似于 vi 常规的模式
-运行，而不是 vim 的高级规范。为了这章的目的，我们想要使用 vim 的高级规范。要想这样做，
+运行，而不是 vim 的高级模式。为了这章的目的，我们想要使用 vim 的高级模式。要想这样做，
 你有几个选择：
 >
 > Try running vim instead of vi.
@@ -260,7 +260,7 @@ Tip: If you read the vim documentation, you will notice that (confusingly)
 command mode is called normal mode and ex commands are called command
 mode. Beware.
 
-小贴示：如果你阅读 vim 的文档，你注意到（混淆地）命令模式被叫做普通模式，ex 命令
+小贴示：如果你阅读 vim 的文档，你注意到（令人困惑地）命令模式被叫做普通模式，ex 命令
 叫做命令模式。当心。
 
 Moving The Cursor Around
