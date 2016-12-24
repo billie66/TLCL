@@ -1176,7 +1176,7 @@ file to which it is pointing.
 
 When creating symbolic links, you can either use absolute pathnames:
 
-当建立符号链接时，你即可以使用绝对路径名：
+当建立符号链接时，你既可以使用绝对路径名：
 
     ln -s /home/me/playground/fun dir1/fun-sym
 
