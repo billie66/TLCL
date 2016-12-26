@@ -229,7 +229,7 @@ happened in this example. From our previous look at how the shell performs expan
 we know that the command:
 
 首先我们把 “yes” 赋给变量 foo，然后用 echo 命令来显示变量值。接下来，我们显示拼写错误的变量名
-“fool” 的变量值，然后得到一个空值。这是因为 shell 很高兴地创建了变量 fool，当 shell 遇到 fool 的时候，
+“fool” 的变量值，然后得到一个空值。这是因为 当 shell 遇到 fool 的时候, 它很高兴地创建了变量 fool
 并且赋给 fool 一个空的默认值。因此，我们必须小心谨慎地拼写！同样理解实例中究竟发生了什么事情也
 很重要。从我们以前学习 shell 执行展开操作，我们知道这个命令：
 
@@ -361,7 +361,7 @@ as read-only, this is rarely done.
 
 这里的*variable*是变量的名字，*value*是一个字符串。不同于一些其它的编程语言，shell 不会
 在乎变量值的类型；它把它们都看作是字符串。通过使用带有-i 选项的 declare 命令，你可以强制 shell 把
-赋值限制为整型，但是，正如像设置变量为只读一样，极少这样做。
+赋值限制为整数，但是，正如像设置变量为只读一样，极少这样做。
 
 Note that in an assignment, there must be no spaces between the variable name, the
 equals sign, and the value. So what can the value consist of? Anything that we can

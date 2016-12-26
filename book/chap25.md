@@ -11,9 +11,9 @@ our own design, the shell can carry out complex sequences of tasks all by itself
 enable it to do this by writing shell scripts.
 
 在前面的章节中，我们已经装备了一个命令行工具的武器库。虽然这些工具能够解决许多种计算问题，
-但是我们仍然局限于在命令行中手动地一个一个使用它们。难道不是很棒，如果我们能够让 shell 来完成更多的工作？
-我们可以的。通过把我们的工具一起放置到我们自己设计的程序中，然后 shell 就会自己来执行这些复杂的任务序列。
-通过编写 shell 脚本，我们让 shell 来做这些事情。
+但是我们仍然局限于在命令行中手动地一个一个使用它们。如果我们能够让 shell 来完成更多的工作, 岂不是更好？
+我们可以的。通过把我们的工具一起放置到我们自己设计的程序中, shell 就会自己来执行这些复杂的任务序列。
+通过编写 shell 脚本，我们可以让 shell 来做这些事情。
 
 ### 什么是 Shell 脚本？
 
@@ -262,7 +262,7 @@ One of the key goals of serious script writing is ease of maintenance; that is, 
 with which a script may be modified by its author or others to adapt it to changing needs.
 Making a script easy to read and understand is one way to facilitate easy maintenance.
 
-严肃认真的脚本书写，一个关键目标是为了维护方便；也就是说，一个脚本可以轻松地被作者或其它
+严肃认真的脚本书写的关键目标之一是为了易于维护；也就是说，一个脚本可以轻松地被作者或其它
 用户修改，使它适应变化的需求。使脚本容易阅读和理解是一种方便维护的方法。
 
 #### 长选项名称
@@ -295,7 +295,7 @@ When employing long commands, readability can be enhanced by spreading the
 command over several lines. In Chapter 18, we looked at a particularly long example of
 the find command:
 
-当雇佣长命令的时候，通过把命令在几个文本行中展开，可以提高命令的可读性。
+当使用长命令的时候，通过把命令在几个文本行中展开，可以提高命令的可读性。
 在第十八章中，我们看到了一个特别长的 find 命令实例：
 
     [me@linuxbox ~]$ find playground \( -type f -not -perm 0600 -exec
@@ -328,8 +328,8 @@ One difference between a script and the command line is that the script may empl
 characters to achieve indentation, whereas the command line cannot, since tabs are used
 to activate completion.
 
-通过使用行继续符（反斜杠-回车符序列）和缩进，这个复杂命令的逻辑性更清楚地描述给读者。
-这个技巧在命令行中同样生效，虽然很少使用它，因为输入和编辑这个命令非常麻烦。脚本和
+通过使用行继续符（反斜杠-回车符序列）和缩进，这个复杂命令的逻辑会被更清楚地描述给读者。
+这个技巧在命令行中同样有效，虽然很少使用它，因为输入和编辑这个命令非常麻烦。脚本和
 命令行的一个区别是，脚本可能雇佣 tab 字符拉实现缩进，然而命令行却不能，因为 tab 字符被用来
 激活自动补全功能。
 

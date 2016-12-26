@@ -57,7 +57,7 @@ Simply put, compiling is the process of translating source code (the
 human-readable description of a program written by a programmer)
 into the native language of the computer’s processor.
 
-简而言之，编译就是把源码（一个由程序员编写的人类可读的程序描述）翻译成计算机处理器的母语的过程。
+简而言之，编译就是把源码（一个由程序员编写的人类可读的程序的说明）翻译成计算机处理器的语言的过程。
 
 The computer’s processor (or CPU) works at a very elemental level,
 executing programs in what is called machine language. This is a numeric
@@ -120,7 +120,7 @@ A program called a linker is used to form the connections between the output of
 the compiler and the libraries that the compiled program requires.
 The final result of this process is the executable program file, ready for use.
 
-一个称为链接的过程经常与编译结合在一起。有许多程序执行的常见任务。以打开文件为例。许多程序执行这个任务，
+一个称为链接的过程经常与编译结合在一起。有许多常见的由程序执行的任务。以打开文件为例。许多程序执行这个任务，
 但是让每个程序实现它自己的打开文件功能，是很浪费资源的。更有意义的是，拥有单独的一段知道如何打开文件的程序，
 并允许所有需要它的程序共享它。对常见任务提供支持由所谓的库完成。这些库包含多个程序，每个程序执行
 一些可以由多个程序共享的常见任务。如果我们看一下 /lib 和 /usr/lib 目录，我们可以看到许多库定居在那里。
@@ -148,7 +148,7 @@ translation is permanently recorded in the final executable file.
 
 脚本语言由一个叫做解释器的特殊程序执行。一个解释器输入程序文件，读取并执行程序中包含的每一条指令。
 通常来说，解释型程序执行起来要比编译程序慢很多。这是因为每次解释型程序执行时，程序中每一条源码指令都需要翻译，
-而一个编译程序，一条源码指令只翻译一次，翻译后的指令会永久地记录到最终的执行文件中。
+而一个已经编译好的程序，一条源码指令只翻译了一次，翻译后的指令会永久地记录到最终的执行文件中。
 
 So why are interpreted languages so popular? For many programming chores,
 the results are “fast enough,” but the real advantage is that it is generally
@@ -169,7 +169,7 @@ universally in the Linux environment is called gcc (GNU C Compiler), originally
 written by Richard Stallman. Most distributions do not install gcc by default.
 We can check to see if the compiler is present like this:
 
-让我们编译一些东西。在我们行动之前，然而我们需要一些工具，像编译器，链接器，还有 make。
+让我们编译一些东西。在我们编译之前，然而我们需要一些工具，像编译器，链接器，还有 make。
 在 Linux 环境中，普遍使用的 C 编译器叫做 gcc（GNU C 编译器），最初由 Richard Stallman 写出来的。
 大多数 Linux 系统发行版默认不安装 gcc。我们可以这样查看该编译器是否存在：
 
@@ -341,7 +341,7 @@ descriptions of the routines included in a source code file or library. In order
 piler to connect the modules, it must receive a description of all the modules needed to
 complete the entire program. Near the beginning of the diction.c file, we see this line:
 
-这些 .h 文件以头文件而著称。它们也是普通文件。头文件包含了程序的描述，这些程序被包括在源码文件或库中。
+这些 .h 文件被称为头文件。它们也是普通文件。头文件包含了程序的描述，这些程序被包括在源码文件或库中。
 为了让编译器链接到模块，编译器必须接受所需的所有模块的描述，来完成整个程序。在 diction.c 文件的开头附近，
 我们看到这行代码：
 
@@ -351,8 +351,8 @@ This instructs the compiler to read the file getopt.h as it reads the source cod
 diction.c in order to “know” what’s in getopt.c. The getopt.c file supplies
 routines that are shared by both the style and diction programs.
 
-这行代码指示编译器去读取文件 getopt.h，因为它会读取 diction.c 中的源码，为的是“知道” getopt.c 中的内容。
-getopt.c 文件提供由 style 和 diction 两个程序共享的代码。
+当它读取 diction.c 中的源码的时候，这行代码指示编译器去读取文件 getopt.h， 为的是“知道” getopt.c 中的内容。
+getopt.c 文件提供由 style 和 diction 两个程序共享的例行程序。
 
 Above the include statement for getopt.h, we see some other include statements such as these:
 
@@ -368,7 +368,7 @@ These also refer to header files, but they refer to header files that live outsi
 source tree. They are supplied by the system to support the compilation of every program.
 If we look in /usr/include, we can see them:
 
-这些也涉及到头文件，但是这些头文件居住在当前源码树的外面。它们由操作系统供给，来支持每个程序的编译。
+这些文件也是头文件，但是这些头文件在当前源码树的外面。它们由操作系统供给，来支持每个程序的编译。
 如果我们看一下 /usr/include 目录，能看到它们：
 
     [me@linuxbox diction-1.11]$ ls /usr/include
@@ -494,7 +494,7 @@ This all seems very complicated. Why not simply list all the steps to compile th
 and be done with it? The answer to this will become clear in a moment. In the meantime,
 let’s run make and build our programs:
 
-这些看起来非常复杂。为什么不简单地列出所有的步骤，编译完成每一部分？一会儿就知道答案了。同时，
+这些看起来非常复杂。为什么不简单地列出编译每个部分的步骤，那样不就行了？一会儿就知道答案了。同时，
 让我们运行 make 命令并构建我们的程序：
 
     [me@linuxbox diction-1.11]$ make
