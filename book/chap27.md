@@ -155,7 +155,7 @@ and 8. These will include:
 
 * 磁盘空间。系统中存储设备的总使用量。
 
-* 家目录空间。每个用户所使用的存储空间数量。
+* 家目录空间。每个用户所使用的存储空间使用量。
 
 If we had a command for each of these tasks, we could add them to our script simply
 through command substitution:
@@ -372,7 +372,7 @@ If we look at the output of our script now:
 当开发程序的时候，保持程序的可执行状态非常有用。这样做，并且经常测试，我们就可以在程序
 开发过程的早期检测到错误。这将使调试问题容易多了。例如，如果我们运行这个程序，做一个小的修改，
 然后再次执行这个程序，最后发现一个问题，非常有可能这个最新的修改就是问题的来源。通过添加空函数，
-程序员称之为占位符，我们可以在早期阶段证明程序的逻辑流程。当构建一个占位符的时候，
+程序员称之为 stub，我们可以在早期阶段证明程序的逻辑流程。当构建一个 stub 的时候，
 能够包含一些为程序员提供反馈信息的代码是一个不错的主意，这些信息展示了正在执行的逻辑流程。
 现在看一下我们脚本的输出结果：
 
@@ -499,7 +499,7 @@ functions allow anything that can be scripted. For example, if we liked the
 report_disk_space shell function that we developed for our script, we
 could create a similar function named ds for our .bashrc file:
 >
-> Shell 函数是更为完美的别名替代物，实际上是创建较小的个人所用命令的首选方法。别名
+> Shell 函数完美地替代了别名，并且实际上是创建个人所用的小命令的首选方法。别名
  非常局限于命令的种类和它们支持的 shell 功能，然而 shell 函数允许任何可以编写脚本的东西。
  例如，如果我们喜欢 为我们的脚本开发的这个 report_disk_space shell 函数，我们可以为我们的 .bashrc 文件
  创建一个相似的名为 ds 的函数：
