@@ -285,7 +285,7 @@ permission for the effective user).</td>
 <caption class="cap">表28-1: 测试文件表达式</caption>
 <tr>
 <th class="title">表达式</th>
-<th class="title">如果为真</th>
+<th class="title">如果下列条件为真则返回True</th>
 </tr>
 <tr>
 <td valign="top" width="16%">file1 -ef file2 </td>
@@ -508,7 +508,7 @@ equal signs may be used, but the use of double equal signs is greatly preferred.
 <caption class="cap">表28-2: 测试字符串表达式</caption>
 <tr>
 <th class="title">表达式</th>
-<th class="title">如果为真...</th>
+<th class="title">如果下列条件为真则返回True</th>
 </tr>
 <tr>
 <td valign="top" width="35%">string</td>
@@ -587,7 +587,7 @@ using elif, we are able to construct a more complex logical test.
 
 在这个脚本中，我们计算常量 ANSWER。我们首先确定是否此字符串为空。如果为空，我们就终止
 脚本，并把退出状态设为零。注意这个应用于 echo 命令的重定向操作。其把错误信息 “There
-is no answer.” 重定向到标准错误，这是处理错误信息的“合理”方法。如果字符串不为空，我们就计算
+is no answer.” 重定向到标准错误，这是处理错误信息的“正确”方法。如果字符串不为空，我们就计算
 字符串的值，看看它是否等于“yes,” "no," 或者“maybe”。为此使用了 elif，它是 “else if” 的简写。
 通过使用 elif，我们能够构建更复杂的逻辑测试。
 
@@ -773,7 +773,7 @@ In addition to the `[[ ]]` compound command, bash also provides the `(( ))`
 compound command, which is useful for operating on integers. It supports a full set of
 arithmetic evaluations, a subject we will cover fully in Chapter 35.
 
-除了 `[[ ]]` 复合命令之外，bash 也提供了 `(( ))` 复合命名，其有利于操作整数。它支持一套
+除了 `[[ ]]` 复合命令之外，bash 也提供了 `(( ))` 复合命令，其有利于操作整数。它支持一套
 完整的算术计算，我们将在第35章中讨论这个主题。
 
 `(( ))` is used to perform arithmetic truth tests. An arithmetic truth test results in true if
@@ -934,7 +934,7 @@ and is easier to code.
 
 知道了 test 和 `[[ ]]` 基本上完成相同的事情，哪一个更好呢？test 更传统（是 POSIX 的一部分），
 然而 `[[ ]]` 特定于 bash。知道怎样使用 test 很重要，因为它被非常广泛地应用，但是显然 `[[ ]]` 更
-有助于，并更易于编码。
+有用，并更易于编码。
 
 > Portability Is The Hobgoblin Of Little Minds
 >
@@ -968,7 +968,7 @@ original Bourne shell.
 proprietary extensions, only they call them “innovations.” But they are really just
 lock-in devices for their customers.
 >
-> 这个缺点是一个借口，专有软件供应商用它来证明他们的专利扩展，只有他们称他们为“创新”。
+> 这个缺点是一个专有软件供应商用来为他们专有的扩展做辩解的借口，只有他们称他们为“创新”。
 但是他们只是为他们的客户锁定设备。
 >
 > The GNU tools, such as bash, have no such restrictions. They encourage

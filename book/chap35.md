@@ -8,7 +8,7 @@ processing data at the file level. However, many programming problems need to be
 solved using smaller units of data such as strings and numbers.
 
 所有的计算机程序都是用来和数据打交道的。在过去的章节中，我们专注于处理文件级别的数据。
-然而，许多程序问题需要使用更小的数据单位来解决，比方说字符串和数字。
+然而，许多编程问题需要使用更小的数据单位来解决，比方说字符串和数字。
 
 In this chapter, we will look at several shell features that are used to manipulate strings
 and numbers. The shell provides a variety of parameter expansions that perform string
@@ -253,7 +253,7 @@ by pattern. pattern is a wildcard pattern like those used in pathname expansion.
 ference in the two forms is that the # form removes the shortest match, while the ## form
 removes the longest match.
 
-这些展开会从 paramter 所包含的字符串中清除开头一部分文本，这些字符要匹配定义的 patten。pattern 是
+这些展开会从 paramter 所包含的字符串中清除开头一部分文本，这些字符要匹配定义的 pattern。pattern 是
 通配符模式，就如那些用在路径名展开中的模式。这两种形式的差异之处是该 # 形式清除最短的匹配结果，
 而该 ## 模式清除最长的匹配结果。
 
@@ -532,7 +532,7 @@ Here, we will look at a more complete list.
 Back in Chapter 9, we got a look at octal (base 8) and hexadecimal (base 16) numbers. In
 arithmetic expressions, the shell supports integer constants in any base.
 
-回到第9章，我们看过八进制（以8为底）和十六进制（以16为底）的数字。在算术表达式中，shell 支持任意进制的整形常量。
+回到第9章，我们看过八进制（以8为底）和十六进制（以16为底）的数字。在算术表达式中，shell 支持任意进制的整型常量。
 
 <table class="multi">
 <caption class="cap">Table 35-2: Specifying Different Number Bases</caption>
@@ -603,7 +603,7 @@ two-digit number) and the largest eight-digit binary (base 2) number.
 There are two unary operators, the + and -, which are used to indicate if a number is pos-
 itive or negative, respectively. For example, -5.
 
-有两个二元运算符，+ 和 -，它们被分别用来表示一个数字是正数还是负数。例如，-5。
+有两个一元运算符，+ 和 -，它们被分别用来表示一个数字是正数还是负数。例如，-5。
 
 #### 简单算术
 
@@ -682,7 +682,7 @@ Most of these are self-explanatory, but integer division and modulo require furt
 Since the shell’s arithmetic only operates on integers, the results of division are always
 whole numbers:
 
-因为 shell 算术只操作整形，所以除法运算的结果总是整数：
+因为 shell 算术只操作整型，所以除法运算的结果总是整数：
 
     [me@linuxbox ~]$ echo $(( 5 / 2 ))
     2
@@ -1234,7 +1234,7 @@ one possible solution, but unfortunately, outside the scope of this book.
 Another approach is to use a specialized calculator program. One such program found on
 most Linux systems is called bc.
 
-我们已经看到 shell 是可以处理所有类型的整形算术的，但是如果我们需要执行更高级的数学运算或仅使用浮点数，该怎么办？
+我们已经看到 shell 是可以处理所有类型的整型算术的，但是如果我们需要执行更高级的数学运算或仅使用浮点数，该怎么办？
 答案是，我们不能这样做。至少不能直接用 shell 完成此类运算。为此，我们需要使用外部程序。
 有几种途径可供我们采用。嵌入的 Perl 或者 AWK 程序是一种可能的方案，但是不幸的是，超出了本书的内容大纲。
 另一种方式就是使用一种专业的计算器程序。这样一个程序叫做 bc，在大多数 Linux 系统中都可以找到。
@@ -1245,9 +1245,9 @@ supports quite a few features including variables, loops, and programmer-defined
 We won’t cover bc entirely here, just enough to get a taste. bc is well documented by its
 man page.
 
-该 bc 程序读取一个用它自己的类似于 C 语言的语法编写的脚本文件。一个 bc 脚本可能是一个分离的文件或者是读取
-标准输入。bc 语言支持相当少的功能，包括变量，循环和程序员定义的函数。这里我们不会讨论整个 bc 语言，
-仅仅体验一下。查看 bc 的手册页，其文档整理非常好。
+该 bc 程序读取一个用它自己的类似于 C 语言的语法编写的脚本文件。一个 bc 脚本可能是一个分离的文件或者是从
+标准输入读入。bc 语言支持相当少的功能，包括变量，循环和程序员定义的函数。这里我们不会讨论整个 bc 语言，
+仅仅体验一下。查看 bc 的手册页，其文档整理得非常好。
 
 Let’s start with a simple example. We’ll write a bc script to add 2 plus 2:
 

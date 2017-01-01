@@ -9,7 +9,7 @@ a means of processing sequences during a loop. This turns out to be very useful 
 Accordingly, the for loop is a very popular construct in bash scripting.
 
 在这关于流程控制的最后一章中，我们将看看另一种 shell 循环构造。for 循环不同于 while 和 until 循环，因为
-在循环中，它提供了一种处理序列的方式。这证明在编程时非常有用。因此在 bash 脚本中，for 循环是非常流行的构造。
+在循环中，它提供了一种处理序列的方式。这在编程时非常有用。因此在 bash 脚本中，for 循环是非常流行的构造。
 
 A for loop is implemented, naturally enough, with the for command.
 In modern versions of bash, for is available in two forms.
@@ -168,7 +168,7 @@ It also led to the following Fortran-based witticism:
 自动设为整形，而以其它字母开头的变量则为实数类型（带有小数的数字）。这种行为导致程序员使用变量 I，J，和 K 作为循环变量，
 因为当需要一个临时变量（正如循环变量）的时候，使用它们工作量比较少。这也引出了如下基于 fortran 的俏皮话：
 >
-> “神是真实的，除非是声明的整数。”
+> “神是实数，除非是声明的整数。”
 
 ### for: C 语言格式
 
@@ -295,7 +295,7 @@ ables used later in a for loop. We have added several local variables to the fun
 made use of printf to format some of the output.
 
 这次重写应用了目前为止我们学过的许多知识。我们仍然测试超级用户（superuser），但是我们在 if 语句块内
-设置了一些随后会在 for 循环中用到的变量，来取代在 if 语句块内执行完备的动作集合。我们添加了给
+设置了一些随后会在 for 循环中用到的变量，来取代在 if 语句块内执行完备的动作集合。我们给
 函数添加了几个本地变量，并且使用 printf 来格式化输出。
 
 ### 拓展阅读

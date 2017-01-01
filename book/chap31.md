@@ -126,7 +126,7 @@ else is encountered next, but it’s out of place, since the shell recognizes it
 word (a word that has special meaning to the shell) and not the name of a command,
 hence the error message.
 
-再次，错误信息指向一个错误，其出现的位置靠后于实际问题所在的文本行。所发生的事情真是相当有意思。我们记得，
+再次，错误信息指向一个错误，其出现的位置在实际问题所在的文本行的后面。所发生的事情真是相当有意思。我们记得，
 if 能够接受一系列命令，并且会计算列表中最后一个命令的退出代码。在我们的程序中，我们打算这个列表由
 单个命令组成，即 [，测试的同义词。这个 [ 命令把它后面的东西看作是一个参数列表。在我们这种情况下，
 有三个参数： $number，=，和 ]。由于删除了分号，单词 then 被添加到参数列表中，从语法上讲，
@@ -252,8 +252,8 @@ an example, based on a true story. An unfortunate system administrator wrote a s
 perform a maintenance task on an important server. The script contained the following
 two lines of code:
 
-当编程的时候，验证假设非常重要。这意味着要仔细得计算脚本所使用的程序和命令的退出状态。
-这里有个实例，基于一个真实的故事。为了在一台重要的服务器中执行维护任务，一位不幸的系统管理员写了一个脚本。
+当编程的时候，验证假设非常重要。这意味着要仔细地计算脚本所使用的程序和命令的退出状态。
+这里有个基于一个真实的故事的实例。为了在一台重要的服务器中执行维护任务，一位不幸的系统管理员写了一个脚本。
 这个脚本包含下面两行代码：
 
     cd $dir_name
@@ -484,7 +484,7 @@ will often provide insights into the actual cause. One technique that can be use
 isolate code is “commenting out” sections a script. For example, our file deletion
 fragment could be modified to determine if the removed section was related to an error:
 
-在一些脚本中，尤其是一些代码比较长的脚本，有时候隔离脚本中与出现的问题相关的代码区域对查找问题很有效。
+在一些脚本中，尤其是一些代码比较长的脚本，有时候隔离脚本中与出现的问题相关的代码区域对查找问题很有帮助。
 隔离的代码区域并不总是真正的错误所在，但是隔离往往可以深入了解实际的错误原因。可以用来隔离代码的一项
 技巧是“添加注释”。例如，我们的文件删除代码可以修改成这样，从而决定注释掉的这部分代码是否导致了一个错误：
 
