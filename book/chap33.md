@@ -558,8 +558,8 @@ With the addition of positional parameters, we can now write fairly functional s
 For simple, repetitive tasks, positional parameters make it possible to write very useful
 shell functions that can be placed in a user’s .bashrc file.
 
-伴随着位置参数的加入，现在我们能编写相当具有功能性的脚本。例如，重复性的任务，位置参数使得编写
-非常有用的，可以放置在一个用户的 .bashrc 文件中的 shell 函数成为可能。
+伴随着位置参数的加入，现在我们能编写相当具有功能性的脚本。例如，重复性的任务，位置参数使得我们可以编写
+非常有用的，可以放置在一个用户的 .bashrc 文件中的 shell 函数。
 
 Our sys_info_page program has grown in complexity and sophistication. Here is a
 complete listing, with the most recent changes highlighted:

@@ -288,7 +288,7 @@ the array (elements 0-99) would be initialized with empty values and counted.
 
 我们创建了数组 a，并把字符串 “foo” 赋值给数组元素100。下一步，我们使用参数展开来检查数组的长度，使用 @ 表示法。
 最后，我们查看了包含字符串 “foo” 的数组元素 100 的长度。有趣的是，尽管我们把字符串赋值给数组元素100，
-bash 仅仅报告数组中有一个元素。这不同于一些其它语言的行为，数组中未使用的元素（元素0-99）会初始化为空值，
+bash 仅仅报告数组中有一个元素。这不同于一些其它语言的行为，这种行为是数组中未使用的元素（元素0-99）会初始化为空值，
 并把它们计入数组长度。
 
 #### 找到数组使用的下标
@@ -412,7 +412,7 @@ Interestingly, the assignment of an empty value to an array does not empty its c
 
 Any reference to an array variable without a subscript refers to element zero of the array:
 
-任何引用一个不带下标的数组变量，则指的是数组元素0：
+任何没有下标的对数组变量的引用都指向数组元素0：
 
     [me@linuxbox~]$ foo=(a b c d e f)
     [me@linuxbox~]$ echo ${foo[@]}
@@ -463,7 +463,7 @@ unfortunate because arrays are widely used in other programming languages and pr
 a powerful tool for solving many kinds of programming problems.
 
 如果我们在 bash 手册页中搜索单词 “array”的话，我们能找到许多 bash 在哪里会使用数组变量的实例。其中大部分相当晦涩难懂，
-但是它们可能在一些特殊场合提供临时的工具。事实上，在 shell 编程中，整套数组规则利用率相当低，很大程度上归咎于这样的事实，
+但是它们可能在一些特殊场合提供临时的工具。事实上，在 shell 编程中，整套数组规则利用率相当低，很大程度上归咎于
 传统 Unix shell 程序（比如说 sh）缺乏对数组的支持。这样缺乏人气是不幸的，因为数组广泛应用于其它编程语言，
 并为解决各种各样的编程问题，提供了一个强大的工具。
 

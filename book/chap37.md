@@ -93,7 +93,7 @@ Here we see the results (condensed for brevity) when the script is given the dir
 
 在下面的脚本中，我们将使用组命令，看几个与关联数组结合使用的编程技巧。这个脚本，称为 array-2，当给定一个目录名，打印出目录中的文件列表，
 伴随着每个文件的文件所有者和组所有者。在文件列表的末尾，脚本打印出属于每个所有者和组的文件数目。
-这里我们看到的结果（缩短的，为简单起见），是给定脚本的目录为 /usr/bin 的时候：
+这里我们看到的（为简单起见而缩短的）结果，是给定脚本的目录为 /usr/bin 的时候：
 
     [me@linuxbox ~]$ array-2 /usr/bin
     /usr/bin/2to3-2.6                 root        root
@@ -252,7 +252,7 @@ variable assignment) is lost as well. Therefore, in most cases, unless a script 
 subshell, group commands are preferable to subshells. Group commands are both faster
 and require less memory.
 
-虽然组命令和子 shell 看起来相似，并且它们都能用来在重定向中合并流，但是两者之间有一个很重要的不同。
+虽然组命令和子 shell 看起来相似，并且它们都能用来在重定向中合并流，但是两者之间有一个很重要的不同之处。
 然而，一个组命令在当前 shell 中执行它的所有命令，而一个子 shell（顾名思义）在当前 shell 的一个
 子副本中执行它的命令。这意味着运行环境被复制给了一个新的 shell 实例。当这个子 shell 退出时，环境副本会消失，
 所以在子 shell 环境（包括变量赋值）中的任何更改也会消失。因此，在大多数情况下，除非脚本要求一个子 shell，
@@ -275,8 +275,8 @@ variables will encounter this issue. Fortunately, the shell provides an exotic f
 expansion called process substitution that can be used to work around this problem.
 Process substitution is expressed in two ways:
 
-该 REPLY 变量的内容总是为空，是因为这个 read 命令在一个子 shell 中执行，所以它的 REPLY 副本会被毁掉，
-当该子 shell 终止的时候。因为管道线中的命令总是在子 shell 中执行，任何给变量赋值的命令都会遭遇这样的问题。
+该 REPLY 变量的内容总是为空，是因为这个 read 命令在一个子 shell 中执行，所以当该子 shell 终止的时候，
+它的 REPLY 副本会被毁掉。因为管道线中的命令总是在子 shell 中执行，任何给变量赋值的命令都会遭遇这样的问题。
 幸运地是，shell 提供了一种奇异的展开方式，叫做进程替换，它可以用来解决这种麻烦。进程替换有两种表达方式：
 
 For processes that produce standard output:
@@ -396,7 +396,7 @@ if a signal is received indicating that the program was going to be terminated p
 bash provides a mechanism for this purpose known as a trap. Traps are implemented
 with the appropriately named builtin command, trap. trap uses the following syntax:
 
-为满足这样需求，bash 提供了一种机制，众所周知的 trap。陷阱由被恰当命令的内部命令 trap 实现。
+为满足这样需求，bash 提供了一种机制，众所周知的 trap。陷阱正好由内部命令 trap 实现。
 trap 使用如下语法：
 
     trap argument signal [signal...]
@@ -443,7 +443,7 @@ Constructing a string to form a useful sequence of commands can be awkward, so i
 common practice to specify a shell function as the command. In this example, a separate
 shell function is specified for each signal to be handled:
 
-构建一个字符串形成一个有用的命令序列是很笨拙的，所以通常的做法是指定一个 shell 函数作为命令。在这个例子中，
+构建一个字符串来形成一个有用的命令序列是很笨拙的，所以通常的做法是指定一个 shell 函数作为命令。在这个例子中，
 为每一个信号指定了一个单独的 shell 函数来处理：
 
     #!/bin/bash
@@ -500,7 +500,7 @@ non-predictable (but still descriptive) name is to do something like this:
 > 把信号处理程序包含在脚本中的一个原因是删除临时文件，在脚本执行期间，脚本可能会创建临时文件来存放中间结果。
 命名临时文件是一种艺术。传统上，在类似于 unix 系统中的程序会在 /tmp 目录下创建它们的临时文件，/tmp 是
 一个服务于临时文件的共享目录。然而，因为这个目录是共享的，这会引起一定的安全顾虑，尤其对那些用
-超级用户特权运行的程序。除了为暴露给系统中所有用户的文件设置合适的权限，这一明显步骤之外，
+超级用户特权运行的程序。除了为暴露给系统中所有用户的文件设置合适的权限这一明显步骤之外，
 给临时文件一个不可预测的文件名是很重要的。这就避免了一种为大众所知的 temp race 攻击。
 一种创建一个不可预测的（但是仍有意义的）临时文件名的方法是，做一些像这样的事情：
 >
@@ -644,7 +644,7 @@ pipe. Named pipes are used to create a connection between two processes and can 
 used just like other types of files. They are not that popular, but they’re good to know
 about.
 
-在大多数类似也 Unix 的操作系统中，有可能创建一种特殊类型的文件，叫做命名管道。命名管道用来在
+在大多数类似 Unix 的操作系统中，有可能创建一种特殊类型的文件，叫做命名管道。命名管道用来在
 两个进程之间建立连接，也可以像其它类型的文件一样使用。虽然它们不是那么流行，但是它们值得我们去了解。
 
 There is a common programming architecture called client-server, which can make use of
