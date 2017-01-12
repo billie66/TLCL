@@ -14,13 +14,13 @@ Linux 系统有帮助的命令。
 
 ### ls 乐趣
 
-有充分的理由证明，ls 可能是用户最常使用的命令。通过它，我们可以知道目录的内容，以及各种各样重要文件和目录的
-属性。正如我们所知道的，只要简单的输入 ls 就能看到在当前目录下所包含的文件和子目录列表。
+ls 可能是用户最常使用的命令了，这自有它的道理。通过它，我们可以知道目录的内容，以及各种各样重要文件和目录的
+属性。正如我们已经见到的，只要简单的输入 ls 就能看到在当前目录下所有文件和子目录的列表。
 
     [me@linuxbox ~]$ ls
     Desktop Documents Music Pictures Publica Templates Videos
 
-除了当前工作目录以外，也可以指定要列出内容的目录，就像这样：
+除了当前工作目录以外，也可以指定别的目录，就像这样：
 
     me@linuxbox ~]$ ls /usr
     bin games   kerberos    libexec  sbin   src
@@ -334,7 +334,7 @@ Linux 系统中，文件系统布局与类 Unix 系统的文件布局很相似�
 </tr>
 <tr>
 <td valign="top">/boot</td>
-<td valign="top"><p>包含 Linux 内核，最初的 RMA 磁盘映像（系统启动时，由驱动程序所需），和
+<td valign="top"><p>包含 Linux 内核，最初的 RAM 磁盘映像（系统启动时，由驱动程序所需），和
 启动加载程序。</p>
 <p>有趣的文件：</p>
 <ul>

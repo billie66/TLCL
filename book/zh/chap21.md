@@ -3,8 +3,8 @@ layout: book-zh
 title: 文本处理
 ---
 
-所有类 Unix 的操作系统都非常依赖于被用于几种数据类型存储的文本文件。所以这很有道理，
-有许多用于处理文本的工具。在这一章中，我们将看一些被用来“切割”文本的程序。在下一章中，
+所有类 Unix 的操作系统都严重依赖于几种数据存储类型的文本文件。所以，
+有许多用于处理文本的工具就说的通了。在这一章中，我们将看一些被用来“切割”文本的程序。在下一章中，
 我们将查看更多的文本处理程序，但主要集中于文本格式化输出程序和其它一些人们需要的工具。
 
 这一章会重新拜访一些老朋友，并且会给我们介绍一些新朋友：
@@ -208,7 +208,7 @@ valign="top">把每个参数看作是一个预先排好序的文件。把多个�
 通过这个选项，有可能基于数值进行排序。我们通过对 du 命令的输出结果排序来说明这个选项，du 命令可以
 确定最大的磁盘空间用户。通常，这个 du 命令列出的输出结果按照路径名来排序：
 
-    [me@linuxbox ~]$ du -s /usr/share/\* | head
+    [me@linuxbox ~]$ du -s /usr/share/* | head
     252     /usr/share/aclocal
     96      /usr/share/acpi-support
     8       /usr/share/adduser
@@ -925,8 +925,8 @@ old_file 和 new_file 部分不是单个文件就是包含文件的目录。这�
 
 我们将使用测试文件来说明：
 
-    [me@linuxbox ~]$ diff -Naur file1.txt file2.txt &gt; patchfile.txt
-    [me@linuxbox ~]$ patch &lt; patchfile.txt
+    [me@linuxbox ~]$ diff -Naur file1.txt file2.txt > patchfile.txt
+    [me@linuxbox ~]$ patch < patchfile.txt
     patching file file1.txt
     [me@linuxbox ~]$ cat file1.txt
     b
@@ -990,13 +990,13 @@ MS-DOS 文本文件为 Unix 风格文本的问题。为了执行这个转换，�
 这个方法就是简单地把每个字符在字母表中向前移动13位。因为移动的位数是可能的26个字符的一半，
 所以对文本再次执行这个算法，就恢复到了它最初的形式。通过 tr 命令来执行这种编码：
 >
->  _echo "secret text" | tr a-zA-Z n-za-mN-ZA-M_
+>  echo "secret text" | tr a-zA-Z n-za-mN-ZA-M
 >
 >   frperg grkg
 >
 > 再次执行相同的过程，得到翻译结果：
 >
->  _echo "frperg grkg" | tr a-zA-Z n-za-mN-ZA-M+
+>  echo "frperg grkg" | tr a-zA-Z n-za-mN-ZA-M
 >
 >  secret text
 >
@@ -1038,7 +1038,7 @@ sed 中的命令开始于单个字符。在上面的例子中，这个替换命�
 和替代字符串，斜杠字符做为分隔符。分隔符的选择是随意的。按照惯例，经常使用斜杠字符，
 但是 sed 将会接受紧随命令之后的任意字符做为分隔符。我们可以按照这种方式来执行相同的命令：
 
-    [me@linuxbox ~]$ echo "front" | sed 's\_front\_back\_'
+    [me@linuxbox ~]$ echo "front" | sed 's_front_back_'
     back
 
 通过紧跟命令之后使用下划线字符，则它变成界定符。sed 可以设置界定符的能力，使命令的可读性更强，
@@ -1244,7 +1244,7 @@ distros.txt 文件。我们以前讨论过 distros.txt 文件中的日期字段�
 
     \3-\1-\2
 
-此表达式给出了年份，一个斜杠，月份，一个斜杠，和某天。
+此表达式给出了年份，一个短划线，月份，一个短划线，和某天。
 
     sed 's/([0-9]{2})/([0-9]{2})/([0-9]{4})$/\3-\1-\2/' distros.txt
 
@@ -1331,7 +1331,7 @@ s 命令的另一个功能是使用可选标志，其跟随替代字符串。一
 
 ---
 
-注意：一个连行符由一个斜杠字符其后紧跟一个回车符组成。它们之间不允许有空白字符。
+注意：一个连行符由一个反斜杠字符其后紧跟一个回车符组成。它们之间不允许有空白字符。
 
 ---
 
@@ -1460,13 +1460,15 @@ aspell 会认为 HTML 标志的内容是拼写错误。通过包含-H（HTML）�
               <p>The quick brown fox jimped over the laxy dog.</p>
         </body>
     </html>
-    1) HTML                     4) Hamel
-    2) ht ml                    5) Hamil
-    3) ht-ml                    6) hotel
-    i) Ignore                   I) Ignore all
-    r) Replace                  R) Replace all
-    a) Add                      l) Add Lower
-    b) Abort                    x) Exit
+    1) Mi spelled              6) Misapplied
+    2) Mi-spelled              7) Miscalled
+    3) Misspelled              8) Respelled
+    4) Dispelled               9) Misspell
+    5) Spelled                 0) Misled
+    i) Ignore                  I) Ignore all
+    r) Replace                 R) Replace all
+    a) Add                     l) Add Lower
+    b) Abort                   x) Exit
     ?
 
 这个 HTML 标志被忽略了，并且只会检查文件中非标志部分的内容。在这种模式下，HTML 标志的
