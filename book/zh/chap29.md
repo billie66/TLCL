@@ -197,11 +197,11 @@ read 支持以下选送：
     #!/bin/bash
     # read-secret: input a secret pass phrase
     if read -t 10 -sp "Enter secret pass phrase > " secret_pass; then
-        echo -e "\nSecret pass phrase = '$secret_pass'"
+        echo "\nSecret pass phrase = '$secret_pass'"
     else
-        echo -e "\nInput timed out" >&2
+        echo "\nInput timed out" >&2
         exit 1
-    if
+    fi
 
 这个脚本提示用户输入一个密码，并等待输入10秒钟。如果在特定的时间内没有完成输入，
 则脚本会退出并返回一个错误。因为包含了一个 -s 选项，所以输入的密码不会出现在屏幕上。
@@ -236,21 +236,21 @@ read 支持以下选送：
     fi
 
 这个脚本提示用户输入系统中一个帐户的用户名，然后显示在文件 /etc/passwd/ 文件中关于用户记录的
-不同字段。这个脚本包含两个有趣的文本行。 第一个是：
+不同字段。这个脚本包含有趣的两行。 第一个是：
 
     file_info=$(grep "^$user_name:" $FILE)
 
 这一行把 grep 命令的输入结果赋值给变量 file_info。grep 命令使用的正则表达式
-确保用户名只会在 /etc/passwd 文件中匹配一个文本行。
+确保用户名只会在 /etc/passwd 文件中匹配一行。
 
-第二个有意思的文本行是：
+第二个有意思的一行是：
 
     IFS=":" read user pw uid gid name home shell <<< "$file_info"
 
 这一行由三部分组成：一个变量赋值，一个带有一串参数的 read 命令，和一个奇怪的新的重定向操作符。
 我们首先看一下变量赋值。
 
-Shell 允许在一个命令之前立即发生一个或多个变量赋值。这些赋值为跟随着的命令更改环境变量。
+Shell 允许在一个命令之前立即发生一个或多个变量赋值。这些赋值为之后的命令更改环境变量。
 这个赋值的影响是暂时的；只是在命令存在期间改变环境变量。在这种情况下，IFS 的值改为一个冒号。
 另外，我们也可以这样编码：
 
@@ -279,7 +279,7 @@ Shell 允许在一个命令之前立即发生一个或多个变量赋值。这�
 总是为空。为什么会这样？
 >
 > 答案与 shell 处理管道线的方式有关系。在 bash（和其它 shells，例如 sh）中，管道线
-会创建子 shell。它们是 shell 的副本，且用来执行命令的环境变量在管道线中。
+会创建子 shell。这个子 shell 是 shell 和它的环境的副本， 用来执行管线中的命令。
 上面示例中，read 命令将在子 shell 中执行。
 >
 > 在类 Unix 的系统中，子 shell 执行的时候，会为进程创建父环境的副本。当进程结束
@@ -401,7 +401,7 @@ The presence of multiple ｀exit｀ points in a program is generally a bad idea 
 
 从逻辑上讲，这个脚本被分为两部分。第一部分显示菜单和用户输入。第二部分确认用户反馈，并执行
 选择的行动。注意脚本中使用的 exit 命令。在这里，在一个行动执行之后， exit 被用来阻止脚本执行不必要的代码。
-通常在程序中出现多个 exit 代码是一个坏想法（它使程序逻辑较难理解），但是它在这个脚本中起作用。
+通常在程序中出现多个 exit 代码不是一个好主意（它使程序逻辑较难理解），但是它在这个脚本中可以使用。
 
 ### 总结归纳
 
@@ -413,7 +413,7 @@ The presence of multiple ｀exit｀ points in a program is generally a bad idea 
 
 仔细研究本章中的程序，并对程序的逻辑结构有一个完整的理解，这是非常重要的，因为即将到来的
 程序会日益复杂。作为练习，用 test 命令而不是`[[ ]]`复合命令来重新编写本章中的程序。
-提示：使用 grep 命令来计算正则表达式及其退出状态。这会是一个不错的实践。
+提示：使用 grep 命令来计算正则表达式及其退出状态。这会是一个不错的练习。
 
 ### 拓展阅读
 

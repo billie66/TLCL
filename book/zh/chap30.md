@@ -4,7 +4,7 @@ title: 流程控制：while/until 循环
 ---
 
 在前面的章节中，我们开发了菜单驱动程序，来产生各种各样的系统信息。虽然程序能够运行，
-但它仍然存在重大的可用问题。它只能执行单一的选择，然后终止。更糟糕地是，如果做了一个
+但它仍然存在重大的可用性问题。它只能执行单一的选择，然后终止。更糟糕地是，如果做了一个
 无效的选择，程序会以错误终止，而没有给用户提供再试一次的机会。如果我们能构建程序，
 以致于程序能够重复显示菜单，而且能一次由一次的选择，直到用户选择退出程序，这样的程序会更好一些。
 
@@ -82,24 +82,24 @@ while 命令的语法是：
         read -p "Enter selection [0-3] > "
         if [[ $REPLY =~ ^[0-3]$ ]]; then
             if [[ $REPLY == 1 ]]; then
-            echo "Hostname: $HOSTNAME"
-            uptime
-            sleep $DELAY
+                echo "Hostname: $HOSTNAME"
+                uptime
+                sleep $DELAY
             fi
-        if [[ $REPLY == 2 ]]; then
-            df -h
-            sleep $DELAY
-        fi
-        if [[ $REPLY == 3 ]]; then
-            if [[ $(id -u) -eq 0 ]]; then
-                echo "Home Space Utilization (All Users)"
-                du -sh /home/*
-            else
-                echo "Home Space Utilization ($USER)"
-                du -sh $HOME
+            if [[ $REPLY == 2 ]]; then
+                df -h
+                sleep $DELAY
             fi
-        sleep $DELAY
-        fi
+            if [[ $REPLY == 3 ]]; then
+                if [[ $(id -u) -eq 0 ]]; then
+                    echo "Home Space Utilization (All Users)"
+                    du -sh /home/*
+                else
+                    echo "Home Space Utilization ($USER)"
+                    du -sh $HOME
+                fi
+                sleep $DELAY
+            fi
         else
             echo "Invalid entry."
             sleep $DELAY
@@ -133,30 +133,30 @@ bash 提供了两个内部命令，它们可以用来在循环内部控制程序
         read -p "Enter selection [0-3] > "
         if [[ $REPLY =~ ^[0-3]$ ]]; then
             if [[ $REPLY == 1 ]]; then
-            echo "Hostname: $HOSTNAME"
-            uptime
-            sleep $DELAY
-            continue
-        fi
-        if [[ $REPLY == 2 ]]; then
-            df -h
-            sleep $DELAY
-            continue
-        fi
-        if [[ $REPLY == 3 ]]; then
-            if [[ $(id -u) -eq 0 ]]; then
-                echo "Home Space Utilization (All Users)"
-                du -sh /home/*
-            else
-                echo "Home Space Utilization ($USER)"
-                du -sh $HOME
+                echo "Hostname: $HOSTNAME"
+                uptime
+                sleep $DELAY
+                continue
             fi
-            sleep $DELAY
-            continue
-        fi
-        if [[ $REPLY == 0 ]]; then
-            break
-        fi
+            if [[ $REPLY == 2 ]]; then
+                df -h
+                sleep $DELAY
+                continue
+            fi
+            if [[ $REPLY == 3 ]]; then
+                if [[ $(id -u) -eq 0 ]]; then
+                    echo "Home Space Utilization (All Users)"
+                    du -sh /home/*
+                else
+                    echo "Home Space Utilization ($USER)"
+                    du -sh $HOME
+                fi
+                sleep $DELAY
+                continue
+            fi
+            if [[ $REPLY == 0 ]]; then
+                break
+            fi
         else
             echo "Invalid entry."
             sleep $DELAY
