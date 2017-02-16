@@ -1,4 +1,4 @@
----
+﻿---
 layout: book
 title: shell 环境
 ---
@@ -7,8 +7,8 @@ As we discussed earlier, the shell maintains a body of information during our sh
 session called the environment. Data stored in the environment is used by programs to
 determine facts about our configuration. While most programs use configuration files to
 store program settings, some programs will also look for values stored in the environment
-to adjust their behavior. Knowing this, we can use the environment to customize our
-shell experience.
+to adjust their behaviors. Knowing this, we may use the environment to customize our
+shell experiences.
 
 正如我们之前所讨论到的，shell 在 shell 会话中维护着大量的信息，这些信息称为 (shell) 环境。
 存储在 shell 环境中的数据被程序用来确定配置属性。虽然大多数程序用配置文件来存储程序设置，
