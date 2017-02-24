@@ -9,7 +9,7 @@ to prepare text for eventual printing, a subject that we will cover in the next 
 programs that we will cover in this chapter include:
 
 在这章中，我们继续着手于文本相关的工具，关注那些用来格式化输出的程序，而不是改变文本自身。
-这些工具通常让文本准备就绪打印，这是我们在下一章会提到的。我们在这章中会提到的工具有：
+这些工具通常让文本准备就绪打印，这是我们在下一章会提到的。我们在这章中会提到的工具有以下这些：
 
 * nl – Number lines
 
