@@ -179,7 +179,7 @@ Okay, now let's say that we wanted to change the working directory to the
 parent of /usr/bin which is /usr. We could do that two different ways.
 Either with an absolute pathname:
 
-好了，比方说我们想更改工作目录到 /usr/bin 的父目录 /usr。可以通过两种方法来实现。可以使用绝对路径名：
+好了，比方说我们想更改工作目录到 /usr/bin 的父目录 /usr。可以通过两种方法来实现。可以使用以下绝对路径名：
 
     [me@linuxbox bin]$ cd /usr
     [me@linuxbox usr]$ pwd
