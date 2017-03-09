@@ -30,7 +30,7 @@ attributes. As we have seen, we can simply type ls to see a list of files and
 subdirectories contained in the current working directory:
 
 ls 可能是用户最常使用的命令了，这自有它的道理。通过它，我们可以知道目录的内容，以及各种各样重要文件和目录的
-属性。正如我们已经见到的，只要简单的输入 ls 就能看到在当前目录下所有文件和子目录的列表。
+属性。正如我们已经见到的，只要简单地输入 ls 就能看到在当前目录下所有文件和子目录的列表。
 
     [me@linuxbox ~]$ ls
     Desktop Documents Music Pictures Publica Templates Videos
@@ -80,7 +80,7 @@ This brings us to a very important point about how most commands work. Commands 
 followed by one or more options that modify their behavior, and further, by one or more arguments,
 the items upon which the command acts. So most commands look kind of like this:
 
-我们将学习一个非常重要的知识点，大多数命令是如何工作的。命令名经常会带有一个或多个用来更正命令行为的选项，
+我们将学习一个非常重要的知识点，即大多数命令是如何工作的。命令名经常会带有一个或多个用来更正命令行为的选项，
 更进一步，选项后面会带有一个或多个参数，这些参数是命令作用的对象。所以大多数命令看起来像这样：
 
     command -options arguments
@@ -402,10 +402,10 @@ program is an editor for plain ASCII text files.
 > 文本是简单的字符与数字之间的一对一映射。它非常紧凑。五十个字符的文本翻译成五十个字节的数据。文本只是包含
 简单的字符到数字的映射，理解这点很重要。它和一些文字处理器文档不一样，比如说由微软和
 OpenOffice.org 文档 编辑器创建的文件。这些文件，和简单的 ASCII
-文件形成鲜明对比，它们包含许多非文本元素，来描述它的结构和格式。 普通的 ASCII
-文件，只包含字符本身，和一些基本的控制符，像制表符，回车符及换行符。纵观 Linux
-系统，许多文件 以文本格式存储，也有许多 Linux 工具来处理文本文件。甚至 Windows
-也承认这种文件格式的重要性。著名的 NOTEPAD.EXE 程序就是一个 ASCII
+文件形成鲜明对比，它们包含许多非文本元素，来描述它的结构和格式。 纯 ASCII
+文件只包含字符本身，和一些基本的控制符，像制表符、回车符及换行符。纵观 Linux
+系统，许多文件以文本格式存储，也有许多 Linux 工具来处理文本文件。甚至 Windows
+也承认这种文件格式的重要性。著名的 NOTEPAD.EXE 程序就是一个纯 ASCII
 文本文件编辑器。
 
 
@@ -418,7 +418,7 @@ but for now we will just look at their contents.
 
 为什么我们要查看文本文件呢？ 因为许多包含系统设置的文件（叫做配置文件），是以文本格式存储的，阅读它们
 可以更深入的了解系统是如何工作的。另外，许多系统所用到的实际程序（叫做脚本）也是以这种格式存储的。
-在随后的章节里，我们将要学习怎样编辑文本文件，为的是修改系统设置，还要学习编写自己的脚本文件，但现在我们只是看看它们的内容而已。
+在随后的章节里，我们将要学习怎样编辑文本文件以修改系统设置，还要学习编写自己的脚本文件，但现在我们只是看看它们的内容而已。
 
 The less command is used like this:
 
@@ -553,8 +553,8 @@ easy viewing of long text documents in a page by page manner. Whereas the
 more program could only page forward, the less program allows paging both
 forward and backward and has many other features as well.
 
-less 属于"页面调度器"程序类，这些程序允许通过页方式，在一页中轻松地浏览长长的文本文档。然而 more
-程序只能向前分页浏览，而 less 程序允许前后分页浏览，它还有很多其它的特性。
+less 属于"页面调度器"类程序，这些程序允许以逐页方式轻松浏览长文本文档。 more
+程序只能向前翻页，而 less 程序允许前后翻页，此外还有很多其它的特性。
 
 ### 旅行指南
 
@@ -572,8 +572,8 @@ Linux system tick. This will give you a chance to practice your navigation skill
 the things we will discover is that many of the interesting files are in plain human-
 readable text. As we go about our tour, try the following:
 
-下一步，我们将在文件系统中游玩，来了解 Linux 系统的工作原理。这会给你一个温习跳转命令的机会。
-我们会发现很多有趣的文件都是普通的可读文本。将开始旅行，做做以下练习：
+下一步，我们将在文件系统中漫游，来了解 Linux 系统的工作原理。这会给你一个温习跳转命令的机会。
+我们会发现很多有趣的文件都是纯人类可读文本。下面旅行开始，做做以下练习：
 
 1. cd into a given directory
 2. List the directory contents with ls -l
@@ -601,10 +601,10 @@ complains about something, just move on to something else. Spend some time looki
 around. The system is ours to explore. Remember, in Linux, there are no secrets!
 Table 4-4 lists just a few of the directories we can explore. Feel free to try more!
 
-在系统中游玩时，不要害怕粘花惹草。普通用户是很难把东西弄乱的。那是系统管理员的工作！
-如果一个命令抱怨一些事情，不要管它，尽管去玩别的东西。花一些时间四处走走。
+在系统中漫游时，不要害怕四处看看。普通用户是很难把东西弄乱的。那是系统管理员的工作！
+如果一个命令抱怨一些事情，不要管它，尝试一下别的东西。花一些时间四处看看。
 系统是我们自己的，尽情地探究吧。记住在 Linux 中，没有秘密存在！
-表4-4仅仅列出了一些我们可以浏览的目录。闲暇时试试看！
+表4-4仅仅列出了一些我们可以浏览的目录。随意尝试更多！
 
 <table class="multi">
 <caption class="cap">Table 4-4: Directories Found On Linux Systems </caption>
@@ -788,7 +788,7 @@ some systems, you must be the superuser to view log files.</td>
 </tr>
 <tr>
 <td valign="top">/boot</td>
-<td valign="top"><p>包含 Linux 内核，最初的 RAM 磁盘映像（系统启动时，由驱动程序所需），和
+<td valign="top"><p>包含 Linux 内核、初始 RAM 磁盘映像（用于启动时所需的驱动）和
 启动加载程序。</p>
 <p>有趣的文件：</p>
 <ul>
@@ -799,14 +799,14 @@ some systems, you must be the superuser to view log files.</td>
 </tr>
 <tr>
 <td valign="top">/dev</td>
-<td valign="top">这是一个包含设备结点的特殊目录。“一切都是文件”，也使用于设备。
-在这个目录里，内核维护着它支持的设备。</td>
+<td valign="top">这是一个包含设备结点的特殊目录。“一切都是文件”，也适用于设备。
+在这个目录里，内核维护着所有设备的列表。</td>
 </tr>
 <tr>
 <td valign="top">/etc</td>
 <td valign="top"><p>这个目录包含所有系统层面的配置文件。它也包含一系列的 shell 脚本，
-在系统启动时，这些脚本会运行每个系统服务。这个目录中的任何文件应该是可读的文本文件。</p>
-<p>有意思的文件：虽然/etc 目录中的任何文件都有趣，但这里只列出了一些我一直喜欢的文件：</p>
+在系统启动时，这些脚本会开启每个系统服务。这个目录中的任何文件应该是可读的文本文件。</p>
+<p>有趣的文件：虽然/etc 目录中的任何文件都有趣，但这里只列出了一些我一直喜欢的文件：</p>
 <ul>
 <li>/etc/crontab， 定义自动运行的任务。</li>
 <li>/etc/fstab，包含存储设备的列表，以及与他们相关的挂载点。</li>
@@ -816,12 +816,12 @@ some systems, you must be the superuser to view log files.</td>
 </tr>
 <tr>
 <td valign="top">/home</td>
-<td valign="top">在通常的配置环境下，系统会在/home 下，给每个用户分配一个目录。普通只能
-在他们自己的目录下创建文件。这个限制保护系统免受错误的用户活动破坏。</td>
+<td valign="top">在通常的配置环境下，系统会在/home 下，给每个用户分配一个目录。普通用户只能
+在自己的目录下写文件。这个限制保护系统免受错误的用户活动破坏。</td>
 </tr>
 <tr>
 <td valign="top">/lib </td>
-<td valign="top">包含核心系统程序所需的库文件。这些文件与 Windows 中的动态链接库相似。</td>
+<td valign="top">包含核心系统程序所使用的共享库文件。这些文件与 Windows 中的动态链接库相似。</td>
 </tr>
 <tr>
 <td valign="top">/lost+found </td>
@@ -831,13 +831,13 @@ some systems, you must be the superuser to view log files.</td>
 </tr>
 <tr>
 <td>/media </td>
-<td>在现在的 Linux 系统中，/media 目录会包含可移除媒体设备的挂载点，
-例如 USB 驱动器，CD-ROMs 等等。这些设备连接到计算机之后，会自动地挂载到这个目录结点下。
+<td>在现在的 Linux 系统中，/media 目录会包含可移动介质的挂载点，
+例如 USB 驱动器，CD-ROMs 等等。这些介质连接到计算机之后，会自动地挂载到这个目录结点下。
 </td>
 </tr>
 <tr>
 <td>/mnt</td>
-<td>在早些的 Linux 系统中，/mnt 目录包含可移除设备的挂载点。</td>
+<td>在早些的 Linux 系统中，/mnt 目录包含可移动介质的挂载点。</td>
 </tr>
 <tr>
 <td>/opt</td>
@@ -847,7 +847,7 @@ some systems, you must be the superuser to view log files.</td>
 <tr>
 <td>/proc</td>
 <td>这个/proc 目录很特殊。从存储在硬盘上的文件的意义上说，它不是真正的文件系统。
-反而，它是一个由 Linux 内核维护的虚拟文件系统。它所包含的文件是内核的窥视孔。这些文件是可读的，
+相反，它是一个由 Linux 内核维护的虚拟文件系统。它所包含的文件是内核的窥视孔。这些文件是可读的，
 它们会告诉你内核是怎样监管计算机的。</td>
 </tr>
 <tr>
@@ -860,7 +860,7 @@ some systems, you must be the superuser to view log files.</td>
 </tr>
 <tr>
 <td>/tmp</td>
-<td>这个/tmp 目录，是用来存储由各种程序创建的临时文件的地方。一些配置，导致系统每次
+<td>这个/tmp 目录，是用来存储由各种程序创建的临时文件的地方。一些配置导致系统每次
 重新启动时，都会清空这个目录。</td>
 </tr>
 <tr>
@@ -888,7 +888,7 @@ some systems, you must be the superuser to view log files.</td>
 <tr>
 <td>/usr/share</td>
 <td>/usr/share 目录包含许多由/usr/bin 目录中的程序使用的共享数据。
-其中包括像默认的配置文件，图标，桌面背景，音频文件等等。</td>
+其中包括像默认的配置文件、图标、桌面背景、音频文件等等。</td>
 </tr>
 <tr>
 <td>/usr/share/doc</td>
@@ -899,11 +899,11 @@ some systems, you must be the superuser to view log files.</td>
 <td>/var</td>
 <td>除了/tmp 和/home 目录之外，相对来说，目前我们看到的目录是静态的，这是说，
 它们的内容不会改变。/var 目录是可能需要改动的文件存储的地方。各种数据库，假脱机文件，
-用户邮件等等，都驻扎在这里。</td>
+用户邮件等等，都位于在这里。</td>
 </tr>
 <tr>
 <td>/var/log</td>
-<td>这个/var/log 目录包含日志文件，各种系统活动的记录。这些文件非常重要，并且
+<td>这个/var/log 目录包含日志文件、各种系统活动的记录。这些文件非常重要，并且
 应该时时监测它们。其中最重要的一个文件是/var/log/messages。注意，为了系统安全，在一些系统中，
 你必须是超级用户才能查看这些日志文件。</td></tr>
 </table>
