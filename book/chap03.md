@@ -218,14 +218,14 @@ Or, with a relative pathname:
 Now, there is something important that I must point out here. In almost all
 cases, you can omit the "./". It is implied. Typing:
 
-有一件很重要的事，我必须指出来。在几乎所有的情况下，你可以省略"./"。它是隐含地。输入：
+有一件很重要的事，我必须指出来。在几乎所有的情况下，你可以省略"./"。它是隐含的。输入：
 
     [me@linuxbox usr]$ cd bin
 
 does the same thing. In general, if you do not specify a pathname to
 something, the working directory will be assumed.
 
-实现相同的效果，如果不指定一个文件的目录，那它的工作目录会被假定为当前工作目录。
+实现相同的效果。如果不指定一个文件的目录，那它的工作目录会被假定为当前工作目录。
 
 ### 有用的快捷键
 
