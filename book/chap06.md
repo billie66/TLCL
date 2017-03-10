@@ -62,8 +62,8 @@ functions in later chapters, but for now, just be aware that they exist.
 
 ^
 1. 是一个可执行程序，就像我们所看到的位于目录/usr/bin 中的文件一样。
-属于这一类的程序，可以编译成二进制文件，诸如用 C 和 C++语言写成的程序,
-也可以是由脚本语言写成的程序，比如说 shell，perl，python，ruby，等等。
+这一类程序可以是用诸如 C 和 C++语言写成的程序编译的二进制文件,
+也可以是由诸如shell，perl，python，ruby等等脚本语言写成的程序 。
 
 2. 是一个内建于 shell 自身的命令。bash 支持若干命令，内部叫做 shell 内部命令
 (builtins)。例如，cd 命令，就是一个 shell 内部命令。
@@ -119,8 +119,8 @@ system. While this is not very common on desktop systems, it's not unusual on la
 servers. To determine the exact location of a given executable, the which command is
 used:
 
-有时候在一个操作系统中，不只安装了可执行程序的一个版本。然而在桌面系统中，这并不普遍，
-但在大型服务器中，却很平常。为了确定所给定的执行程序的准确位置，使用 which 命令：
+有时候在一个操作系统中，不只安装了可执行程序的一个版本。虽然在桌面系统中这并不普遍，
+但在大型服务器中却很平常。为了确定所给定的执行程序的准确位置，使用 which 命令：
 
     [me@linuxbox ~]$ which ls
     /bin/ls
@@ -129,8 +129,8 @@ which only works for executable programs, not builtins nor aliases that are subs
 for actual executable programs. When we try to use which on a shell builtin, for
 example, cd, we either get no response or an error message:
 
-这个命令只对可执行程序有效，不包括内部命令和命令别名，别名是真正的可执行程序的替代物。
-当我们试着使用 shell 内部命令时，例如，cd 命令，我们或者得不到回应，或者是个错误信息：
+这个命令只对可执行程序有效，不包括内建命令和命令别名，别名是真正的可执行程序的替代物。
+当我们试着使用 shell 内建命令时，例如，cd 命令，我们或者得不到回应，或者是个错误信息：
 
     [me@linuxbox ~]$ which cd
     /usr/bin/which: no cd in
@@ -148,12 +148,12 @@ available for each kind of command.
 
 知道了什么是命令，现在我们来寻找每一类命令的可得到的文档。
 
-### help － 得到 shell 内部命令的帮助文档
+### help － 得到 shell 内建命令的帮助文档
 
 bash has a built-in help facility available for each of the shell builtins. To use it, type
 “help” followed by the name of the shell builtin. For example:
 
-bash 有一个内建的帮助工具，可供每一个 shell 内部命令使用。输入“help”，接着是 shell
+bash 有一个内建的帮助工具，可供每一个 shell 内建命令使用。输入“help”，接着是 shell
 内部命令名。例如：
 
     [me@linuxbox ~]$ help cd
@@ -178,7 +178,7 @@ While the output of help for the cd commands is concise and accurate, it is by n
 means tutorial and as we can see, it also seems to mention a lot of things we haven't
 talked about yet! Don't worry. We'll get there.
 
-虽然 cd 命令的帮助文档很简洁准确，但它决不是教材。正如我们所看到的，它似乎提到了许多
+虽然 cd 命令的帮助文档很简洁准确，但它决不是教程。正如我们所看到的，它似乎提到了许多
 我们还没有谈论到的东西！不要担心，我们会学到的。
 
 ### -\-help - 显示用法信息
@@ -219,9 +219,9 @@ of each of the command's options. Man pages, however, do not usually include
 examples, and are intended as a reference, not a tutorial. As an example, let's try viewing
 the man page for the ls command:
 
-手册文档的格式有点不同，一般地包含一个标题，命令语法的纲要，命令用途的说明，
-和命令选项列表，及每个选项的说明。然而，通常手册文档并不包含实例，它打算
-作为一本参考手册，而不是教材。作为一个例子，浏览一下 ls 命令的手册文档：
+手册文档的格式有点不同，一般地包含一个标题、命令语法的纲要、命令用途的说明、
+以及每个命令选项的列表和说明。然而，手册文档通常并不包含实例，它打算
+作为一本参考手册，而不是教程。作为一个例子，浏览一下 ls 命令的手册文档：
 
     [me@linuxbox ~]$ man ls
 
@@ -236,7 +236,7 @@ commands but also system administration commands, programming interfaces, file
 formats and more. The table below describes the layout of the manual:
 
 man 所显示的参考手册，被分成几个章节，它们不仅仅包括用户命令，也包括系统管理员
-命令，程序接口，文件格式等等。下表描绘了手册的布局：
+命令、程序接口、文件格式等等。下表描绘了手册的布局：
 
 <table class="multi">
 <caption class="cap">Table 6-1: Man Page Organization</caption>
@@ -390,7 +390,7 @@ over eighty pages long and extremely dense, and its structure makes absolutely n
 sense to a new user.
 >
 > 正如我们所看到的，Linux 和类 Unix 的系统提供的手册页，只是打算作为参考手册使用，
-而不是教材。许多手册页都很难阅读，但是我认为由于阅读难度而能拿到特等奖的手册页应该是 bash
+而不是教程。许多手册页都很难阅读，但是我认为由于阅读难度而能拿到特等奖的手册页应该是 bash
 手册页。因为我正在为这本书做我的研究，所以我很仔细地浏览了整个 bash 手册，为的是确保我讲述了
 大部分的 bash 主题。当把 bash 参考手册整个打印出来，其篇幅有八十多页且内容极其紧密，
 但对于初学者来说，其结构安排毫无意义。
