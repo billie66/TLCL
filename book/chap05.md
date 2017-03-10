@@ -39,7 +39,7 @@ file from one directory to another, cut and paste files, delete files, etc. So w
 old command line programs?
 
 现在，坦诚地说，用图形文件管理器来完成一些由这些命令执行的任务会更容易些。使用文件管理器，
-我们可以把文件从一个目录拖放到另一个目录，剪贴和粘贴文件，删除文件等等。那么，
+我们可以把文件从一个目录拖放到另一个目录、剪贴和粘贴文件、删除文件等等。那么，
 为什么还使用早期的命令行程序呢？
 
 The answer is power and flexibility. While it is easy to perform simple file
@@ -287,7 +287,7 @@ numerals</td>
 Wildcards can be used with any command that accepts filenames as arguments,
 but we’ll talk more about that in Chapter 8.
 
-接受文件名作为参数的任何命令，都可以使用通配符，我们会在第八章更深入的谈到这个知识点。
+接受文件名作为参数的任何命令，都可以使用通配符，我们会在第八章更深入地谈到这个知识点。
 
 > Character Ranges
 >
@@ -728,7 +728,7 @@ valign="top">在删除已存在的文件前，提示用户确认信息。
 </tr>
 <tr>
 <td valign="top">-f, --force</td>
-<td valign="top">忽视不存在的文件，不显示提示信息。这选项颠覆了“--interactive”选项。</td>
+<td valign="top">忽视不存在的文件，不显示提示信息。这选项覆盖了“--interactive”选项。</td>
 </tr>
 <tr>
 <td valign="top">-v, --verbose</td>
@@ -976,7 +976,7 @@ period. So now if we perform an ls, we will see our file:
 
 Now, just for fun, let's repeat the copy using the “-v” option (verbose) to see what it does:
 
-现在，仅仅是为了高兴，重复操作复制命令，使用"-v"选项（唠叨），看一个它的作用：
+现在，仅仅是为了高兴，重复操作复制命令，使用"-v"选项（详细），看一个它的作用：
 
     [me@linuxbox playground]$ cp -v /etc/passwd .
     `/etc/passwd' -> `./passwd'
@@ -1300,9 +1300,9 @@ on the playground exercise by adding more files and directories, using wildcards
 specify files for various operations. The concept of links is a little confusing at first, but
 take the time to learn how they work. They can be a real lifesaver.
 
-在这一章中，我们已经研究了许多基础知识。我们得花费一些时间来全面的理解。
-反复练习 playground 例题，直到你觉得它有意义。能够良好的理解基本文件操作
-命令和通配符，非常重要。空闲时，通过添加文件和目录来拓展 playground 练习，
+在这一章中，我们已经研究了许多基础知识。我们得花费一些时间来全面地理解。
+反复练习 playground 例题，直到你觉得它有意义。能够良好地理解基本文件操作
+命令和通配符，非常重要。随意通过添加文件和目录来拓展 playground 练习，
 使用通配符来为各种各样的操作命令指定文件。关于链接的概念，在刚开始接触
 时会觉得有点迷惑，花些时间来学习它们是怎样工作的。它们能成为真正的救星。
 
