@@ -30,7 +30,7 @@ computer. The computer would support many users at the same time.
 
 Linux 系统的多用户性能，不是最近的“创新”，而是一种特性，它深深地嵌入到了 Linux 操作系统的
 设计过程中。想一下 Unix 系统的诞生环境，这会很有意义。多年前，在个人电脑出现之前，计算机
-都是大型的，昂贵的，集中化的。一个典型的大学计算机系统，例如，是由坐落在一座建筑中的一台
+都是大型、昂贵的、集中化的。例如一个典型的大学计算机系统，是由坐落在一座建筑中的一台
 大型中央计算机和许多散布在校园各处的终端机组成，每个终端都连接到这台大型中央计算机。
 这台计算机可以同时支持很多用户。
 
@@ -78,7 +78,7 @@ the following commands:
 
 * passwd – 更改用户密码
 
-### 拥有者，组成员，和其他人
+### 拥有者、组成员和其他人
 
 When we were exploring the system back in Chapter 4, we may have encountered a
 problem when trying to examine a file such as /etc/shadow:
@@ -103,7 +103,7 @@ access rights to everybody, which in Unix terms is referred to as the world. To 
 information about your identity, use the id command:
 
 在 Unix 安全模型中，一个用户可能拥有文件和目录。当一个用户拥有一个文件或目录时，
-用户对这个文件或目录的访问权限拥有控制权。用户，反过来，又属于一个由一个或多个
+用户对这个文件或目录的访问权限拥有控制权。用户反过来又属于一个由一个或多个
 用户组成的用户组，用户组成员由文件和目录的所有者授予对文件和目录的访问权限。除了
 对一个用户组授予权限之外，文件所有者可能会给每个人一些权限，在 Unix 术语中，每个人
 是指整个世界。可以用 id 命令，来找到关于你自己身份的信息：
@@ -148,7 +148,7 @@ accounts, there are accounts for the superuser (uid 0) and various other system 
 那么这些信息来源于哪里呢？像 Linux 系统中的许多东西一样，来自一系列的文本文件。用户帐户
 定义在/etc/passwd 文件里面，用户组定义在/etc/group 文件里面。当用户帐户和用户组创建以后，
 这些文件随着文件/etc/shadow 的变动而修改，文件/etc/shadow 包含了关于用户密码的信息。
-对于每个用户帐号，文件/etc/passwd 定义了用户（登录）名，uid，gid，帐号的真实姓名，家目录，
+对于每个用户帐号，文件/etc/passwd 定义了用户（登录）名、uid、gid、帐号的真实姓名、家目录
 和登录 shell。如果你查看一下文件/etc/passwd 和文件/etc/group 的内容，你会注意到除了普通
 用户帐号之外，还有超级用户（uid 0）帐号，和各种各样的系统用户。
 
@@ -165,13 +165,13 @@ the user. This makes certain types of permission assignment easier.
 会创建一个独一无二的，只有一个成员的用户组，这个用户组与用户同名。这样使某种类型的
 权限分配更容易些。
 
-### 读取，写入，和执行
+### 读取、写入和执行
 
 Access rights to files and directories are defined in terms of read access, write access, and
 execution access. If we look at the output of the ls command, we can get some clue as
 to how this is implemented:
 
-对于文件和目录的访问权力是根据读访问，写访问，和执行访问来定义的。如果我们看一下 ls
+对于文件和目录的访问权力是根据读访问、写访问和执行访问来定义的。如果我们看一下 ls
 命令的输出结果，我们能得到一些线索，这是怎样实现的：
 
     [me@linuxbox ~]$ > foo.txt
@@ -238,12 +238,12 @@ data in blocks, such as a hard drive or CD-ROM drive. </td>
 </tr>
 <tr>
 <td valign="top">c</td>
-<td valign="top"> 一个字符设备文件。这种文件类型是指按照字节流，来处理数据的设备。
-比如说终端机，或者调制解调器</td>
+<td valign="top"> 一个字符设备文件。这种文件类型是指按照字节流来处理数据的设备。
+比如说终端机或者调制解调器</td>
 </tr>
 <tr>
 <td valign="top">b</td>
-<td valign="top"> 一个块设备文件。这种文件类型是指按照数据块，来处理数据的设备，例如一个硬盘，或者 CD-ROM 盘。 </td>
+<td valign="top"> 一个块设备文件。这种文件类型是指按照数据块来处理数据的设备，例如一个硬盘或者 CD-ROM 盘。 </td>
 </tr>
 </table>
 
@@ -251,7 +251,7 @@ The remaining nine characters of the file attributes, called the file mode, repr
 read, write, and execute permissions for the file's owner, the file's group owner, and
 everybody else:
 
-剩下的九个字符，叫做文件模式，代表着文件所有者，文件组所有者，和其他人的读，写，执行权限。
+剩下的九个字符叫做文件模式，代表着文件所有者、文件组所有者和其他人的读、写和执行权限。
 
 ![](images/101.png) \\
 图 1: 权限属性
@@ -260,7 +260,7 @@ everybody else:
 When set, the r, w, and x mode attributes have the following effect on files and
 directories:
 
-当设置文件模式后，r，w，x 模式属性对文件和目录会产生以下影响：
+当设置文件模式后，r、w和x 模式属性对文件和目录会产生以下影响：
 
 <table class="multi">
 <caption class="cap">Table 10-2: Permission Attributes</caption>
@@ -403,7 +403,7 @@ representation, or symbolic representation. We will cover octal number represent
 first.
 
 更改文件或目录的模式（权限），可以利用 chmod 命令。注意只有文件的所有者或者超级用户才
-能更改文件或目录的模式。chmod 命令支持两种不同的方法来改变文件模式：八进制数字表示法，或
+能更改文件或目录的模式。chmod 命令支持两种不同的方法来改变文件模式：八进制数字表示法或
 符号表示法。首先我们讨论一下八进制数字表示法。
 
 
@@ -419,7 +419,7 @@ system. Computers, on the other hand, were born with only one finger
 and thus do all their counting in binary (base 2). Their number system only
 has two numerals, zero and one. So in binary, counting looks like this:
 >
-> 八进制（以8为基数），和她的亲戚，十六进制（以16为基数）都是数字系统，通常
+> 八进制（以8为基数）及其亲戚十六进制（以16为基数）都是数字系统，通常
 被用来表示计算机中的数字。我们人类，因为这个事实（或者至少大多数人）天生具有
 十个手指，利用以10为基数的数字系统来计数。计算机，从另一方面讲，生来只有一个
 手指，因此它以二进制（以2为基数）来计数。它们的数字系统只有两个数值，0和1。
@@ -502,7 +502,7 @@ scheme used to store the file mode. This table shows what we mean:
 By using three octal digits, we can set the file mode for the owner, group owner, and
 world:
 
-通过使用3个八进制数字，我们能够设置文件所有者，用户组，和其他人的权限：
+通过使用3个八进制数字，我们能够设置文件所有者、用户组和其他人的权限：
 
     [me@linuxbox ~]$ > foo.txt
     [me@linuxbox ~]$ ls -l foo.txt
@@ -526,7 +526,7 @@ and what permission will be set. To specify who is affected, a combination of th
 characters “u”, “g”, “o”, and “a” is used as follows:
 
 chmod 命令支持一种符号表示法，来指定文件模式。符号表示法分为三部分：更改会影响谁，
-要执行哪个操作，要设置哪种权限。通过字符 “u”，“g”，“o”，和 “a” 的组合来指定
+要执行哪个操作，要设置哪种权限。通过字符 “u”、“g”、“o”和 “a” 的组合来指定
 要影响的对象，如下所示：
 
 <table class="multi">
@@ -580,7 +580,7 @@ are to be removed.
 Permissions are specified with the “r”, “w”, and “x” characters. Here are some examples
 of symbolic notation:
 
-权限由 “r”，“w”，和 “x” 来指定。这里是一些符号表示法的实例：
+权限由 “r”、“w”和 “x” 来指定。这里是一些符号表示法的实例：
 
 <table class="multi">
 <caption class="cap">Table 10-5: chmod Symbolic Notation Examples</caption>
@@ -678,7 +678,7 @@ Here we can see the settings for the owner, group, and world. In KDE, clicking o
 the mode attributes individually. Another victory for understanding brought to us by the
 command line!
 
-从这个对话框中，我们看到可以设置文件所有者，用户组，和其他人的访问权限。
+从这个对话框中，我们看到可以设置文件所有者、用户组和其他人的访问权限。
 在 KDE 中，右击"Advanced Permissions"按钮，会打开另一个对话框，这个对话框允许
 你单独设置各个模式属性。这也可以通过命令行来理解！
 
@@ -778,8 +778,8 @@ in addition to read, write, and execute permission, there are some other, less u
 permission settings.
 >
 > 虽然我们通常看到一个八进制的权限掩码用三位数字来表示，但是从技术层面上来讲，
-用四位数字来表示它更确切些。为什么呢？因为，除了读取，写入，和执行权限之外，还有
-其它的，较少用到的权限设置。
+用四位数字来表示它更确切些。为什么呢？因为除了读取、写入和执行权限之外，还有
+其它较少用到的权限设置。
 >
 > The first of these is the setuid bit (octal 4000). When applied to an executable
 file, it sets the effective user ID from that of real user (the user actually running
@@ -791,7 +791,7 @@ would normally be prohibited from accessing. Clearly, because this raises
 security concerns, number of setuid programs must be held to an absolute
 minimum.
 >
-> 其中之一是 setuid 位（八进制4000)。当应用到一个可执行文件时，它把有效用户 ID
+> 其中之一是 setuid 位（八进制4000）。当应用到一个可执行文件时，它把有效用户 ID
 从真正的用户（实际运行程序的用户）设置成程序所有者的 ID。这种操作通常会应用到
 一些由超级用户所拥有的程序。当一个普通用户运行一个程序，这个程序由根用户(root)
 所有，并且设置了 setuid 位，这个程序运行时具有超级用户的特权，这样程序就可以
@@ -898,7 +898,7 @@ use. Your distribution probably includes both commands, but its configuration wi
 either one or the other. We'll start with su.
 
 我们将跳过第一种方法，因为我们知道怎样使用它，并且它缺乏其它两种方法的方便性。
-在我们自己的 shell 会话中，su 命令允许你，假定为另一个用户的身份，以这个用户的 ID
+在我们自己的 shell 会话中，su 命令允许你假定为另一个用户的身份，以这个用户的 ID
 启动一个新的 shell 会话，或者是以这个用户的身份来发布一个命令。sudo 命令允许一个管理员
 设置一个叫做/etc/sudoers 的配置文件，并且定义了一些具体命令，在假定的身份下，特殊用户
 可以执行这些命令。选择使用哪个命令，很大程度上是由你使用的 Linux 发行版来决定的。
@@ -1124,7 +1124,7 @@ changes the group owner to the login group of user bob.</td>
 </tr>
 <tr>
 <td valign="top">bob:</td>
-<td valign="top"> 文件所有者改为用户 bob，文件用户组改为，用户 bob 登录系统时，所属的用户组。</td>
+<td valign="top"> 文件所有者改为用户 bob，文件用户组改为用户 bob 登录系统时所属的用户组。</td>
 </tr>
 </table>
 
@@ -1133,7 +1133,7 @@ tony, who does not. User janet wants to copy a file from her home directory to t
 home directory of user tony. Since user janet wants tony to be able to edit the file,
 janet changes the ownership of the copied file from janet to tony:
 
-比方说，我们有两个用户，janet，拥有超级用户访问权限，而 tony 没有。用户 jant 想要从
+比方说，我们有两个用户，janet拥有超级用户访问权限，而 tony 没有。用户 jant 想要从
 她的家目录复制一个文件到用户 tony 的家目录。因为用户 jant 想要 tony 能够编辑这个文件，
 janet 把这个文件的所有者更改为 tony:
 
@@ -1180,7 +1180,7 @@ up a shared   directory. Let's imagine that we have two users named “bill” a
 directory, where they will each store their music files as Ogg Vorbis or MP3.
 User bill has access to superuser privileges via sudo.
 
-到目前为止，我们已经知道了，权限这类东西是怎样工作的，现在是时候炫耀一下了。我们
+到目前为止，我们已经知道了权限这类东西是怎样工作的，现在是时候炫耀一下了。我们
 将展示一个常见问题的解决方案，这个问题是如何设置一个共享目录。假想我们有两个用户，
 他们分别是 "bill" 和 "karen"。他们都有音乐 CD 收藏品，也愿意设置一个共享目录，在这个
 共享目录中，他们分别以 Ogg Vorbis 或 MP3 的格式来存储他们的音乐文件。通过 sudo 命令，
@@ -1325,8 +1325,8 @@ The passwd command will try to enforce use of “strong” passwords. This means
 will refuse to accept passwords that are too short, too similar to previous passwords, are
 dictionary words, or too easily guessed:
 
-passwd 命令将会试着强迫你使用“强”密码。这意味着，它会拒绝接受太短的密码，与先前相似的密码，
-字典中的单词作为密码，或者是太容易猜到的密码：
+passwd 命令将会试着强迫你使用“强”密码。这意味着它会拒绝接受太短的密码、与先前相似的密码、
+字典中的单词作为密码或者是太容易猜到的密码：
 
     [me@linuxbox ~]$ passwd
     (current) UNIX password:
