@@ -45,7 +45,7 @@ we will introduce the following commands:
 * tail - 输出文件最后一部分
 * tee - 从标准输入读取数据，并同时写到标准输出和文件
 
-### 标准输入，输出，和错误
+### 标准输入、输出和错误
 
 Many of the programs that we have used so far produce output of some kind. This output
 often consists of two types. First, we have the program's results; that is, the data the
@@ -75,8 +75,8 @@ I/O redirection allows us to change where output goes and where input comes from
 Normally, output goes to the screen and input comes from the keyboard, but with I/O
 redirection, we can change that.
 
-I/O 重定向允许我们可以更改输出走向和输入来向。一般地，输出送到屏幕，输入来自键盘，
-但是通过 I/O 重定向，我们可以改变输入输出方向。
+I/O 重定向允许我们更改输出地点和输入来源。一般地，输出送到屏幕，输入来自键盘，
+但是通过 I/O 重定向，我们可以做出改变。
 
 ### 重定向标准输出
 
@@ -86,8 +86,8 @@ the name of the file. Why would we want to do this? It's often useful to store t
 of a command in a file. For example, we could tell the shell to send the output of the ls
 command to the file ls-output.txt instead of the screen:
 
-I/O 重定向允许我们来重定义标准输出送到哪里。重定向标准输出到另一个文件除了屏幕，我们使用
-">" 重定向符，其后跟着文件名。为什么我们要这样做呢？因为有时候把一个命令的运行结果存储到
+I/O 重定向允许我们来重定义标准输出的地点。我们使用 ">" 重定向符后接文件名来重定向标准输出到除屏幕
+以外的另一个文件。为什么我们要这样做呢？因为有时候把一个命令的运行结果存储到
 一个文件很有用处。例如，我们可以告诉 shell 把 ls 命令的运行结果输送到文件 ls-output.txt 中去，
 由文件代替屏幕。
 
@@ -192,10 +192,10 @@ descriptors zero, one and two, respectively. The shell provides a notation for r
 files using the file descriptor number. Since standard error is the same as file descriptor
 number two, we can redirect standard error with this notation:
 
-重定向标准错误缺乏专用的重定向操作符。重定向标准错误，我们必须参考它的文件描述符。
-一个程序可以在几个编号的文件流中的任一个上产生输出。然而我们必须把这些文件流的前
-三个看作标准输入，输出和错误，shell 内部参考它们为文件描述符0，1和2，各自地。shell 提供
-了一种表示法来重定向文件，使用文件描述符。因为标准错误和文件描述符2一样，我们用这种
+重定向标准错误缺乏专用的重定向操作符。为了重定向标准错误，我们必须参考其文件描述符。
+一个程序可以在几个编号的文件流中的任一个上产生输出。虽然我们已经将这些文件流的前
+三个称作标准输入、输出和错误，shell 内部分别将其称为文件描述符0、1和2。shell 使用文件描述符提供
+了一种表示法来重定向文件。因为标准错误和文件描述符2一样，我们用这种
 表示法来重定向标准错误：
 
     [me@linuxbox ~]$ ls -l /bin/usr 2> ls-error.txt
@@ -269,8 +269,8 @@ file is a system device called a bit bucket which accepts input and does nothing
 To suppress error messages from a command, we do this:
 
 有时候“沉默是金”，我们不想要一个命令的输出结果，只想把它们扔掉。这种情况
-尤其适用于错误和状态信息。系统为我们提供了解决问题的方法，通过重定向输出结果
-到一个特殊的叫做"/dev/null"的文件。这个文件是系统设备，叫做位存储桶，它可以
+尤其适用于错误和状态信息。系统通过重定向输出结果到一个叫做"/dev/null"的特殊文件，
+为我们提供了解决问题的方法。这个文件是系统设备，叫做位存储桶，它可以
 接受输入，并且对输入不做任何处理。为了隐瞒命令错误信息，我们这样做：
 
     [me@linuxbox ~]$ ls -l /bin/usr 2> /dev/null
@@ -353,7 +353,7 @@ doing exactly what it's supposed to.
 If cat is not given any arguments, it reads from standard input and since standard input
 is, by default, attached to the keyboard, it's waiting for us to type something! Try this:
 
-如果 cat 没有给出任何参数，它会从标准输入读入数据，因为标准输入，默认情况下，连接到键盘。
+如果 cat 没有给出任何参数，它会从标准输入读入数据，又因为标准输入默认情况下连接到键盘，
 它正在等待我们输入数据！试试这个：
 
     [me@linuxbox ~]$ cat
@@ -422,9 +422,8 @@ The ability of commands to read data from standard input and send to standard ou
 utilized by a shell feature called pipelines. Using the pipe operator “|” (vertical bar), the
 standard output of one command can be piped into the standard input of another:
 
-命令可以从标准输入读取数据，然后再把数据输送到标准输出，命令的这种能力被
-一个 shell 特性所利用，这个特性叫做管道线。使用管道操作符"|"（竖杠），一个命令的
-标准输出可以管道到另一个命令的标准输入：
+命令从标准输入读取数据并输送到标准输出的能力被一个称为管道线的 shell 特性所利用。
+使用管道操作符"|"（竖杠），一个命令的标准输出可以通过管道送至另一个命令的标准输入：
 
     command1 | command2
 
@@ -491,12 +490,12 @@ uniq like so:
 
     [me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq -d | less
 
-### wc － 打印行，字和字节数
+### wc － 打印行数、字数和字节数
 
 The wc (word count) command is used to display the number of lines, words, and bytes
 contained in files. For example:
 
-wc（字计数）命令是用来显示文件所包含的行，字和字节数。例如：
+wc（字计数）命令是用来显示文件所包含的行数、字数和字节数。例如：
 
     [me@linuxbox ~]$ wc ls-output.txt
     7902 64566 503634 ls-output.txt
@@ -583,7 +582,7 @@ will look at the messages file in /var/log. Superuser privileges are required to
 this on some Linux distributions, since the /var/log/messages file may contain
 security information:
 
-tail 有一个选项允许你实时的浏览文件。当观察日志文件的进展时，这很有用，因为
+tail 有一个选项允许你实时地浏览文件。当观察日志文件的进展时，这很有用，因为
 它们同时在被写入。在以下的例子里，我们要查看目录/var/log 里面的信息文件。在
 一些 Linux 发行版中，要求有超级用户权限才能阅读这些文件，因为文件/var/log/messages
 可能包含安全信息。
@@ -670,7 +669,7 @@ the store, as you already have everything you need. The Erector Set takes on the
 shape of your imagination. It does what you want.
 >
 > 另一方面，Linux 就像一个全世界上最大的建造模型。你打开它，发现它只是一个巨大的
-部件集合。有许多钢支柱，螺钉，螺母，齿轮，滑轮，发动机，和一些怎样来建造它的说明书。
+部件集合。有许多钢支柱、螺钉、螺母、齿轮、滑轮、发动机和一些怎样来建造它的说明书。
 然后你开始摆弄它。你建造了一个又一个样板模型。过了一会儿，你发现你要建造自己的模型。
 你不必返回商店，因为你已经拥有了你需要的一切。建造模型以你构想的形状为模板，搭建
 你想要的模型。

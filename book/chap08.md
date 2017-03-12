@@ -25,11 +25,11 @@ demonstrate what we mean by this, let's take a look at the echo command. echo is
 shell builtin that performs a very simple task. It prints out its text arguments on standard
 output:
 
-每当你输入一个命令，然后按下 enter 键后，bash 会在执行你的命令之前对输入
+每当你输入一个命令并按下 enter 键，bash 会在执行你的命令之前对输入
 的字符完成几个步骤的处理。我们已经见过几个例子：例如一个简单的字符序列"\*",
 对 shell 来说有着多么丰富的涵义。这背后的的过程叫做（字符）展开。通过展开，
 你输入的字符，在 shell 对它起作用之前，会展开成为别的字符。为了说明这一点
-，让我们看一看 echo 命令。echo 是一个 shell 内部命令，可以完成非常简单的任务。
+，让我们看一看 echo 命令。echo 是一个 shell 内建命令，可以完成非常简单的任务。
 它将它的文本参数打印到标准输出中。
 
     [me@linuxbox ~]$ echo this is a test
@@ -304,7 +304,7 @@ integer division:
 
 Arithmetic expansion is covered in greater detail in Chapter 35.
 
-在35章会更深入的讨论算术表达式的内容。
+在35章会更深入地讨论算术表达式的内容。
 
 ### 花括号展开
 
@@ -382,9 +382,8 @@ properly called variables, are available for your examination. For example, the 
 named “USER” contains your user name. To invoke parameter expansion and reveal the
 contents of USER you would do this:
 
-在这一章我们将会简单地介绍参数展开，只是皮毛而已。后续章节我们会广泛地
-讨论参数展开。这个特性在 shell 脚本中比直接在命令行中更有用。它的许多性能
-和系统存储小块数据，并给每块数据命名的能力有关系。许多像这样的小块数据，
+在这一章我们将会简单介绍参数展开，但会在后续章节中进行详细讨论。这个特性在 shell 脚本中比直接在命令行中更有用。
+它的许多功能和系统存储小块数据，并给每块数据命名的能力有关系。许多像这样的小块数据，
 更恰当的称呼应该是变量，可供你方便地检查它们。例如，叫做"USER"的变量包含你的
 用户名。可以这样做来调用参数，并查看 USER 中的内容，：
 
@@ -496,8 +495,8 @@ be treated as two separate arguments rather than the desired single argument:
 
 我们将要看一下引用的第一种类型，双引号。如果你把文本放在双引号中，
 shell 使用的特殊字符，都失去它们的特殊含义，被当作普通字符来看待。
-有几个例外： $，\\ (反斜杠），和 \`（倒引号）。这意味着单词分割，路径名展开，
-波浪线展开，和花括号展开都将失效，然而参数展开，算术展开，和命令替换
+有几个例外： $，\\ (反斜杠），和 \`（倒引号）。这意味着单词分割、路径名展开、
+波浪线展开和花括号展开都将失效，然而参数展开、算术展开和命令替换
 仍然执行。使用双引号，我们可以处理包含空格的文件名。比方说我们是不幸的
 名为 _two words.txt_ 文件的受害者。如果我们试图在命令行中使用这个
 文件，单词分割机制会导致这个文件名被看作两个独自的参数，而不是所期望
@@ -524,7 +523,7 @@ There! Now we don't have to keep typing those pesky double quotes.
 Remember, parameter expansion, arithmetic expansion, and command substitution still
 take place within double quotes:
 
-记住，在双引号中，参数展开，算术表达式展开，和命令替换仍然有效：
+记住，在双引号中，参数展开、算术表达式展开和命令替换仍然有效：
 
     [me@linuxbox ~]$ echo "$USER $((2+2)) $(cal)"
     me 4    February 2008
@@ -566,7 +565,7 @@ contains a command followed by a single argument.
 The fact that newlines are considered delimiters by the word-splitting mechanism causes
 an interesting, albeit subtle, effect on command substitution. Consider the following:
 
-事实上，单词分割机制把换行符看作界定符，对命令替换产生了一个，虽然微妙，但有趣的影响。
+事实上，单词分割机制把换行符看作界定符，对命令替换产生了一个虽然微妙但有趣的影响。
 考虑下面的例子：
 
     [me@linuxbox ~]$ echo $(cal)
