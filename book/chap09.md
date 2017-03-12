@@ -14,7 +14,7 @@ efficient.
 
 开玩笑地说，我经常把 Unix 描述为“这个操作系统是为喜欢敲键盘的人们服务的。”
 当然，Unix 甚至还有一个命令行这件事证明了我所说的话。但是命令行用户不喜欢敲入
-那么多字。那又为什么如此多的命令会有这样简短的命令名，像cp，ls，mv，和 rm？事实上
+那么多字。要不什么如此多的命令会有这样简短的命令名，像cp、ls、mv和 rm？事实上
 ，命令行最为珍视的目标之一就是懒惰；用最少的击键次数来完成最多的工作。另一个
 目标是你的手指永远不必离开键盘，永不触摸鼠标。在这一章节，我们将看一下 bash 特性
 ，这些特性使键盘使用起来更加迅速，更加高效。
@@ -40,7 +40,7 @@ features. Think of these as additional tools that we can employ in our work. It�
 important to learn all of them, but many of them are very useful. Pick and choose as
 desired.
 
-Bash 使用了一个名为 Readline 的库（共享的线程集合，可以被不同的程序使用），
+Bash 使用了一个名为 Readline 的库（共享的例程集合，可以被不同的程序使用），
 来实现命令行编辑。我们已经看到一些例子。我们知道，例如，箭头按键可以移动光标，
 此外还有许多特性。想想这些额外的工具，我们可以在工作中使用。学会所有的特性
 并不重要，但许多特性非常有帮助。选择自己需要的特性。
@@ -344,7 +344,7 @@ the directory. For completion to be successful, the “clue” you give it has t
 unambiguous. If we go further:
 
 没有补全，只是嘟嘟响。因为"D"不止匹配目录中的一个条目。为了自动补全执行成功，
-你给它的"线索"必须不模棱两可。如果我们继续输入：
+你给它的"线索"不能模棱两可。如果我们继续输入：
 
     [me@linuxbox ~]$ ls Do
 
@@ -364,9 +364,9 @@ completion will also work on variables (if the beginning of the word is a “$�
 host names (if the beginning of the word is “@”). Host name completion only works for
 host names listed in /etc/hosts.
 
-这个实例展示了路径名自动补全，这是最常用的形式。自动补全也能对变量起作用（如果
-字的开头是一个"$"），用户名字（单词以"~"开始），命令（如果单词是一行的第一个单词），
-和主机名（如果单词的开头是"@"）。主机名自动补全只对包含在文件/etc/hosts 中的主机名有效。
+这个实例展示了路径名自动补全，这是最常用的形式。自动补全也能对变量（如果
+字的开头是一个"$"）、用户名字（单词以"~"开始）、命令（如果单词是一行的第一个单词）
+和主机名（如果单词的开头是"@"）起作用。主机名自动补全只对包含在文件/etc/hosts 中的主机名有效。
 
 There are a number of control and meta key sequences that are associated with
 completion:
