@@ -23,7 +23,7 @@ perform amazing feats, though their full value may not be immediately apparent.
 What Are Regular Expressions?
 
 我们已经浏览了许多由命令行提供的功能和工具，我们遇到了一些真正神秘的 shell 功能和命令，
-比如 shell 展开和引用，键盘快捷键，和命令历史，更不用说 vi 编辑器了。正则表达式延续了
+比如 shell 展开和引用、键盘快捷键和命令历史，更不用说 vi 编辑器了。正则表达式延续了
 这种“传统”，而且有可能（备受争议地）是其中最神秘的功能。这并不是说花费时间来学习它们
 是不值得的，而是恰恰相反。虽然它们的全部价值可能不能立即显现，但是较强理解这些功能
 使我们能够表演令人惊奇的技艺。什么是正则表达式？
@@ -71,13 +71,13 @@ This will list all the files in the /usr/bin directory whose names contain the s
 
 The grep program accepts options and arguments this way:
 
-这个 grep 程序以这样的方式来接受选项和参数：
+ grep 程序以这样的方式来接受选项和参数：
 
     grep [options] regex [file...]
 
 where regex is a regular expression.
 
-这里的 regx 是指一个正则表达式。
+这里的 regex 是指一个正则表达式。
 
 Here is a list of the commonly used grep options:
 
@@ -219,7 +219,7 @@ include metacharacters that are used to specify more complex matches.
 Regular expression metacharacters consist of the following:
 
 它可能看起来不明显，但是我们的 grep 程序一直使用了正则表达式，虽然是非常简单的例子。
-这个正则表达式“bzip”意味着，匹配项所在行至少包含4个字符，并且按照字符 “b”, “z”, “i”, 和 “p”的顺序
+这个正则表达式“bzip”意味着，匹配项所在行至少包含4个字符，并且按照字符 “b”、“z”、 “i” 和 “p”的顺序
 出现在匹配行的某处，字符之间没有其它的字符。字符串“bzip”中的所有字符都是原义字符，因为
 它们匹配本身。除了原义字符之外，正则表达式也可能包含元字符，其被用来指定更复杂的匹配项。
 正则表达式元字符由以下字符组成：
@@ -316,7 +316,7 @@ the end of the line, and on a line where it is at both the beginning and the end
 (i.e., by itself on the line.) Note that the regular expression ‘^$’ (a beginning and an end
 with nothing in between) will match blank lines.
 
-这里我们分别在文件列表中搜索行首，行尾以及行首和行尾同时包含字符串“zip”（例如，zip 独占一行）的匹配行。
+这里我们分别在文件列表中搜索行首、行尾以及行首和行尾同时包含字符串“zip”（例如，zip 独占一行）的匹配行。
 注意正则表达式‘^$’（行首和行尾之间没有字符）会匹配空行。
 
 > A Crossword Puzzle Helper
@@ -366,8 +366,8 @@ characters that would otherwise be interpreted as metacharacters) to be matched.
 example, using a two character set:
 
 除了能够在正则表达式中的给定位置匹配任意字符之外，通过使用中括号表达式，
-我们也能够从一个指定的字符集合中匹配一个单个的字符。通过中括号表达式，我们能够指定
-一个字符集合（包含在不加中括号的情况下会被解释为元字符的字符）来被匹配。在这个例子里，使用了一个两个字符的集合：
+我们也能够从一个指定的字符集合中匹配单个字符。通过中括号表达式，我们能够指定
+一个待匹配字符集合（包含在不加中括号的情况下会被解释为元字符的字符）。在这个例子里，使用了一个两个字符的集合：
 
     [me@linuxbox ~]$ grep -h '[bg]zip' dirlist*.txt
     bzip2
@@ -394,7 +394,7 @@ If the first character in a bracket expression is a caret (^), the remaining cha
 taken to be a set of characters that must not be present at the given character position. We
 do this by modifying our previous example:
 
-如果在正则表示式中的第一个字符是一个插入字符，则剩余的字符被看作是不会在给定的字符位置出现的
+如果在中括号表示式中的第一个字符是一个插入字符，则剩余的字符被看作是不会在给定的字符位置出现的
 字符集合。通过修改之前的例子，我们试验一下：
 
     [me@linuxbox ~]$ grep -h '[^bg]zip' dirlist*.txt
@@ -421,7 +421,7 @@ The caret character only invokes negation if it is the first character within a 
 expression; otherwise, it loses its special meaning and becomes an ordinary character in
 the set.
 
-这个插入字符如果是中括号表达式中的第一个字符的时候，才会唤醒否定功能；否则，它会失去
+插入字符如果是中括号表达式中的第一个字符的时候，才会唤醒否定功能；否则，它会失去
 它的特殊含义，变成字符集中的一个普通字符。
 
 ### 传统的字符区域
@@ -536,7 +536,7 @@ contain the lowercase letters and yet more punctuation symbols. Based on this
 arrangement, systems using ASCII used a `collation order` that looked like this:
 
 追溯到 Unix 刚刚开发的时候，它只知道 ASCII 字符，并且这个特性反映了事实。在 ASCII 中，前32个字符
-（数字0－31）都是控制码（如 tabs，backspaces，和回车）。随后的32个字符（32－63）包含可打印的字符，
+（数字0－31）都是控制码（如 tabs、backspaces和回车）。随后的32个字符（32－63）包含可打印的字符，
 包括大多数的标点符号和数字0到9。再随后的32个字符（64－95）包含大写字符和一些更多的标点符号。
 最后的31个字符（96－127）包含小写字母和更多的标点符号。基于这种安排方式，系统使用这种排序规则
 的 ASCII：
@@ -696,7 +696,7 @@ equivalent to: [0-9A-Fa-f] </td>
 </tr>
 <tr>
 <td valign="top">[:space:] </td>
-<td valign="top">空白字符，包括空格，tab，回车，换行，vertical tab, 和 form feed.在 ASCII 中，
+<td valign="top">空白字符，包括空格、tab、回车、换行、vertical tab 和 form feed.在 ASCII 中，
 等价于：[ \t\r\n\v\f] </td>
 </tr>
 <tr>
@@ -834,7 +834,7 @@ the GNU version of grep also supports extended regular expressions when the -E
 option is used.
 
 因为我们将要讨论的下一个特性是 ERE 的一部分，我们将要使用一个不同的 grep 程序。照惯例，
-一直由 egrep 程序来执行这项操作，但是 GUN 版本的 grep 程序也支持扩展的正则表达式，当使用了-E 选项之后。
+一直由 egrep 程序来执行这项操作，但是 GUN 版本的 grep 程序在使用了-E 选项之后也支持扩展的正则表达式。
 
 > POSIX
 >
@@ -1039,7 +1039,7 @@ The + metacharacter works much like the *, except it requires at least one insta
 preceding element to cause a match. Here is a regular expression that will only match
 lines consisting of groups of one or more alphabetic characters separated by single spaces:
 
-这个 + 元字符的作用与 * 非常相似，除了它要求前面的元素至少出现一次匹配。这个正则表达式只匹配
+ \+ 元字符的作用与 * 非常相似，除了它要求前面的元素至少出现一次匹配。这个正则表达式只匹配
 那些由一个或多个字母字符组构成的文本行，字母字符之间由单个空格分开：
 
     ^([[:alpha:]]+ ?)+$
@@ -1063,7 +1063,7 @@ separates the characters “c” and “d”.
 The { and } metacharacters are used to express minimum and maximum numbers of
 required matches. They may be specified in four possible ways:
 
-这个 { 和 } 元字符都被用来表达要求匹配的最小和最大数目。它们可以通过四种方法来指定：
+ { 和 } 元字符都被用来表达要求匹配的最小和最大数目。它们可以通过四种方法来指定：
 
 <table class="multi">
 <caption class="cap">Table 20-3: Specifying The Number Of Matches </caption>
