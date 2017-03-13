@@ -46,7 +46,7 @@ and shell functions (which are related to shell scripting) will be covered in Pa
 
 shell 在环境中存储了两种基本类型的数据，虽然对于 bash 来说，很大程度上这些类型是不可
 辨别的。它们是环境变量和 shell 变量。Shell 变量是由 bash 存放的少量数据，而剩下的基本上
-都是环境变量。除了变量，shell 也存储了一些可编程的数据，命名为别名和 shell 函数。我们
+都是环境变量。除了变量，shell 也存储了一些可编程的数据，即别名和 shell 函数。我们
 已经在第六章讨论了别名，而 shell 函数（涉及到 shell 脚本）将会在第五部分叙述。
 
 ### 检查环境变量
@@ -56,7 +56,7 @@ stored in the environment. The set command will show both the shell and environm
 variables, while printenv will only display the latter. Since the list of environment
 contents will be fairly long, it is best to pipe the output of either command into less:
 
-我们既可以用 bash 的内部命令 set，或者是 printenv 程序来查看什么存储在环境当中。set 命令可以
+我们可以用 bash 的内建命令 set，或者是 printenv 程序来查看什么存储在环境当中。set 命令可以
 显示 shell 和环境变量两者，而 printenv 只是显示环境变量。因为环境变量内容列表相当长，所以最好
 把每个命令的输出结果管道到 less 命令：
 
@@ -290,17 +290,17 @@ all users. This is followed by more startup files in our home directory that def
 personal environment. The exact sequence depends on the type of shell session being
 started. There are two kinds: a login shell session and a non-login shell session.
 
-当我们登录系统后，启动 bash 程序，并且会读取一系列称为启动文件的配置脚本，
+当我们登录系统后， bash 程序启动，并且会读取一系列称为启动文件的配置脚本，
 这些文件定义了默认的可供所有用户共享的 shell 环境。然后是读取更多位于我们自己家目录中
-的启动文件，这些启动文件定义了用户个人的 shell 环境。精确的启动顺序依赖于要运行的 shell 会话
+的启动文件，这些启动文件定义了用户个人的 shell 环境。确切的启动顺序依赖于要运行的 shell 会话
 类型。有两种 shell 会话类型：一个是登录 shell 会话，另一个是非登录 shell 会话。
 
 A login shell session is one in which we are prompted for our user name and password;
 when we start a virtual console session, for example. A non-login shell session typically
 occurs when we launch a terminal session in the GUI.
 
-登录 shell 会话会提示用户输入用户名和密码；例如，我们启动一个虚拟控制台会话。当我们在 GUI 模式下
-运行终端会话时，非登录 shell 会话会出现。
+登录 shell 会话会在其中提示用户输入用户名和密码；例如，我们启动一个虚拟控制台会话。
+非登录 shell 会话通常当我们在 GUI 下启动终端会话时出现。
 
 Login shells read one or more startup files as shown in Table 12-2:
 
@@ -346,7 +346,7 @@ default in Debian-based distributions, such as Ubuntu.</td>
 </tr>
 <tr>
 <td valign="top">~/.bash_profile </td>
-<td valign="top">用户私人的启动文件。可以用来扩展或重写全局配置脚本中的设置。</td>
+<td valign="top">用户个人的启动文件。可以用来扩展或重写全局配置脚本中的设置。</td>
 </tr>
 <tr>
 <td valign="top">~/.bash_login </td>
@@ -395,7 +395,7 @@ override settings in the global configuration script.</td>
 </tr>
 <tr>
 <td valign="top">~/.bashrc</td>
-<td valign="top">用户私有的启动文件。可以用来扩展或重写全局配置脚本中的设置。
+<td valign="top">用户个人的启动文件。可以用来扩展或重写全局配置脚本中的设置。
 </td>
 </tr>
 </table>
@@ -466,8 +466,8 @@ command line? For example, when we enter ls, the shell does not search the entir
 computer to find /bin/ls (the full pathname of the ls command), rather, it searches a
 list of directories that are contained in the PATH variable.
 
-曾经是否感到迷惑 shell 是怎样知道到哪里找到我们在命令行中输入的命令的？例如，当我们输入 ls 后，
-shell 不会查找整个计算机系统，来找到 /bin/ls（ls 命令的绝对路径名），而是，它查找一个目录列表，
+是否曾经对 shell 怎样知道在哪里找到我们在命令行中输入的命令感到迷惑？例如，当我们输入 ls 后，
+shell 不会查找整个计算机系统来找到 /bin/ls（ls 命令的全路径名），相反，它查找一个目录列表，
 这些目录包含在 PATH 变量中。
 
 The PATH variable is often (but not always, depending on the distribution) set by the
@@ -555,11 +555,10 @@ text, and often contains features designed for writing programs. Text editors ar
 central tool used by software developers to write code, and by system administrators to
 manage the configuration files that control the system.
 
-为了编辑（例如，修改）shell 的启动文件，还有系统中大多数其它配置文件，我们使用一个叫做文本
-编辑器的程序。文件编辑器是一个，在某些方面，类似于文字处理器的程序，比如说随着鼠标的移动，
-它允许你在屏幕上编辑文字。只有一点，文本编辑器不同于文字处理器，就是它只能支持纯文本，并且
-经常包含为便于写程序而设计的特性。文本编辑器是软件开发人员用来写代码，和系统管理员用来管理
-系统配置文件的重要工具。
+为了编辑（例如，修改）shell 的启动文件以及系统中大多数其它配置文件，我们使用一个叫做文本编辑器的程序。
+文本编辑器是一个在某些方面类似于文字处理器的程序，允许你使用移动光标在屏幕上编辑文字。
+文本编辑器不同于文字处理器之处在于它只能支持纯文本，并且经常包含为便于写程序而设计的特性。
+文本编辑器是软件开发人员用来写代码，以及系统管理员用来管理控制系统的配置文件的重要工具。
 
 There are a lot of different text editors available for Linux; your system probably has
 several installed. Why so many different ones? Probably because programmers like
@@ -588,10 +587,10 @@ emacs editor was originally written by Richard Stallman. It is a gigantic, all-p
 does-everything programming environment. While readily available, it is seldom
 installed on most Linux systems by default.
 
-有许多基于文本的编辑器。你将会遇到一些流行的编辑器，它们是 nano，vi，和 emacs。这个 nano 编辑器
-是一个简单的，容易使用的编辑器，它是 pico 编辑器的替代物，pico 编辑器由 PINE 邮件套件提供。vi 编辑器
+有许多基于文本的编辑器。你将会遇到一些流行的编辑器，它们是 nano、vi和 emacs。 nano 编辑器
+是一个简单易用的编辑器，用于替代随 PINE 邮件套件提供的 pico 编辑器。vi 编辑器
 （在大多数 Linux 系统中被 vim 替代，vim 是 "Vi IMproved"的简写）是类 Unix 操作系统的传统编辑器。
-vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stallman 写成。emacs 是一个庞大的，多用途的，
+vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stallman 写成。它是一个庞大、多用途的，
 可做任何事情的编程环境。虽然 emacs 很容易获取，但是大多数 Linux 系统很少默认安装它。
 
 ### 使用文本编辑器
@@ -629,8 +628,8 @@ extensions ".bak", ".sav", ".old", and ".orig"
 are all popular ways of indicating a backup
 file. Oh, and remember that cp will overwrite existing files silently.
 
-备份文件的名字无关紧要，只要选择一个容易理解的文件名。扩展名 ".bak"，".sav"，
-".old"，和 ".orig" 都是用来指示备份文件的流行方法。哦，记住 cp 命令会默默地重写存在的文件。
+备份文件的名字无关紧要，只要选择一个容易理解的文件名。扩展名 ".bak"、".sav"、
+".old"和 ".orig" 都是用来指示备份文件的流行方法。哦，记住 cp 命令会默默地重写存在的文件。
 
 Now that we have a backup file, we'll start the editor:
 
