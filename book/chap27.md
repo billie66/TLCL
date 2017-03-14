@@ -9,8 +9,8 @@ tasks into a series of small, simple tasks. Let’s imagine that we are trying t
 common, everyday task, going to the market to buy food, to a person from Mars. We
 might describe the overall process as the following series of steps:
 
-随着程序变得更加庞大和复杂，设计，编码和维护它们也变得更加困难。对于任意一个大项目而言，
-把繁重，复杂的任务分割为细小且简单的任务，往往是一个好主意。想象一下，我们试图描述
+随着程序变得更加庞大和复杂，设计、编码和维护它们也变得更加困难。对于任意一个大项目而言，
+把繁重、复杂的任务分割为细小且简单的任务，往往是一个好主意。想象一下，我们试图描述
 一个平凡无奇的工作，一位火星人要去市场买食物。我们可能通过下面一系列步骤来形容整个过程：
 
 * Get in car.
@@ -242,7 +242,7 @@ called.
 从第12行代码开始执行，有一个 echo 命令。第13行会调用 shell 函数 funct，然后 shell 会执行这个函数，
 就如执行其它命令一样。这样程序控制权会转移到第六行，执行第二个 echo 命令。然后再执行第7行。
 这个 return 命令终止这个函数，并把控制权交给函数调用之后的代码（第14行），从而执行最后一个
-echo 命令。注意为了使函数调用被识别出是 shell 函数，而不是被解释为外部程序的名字，所以在脚本中 shell
+echo 命令。注意为了使函数调用被识别出是 shell 函数，而不是被解释为外部程序的名字，在脚本中 shell
 函数定义必须出现在函数调用之前。
 
 We’ll add minimal shell function definitions to our script:

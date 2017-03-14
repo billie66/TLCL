@@ -49,7 +49,7 @@ four words, the loop is executed four times. Each time the loop is executed, a w
 signed to the variable i. Inside the loop, we have an echo command that displays the
 value of i to show the assignment. As with the while and until loops, the done keyword closes the loop.
 
-在这个例子中，for 循环有一个四个单词的列表：“A”，“B”，“C”，和 “D”。由于这四个单词的列表，for 循环会执行四次。
+在这个例子中，for 循环有一个四个单词的列表：“A”、“B”、“C”和 “D”。由于这四个单词的列表，for 循环会执行四次。
 每次循环执行的时候，就会有一个单词赋值给变量 i。在循环体内，我们有一个 echo 命令会显示 i 变量的值，来演示赋值结果。
 正如 while 和 until 循环，done 关键字会关闭循环。
 
@@ -164,9 +164,9 @@ It also led to the following Fortran-based witticism:
 >
 > “GOD is real, unless declared integer.”
 >
-> 这一传统的基础源于 Fortran 编程语言。在 Fortran 语言中，以字母 I，J，K，L 和 M 开头的未声明变量的类型
-自动设为整形，而以其它字母开头的变量则为实数类型（带有小数的数字）。这种行为导致程序员使用变量 I，J，和 K 作为循环变量，
-因为当需要一个临时变量（正如循环变量）的时候，使用它们工作量比较少。这也引出了如下基于 fortran 的俏皮话：
+> 这一传统的基础源于 Fortran 编程语言。在 Fortran 语言中，以字母 I、J、K、L 和 M 开头的未声明变量的类型
+自动设为整形，而以其它字母开头的变量则为实数类型（带有小数的数字）。这种行为导致程序员使用变量 I、J和 K 作为循环变量，
+因为当需要一个临时变量（正如循环变量）的时候，使用它们工作量比较少。这也引出了如下基于 Fortran 的俏皮话：
 >
 > “神是实数，除非是声明的整数。”
 
@@ -187,7 +187,7 @@ where expression1, expression2, and expression3 are arithmetic expressions and c
 mands are the commands to be performed during each iteration of the loop.
 In terms of behavior, this form is equivalent to the following construct:
 
-这里的 expression1，expression2，和 expression3 都是算术表达式，commands 是每次循环迭代时要执行的命令。
+这里的 expression1、expression2和 expression3 都是算术表达式，commands 是每次循环迭代时要执行的命令。
 在行为方面，这相当于以下构造形式：
 
     (( expression1 ))

@@ -183,8 +183,8 @@ the remainder to the loop to be skipped, and program control resumes with the ne
 iteration of the loop. Here we see a version of the while-menu program incorporating
 both `break` and `continue`:
 
-bash 提供了两个内部命令，它们可以用来在循环内部控制程序流程。这个 break 命令立即终止一个循环，
-且程序继续执行循环之后的语句。这个 continue 命令导致程序跳过循环中剩余的语句，且程序继续执行
+bash 提供了两个内部命令，它们可以用来在循环内部控制程序流程。 break 命令立即终止一个循环，
+且程序继续执行循环之后的语句。 continue 命令导致程序跳过循环中剩余的语句，且程序继续执行
 下一次循环。这里我们看看采用了 break 和 continue 两个命令的 while-menu 程序版本：
 
     #!/bin/bash
@@ -259,7 +259,7 @@ receives a zero exit status. In our while-count script, we continued the loop as
 as the value of the `count` variable was less than or equal to five. We could get the same
 result by coding the script with `until`:
 
-这个 until 命令与 while 非常相似，除了当遇到一个非零退出状态的时候， while 退出循环，
+ until 命令与 while 非常相似，除了当遇到一个非零退出状态的时候， while 退出循环，
 而 until 不退出。一个 until 循环会继续执行直到它接受了一个退出状态零。在我们的 while-count 脚本中，
 我们继续执行循环直到 count 变量的数值小于或等于5。我们可以得到相同的结果，通过在脚本中使用 until 命令：
 
@@ -329,7 +329,7 @@ With the introduction of loops, and our previous encounters with branching, subr
 and sequences, we have covered the major types of flow control used in programs. bash
 has some more tricks up its sleeve, but they are refinements on these basic concepts.
 
-通过引入循环，和我们之前遇到的分支，子例程和序列，我们已经介绍了程序流程控制的主要类型。
+通过引入循环和我们之前遇到的分支、子例程和序列，我们已经介绍了程序流程控制的主要类型。
 bash 还有一些锦囊妙计，但它们都是关于这些基本概念的完善。
 
 ### 拓展阅读

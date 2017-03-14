@@ -75,7 +75,7 @@ sion. To specify a number greater than nine, surround the number in braces. For 
 ample ${10}, ${55}, ${211}, and so on.
 
 注意： 实际上通过参数展开方式你可以访问的参数个数多于9个。只要指定一个大于9的数字，用花括号把该数字括起来就可以。
-例如 ${10}， ${55}， ${211}，等等。
+例如 ${10}、 ${55}、 ${211}等等。
 
 #### 确定参数个数
 

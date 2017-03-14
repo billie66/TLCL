@@ -65,7 +65,7 @@ code that describes very small operations, such as “add this byte,”
 “point to this location in memory,” or “copy this byte.”
 
 计算机处理器（或 CPU）工作在一个非常基本的水平，执行用机器语言编写的程序。这是一种数值编码，描述非常小的操作，
-比如“加这个字节”，“指向内存中的这个位置”，或者“复制这个字节”。
+比如“加这个字节”、“指向内存中的这个位置”或者“复制这个字节”。
 
 Each of these instructions is expressed in binary (ones and zeros).
 The earliest computer programs were written using this numeric code,
@@ -78,8 +78,8 @@ machine language by a program called an assembler. Assembly language is
 still used today for certain specialized programming tasks, such as device drivers and embedded systems.
 
 这些指令中的每一条都是用二进制表示的（1和0）。最早的计算机程序就是用这种数值编码写成的，这可能就
-解释了为什么编写它们的程序员据说吸很多烟，喝大量咖啡，并带着厚厚的眼镜。这个问题克服了，随着汇编语言的出现，
-汇编语言代替了数值编码（略微）简便地使用助记符，比如 CPY（复制）和 MOV（移动）。用汇编语言编写的程序通过
+解释了为什么编写它们的程序员据说吸很多烟，喝大量咖啡，并带着厚厚的眼镜。随着汇编语言的出现，这个问题得到克服。
+汇编语言使用诸如CPY（复制）和 MOV（移动）之类（略微）易用的字符助记符代替了数值编码 。用汇编语言编写的程序通过
 汇编器处理为机器语言。今天为了完成某些特定的程序任务，汇编语言仍在被使用，例如设备驱动和嵌入式系统。
 
 We next come to what are called high-level programming languages.
@@ -90,8 +90,8 @@ included FORTRAN (designed for scientific and technical tasks) and COBOL
 (designed for business applications). Both are still in limited use today.
 
 下一步我们谈论一下什么是所谓的高级编程语言。之所以这样称呼它们，是因为它们可以让程序员少操心处理器的
-一举一动，而更多关心如何解决手头的问题。早期的高级语言（二十世纪60年代期间研发的）包括
-FORTRAN（为科学和技术问题而设计）和 COBOL（为商业应用而设计）。今天这两种语言仍在有限的使用。
+一举一动，而更多关心如何解决手头的问题。早期的高级语言（二十世纪50年代期间研发的）包括
+FORTRAN（为科学和技术任务而设计）和 COBOL（为商业应用而设计）。今天这两种语言仍在有限的使用。
 
 While there are many popular programming languages, two predominate.
 Most programs written for modern systems are written in either C or C++.
@@ -135,8 +135,8 @@ interpreted languages. These languages have grown in popularity in recent
 years and include Perl, Python, PHP, Ruby, and many others.
 
 不是。正如我们所看到的，有些程序比如 shell 脚本就不需要编译。它们直接执行。
-这些程序是用所谓的脚本或解释型语言编写的。近年来，这些语言变得越来越流行，包括 Perl，
-Python，PHP，Ruby，和许多其它语言。
+这些程序是用所谓的脚本或解释型语言编写的。近年来，这些语言变得越来越流行，包括 Perl、
+Python、PHP、Ruby和许多其它语言。
 
 Scripted languages are executed by a special program called an interpreter.
 An interpreter inputs the program file and reads and executes each instruction
@@ -158,7 +158,7 @@ As a program grows in size, the compilation phase of the cycle can become
 quite long. Interpreted languages remove the compilation step and thus speed up program development.
 
 那么为什么解释型程序这样流行呢？对于许多编程任务来说，原因是“足够快”，但是真正的优势是一般来说开发解释型程序
-要比编译程序快速且容易。通常程序开发需要经历一个不断重复的写码，编译，测试周期。随着程序变得越来越大，
+要比编译程序快速且容易。通常程序开发需要经历一个不断重复的写码、编译和测试周期。随着程序变得越来越大，
 编译阶段会变得相当耗时。解释型语言删除了编译步骤，这样就加快了程序开发。
 
 ### 编译一个 C 语言
@@ -169,7 +169,7 @@ universally in the Linux environment is called gcc (GNU C Compiler), originally
 written by Richard Stallman. Most distributions do not install gcc by default.
 We can check to see if the compiler is present like this:
 
-让我们编译一些东西。在我们编译之前，然而我们需要一些工具，像编译器，链接器，还有 make。
+让我们编译一些东西。在我们编译之前，然而我们需要一些工具，像编译器、链接器以及 make。
 在 Linux 环境中，普遍使用的 C 编译器叫做 gcc（GNU C 编译器），最初由 Richard Stallman 写出来的。
 大多数 Linux 系统发行版默认不安装 gcc。我们可以这样查看该编译器是否存在：
 
@@ -188,7 +188,7 @@ gcc and make packages. On many distributions, this is sufficient to carry out th
 exercise below.
 
 小提示： 你的系统发行版可能有一个用于软件开发的 meta-package（软件包的集合）。如果是这样的话，
-考虑安装它，若你打算在你的系统中编译程序。若你的系统没有提供一个 meta-package，试着安装 gcc 和 make 工具包。
+若你打算在你的系统中编译程序就考虑安装它。若你的系统没有提供一个 meta-package，试着安装 gcc 和 make 工具包。
 在许多发行版中，这就足够完成下面的练习了。
 ---
 
@@ -258,7 +258,7 @@ command within ftp, we copy the file from the ftp server to the local machine.
 
 Once the tar file is downloaded, it must be unpacked. This is done with the tar program:
 
-一旦 tar 文件下载下来之后，必须打开。通过 tar 程序可以完成：
+一旦 tar 文件下载下来之后，必须解包。通过 tar 程序可以完成：
 
     [me@linuxbox src]$ tar xzf diction-1.11.tar.gz
     [me@linuxbox src]$ ls
@@ -396,8 +396,8 @@ located where the shell normally expects programs to be located, we must explici
 shell its location by prefixing the command with ./ to indicate that the program is
 located in the current working directory:
 
-这个 configure 程序是一个 shell 脚本，由源码树提供。它的工作是分析程序建立环境。大多数源码会设计为可移植的。
-也就是说，它被设计成，能建立在多于一个的类 Unix 系统中。但是为了做到这一点，在建立程序期间，为了适应系统之间的差异，
+这个 configure 程序是一个 shell 脚本，由源码树提供。它的工作是分析程序构建环境。大多数源码会设计为可移植的。
+也就是说，它被设计成能够在不止一种类 Unix 系统中进行构建。但是为了做到这一点，在建立程序期间，为了适应系统之间的差异，
 源码可能需要经过轻微的调整。configure 也会检查是否安装了必要的外部工具和组件。让我们运行 configure 命令。
 因为 configure 命令所在的位置不是位于 shell 通常期望程序所呆的地方，我们必须明确地告诉 shell 它的位置，通过
 在命令之前加上 ./ 字符，来表明程序位于当前工作目录：

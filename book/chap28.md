@@ -524,7 +524,7 @@ equal signs may be used, but the use of double equal signs is greatly preferred.
 </tr>
 <tr>
 <td valign="top"><p>string1 = string2</p><p>string1 == string2</p></td>
-<td valign="top">string1 和 string2 相同. 单或双等号都可以，不过双等号更受欢迎。 </td>
+<td valign="top">string1 和 string2 相同。 单或双等号都可以，不过双等号更受欢迎。 </td>
 </tr>
 <tr>
 <td valign="top">string1 != string2 </td>
@@ -549,8 +549,8 @@ while the bash documentation states that the sorting order conforms to the
 collation order of the current locale, it does not. ASCII (POSIX) order is used in
 versions of bash up to and including 4.0.
 
-警告：这个 > 和 <表达式操作符必须用引号引起来（或者是用反斜杠转义），
-当与 test 一块使用的时候。如果不这样，它们会被 shell 解释为重定向操作符，造成潜在地破坏结果。
+警告：当与 test 一块使用的时候， > 和 < 表达式操作符必须用引号引起来（或者是用反斜杠转义）。
+如果不这样，它们会被 shell 解释为重定向操作符，造成潜在的破坏结果。
 同时也要注意虽然 bash 文档声明排序遵从当前语系的排列规则，但并不这样。将来的 bash 版本，包含 4.0，
 使用 ASCII（POSIX）排序规则。
 
@@ -637,27 +637,27 @@ The following expressions are used with integers:
 </tr>
 <tr>
 <td valign="top" width="40%">integer1 -eq integer2 </td>
-<td valign="top">integer1 等于 integer2.</td>
+<td valign="top">integer1 等于 integer2。</td>
 </tr>
 <tr>
 <td valign="top">integer1 -ne integer2 </td>
-<td valign="top">integer1 不等于 integer2.</td>
+<td valign="top">integer1 不等于 integer2。</td>
 </tr>
 <tr>
 <td valign="top">integer1 -le integer2 </td>
-<td valign="top">integer1 小于或等于 integer2.</td>
+<td valign="top">integer1 小于或等于 integer2。</td>
 </tr>
 <tr>
 <td valign="top">integer1 -lt integer2 </td>
-<td valign="top">integer1 小于 integer2.</td>
+<td valign="top">integer1 小于 integer2。</td>
 </tr>
 <tr>
 <td valign="top">integer1 -ge integer2 </td>
-<td valign="top">integer1 大于或等于 integer2.</td>
+<td valign="top">integer1 大于或等于 integer2。</td>
 </tr>
 <tr>
 <td valign="top">integer1 -gt integer2 </td>
-<td valign="top">integer1 大于 integer2.</td>
+<td valign="top">integer1 大于 integer2。</td>
 </tr>
 </table>
 
@@ -834,8 +834,8 @@ we learned about the find command. There are three logical operations for test a
 represent these operations :
 
 也有可能把表达式结合起来创建更复杂的计算。通过使用逻辑操作符来结合表达式。我们
-在第18章中已经知道了这些，当我们学习 find 命令的时候。它们是用于 test 和 `[[ ]]` 三个逻辑操作。
-它们是 AND，OR，和 NOT。test 和 `[[ ]]` 使用不同的操作符来表示这些操作：
+在第18章中学习 find 命令的时候已经知道了这些。有三个用于 test 和 `[[ ]]` 的逻辑操作。
+它们是 AND、OR 和 NOT。test 和 `[[ ]]` 使用不同的操作符来表示这些操作：
 
 <table class="multi">
 <caption class="cap">Table 28-4: Logical Operators</caption>
@@ -987,7 +987,7 @@ bash provides two control operators that can perform branching. The `&& (AND)` a
 work like the logical operators in the `[[ ]]` compound command. This
 is the syntax:
 
-bash 支持两种可以执行分支任务的控制操作符。这个 `&&（AND）`和`||（OR）`操作符作用如同
+bash 支持两种可以执行分支任务的控制操作符。 `&&（AND）`和`||（OR）`操作符作用如同
 复合命令`[[ ]]`中的逻辑操作符。这是语法：
 
     command1 && command2

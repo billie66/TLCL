@@ -87,7 +87,7 @@ screen, since the echo commands in the script send their output to standard outp
 We’ll run the program again and redirect the output of the program to the file
 sys_info_page.html, so that we can view the result with a web browser:
 
-当程序运行的时候，我们应该看到 HTML 文本在屏幕上显示出来，因为脚本中的 echo 命令会输出
+当程序运行的时候，我们应该看到 HTML 文本在屏幕上显示出来，因为脚本中的 echo 命令会将输出
 发送到标准输出。我们再次运行这个程序，把程序的输出重定向到文件 sys_info_page.html 中，
 从而我们可以通过网络浏览器来查看输出结果：
 
@@ -367,7 +367,7 @@ Note that in an assignment, there must be no spaces between the variable name, t
 equals sign, and the value. So what can the value consist of? Anything that we can
 expand into a string:
 
-注意在赋值过程中，变量名，等号和变量值之间必须没有空格。那么，这些值由什么组成呢？
+注意在赋值过程中，变量名、等号和变量值之间必须没有空格。那么，这些值由什么组成呢？
 可以展开成字符串的任意值：
 
     a=z                     # Assign the string "z" to variable a.

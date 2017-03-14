@@ -68,7 +68,7 @@ For maximum convenience, we will place our scripts in these directories.
 1. _使脚本文件可执行。_ 系统会相当挑剔不允许任何旧的文本文件被看作是一个程序，并且有充分的理由!
    所以我们需要设置脚本文件的权限来允许其可执行。
 
-1. _把脚本放置到 shell 能够找到的地方_ 当没有指定可执行文件明确的路径名时，shell 会自动地搜索某些目录，
+1. _把脚本放置到 shell 能够找到的地方。_ 当没有指定可执行文件明确的路径名时，shell 会自动地搜索某些目录，
 来查找此可执行文件。为了最大程度的方便，我们会把脚本放到这些目录当中。
 
 ### 脚本文件格式
@@ -173,7 +173,7 @@ within an environment variable named PATH. The PATH variable contains a colon-
 separated list of directories to be searched. We can view the contents of PATH:
 
 为什么会这样呢？什么使我们的脚本不同于其它的程序？结果证明，什么也没有。我们的
-脚本没有问题。是脚本存储位置的问题。回到第12章，我们讨论了 PATH 环境变量及其它在系统
+脚本没有问题。是脚本存储位置的问题。回到第12章，我们讨论了 PATH 环境变量及其在系统
 查找可执行程序方面的作用。回顾一下，如果没有给出可执行程序的明确路径名，那么系统每次都会
 搜索一系列的目录，来查找此可执行程序。这个/bin 目录就是其中一个系统会自动搜索的目录。
 这个目录列表被存储在一个名为 PATH 的环境变量中。这个 PATH 变量包含一个由冒号分隔开的目录列表。
@@ -190,8 +190,8 @@ bin directory in the user’s home directory, to allow users to execute their ow
 So if we create the bin directory and place our script within it, it should start to work
 like other programs:
 
-这里我们看到了我们的目录列表。如果我们的脚本驻扎在此列表中任意目录下，那么我们的问题将
-会被解决。注意列表中的第一个目录，/home/me/bin。大多数的 Linux 发行版会配置 PATH 变量，让其包含
+这里我们看到了我们的目录列表。如果我们的脚本位于此列表中任意目录下，那么我们的问题将
+会被解决。注意列表中的第一个目录/home/me/bin。大多数的 Linux 发行版会配置 PATH 变量，让其包含
 一个位于用户家目录下的 bin 目录，从而允许用户能够执行他们自己的程序。所以如果我们创建了
 一个 bin 目录，并把我们的脚本放在这个目录下，那么这个脚本就应该像其它程序一样开始工作了：
 
@@ -224,7 +224,7 @@ This can be done by “sourcing” it:
 The dot (.) command is a synonym for the source command, a shell builtin which
 reads a specified file of shell commands and treats it like input from the keyboard.
 
-这个点（.）命令是 source 命令的同义词，一个 shell 内部命令，用来读取一个指定的 shell 命令文件，
+这个点（.）命令是 source 命令的同义词，一个 shell 内建命令，用来读取一个指定的 shell 命令文件，
 并把它看作是从键盘中输入的一样。
 
 ---
@@ -330,7 +330,7 @@ to activate completion.
 
 通过使用行继续符（反斜杠-回车符序列）和缩进，这个复杂命令的逻辑会被更清楚地描述给读者。
 这个技巧在命令行中同样有效，虽然很少使用它，因为输入和编辑这个命令非常麻烦。脚本和
-命令行的一个区别是，脚本可能雇佣 tab 字符拉实现缩进，然而命令行却不能，因为 tab 字符被用来
+命令行的一个区别是，脚本可能使用 tab 字符拉实现缩进，然而命令行却不能，因为 tab 字符被用来
 激活自动补全功能。
 
 > Configuring vim For Script Writing
