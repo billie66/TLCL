@@ -101,7 +101,7 @@ vi 来说，取得了实质性进步。通常，vim 在 Linux 系统中是“vi�
 
 Starting And Stopping vi
 
-### 启动和停止 vi
+### 启动和退出 vi
 
 To start vi, we simply type the following:
 
@@ -127,14 +127,14 @@ The shell prompt should return. If, for some reason, vi will not quit (usually b
 made a change to a file that has not yet been saved), we can tell vi that we really mean it
 by adding an exclamation point to the command:
 
-shell 提示符应该返回。如果由于某种原因，vi 不能退出（通常因为我们对文件做了修改，却没有保存文件）。
-通过给命令加上叹号，我们可以告诉 vi 我们真要退出 vi。
+shell 提示符应该重新出现。如果由于某种原因，vi 不能退出（通常因为我们对文件做了修改，却没有保存文件）。
+通过给命令加上叹号，我们可以告诉 vi 我们真要退出 vi。（注意感叹号是命令的一部分）
 
     :q!
 
 Tip: If you get “lost” in vi, try pressing the Esc key twice to find your way again.
 
-小贴示：如果你在 vi 中“迷失”了，试着按下 Esc 键两次来找到路（回到普通模式）。
+小贴示：如果你在 vi 中“迷失”了，试着按下 Esc 键两次来回到普通模式。
 
 > Compatibility Mode
 >
@@ -146,10 +146,10 @@ is closer to the normal behavior of vi rather than the enhanced behavior of vim.
 For purposes of this chapter, we will want to run vim with its enhanced behavior.
 To do this, you have a few options:
 >
->上面实例中的启动屏幕（来自于 Ubuntu
-8.04），我们看到一行文字“以 Vi 兼容的模式运行”。这意味着 vim 将以近似于 vi 常规的模式
-运行，而不是 vim 的高级模式。为了这章的目的，我们想要使用 vim 的高级模式。要想这样做，
-你有几个选择：
+>在上面的上面实例中的启动屏幕（来自于 Ubuntu
+8.04），我们看到一行文字 “运行于 Vi 兼容模式。” 这意味着 vim 将以近似于 vi 的普通的模式
+运行，而不是以 vim 的高级的模式运行。出于本章的教学目的，我们将使用 vim 和它的的高级模式。
+要 vim，可以通过如下方法：
 >
 > Try running vim instead of vi.
 >
@@ -157,11 +157,11 @@ To do this, you have a few options:
 >
 > If that works, consider adding alias vi='vim' to your .bashrc file.
 >
-> 如果命令生效，考虑在你的.bashrc 文件中添加别名 vi='vim'。
+> 如果命令生效，考虑在你的.bashrc 文件中添加 alias vi='vim'。
 >
 > Alternately, use this command to add a line to your vim configuration file:
 >
-> 或者，使用这个命令在你的 vim 配置文件中添加一行：
+> 或者，使用以下命令在你的 vim 配置文件中添加一行：
 >
 >  _echo "set nocp" >\> ~/.vimrc_
 >
@@ -170,9 +170,9 @@ install a minimal version of vim by default that only supports a limiting set of
 vim features. While preforming the lessons that follow, you may encounter
 missing features. If this is the case, install the full version of vim.
 >
-> 不同的 Linux 发行版其 vim 软件包也迥然不同。一些发行版只是安装了 vim 的最小版本，
-其默认只支持有限的 vim 特性。当练习随后的课程时，你可能会遇到缺失的功能。
-如果是这种情况，就安装 vim 的完整版。
+> 不同 Linux 发行版自带的 vim 软件包各不相同。一些发行版预装了 vim 的最简版，
+其只支持很有限的 vim 特性。在随后练习里，你可能发现你的 vim 缺失一些特性。
+若是如此，请安装 vim 的完整版。
 
 
 Editing Modes
@@ -189,7 +189,7 @@ we can create a new file with vi:
 
 If all goes well, we should get a screen like this:
 
-如果一切运行正常，我们应该获得一个像这样的屏幕：
+如果一切正常，我们应该获得一个像这样的屏幕：
 
     ....
     "foo.txt" [New File]
@@ -197,15 +197,15 @@ If all goes well, we should get a screen like this:
 The leading tilde characters (”~”) indicate that no text exists on that line. This shows that
 we have an empty file. Do not type anything yet!
 
-每行开头的波浪号（"~"）指示那一行不存在文本。这表示我们有一个空文件。还没有输入任何字符？
+每行开头的波浪号（"~"）表示那一行没有文本。这表示我们有一个空文件。先别进行输入！
 
 The second most important thing to learn about vi (after learning how to exit) is that vi
 is a modal editor. When vi starts up, it begins in command mode. In this mode, almost
 every key is a command, so if we were to start typing, vi would basically go crazy and
 make a big mess.
 
-学习 vi 时，要知道的第二件非常重要的事情是（知道了如何退出 vi 后）vi 是一个模式编辑器。当 vi 启动后，进入
-的是命令模式。这种模式下，几乎每个按键都是一个命令，所以如果我们打算输入字符，vi 会发疯，弄得一团糟。
+关于 vi ，第二重要的事是知晓vi 是一个模式编辑器。（第一件事是如何退出 vi ）vi 启动后会直接进入
+命令模式。这种模式下，几乎每个按键都是一个命令，所以如果我们直接输入文本，vi 会发疯，弄得一团糟。
 
 Entering Insert Mode
 
@@ -215,8 +215,8 @@ In order to add some text to our file, we must first enter insert mode. To do th
 the “i” key. Afterwards, we should see the following at the bottom of the screen if vim is
 running in its usual enhanced mode (this will not appear in vi compatible mode):
 
-为了在文件中添加文本，首先我们必须进入插入模式。按下"i"按键进入插入模式。之后，我们应该
-在屏幕底部看到下面一行，如果 vi 运行在高级模式下（这不会出现在 vi 兼容模式下）：
+为了在文件中添加文本，我们需要先进入插入模式。按下"i"键进入插入模式。之后，我们应当
+在屏幕底部看到如下的信息，如果 vi 运行在高级模式下（ vi 在兼容模式下不会显示这行信息）：
 
     -- INSERT --
 
@@ -228,7 +228,7 @@ Now we can enter some text. Try this:
 
 To exit insert mode and return to command mode, press the Esc key.
 
-按下 Esc 按键，退出插入模式并返回命令模式。
+若要退出插入模式返回命令模式，按下 Esc 按键。
 
 Saving Our Work
 
@@ -270,7 +270,7 @@ Moving The Cursor Around
 While in command mode, vi offers a large number of movement commands, some of
 which it shares with less. Here is a subset:
 
-当在 vi 命令模式下时，vi 提供了大量的移动命令，其中一些是与 less 阅读器共享的。这里
+当在 vi 命令模式下时，vi 提供了大量的移动命令，其中一些与 less 阅读器的相同。这里
 列举了一些：
 
 <table class="multi">
@@ -464,8 +464,8 @@ cursor to the end of the line and type “a”, the cursor will move past the en
 and vi will enter insert mode. This will allow us to add some more text:
 
 如果我们想要在这个句子的末尾添加一些文本，我们会发现 i 命令不能完成任务，因为我们不能把
-光标移到行尾。vi 提供了追加文本的命令，明智地命名为"a"命令。如果我们把光标移动到行尾，输入"a",
-光标就会越过行尾，vi 进入插入模式。这样就允许我们添加更多的文本：
+光标移到行尾。vi 提供了追加文本的命令，明智地命名为"a"。如果我们把光标移动到行尾，输入"a",
+光标就会越过行尾，同时vi 就会进入插入模式。这让我们能添加文本：
 
     The quick brown fox jumped over the lazy dog. It was cool.
 
@@ -477,8 +477,8 @@ Since we will almost always want to append text to the end of a line, vi offers 
 to move to end of the current line and start appending. It's the “A” command. Let's try it
 and add some more lines to our file.
 
-因为我们几乎总是想要在行尾附加文本，所以 vi 提供了一种快捷方式来移动到当前行的末尾，并且能添加
-文本。它是"A"命令。试着用一下它，给文件添加更多行。
+因为我们几乎总是想要在行尾附加文本，所以 vi 提供了一个快捷键，光标将移动到行尾， vi 同时进入输入模式。
+它是"A"命令。试着用一下它，给文件添加更多行。
 
 First, we'll move the cursor to the beginning of the line using the “0” (zero) command.
 Now we type “A” and add the following lines of text:
