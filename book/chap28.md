@@ -1051,12 +1051,12 @@ knowledge of if, we can solve the problem by adding this code to the
             cat <<- _EOF_
             <H2>Home Space Utilization (All Users)</H2>
             <PRE>$(du -sh /home/*)</PRE>
-            _EOF_
+	_EOF_
         else
             cat <<- _EOF_
             <H2>Home Space Utilization ($USER)</H2>
             <PRE>$(du -sh $HOME)</PRE>
-            _EOF_
+	_EOF_
         fi
         return
     }
