@@ -717,7 +717,7 @@ the pipe is blocked. This condition will clear once we attach a process to the o
 and it begins to read input from the pipe. Using the second terminal window, we enter
 this command:
 
-我们按下 Enter 按键之后，命令将会挂起。这是因为在管道的另一端没有任何接受数据。这种现象被称为管道阻塞。一旦我们绑定一个进程到管道的另一端，该进程开始从管道中读取输入的时候，管道阻塞现象就不存在了。
+我们按下 Enter 按键之后，命令将会挂起。这是因为在管道的另一端没有任何对象来接收数据。这种现象被称为管道阻塞。一旦我们绑定一个进程到管道的另一端，该进程开始从管道中读取输入的时候，管道阻塞现象就不存在了。
 使用第二个终端窗口，我们输入这个命令：
 
     [me@linuxbox ~]$ cat < pipe1
