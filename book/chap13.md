@@ -1258,13 +1258,12 @@ Note: You cannot switch to files loaded with the :e command using either the :n
 or :N command. To switch files, use the :buffer command followed by the
 buffer number.
 
-注意：你不同通过:n 或:N 命令在由:e 命令加载的文件之间进行切换。这时要使用:buffer 命令，
-其后加上缓冲区号码，来转换文件。
+注意：当文件由 ：e 命令加载，你将无法用 :n 或 :N 命令来切换文件。
+这时要使用 :buffer 命令加缓冲区号码，来切换文件。
 
 Copying Content From One File Into Another
 
-#### 从一个文件复制内容到另一个文件
-
+#### 跨文件复制黏贴
 Often while editing multiple files, we will want to copy a portion of one file into another
 file that we are editing. This is easily done using the usual yank and paste commands we
 used earlier. We can demonstrate as follows. First, using our two files, switch to buffer 1
@@ -1278,7 +1277,7 @@ used earlier. We can demonstrate as follows. First, using our two files, switch 
 
 which should give us this:
 
-我们应该得到以下输出：
+我们应该得到如下输出：
 
     The quick brown fox jumped over the lazy dog. It was cool.
     Line 2
@@ -1388,8 +1387,8 @@ Note: While the command above saves the file under a new name, it does not
 change the name of the file you are editing. As you continue to edit, you will still
 be editing foo.txt, not foo1.txt.
 
-注意：当上面的命令以一个新名字保存文件时，但它并没有更改你正在编辑的文件的名字。
-如果你继续编辑的话，你还是在编辑文件 foo.txt，而不是 foo1.txt。
+注意：当上面的命令以一个新名字保存文件时，它并没有更改你正在编辑的文件的名字。
+如果你继续编辑，你还是在编辑文件 foo.txt，而不是 foo1.txt。
 
 ---
 
@@ -1402,7 +1401,7 @@ of what vi and vim can do. Here are a couple of on-line resources you can use to
 continue your journey towards vi mastery:
 
 即使把这章所学的内容都加起来，我们也只是学了 vi 和 vim 的一点儿皮毛而已。这里
-有一些在线的资料，你可以用来继续 vi 学习之旅。
+有一些在线资料，可以帮助你进一步掌握 vi。
 
 * Learning The vi Editor – A Wikibook from Wikipedia that offers a concise guide
   to vi and several of its work-a-likes including vim. It's available at:
@@ -1415,19 +1414,19 @@ continue your journey towards vi mastery:
 * The Vim Book - The vim project has a 570-page book that covers (almost) all of
   the features in vim. You can find it at:
 
-* The Vim Book－vim 项目，一本570页的书籍，包含了（几乎）所有的 vim 特性。你能在下面链接中找到它：
+* The Vim Book－vim 项目包括一本书，570页，（几乎）包含了 vim 的全部特性。你能在下面链接中找到它：
 
   ftp://ftp.vim.org/pub/vim/doc/book/vimbook-OPL.pdf.
 
 * A Wikipedia article on Bill Joy, the creator of vi.:
 
-* Wikipedia 上关于 Bill Joy 的文章，vi 的创始人。
+* Wikipedia 上关于 Bill Joy，vi 创始人，的文章。
 
   <http://en.wikipedia.org/wiki/Bill_Joy>
 
 * A Wikipedia article on Bram Moolenaar, the author of vim:
 
-* Wikipedia 上关于 Bram Moolenaar 的文章，vim 的作者：
+* Wikipedia 上关于 Bram Moolenaar，vim 作者，的文章：
 
   <http://en.wikipedia.org/wiki/Bram_Moolenaar>
 
