@@ -366,7 +366,7 @@ separated by spaces or tabs.</td>
 <tr>
 <td valign="top">-n</td>
 <td valign="top">--numeric-sort</td>
-<td valign="top">基于字符串的长度来排序。使用此选项允许根据数字值执行排序，而不是字母值。</td>
+<td valign="top">基于字符串的数值来排序。使用此选项允许根据数字值执行排序，而不是字母值。</td>
 </tr>
 <tr>
 <td valign="top">-r</td>
@@ -778,7 +778,7 @@ no option for setting an alternate field separator.</td>
 </tr>
 <tr>
 <td valign="top">-u</td>
-<td valign="top">只是输出独有的文本行。这是默认的。</td>
+<td valign="top">只输出独有的文本行。这是默认的。</td>
 </tr>
 </table>
 
@@ -2165,6 +2165,7 @@ which gives us the year, a dash, the month, a dash, and the day.
 此表达式给出了年份，一个短划线，月份，一个短划线，和某天。
 
 Now, our command looks like this:
+现在我们的命令看起来像下面这样：
 
     sed 's/([0-9]{2})/([0-9]{2})/([0-9]{4})$/\3-\1-\2/' distros.txt
 
@@ -2176,7 +2177,7 @@ solve both these problems with a liberal application of backslashes to escape th
 offending characters:
 
 我们还有两个问题。第一个是在我们表达式中额外的斜杠将会迷惑 sed，当 sed 试图解释这个 s 命令
-的时候。第二个是因为 sed，默认情况下，只接受基本的正则表达式，在表达式中的几个字符会
+的时候。第二个是由于sed默认情况下只接受基本的正则表达式，在表达式中的几个字符会
 被当作文字字面值，而不是元字符。我们能够解决这两个问题，通过反斜杠的自由应用来转义
 令人不快的字符：
 
