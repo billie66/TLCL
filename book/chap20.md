@@ -140,8 +140,7 @@ be specified --no-filename. </td>
 </tr>
 <tr>
 <td valign="top">-v</td>
-<td valign="top">不匹配。通常，grep 程序会打印包含匹配项的文本行。这个选项导致 grep 程序
-只会不包含匹配项的文本行。也可用--invert-match 来指定。 </td>
+<td valign="top">不匹配。通常，grep 程序会打印包含匹配项的文本行。这个选项导致 grep 程序只会打印不包含匹配项的文本行。也可用--invert-match 来指定。 </td>
 </tr>
 <tr>
 <td valign="top">-c</td>
@@ -220,7 +219,7 @@ Regular expression metacharacters consist of the following:
 
 它可能看起来不明显，但是我们的 grep 程序一直使用了正则表达式，虽然是非常简单的例子。
 这个正则表达式“bzip”意味着，匹配项所在行至少包含4个字符，并且按照字符 “b”、“z”、 “i” 和 “p”的顺序
-出现在匹配行的某处，字符之间没有其它的字符。字符串“bzip”中的所有字符都是原义字符，因为
+出现在匹配行的某处，字符之间没有其它的字符。字符串“bzip”中的所有字符都是原义字符，因此
 它们匹配本身。除了原义字符之外，正则表达式也可能包含元字符，其被用来指定更复杂的匹配项。
 正则表达式元字符由以下字符组成：
 

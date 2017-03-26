@@ -348,8 +348,7 @@ The fmt program also folds text, plus a lot more. It accepts either files or sta
 and performs paragraph formatting on the text stream. Basically, it fills and joins lines in
 text while preserving blank lines and indentation.
 
-fmt 程序同样折叠文本，外加很多功能。它接受文本或标准输入并且在文本流上呈现照片转换。基础来说，他填补并且将文本粘帖在
-一起并且保留了空白符和缩进。
+fmt 程序同样折叠文本，外加很多功能。它接受文本或标准输入并且在文本流上呈现照片转换。它主要是填充和连接文本行，同时保留空白符和缩进。
 
 To demonstrate, we’ll need some text. Let’s lift some from the fmt info page:
 
@@ -462,8 +461,7 @@ the pages of output with several lines of whitespace, to provide a top and botto
 margin for each page. Further, this whitespace can be used to insert a header and footer
 on each page.
 
-pr 程序用来把文本分页。当打印文本的时候，经常希望用几个空行把输出的页面
-
+pr 程序用来把文本分页。当打印文本的时候，经常希望用几个空行在输出的页面的顶部或底部添加空白。此外，这些空行能够用来插入到每个页面的页眉或页脚。
 We’ll demonstrate pr by formatting our distros.txt file into a series of very short
 pages (only the first two pages are shown):
 
