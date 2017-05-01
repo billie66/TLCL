@@ -977,7 +977,7 @@ in a different way. We’ll talk more about the differences between symbolic and
 links in the next chapter.
 
 讨论到链接问题，我们需要提一下，还有一种链接类型，叫做硬链接。硬链接同样允许文件有多个名字，
-但是硬链接以不同的方法来创建多个文件名。在下一章中，我们会谈到更多符号链接与硬链接之间的差异问题。
+但是硬链接以不同的方法来创建多个文件名。在下一章中，我们将会谈到更多符号链接与硬链接之间的差异问题。
 
 ### 拓展阅读
 
