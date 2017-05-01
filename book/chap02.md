@@ -36,7 +36,7 @@ whistles it has.
 
 So let's get started. Launch the terminal emulator! Once it comes up, we should see somehing like this:
 
-好，开始吧。启动终端仿真器！一旦它运行起来，我们应该看到一行像这样的文字：
+好的，开始吧。启动终端仿真器！一旦它运行起来，我们应该看到一行像这样的文字：
 
     [me@linuxbox ~]$
 
