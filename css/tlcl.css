@@ -17,11 +17,11 @@ body {
 #wrapper {
   margin: 0 auto;
   padding: 3% 5%;
-  width: 92%;
+  width: 95%;
   max-width: 960px;
   border: 1px solid #ddd;
   -webkit-border-radius: 5px;
-  -moz-border-radius: 2px;
+  -moz-border-radius: 5px;
   border-radius: 5px;
   background-color: white;
   letter-spacing: 0.5px;
@@ -43,7 +43,7 @@ p.figure {
 
 pre {
   border: 1px solid #E7E5DC;
-  border-width: 1px 0 4px 2px;
+  border-width: 1px 0 4px 6px;
   font-size: 13px;
   overflow: auto;
 }
