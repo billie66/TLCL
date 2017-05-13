@@ -1,4 +1,4 @@
----
+﻿---
 layout: book
 title: 文件系统中跳转
 ---
@@ -45,7 +45,7 @@ the computer. Storage devices are attached (or more correctly, mounted) at
 various points on the tree according to the whims of the system administrator,
 the person (or persons) responsible for the maintenance of the system.
 
-注意(类 Unix 系统)不像 Windows ，每个存储设备都有一个独自的文件系统。类 Unix 操作系统，
+注意(类 Unix 系统)不像 Windows ，各个存储设备都有一个独自的文件系统。类 Unix 操作系统，
 比如 Linux，总是只有一个单一的文件系统树，不管有多少个磁盘或者存储设备连接到计算机上。
 根据负责维护系统安全的系统管理员的兴致，存储设备连接到（或着更精确些，是挂载到）目录树的各个节点上。
 
