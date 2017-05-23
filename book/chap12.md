@@ -110,7 +110,7 @@ shell 函数。不同于 printenv 命令，set 命令的输出结果很礼貌地
 
 It is also possible to view the contents of a variable using the echo command, like this:
 
-也可以通过 echo 命令来查看一个变量的内容，像这样：
+也可以通过 xxx命令来查看一个变量的内容，像这样：
 
     [me@linuxbox ~]$ echo $HOME
     /home/me
