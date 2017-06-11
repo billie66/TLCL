@@ -519,7 +519,7 @@ page-writing code into a shell function, for reasons that will become clear in a
                     $(report_home_space)
                 </BODY>
             </HTML>
-        _EOF_
+    _EOF_
         return
     }
     # output html page
@@ -576,14 +576,14 @@ complete listing, with the most recent changes highlighted:
         cat <<- _EOF_
             <H2>System Uptime</H2>
             <PRE>$(uptime)</PRE>
-        _EOF_
+    _EOF_
         return
     }
     report_disk_space () {
         cat <<- _EOF_
             <H2>Disk Space Utilization</H2>
             <PRE>$(df -h)</PRE>
-        _EOF_
+    _EOF_
         return
     }
     report_home_space () {
@@ -591,12 +591,12 @@ complete listing, with the most recent changes highlighted:
             cat <<- _EOF_
                 <H2>Home Space Utilization (All Users)</H2>
                 <PRE>$(du -sh /home/*)</PRE>
-            _EOF_
+    _EOF_
         else
             cat <<- _EOF_
                 <H2>Home Space Utilization ($USER)</H2>
                 <PRE>$(du -sh $HOME)</PRE>
-            _EOF_
+    _EOF_
         fi
         return
     }
@@ -618,7 +618,7 @@ complete listing, with the most recent changes highlighted:
                     $(report_home_space)
                 </BODY>
             </HTML>
-        _EOF_
+    _EOF_
         return
     }
     # process command line options

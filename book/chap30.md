@@ -132,7 +132,7 @@ We can use a `while` loop to improve the read-menu program from the previous cha
             2. Display Disk Space
             3. Display Home Space Utilization
             0. Quit
-        _EOF_
+_EOF_
         read -p "Enter selection [0-3] > "
         if [[ $REPLY =~ ^[0-3]$ ]]; then
             if [[ $REPLY == 1 ]]; then
@@ -198,7 +198,7 @@ bash 提供了两个内部命令，它们可以用来在循环内部控制程序
             2. Display Disk Space
             3. Display Home Space Utilization
             0. Quit
-        _EOF_
+_EOF_
         read -p "Enter selection [0-3] > "
         if [[ $REPLY =~ ^[0-3]$ ]]; then
             if [[ $REPLY == 1 ]]; then
