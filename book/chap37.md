@@ -16,7 +16,7 @@ programming problems. We will cover them here.
 但是对某些程序问题是很有帮助的。我们将在这里介绍它们。
 
 ### 组命令和子 shell
-
+12
 bash allows commands to be grouped together. This can be done in one of two ways;
 either with a group command or with a subshell. Here are examples of the syntax of each:
 
