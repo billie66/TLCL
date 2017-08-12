@@ -397,7 +397,7 @@ again:
 Now that we know how cat accepts standard input, in addition to filename arguments,
 let's try redirecting standard input:
 
-现在我们知道怎讲接受标准输入，除了文件名参数，让我们试着重定向标准输入：
+现在我们知道 cat 怎样接受标准输入，除了文件名参数，让我们试着重定向标准输入：
 
     [me@linuxbox ~]$ cat < lazy_dog.txt
     The quick brown fox jumped over the lazy dog.
