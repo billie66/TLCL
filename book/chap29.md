@@ -170,7 +170,7 @@ Running this script results in this:
 
 `read` supports the following options:
 
-read 支持以下选送：
+read 支持以下选项：
 
 <table class="multi">
 <caption class="cap">Table 29-1: read Options</caption>
@@ -268,7 +268,7 @@ input.</td>
 </tr>
 <tr>
 <td valign="top">-t seconds</td>
-<td valign="top">超时. 几秒钟后终止输入。read 会返回一个非零退出状态，若输入超时。 </td>
+<td valign="top">超时. 几秒钟后终止输入。若输入超时，read 会返回一个非零退出状态。 </td>
 </tr>
 <tr>
 <td valign="top">-u fd</td>

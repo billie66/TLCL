@@ -852,7 +852,7 @@ are more modern. By default, every file has a single hard link that gives the fi
 When we create a hard link, we create an additional directory entry for a file. Hard links
 have two important limitations:
 
-硬链接和符号链接比起来，硬链接是最初 Unix 创建链接的方式，而符号链接更加现代。
+与更加现代的符号链接相比，硬链接是最初 Unix 创建链接的方式。
 在默认情况下，每个文件有一个硬链接，这个硬链接给文件起名字。当我们创建一个
 硬链接以后，就为文件创建了一个额外的目录条目。硬链接有两个重要局限性：
 
