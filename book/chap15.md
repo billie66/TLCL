@@ -177,7 +177,7 @@ configuration files for the package management system.
 
 ### 依赖性
 
-Programs seldom “standalone;” rather they rely on the presence of other software
+Programs seldom stand alone; rather, they rely on the presence of other software
 components to get their work done. Common activities, such as input/output for
 example, are handled by routines shared by many programs. These routines are stored in
 what are called shared libraries, which provide essential services to more than one
@@ -186,11 +186,10 @@ have a dependency. Modern package management systems all provide some method of
 dependency resolution to ensure that when a package is installed, all of its dependencies
 are installed, too.
 
-程序很少是"孤立的"，而是依赖于其它软件组件来完成它们的工作。常见活动，以
-输入/输出为例，就是由共享程序例程来处理的。这些程序例程存储在共享库中，共享库不只
-为一个程序提供基本服务。如果一个软件包需要共享资源，比如说共享库，据说就有一个依赖。
-现代的软件包管理系统都提供了一些依赖项解析方法，以此来确保当安装软件包时，也安装了
-其所有的依赖程序。
+程序很少独立工作；他们需要依靠其他程序的组件来完成他们的工作。程序所共有的活动，如输入/输出，
+就是由一个被多个程序调用的子例程处理的。这些子例程存储在动态链接库中。动态链接库为多个程
+序提供基本服务。如果一个软件包需要一些共享的资源，如一个动态链接库，它就被称作有一个依赖。
+现代的软件包管理系统都提供了一些依赖项解析方法，以确保安装软件包时，其所有的依赖也被安装。
 
 ### 上层和底层软件包工具
 
