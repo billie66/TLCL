@@ -57,7 +57,7 @@ Like cat, nl can accept either multiple files as command line arguments, or stan
 input. However, nl has a number of options and supports a primitive form of markup to
 allow more complex kinds of numbering.
 
-像 cat，nl 既能接受多个文件作为命令行参数，也能标准输出。然而，nl 有一个相当数量的选项并支持一个简单的标记方式去允许更多复杂的方式的计算。
+像 cat，nl 既能接受多个文件作为命令行参数，也能接受标准输入。然而，nl 有一个相当数量的选项并支持一个简单的标记方式去允许更多复杂的方式的计算。
 
 nl supports a concept called “logical pages” when numbering. This allows nl to reset
 (start over) the numerical sequence when numbering. Using options, it is possible to set
