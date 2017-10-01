@@ -399,8 +399,8 @@ Our next addition will add several command line options to the program as follow
   prompted before the existing file is overwritten. This option will be specified by
   either -i or -\-interactive.
 
-* __交互模式__。这个选项将提示用户输入一个输出文件名，然后判断是否指定的文件已经存在了。如果文件存在，
-在覆盖这个存在的文件之前会提示用户。这个选项可以通过 -i 或者 -\-interactive 来指定。
+* __交互模式__。这个选项将让用户指定输出文件的名称，并会判断其是否与已存在的文件重名。
+如果同名的文件存在，程序在覆盖它之前会提示用户。这个选项将通过 -i 或者 --interactive 来指定。
 
 * __Help__. Either _-h_ or _-\-help_ may be specified to cause the program to output an
   informative usage message.
