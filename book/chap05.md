@@ -846,15 +846,14 @@ to create a symbolic link where "item" is either a file or a directory.
 创建符号链接，"item" 可以是一个文件或是一个目录。
 
 ### 硬链接
+Hard links are the original Unix way of creating links; symbolic links are
+more modern. By default, every file has a single hard link that gives the file
+its name. When we create a hard link, we create an additional directory entry 
+for a file. Hard links have two important limitations:
 
-Hard links are the original Unix way of creating links, compared to symbolic links, which
-are more modern. By default, every file has a single hard link that gives the file its name.
-When we create a hard link, we create an additional directory entry for a file. Hard links
-have two important limitations:
-
-硬链接和符号链接比起来，硬链接是最初 Unix 创建链接的方式，而符号链接更加现代。
-在默认情况下，每个文件有一个硬链接，这个硬链接给文件起名字。当我们创建一个
-硬链接以后，就为文件创建了一个额外的目录条目。硬链接有两个重要局限性：
+硬链接是 Unix 原本创建连接的方式；符号链接则更现代些。每个文件默认会有一个硬链接，
+这个硬链接给予文件名字。我们每创建一个硬链接，就为一个文件创建了一个额外的目录项。
+硬链接有两个重要局限性：
 
 1. A hard link cannot reference a file outside its own file system. This means a link
 may not reference a file that is not on the same disk partition as the link itself.
