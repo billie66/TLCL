@@ -619,8 +619,7 @@ The parent script continues and then executes a wait command with the PID of the
 process. This causes the parent script to pause until the child script exits, at which point
 the parent script concludes.
 
-父脚本继续，然后执行一个以子进程 PID 为参数的 wait 命令。这就导致父脚本暂停运行，直到子脚本退出，
-意味着父脚本结束。
+父脚本继续，然后执行一个以子进程 PID 为参数的 wait 命令。这就导致父脚本暂停运行，直到子脚本退出，父脚本随之结束。
 
 When executed, the parent and child scripts produce the following output:
 
@@ -658,7 +657,7 @@ The most widely used type of client-server system is, of course, a web browser
 communicating with a web server. The web browser acts as the client, making requests to the
 server and the server responds to the browser with web pages.
 
-最为广泛使用的客户端-服务器系统类型是，当然，一个 web 浏览器与一个 web 服务器之间进行通信。
+最为广泛使用的客户端-服务器系统类型当然是一个web浏览器与一个web服务器之间进行通信。
 web 浏览器作为客户端，向服务器发出请求，服务器响应请求，并把对应的网页发送给浏览器。
 
 Named pipes behave like files, but actually form first-in first-out (FIFO) buffers. As with
@@ -718,8 +717,7 @@ the pipe is blocked. This condition will clear once we attach a process to the o
 and it begins to read input from the pipe. Using the second terminal window, we enter
 this command:
 
-我们按下 Enter 按键之后，命令将会挂起。这是因为在管道的另一端没有任何接受数据。当这种现象发生的时候，
-据说是管道阻塞了。一旦我们绑定一个进程到管道的另一端，该进程开始从管道中读取输入的时候，这种情况会消失。
+我们按下 Enter 按键之后，命令将会挂起。这是因为在管道的另一端没有任何对象来接收数据。这种现象被称为管道阻塞。一旦我们绑定一个进程到管道的另一端，该进程开始从管道中读取输入的时候，管道阻塞现象就不存在了。
 使用第二个终端窗口，我们输入这个命令：
 
     [me@linuxbox ~]$ cat < pipe1

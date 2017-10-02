@@ -485,7 +485,7 @@ download of a partially downloaded file. These features are well documented in i
 better-than-average man page.
 
 这个程序的许多选项允许 wget 递归地下载，在后台下载文件（你退出后仍在下载），能完成未下载
-全的文件。这些特性在命令手册，better-than-average 一节中有详尽地说明。
+全的文件。这些特性在其优秀的命令手册中有着详尽地说明。
 
 ### 与远程主机安全通信
 

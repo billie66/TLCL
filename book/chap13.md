@@ -101,7 +101,7 @@ vi 来说，取得了实质性进步。通常，vim 在 Linux 系统中是“vi�
 
 Starting And Stopping vi
 
-### 启动和停止 vi
+### 启动和退出 vi
 
 To start vi, we simply type the following:
 
@@ -127,14 +127,14 @@ The shell prompt should return. If, for some reason, vi will not quit (usually b
 made a change to a file that has not yet been saved), we can tell vi that we really mean it
 by adding an exclamation point to the command:
 
-shell 提示符应该返回。如果由于某种原因，vi 不能退出（通常因为我们对文件做了修改，却没有保存文件）。
-通过给命令加上叹号，我们可以告诉 vi 我们真要退出 vi。
+shell 提示符应该重新出现。如果由于某种原因，vi 不能退出（通常因为我们对文件做了修改，却没有保存文件）。
+通过给命令加上叹号，我们可以告诉 vi 我们真要退出 vi。（注意感叹号是命令的一部分）
 
     :q!
 
 Tip: If you get “lost” in vi, try pressing the Esc key twice to find your way again.
 
-小贴示：如果你在 vi 中“迷失”了，试着按下 Esc 键两次来找到路（回到普通模式）。
+小贴示：如果你在 vi 中“迷失”了，试着按下 Esc 键两次来回到普通模式。
 
 > Compatibility Mode
 >
@@ -146,10 +146,10 @@ is closer to the normal behavior of vi rather than the enhanced behavior of vim.
 For purposes of this chapter, we will want to run vim with its enhanced behavior.
 To do this, you have a few options:
 >
->上面实例中的启动屏幕（来自于 Ubuntu
-8.04），我们看到一行文字“以 Vi 兼容的模式运行”。这意味着 vim 将以近似于 vi 常规的模式
-运行，而不是 vim 的高级模式。为了这章的目的，我们想要使用 vim 的高级模式。要想这样做，
-你有几个选择：
+>在上面的截屏中（来自于 Ubuntu
+8.04），我们看到一行文字 “运行于 Vi 兼容模式。” 这意味着 vim 将以近似于 vi 的普通的模式
+运行，而不是以 vim 的高级的模式运行。出于本章的教学目的，我们将使用 vim 和它的的高级模式。
+要 vim，可以通过如下方法：
 >
 > Try running vim instead of vi.
 >
@@ -157,11 +157,11 @@ To do this, you have a few options:
 >
 > If that works, consider adding alias vi='vim' to your .bashrc file.
 >
-> 如果命令生效，考虑在你的.bashrc 文件中添加别名 vi='vim'。
+> 如果命令生效，考虑在你的.bashrc 文件中添加 alias vi='vim'。
 >
 > Alternately, use this command to add a line to your vim configuration file:
 >
-> 或者，使用这个命令在你的 vim 配置文件中添加一行：
+> 或者，使用以下命令在你的 vim 配置文件中添加一行：
 >
 >  _echo "set nocp" >\> ~/.vimrc_
 >
@@ -170,9 +170,9 @@ install a minimal version of vim by default that only supports a limiting set of
 vim features. While preforming the lessons that follow, you may encounter
 missing features. If this is the case, install the full version of vim.
 >
-> 不同的 Linux 发行版其 vim 软件包也迥然不同。一些发行版只是安装了 vim 的最小版本，
-其默认只支持有限的 vim 特性。当练习随后的课程时，你可能会遇到缺失的功能。
-如果是这种情况，就安装 vim 的完整版。
+> 不同 Linux 发行版自带的 vim 软件包各不相同。一些发行版预装了 vim 的最简版，
+其只支持很有限的 vim 特性。在随后练习里，你可能发现你的 vim 缺失一些特性。
+若是如此，请安装 vim 的完整版。
 
 
 Editing Modes
@@ -189,7 +189,7 @@ we can create a new file with vi:
 
 If all goes well, we should get a screen like this:
 
-如果一切运行正常，我们应该获得一个像这样的屏幕：
+如果一切正常，我们应该获得一个像这样的屏幕：
 
     ....
     "foo.txt" [New File]
@@ -197,15 +197,15 @@ If all goes well, we should get a screen like this:
 The leading tilde characters (”~”) indicate that no text exists on that line. This shows that
 we have an empty file. Do not type anything yet!
 
-每行开头的波浪号（"~"）指示那一行不存在文本。这表示我们有一个空文件。还没有输入任何字符？
+每行开头的波浪号（"~"）表示那一行没有文本。这里我们有一个空文件。先别进行输入！
 
 The second most important thing to learn about vi (after learning how to exit) is that vi
 is a modal editor. When vi starts up, it begins in command mode. In this mode, almost
 every key is a command, so if we were to start typing, vi would basically go crazy and
 make a big mess.
 
-学习 vi 时，要知道的第二件非常重要的事情是（知道了如何退出 vi 后）vi 是一个模式编辑器。当 vi 启动后，进入
-的是命令模式。这种模式下，几乎每个按键都是一个命令，所以如果我们打算输入字符，vi 会发疯，弄得一团糟。
+关于 vi ，第二重要的事是知晓vi 是一个模式编辑器。（第一件事是如何退出 vi ）vi 启动后会直接进入
+命令模式。这种模式下，几乎每个按键都是一个命令，所以如果我们直接输入文本，vi 会发疯，弄得一团糟。
 
 Entering Insert Mode
 
@@ -215,8 +215,8 @@ In order to add some text to our file, we must first enter insert mode. To do th
 the “i” key. Afterwards, we should see the following at the bottom of the screen if vim is
 running in its usual enhanced mode (this will not appear in vi compatible mode):
 
-为了在文件中添加文本，首先我们必须进入插入模式。按下"i"按键进入插入模式。之后，我们应该
-在屏幕底部看到下面一行，如果 vi 运行在高级模式下（这不会出现在 vi 兼容模式下）：
+为了在文件中添加文本，我们需要先进入插入模式。按下"i"键进入插入模式。之后，我们应当
+在屏幕底部看到如下的信息，如果 vi 运行在高级模式下（ vi 在兼容模式下不会显示这行信息）：
 
     -- INSERT --
 
@@ -228,7 +228,7 @@ Now we can enter some text. Try this:
 
 To exit insert mode and return to command mode, press the Esc key.
 
-按下 Esc 按键，退出插入模式并返回命令模式。
+若要退出插入模式返回命令模式，按下 Esc 按键。
 
 Saving Our Work
 
@@ -252,7 +252,7 @@ To write our modified file, we follow the colon with a “w” then Enter:
 The file will be written to the hard drive and we should get a confirmation message at the
 bottom of the screen, like this:
 
-文件将会写入到硬盘，并且我们应该在屏幕底部得到一个确认信息，就像这样：
+文件将会写入到硬盘，而且我们会在屏幕底部看到一行确认信息，就像这样：
 
     "foo.txt" [New] 1L, 46C written
 
@@ -260,7 +260,7 @@ Tip: If you read the vim documentation, you will notice that (confusingly)
 command mode is called normal mode and ex commands are called command
 mode. Beware.
 
-小贴示：如果你阅读 vim 的文档，你注意到（令人困惑地）命令模式被叫做普通模式，ex 命令
+小贴示：如果你阅读 vim 的文档，你会发现命令模式被（令人困惑地）叫做普通模式，ex 命令
 叫做命令模式。当心。
 
 Moving The Cursor Around
@@ -270,7 +270,7 @@ Moving The Cursor Around
 While in command mode, vi offers a large number of movement commands, some of
 which it shares with less. Here is a subset:
 
-当在 vi 命令模式下时，vi 提供了大量的移动命令，其中一些是与 less 阅读器共享的。这里
+当在 vi 命令模式下时，vi 提供了大量的移动命令，其中一些与 less 阅读器的相同。这里
 列举了一些：
 
 <table class="multi">
@@ -417,7 +417,7 @@ regular keyboard keys to move the cursor without ever having to lift their finge
 the keyboard.
 
 为什么 h，j，k，和 l 按键被用来移动光标呢？因为在开发 vi 之初，并不是所有的视频终端都有
-箭头按键，熟练的打字员可以使用规则的键盘按键来移动光标，他们的手从不需要移开键盘。
+箭头按键，熟练的打字员可以使用组合键来移动光标，他们的手指从不需要移开键盘。
 
 Many commands in vi can be prefixed with a number, as with the “G” command listed
 above. By prefixing a command with a number, we may specify the number of times a
@@ -425,7 +425,7 @@ command is to be carried out. For example, the command “5j” causes vi to mov
 cursor down five lines.
 
 vi 中的许多命令都可以在前面加上一个数字，比方说上面提到的"G"命令。在命令之前加上一个
-数字，我们就可以指定命令执行的次数。例如，命令"5j"导致 vi 向下移动5行。
+数字，我们就可以指定命令执行的次数。例如，命令"5j"将光标下移5行。
 
 Basic Editing
 
@@ -438,7 +438,7 @@ the “u” key while in command mode, vi will undo the last change that you mad
 will come in handy as we try out some of the basic editing commands.
 
 大多数编辑工作由一些基本的操作组成，比如说插入文本，删除文本和通过剪切和粘贴来移动文本。
-vi，当然，以它自己的独特方式来支持所有的操作。vi 也提供了有限的撤销形式。如果我们按下“u”
+vi，当然，有它独特方式来实现所有的操作。vi 也提供了撤销功能，但有些限制。如果我们按下“u”
 按键，当在命令模式下，vi 将会撤销你所做的最后一次修改。当我们试着执行一些基本的
 编辑命令时，这会很方便。
 
@@ -453,7 +453,7 @@ vi 有几种不同进入插入模式的方法。我们已经使用了 i 命令�
 
 Let's go back to our foo.txt file for a moment:
 
-让我们返回到我们的 foo.txt 文件中，呆一会儿：
+让我们再次进入到我们的 foo.txt 文件：
 
     The quick brown fox jumped over the lazy dog.
 
@@ -464,26 +464,26 @@ cursor to the end of the line and type “a”, the cursor will move past the en
 and vi will enter insert mode. This will allow us to add some more text:
 
 如果我们想要在这个句子的末尾添加一些文本，我们会发现 i 命令不能完成任务，因为我们不能把
-光标移到行尾。vi 提供了追加文本的命令，明智地命名为"a"命令。如果我们把光标移动到行尾，输入"a",
-光标就会越过行尾，vi 进入插入模式。这样就允许我们添加更多的文本：
+光标移到行尾。vi 提供了追加文本的命令，明智地命名为"a"。如果我们把光标移动到行尾，输入"a",
+光标就会越过行尾，同时 vi 会进入插入模式。这让我们能添加文本到行末：
 
     The quick brown fox jumped over the lazy dog. It was cool.
 
 Remember to press the Esc key to exit insert mode.
 
-记住按下 Esc 按键来退出插入模式。
+记得按 Esc 键来退出插入模式。
 
 Since we will almost always want to append text to the end of a line, vi offers a shortcut
 to move to end of the current line and start appending. It's the “A” command. Let's try it
 and add some more lines to our file.
 
-因为我们几乎总是想要在行尾附加文本，所以 vi 提供了一种快捷方式来移动到当前行的末尾，并且能添加
-文本。它是"A"命令。试着用一下它，给文件添加更多行。
+因为我们几乎总是想要在行尾添加文本，所以 vi 提供了一个快捷键。光标将移动到行尾，同时 vi 进入输入模式。
+它是"A"命令。试着用一下它，向文件添加更多行。
 
 First, we'll move the cursor to the beginning of the line using the “0” (zero) command.
 Now we type “A” and add the following lines of text:
 
-首先，使用"0"(零)命令，将光标移动到行首。现在我们输入"A"，来添加以下文本行：
+首先，使用"0"(零)命令，将光标移动到行首。现在我们输入"A"，然后输入下面这些文本：
 
     The quick brown fox jumped over the lazy dog. It was cool.
     Line 2
@@ -493,12 +493,12 @@ Now we type “A” and add the following lines of text:
 
 Again, press the Esc key to exit insert mode.
 
-再一次，按下 Esc 按键退出插入模式。
+再一次，按下 Esc 键退出插入模式。
 
 As we can see, the “A” command is more useful as it moves the cursor to the end of the
 line before starting insert mode.
 
-正如我们所看到的，大 A 命令非常有用，因为在启动插入模式之前，它把光标移到了行尾。
+正如我们所看到的， “A” 命令非常有用，因为它在进入到插入模式前，先将光标移到了行尾。
 
 Opening A Line
 
@@ -507,7 +507,7 @@ Opening A Line
 Another way we can insert text is by “opening” a line. This inserts a blank line between
 two existing lines and enters insert mode. This has two variants:
 
-我们插入文本的另一种方式是“打开”一行。这会在存在的两行之间插入一个空白行，并且进入插入模式。
+我们插入文本的另一种方式是“打开（open）”一行。这会在两行之间插入一个空白行，并且进入到插入模式。
 这种方式有两个变体：
 
 <table class="multi">
@@ -544,7 +544,7 @@ two existing lines and enters insert mode. This has two variants:
 
 We can demonstrate this as follows: place the cursor on “Line 3” then press the o key.
 
-我们可以演示一下：把光标放到"Line 3"上，按下小 o 按键。
+我们可以演示一下：把光标移到"Line 3"上，再按下小 o 按键。
 
     The quick brown fox jumped over the lazy dog. It was cool.
     Line 2
@@ -584,9 +584,9 @@ more general purpose. Like x, it may be preceded by a number specifying the numb
 times the deletion is to be performed. In addition, d is always followed by a movement
 command that controls the size of the deletion. Here are some examples:
 
-正如我们期望的，vi 提供了各种各样的方式来删除文本，所有的方式包含一个或两个按键。首先，
+正如我们所愿，vi 提供了各种删除文本到的方法，而且只需一或两个按键。首先，
 x 按键会删除光标位置的一个字符。可以在 x 命令之前带上一个数字，来指明要删除的字符个数。
-d 按键更通用一些。类似 x 命令，d 命令之前可以带上一个数字，来指定要执行的删除次数。另外，
+d 按键更通用一些。跟 x 命令一样，d 命令之前可以带上一个数字，来指定要执行的删除次数。另外，
 d 命令之后总是带上一个移动命令，用来控制删除的范围。这里有些实例：
 
 <table class="multi">
@@ -850,7 +850,7 @@ line below the current line:
 Just as before, the u command will undo our change. With the cursor still positioned on
 the last line of the file, type P to paste the text above the current line:
 
-和以前一样，u 命令会撤销我们的修改。光标仍然位于文件的最后一行，输入大写的 P 命令把
+和以前一样，u 命令会撤销我们的修改。这时光标仍位于文件的最后一行，输入大写的 P 命令把
 所复制的文本粘贴到当前行之上：
 
     The quick brown fox jumped over the lazy dog. It was cool.
@@ -863,7 +863,7 @@ the last line of the file, type P to paste the text above the current line:
 Try out some of the other y commands in the table above and get to know the behavior of
 both the p and P commands. When you are done, return the file to its original state.
 
-试着执行上表中一些其他的 y 命令，了解小写 p 和大写 P 命令的行为。当你完成练习之后，把文件
+试着执行上表中其他的一些 y 命令，了解小写 p 和大写 P 命令的行为。当你完成练习之后，把文件
 恢复原样。
 
 Joining Lines
@@ -875,9 +875,9 @@ to the end of a line and delete the end-of-line character to join one line with 
 below it. Because of this, vi provides a specific command, J (not to be confused with j,
 which is for cursor movement) to join lines together.
 
-vi 对于行的概念相当严格。通常，不可能把光标移到行尾，再删除行尾结束符（回车符）来连接
+vi 对于行的概念相当严格。通常，用户不可能通过删除“行尾结束符”（end-of-line character）来连接
 当前行和它下面的一行。由于这个原因，vi 提供了一个特定的命令，大写的 J（不要与小写的 j 混淆了，
-j 是用来移动光标的）把行与行之间连接起来。
+j 是用来移动光标的）用于链接行与行。
 
 If we place the cursor on line 3 and type the J command, here's what happens:
 
@@ -896,7 +896,7 @@ vi has the ability to move the cursor to locations based on searches. It can do 
 both a single line or over an entire file. It can also perform text replacements with or
 without confirmation from the user.
 
-vi 有能力把光标移到搜索到的匹配项上。vi 可以在单一行或整个文件中运用这个功能。
+vi 能把光标移到搜索到的匹配项上。vi 不仅能在搜索一特定行，还能进行全文搜索。
 它也可以在有或没有用户确认的情况下实现文本替换。
 
 Searching Within A Line
@@ -908,8 +908,8 @@ character. For example, the command fa would move the cursor to the next occurre
 of the character “a” within the current line. After performing a character search within a
 line, the search may be repeated by typing a semicolon.
 
-f 命令查找一行，移动光标到下一个所指定的字符上。例如，命令 fa 会把光标定位到同一行中
-下一个出现的"a"字符上。在一行中执行了字符的查找命令之后，通过输入分号来重复这个查找。
+f 命令能搜索一特定行，并将光标移动到下一个匹配的字符上。例如，命令 fa 会把光标定位到同一行中
+下一个出现的"a"字符上。在进行了一次行内搜索后，输入分号能重复这次搜索。
 
 Searching The Entire File
 
@@ -923,7 +923,7 @@ location containing the search string. A search may be repeated using the previo
 string with the n command. Here's an example:
 
 移动光标到下一个出现的单词或短语上，使用 / 命令。这个命令和我们之前在 less 程序中学到
-的一样。当你输入/命令后，一个"/"字符会出现在屏幕底部。下一步，输入要查找的单词或短语后，
+的一样。当你输入/命令后，一个"/"字符会出现在屏幕底部。接下来，输入要查找的单词或短语，
 按下回车。光标就会移动到下一个包含所查找字符串的位置。通过 n 命令来重复先前的查找。
 这里有个例子：
 
@@ -935,7 +935,7 @@ string with the n command. Here's an example:
 
 Place the cursor on the first line of the file. Type:
 
-把光标移动到文件的第一行。输入：
+移动光标到文件的第一行。输入：
 
     /Line
 
@@ -945,10 +945,9 @@ runs out of matches. While we have so far only used words and phrases for our se
 patterns, vi allows the use of regular expressions, a powerful method of expressing
 complex text patterns. We will cover regular expressions in some detail in a later chapter.
 
-然后键入回车。光标会移动到第二行。下一步，输入 n，光标移到第三行。重复这个 n 命令，光标会
-继续向下移动直到遍历了所有的匹配项。虽然目前，我们只是使用了单词和短语来作为我们的查找
-模式，但是 vi 允许使用正则表达式，一种强大的用来表示复杂文本模式的方法。我们将会在随后
-的章节里面详尽地介绍正则表达式。
+然后敲回车。光标会移动到第二行。然后输入 n，这时光标移动到第三行。重复键入 n 命令，光标会
+继续向下移动直到遍历所有的匹配项。至此我们只是通过输入单词和短语进行搜索，但 vi 支持正则
+表达式，一种用于表达复杂文本的方法。我们将会在之后的章节中详细讲解正则表达式。
 
 Global Search And Replace
 
@@ -958,8 +957,8 @@ vi uses an ex command to perform search and replace operations (called “substi
 in vi) over a range of lines or the entire file. To change the word “Line” to “line” for the
 entire file, we would enter the following command:
 
-vi 使用 ex 命令来执行查找和替代操作（vi 中叫做“替换”）。把整个文件中的单词“Line”更改为“line”，
-我们输入以下命令：
+vi 使用 ex 命令来执行查找和替代操作（vi 中叫做“替换”）。将整个文件中的单词“Line”更改为“line”，
+输入以下命令：
 
     :%s/Line/line/g
 
@@ -1258,13 +1257,12 @@ Note: You cannot switch to files loaded with the :e command using either the :n
 or :N command. To switch files, use the :buffer command followed by the
 buffer number.
 
-注意：你不同通过:n 或:N 命令在由:e 命令加载的文件之间进行切换。这时要使用:buffer 命令，
-其后加上缓冲区号码，来转换文件。
+注意：当文件由 ：e 命令加载，你将无法用 :n 或 :N 命令来切换文件。
+这时要使用 :buffer 命令加缓冲区号码，来切换文件。
 
 Copying Content From One File Into Another
 
-#### 从一个文件复制内容到另一个文件
-
+#### 跨文件复制黏贴
 Often while editing multiple files, we will want to copy a portion of one file into another
 file that we are editing. This is easily done using the usual yank and paste commands we
 used earlier. We can demonstrate as follows. First, using our two files, switch to buffer 1
@@ -1278,7 +1276,7 @@ used earlier. We can demonstrate as follows. First, using our two files, switch 
 
 which should give us this:
 
-我们应该得到以下输出：
+我们应该得到如下输出：
 
     The quick brown fox jumped over the lazy dog. It was cool.
     Line 2
@@ -1388,8 +1386,8 @@ Note: While the command above saves the file under a new name, it does not
 change the name of the file you are editing. As you continue to edit, you will still
 be editing foo.txt, not foo1.txt.
 
-注意：当上面的命令以一个新名字保存文件时，但它并没有更改你正在编辑的文件的名字。
-如果你继续编辑的话，你还是在编辑文件 foo.txt，而不是 foo1.txt。
+注意：当上面的命令以一个新名字保存文件时，它并没有更改你正在编辑的文件的名字。
+如果你继续编辑，你还是在编辑文件 foo.txt，而不是 foo1.txt。
 
 ---
 
@@ -1402,7 +1400,7 @@ of what vi and vim can do. Here are a couple of on-line resources you can use to
 continue your journey towards vi mastery:
 
 即使把这章所学的内容都加起来，我们也只是学了 vi 和 vim 的一点儿皮毛而已。这里
-有一些在线的资料，你可以用来继续 vi 学习之旅。
+有一些在线资料，可以帮助你进一步掌握 vi。
 
 * Learning The vi Editor – A Wikibook from Wikipedia that offers a concise guide
   to vi and several of its work-a-likes including vim. It's available at:
@@ -1415,19 +1413,19 @@ continue your journey towards vi mastery:
 * The Vim Book - The vim project has a 570-page book that covers (almost) all of
   the features in vim. You can find it at:
 
-* The Vim Book－vim 项目，一本570页的书籍，包含了（几乎）所有的 vim 特性。你能在下面链接中找到它：
+* The Vim Book－vim 项目包括一本书，570页，（几乎）包含了 vim 的全部特性。你能在下面链接中找到它：
 
   ftp://ftp.vim.org/pub/vim/doc/book/vimbook-OPL.pdf.
 
 * A Wikipedia article on Bill Joy, the creator of vi.:
 
-* Wikipedia 上关于 Bill Joy 的文章，vi 的创始人。
+* Wikipedia 上关于 Bill Joy（vi 创始人）的文章。
 
   <http://en.wikipedia.org/wiki/Bill_Joy>
 
 * A Wikipedia article on Bram Moolenaar, the author of vim:
 
-* Wikipedia 上关于 Bram Moolenaar 的文章，vim 的作者：
+* Wikipedia 上关于 Bram Moolenaar（vim 作者）的文章：
 
   <http://en.wikipedia.org/wiki/Bram_Moolenaar>
 

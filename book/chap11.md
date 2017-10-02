@@ -968,13 +968,18 @@ number or by name, including the name prefixed with the letters “SIG”:
 
 在这个例子里，我们在后台启动 xlogo 程序，然后通过 kill 命令，发送给它一个 HUP 信号。
 这个 xlogo 程序终止运行，并且 shell 指示这个后台进程已经接受了一个挂起信号。在看到这条
-信息之前，你可能需要多按几次 enter 键。注意，既可以用号码，也可以用名字，不过要在名字前面
+信息之前，你可能需要多按几次 enter 键。注意，既可以用号码，也可以用名字，还可以在名字前面
 加上字母“SIG”，来指定所要发送的信号。
 
     [me@linuxbox ~]$ xlogo &
-    [1] 13546
-    [me@linuxbox ~]$ kill -1 13546
-    [1]+ Hangup                    xlogo
+    [1] 13601
+    [me@linuxbox ~]$ kill -INT 13601
+    [1]+ Interrupt                    xlogo
+    [me@linuxbox ~]$ xlogo &
+    [1] 13608
+    [me@linuxbox ~]$ kill -SIGINT 13608
+    [1]+ Interrupt                    xlogo
+
 
 Repeat the example above and try out the other signals. Remember, you can also use
 jobspecs in place of PIDs.
