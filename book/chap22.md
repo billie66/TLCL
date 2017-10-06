@@ -462,8 +462,11 @@ margin for each page. Further, this whitespace can be used to insert a header an
 on each page.
 
 pr 程序用来把文本分页。当打印文本的时候，经常希望用几个空行在输出的页面的顶部或底部添加空白。此外，这些空行能够用来插入到每个页面的页眉或页脚。
+
 We’ll demonstrate pr by formatting our distros.txt file into a series of very short
 pages (only the first two pages are shown):
+
+下面我们将演示 pr 的用法。我们准备将 distros.txt 这个文件分成若干张很短的页面（仅展示前两张页面）：
 
     [me@linuxbox ~]$ pr -l 15 -w 65 distros.txt
     2008-12-11 18:27        distros.txt         Page 1
@@ -491,6 +494,9 @@ contents of the distros.txt file, separates each page with several lines of whit
 and creates a default header containing the file modification time, filename, and page
 number. The pr program provides many options to control page layout. We’ll take a look
 at more of them in the next chapter.
+
+在上面的例子中，我们用 -l 选项（页长）和 -w 选项（页宽）定义了宽65列，长15行的一个“页面”。 pr 为 distros.txt 中的内容编订页码，用空行分开各页面
+，生成了包含文件修改时间、文件名、页码的默认页眉。 pr 指令拥有很多调整页面布局的选项，我们将在下一章中进一步探讨。
 
 #### printf – Format And Print Data
 
