@@ -944,6 +944,12 @@ scripts that produce short documents, while groff (and friends) can be used to w
 books. We may never write a technical paper using command line tools (though there are
 many people who do!), but it’s good to know that we could.
 
+### 小节
+
+文本是 类 Unix 系统的核心特性，一定会有许多修改和格式化文本的工具。正如我们所看到的那样，的确很多！像 fmt 和 pr 这种比较简单的格式化工具会在
+生成比较短的文件时发挥很多用途，而 groff 和其他工具则会在写书的时候用上。我们也许永远不会用命令行工具来写一篇技术文章（尽管有很多人在这么做！），
+但是知道我们可以这么做也是极好的。
+
 ### Further Reading
 
 * groff User’s Guide
@@ -963,6 +969,32 @@ many people who do!), but it’s good to know that we could.
   <http://plan9.bell-labs.com/10thEdMan/tbl.pdf>
 
 * And, of course, try the following articles at Wikipedia:
+
+  <http://en.wikipedia.org/wiki/TeX>
+
+  <http://en.wikipedia.org/wiki/Donald_Knuth>
+
+  <http://en.wikipedia.org/wiki/Typesetting>
+
+### 阅读更多
+
+* groff 用户指南
+
+  <http://www.gnu.org/software/groff/manual/>
+
+* 运用 nroff 指令中的 -me 选项写论文:
+
+  <http://docs.freebsd.org/44doc/usd/19.memacros/paper.pdf>
+
+* -me 参考手册:
+
+  <http://docs.freebsd.org/44doc/usd/20.meref/paper.pdf>
+
+* Tbl – 一个格式化表格的指令:
+
+  <http://plan9.bell-labs.com/10thEdMan/tbl.pdf>
+
+* 当然，你也可以试试下面列出的维基百科中的内容:
 
   <http://en.wikipedia.org/wiki/TeX>
 
