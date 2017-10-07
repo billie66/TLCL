@@ -520,7 +520,9 @@ printf 这样工作:
 The command is given a string containing a format description which is then applied to a
 list of arguments. The formatted result is sent to standard output. Here is a trivial example:
 
-    [me@linuxbox ~]$ printf "I formatted the string: %s\n" foo
+首先，发送包含有格式化描述的字符串的指令，接着，这些描述被应用于参数列表上。格式化的结果在标准输出中显示。下面是一个小例子：
+
+    [me@linuxbox ~]$ printf "I formatted the string: %s\n" foo
     I formatted the string: foo
 
 The format string may contain literal text (like “I formatted the string:”), escape sequences
@@ -529,12 +531,16 @@ which are called conversion specifications. In the example above, the conversion
 %s is used to format the string “foo” and place it in the command’s output. Here it
 is again:
 
+格式字符串可能包含文字文本（如“我格式化了这个字符串：” “I formatted the string:”），转义序列（例如\n，换行符）和以％字符开头的序列，这被称为转换规范。在上面的例子中，转换规范 ％s 用于格式化字符串 “foo” 并将其输出在命令行中。我们再来看一遍：
+
     [me@linuxbox ~]$ printf "I formatted '%s' as a string.\n" foo
     I formatted 'foo' as a string.
 
 As we can see, the %s conversion specification is replaced by the string “foo” in the command’s
 output. The s conversion is used to format string data. There are other specifiers
 for other kinds of data. This table lists the commonly used data types:
+
+我们可以看到，在命令行输出中，转换规范 ％s 被字符串 “foo” 所替代。s 转换用于格式化字符串数据。还有其他转换符用于其他类型的数据。此表列出了常用的数据类型：
 
 <table class="multi">
 <caption class="cap">Table 22-5: printf Conversion Specification Components </caption>
@@ -574,6 +580,8 @@ needed.</td>
 </table>
 
 We’ll demonstrate the effect each of the conversion specifiers on the string “380”:
+
+下面我们以字符串 "380" 为例，展示每种转换符的效果。
 
     [me@linuxbox ~]$ printf "%d, %f, %o, %s, %x, %X\n" 380 380 380 380
     380 380
