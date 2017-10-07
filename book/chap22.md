@@ -505,10 +505,15 @@ Unlike the other commands in this chapter, the printf command is not used for pi
 the command line (it’s mostly used in scripts). So why is it important? Because it is so
 widely used.
 
+与本章中的其他指令不同， printf 并不用于流水线执行（不接受标准输入）。在命令行中，它也鲜有运用（它通常被用于自动执行指令中）。所以为什么它如此重要？因为它被广泛使用。
+
 printf (from the phrase “print formatted”) was originally developed for the C programming
 language and has been implemented in many programming languages including
 the shell. In fact, in bash, printf is a builtin.
 printf works like this:
+
+printf (来自短语“格式化打印” “print formatted”) 最初为 C 语言设计，后来在包括 shell 的多种语言中运用。事实上，在 bash 中, printf 是内置的。
+printf 这样工作:
 
     printf “format” arguments
 
