@@ -579,6 +579,43 @@ needed.</td>
 </tr>
 </table>
 
+
+<table class="multi">
+<caption class="cap">b表格 22-5: printf 转换规范组件 </caption>
+<tr>
+<th class="title">组件</th>
+<th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top">d</td>
+<td valign="top">将数字格式化为带符号的十进制整数</td>
+</tr>
+<tr>
+<td valign="top">f</td>
+<td valign="top">格式化并输出浮点数</td>
+</tr>
+<tr>
+<td valign="top">o</td>
+<td valign="top">将整数格式化为八进制数</td>
+</tr>
+<tr>
+<td valign="top">s</td>
+<td valign="top">将字符串格式化</td>
+</tr>
+<tr>
+<td valign="top">x</td>
+<td valign="top">将整数格式化为十六进制数，必要时使用小写a-f</td>
+</tr>
+<tr>
+<td valign="top">X</td>
+<td valign="top">与 x 相同，但变为大写</td>
+</tr>
+<tr>
+<td valign="top">%</td>
+<td valign="top">打印 % 符号 (比如，指定 “%%”)</td>
+</tr>
+</table>
+
 We’ll demonstrate the effect each of the conversion specifiers on the string “380”:
 
 下面我们以字符串 "380" 为例，展示每种转换符的效果。
