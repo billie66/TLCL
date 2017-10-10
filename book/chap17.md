@@ -23,7 +23,7 @@ cover:
 
 * ping - Send an ICMP ECHO_REQUEST to network hosts
 
-* ping - 发送 ICMP ECHO_REQUEST 软件包到网络主机
+* ping - 发送 ICMP ECHO_REQUEST 数据包到网络主机
 
 * traceroute - Print the route packets trace to a network host
 
