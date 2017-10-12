@@ -154,8 +154,8 @@ from the local system to a specified host. For example, to see the route
 taken to reach slashdot.org, we would do this:
 
 这个 traceroute 程序（一些系统使用相似的 tracepath 程序来代替）会显示从本地到指定主机
-要经过的所有“跳数”的网络流量列表。例如，看一下到达 slashdot.org 网站，需要经过的路由
-器，我们将这样做：
+要经过的所有“跳数”的网络流量列表。例如，看一下到达 slashdot.org 需要经过的路由，
+我们将这样做：
 
     [me@linuxbox ~]$ traceroute slashdot.org
 
