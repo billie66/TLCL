@@ -519,7 +519,7 @@ SSH consists of two parts. An SSH server runs on the remote host, listening for 
 connections on port twenty-two, while an SSH client is used on the local system to
 communicate with the remote server.
 
-SSH 由两部分组成。SSH 服务器运行在远端主机上运行，在端口号22上监听将要到来的连接，而
+SSH 由两部分组成。SSH 服务端运行在远端主机上，在端口 22 上监听将要到来的连接，而
 SSH 客户端用在本地系统中，用来和远端服务器通信。
 
 Most Linux distributions ship an implementation of SSH called OpenSSH from the BSD
