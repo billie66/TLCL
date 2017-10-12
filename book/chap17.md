@@ -280,7 +280,7 @@ programs that move data over networks. We will cover two of them now and several
 more in later sections.
 
 网络有什么用处呢？除非我们知道了怎样通过网络来传输文件。有许多程序可以用来在网络中
-传送数据。我们先讨论两个命令，随后的章节里再介绍几个命令。
+传送数据。我们先讨论两个，随后的章节里再介绍几个。
 
 #### ftp
 
