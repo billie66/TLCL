@@ -530,10 +530,9 @@ installed, configured and running, and (if the system is either running or is be
 firewall) it must allow incoming network connections on TCP port 22.
 
 大多数 Linux 发行版自带一个提供 SSH 功能的软件包，叫做 OpenSSH，来自于 BSD 项目。一些发行版
-默认包含客户端和服务器端两个软件包（例如，Red
-Hat）,而另一些（比方说 Ubuntu）则只是提供客户端服务。为了能让系统接受远端的连接，它必须
-安装 OpenSSH-server 软件包，配置，运行它，并且（如果系统正在运行，或者是在防火墙之后）
-它必须允许在 TCP 端口号上接收网络连接。
+默认包含客户端和服务端两个软件包（例如 Red Hat），而另一些（比方说 Ubuntu）则只提供客户端。
+为了能让系统接受远端的连接，它必须安装 OpenSSH-server 软件包，配置，运行它，
+并且（如果系统正在运行，或者系统在防火墙之后）它必须允许在 TCP 端口 22 上接收网络连接。
 
 ---
 
