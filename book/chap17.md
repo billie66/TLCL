@@ -253,7 +253,7 @@ on the LAN. The next field, Gateway, is the name or IP address of the gateway
 asterisk in this field indicates that no gateway is needed.
 
 在这个简单的例子里面，我们看到了，位于防火墙之内的局域网中，一台客户端计算机的典型路由表。
-第一行显示了目的地 192.168.1.0。IP 地址以零结尾是指网络，而不是个人主机，
+第一行显示了目的地 192.168.1.0。IP 地址以零结尾是指网络，而不是独立主机，
 所以这个目的地意味着局域网中的任何一台主机。下一个字段，Gateway，
 是网关（路由器）的名字或 IP 地址，用它来连接当前的主机和目的地的网络。
 若这个字段显示一个星号，则表明不需要网关。
