@@ -550,8 +550,8 @@ The SSH client program used to connect to remote SSH servers is called, appropri
 enough, ssh. To connect to a remote host named remote-sys, we would use the ssh
 client program like so:
 
-用来与远端 SSH 服务器相连接的 SSH 客户端程序，顺理成章，叫做 ssh。连接到远端名为 remote-sys
-的主机，我们可以这样使用 ssh 客户端程序：
+用来与远端 SSH 服务器相连接的 SSH 客户端程序，顺理成章，叫做 ssh。想要连接到名叫 remote-sys
+的远端主机，我们可以这样使用 ssh 客户端程序：
 
     [me@linuxbox ~]$ ssh remote-sys
     The authenticity of host 'remote-sys (192.168.1.4)' can't be
