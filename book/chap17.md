@@ -645,7 +645,7 @@ This means that line one of the known_hosts file contains the offending key. Del
 this line from the file, and the ssh program will be able to accept new authentication
 credentials from the remote system.
 
-这意味着文件 known_hosts 里面某一行包含攻击型的钥匙。从文件中删除这一行，则 ssh 程序
+这意味着 known_hosts 文件的第一行包含那个冲突的钥匙。从文件中删除这一行，则 ssh 程序
 就能够从远端系统接受新的身份验证凭据。
 
 Besides opening a shell session on a remote system, ssh also allows us to execute a
