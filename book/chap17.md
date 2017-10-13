@@ -154,8 +154,8 @@ from the local system to a specified host. For example, to see the route
 taken to reach slashdot.org, we would do this:
 
 这个 traceroute 程序（一些系统使用相似的 tracepath 程序来代替）会显示从本地到指定主机
-要经过的所有“跳数”的网络流量列表。例如，看一下到达 slashdot.org 网站，需要经过的路由
-器，我们将这样做：
+要经过的所有“跳数”的网络流量列表。例如，看一下到达 slashdot.org 需要经过的路由，
+我们将这样做：
 
     [me@linuxbox ~]$ traceroute slashdot.org
 
@@ -253,7 +253,7 @@ on the LAN. The next field, Gateway, is the name or IP address of the gateway
 asterisk in this field indicates that no gateway is needed.
 
 在这个简单的例子里面，我们看到了，位于防火墙之内的局域网中，一台客户端计算机的典型路由表。
-第一行显示了目的地 192.168.1.0。IP 地址以零结尾是指网络，而不是个人主机，
+第一行显示了目的地 192.168.1.0。IP 地址以零结尾是指网络，而不是独立主机，
 所以这个目的地意味着局域网中的任何一台主机。下一个字段，Gateway，
 是网关（路由器）的名字或 IP 地址，用它来连接当前的主机和目的地的网络。
 若这个字段显示一个星号，则表明不需要网关。
@@ -280,7 +280,7 @@ programs that move data over networks. We will cover two of them now and several
 more in later sections.
 
 网络有什么用处呢？除非我们知道了怎样通过网络来传输文件。有许多程序可以用来在网络中
-传送数据。我们先讨论两个命令，随后的章节里再介绍几个命令。
+传送数据。我们先讨论两个，随后的章节里再介绍几个。
 
 #### ftp
 
@@ -519,7 +519,7 @@ SSH consists of two parts. An SSH server runs on the remote host, listening for 
 connections on port twenty-two, while an SSH client is used on the local system to
 communicate with the remote server.
 
-SSH 由两部分组成。SSH 服务器运行在远端主机上运行，在端口号22上监听将要到来的连接，而
+SSH 由两部分组成。SSH 服务端运行在远端主机上，在端口 22 上监听将要到来的连接，而
 SSH 客户端用在本地系统中，用来和远端服务器通信。
 
 Most Linux distributions ship an implementation of SSH called OpenSSH from the BSD
@@ -530,10 +530,9 @@ installed, configured and running, and (if the system is either running or is be
 firewall) it must allow incoming network connections on TCP port 22.
 
 大多数 Linux 发行版自带一个提供 SSH 功能的软件包，叫做 OpenSSH，来自于 BSD 项目。一些发行版
-默认包含客户端和服务器端两个软件包（例如，Red
-Hat）,而另一些（比方说 Ubuntu）则只是提供客户端服务。为了能让系统接受远端的连接，它必须
-安装 OpenSSH-server 软件包，配置，运行它，并且（如果系统正在运行，或者是在防火墙之后）
-它必须允许在 TCP 端口号上接收网络连接。
+默认包含客户端和服务端两个软件包（例如 Red Hat），而另一些（比方说 Ubuntu）则只提供客户端。
+为了能让系统接受远端的连接，它必须安装 OpenSSH-server 软件包，配置，运行它，
+并且（如果系统正在运行，或者系统在防火墙之后）它必须允许在 TCP 端口 22 上接收网络连接。
 
 ---
 
