@@ -495,8 +495,7 @@ and creates a default header containing the file modification time, filename, an
 number. The pr program provides many options to control page layout. We’ll take a look
 at more of them in the next chapter.
 
-在上面的例子中，我们用 -l 选项（页长）和 -w 选项（页宽）定义了宽65列，长15行的一个“页面”。 pr 为 distros.txt 中的内容编订页码，用空行分开各页面
-，生成了包含文件修改时间、文件名、页码的默认页眉。 pr 指令拥有很多调整页面布局的选项，我们将在下一章中进一步探讨。
+在上面的例子中，我们用 -l 选项（页长）和 -w 选项（页宽）定义了宽65列，长15行的一个“页面”。 pr 为 distros.txt 中的内容编订页码，用空行分开各页面，生成了包含文件修改时间、文件名、页码的默认页眉。 pr 指令拥有很多调整页面布局的选项，我们将在下一章中进一步探讨。
 
 #### printf – Format And Print Data
 
@@ -629,10 +628,16 @@ printf to process. The six results show the effect of each specifier.
 Several optional components may be added to the conversion specifier to adjust its output.
 A complete conversion specification may consist of the following:
 
+由于我们指定了六个转换符，我们还必须为 printf 提供六个参数进行处理。下面六个结果展示了每个转换符的效果。
+可将可选组件添加到转换符以调整输出。
+完整的转换规范包含以下内容：
+
     %[flags][width][.precision]conversion_specification
 
 Multiple optional components, when used, must appear in the order specified above to be
 properly interpreted. Here is a description of each:
+
+使用多个可选组件时，必须按照上面指定的顺序，以便准确编译。以下是每个可选组件的描述：
 
 <table class="multi">
 <caption class="cap">Table 22-5: printf Conversion Specification Components</caption>
