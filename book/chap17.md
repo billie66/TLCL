@@ -772,9 +772,9 @@ does not require an FTP server to be running on the remote host. It only require
 server. This means that any remote machine that can connect with the SSH client can
 also be used as a FTP-like server. Here is a sample session:
 
-第二个 SSH 文件复制命令是 sftp，正如其名字所示，它是 ftp 程序的安全替代品。sftp 工作起来与我们
+第二个 SSH 文件复制程序是 sftp，顾名思义，它是 ftp 程序的安全替代品。sftp 工作起来与我们
 之前使用的 ftp 程序很相似；然而，它不用明码形式来传递数据，它使用加密的 SSH 通道。sftp 有一个
-重要特性强于传统的 ftp 命令，就是 sftp 不需要远端系统中运行 FTP 服务器。它仅仅要求 SSH 服务器。
+重要特性强于传统的 ftp 命令，就是 sftp 不需要远端系统中运行 FTP 服务端。它仅仅需要 SSH 服务端。
 这意味着任何一台能用 SSH 客户端连接的远端机器，也可当作类似于 FTP 的服务器来使用。
 这里是一个样本会话：
 
