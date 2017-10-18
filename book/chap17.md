@@ -797,9 +797,9 @@ in Linux distributions. Using either Nautilus (GNOME) or Konqueror (KDE), we
 can enter a URI beginning with sftp:// into the location bar and operate on files
 stored on a remote system running an SSH server.
 
-小贴示：这个 SFTP 协议被许多 Linux 发行版中的图形化文件管理器支持。使用
+小贴示：SFTP 协议被许多 Linux 发行版中的图形化文件管理器支持。使用
 Nautilus (GNOME), 或者是 Konqueror (KDE)，我们都能在位置栏中输入以
-sftp:// 开头的 URI， 来操作存储在运行着 SSH 服务器的远端系统中的文件。
+sftp:// 开头的 URI，来操作存储在运行着 SSH 服务端的远端系统中的文件。
 
 ---
 
