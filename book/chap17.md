@@ -816,8 +816,8 @@ an SSH (or telnet) session on a remote host. The program also provides analogs
 for the scp and sftp programs.
 >
 > 比方说你正坐在一台 Windows 机器前面，但是你需要登录到你的 Linux 服务器中，去完成
-一些实际的工作，那该怎么办呢？当然是得到一个 Windows 平台下的 SSH 客户端！有很多这样
-的工具。最流行的可能就是由 Simon Tatham 和他的团队开发的 PuTTY 了。这个 PuTTY 程序
+一些实际的工作，那该怎么办呢？当然是找一个 Windows 平台下的 SSH 客户端！有很多这样
+的工具。最流行的可能就是由 Simon Tatham 和他的团队开发的 PuTTY 了。PuTTY 程序
 能够显示一个终端窗口，而且允许 Windows 用户在远端主机中打开一个 SSH（或者 telnet）会话。
 这个程序也提供了 scp 和 sftp 程序的类似物。
 >
