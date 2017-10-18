@@ -744,10 +744,10 @@ followed by a colon character. For example, if we wanted to copy a document name
 document.txt from our home directory on the remote system, remote-sys, to the
 current working directory on our local system, we could do this:
 
-这个 OpenSSH 软件包也包含两个程序，它们可以利用 SSH 加密通道在网络间复制文件。
+OpenSSH 软件包也包含两个程序，它们可以利用 SSH 加密通道在网络间复制文件。
 第一个，scp（安全复制）被用来复制文件，与熟悉的 cp 程序非常相似。最显著的区别就是
 源或者目标路径名要以远端主机的名字，后跟一个冒号字符开头。例如，如果我们想要
-从远端系统，remote-sys，的家目录下复制文档 document.txt，到我们本地系统的当前工作目录下，
+从 remote-sys 远端系统的家目录下复制文档 document.txt，到我们本地系统的当前工作目录下，
 可以这样操作：
 
     [me@linuxbox ~]$ scp remote-sys:document.txt .
