@@ -759,8 +759,8 @@ OpenSSH 软件包也包含两个程序，它们可以利用 SSH 加密通道在�
 As with ssh, you may apply a user name to the beginning of the remote host’s name if
 the desired remote host account name does not match that of the local system:
 
-和 ssh 命令一样，如果你所期望的远端主机帐户与你本地系统中的不一致，
-则可以把用户名添加到远端主机名的开头。
+和 ssh 命令一样，如果所需的远端主机帐户名与本地系统中的不一致，
+那么你可以把用户名添加到远端主机名的开头：
 
     [me@linuxbox ~]$ scp bob@remote-sys:document.txt .
 
