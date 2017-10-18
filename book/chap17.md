@@ -684,7 +684,7 @@ be performed on the remote system. Likewise, if we had wanted the output redirec
 a file on the remote machine, we could have placed the redirection operator and the
 filename within the single quotes:
 
-注意，上面的例子中使用了单引号。这样做是因为我们不想路径名展开操作在本地执行 ；而希望
+注意，上面的例子中使用了单引号。这样做是因为我们不想路径名展开操作在本地执行，而希望
 它在远端系统中被执行。同样地，如果我们想要把输出结果重定向到远端主机的文件中，我们可以
 把重定向操作符和文件名都放到单引号里面。
 
