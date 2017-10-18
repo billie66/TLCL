@@ -705,7 +705,7 @@ VPN (Virtual Private Network) between the local and remote systems.
 > 当你通过 SSH 协议与远端主机建立连接的时候，其中发生的事就是在本地与远端系统之间
 创建了一条加密通道。通常，这条通道被用来把在本地系统中输入的命令安全地传输到远端系统，
 同样地，再把执行结果安全地发送回来。除了这个基本功能之外，SSH 协议允许大多数
-网络流量类型通过这条加密通道来被传送，在本地与远端系统之间创建某种 VPN（虚拟专用网络）。
+网络流量类型通过这条加密通道来被传送，在本地与远端系统之间创建一种 VPN（虚拟专用网络）。
 >
 > Perhaps the most common use of this feature is to allow X Window system traffic
 to be transmitted. On a system running an X server (that is, a machine displaying
