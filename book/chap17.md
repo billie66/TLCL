@@ -23,7 +23,7 @@ cover:
 
 * ping - Send an ICMP ECHO_REQUEST to network hosts
 
-* ping - 发送 ICMP ECHO_REQUEST 软件包到网络主机
+* ping - 发送 ICMP ECHO_REQUEST 数据包到网络主机
 
 * traceroute - Print the route packets trace to a network host
 
@@ -154,8 +154,8 @@ from the local system to a specified host. For example, to see the route
 taken to reach slashdot.org, we would do this:
 
 这个 traceroute 程序（一些系统使用相似的 tracepath 程序来代替）会显示从本地到指定主机
-要经过的所有“跳数”的网络流量列表。例如，看一下到达 slashdot.org 网站，需要经过的路由
-器，我们将这样做：
+要经过的所有“跳数”的网络流量列表。例如，看一下到达 slashdot.org 需要经过的路由，
+我们将这样做：
 
     [me@linuxbox ~]$ traceroute slashdot.org
 
@@ -253,7 +253,7 @@ on the LAN. The next field, Gateway, is the name or IP address of the gateway
 asterisk in this field indicates that no gateway is needed.
 
 在这个简单的例子里面，我们看到了，位于防火墙之内的局域网中，一台客户端计算机的典型路由表。
-第一行显示了目的地 192.168.1.0。IP 地址以零结尾是指网络，而不是个人主机，
+第一行显示了目的地 192.168.1.0。IP 地址以零结尾是指网络，而不是独立主机，
 所以这个目的地意味着局域网中的任何一台主机。下一个字段，Gateway，
 是网关（路由器）的名字或 IP 地址，用它来连接当前的主机和目的地的网络。
 若这个字段显示一个星号，则表明不需要网关。
@@ -280,7 +280,7 @@ programs that move data over networks. We will cover two of them now and several
 more in later sections.
 
 网络有什么用处呢？除非我们知道了怎样通过网络来传输文件。有许多程序可以用来在网络中
-传送数据。我们先讨论两个命令，随后的章节里再介绍几个命令。
+传送数据。我们先讨论两个，随后的章节里再介绍几个。
 
 #### ftp
 
@@ -519,7 +519,7 @@ SSH consists of two parts. An SSH server runs on the remote host, listening for 
 connections on port twenty-two, while an SSH client is used on the local system to
 communicate with the remote server.
 
-SSH 由两部分组成。SSH 服务器运行在远端主机上运行，在端口号22上监听将要到来的连接，而
+SSH 由两部分组成。SSH 服务端运行在远端主机上，在端口 22 上监听将要到来的连接，而
 SSH 客户端用在本地系统中，用来和远端服务器通信。
 
 Most Linux distributions ship an implementation of SSH called OpenSSH from the BSD
@@ -530,10 +530,9 @@ installed, configured and running, and (if the system is either running or is be
 firewall) it must allow incoming network connections on TCP port 22.
 
 大多数 Linux 发行版自带一个提供 SSH 功能的软件包，叫做 OpenSSH，来自于 BSD 项目。一些发行版
-默认包含客户端和服务器端两个软件包（例如，Red
-Hat）,而另一些（比方说 Ubuntu）则只是提供客户端服务。为了能让系统接受远端的连接，它必须
-安装 OpenSSH-server 软件包，配置，运行它，并且（如果系统正在运行，或者是在防火墙之后）
-它必须允许在 TCP 端口号上接收网络连接。
+默认包含客户端和服务端两个软件包（例如 Red Hat），而另一些（比方说 Ubuntu）则只提供客户端。
+为了能让系统接受远端的连接，它必须安装 OpenSSH-server 软件包，配置，运行它，
+并且（如果系统正在运行，或者系统在防火墙之后）它必须允许在 TCP 端口 22 上接收网络连接。
 
 ---
 
@@ -551,8 +550,8 @@ The SSH client program used to connect to remote SSH servers is called, appropri
 enough, ssh. To connect to a remote host named remote-sys, we would use the ssh
 client program like so:
 
-用来与远端 SSH 服务器相连接的 SSH 客户端程序，顺理成章，叫做 ssh。连接到远端名为 remote-sys
-的主机，我们可以这样使用 ssh 客户端程序：
+用来与远端 SSH 服务器相连接的 SSH 客户端程序，顺理成章，叫做 ssh。想要连接到名叫 remote-sys
+的远端主机，我们可以这样使用 ssh 客户端程序：
 
     [me@linuxbox ~]$ ssh remote-sys
     The authenticity of host 'remote-sys (192.168.1.4)' can't be
@@ -646,7 +645,7 @@ This means that line one of the known_hosts file contains the offending key. Del
 this line from the file, and the ssh program will be able to accept new authentication
 credentials from the remote system.
 
-这意味着文件 known_hosts 里面某一行包含攻击型的钥匙。从文件中删除这一行，则 ssh 程序
+这意味着 known_hosts 文件的第一行包含那个冲突的钥匙。从文件中删除这一行，则 ssh 程序
 就能够从远端系统接受新的身份验证凭据。
 
 Besides opening a shell session on a remote system, ssh also allows us to execute a
@@ -685,7 +684,7 @@ be performed on the remote system. Likewise, if we had wanted the output redirec
 a file on the remote machine, we could have placed the redirection operator and the
 filename within the single quotes:
 
-注意，上面的例子中使用了单引号。这样做是因为我们不想路径名展开操作在本地执行 ；而希望
+注意，上面的例子中使用了单引号。这样做是因为我们不想路径名展开操作在本地执行，而希望
 它在远端系统中被执行。同样地，如果我们想要把输出结果重定向到远端主机的文件中，我们可以
 把重定向操作符和文件名都放到单引号里面。
 
@@ -706,7 +705,7 @@ VPN (Virtual Private Network) between the local and remote systems.
 > 当你通过 SSH 协议与远端主机建立连接的时候，其中发生的事就是在本地与远端系统之间
 创建了一条加密通道。通常，这条通道被用来把在本地系统中输入的命令安全地传输到远端系统，
 同样地，再把执行结果安全地发送回来。除了这个基本功能之外，SSH 协议允许大多数
-网络流量类型通过这条加密通道来被传送，在本地与远端系统之间创建某种 VPN（虚拟专用网络）。
+网络流量类型通过这条加密通道来被传送，在本地与远端系统之间创建一种 VPN（虚拟专用网络）。
 >
 > Perhaps the most common use of this feature is to allow X Window system traffic
 to be transmitted. On a system running an X server (that is, a machine displaying
@@ -717,10 +716,10 @@ called linuxbox which is running an X server, and we want to run the xload
 program on a remote system named remote-sys and see the program’s
 graphical output on our local system. We could do this:
 >
-> 可能这个特性的最普遍的用法是允许传递 X 窗口系统流量。在运行着 X 服务器（也就是，
-能显示 GUI 的机器）的系统中，有可能在远端启动和运行一个 X 客户端程序（一个图形化应用程序），
-而应用程序的显示结果出现在本地。这很容易完成，这里有个例子：假设我们正坐在一台装有 Linux 系统，
-叫做 linuxbox 的机器之前，且系统中运行着 X 服务器，现在我们想要在名为 remote-sys 的远端系统中
+> 可能这个特性的最普遍的用法是允许传递 X 窗口系统流量。在运行着 X 服务端的系统（也就是，
+能显示 GUI 的机器）上，能登录远端系统并运行一个 X 客户端程序（一个图形化应用），
+而应用程序的显示结果出现在本地。这很容易完成，这里有个例子：假设我们正坐在一台名为 linuxbox 
+的 Linux 系统前，且系统中运行着 X 服务端，现在我们想要在名为 remote-sys 的远端系统中
 运行 xload 程序，但是要在我们的本地系统中看到这个程序的图形化输出。我们可以这样做：
 >
 >     [me@linuxbox ~]$ ssh -X remote-sys
@@ -745,10 +744,10 @@ followed by a colon character. For example, if we wanted to copy a document name
 document.txt from our home directory on the remote system, remote-sys, to the
 current working directory on our local system, we could do this:
 
-这个 OpenSSH 软件包也包含两个程序，它们可以利用 SSH 加密通道在网络间复制文件。
+OpenSSH 软件包也包含两个程序，它们可以利用 SSH 加密通道在网络间复制文件。
 第一个，scp（安全复制）被用来复制文件，与熟悉的 cp 程序非常相似。最显著的区别就是
 源或者目标路径名要以远端主机的名字，后跟一个冒号字符开头。例如，如果我们想要
-从远端系统，remote-sys，的家目录下复制文档 document.txt，到我们本地系统的当前工作目录下，
+从 remote-sys 远端系统的家目录下复制文档 document.txt，到我们本地系统的当前工作目录下，
 可以这样操作：
 
     [me@linuxbox ~]$ scp remote-sys:document.txt .
@@ -760,8 +759,8 @@ current working directory on our local system, we could do this:
 As with ssh, you may apply a user name to the beginning of the remote host’s name if
 the desired remote host account name does not match that of the local system:
 
-和 ssh 命令一样，如果你所期望的远端主机帐户与你本地系统中的不一致，
-则可以把用户名添加到远端主机名的开头。
+和 ssh 命令一样，如果所需的远端主机帐户名与本地系统中的不一致，
+那么你可以把用户名添加到远端主机名的开头：
 
     [me@linuxbox ~]$ scp bob@remote-sys:document.txt .
 
@@ -773,9 +772,9 @@ does not require an FTP server to be running on the remote host. It only require
 server. This means that any remote machine that can connect with the SSH client can
 also be used as a FTP-like server. Here is a sample session:
 
-第二个 SSH 文件复制命令是 sftp，正如其名字所示，它是 ftp 程序的安全替代品。sftp 工作起来与我们
+第二个 SSH 文件复制程序是 sftp，顾名思义，它是 ftp 程序的安全替代品。sftp 工作起来与我们
 之前使用的 ftp 程序很相似；然而，它不用明码形式来传递数据，它使用加密的 SSH 通道。sftp 有一个
-重要特性强于传统的 ftp 命令，就是 sftp 不需要远端系统中运行 FTP 服务器。它仅仅要求 SSH 服务器。
+重要特性强于传统的 ftp 命令，就是 sftp 不需要远端系统中运行 FTP 服务端。它仅仅需要 SSH 服务端。
 这意味着任何一台能用 SSH 客户端连接的远端机器，也可当作类似于 FTP 的服务器来使用。
 这里是一个样本会话：
 
@@ -798,9 +797,9 @@ in Linux distributions. Using either Nautilus (GNOME) or Konqueror (KDE), we
 can enter a URI beginning with sftp:// into the location bar and operate on files
 stored on a remote system running an SSH server.
 
-小贴示：这个 SFTP 协议被许多 Linux 发行版中的图形化文件管理器支持。使用
+小贴示：SFTP 协议被许多 Linux 发行版中的图形化文件管理器支持。使用
 Nautilus (GNOME), 或者是 Konqueror (KDE)，我们都能在位置栏中输入以
-sftp:// 开头的 URI， 来操作存储在运行着 SSH 服务器的远端系统中的文件。
+sftp:// 开头的 URI，来操作存储在运行着 SSH 服务端的远端系统中的文件。
 
 ---
 
@@ -817,8 +816,8 @@ an SSH (or telnet) session on a remote host. The program also provides analogs
 for the scp and sftp programs.
 >
 > 比方说你正坐在一台 Windows 机器前面，但是你需要登录到你的 Linux 服务器中，去完成
-一些实际的工作，那该怎么办呢？当然是得到一个 Windows 平台下的 SSH 客户端！有很多这样
-的工具。最流行的可能就是由 Simon Tatham 和他的团队开发的 PuTTY 了。这个 PuTTY 程序
+一些实际的工作，那该怎么办呢？当然是找一个 Windows 平台下的 SSH 客户端！有很多这样
+的工具。最流行的可能就是由 Simon Tatham 和他的团队开发的 PuTTY 了。PuTTY 程序
 能够显示一个终端窗口，而且允许 Windows 用户在远端主机中打开一个 SSH（或者 telnet）会话。
 这个程序也提供了 scp 和 sftp 程序的类似物。
 >
