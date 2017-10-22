@@ -580,7 +580,7 @@ needed.</td>
 
 
 <table class="multi">
-<caption class="cap">b表格 22-5: printf 转换规范组件 </caption>
+<caption class="cap">表 22-5: printf 转换规范组件 </caption>
 <tr>
 <th class="title">组件</th>
 <th class="title">描述</th>
@@ -671,7 +671,33 @@ precision to be output after the decimal point. For string conversion, precision
 </tr>
 </table>
 
-Here are some examples of different formats in action:
+<table class="multi">
+<caption class="cap">表 22-5: printf 转换规范组件</caption>
+<tr>
+<th class="title">组件</th>
+<th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top" width="25%">flags</td>
+<td valign="top">有5种不同的标志:
+<p># – 使用“备用格式”输出。这取决于数据类型。对于o（八进制数）转换，输出以0为前缀.对于x和X（十六进制数）转换，输出分别以0x或0X为前缀。</p>
+<p>0–(零) 用零填充输出。这意味着该字段将填充前导零，比如“000380”。</p>
+<p>- – (破折号) 左对齐输出。默认情况下，printf右对齐输出。</p>
+<p>‘ ’ – (空格) 在正数前空一格。</p>
+<p>+ – (加号) 在正数前添加加号。默认情况下，printf 只在负数前添加符号。</p>
+</td>
+</tr>
+<tr>
+<td valign="top">width</td>
+<td valign="top">指定最小字段宽度的数。</td>
+</tr>
+<tr>
+<td valign="top">.precision</td>
+<td valign="top">对于浮点数，指定小数点后的精度位数。对于字符串转换，指定要输出的字符数。</td>
+</tr>
+</table>
+
+以下是不同格式的一些示例：
 
 <table class="multi">
 <caption class="cap">Table 22-6: print Conversion Specification Examples</caption>
@@ -737,6 +763,70 @@ Here are some examples of different formats in action:
 </tr>
 </table>
 
+<table class="multi">
+<caption class="cap">表 22-6: print 转换规范示例</caption>
+<tr>
+<th class="title">自变量</th>
+<th class="title">格式</th>
+<th class="title">结果</th>
+<th class="title">备注</th>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%d"</td>
+<td valign="top">380</td>
+<td valign="top">简单格式化整数。</td>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%#x"</td>
+<td valign="top">0x17c</td>
+<td valign="top">使用“替代格式”标志将整数格式化为十六进制数。</td>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%05d"</td>
+<td valign="top">00380</td>
+<td valign="top">用前导零（padding）格式化整数，且最小字段宽度为五个字符。</td>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%05.5f"</td>
+<td valign="top">380.00000</td>
+<td valign="top">使用前导零和五位小数位精度格式化数字为浮点数。由于指定的最小字段宽度（5）小于格式化后数字的实际宽度，因此前导零这一命令实际上没有起到作用。</td>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%010.5f"</td>
+<td valign="top">0380.00000</td>
+<td valign="top">将最小字段宽度增加到10，前导零现在变得可见。</td>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%+d"</td>
+<td valign="top">+380</td>
+<td valign="top">使用+标志标记正数。</td>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%-d"</td>
+<td valign="top">380</td>
+<td valign="top">使用-标志左对齐</td>
+</tr>
+<tr>
+<td valign="top">abcdefghijk</td>
+<td valign="top">"%5s"</td>
+<td valign="top">abcedfghijk</td>
+<td valign="top">用最小字段宽度格式化字符串。</td>
+</tr>
+<tr>
+<td valign="top">abcdefghijk</td>
+<td valign="top">"%d"</td>
+<td valign="top">abcde</td>
+<td valign="top">对字符串应用精度，它被从中截断。</td>
+</tr>
+</table>
+
 Again, printf is used mostly in scripts where it is employed to format tabular data,
 rather than on the command line directly. But we can still show how it can be used to
 solve various formatting problems. First, let’s output some fields separated by tab characters:
@@ -768,9 +858,7 @@ formatting a tiny web page:
 
 ### Document Formatting Systems
 
-So far, we have examined the simple text-formatting tools. These are good for small, sim-
-
-ple tasks, but what about larger jobs? One of the reasons that Unix became a popular operating
+So far, we have examined the simple text-formatting tools. These are good for small, simple tasks, but what about larger jobs? One of the reasons that Unix became a popular operating
 system among technical and scientific users (aside from providing a powerful
 multitasking, multiuser environment for all kinds of software development) is that it offered
 tools that could be used to produce many types of documents, particularly scientific
