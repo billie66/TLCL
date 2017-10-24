@@ -462,8 +462,11 @@ margin for each page. Further, this whitespace can be used to insert a header an
 on each page.
 
 pr 程序用来把文本分页。当打印文本的时候，经常希望用几个空行在输出的页面的顶部或底部添加空白。此外，这些空行能够用来插入到每个页面的页眉或页脚。
+
 We’ll demonstrate pr by formatting our distros.txt file into a series of very short
 pages (only the first two pages are shown):
+
+下面我们将演示 pr 的用法。我们准备将 distros.txt 这个文件分成若干张很短的页面（仅展示前两张页面）：
 
     [me@linuxbox ~]$ pr -l 15 -w 65 distros.txt
     2008-12-11 18:27        distros.txt         Page 1
@@ -492,6 +495,8 @@ and creates a default header containing the file modification time, filename, an
 number. The pr program provides many options to control page layout. We’ll take a look
 at more of them in the next chapter.
 
+在上面的例子中，我们用 -l 选项（页长）和 -w 选项（页宽）定义了宽65列，长15行的一个“页面”。 pr 为 distros.txt 中的内容编订页码，用空行分开各页面，生成了包含文件修改时间、文件名、页码的默认页眉。 pr 指令拥有很多调整页面布局的选项，我们将在下一章中进一步探讨。
+
 #### printf – Format And Print Data
 
 Unlike the other commands in this chapter, the printf command is not used for pipelines
@@ -499,17 +504,24 @@ Unlike the other commands in this chapter, the printf command is not used for pi
 the command line (it’s mostly used in scripts). So why is it important? Because it is so
 widely used.
 
+与本章中的其他指令不同， printf 并不用于流水线执行（不接受标准输入）。在命令行中，它也鲜有运用（它通常被用于自动执行指令中）。所以为什么它如此重要？因为它被广泛使用。
+
 printf (from the phrase “print formatted”) was originally developed for the C programming
 language and has been implemented in many programming languages including
 the shell. In fact, in bash, printf is a builtin.
 printf works like this:
+
+printf (来自短语“格式化打印” “print formatted”) 最初为 C 语言设计，后来在包括 shell 的多种语言中运用。事实上，在 bash 中, printf 是内置的。
+printf 这样工作:
 
     printf “format” arguments
 
 The command is given a string containing a format description which is then applied to a
 list of arguments. The formatted result is sent to standard output. Here is a trivial example:
 
-    [me@linuxbox ~]$ printf "I formatted the string: %s\n" foo
+首先，发送包含有格式化描述的字符串的指令，接着，这些描述被应用于参数列表上。格式化的结果在标准输出中显示。下面是一个小例子：
+
+    [me@linuxbox ~]$ printf "I formatted the string: %s\n" foo
     I formatted the string: foo
 
 The format string may contain literal text (like “I formatted the string:”), escape sequences
@@ -518,12 +530,16 @@ which are called conversion specifications. In the example above, the conversion
 %s is used to format the string “foo” and place it in the command’s output. Here it
 is again:
 
+格式字符串可能包含文字文本（如“我格式化了这个字符串：” “I formatted the string:”），转义序列（例如\n，换行符）和以％字符开头的序列，这被称为转换规范。在上面的例子中，转换规范 ％s 用于格式化字符串 “foo” 并将其输出在命令行中。我们再来看一遍：
+
     [me@linuxbox ~]$ printf "I formatted '%s' as a string.\n" foo
     I formatted 'foo' as a string.
 
 As we can see, the %s conversion specification is replaced by the string “foo” in the command’s
 output. The s conversion is used to format string data. There are other specifiers
 for other kinds of data. This table lists the commonly used data types:
+
+我们可以看到，在命令行输出中，转换规范 ％s 被字符串 “foo” 所替代。s 转换用于格式化字符串数据。还有其他转换符用于其他类型的数据。此表列出了常用的数据类型：
 
 <table class="multi">
 <caption class="cap">Table 22-5: printf Conversion Specification Components </caption>
@@ -562,7 +578,46 @@ needed.</td>
 </tr>
 </table>
 
+
+<table class="multi">
+<caption class="cap">表 22-5: printf 转换规范组件 </caption>
+<tr>
+<th class="title">组件</th>
+<th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top">d</td>
+<td valign="top">将数字格式化为带符号的十进制整数</td>
+</tr>
+<tr>
+<td valign="top">f</td>
+<td valign="top">格式化并输出浮点数</td>
+</tr>
+<tr>
+<td valign="top">o</td>
+<td valign="top">将整数格式化为八进制数</td>
+</tr>
+<tr>
+<td valign="top">s</td>
+<td valign="top">将字符串格式化</td>
+</tr>
+<tr>
+<td valign="top">x</td>
+<td valign="top">将整数格式化为十六进制数，必要时使用小写a-f</td>
+</tr>
+<tr>
+<td valign="top">X</td>
+<td valign="top">与 x 相同，但变为大写</td>
+</tr>
+<tr>
+<td valign="top">%</td>
+<td valign="top">打印 % 符号 (比如，指定 “%%”)</td>
+</tr>
+</table>
+
 We’ll demonstrate the effect each of the conversion specifiers on the string “380”:
+
+下面我们以字符串 "380" 为例，展示每种转换符的效果。
 
     [me@linuxbox ~]$ printf "%d, %f, %o, %s, %x, %X\n" 380 380 380 380
     380 380
@@ -573,10 +628,16 @@ printf to process. The six results show the effect of each specifier.
 Several optional components may be added to the conversion specifier to adjust its output.
 A complete conversion specification may consist of the following:
 
+由于我们指定了六个转换符，我们还必须为 printf 提供六个参数进行处理。下面六个结果展示了每个转换符的效果。
+可将可选组件添加到转换符以调整输出。
+完整的转换规范包含以下内容：
+
     %[flags][width][.precision]conversion_specification
 
 Multiple optional components, when used, must appear in the order specified above to be
 properly interpreted. Here is a description of each:
+
+使用多个可选组件时，必须按照上面指定的顺序，以便准确编译。以下是每个可选组件的描述：
 
 <table class="multi">
 <caption class="cap">Table 22-5: printf Conversion Specification Components</caption>
@@ -610,7 +671,33 @@ precision to be output after the decimal point. For string conversion, precision
 </tr>
 </table>
 
-Here are some examples of different formats in action:
+<table class="multi">
+<caption class="cap">表 22-5: printf 转换规范组件</caption>
+<tr>
+<th class="title">组件</th>
+<th class="title">描述</th>
+</tr>
+<tr>
+<td valign="top" width="25%">flags</td>
+<td valign="top">有5种不同的标志:
+<p># – 使用“备用格式”输出。这取决于数据类型。对于o（八进制数）转换，输出以0为前缀.对于x和X（十六进制数）转换，输出分别以0x或0X为前缀。</p>
+<p>0–(零) 用零填充输出。这意味着该字段将填充前导零，比如“000380”。</p>
+<p>- – (破折号) 左对齐输出。默认情况下，printf右对齐输出。</p>
+<p>‘ ’ – (空格) 在正数前空一格。</p>
+<p>+ – (加号) 在正数前添加加号。默认情况下，printf 只在负数前添加符号。</p>
+</td>
+</tr>
+<tr>
+<td valign="top">width</td>
+<td valign="top">指定最小字段宽度的数。</td>
+</tr>
+<tr>
+<td valign="top">.precision</td>
+<td valign="top">对于浮点数，指定小数点后的精度位数。对于字符串转换，指定要输出的字符数。</td>
+</tr>
+</table>
+
+以下是不同格式的一些示例：
 
 <table class="multi">
 <caption class="cap">Table 22-6: print Conversion Specification Examples</caption>
@@ -676,9 +763,76 @@ Here are some examples of different formats in action:
 </tr>
 </table>
 
+<table class="multi">
+<caption class="cap">表 22-6: print 转换规范示例</caption>
+<tr>
+<th class="title">自变量</th>
+<th class="title">格式</th>
+<th class="title">结果</th>
+<th class="title">备注</th>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%d"</td>
+<td valign="top">380</td>
+<td valign="top">简单格式化整数。</td>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%#x"</td>
+<td valign="top">0x17c</td>
+<td valign="top">使用“替代格式”标志将整数格式化为十六进制数。</td>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%05d"</td>
+<td valign="top">00380</td>
+<td valign="top">用前导零（padding）格式化整数，且最小字段宽度为五个字符。</td>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%05.5f"</td>
+<td valign="top">380.00000</td>
+<td valign="top">使用前导零和五位小数位精度格式化数字为浮点数。由于指定的最小字段宽度（5）小于格式化后数字的实际宽度，因此前导零这一命令实际上没有起到作用。</td>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%010.5f"</td>
+<td valign="top">0380.00000</td>
+<td valign="top">将最小字段宽度增加到10，前导零现在变得可见。</td>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%+d"</td>
+<td valign="top">+380</td>
+<td valign="top">使用+标志标记正数。</td>
+</tr>
+<tr>
+<td valign="top">380</td>
+<td valign="top">"%-d"</td>
+<td valign="top">380</td>
+<td valign="top">使用-标志左对齐</td>
+</tr>
+<tr>
+<td valign="top">abcdefghijk</td>
+<td valign="top">"%5s"</td>
+<td valign="top">abcedfghijk</td>
+<td valign="top">用最小字段宽度格式化字符串。</td>
+</tr>
+<tr>
+<td valign="top">abcdefghijk</td>
+<td valign="top">"%d"</td>
+<td valign="top">abcde</td>
+<td valign="top">对字符串应用精度，它被从中截断。</td>
+</tr>
+</table>
+
 Again, printf is used mostly in scripts where it is employed to format tabular data,
 rather than on the command line directly. But we can still show how it can be used to
 solve various formatting problems. First, let’s output some fields separated by tab characters:
+
+再次强调，printf 主要用在脚本中，用于格式化表格数据，而不是直接用于命令行。但是我们仍然可以展示如何使用它来解决各种格式化问题。
+首先，我们输出一些由制表符分隔的字段：
 
     [me@linuxbox ~]$ printf "%s\t%s\t%s\n" str1 str2 str3
     str1 str2 str3
@@ -686,12 +840,16 @@ solve various formatting problems. First, let’s output some fields separated b
 By inserting \t (the escape sequence for a tab), we achieve the desired effect. Next,
 some numbers with neat formatting:
 
+通过插入\t（tab 的转义序列），我们实现了所需的效果。接下来，我们让一些数字的格式变得整齐：
+
     [me@linuxbox ~]$ printf "Line: %05d %15.3f Result: %+15d\n" 1071
     3.14156295 32589
     Line: 01071 3.142 Result: +32589
 
 This shows the effect of minimum field width on the spacing of the fields. Or how about
 formatting a tiny web page:
+
+这显示了最小字符宽度对字符间距的影响。或者，让我们看看如何格式化一个小网页：
 
     [me@linuxbox ~]$ printf "<html>\n\t<head>\n\t\t<title>%s</title>\n
     \t</head>\n\t<body>\n\t\t<p>%s</p>\n\t</body>\n</html>\n" "Page Tit
@@ -706,15 +864,17 @@ formatting a tiny web page:
     </html>
 
 ### Document Formatting Systems
-
-So far, we have examined the simple text-formatting tools. These are good for small, sim-
-
-ple tasks, but what about larger jobs? One of the reasons that Unix became a popular operating
+### 文件格式化系统
+So far, we have examined the simple text-formatting tools. These are good for small, simple tasks, but what about larger jobs? One of the reasons that Unix became a popular operating
 system among technical and scientific users (aside from providing a powerful
 multitasking, multiuser environment for all kinds of software development) is that it offered
 tools that could be used to produce many types of documents, particularly scientific
 and academic publications. In fact, as the GNU documentation describes, document
 preparation was instrumental to the development of Unix:
+
+到目前为止，我们已经查看了简单的文本格式化工具。这些对于小而简单的任务是有好处的，但更大的工作呢？
+Unix在技术和科学用户中流行的原因之一（除了为各种软件开发提供强大的多任务多用户环境之外），
+是它提供了可用于生成许多类型文档的工具，特别是科学和学术出版物。事实上，正如GNU文档所描述的那样，文档准备对于Unix的开发起到了促进作用：
 
 The first version of UNIX was developed on a PDP-7 which was sitting around Bell
 Labs. In 1971 the developers wanted to get a PDP-11 for further work on the
@@ -723,10 +883,17 @@ would implement a document formatting system for the AT&T patents division. This
 first formatting program was a reimplementation of McIllroy's `roff', written by J.
 F. Ossanna.
 
+UNIX 的第一个版本是在位于贝尔实验室的 PDP-7 上开发的。在1971年，开发人员想要获得 PDP-11 进一步开发操作系统。
+为了证明这个系统的成本是合理的，他们建议为 AT＆T 专利部门创建文件格式化系统。
+第一个格式化程序是由 J. F. Ossanna 撰写的，重新实现了 McIllroy 的 “roff” 的。
+
 Two main families of document formatters dominate the field: those descended from the
 original roff program, including nroff and troff, and those based on Donald
 Knuth’s TEX (pronounced “tek”) typesetting system. And yes, the dropped “E” in the
 middle is part of its name.
+
+两个文件格式化程序的主要家族占据了该领域：继承自原始 roff 程序的，包括 nroff 和 troff；以及
+基于 Donald Knuth 的 TEX（发音“tek”）排版系统。是的，中间那个掉下来的“E”是其名称的一部分。
 
 The name “roff” is derived from the term “run off” as in, “I’ll run off a copy for you.”
 The nroff program is used to format documents for output to devices that use
@@ -738,10 +905,19 @@ to simulate the output of typesetters. The roff family also includes some other 
 that are used to prepare portions of documents. These include eqn (for mathematical
 equations) and tbl (for tables).
 
+名称 “roff” 源于术语 “run off” ，如“I’ll run off a copy for you.”（“我将为您运行副本”）。
+nroff 程序用于格式化文档以输出到使用等宽字体的设备，如字符终端和打字机式打印机。
+在它刚面世时，这几乎包括了所有连接在计算机上的打印设备。
+稍后的 troff 程序格式化用于排版机输出的文档，也就是“camera-ready”（可供拍摄成印刷版的）类型的用于商业打印的设备。
+今天的大多数电脑打印机都能够模拟排版机的输出。roff 家族还包括一些用于准备文档部分的程序。这些包括 eqn（用于数学方程）和 tbl（用于表）。
+
 The TEX system (in stable form) first appeared in 1989 and has, to some degree, displaced
 troff as the tool of choice for typesetter output. We won’t be covering TEX
 here, due both to its complexity (there are entire books about it) and to the fact that it is
 not installed by default on most modern Linux systems.
+
+TEX 系统（稳定形式）首先在1989年出现，并在某种程度上取代了 troff 作为排版机输出的首选工具。
+由于其复杂性（整本书都讲不完）以及在大多数现代 Linux 系统上默认情况下不安装的事实，我们不会在此讨论 TEX。
 
 ---
 
@@ -749,12 +925,16 @@ Tip: For those interested in installing TEX, check out the texlive package
 which can be found in most distribution repositories, and the LyX graphical content
 editor.
 
+提示：对于有兴趣安装 TEX 的用户，请查看大多数分发版本中可以找到的 texlive 软件包，以及 LyX 图形内容编辑器。
+
 ---
 
 #### groff
 
 groff is a suite of programs containing the GNU implementation of troff. It also includes
 a script that is used to emulate nroff and the rest of the roff family as well.
+
+groff 是一套用GNU实现 troff 的程序。它还包括一个脚本，用来模仿 nroff 和其他 roff 家族。
 
 While roff and its descendants are used to make formatted documents, they do it in a
 way that is rather foreign to modern users. Most documents today are produced using
@@ -767,15 +947,25 @@ The modern analog for such a process is the web page, which is composed using a
 text editor of some kind and then rendered by a web browser using HTML as the markup
 language to describe the final page layout.
 
+roff 及其后继制作格式化文档的方式对现代用户来说是相当陌生的。今天的大部分文件都是由能够一次性完成排字和布局的文字处理器生成的。
+在图形文字处理器出现之前，需要两步来生成文档。首先用文本编辑器排字，接着用诸如 troff 之类的处理器来格式化。
+格式化程序的说明通过标记语言的形式插入到已排好字的文本当中。
+类似这种过程的现代例子是网页。它首先由某种文本编辑器排好字，然后由使用 HTML 作为标记语言的 Web 浏览器渲染出最终的页面布局。
+
 We’re not going to cover groff in its entirety, as many elements of its markup language
 deal with rather arcane details of typography. Instead we will concentrate on one of its
 macro packages that remains in wide use. These macro packages condense many of its
 low-level commands into a smaller set of high-level commands that make using groff
 much easier.
 
+我们不会讲解 groff 的全部内容，因为它的标记语言被用来处理少有人懂的排字细节。我们将专注于其中的一个仍然广泛使用的宏包。这些宏包将
+低级命令转换少量高级命令，从而简化 groff 的使用。
+
 For a moment, let’s consider the humble man page. It lives in the /usr/share/man
 directory as a gzip compressed text file. If we were to examine its uncompressed contents,
 we would see the following (the man page for ls in section 1 is shown):
+
+现在，我们来看一下这个简单的手册页。它位于/usr/share/man目录，是一个gzip压缩文本文件。解压后，我们将看到以下内容（显示了 ls 手册的第1节）：
 
     [me@linuxbox ~]$ zcat /usr/share/man/man1/ls.1.gz | head
     .\" DO NOT MODIFY THIS FILE! It was generated by help2man 1.35.
@@ -792,6 +982,8 @@ we would see the following (the man page for ls in section 1 is shown):
 Compared to the man page in its normal presentation, we can begin to see a correlation
 between the markup language and its results:
 
+与默认手册页进行比较，我们可以开始看到标记语言与其结果之间的相关性：
+
     [me@linuxbox ~]$ man ls | head
     LS(1) User Commands LS(1)
     NAME
@@ -802,6 +994,8 @@ between the markup language and its results:
 
 The reason this is of interest is that man pages are rendered by groff, using the mandoc
 macro package. In fact, we can simulate the man command with the following pipeline:
+
+令人感兴趣的原因是手册页由 groff 渲染，使用 mandoc 宏包。事实上，我们可以用以下流水线来模拟 man 命令：
 
     [me@linuxbox ~]$ zcat /usr/share/man/man1/ls.1.gz | groff -mandoc -T
     ascii | head
@@ -814,6 +1008,9 @@ macro package. In fact, we can simulate the man command with the following pipel
 Here we use the groff program with the options set to specify the mandoc macro
 package and the output driver for ASCII. groff can produce output in several formats.
 If no format is specified, PostScript is output by default:
+
+在这里，我们使用 groff 程序和选项集来指定 mandoc 宏程序包和 ASCII 的输出驱动程序。groff 可以产生多种格式的输出。
+如果没有指定格式，默认情况下会输出 PostScript格式：
 
     [me@linuxbox ~]$ zcat /usr/share/man/man1/ls.1.gz | groff -mandoc |
     head
@@ -833,21 +1030,33 @@ PostScript is a page description language that is used to describe the contents 
 printed page to a typesetter-like device. If we take the output of our command and store it
 to a file (assuming that we are using a graphical desktop with a Desktop directory):
 
+我们在前一章中简要介绍了PostScript，并将在下一章中再次介绍。
+PostScript 是一种页面描述语言，用于将打印页面的内容描述给类似排字机的设备。
+如果我们输出命令并将其存储到一个文件中（假设我们正在使用带有 Desktop 目录的图形桌面）：
+
     [me@linuxbox ~]$ zcat /usr/share/man/man1/ls.1.gz | groff -mandoc >
     ~/Desktop/foo.ps
 
 An icon for the output file should appear on the desktop. By double-clicking the icon, a
 page viewer should start up and reveal the file in its rendered form:
 
+输出文件的图标应该出现在桌面上。双击图标，页面查看器将启动，并显示渲染后的文件：
+
 Figure 4: Viewing PostScript Output With A Page Viewer In GNOME
+
+图4：在GNOME中使用页面查看器查看 PostScript 输出
 
 What we see is a nicely typeset man page for ls! In fact, it’s possible to convert the Post-
 Script file into a PDF (Portable Document Format) file with this command:
+
+我们看到的是一个排版很好的 ls 手册页面！事实上，可以使用以下命令将 PostScript 输出的文件转换为PDF（便携式文档格式）文件：
 
     [me@linuxbox ~]$ ps2pdf ~/Desktop/foo.ps ~/Desktop/ls.pdf
 
 The ps2pdf program is part of the ghostscript package, which is installed on most
 Linux systems that support printing.
+
+ps2pdf 程序是 ghostscript 包的一部分，它安装在大多数支持打印的 Linux 系统上。
 
 ---
 
@@ -858,6 +1067,9 @@ conversion. They are often named using the convention of format2format. Try usin
 
 to identify them. Also try searching for programs named formattoformat.
 
+提示：Linux 系统通常包含许多用于文件格式转换的命令行程序。它们通常以 format2format 命名。尝试使用该命令或 formattoformat
+
+
 ---
 
 For our last exercise with groff, we will revisit our old friend distros.txt once
@@ -865,8 +1077,14 @@ more. This time, we will use the tbl program which is used to format tables to t
 our list of Linux distributions. To do this, we are going to use our earlier sed script to
 add markup to a text stream that we will feed to groff.
 
+groff 的最后一个练习，将再次访问我们的老朋友 distros.txt。这一次，我们将使用能够将表格格式化的 tbl 程序，来输出
+Linux 发行版本列表。为此，我们将使用早期的 sed 脚本添加一个文本流的标记，提供给 groff。
+
 First, we need to modify our sed script to add the necessary requests that tbl requires.
 Using a text editor, we will change distros.sed to the following:
+
+首先，我们需要修改我们的 sed 脚本来添加 tbl 所需的请求。
+使用文本编辑器，我们将将 distros.sed 更改为以下内容：
 
     # sed script to produce Linux distributions report
     1 i\
@@ -890,6 +1108,11 @@ The rows following the .TS request define global properties of the table which, 
 example, are centered horizontally on the page and surrounded by a box. The remaining
 lines of the definition describe the layout of each table row. Now, if we run our reportgenerating
 pipeline again with the new sed script, we’ll get the following :
+
+请注意，为使脚本正常工作，必须注意单词“Name Version Released”由 tab 分隔，而不是空格。
+我们将生成的文件保存为 distros-tbl.sed. tbl 使用 .TS 和 .TE 请求来启动和结束表格。
+.TS 请求后面的行定义了表格的全局属性，就我们的示例而言，它在页面上水平居中并含外边框。
+定义的其余行描述每行的布局。现在，如果我们再次使用新的 sed 脚本运行我们新的报告生成流水线，我们将得到以下内容：
 
     [me@linuxbox ~]$ sort -k 1,1 -k 2n distros.txt | sed -f distros-tbl
     .sed | groff -t -T ascii 2>/dev/null
@@ -920,14 +1143,20 @@ Adding the -t option to groff instructs it to pre-process the text stream with t
 Likewise, the -T option is used to output to ASCII rather than the default output medium,
 PostScript.
 
+将 -t 选项添加到 groff 指示它用 tbl 预处理文本流。同样地，-T 选项用于输出到 ASCII ，而不是默认的输出介质 PostScript。
+
 The format of the output is the best we can expect if we are limited to the capabilities of a
 terminal screen or typewriter-style printer. If we specify PostScript output and graphically
 view the resulting output, we get a much more satisfying result:
+
+如果仅限于终端屏幕或打字机式打印机，这样的输出格式是我们能期望的最好的。
+如果我们指定 PostScript 输出并以图形方式查看生成的输出，我们将得到一个更加满意的结果：
 
     [me@linuxbox ~]$ sort -k 1,1 -k 2n distros.txt | sed -f distros-tbl
     .sed | groff -t > ~/Desktop/foo.ps
 
 Figure 5: Viewing The Finished Table
+图5：查看生成的表格
 
 ### Summing Up
 
@@ -937,6 +1166,12 @@ have seen, there are! The simple formatting tools like fmt and pr will find many
 scripts that produce short documents, while groff (and friends) can be used to write
 books. We may never write a technical paper using command line tools (though there are
 many people who do!), but it’s good to know that we could.
+
+### 小节
+
+文本是 类 Unix 系统的核心特性，一定会有许多修改和格式化文本的工具。正如我们所看到的那样，的确很多！像 fmt 和 pr 这种比较简单的格式化工具会在
+生成比较短的文件时发挥很多用途，而 groff 和其他工具则会在写书的时候用上。我们也许永远不会用命令行工具来写一篇技术文章（尽管有很多人在这么做！），
+但是知道我们可以这么做也是极好的。
 
 ### Further Reading
 
@@ -957,6 +1192,32 @@ many people who do!), but it’s good to know that we could.
   <http://plan9.bell-labs.com/10thEdMan/tbl.pdf>
 
 * And, of course, try the following articles at Wikipedia:
+
+  <http://en.wikipedia.org/wiki/TeX>
+
+  <http://en.wikipedia.org/wiki/Donald_Knuth>
+
+  <http://en.wikipedia.org/wiki/Typesetting>
+
+### 阅读更多
+
+* groff 用户指南
+
+  <http://www.gnu.org/software/groff/manual/>
+
+* 运用 nroff 指令中的 -me 选项写论文:
+
+  <http://docs.freebsd.org/44doc/usd/19.memacros/paper.pdf>
+
+* -me 参考手册:
+
+  <http://docs.freebsd.org/44doc/usd/20.meref/paper.pdf>
+
+* Tbl – 一个格式化表格的指令:
+
+  <http://plan9.bell-labs.com/10thEdMan/tbl.pdf>
+
+* 当然，你也可以试试下面列出的维基百科中的内容:
 
   <http://en.wikipedia.org/wiki/TeX>
 
