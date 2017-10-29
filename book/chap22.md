@@ -33,7 +33,7 @@ programs that we will cover in this chapter include:
 
 * groff – A document formatting system
 
-* groff – 一个文件格式系统
+* groff – 一个文件格式化系统
 
 ### 简单的格式化工具
 

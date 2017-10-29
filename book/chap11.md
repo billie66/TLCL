@@ -8,9 +8,9 @@ of doing more than one thing at once by rapidly switching from one executing pro
 another. The Linux kernel manages this through the use of processes. Processes are how
 Linux organizes the different programs waiting for their turn at the CPU.
 
-通常，现在的操作系统都支持多任务，意味着操作系统（给用户）造成了一种假象，(让用户觉得)
-它同时能够做多件事情，事实上，它是快速地轮换执行这些任务的。Linux 内核通过使用进程，来
-管理多任务。通过进程，Linux 安排不同的程序等待使用 CPU。
+通常，现在的操作系统都支持多任务，意味着操作系统通过在一个执行中的程序和另一个
+程序之间快速地切换造成了一种它同时能够做多件事情的假象。Linux 内核通过使用进程来
+管理多任务。进程，就是Linux 组织安排正在等待使用 CPU的各种程序的方式。
 
 Sometimes a computer will become sluggish or an application will stop responding. In
 this chapter, we will look at some of the tools available at the command line that let us
@@ -64,9 +64,9 @@ implemented as daemon programs, programs that just sit in the background and do 
 thing without having any user interface. So even if we are not logged in, the system is at
 least a little busy performing routine stuff.
 
-当系统启动的时候，内核先把一些它自己的程序初始化为进程，然后运行一个叫做 init 的程序。init，
+当系统启动的时候，内核先把一些它自己的活动初始化为进程，然后运行一个叫做 init 的程序。init，
 依次地，再运行一系列的称为 init 脚本的 shell 脚本（位于/etc），它们可以启动所有的系统服务。
-其中许多系统服务以守护（daemon）程序的形式实现，守护程序仅在后台运行，没有任何用户接口。
+其中许多系统服务以守护（daemon）程序的形式实现，守护程序仅在后台运行，没有任何用户界面。
 这样，即使我们没有登录系统，至少系统也在忙于执行一些例行事务。
 
 The fact that a program can launch other programs is expressed in the process scheme as
@@ -82,7 +82,7 @@ resume execution. Like files, processes also have owners and user IDs, effective
 IDs, etc.
 
 内核维护每个进程的信息，以此来保持事情有序。例如，系统分配给每个进程一个数字，这个数字叫做
-进程 ID 或 PID。PID 号按升序分配，init 进程的 PID 总是1。内核也对分配给每个进程的内存进行跟踪。
+进程 ID 或 PID。PID 号按升序分配，init 进程的 PID 总是1。内核也对分配给每个进程的内存和就绪状态进行跟踪以便继续执行这个进程。
 像文件一样，进程也有所有者和用户 ID，有效用户 ID，等等。
 
 ### 查看进程
@@ -136,9 +136,9 @@ to pipe the output from ps into less for easier viewing. Some option combination
 produce long lines of output, so maximizing the terminal emulator window may be a
 good idea, too.
 
-因为系统中正运行着许多进程，所以 ps 命令的输出结果很长。这经常很有帮助，要是把 ps 的输出结果
-管道到 less 命令，借助 less 工具，更容易浏览。一些选项组合也会产生很长的输出结果，所以最大化
-终端仿真器窗口，也是一个好主意。
+因为系统中正运行着许多进程，所以 ps 命令的输出结果很长。为了方便查看，将ps的输出管道
+到less中通常很有帮助。一些选项组合也会产生很长的输出结果，所以最大化
+终端仿真器窗口可能也是一个好主意。
 
 A new column titled STAT has been added to the output. STAT is short for “state” and
 reveals the current status of the process:
@@ -367,7 +367,7 @@ the fact that the top program is used to see the “top” processes on the syst
 display consists of two parts: a system summary at the top of the display, followed by a
 table of processes sorted by CPU activity:
 
-top 程序连续显示系统进程更新的信息（默认情况下，每三秒钟更新一次），"top"这个名字
+top 程序以进程活动顺序显示连续更新的系统进程列表。（默认情况下，每三秒钟更新一次），"top"这个名字
 来源于 top 程序是用来查看系统中“顶端”进程的。top 显示结果由两部分组成：
 最上面是系统概要，下面是进程列表，以 CPU 的使用率排序。
 
@@ -739,7 +739,7 @@ allow a foreground process to be moved to the background. To stop a foreground
 process, type Ctrl-z. Let's try it. At the command prompt, type xlogo, the Enter
 key, then Ctrl-z:
 
-有时候，我们想要停止一个进程，而没有终止它。这样会把一个前台进程移到后台等待。
+有时候，我们想要停止一个进程，而不是终止它。我们这么做通常是为了允许前台进程被移动到后台。
 输入 Ctrl-z，可以停止一个前台进程。让我们试一下。在命令提示符下，执行 xlogo 命令，
 然后输入 Ctrl-z:
 
@@ -781,9 +781,9 @@ programs have many interesting and useful command line options.
 
 为什么要从命令行启动一个图形界面程序呢？有两个原因。第一个，你想要启动的程序，可能
 没有在窗口管理器的菜单中列出来（比方说 xlogo）。第二个，从命令行启动一个程序，
-你能够看到一些错误信息，如果从窗口系统中运行程序的话，这些信息是不可见的。有时候，
+你能够看到一些错误信息，如果从图形界面中运行程序的话，这些信息是不可见的。有时候，
 一个程序不能从图形界面菜单中启动。这时候，应该从命令行中启动它。我们可能会看到
-错误信息，这些信息揭示了问题所在。一些图形界面程序还有许多有意思并且有用的命令行选项。
+能揭示问题的错误信息。一些图形界面程序还有许多有意思并且有用的命令行选项。
 
 ### Signals
 
