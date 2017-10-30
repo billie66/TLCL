@@ -688,8 +688,8 @@ job control. With this message, the shell is telling us that we have started job
 (“[1]”) and that it has PID 28236. If we run ps, we can see our process:
 
 执行命令之后，这个 xlogo 窗口出现，并且 shell 提示符返回，同时打印一些有趣的数字。
-这条信息是 shell 特性的一部分，叫做作业控制。通过这条信息，shell 告诉我们，已经启动了
-作业号为1（“［1］”），PID 为28236的程序。如果我们运行 ps 命令，可以看到我们的进程：
+这条信息是 shell 特性的一部分，叫做任务控制。通过这条信息，shell 告诉我们，已经启动了
+任务号为1（“［1］”），PID 为28236的程序。如果我们运行 ps 命令，可以看到我们的进程：
 
     [me@linuxbox ~]$ ps
       PID TTY         TIME   CMD
@@ -700,7 +700,7 @@ job control. With this message, the shell is telling us that we have started job
 The shell's job control facility also gives us a way to list the jobs that are have been
 launched from our terminal. Using the jobs command, we can see this list:
 
-shell 的作业控制功能给出了一种列出从我们终端中启动了的作业的方法。执行 jobs 命令，我们可以看到这个输出列表：
+shell 的任务控制功能给出了一种列出从我们终端中启动了的任务的方法。执行 jobs 命令，我们可以看到这个输出列表：
 
     [me@linuxbox ~]$ jobs
     [1]+ Running            xlogo &
@@ -708,7 +708,7 @@ shell 的作业控制功能给出了一种列出从我们终端中启动了的�
 The results show that we have one job, numbered “1”, that it is running, and that the
 command was xlogo &.
 
-结果显示我们有一个作业，编号为“1”，它正在运行，并且这个作业的命令是 xlogo ＆。
+结果显示我们有一个任务，编号为“1”，它正在运行，并且这个任务的命令是 xlogo ＆。
 
 ### 进程返回到前台
 
@@ -728,7 +728,7 @@ The command fg followed by a percent sign and the job number (called a jobspec) 
 the trick. If we only have one background job, the jobspec is optional. To terminate
 xlogo, type Ctrl-c.
 
-fg 命令之后，跟随着一个百分号和作业序号（叫做 jobspec）就可以了。如果我们只有一个后台作业，那么
+fg 命令之后，跟随着一个百分号和任务序号（叫做 jobspec）就可以了。如果我们只有一个后台任务，那么
 jobspec 是可有可无的。输入 Ctrl-c 来终止 xlogo 程序。
 
 ### 停止一个进程
