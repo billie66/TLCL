@@ -697,6 +697,9 @@ precision to be output after the decimal point. For string conversion, precision
 </tr>
 </table>
 
+
+Here are some examples of different formats in action:  
+
 以下是不同格式的一些示例：
 
 <table class="multi">
