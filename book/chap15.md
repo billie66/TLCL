@@ -9,8 +9,8 @@ such things as the prettiness of the desktop background (some people won't use U
 because its default color scheme is brown!) and other trivial matters.
 
 如果我们花些时间在 Linux 社区里，我们会得知很多针对, 类如在众多 Linux 发行版中哪个是最好的(等问题的)看法。
-这些集中在像这些事情上的讨论，比方说最漂亮的桌面背景（一些人不使用 Ubuntu，
-只是因为 Ubuntu 默认主题颜色是棕色的！）和其它的琐碎东西，经常变得非常无聊。
+这些讨论通常变得非常可笑，都集中在一些像桌面背景的漂亮程度（一些人不使用 Ubuntu，
+只是因为 Ubuntu 默认主题颜色是棕色的！）和其它的琐碎东西上。
 
 The most important determinant of distribution quality is the packaging system and the
 vitality of the distribution's support community. As we spend more time with Linux, we
@@ -38,9 +38,9 @@ command line programs, too. They can perform many tasks that are difficult (or
 impossible) to do with their graphical counterparts.
 
 软件包管理是指系统中一种安装和维护软件的方法。今天，通过从 Linux 发行版中安装的软件包，
-已能满足许多人所有需要的软件。这不同于早期的 Linux，人们需要下载和编译源码来安装软件。
+已能满足许多人所有的软件需求。这不同于早期的 Linux，人们需要下载和编译源码来安装软件。
 编译源码没有任何问题，事实上，拥有对源码的访问权限是 Linux 的伟大奇迹。它赋予我们（
-其它每个人）才干来检测和提高系统性能。只是若有一个预先编译好的软件包处理起来要相对
+其它每个人）检测和提高系统性能的能力。只是若有一个预先编译好的软件包处理起来要相对
 容易快速些。这章中，我们将查看一些用于包管理的命令行工具。虽然所有主流 Linux 发行版都
 提供了强大且精致的图形管理程序来维护系统，但是学习命令行程序也非常重要。因为它们
 可以完成许多让图形化管理程序处理起来困难（或者不可能）的任务。

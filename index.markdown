@@ -1,24 +1,18 @@
 ---
 layout: default
 ---
+
 本书是 [The Linux Command Line](http://linuxcommand.org/) 的中文版,
-为大家提供了多种不同的阅读方式。
 
-* [中英文双语版-html](book)
-* [中英文双语版-PDF-2015-01-16](http://pan.baidu.com/s/1pJ4zcVL)
-* [中文版-html](book/zh)
-* [中文版-PDF-2015-01-16](http://pan.baidu.com/s/1pJzFvjP)
-* [中文版-EPUB](http://billie66.gitbooks.io/tlcl-cn/)
+* [阅读](book)
 
-欢迎大家参与本书的翻译: [github](https://github.com/billie66/TLCL)
+翻译由 <a href="https://haoqicat.com/">好奇猫工作室</a> 发起， 翻译者是：<a href="https://github.com/happypeter">happypeter</a> ， <a href="http://github.com/billie66">billie66</a> 和最最可爱的社区
+（ <a href="https://github.com/billie66/TLCL/graphs/contributors">Github 贡献者名单</a> ）
 
-<p>
-本书的翻译由<a href="http://haoduoshipin.com/about/">happypeter</a>发起，<a href="http://github.com/billie66">Billie</a>主力翻译，并社区协同努力
-（<a href="https://github.com/billie66/TLCL/graphs/contributors">Github Contributors</a>）
-</p>
+想要参与翻译的朋友可以直接 fork [github 书稿源码](https://github.com/billie66/TLCL) ，然后给我们发 Pull Request 即可。
 
-<p><br /><b>讨论欢迎添加 happypeter 的微信：</b></p>
+欢迎添加 happypeter 的微信进行讨论：
 
 <blockquote>
-<p>happypeter1983</p>
+happypeter1983
 </blockquote>
