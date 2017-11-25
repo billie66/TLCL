@@ -20,7 +20,7 @@ individual program updates every day. To keep up with this blizzard of software,
 need good tools for package management.
 
 Linux 发行版本质量最重要的决定因素是软件包管理系统和其支持社区的持久性。随着我们
-花更多的时间在 Linux 上，我们会发现它的软件园地是非常动态的。软件不断变化。大多数一线
+花更多的时间在 Linux 上，我们会发现它的变化是非常快的。大多数一线
 Linux 发行版每隔六个月发布一个新版本，并且许多独立的程序每天都会更新。为了能和这些
 如暴风雪一般多的软件保持联系，我们需要一些好工具来进行软件包管理。
 
@@ -96,8 +96,8 @@ The method of software distribution found in the proprietary software industry u
 entails buying a piece of installation media such as an "install disk" and then running an
 "installation wizard" to install a new application on the system.
 
-在专有软件产业中找到的软件发布方法通常需要买一张安装媒介，比方说"安装盘"，然后运行
-"安装向导"，来在系统中安装新的应用程序。
+在商业化软件中，获取软件的最新版本通常需要买一张安装媒介，比方说"安装盘"，然后运行
+一个"安装向导"，来在系统中安装新的应用程序。
 
 Linux doesn't work that way. Virtually all software for a Linux system will be found on
 the Internet. Most of it will be provided by the distribution vendor in the form of
@@ -171,8 +171,8 @@ configuration files for the package management system.
 
 一个系统发行版可能也会拥有相关第三方的资源库。这些资源库需要支持一些因法律原因，
 比如说专利或者是 DRM 反规避问题，而不能被包含到发行版中的软件。可能最著名的案例就是
-那个加密的 DVD 支持，在美国这是不合法的。第三方资源库在这些软件专利和反规避法案不
-生效的国家中起作用。这些资源库通常完全地独立于它们所支持的资源库，要想使用它们，
+对加密DVD的播放支持，在美国这是不合法的。第三方资源库在一些软件专利和反规避法案不
+生效的国家中设立并分发资源。这些资源库通常完全地独立于它们所支持的资源库，要想使用它们，
 你必须了解它们，手动地把它们包含到软件包管理系统的配置文件中。
 
 ### 依赖性
@@ -208,8 +208,8 @@ features.
 和上层工具，完成元数据搜索和依赖解析。在这一章中，我们将看一下由 Debian 风格的系统
 （比如说 Ubuntu，还有许多其它系统）提供的工具，还有那些由 Red
 Hat 产品使用的工具。虽然所有基于 Red Hat 风格的发行版都依赖于相同的底层程序（rpm）,
-但是它们却使用不同的上层工具。我们将研究上层程序 yum 供我们讨论，Fedora, Red
-Hat 企业版，和 CentOs 都是使用 yum。其它基于 Red Hat 风格的发行版提供了带有可比较特性的上层工具。
+但是它们却使用不同的上层工具。在我们的讨论中，我们将研究Fedora, Red
+Hat 企业版，和 CentOs所使用的 yum 。其它Red Hat 风格的发行版提供了带有类似yum的其他上层工具。
 
 <table class="multi">
 <caption class="cap">Table15- 2: Packaging System Tools</caption>
@@ -746,7 +746,7 @@ management, we should have no problem installing and managing the programs we ne
 
 在随后的章节里面，我们将探讨许多不同的程序，这些程序涵盖了广泛的应用程序领域。虽然
 大多数程序一般是默认安装的，但是若所需程序没有安装在系统中，那么我们可能需要安装额外的软件包。
-通过我们新学到的（和了解的）软件包管理知识，我们应该在安装和管理所需的程序方面没有问题。
+通过我们新学到的（和了解的）软件包管理知识，我们应该能够安装和管理所需程序。
 
 > The Linux Software Installation Myth
 >
@@ -785,8 +785,8 @@ by one of three things:
 >
 > 设备驱动差不多也以同样的方式来处理，但它们不是系统发行版资源库中单独的项目，
 它们本身是 Linux 系统内核的一部分。一般来说，在 Linux 当中没有一个类似于“驱动盘”的东西。
-要不内核支持一个设备，要不不支持，反正 Linux 内核支持很多设备，事实上，多于 Windows
-所支持的设备数目。当然，如果你需要的特定设备不被支持，这里也没有安慰。当那种情况
+Linux内核要么支持一个设备，要不就不支持。Linux 内核支持很多设备，事实上，Linux支持的设备数目多于 Windows
+所支持的。当然，万一你需要的特定设备不被Linux支持，也于事无补。当那种情况
 发生时，你需要查找一下原因。缺少驱动程序支持通常是由以下三种情况之一导致：
 >
 > 1. _The device is too new._ Since many hardware vendors don't actively support
