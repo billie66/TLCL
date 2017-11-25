@@ -28,7 +28,7 @@ how to play “chopsticks” in vi.
 经历几年的勤苦练习。在这一章中，我们将介绍 vi（发音“vee eye”）文本编辑器，它是 Unix 传统中核心程序之一。
 vi 因它难用的用户界面而有点声名狼藉，但是当我们看到一位大师坐在钢琴前开始演奏时，我们的确成了
 伟大艺术的见证人。虽然我们在这里不能成为 vi 大师，但是当我们学完这一章后，
-我们会知道怎样在 vi 中玩“筷子”。
+我们会知道怎样在 vi 中弹奏像“Chopsticks”那样的钢琴小品。
 
 Why We Should Learn vi
 
@@ -54,8 +54,8 @@ why should we learn vi? There are three good reasons:
   load. In addition, vi is designed for typing speed. As we shall see, a skilled vi
   user never has to lift his or her fingers from the keyboard while editing.
 
-* vi 是轻量级且执行快速的编辑器。对于许多任务来说，启动 vi 比起在菜单中找到一个图形化文本编辑器，
-  再等待编辑器数倍兆字节的数据加载而言，要容易的多。另外，vi 是为了加快输入速度而设计的。
+* vi 轻量级且执行快。对于许多任务来说，启动 vi 比起在菜单中找到一个图形化文本编辑器，
+  再等待其数倍兆字节的数据加载而言，要容易的多。另外，vi 是为了加快输入速度而设计的。
   我们将会看到，当一名熟练的 vi 用户在编辑文件时，他或她的手从不需要移开键盘。
 
 * We don't want other Linux and Unix users to think we are sissies.
@@ -83,7 +83,7 @@ use line editing commands while using vi.
 第一版 vi 是在1976由 Bill Joy 写成的，当时他是加州大学伯克利分校的学生，
 后来他共同创建了 Sun 微系统公司。vi 这个名字
 来源于单词“visual”，因为它打算在带有可移动光标的视频终端上编辑文本。在发明可视化编辑器之前，
-有一次只能操作一行文本的行编辑器。为了指定一个修改，我们告诉行编辑器到一个特殊行并且
+有一次只能操作一行文本的行编辑器。为了编辑，我们需要告诉行编辑器到一个特殊行并且
 说明做什么修改，比方说添加或删除文本。视频终端（而不是基于打印机的终端，像电传打印机）的出现
 ，可视化编辑成为可能。vi 实际上整合了一个强大的叫做 ex 行编辑器,
 所以我们在使用 vi 时能运行行编辑命令。
@@ -1173,11 +1173,11 @@ vi 启动，我们会看到第一个文件显示出来：
 
 Switching Between Files
 
-#### 文件之间转换
+#### 文件之间切换
 
 To switch from one file to the next, use this ex command:
 
-从这个文件转到下一个文件，使用这个 ex 命令：
+从这个文件切换下一个文件，使用这个 ex 命令：
 
     :n
 
@@ -1191,7 +1191,7 @@ While we can move from one file to another, vi enforces a policy that prevents u
 switching files if the current file has unsaved changes. To force vi to switch files and
 abandon your changes, add an exclamation point (!) to the command.
 
-当我们从一个文件移到另一个文件时，如果当前文件没有保存修改，vi 会阻止我们转换文件，
+当我们从一个文件移到另一个文件时，如果当前文件没有保存修改，vi 会阻止我们切换文件，
 这是 vi 强制执行的政策。在命令之后添加感叹号，可以强迫 vi 放弃修改而转换文件。
 
 In addition to the switching method described above, vim (and some versions of vi) also
@@ -1199,7 +1199,7 @@ provide some ex commands that make multiple files easier to manage. We can view 
 of files being edited with the :buffers command. Doing so will display a list of the
 files at the bottom of the display:
 
-另外，上面所描述的转换方法，vim（和一些版本的 vi）也提供了一些 ex 命令，这些命令使
+另外，上面所描述的切换方法，vim（和一些版本的 vi）也提供了一些 ex 命令，这些命令使
 多个文件更容易管理。我们可以查看正在编辑的文件列表，使用:buffers 命令。运行这个
 命令后，屏幕顶部就会显示出一个文件列表：
 
@@ -1319,7 +1319,7 @@ Inserting An Entire File Into Another
 It's also possible to insert an entire file into one that we are editing. To see this in action,
 let's end our vi session and start a new one with just a single file:
 
-也有可能把整个文件插入到我们所编辑的文件中。看一下实际操作，结束 vi 会话，重新
+我们也可以把整个文件插入到我们正在编辑的文件中。看一下实际操作，结束 vi 会话，重新
 启动一个只打开一个文件的 vi 会话：
 
     [me@linuxbox ~]$ vi ls-output.txt
@@ -1428,4 +1428,13 @@ continue your journey towards vi mastery:
 * Wikipedia 上关于 Bram Moolenaar（vim 作者）的文章：
 
   <http://en.wikipedia.org/wiki/Bram_Moolenaar>
+
+* Wikipedia 上关于开头作者提到的Chopsticks钢琴曲的介绍：
+
+  https://en.wikipedia.org/wiki/Chopsticks_(music)
+  
+* Youku 上视频一段 Chopsticks” (The Celebrated Chop Waltz) on Piano：
+
+  http://v.youku.com/v_show/id_XMzEyOTk4ODkwMA==.html
+  
 
