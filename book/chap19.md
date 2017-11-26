@@ -485,7 +485,7 @@ caveat, however: unless you are operating as the superuser, files and directorie
 from archives take on the ownership of the user performing the restoration, rather than
 the original owner.
 
-如果我们检查 ~/foo/playground 目录中的内容，会看到这个归档文件已经被成功地安装了，就是创建了
+如果我们检查 ~/foo/playground 目录中的内容，会看到这个归档文件已经被成功地安装了，也即创建了
 一个精确的原始文件的副本。然而，这里有一个警告：除非你是超级用户，要不然从归档文件中抽取的文件
 和目录的所有权由执行此复原操作的用户所拥有，而不属于原始所有者。
 
@@ -495,8 +495,8 @@ any leading slash from the pathname when creating the archive. To demonstrate, w
 recreate our archive, this time specifying an absolute pathname:
 
 tar 命令另一个有趣的行为是它处理归档文件路径名的方式。默认情况下，路径名是相对的，而不是绝对
-路径。当创建归档文件的时候，tar 命令会简单地删除路径名开头的斜杠。为了说明问题，我们将会
-重新创建我们的归档文件，这次指定一个绝对路径：
+路径。当以相对路径创建归档文件的时候，tar 命令会简单地删除路径名开头的斜杠。为了说明问题，我们将会
+重新创建我们的归档文件，但是这次指定用绝对路径创建：
 
     [me@linuxbox foo]$ cd
     [me@linuxbox ~]$ tar cf playground2.tar ~/playground
@@ -1024,11 +1024,11 @@ One of these repositories is kept at Georgia Tech; we could mirror it using our 
 of rsync and their rsync server like this:
 
 rsync 可以被用来在网络间同步文件的第二种方式是通过使用 rsync 服务器。rsync 可以被配置为一个
-守护进程，监听即将到来的同步请求。这样做经常是为了允许一个远程系统的镜像。例如，Red
+守护进程，监听即将到来的同步请求。这样做经常是为了进行一个远程系统的镜像操作。例如，Red
 Hat 软件中心为它的 Fedora 发行版，维护着一个巨大的正在开发中的软件包的仓库。对于软件测试人员，
-在发行周期的测试阶段，镜像这些软件集合是非常有帮助的。因为仓库中的这些文件会频繁地
-（通常每天不止一次）改动，定期同步本地镜像，这是可取的，而不是大量地拷贝软件仓库。
-这些软件库之一被维护在 Georgia Tech；我们可以使用本地 rsync 程序和它们的 rsync 服务器来镜像它。
+在发行周期的测试阶段，定期镜像这些软件集合是非常有帮助的。因为仓库中的这些文件会频繁地
+（通常每天不止一次）改动，定期同步本地镜像而不是大量地拷贝软件仓库，这是更为明智的。
+这些软件库之一被维护在乔治亚理工大学；我们可以使用本地 rsync 程序和它们的 rsync 服务器来镜像它。
 
     [me@linuxbox ~]$ mkdir fedora-devel
     [me@linuxbox ~]$ rsync -av -delete rsync://rsync.gtlib.gatech.edu/fedora-linux-
