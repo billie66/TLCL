@@ -629,7 +629,7 @@ are all popular ways of indicating a backup
 file. Oh, and remember that cp will overwrite existing files silently.
 
 备份文件的名字无关紧要，只要选择一个容易理解的文件名。扩展名 ".bak"、".sav"、
-".old"和 ".orig" 都是用来指示备份文件的流行方法。哦，记住 cp 命令会默默地重写存在的文件。
+".old"和 ".orig" 都是用来指示备份文件的流行方法。哦，记住 cp 命令会默默地覆盖已经存在的同名文件。
 
 Now that we have a backup file, we'll start the editor:
 
@@ -680,7 +680,7 @@ following lines to the .bashrc file:
 Note: Your distribution may already include some of these, but duplicates won't
 hurt anything.
 
-注意：你的发行版可能已经包含其中的一些行，但是复制没有任何伤害。
+注意：你的发行版在这之前可能已经包含其中的一些行，出现重复的代码不会有其他影响。
 
 Here is the meaning of our additions:
 
@@ -849,10 +849,10 @@ environment variables that commands support. There may be a gem or two. In later
 chapters, we will learn about shell functions, a powerful feature that you can also include
 in the bash startup files to add to your arsenal of custom commands.
 
-在这一章中，我们学到了用文本编辑器来编辑配置文件的必要技巧。随着继续学习，当我们
-读到命令的手册页时，记录下命令所支持的环境变量。可能会有一个或两个宝贝。在随后的章节
-里面，我们将会学习 shell 函数，一个很强大的特性，你可以把它包含在 bash 启动文件里面，以此
-来添加你自定制的命令宝库。
+在这一章中，我们学到了用文本编辑器来编辑配置文件的基本技巧。随着学习的继续，当我们
+浏览命令的手册页时，可以记录下该命令所支持的环境变量。这样或许我们能够收获一到两个特别好用的宝贝命令。
+在随后的章节里面，我们将会学习 shell 函数，一个很强大的特性，你可以把它包含在 bash 启动文件里面，
+以此来添加你自定制的命令宝库。
 
 ### 拓展阅读
 

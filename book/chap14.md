@@ -7,15 +7,15 @@ In this chapter we will look at a seemingly trivial detail — our shell prompt.
 examination will reveal some of the inner workings of the shell and the terminal emulator
 program itself.
 
-在这一章中，我们将会看一下表面上看来很琐碎的细节－shell 提示符。但这会揭示一些内部 shell 和
-终端仿真器的工作方式。
+在这一章中，我们将会看一下表面上看来很琐碎的细节－shell 提示符。但这会揭示一些 shell 和
+终端仿真器的内部工作方式。
 
 Like so many things in Linux, the shell prompt is highly configurable, and while we have
 pretty much taken it for granted, the prompt is a really useful device once we learn how
 to control it.
 
 和 Linux 内的许多程序一样，shell 提示符是可高度配置的，虽然我们把它相当多地看作是理所当然的，
-但是我们一旦学会了怎样控制它，shell 提示符是一个真正有用的设备。
+但是我们一旦学会了怎样控制它，shell 提示符是一个相当有用的工具。
 
 Anatomy Of A Prompt
 
@@ -46,7 +46,7 @@ Every Linux distribution defines the prompt string a little differently, some qu
 exotically.
 
 注意：如果你 shell 提示符的内容和上例不是一模一样，也不必担心。每个 Linux 发行版
-定义的提示符稍微有点不同，其中一些相当异乎寻常。
+定义的提示符稍微有点不同，其中一些相当异于寻常。
 
 ---
 
@@ -749,7 +749,7 @@ screen containing a clock (rendered in yellow text) each time the prompt is disp
 The code for the prompt is this formidable looking string:
 
 使用上面的编码，我们将构建一个提示符，每次当这个提示符出现的时候，会在屏幕的上方画出一个
-包含时钟（由黄色文本渲染）的红色长条。提示符的编码就是这个看起来令人敬畏的字符串：
+包含时钟（由黄色文本渲染）的红色长条。构建好的提示符的编码就是这串看起来令人敬畏的字符串：
 
 
     PS1='\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
@@ -907,7 +907,7 @@ will care enough to change the prompt, since the default prompt is usually satis
 But for those of us who like to tinker, the shell provides the opportunity for many hours
 of trivial fun.
 
-不管你信不信，还有许多事情可以由提示符来完成，涉及到我们在这里没有论及的 shell 函数和脚本，
+不管你信不信，如果加上我们在这里没有论及的 shell 函数和脚本，还有许多事情可以由提示符来完成。
 但这是一个好的开始。并不是每个人都会花心思来更改提示符，因为通常默认的提示符就很让人满意。
 但是对于我们这些喜欢思考的人们来说，shell 却提供了许多制造琐碎乐趣的机会。
 

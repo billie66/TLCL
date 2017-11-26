@@ -9,7 +9,7 @@ storage devices, whether physical storage, such as hard disks, or network storag
 virtual storage devices like RAID (Redundant Array of Independent Disks) and LVM
 (Logical Volume Manager).
 
-在前面章节中，我们已经从文件级别看了操作数据。在这章里，我们将从设备级别来考虑数据。
+在前面章节中，我们已经在文件级别上见识了数据的操作。在这章里，我们将从设备级别来考虑数据。
 Linux 有着令人惊奇的能力来处理存储设备，不管是物理设备，比如说硬盘，还是网络设备，或者是
 虚拟存储设备，像 RAID（独立磁盘冗余阵列)和 LVM（逻辑卷管理器）。
 
@@ -24,8 +24,8 @@ To carry out the exercises in this chapter, we will use a USB flash drive, a CD-
 (for systems equipped with a CD-ROM burner) and a floppy disk (again, if the system is
 so equipped.)
 
-为了做这一章的练习，我们将会使用 USB 闪存，CD-RW 光盘（因为系统配备了 CD-ROM 烧录器）
-和一张软盘（若系统这样配备）。
+为了做这一章的练习，我们将会使用 USB 闪存，CD-RW 光盘（如果系统配备了 CD-ROM 烧录器）
+和一张软盘（如果系统有这样配备的话）。
 
 We will look at the following commands:
 
@@ -91,8 +91,8 @@ file system tree with devices attached at various points. This contrasts with ot
 operating systems such as MS-DOS and Windows that maintain separate trees for each
 device (for example C:\, D:\, etc.).
 
-管理存储设备的第一步是把设备连接到文件系统树中。这个叫做挂载的过程允许设备参与到操作系统中。
-回想一下第三章，类 Unix 的操作系统，像 Linux，将连接在各种结点上的设备在一个单一文件系统树中维护。
+管理存储设备的第一步是把设备连接到文件系统树中。这个叫做"挂载"的过程允许设备连接到操作系统中。
+回想一下第三章，类 Unix 的操作系统，比如Linux在单一文件系统树中维护连接在各个节点的各种设备。
 这与其它操作系统形成对照，比如说 MS-DOS 和 Windows 系统中，每个设备（例如 C:\，D:\，等）
 保持着单独的文件系统树。
 
@@ -277,7 +277,7 @@ is a network drive mounted at /misc/musicbox.
 For our first experiment, we will work with a CD-ROM. First, let's look at a system
 before a CD-ROM is inserted:
 
-第一次实验，我们将使用一张 CD-ROM。首先，在插入 CD-ROW 之前，我们将看一下系统：
+第一次实验，我们将使用一张 CD-ROM。首先，在插入 CD-ROM 之前，我们将看一下系统：
 
     [me@linuxbox ~]$ mount
     /dev/mapper/VolGroup00-LogVol00 on / type ext3 (rw)
@@ -317,7 +317,7 @@ When you conduct this experiment yourself, the device name will most likely be
 different.
 
 当我们插入光盘后，除了额外的一行之外，我们看到和原来一样的列表。在列表的末尾，我们
-看到 CD-ROW 已经挂载到了/media/live-1.0.10-8上，它的文件类型是 iso9660（CD-ROW）。
+看到 CD-ROM 已经挂载到了/media/live-1.0.10-8上，它的文件类型是 iso9660（CD-ROM）。
 就我们的实验目的而言，我们对这个设备的名字感兴趣。当你自己进行这个实验时，这个
 设备名字是最有可能不同的。
 
@@ -331,14 +331,14 @@ names used in this text!
 Also note that audio CDs are not the same as CD-ROMs. Audio CDs do not
 contain file systems and thus cannot be mounted in the usual sense.
 
-还要注意音频 CD 和 CD-ROW 不一样。音频 CD 不包含文件系统，这样在通常意义上，它就不能被挂载了。
+还要注意音频 CD 和 CD-ROM 不一样。音频 CD 不包含文件系统，这样在通常意义上，它就不能被挂载了。
 
 Now that we have the device name of the CD-ROM drive, let's unmount the disk and
 remount it another location in the file system tree. To do this, we become the superuser
 (using the command appropriate for our system) and unmount the disk with the umount
 (notice the spelling) command:
 
-现在我们拥有 CD-ROW 光盘的设备名字，让我们卸载这张光盘，并把它重新挂载到文件系统树
+现在我们拥有 CD-ROM 光盘的设备名字，让我们卸载这张光盘，并把它重新挂载到文件系统树
 的另一个位置。我们需要超级用户身份（使用系统相应的命令）来进行操作，并且用
 umount（注意这个命令的拼写）来卸载光盘：
 
@@ -476,8 +476,8 @@ if we are managing a server or some other environment where this does not occur?
 can we figure it out?
 
 有时很难来确定设备名称。在以前，这并不是很难。一台设备总是在某个固定的位置，也不会
-挪动它。类 Unix 的系统喜欢设备那样安排。之前在开发 Unix 系统的时候，“更改一个磁盘驱动器”要用一辆
-叉车从机房中移除一台如洗衣机大小的设备。最近几年，典型的桌面硬件配置已经变得相当动态，并且
+挪动它。类 Unix 的系统喜欢设备那样安排。退回到 Unix 系统的时代，“更改一个磁盘驱动器”更像是要用一辆
+叉车从机房中移除一台如洗衣机大小的设备那样困难。最近几年，典型的桌面硬件配置已经变得相当动态，并且
 Linux 已经发展地比其祖先更加灵活。在以上事例中，我们利用现代 Linux 桌面系统的功能来“自动地”挂载
 设备，然后再确定设备名称。但是如果我们正在管理一台服务器或者是其它一些（这种自动挂载功能）不会
 发生的环境，我们又如何能查清设备名呢？
@@ -899,10 +899,8 @@ which it shares three letters. This is especially appropriate, given that you wi
 probably be uttering the aforementioned word if you find yourself in a situation
 where you are forced to run fsck.
 >
-> 在 Unix 文化中，"fsck"这个单词往往会被用来代替一个流行的词，“fsck”和这个词共享了三个
-字母。这个尤其适用，因为你可能会说出上文提到的词，若你发现自己处于这种境况下，
-被强制来运行 fsck 命令时。
-
+> 在 Unix 文化中，"fsck"这个单词往往会被用来指代另一个和它仅有一个字母差别的常用词。
+因为如果你遇到了迫不得已需要运行 fsck 命令的糟糕境遇时，这个词经常会脱口而出。
 ### 格式化软盘
 
 For those of us still using computers old enough to be equipped with floppy diskette
