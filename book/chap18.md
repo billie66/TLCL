@@ -640,11 +640,11 @@ this way:
 Our next challenge is how to test for “bad permissions.” How do we do that? Actually
 we don’t. What we will test for is “not good permissions,” since we know what “good
 permissions” are. In the case of files, we define good as 0600 and for directories, as
-0711. The expression that will test files for “not good” permissions is:
+0700. The expression that will test files for “not good” permissions is:
 
-下一个挑战是怎样来检查“错误权限”，这个怎样做呢？我们不从这个角度做。我们将测试
+下一个挑战是怎样来检查“错误权限”，这个怎样做呢？事实上我们不从这个角度入手。我们将测试
 “不是正确权限”，因为我们知道什么是“正确权限”。对于文件，我们定义正确权限为0600，
-目录则为0711。测试具有“不正确”权限的文件表达式为：
+目录则为0700。测试具有“不正确”权限的文件表达式为：
 
     -type f -and -not -perms 0600
 
