@@ -1696,7 +1696,7 @@ the possible twenty-six characters, performing the algorithm a second time on th
 text restores it to its original form. To perform this encoding with tr:
 >
 > tr 命令的一个有趣的用法是执行 ROT13文本编码。ROT13是一款微不足道的基于一种简易的替换暗码的
-加密类型。把 ROT13称为“加密”是大方的；“文本模糊处理”更准确些。有时候它被用来隐藏文本中潜在的攻击内容。
+加密类型。把 ROT13称为“加密”是过誉了；称其为“文本模糊处理”则更准确些。有时候它被用来隐藏文本中潜在的攻击内容。
 这个方法就是简单地把每个字符在字母表中向前移动13位。因为移动的位数是可能的26个字符的一半，
 所以对文本再次执行这个算法，就恢复到了它最初的形式。通过 tr 命令来执行这种编码：
 >
