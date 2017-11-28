@@ -378,7 +378,7 @@ The line consists of three parts: a variable assignment, a `read` command with a
 variable names as arguments, and a strange new redirection operator. We’ll look at the
 variable assignment first.
 
-这一行由三部分组成：一个变量赋值，一个带有一串参数的 read 命令，和一个奇怪的新的重定向操作符。
+这一行由三部分组成：对一个变量的赋值操作，一个带有一串参数的 read 命令，和一个奇怪的新的重定向操作符。
 我们首先看一下变量赋值。
 
 The shell allows one or more variable assignments to take place immediately before a
@@ -387,9 +387,8 @@ effect of the assignment is temporary; only changing the environment for the dur
 the command. In our case, the value of IFS is changed to a colon character. Alternately,
 we could have coded it this way:
 
-Shell 允许在一个命令之前立即发生一个或多个变量赋值。这些赋值为之后的命令更改环境变量。
-这个赋值的影响是暂时的；只是在命令存在期间改变环境变量。在这种情况下，IFS 的值改为一个冒号。
-另外，我们也可以这样编码：
+Shell 允许在一个命令之前给一个或多个变量赋值。这些赋值会暂时改变之后的命令的环境变量。
+在这种情况下，IFS 的值被改成一个冒号。等效的，我们也可以这样写：
 
     OLD_IFS="$IFS"
     IFS=":"
@@ -416,7 +415,7 @@ wonder why this rather oblique method was chosen rather than:
 
 > You Can’t Pipe read
 >
-> 你不能管道 read
+> 你不能把 管道用在 read 上
 >
 > While the read command normally takes input from standard input, you cannot
 do this:
@@ -437,7 +436,7 @@ and its environment which are used to execute the command in the pipeline. In
 our example above, read is executed in a subshell.
 >
 > 答案与 shell 处理管道线的方式有关系。在 bash（和其它 shells，例如 sh）中，管道线
-会创建子 shell。这个子 shell 是 shell 和它的环境的副本， 用来执行管线中的命令。
+会创建子 shell。这个子 shell 是为了执行执行管线中的命令而创建的shell和它的环境的副本。
 上面示例中，read 命令将在子 shell 中执行。
 >
 > Subshells in Unix-like systems create copies of the environment for the processes
@@ -450,7 +449,7 @@ the subshell and its environment are destroyed, and the effect of the assignment
 lost.
 >
 > 在类 Unix 的系统中，子 shell 执行的时候，会为进程创建父环境的副本。当进程结束
-之后，环境副本就会被破坏掉。这意味着一个子 shell 永远不能改变父进程的环境。read 赋值变量，
+之后，该副本就会被破坏掉。这意味着一个子 shell 永远不能改变父进程的环境。read 赋值变量，
 然后会变为环境的一部分。在上面的例子中，read 在它的子 shell 环境中，把 foo 赋值给变量 REPLY，
 但是当命令退出后，子 shell 和它的环境将被破坏掉，这样赋值的影响就会消失。
 >
