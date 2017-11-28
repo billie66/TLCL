@@ -523,7 +523,7 @@ with this command we get an entirely different result (only a partial listing of
 is shown). Why is that? It’s a long story, but here’s the short version:
 
 通过这个命令我们得到整个不同的结果（只显示了一部分结果列表）。为什么会是那样？
-说来话长，但是这个版本比较简短：
+说来话长，以下是个比较简短的版本：
 
 Back when Unix was first developed, it only knew about ASCII characters, and this
 feature reflects that fact. In ASCII, the first thirty-two characters (numbers 0-31) are
@@ -534,7 +534,7 @@ letters and a few more punctuation symbols. The final thirty-one (numbers 96-127
 contain the lowercase letters and yet more punctuation symbols. Based on this
 arrangement, systems using ASCII used a `collation order` that looked like this:
 
-追溯到 Unix 刚刚开发的时候，它只知道 ASCII 字符，并且这个特性反映了事实。在 ASCII 中，前32个字符
+追溯到 Unix 刚刚开发的时候，它只知道 ASCII 字符，并且Unix特性也如实反映了这一事实。在 ASCII 中，前32个字符
 （数字0－31）都是控制码（如 tabs、backspaces和回车）。随后的32个字符（32－63）包含可打印的字符，
 包括大多数的标点符号和数字0到9。再随后的32个字符（64－95）包含大写字符和一些更多的标点符号。
 最后的31个字符（96－127）包含小写字母和更多的标点符号。基于这种安排方式，系统使用这种排序规则
@@ -833,7 +833,7 @@ the GNU version of grep also supports extended regular expressions when the -E
 option is used.
 
 因为我们将要讨论的下一个特性是 ERE 的一部分，我们将要使用一个不同的 grep 程序。照惯例，
-一直由 egrep 程序来执行这项操作，但是 GUN 版本的 grep 程序在使用了-E 选项之后也支持扩展的正则表达式。
+一直由 egrep 程序来执行这项操作，但是 GNU 版本的 grep 程序在使用了-E 选项之后也支持扩展的正则表达式。
 
 > POSIX
 >
