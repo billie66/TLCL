@@ -20,7 +20,7 @@ In modern versions of bash, for is available in two forms.
 
 The original for command’s syntax is:
 
-原来的 for 命令语法是：
+for 命令语法是：
 
     for variable [in words]; do
         commands
