@@ -575,7 +575,7 @@ gedit, which is usually called "Text Editor" in the GNOME menu. KDE usually ship
 with three which are (in order of increasing complexity) kedit, kwrite, and kate.
 
 文本编辑器分为两种基本类型：图形化的和基于文本的编辑器。GNOME 和 KDE 两者都包含一些流行的
-图形编辑器。GNOME 自带了一个叫做 gedit 的编辑器，这个编辑器通常在 GNOME 菜单中称为"文本编辑器"。
+图形化编辑器。GNOME 自带了一个叫做 gedit 的编辑器，这个编辑器通常在 GNOME 菜单中称为"文本编辑器"。
 KDE 通常自带了三种编辑器，分别是（按照复杂度递增的顺序排列）kedit，kwrite，kate。
 
 There are many text-based editors. The popular ones you will encounter are nano, vi,
