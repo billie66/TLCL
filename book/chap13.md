@@ -14,7 +14,7 @@ Passerby: Practice, practice, practice!
 
 游客： 请问一下，我怎样去卡内基音乐大厅？
 
-行人： 练习，练习，练习!
+行人： 练习，练习，练习，练习，练习!
 
 Learning the Linux command line, like becoming an accomplished pianist, is not
 something that we pick up in an afternoon. It takes years of practice. In this chapter, we
