@@ -11,9 +11,9 @@ next, but the sheer number of files can present a daunting problem.
 In this chapter, we will look at two tools that are used to find files on a system. These
 tools are:
 
-因为我们已经浏览了 Linux 系统，所以一件事已经变得非常清楚：一个典型的 Linux 系统包含很多文件！
-这就引发了一个问题，“我们怎样查找东西？”。虽然我们已经知道 Linux 文件系统良好的组织结构，是源自
-类 Unix 的操作系统代代传承的习俗。但是仅文件数量就会引起可怕的问题。在这一章中，我们将察看
+随着我们在Linux 系统中的不断探索， 一件事已经变得非常清楚：一个典型的 Linux 系统包含很多文件！
+这就引发了一个问题，“我们怎样查找东西？”。虽然我们已经知道 Linux 文件系统已经根据类 Unix 系统的
+代代相传的惯例而被良好地组织起来了。但是海量的文件会引起一个可怕的问题。在这一章中，我们将察看
 两个用来在系统中查找文件的工具。这些工具是：
 
 * locate – Find files by name
@@ -22,7 +22,7 @@ tools are:
 
 * find – Search for files in a directory hierarchy
 
-* find – 在目录层次结构中搜索文件
+* find – 在一个目录层次结构中搜索文件
 
 We will also look at a command that is often used with file search commands to process
 the resulting list of files:
@@ -33,9 +33,9 @@ the resulting list of files:
 
 * xargs – 从标准输入生成和执行命令行
 
-In addition, we will introduce a couple of commands to assist us in or exploration:
+In addition, we will introduce a couple of commands to assist us in our exploration:
 
-另外，我们将介绍两个命令来协助我们探索：
+另外，我们将介绍两个命令以便在我们探索的过程中协助我们：
 
 * touch – Change file times
 
@@ -53,9 +53,9 @@ with names that begin with “zip.” Since we are looking for programs, we can 
 that the directory containing the programs would end with "bin/". Therefore, we could
 try to use locate this way to find our files:
 
-这个 locate 程序快速搜索路径名数据库，并且输出每个与给定字符串相匹配的文件名。比如说，
+这个 locate 程序会执行一次快速的路径名数据库搜索，并且输出每个与给定子字符串相匹配的路径名。比如说，
 例如，我们想要找到所有名字以“zip”开头的程序。因为我们正在查找程序，可以假定包含
-匹配程序的目录以"bin/"结尾。因此，我们试着以这种方式使用 locate 命令，来找到我们的文件：
+程序的目录以"bin/"结尾。因此，我们试着以这种方式使用 locate 命令，来找到我们的文件：
 
     [me@linuxbox ~]$ locate bin/zip
 
@@ -105,9 +105,9 @@ an upcoming chapter) and wild card support. Check the man page for locate to
 determine which version of locate is installed.
 
 这个 locate 程序已经存在了很多年了，它有几个不同的变体被普遍使用着。在现在 Linux
-发行版中发现的两个最常见的变体是 slocate 和 mlocate，但是通常它们被名为 locate 的
-符号链接访问。不同版本的 locate 命令拥有重复的选项集合。一些版本包括正则表达式
-匹配（我们会在下一章中讨论）和通配符支持。查看 locate 命令的手册，从而确定安装了
+发行版中两个最常见的变体是 slocate 和 mlocate，尽管它们通常被名为 locate 的
+符号链接访问。不同版本的 locate 命令拥有重叠的选项集合。一些版本包括正则表达式
+匹配（我们会在下一章中讨论）和通配符支持。可以查看 locate 命令的手册来确定安装了
 哪个版本的 locate 程序。
 
 > Where Does The locate Database Come From?
@@ -125,12 +125,12 @@ locate. To overcome this, it’s possible to run the updatedb program manually
 by becoming the superuser and running updatedb at the prompt.
 >
 > 你可能注意到了，在一些发行版中，仅仅在系统安装之后，locate 不能工作，
-但是如果你第二天再试一下，它就工作正常了。怎么回事呢？locate 数据库由另一个叫做 updatedb
-的程序创建。通常，这个程序作为一个 cron 工作例程周期性运转；也就是说，一个任务
+但是如果你第二天再试一下，它就正常工作了。怎么回事呢？locate 数据库由另一个叫做 updatedb
+的程序创建。通常，这个程序作为一个定时任务（jobs）周期性运转；也就是说，一个任务
 在特定的时间间隔内被 cron 守护进程执行。大多数装有 locate 的系统会每隔一天运行一回
 updatedb 程序。因为数据库不能被持续地更新，所以当使用 locate 时，你会发现
-目前最新的文件不会出现。为了克服这个问题，可以手动运行 updatedb 程序，
-更改为超级用户身份，在提示符下运行 updatedb 命令。
+目前最新的文件不会出现。为了克服这个问题，通过更改为超级用户身份，在提示符下运行 updatedb 命令，
+可以手动运行 updatedb 程序。
 
 ### find - 查找文件的复杂方式
 
@@ -140,14 +140,14 @@ attributes. We’re going to spend a lot of time with find because it has a lot 
 interesting features that we will see again and again when we start to cover programming
 concepts in later chapters.
 
-locate 程序只能依据文件名来查找文件，而 find 程序能基于各种各样的属性，
+locate 程序只能依据文件名来查找文件，而 find 程序能基于各种各样的属性
 搜索一个给定目录（以及它的子目录），来查找文件。我们将要花费大量的时间学习 find 命令，因为
 它有许多有趣的特性，当我们开始在随后的章节里面讨论编程概念的时候，我们将会重复看到这些特性。
 
 In its simplest use, find is given one or more names of directories to search. For
 example, to produce a list of our home directory:
 
-find 命令的最简单使用是，搜索一个或多个目录。例如，输出我们的家目录列表。
+在它的最简单的使用方式中，find 命令接收一个或多个目录名来执行搜索搜索。例如，输出我们的家目录的路径名列表（包括文件及目录，译者注）。
 
     [me@linuxbox ~]$ find ~
 
@@ -155,7 +155,7 @@ On most active user accounts, this will produce a large list. Since the list is 
 standard output, we can pipe the list into other programs. Let’s use wc to count the
 number of files:
 
-对于最活跃的用户帐号，这将产生一张很大的列表。因为这张列表被发送到标准输出，
+在最活跃的用户帐号中，这将产生一张很大的列表。因为这张列表被发送到标准输出，
 我们可以把这个列表管道到其它的程序中。让我们使用 wc 程序来计算出文件的数量：
 
     [me@linuxbox ~]$ find ~ | wc -l
@@ -165,15 +165,15 @@ Wow, we’ve been busy! The beauty of find is that it can be used to identify fi
 meet specific criteria. It does this through the (slightly strange) application of options,
 tests, and actions. We’ll look at the tests first.
 
-哇，我们一直很忙！find 命令的魅力所在就是它能够被用来识别符合特定标准的文件。它通过
-（有点奇怪）应用选项，测试条件，和操作来完成搜索。我们先看一下测试条件。
+哇，我们一直很忙（在 home 路径下执行了很多操作，译者注）！find 命令的魅力所在就是它能够被用来找到符合特定标准的文件。它通过
+（有点奇怪）应用选项，测试条件，和操作来做到这一点。我们先看一下测试条件：
 
 #### Tests
 
 Let’s say that we want a list of directories from our search. To do this, we could add the
 following test:
 
-比如说我们想要目录列表。我们可以添加以下测试条件：
+比如说我们想在我们的搜索中得到目录列表。我们可以添加以下测试条件：
 
     [me@linuxbox ~]$ find ~ -type d | wc -l
     1695
@@ -181,14 +181,14 @@ following test:
 Adding the test -type d limited the search to directories. Conversely, we could have
 limited the search to regular files with this test:
 
-添加测试条件-type d 限制了只搜索目录。相反地，我们使用这个测试条件来限定搜索普通文件：
+添加测试条件-type d 限制了只搜索目录。相反地，我们可以使用这个测试条件来限定搜索普通文件：
 
     [me@linuxbox ~]$ find ~ -type f | wc -l
     38737
 
 Here are the common file type tests supported by find:
 
-这里是 find 命令支持的普通文件类型测试条件：
+这里是 find 命令支持的常见文件类型测试条件：
 
 <table class="multi">
 <caption class="cap">Table 18-1: find File Types</caption>
@@ -227,11 +227,11 @@ Here are the common file type tests supported by find:
 </tr>
 <tr>
 <td valign="top" width="25%">b</td>
-<td valign="top">块设备文件 </td>
+<td valign="top">块特殊设备文件 </td>
 </tr>
 <tr>
 <td valign="top">c</td>
-<td valign="top">字符设备文件</td>
+<td valign="top">字符特殊设备文件</td>
 </tr>
 <tr>
 <td valign="top">d</td>
@@ -252,7 +252,7 @@ for all the regular files that match the wild card pattern “*.JPG” and are l
 megabyte:
 
 我们也可以通过加入一些额外的测试条件，根据文件大小和文件名来搜索：让我们查找所有文件名匹配
-通配符模式“*.JPG”和文件大小大于1M 的文件：
+通配符模式“*.JPG”和文件大小大于1M 的普通文件：
 
     [me@linuxbox ~]$ find ~ -type f -name "*.JPG" -size +1M | wc -l
     840
@@ -340,7 +340,7 @@ ones. Note that in cases where a numeric argument is required, the same “+” 
 notation discussed above can be applied:
 
 find 命令支持大量不同的测试条件。下表是列出了一些常见的测试条件。请注意，在需要数值参数的
-情况下，可以应用以上讨论的“+”和"-"符号表示法：
+情况下，可以应用以上讨论的“+”和“-”符号表示法：
 
 <table class="multi">
 <caption class="cap">Table 18-3: find Tests</caption>
@@ -453,16 +453,16 @@ ID.</td>
 </tr>
 <tr>
 <td valign="top" width="25%">-cmin n </td>
-<td valign="top">匹配的文件和目录的内容或属性最后修改时间正好在 n 分钟之前。
+<td valign="top">匹配内容或属性最后修改时间正好在 n 分钟之前的文件或目录。
 指定少于 n 分钟之前，使用 -n，指定多于 n 分钟之前，使用 +n。 </td>
 </tr>
 <tr>
 <td valign="top">-cnewer file </td>
-<td valign="top">匹配的文件和目录的内容或属性最后修改时间早于那些文件。 </td>
+<td valign="top">匹配内容或属性最后修改时间晚于 file 的文件或目录。 </td>
 </tr>
 <tr>
 <td valign="top">-ctime n </td>
-<td valign="top">匹配的文件和目录的内容和属性最后修改时间在 n*24小时之前。</td>
+<td valign="top">匹配内容和属性最后修改时间在 n*24小时之前的文件和目录。</td>
 </tr>
 <tr>
 <td valign="top">-empty </td>
@@ -470,7 +470,7 @@ ID.</td>
 </tr>
 <tr>
 <td valign="top">-group name </td>
-<td valign="top">匹配的文件和目录属于一个组。组可以用组名或组 ID 来表示。</td>
+<td valign="top">匹配属于一个组的文件或目录。组可以用组名或组 ID 来表示。</td>
 </tr>
 <tr>
 <td valign="top">-iname pattern </td>
@@ -478,11 +478,11 @@ ID.</td>
 </tr>
 <tr>
 <td valign="top">-inum n </td>
-<td valign="top">匹配的文件的 inode 号是 n。这对于找到某个特殊 inode 的所有硬链接很有帮助。 </td>
+<td valign="top">匹配 inode 号是 n的文件。这对于找到某个特殊 inode 的所有硬链接很有帮助。 </td>
 </tr>
 <tr>
 <td valign="top">-mmin n </td>
-<td valign="top">匹配的文件或目录的内容被修改于 n 分钟之前。</td>
+<td valign="top">匹配内容被修改于 n 分钟之前的文件或目录。</td>
 </tr>
 <tr>
 <td valign="top">-mtime n </td>
@@ -495,39 +495,39 @@ ID.</td>
 <tr>
 <td valign="top">-newer file </td>
 <td
-valign="top">匹配的文件和目录的内容早于指定的文件。当编写 shell 脚本，做文件备份时，非常有帮助。
-每次你制作一个备份，更新文件（比如说日志），然后使用 find 命令来决定自从上次更新，哪一个文件已经更改了。 </td>
+valign="top">匹配内容晚于指定的文件的文件和目录。这在编写执行备份的 shell 脚本的时候很有帮。
+每次你制作一个备份，更新文件（比如说日志），然后使用 find 命令来判断哪些文件自从上一次更新之后被更改了。 </td>
 </tr>
 <tr>
 <td valign="top">-nouser </td>
-<td valign="top">匹配的文件和目录不属于一个有效用户。这可以用来查找
-属于删除帐户的文件或监测攻击行为。 </td>
+<td valign="top">匹配不属于一个有效用户的文件和目录。这可以用来查找
+属于被删除的帐户的文件或监测攻击行为。 </td>
 </tr>
 <tr>
 <td valign="top">-nogroup </td>
-<td valign="top">匹配的文件和目录不属于一个有效的组。 </td>
+<td valign="top">匹配不属于一个有效的组的文件和目录。 </td>
 </tr>
 <tr>
 <td valign="top">-perm mode </td>
-<td valign="top">匹配的文件和目录的权限已经设置为指定的 mode。mode 可以用
+<td valign="top">匹配权限已经设置为指定的 mode的文件或目录。mode 可以用
 八进制或符号表示法。</td>
 </tr>
 <tr>
 <td valign="top">-samefile name </td>
-<td valign="top">相似于-inum 测试条件。匹配和文件 name 享有同样 inode 号的文件。 </td>
+<td valign="top">类似于-inum 测试条件。匹配和文件 name 享有同样 inode 号的文件。 </td>
 </tr>
 <tr>
 <td valign="top">-size n </td>
-<td valign="top">匹配的文件大小为 n。</td>
+<td valign="top">匹配大小为 n 的文件</td>
 </tr>
 <tr>
 <td valign="top">-type c </td>
-<td valign="top">匹配的文件类型是 c。</td>
+<td valign="top">匹配文件类型是 c 的文件。</td>
 </tr>
 <tr>
 <td valign="top">-user name </td>
 <td
-valign="top">匹配的文件或目录属于某个用户。这个用户可以通过用户名或用户 ID 来表示。 </td>
+valign="top">匹配属于某个用户的文件或目录。这个用户可以通过用户名或用户 ID 来表示。 </td>
 </tr>
 </table>
 
@@ -672,14 +672,14 @@ character does the trick.
 There is another feature of logical operators that is important to understand. Let’s say
 that we have two expressions separated by a logical operator:
 
-逻辑操作符的另一个特性要重点理解。比方说我们有两个由逻辑操作符分开的表达式：
+逻辑操作符还有另外一个特性要重点理解。比方说我们有两个由逻辑操作符分开的表达式：
 
     expr1 -operator expr2
 
 In all cases, expr1 will always be performed; however the operator will determine if
 expr2 is performed. Here’s how it works:
 
-在所有情况下，总会执行表达式 expr1；然而由操作符来决定是否执行表达式 expr2。这里
+在所有情况下，总会执行表达式 expr1；然而操作符将决定是否执行表达式 expr2。这里
 列出了它是怎样工作的：
 
 <table class="multi">
@@ -762,7 +762,7 @@ actions to be performed based on the search results. There are a set of predefin
 and several ways to apply user-defined actions. First let’s look at a few of the predefined
 actions:
 
-让我们做一些工作吧！从 find 命令得到的结果列表很有用处，但是我们真正想要做的事情是操作列表
+让我们做一些工作吧！执行 find 命令得到结果列表很有用处，但是我们真正想要做的事情是操作列表
 中的某些条目。幸运地是，find 命令允许基于搜索结果来执行操作。有许多预定义的操作和几种方式来
 应用用户定义的操作。首先，让我们看一下几个预定义的操作：
 
@@ -848,7 +848,7 @@ could use this command:
 In this example, every file in the user’s home directory (and its subdirectories) is searched
 for filenames ending in .BAK. When they are found, they are deleted.
 
-在这个例子里面，用户家目录（和它的子目录）下搜索每个以.BAK 结尾的文件名。当找到后，就删除它们。
+在这个例子里面，用户家目录（和它的子目录）下的每个文件中搜索以.BAK 结尾的文件名。当找到后，就删除它们。
 
 ---
 
@@ -856,8 +856,8 @@ Warning: It should go without saying that you should use extreme caution when
 using the -delete action. Always test the command first by substituting the
 -print action for -delete to confirm the search results.
 
-警告：当使用 -delete 操作时，不用说，你应该格外小心。首先测试一下命令，
-用 -print 操作代替 -delete，来确认搜索结果。
+警告：当使用 -delete 操作时，不用说，你应该格外小心。每次都应该首先用 
+-print 操作代替 -delete 测试一下命令，来确认搜索结果。
 
 ---
 
@@ -932,7 +932,7 @@ performed, we can see that the order of the tests and actions is important. For 
 we were to reorder the tests and actions so that the -print action was the first one, the
 command would behave much differently:
 
-因为测试和行为之间的逻辑关系决定了哪一个会被执行，我们知道测试和行为的顺序很重要。例如，
+因为测试和行为之间的逻辑关系决定了哪一个会被执行，我们可以看出知道测试和行为的顺序很重要。例如，
 如果我们重新安排测试和行为之间的顺序，让 -print 行为是第一个，那么这个命令执行起来会截然不同：
 
     find ~ -print -and -type f -and -name '*.BAK'
@@ -947,7 +947,7 @@ true) and then test for file type and the specified file extension.
 In addition to the predefined actions, we can also invoke arbitrary commands. The
 traditional way of doing this is with the -exec action. This action works like this:
 
-除了预定义的行为之外，我们也可以唤醒随意的命令。传统方式是通过 -exec 行为。这个
+除了预定义的行为之外，我们也可以调用任意的命令。传统方式是通过 -exec 行为。这个
 行为像这样工作：
 
     -exec command {} ;
@@ -956,8 +956,8 @@ where command is the name of a command, {} is a symbolic representation of the c
 pathname and the semicolon is a required delimiter indicating the end of the command.
 Here’s an example of using -exec to act like the -delete action discussed earlier:
 
-这里的 command 就是指一个命令的名字，{}是当前路径名的符号表示，分号是要求的界定符
-表明命令结束。这里是一个使用 -exec 行为的例子，其作用如之前讨论的 -delete 行为：
+这里的 command 就是指一个命令的名字，{}是当前路径名的符号表示，分号是必要的分隔符
+表明命令的结束。这里是一个使用 -exec 行为的例子，其作用如之前讨论的 -delete 行为：
 
     -exec rm '{}' ';'
 
@@ -969,7 +969,7 @@ must be quoted or escaped.
 It’s also possible to execute a user defined action interactively. By using the -ok action
 in place of -exec, the user is prompted before execution of each specified command:
 
-也有可能交互式地执行一个用户定义的行为。通过使用 -ok 行为来代替 -exec，在执行每个指定的命令之前，
+我们也可以交互式地执行一个用户定义的行为。通过使用 -ok 行为来代替 -exec，在执行每个指定的命令之前，
 会提示用户：
 
     find ~ -type f -name 'foo*' -ok ls -l '{}' ';'
@@ -993,7 +993,7 @@ of the search results and launch a single instance of the command. For example, 
 than executing the commands like this:
 
 当 -exec 行为被使用的时候，若每次找到一个匹配的文件，它会启动一个新的指定命令的实例。
-我们可能更愿意把所有的搜索结果结合起来，再运行一个命令的实例。例如，而不是像这样执行命令：
+我们可能更愿意把所有的搜索结果结合起来，再运行一个命令的实例。例如，与其像这样执行命令：
 
     ls -l file1
     ls -l file2
@@ -1017,7 +1017,7 @@ find to combine the results of the search into an argument list for a single exe
 the desired command. Going back to our example, this:
 
 通过把末尾的分号改为加号，就激活了 find 命令的一个功能，把搜索结果结合为一个参数列表，
-然后执行一次所期望的命令。再看一下之前的例子，这个：
+然后用于所期望的命令的一次执行。再看一下之前的例子，这个例子中：
 
     find ~ -type f -name 'foo*' -exec ls -l '{}' ';'
     -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
@@ -1025,7 +1025,7 @@ the desired command. Going back to our example, this:
 
 will execute ls each time a matching file is found. By changing the command to:
 
-会执行 ls 命令，每次找到一个匹配的文件。把命令改为：
+每次找到一个匹配的文件， 就会执行一次 ls 命令。通过把命令改为：
 
     find ~ -type f -name 'foo*' -exec ls -l '{}' +
     -rwxr-xr-x 1 me     me 224 2007-10-29 18:44 /home/me/bin/foo
@@ -1051,7 +1051,7 @@ we would use it like this:
 Here we see the output of the find command piped into xargs which, in turn,
 constructs an argument list for ls command and then executes it.
 
-这里我们看到 find 命令的输出被管道到 xargs 命令，反过来，xargs 会为 ls 命令构建
+这里我们看到 find 命令的输出被管道到 xargs 命令，之后，xargs 会为 ls 命令构建
 参数列表，然后执行 ls 命令。
 
 ---
@@ -1088,9 +1088,9 @@ separated output, and the xargs command has the --null option, which
 accepts null separated input. Here’s an example:
 >
 > 类 Unix 的系统允许在文件名中嵌入空格（甚至换行符）。这就给一些程序，如为其它
-程序构建参数列表的 xargs 程序，造成了问题。一个嵌入的空格会被看作是一个界定符，生成的
+程序构建参数列表的 xargs 程序，造成了问题。一个嵌入的空格会被看作是一个分隔符，生成的
 命令会把每个空格分离的单词解释为单独的参数。为了解决这个问题，find 命令和 xarg 程序
-允许可选择的使用一个 null 字符作为参数分隔符。一个 null 字符被定义在 ASCII 码中，由数字
+允许使用一个可选的 null 字符作为参数分隔符。一个 null 字符被定义在 ASCII 码中，由数字
 零来表示（相反的，例如，空格字符在 ASCII 码中由数字32表示）。find 命令提供的 -print0 行为，
 则会产生由 null 字符分离的输出，并且 xargs 命令有一个 --null 选项，这个选项会接受由 null 字符
 分离的输入。这里有一个例子：
@@ -1129,9 +1129,9 @@ combining mkdir with the -p option (which causes mkdir to create the parent
 directories of the specified paths) with brace expansion, we were able to create one
 hundred directories.
 
-我们用来创造这个奇迹的方法中包含一个熟悉的命令（mkdir），一个奇异的 shell 扩展（大括号）
+我们用来创造这个奇迹的方法中包含一个熟悉的命令（mkdir），一个奇异的 shell 扩展（花括号）
 和一个新命令，touch。通过结合 mkdir 命令和-p 选项（导致 mkdir 命令创建指定路径的父目录），以及
-大括号展开，我们能够创建一百个目录。
+花括号展开，我们能够创建一百个目录。
 
 The touch command is usually used to set or update the access, change, and modify
 times of files. However, if a filename argument is that of a nonexistent file, an empty file
@@ -1207,8 +1207,8 @@ Next, let’s use find to update some of our playground files:
 This updates all files in the playground named file-B. Next we’ll use find to identify
 the updated files by comparing all the files to the reference file timestamp:
 
-这会更新操练场中所有名为 file-B 的文件。接下来我们会使用 find 命令来识别已更新的文件，
-通过把所有文件与参考文件 timestamp 做比较：
+这会更新操练场中所有名为 file-B 的文件。接下来我们会使用 find 命令
+通过把所有文件与参考文件 timestamp 做比较，来找到已更新的文件：
 
     [me@linuxbox ~]$ find playground -type f -newer playground/timestamp
 
@@ -1218,7 +1218,7 @@ are now “newer” than timestamp and thus can be identified with the -newer te
 
 搜索结果包含所有一百个文件 file-B 的实例。因为我们在更新了文件 timestamp 之后，
 touch 了操练场中名为 file-B 的所有文件，所以现在它们“新于”timestamp 文件，因此能被用
--newer 测试条件识别出来。
+-newer 测试条件找到。
 
 Finally, let’s go back to the bad permissions test we performed earlier and apply it to
 playground:
@@ -1256,7 +1256,7 @@ They may be included with other tests and actions when constructing find express
 Here is a list of the most commonly used ones:
 
 最后，我们有这些选项。这些选项被用来控制 find 命令的搜索范围。当构建 find 表达式的时候，
-它们可能被其它的测试条件和行为包含：
+它们可能被其它的测试条件和行为包含，这里有一个最常被使用的选项的列表：
 
 <table class="multi">
 <caption class="cap">Table 18-7: find Options</caption>
@@ -1302,7 +1302,7 @@ systems and CD-ROMs.</td>
 </tr>
 <tr>
 <td valign="top" width="25%">-depth</td>
-<td valign="top"> 指导 find 程序先处理目录中的文件，再处理目录自身。当指定-delete 行为时，会自动
+<td valign="top"> 指示 find 程序先处理目录中的文件，再处理目录自身。当指定-delete 行为时，会自动
 应用这个选项。</td>
 </tr>
 <tr>
@@ -1315,11 +1315,12 @@ systems and CD-ROMs.</td>
 </tr>
 <tr>
 <td valign="top">-mount </td>
-<td valign="top">指导 find 程序不要搜索挂载到其它文件系统上的目录。</td>
+<td valign="top">指示 find 程序不要搜索挂载到其它文件系统上的目录。</td>
 </tr>
 <tr>
 <td valign="top">-noleaf </td>
-<td valign="top">指导 find 程序不要基于搜索类 Unix 的文件系统做出的假设，来优化它的搜索。</td>
+<td valign="top">指示 find 程序不要基于自己在搜索 Unix 的文件系统的假设，来优化它的搜索。
+在搜索DOS/Windows 文件系统和CD/ROMS的时候，我们需要这个选项</td>
 </tr>
 </table>
 
