@@ -146,7 +146,7 @@ we can use a trick like this:
 
 文件长度为零！这是因为，当我们使用 ">" 重定向符来重定向输出结果时，目标文件总是从开头被重写。
 因为我们 ls 命令没有产生运行结果，只有错误信息，重定向操作开始重写文件，然后
-由于错误而停止，导致文件内容删除。事实上，如果我们需要删除一个文件内容（或者创建一个
+由于错误而停止，导致文件内容清空。事实上，如果我们需要清空一个文件内容（或者创建一个
 新的空文件），可以使用这样的技巧：
 
     [me@linuxbox ~]$ > ls-output.txt
@@ -154,7 +154,7 @@ we can use a trick like this:
 Simply using the redirection operator with no command preceding it will truncate an
 existing file or create a new, empty file.
 
-简单地使用重定向符，没有命令在它之前，这会删除一个已存在文件的内容或是
+简单地使用重定向符，没有命令在它之前，这会清空一个已存在文件的内容或是
 创建一个新的空文件。
 
 So, how can we append redirected output to a file instead of overwriting the file from the
