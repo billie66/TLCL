@@ -78,7 +78,7 @@ redirection, we can change that.
 I/O 重定向允许我们更改输出地点和输入来源。一般地，输出送到屏幕，输入来自键盘，
 但是通过 I/O 重定向，我们可以做出改变。
 
-### 重定向标准输出
+### 标准输出重定向
 
 I/O redirection allows us to redefine where standard output goes. To redirect standard
 output to another file besides the screen, we use the ">" redirection operator followed by
@@ -86,7 +86,7 @@ the name of the file. Why would we want to do this? It's often useful to store t
 of a command in a file. For example, we could tell the shell to send the output of the ls
 command to the file ls-output.txt instead of the screen:
 
-I/O 重定向允许我们来重定义标准输出的地点。我们使用 ">" 重定向符后接文件名来重定向标准输出到除屏幕
+I/O 重定向允许我们来重定义标准输出的地点。我们使用 ">" 重定向符后接文件名将标准输出重定向到除屏幕
 以外的另一个文件。为什么我们要这样做呢？因为有时候把一个命令的运行结果存储到
 一个文件很有用处。例如，我们可以告诉 shell 把 ls 命令的运行结果输送到文件 ls-output.txt 中去，
 由文件代替屏幕。
@@ -182,7 +182,7 @@ We repeated the command three times resulting in an output file three times as l
 
 我们重复执行命令三次，导致输出文件大小是原来的三倍。
 
-### 重定向标准错误
+### 标准错误重定向
 
 Redirecting standard error lacks the ease of a dedicated redirection operator. To redirect
 standard error we must refer to its file descriptor. A program can produce output on any
@@ -192,7 +192,7 @@ descriptors zero, one and two, respectively. The shell provides a notation for r
 files using the file descriptor number. Since standard error is the same as file descriptor
 number two, we can redirect standard error with this notation:
 
-重定向标准错误缺乏专用的重定向操作符。为了重定向标准错误，我们必须参考其文件描述符。
+标准错误重定向没有专用的重定向操作符。为了重定向标准错误，我们必须参考其文件描述符。
 一个程序可以在几个编号的文件流中的任一个上产生输出。虽然我们已经将这些文件流的前
 三个称作标准输入、输出和错误，shell 内部分别将其称为文件描述符0、1和2。shell 使用文件描述符提供
 了一种表示法来重定向文件。因为标准错误和文件描述符2一样，我们用这种
@@ -288,7 +288,7 @@ see the Wikipedia article on “/dev/null”.
 许多部分。当有人说他/她正在发送你的评论到/dev/null，现在你应该知道那是
 什么意思了。更多的例子，可以阅读 Wikipedia 关于"/dev/null"的文章。
 
-### 重定向标准输入
+### 标准输入重定向
 
 Up to now, we haven't encountered any commands that make use of standard input
 (actually we have, but we’ll reveal that surprise a little bit later), so we need to introduce
