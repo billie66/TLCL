@@ -11,7 +11,7 @@ to adjust their behavior. Knowing this, we can use the environment to customize 
 shell experience.
 
 恰如我们之前所讨论到的，shell 在 shell 会话中保存着大量的信息，这些信息称为 (shell) 环境。
-存储在 shell 环境中的数据被程序用来确定配置属性。虽然大多数程序用配置文件来存储程序设置，
+存储在 shell 环境中的数据被程序用来确定配置属性。然而大多数程序用配置文件来存储程序设置，
 某些程序也会查找存储在 shell 环境中的数值来调整他们的行为。知道了这些，我们就可以用 shell 环境
 来自定制 shell 体验。
 
