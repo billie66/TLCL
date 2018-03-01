@@ -302,7 +302,7 @@ later in this chapter.  </td>
 </tr>
 <tr>
 <td>root</td>
-<td>文件属主的用户名。</td>
+<td>文件所有者的用户名。</td>
 </tr>
 <tr>
 <td>root</td>
@@ -354,7 +354,7 @@ will see just how true that statement is.
 While many of the files on your system are familiar, for example MP3 and JPEG, there
 are many kinds that are a little less obvious and a few that are quite strange.
 
-虽然系统中许多文件格式是熟悉的，例如 MP3和 JPEG 文件，但也有一些文件格式比较含蓄，极少数文件相当陌生。
+虽然系统中许多文件格式是熟悉的，例如 MP3和 JPEG 文件，但也有一些文件格式不太常见，极少数文件相当陌生。
 
 ### 用 less 浏览文件内容
 
@@ -400,7 +400,7 @@ Windows recognizes the importance of this format. The well-known NOTEPAD.EXE
 program is an editor for plain ASCII text files.
 >
 > 文本是简单的字符与数字之间的一对一映射。它非常紧凑。五十个字符的文本翻译成五十个字节的数据。文本只是包含
-简单的字符到数字的映射，理解这点很重要。它和一些文字处理器文档不一样，比如说由微软和
+简单的字符到数字的映射，理解这点很重要。它和一些文字处理器文档不一样，比如说由微软或
 OpenOffice.org 文档 编辑器创建的文件。这些文件，和简单的 ASCII
 文件形成鲜明对比，它们包含许多非文本元素，来描述它的结构和格式。 纯 ASCII
 文件只包含字符本身，和一些基本的控制符，像制表符、回车符及换行符。纵观 Linux
@@ -826,8 +826,8 @@ some systems, you must be the superuser to view log files.</td>
 <tr>
 <td valign="top">/lost+found </td>
 <td valign="top">每个使用 Linux 文件系统的格式化分区或设备，例如 ext3文件系统，
-都会有这个目录。当部分恢复一个损坏的文件系统时，会用到这个目录。除非文件系统
-真正的损坏了，那么这个目录会是个空目录。</td>
+都会有这个目录。当部分恢复一个损坏的文件系统时，会用到这个目录。这个目录应该是空的，除非文件系统
+真正的损坏了。</td>
 </tr>
 <tr>
 <td>/media </td>
@@ -877,9 +877,9 @@ some systems, you must be the superuser to view log files.</td>
 </tr>
 <tr>
 <td>/usr/local</td>
-<td>这个/usr/local 目录，是非系统发行版自带，却打算让系统使用的程序的安装目录。
-通常，由源码编译的程序会安装在/usr/local/bin 目录下。新安装的 Linux 系统中，会存在这个目录，
-但却是空目录，直到系统管理员放些东西到它里面。</td>
+<td>这个/usr/local 目录，是非系统发行版自带程序的安装目录。
+通常，由源码编译的程序会安装在/usr/local/bin 目录下。新安装的 Linux 系统中会存在这个目录，
+并且在管理员安装程序之前，这个目录是空的。</td>
 </tr>
 <tr>
 <td>/usr/sbin</td>
@@ -898,7 +898,7 @@ some systems, you must be the superuser to view log files.</td>
 <tr>
 <td>/var</td>
 <td>除了/tmp 和/home 目录之外，相对来说，目前我们看到的目录是静态的，这是说，
-它们的内容不会改变。/var 目录是可能需要改动的文件存储的地方。各种数据库，假脱机文件，
+它们的内容不会改变。/var 目录存放的是动态文件。各种数据库，假脱机文件，
 用户邮件等等，都位于在这里。</td>
 </tr>
 <tr>
@@ -923,7 +923,7 @@ names. While the value of this may not be obvious, it is really a useful feature
 
 注意看，为何这条信息第一个字符是“l”，并且有两个文件名呢？
 这是一个特殊文件，叫做符号链接（也称为软链接或者 symlink ）。 在大多数“类 Unix” 系统中，
-有可能一个文件被多个文件名所指向。虽然这种特性的意义并不明显，但它真地很有用。
+有可能一个文件被多个文件名所指向。虽然这种特性的意义并不明显，但它真的很有用。
 
 Picture this scenario: a program requires the use of a shared resource of some kind
 contained in a file named “foo,” but “foo” has frequent version changes. It would be
@@ -935,7 +935,7 @@ the resource is installed. That doesn't sound like fun at all.
 
 描绘一下这样的情景：一个程序要求使用某个包含在名为“foo”文件中的共享资源，但是“foo”经常改变版本号。
 这样，在文件名中包含版本号，会是一个好主意，因此管理员或者其它相关方，会知道安装了哪个“foo”版本。
-这又会导致一个问题。如果我们更改了共享资源的名字，那么我们必须跟踪每个可能使用了
+这会导致另一个问题。如果我们更改了共享资源的名字，那么我们必须跟踪每个可能使用了
 这个共享资源的程序，当每次这个资源的新版本被安装后，都要让使用了它的程序去寻找新的资源名。
 这听起来很没趣。
 
