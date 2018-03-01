@@ -45,7 +45,7 @@ They are building Linux.
 
 今天，世界已经截然不同了。计算机遍布各个领域，从小手表到大型数据中心，及大小介于它们之间的每件东西。
 除了随处可见的计算机之外，我们还有一个无处不在的连接所有计算机的网络。这已经开创了一个奇妙的，
-个人授权和创作自由的新时代，但是在过去的二三十年里，一些事情一直在发生着。一个大公司不断地把它的
+个人授权和创作自由的新时代，但是在过去的二三十年里，正在发生另一些事情。一个大公司不断地把它的
 管理权强加到世界上绝大多数的计算机上，并且决定你对计算机的操作权力。幸运地是，来自世界各地的人们，
 正积极努力地做些事情来改变这种境况。通过编写自己的软件，他们一直在为维护电脑的管理权而战斗着。
 他们建设着 Linux。
@@ -69,7 +69,7 @@ human beings, instinctively know the only way to really get anything done on a c
 is by typing on a keyboard.
 
 你是否注意到，在电影中一个“超级黑客”坐在电脑前，从不摸一下鼠标，
-就能够在30秒内侵入到超安全的军事计算机中。这是因为电影制片人意识到，
+就能够在30秒内侵入到超安全的军用计算机中。这是因为电影制片人意识到，
 作为人类，本能地知道让计算机圆满完成工作的唯一途径，是用键盘来操纵计算机。
 
 Most computer users today are only familiar with the graphical user interface (GUI) and
@@ -163,7 +163,7 @@ from now. The command line has survived the test of time.
 另一方面，学习 Linux 命令行会让你受益匪浅，给你极大的回报。如果你认为，
 现在你已经是高手了。别急，其实你还不知道什么才是真正的高手。不像其他一些计算机技能，
 一段时间之后可能就被淘汰了，命令行知识却不会落伍，你今天所学到的，在十年以后，
-都会有用处。命令行通过了时间的检验。
+都会有用处。命令行通过了时间的考验。
 
 It is also assumed that you have no programming experience, but not to worry,
 we'll start you down that path as well.
@@ -189,7 +189,7 @@ small part of the larger Unix culture, which has its own language and history.
 I might throw in a rant or two, as well.
 
 另一个目的，是想让读者熟悉 Unix 的思维方式，这种思维方式与 Windows 不同。在学习过程中，
-我们会帮助你理解为什么某些命令会按照它们的方式工作，以及它们是怎样实现那样的工作方式的。
+我们会帮助你理解为什么某些命令那样工作，以及它们是如何工作的。
 Linux 不仅是一款软件，也是 Unix 文化的一小部分，它有自己的语言和历史渊源。
 同时，我也许会说些过激的话。
 
