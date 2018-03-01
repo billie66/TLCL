@@ -66,7 +66,7 @@ branches descending below.
 However, the command line has no pictures, so to navigate the file system tree
 we need to think of it in a different way.
 
-然而，命令行没有图片，所以我们需要考虑用不同的方法，在文件系统树中跳转。
+然而，命令行没有这样的图片，所以我们需要把文件系统树想象成别的样子（而不是这张图片）。
 
 Imagine that the file system is a maze shaped like an upside-down tree and we
 are able to stand in the middle of it. At any given time, we are inside a
@@ -91,7 +91,7 @@ directory is the only place the user is allowed to write files.
 
 当我们首次登录系统（或者启动终端仿真器会话）后，当前工作目录是我们的家目录。
 每个用户都有他自己的家目录，当用户以普通用户的身份操控系统时，家目录是唯一
-允许用户对文件进行写入的地方。
+允许用户写入文件的地方。
 
 ### 列出目录内容
 
@@ -225,7 +225,7 @@ cases, you can omit the "./". It is implied. Typing:
 does the same thing. In general, if you do not specify a pathname to
 something, the working directory will be assumed.
 
-实现相同的效果。如果不指定一个文件的目录，那它的工作目录会被假定为当前工作目录。
+实现相同的效果。如果不指定一个文件的路径，那它被默认为在当前工作目录下。
 
 ### 有用的快捷键
 
