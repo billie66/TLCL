@@ -50,8 +50,8 @@ are newer than the versions in the destination directory? Pretty hard with a fil
 manager. Pretty easy with the command line:
 
 答案是命令行程序，功能强大灵活。虽然图形文件管理器能轻松地实现简单的文件操作，但是对于
-复杂的文件操作任务，则使用命令行程序比较容易完成。例如，怎样复制一个目录下的 HTML 文件
-到另一个目录，但这些 HTML 文件不存在于目标目录，或者是文件版本新于目标目录里的文件？
+复杂的文件操作任务，则使用命令行程序比较容易完成。例如，怎样拷贝一个目录下所有的HTML文件
+——这些文件在目标目录不存在或者版本比目标目录的文件更新——到目标目录呢？
 要完成这个任务，使用文件管理器相当难，使用命令行相当容易：
 
     cp -u *.html destination
@@ -67,7 +67,7 @@ and what they select:
 
 在开始使用命令之前，我们需要介绍一个使命令行如此强大的 shell 特性。因为 shell 频繁地使用
 文件名，shell 提供了特殊字符来帮助你快速指定一组文件名。这些特殊字符叫做通配符。
-使用通配符（也以文件名代换著称）允许你依据字符类型来选择文件名。下表列出这些通配符
+使用通配符（也以文件名代换著称）允许你依据字符的组合模式来选择文件名。下表列出这些通配符
 以及它们所选择的对象：
 
 <table class="multi" >
@@ -641,7 +641,7 @@ directory dir2.</td>
 <tr>
 <td class="title">mv file1 file2</td>
 <td class="title">移动 file1 到 file2。<b>如果 file2 存在，它的内容会被 file1 的内容重写。
-</b>如果 file2 不存在，则创建 file2。<b> 每种情况下，file1 不再存在。</b></td>
+</b>如果 file2 不存在，则创建 file2。<b> 这两种情况下，file1 都不再存在。</b></td>
 </tr>
 <tr>
 <td valign="top" width="25%">mv -i file1 file2</td>
@@ -822,8 +822,8 @@ checking your typing!), test the wildcard first with ls. This will let you see t
 files that will be deleted. Then press the up arrow key to recall the command and
 replace the ls with rm.
 >
-> _小贴士。_ 无论什么时候，rm 命令用到通配符（除了仔细检查输入的内容外！），
-用 ls 命令来测试通配符。这会让你看到要删除的文件列表。然后按下上箭头按键，重新调用
+> _小贴士。_ 当你使用带有通配符的rm命令时（除了仔细检查输入的内容外），
+先用 ls 命令来测试通配符。这会让你看到将要被删除的文件是什么。然后按下上箭头按键，重新调用
 刚刚执行的命令，用 rm 替换 ls。
 
 ### ln — 创建链接
@@ -930,8 +930,7 @@ The mkdir command is used to create a directory. To create our playground
 directory we will first make sure we are in our home directory and will then
 create the new directory:
 
-mkdir 命令被用来创建目录。首先确定我们在我们的家目录下，来创建 playground 目录，
-然后创建这个新目录：
+mkdir 命令被用来创建目录。首先确定我们在我们的家目录下，然后创建 playground 目录：
 
     [me@linuxbox ~]$ cd
     [me@linuxbox ~]$ mkdir playground
@@ -958,15 +957,15 @@ Next, let's get some data into our playground. We'll do this by copying a file. 
 cp command, we'll copy the passwd file from the /etc directory to the current
 working directory:
 
-下一步，让我们得到一些数据到我们的游戏场中。通过复制一个文件来实现目的。
-使用 cp 命令，我们从 /etc 目录复制 passwd 文件到当前工作目录下：
+下一步，让我们输入一些数据到我们的游戏场中。我们可以通过复制一个文件来实现目的。
+我们使用 cp 命令从 /etc 目录复制 passwd 文件到当前工作目录下：
 
     [me@linuxbox playground]$ cp /etc/passwd .
 
 Notice how we used the shorthand for the current working directory, the single trailing
 period. So now if we perform an ls, we will see our file:
 
-注意：我们怎样使用当前工作目录的快捷方式，命令末尾的单个圆点。如果我们执行 ls 命令，
+请注意，我们使用命令末尾的一个圆点来简化当前工作目录的写法。如果我们执行 ls 命令，
 可以看到我们的文件：
 
     [me@linuxbox playground]$ ls -l
@@ -977,7 +976,7 @@ period. So now if we perform an ls, we will see our file:
 
 Now, just for fun, let's repeat the copy using the “-v” option (verbose) to see what it does:
 
-现在，仅仅是为了高兴，重复操作复制命令，使用"-v"选项（详细），看一个它的作用：
+现在，仅仅是为了高兴，重复操作复制命令，使用"-v"选项（详细），看看它做了些什么：
 
     [me@linuxbox playground]$ cp -v /etc/passwd .
     `/etc/passwd' -> `./passwd'
@@ -990,7 +989,7 @@ the “-i” (interactive) option:
 
 cp 命令再一次执行了复制操作，但是这次显示了一条简洁的信息，指明它
 进行了什么操作。注意，cp 没有警告，就重写了第一次复制的文件。这是一个案例，
-cp 假定你知道你的所作所为。为了得到警示信息，在命令中包含"-i"选项：
+cp 会假设你知道自己在做什么。如果希望得到警告的话，需要加入“-i”（互动）选项：
 
     [me@linuxbox playground]$ cp -i /etc/passwd .
     cp: overwrite `./passwd'?
@@ -999,7 +998,7 @@ Responding to the prompt by entering a “y” will cause the file to be
 overwritten, any other character (for example, “n”)
 will cause cp to leave the file alone.
 
-响应命令提示信息，输入"y"，文件就会被重写，其它的字符（例如，"n"）会导致 cp 命令不理会文件。
+在提示信息后输入"y"，文件就会被重写，输入其它的字符（例如，"n"） cp 命令会保留原文件。
 
 ### 移动和重命名文件
 
@@ -1033,7 +1032,7 @@ to finally bringing it back to the current working directory.
 Next, let's see the effect of mv on directories.
 First we will move our data file into dir1 again:
 
-最后，再把 fun 文件带回到当前工作目录。下一步，来看看移动目录的效果。
+最后，再把 fun 文件带回到当前工作目录。接下来，来看看移动目录的效果。
 首先，我们先移动我们的数据文件到 dir1 目录：
 
     [me@linuxbox playground]$ mv fun dir1
@@ -1053,8 +1052,8 @@ then move dir1 into dir2 and confirm it with ls:
 Note that since dir2 already existed, mv moved dir1 into dir2. If dir2 had not
 existed, mv would have renamed dir1 to dir2. Lastly, let's put everything back:
 
-注意：因为目录 dir2 已经存在，mv 命令移动 dir1 到 dir2 目录。如果 dir2 不存在，
-mv 会重新命名 dir1 为 dir2。最后，把所有的东西放回原处。
+注意：因为目录 dir2 已经存在，mv 命令会把 dir1 移动到 dir2 目录中。如果 dir2 不存在，
+mv 会把dir1重命名为 dir2。最后，让我们把所有的东西放回原处：
 
     [me@linuxbox playground]$ mv dir2/dir1 .
     [me@linuxbox playground]$ mv dir1/fun .
@@ -1094,7 +1093,7 @@ problem, we're going to have to dig a little deeper.
 
 注意到一件事，列表中，文件 fun 和 fun-hard 的第二个字段是"4"，这个数字
 是文件"fun"的硬链接数目。你要记得一个文件至少有一个硬链接，因为文件
-名就是由链接创建的。所以，我们怎样知道实际上 fun 和 fun-hard 是一样的文件呢？
+名就是由链接创建的。那么，我们怎样知道实际上 fun 和 fun-hard 是同一个文件呢？
 在这个例子里，ls 不是很有用。虽然我们能够看到 fun 和 fun-hard 文件大小一样
 （第五字段），但我们的列表没有提供可靠的信息来确定（这两个文件一样）。
 为了解决这个问题，我们更深入的研究一下。
@@ -1109,7 +1108,7 @@ specific inode containing the file's contents.
 
 当考虑到硬链接的时候，我们可以假设文件由两部分组成：包含文件内容的数据部分和持有文件名的名字部分
 ，这将有助于我们理解这个概念。当我们创建文件硬链接的时候，实际上是为文件创建了额外的名字部分，
-并且这些名字都关系到相同的数据部分。这时系统会分配一连串的磁盘块给所谓的索引节点，然后索引节点与文
+并且这些名字都关联到相同的数据部分。这时系统会分配一连串的磁盘块给所谓的索引节点，然后索引节点与文
 件名字部分相关联。因此每一个硬链接都关系到一个具体的包含文件内容的索引节点。
 
 The ls command has a way to reveal this information. It is invoked with the “-i” option:
@@ -1128,7 +1127,7 @@ can see, both fun and fun-hard share the same inode number, which confirms
 they are the same file.
 
 在这个版本的列表中，第一字段表示文件索引节点号，正如我们所见到的，
-fun 和 fun-hard 共享一样的索引节点号，这就证实这两个文件是一样的文件。
+fun 和 fun-hard 共享一样的索引节点号，这就证实这两个文件是同一个文件。
 
 ### 创建符号链接
 
@@ -1154,7 +1153,7 @@ symbolic link rather than a hard link. But what about the next two? Remember, wh
 create a symbolic link, we are creating a text description of where the target file is
 relative to the symbolic link. It's easier to see if we look at the ls output:
 
-第一个实例相当直接，在 ln 命令中，简单地加上"-s"选项就可以创建一个符号链接，
+第一个例子相当直接，在 ln 命令中，简单地加上"-s"选项就可以创建一个符号链接，
 而不是一个硬链接。下面两个例子又是怎样呢？ 记住，当我们创建一个符号链接
 的时候，会建立一个目标文件在哪里和符号链接有关联的文本描述。如果我们看看
 ls 命令的输出结果，比较容易理解。
@@ -1217,8 +1216,8 @@ Next, we'll delete the file fun, and just for enjoyment, we'll include the “-i
 show what that does:
 
 结果不出所料。文件 fun-hard 消失了，文件 fun 的链接数从4减到3，正如
-目录列表第二字段所示。下一步，我们会删除文件 fun，仅为了娱乐，我们会包含"-i"
-选项，看一个它的作用：
+目录列表第二字段所示。下一步，我们会删除文件 fun，仅为了娱乐，我们会加入"-i"
+选项，看一看它的作用：
 
     [me@linuxbox playground]$ rm -i fun
     rm: remove regular file `fun'?
