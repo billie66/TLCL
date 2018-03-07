@@ -522,8 +522,7 @@ empty list. This example is from Ubuntu) This command produces the expected resu
 with this command we get an entirely different result (only a partial listing of the results
 is shown). Why is that? It’s a long story, but here’s the short version:
 
-通过这个命令我们得到整个不同的结果（只显示了一部分结果列表）。为什么会是那样？
-说来话长，以下是个比较简短的版本：
+通过这个命令我们得到完全不同的结果（只列出了部分结果）。原因说来话长，简单来说就是：
 
 Back when Unix was first developed, it only knew about ASCII characters, and this
 feature reflects that fact. In ASCII, the first thirty-two characters (numbers 0-31) are
@@ -560,8 +559,7 @@ To support this ability, the POSIX standards introduced a concept called a local
 could be adjusted to select the character set needed for a particular location. We can see
 the language setting of our system using this command:
 
-为了支持这种能力，POSIX 标准介绍了一种叫做 locale 的概念，其可以被调整，来为某个特殊的区域，
-选择所需的字符集。通过使用下面这个命令，我们能够查看到我们系统的语言设置：
+为了支持这种功能，posix标准引入了"locale"概念，它能针对不同地区选择合适的字符集。：
 
     [me@linuxbox ~]$ echo $LANG
     en_US.UTF-8
