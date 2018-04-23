@@ -14,7 +14,7 @@ chooses to exit the program.
 在前面的章节中，我们开发了菜单驱动程序，来产生各种各样的系统信息。虽然程序能够运行，
 但它仍然存在重大的可用性问题。它只能执行单一的选择，然后终止。更糟糕地是，如果做了一个
 无效的选择，程序会以错误终止，而没有给用户提供再试一次的机会。如果我们能构建程序，
-以致于程序能够重复显示菜单，而且能一次由一次的选择，直到用户选择退出程序，这样的程序会更好一些。
+以致于程序能够重复显示菜单，而且能一次又一次的选择，直到用户选择退出程序，这样的程序会更好一些。
 
 In this chapter, we will look at a programming concept called looping, which can be used
 to make portions of programs repeat. The shell provides three compound commands for
