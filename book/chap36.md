@@ -8,7 +8,7 @@ The data types we have looked at so far are known in computer science circles as
 scalar variables; that is, variables that contain a single value.
 
 在上一章中，我们查看了 shell 怎样操作字符串和数字的。目前我们所见到的数据类型在计算机科学圈里被
-成为标量变量；也就是说，只能包含一个值的变量。
+称为标量变量；也就是说，只能包含一个值的变量。
 
 In this chapter, we will look at another kind of data structure called an array,
 which holds multiple values. Arrays are a feature of virtually every programming language.
