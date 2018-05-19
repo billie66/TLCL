@@ -323,15 +323,15 @@ comma-separated list of strings, or a range of integers or single characters. Th
 may not contain embedded whitespace. Here is an example using a range of integers:
 
 花括号展开模式可能包含一个开头部分叫做报头，一个结尾部分叫做附言。花括号表达式本身可
-能包含一个由逗号分开的字符串列表，或者一系列的整数，或者单个的字符串。这种模式不能
-嵌入空白字符。这个例题使用了一系列整数：
+能包含一个由逗号分开的字符串列表，或者一个整数区间，或者单个的字符的区间。这种模式不能
+嵌入空白字符。这个例子中使用了一个整数区间：
 
     [me@linuxbox ~]$ echo Number_{1..5}
     Number_1  Number_2  Number_3  Number_4  Number_5
 
 A range of letters in reverse order:
 
-一系列以倒序排列的字母：
+倒序排列的字母区间：
 
     [me@linuxbox ~]$ echo {Z..A}
     Z Y X W V U T S R Q P O N M L K J I H G F E D C B A
