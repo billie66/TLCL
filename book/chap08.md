@@ -324,7 +324,7 @@ may not contain embedded whitespace. Here is an example using a range of integer
 
 花括号展开模式可能包含一个开头部分叫做报头，一个结尾部分叫做附言。花括号表达式本身可
 能包含一个由逗号分开的字符串列表，或者一个整数区间，或者单个的字符的区间。这种模式不能
-嵌入空白字符。这个例题使用了一个整数范围：
+嵌入空白字符。这个例题使用了一个整数区间：
 
     [me@linuxbox ~]$ echo Number_{1..5}
     Number_1  Number_2  Number_3  Number_4  Number_5
