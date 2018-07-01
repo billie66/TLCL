@@ -4,3 +4,5 @@
 阅读，请移步到 <http://billie66.github.io/TLCL/>
 
 参与翻译，请直接 Fork 项目，或者直接点本仓库页面上的编辑按钮
+
+非常感谢peter以及billie
