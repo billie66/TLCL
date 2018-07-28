@@ -490,11 +490,10 @@ list), type Ctrl-r again. To quit searching, type either Ctrl-g or Ctrl-c.
 Here we see it in action:
 
 bash 会把 "!88" 展开成为历史列表中88行的内容。还有其它的历史命令展开形式，我们一会儿
-讨论它们。bash 也具有按递增顺序来搜索历史列表的能力。这意味着随着字符的输入，我们
-可以告诉 bash 去搜索历史列表，每一个附加字符都进一步提炼我们的搜索。启动递增搜索，
-输入 Ctrl-r，其后输入你要寻找的文本。当你找到它以后，你可以敲入 Enter 来执行命令，
+讨论它们。bash 也具有增量搜索历史列表的能力。这意味着在字符输入的同时，bash 也在搜索历史列表，每多输入一个字符都会刷新搜索。输入 Ctrl-r来启动增量搜索，
+接着输入你要寻找的字。当你找到它以后，你可以敲入 Enter 来执行命令，
 或者输入 Ctrl-j，从历史列表中复制这一行到当前命令行。再次输入 Ctrl-r，来找到下一个
-匹配项（向上移动历史列表）。输入 Ctrl-g 或者 Ctrl-c，退出搜索。实际来体验一下：
+匹配项（历史列表中向上移动）。输入 Ctrl-g 或者 Ctrl-c，退出搜索。实际来体验一下：
 
     [me@linuxbox ~]$
 
@@ -508,7 +507,7 @@ The prompt changes to indicate that we are performing a reverse incremental sear
 “reverse” because we are searching from “now” to some time in the past. Next, we start
 typing our search text. In this example “/usr/bin”:
 
-提示符改变，显示我们正在执行反向递增搜索。搜索过程是"反向的"，因为我们按照从"现在"到过去
+提示符改变，显示我们正在执行反向增量搜索。搜索过程是"反向的"，因为我们按照从"现在"到过去
 某个时间段的顺序来搜寻。下一步，我们开始输入要查找的文本。在这个例子里是 "/usr/bin"：
 
     (reverse-i-search)`/usr/bin': ls -l /usr/bin > ls-output.txt
@@ -597,15 +596,15 @@ commands in the history list.</td>
 </tr>
 <tr>
 <td valign="top">Ctrl-r</td>
-<td valign="top">反向递增搜索。从当前命令行开始，向上递增搜索。</td>
+<td valign="top">反向增量搜索。从当前命令行开始，向上增量搜索。</td>
 </tr>
 <tr>
 <td valign="top">Alt-p</td>
-<td valign="top">反向搜索，不是递增顺序。输入要查找的字符串，然后按下 Enter，执行搜索。</td>
+<td valign="top">反向搜索，非增量搜索。（输入要查找的字符串，按下 Enter来执行搜索）。</td>
 </tr>
 <tr>
 <td valign="top">Alt-n</td>
-<td valign="top"> 向前搜索，非递增顺序。</td>
+<td valign="top"> 向前搜索，非增量。</td>
 </tr>
 <tr>
 <td valign="top">Ctrl-o</td>
