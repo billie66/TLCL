@@ -490,10 +490,10 @@ list), type Ctrl-r again. To quit searching, type either Ctrl-g or Ctrl-c.
 Here we see it in action:
 
 bash 会把 "!88" 展开成为历史列表中88行的内容。还有其它的历史命令展开形式，我们一会儿
-讨论它们。bash 也具有增量搜索历史列表的能力。这意味着在字符输入的同时，bash 也在搜索历史列表，每多输入一个字符都会刷新搜索。输入 Ctrl-r来启动增量搜索，
+讨论它们。bash 也具有增量搜索历史列表的能力。意思是在字符输入的同时，bash 会去搜索历史列表（直接出结果，并高亮匹配的第一个字），每多输入一个字符都会使搜索结果更接近目标。输入 Ctrl-r来启动增量搜索，
 接着输入你要寻找的字。当你找到它以后，你可以敲入 Enter 来执行命令，
 或者输入 Ctrl-j，从历史列表中复制这一行到当前命令行。再次输入 Ctrl-r，来找到下一个
-匹配项（历史列表中向上移动）。输入 Ctrl-g 或者 Ctrl-c，退出搜索。实际来体验一下：
+匹配项（历史列表中向上移动）。输入 Ctrl-g 或者 Ctrl-c，退出搜索。现在看看它的实际效果：
 
     [me@linuxbox ~]$
 
@@ -511,6 +511,8 @@ typing our search text. In this example “/usr/bin”:
 某个时间段的顺序来搜寻。下一步，我们开始输入要查找的文本。在这个例子里是 "/usr/bin"：
 
     (reverse-i-search)`/usr/bin': ls -l /usr/bin > ls-output.txt
+
+> 上面这一行冒号后面的第一个"/"会高亮显示。
 
 Immediately, the search returns our result. With our result, we can execute the command
 by pressing Enter, or we can copy the command to our current command line for
