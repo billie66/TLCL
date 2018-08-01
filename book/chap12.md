@@ -666,7 +666,7 @@ o. With this knowledge under our belts, we're ready to do some editing. Using th
 arrow key and / or the PageDown key, move the cursor to the end of the file, then add the
 following lines to the .bashrc file:
 
-第二个我们需要知道的命令是怎样保存我们的劳动成果。对于 nano 来说是 Ctrl-o。尽然我们
+第二个我们需要知道的命令是怎样保存我们的劳动成果。对于 nano 来说是 Ctrl-o。既然我们
 已经获得了这些知识，接下来我们准备做些编辑工作。使用下箭头按键和 / 或下翻页按键，移动
 鼠标到文件的最后一行，然后添加以下几行到文件 .bashrc 中：
 
