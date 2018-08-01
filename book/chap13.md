@@ -85,7 +85,7 @@ use line editing commands while using vi.
 来源于单词“visual”，因为它打算在带有可移动光标的视频终端上编辑文本。在发明可视化编辑器之前，
 有一次只能操作一行文本的行编辑器。为了编辑，我们需要告诉行编辑器到一个特殊行并且
 说明做什么修改，比方说添加或删除文本。视频终端（而不是基于打印机的终端，像电传打印机）的出现
-，可视化编辑成为可能。vi 实际上整合了一个强大的叫做 ex 行编辑器,
+，使可视化编辑成为可能。vi 实际上整合了一个强大的行编辑器 ———— ex ,
 所以我们在使用 vi 时能运行行编辑命令。
 
 Most Linux distributions don't include real vi; rather, they ship with an enhanced
