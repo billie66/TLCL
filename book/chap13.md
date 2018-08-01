@@ -149,7 +149,7 @@ To do this, you have a few options:
 >在上面的截屏中（来自于 Ubuntu
 8.04），我们看到一行文字 “运行于 Vi 兼容模式。” 这意味着 vim 将以近似于 vi 的普通的模式
 运行，而不是以 vim 的高级的模式运行。出于本章的教学目的，我们将使用 vim 和它的的高级模式。
-要 vim，可以通过如下方法：
+要这样使用vim，可以通过如下方法：
 >
 > Try running vim instead of vi.
 >
