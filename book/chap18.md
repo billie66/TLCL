@@ -748,8 +748,8 @@ expr2, as we already know that the expression expr1 -or expr2 is true.
 OK, so it helps it go faster. Why is this important? It’s important because we can rely on
 this behavior to control how actions are performed, as we shall soon see..
 
-为什么这会发生呢？这样做是为了提高性能。以 -and 为例，我们知道表达式 expr1 -and expr2
-不能为真，如果表达式 expr1的结果为假，所以没有必要执行 expr2。同样地，如果我们有表达式
+为什么这会发生呢？这样做是为了提高性能。以 -and 为例，我们知道如果表达式 expr1的结果为假，
+表达式 expr1 -and expr2不能为真，所以没有必要执行 expr2。同样地，如果我们有表达式
 expr1 -or expr2，并且表达式 expr1的结果为真，那么就没有必要执行 expr2，因为我们已经知道
 表达式 expr1 -or expr2 为真。好，这样会执行快一些。为什么这个很重要？
 它很重要是因为我们能依靠这种行为来控制怎样来执行操作。我们会很快看到...
