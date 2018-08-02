@@ -353,7 +353,7 @@ you will not be able to see the directory's previous contents until you unmount 
 For our purposes, we will create a new directory:
 
 下一步是创建一个新的光盘挂载点。简单地说，一个挂载点就是文件系统树中的一个目录。它没有
-什么特殊的。它甚至不必是一个空目录，即使你把设备挂载到了一个非空目录上，你也不能看到
+什么特殊的。它甚至不必是一个空目录，如果你把设备挂载到了一个非空目录上，你将不能看到
 这个目录中原来的内容，直到你卸载这个设备。就我们的目的而言，我们将创建一个新目录：
 
     [root@linuxbox ~]# mkdir /mnt/cdrom
