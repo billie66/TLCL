@@ -1133,8 +1133,8 @@ tony, who does not. User janet wants to copy a file from her home directory to t
 home directory of user tony. Since user janet wants tony to be able to edit the file,
 janet changes the ownership of the copied file from janet to tony:
 
-比方说，我们有两个用户，janet拥有超级用户访问权限，而 tony 没有。用户 jant 想要从
-她的家目录复制一个文件到用户 tony 的家目录。因为用户 jant 想要 tony 能够编辑这个文件，
+比方说，我们有两个用户，janet拥有超级用户访问权限，而 tony 没有。用户 janet 想要从
+她的家目录复制一个文件到用户 tony 的家目录。因为用户 janet 想要 tony 能够编辑这个文件，
 janet 把这个文件的所有者更改为 tony:
 
     [janet@linuxbox ~]$ sudo cp myfile.txt ~tony
