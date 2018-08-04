@@ -634,7 +634,7 @@ the group and others to read and execute. Multiple specifications may be separat
 </tr>
 <tr>
 <td valign="top">go=rw</td>
-<td valign="top"> 给群组的主人和任意文件拥有者的人读写权限。如果群组的主人或全局之前已经有了执行的权限，他们将被移除。 </td>
+<td valign="top"> 给文件所属的组和文件所属者/组以外的人读写权限。如果文件所属组或其他人已经拥有执行的权限，执行权限将被移除。 </td>
 </tr>
 <tr>
 <td valign="top">u+x,go=rw</td>
