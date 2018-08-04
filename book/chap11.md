@@ -23,8 +23,8 @@ This chapter will introduce the following commands:
 
 这一章将介绍以下命令：
 
-* 
-*  – Report a snapshot of current processes
+
+*  ps– Report a snapshot of current processes
 
 * top – Display tasks
 
