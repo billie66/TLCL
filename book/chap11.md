@@ -23,7 +23,8 @@ This chapter will introduce the following commands:
 
 这一章将介绍以下命令：
 
-* ps – Report a snapshot of current processes
+
+*  ps– Report a snapshot of current processes
 
 * top – Display tasks
 
@@ -66,7 +67,7 @@ least a little busy performing routine stuff.
 
 当系统启动的时候，内核先把一些它自己的活动初始化为进程，然后运行一个叫做 init 的程序。init，
 依次地，再运行一系列的称为 init 脚本的 shell 脚本（位于/etc），它们可以启动所有的系统服务。
-其中许多系统服务以守护（daemon）程序的形式实现，守护程序仅在后台运行，没有任何用户界面。
+其中许多系统服务以守护（daemon）程序的形式实现，守护程序仅在后台运行，没有任何用户接口(User Interface)。
 这样，即使我们没有登录系统，至少系统也在忙于执行一些例行事务。
 
 The fact that a program can launch other programs is expressed in the process scheme as
@@ -82,7 +83,7 @@ resume execution. Like files, processes also have owners and user IDs, effective
 IDs, etc.
 
 内核维护每个进程的信息，以此来保持事情有序。例如，系统分配给每个进程一个数字，这个数字叫做
-进程 ID 或 PID。PID 号按升序分配，init 进程的 PID 总是1。内核也对分配给每个进程的内存和就绪状态进行跟踪以便继续执行这个进程。
+进程(process) ID 或 PID。PID 号按升序分配，init 进程的 PID 总是1。内核也对分配给每个进程的内存和就绪状态进行跟踪以便继续执行这个进程。
 像文件一样，进程也有所有者和用户 ID，有效用户 ID，等等。
 
 ### 查看进程
@@ -90,7 +91,7 @@ IDs, etc.
 The most commonly used command to view processes (there are several) is ps. The ps
 program has a lot of options, but in it simplest form it is used like this:
 
-查看进程，最常使用地命令（有几个命令）是 ps。ps 程序有许多选项，它最简单地使用形式是这样的：
+查看进程，最常使用地命令（有几个命令）是 ps(process)。ps 程序有许多选项，它最简单地使用形式是这样的：
 
     [me@linuxbox ~]$ ps
     PID TTY           TIME CMD
@@ -108,7 +109,7 @@ process. As we can see, neither process makes the computer work very hard.
 上例中，列出了两个进程，进程 5198 和进程 10129，各自代表命令 bash 和 ps。正如我们所看到的，
 默认情况下，ps 不会显示很多进程信息，只是列出与当前终端会话相关的进程。为了得到更多信息，
 我们需要加上一些选项，但是在这样做之前，我们先看一下 ps 命令运行结果的其它字段。
-TTY 是 "Teletype" 的简写，是指进程的控制终端。这里，Unix 展示它的年龄。TIME 字段表示
+TTY 是 "Teletype"(直译电传打字机) 的简写，是指进程的控制终端。TTY足足显示了 Unix 的年代久远。TIME 字段表示
 进程所消耗的 CPU 时间数量。正如我们所看到的，这两个进程使计算机工作起来很轻松。
 
 If we add an option, we can get a bigger picture of what the system is doing:
@@ -240,7 +241,7 @@ valign="top">一个高优先级进程。这可能会授予一个进程更多重�
 <tr>
 <td valign="top">N</td>
 <td valign="top">低优先级进程。
-一个低优先级进程（一个“好”进程）只有当其它高优先级进程被服务了之后，才会得到处理器时间。
+一个低优先级进程（一个“nice”进程）只有当其它高优先级进程被服务了之后，才会得到处理器时间。
 </td>
 </tr>
 </tbody>
@@ -674,7 +675,7 @@ background (with hidden stuff behind the surface.) To launch a program so that i
 immediately placed in the background, we follow the command with an- “&” character:
 
 假如说我们想让 shell 提示符返回，却不终止 xlogo 程序。我们可以把
-这个程序放到后台执行。把终端想象是一个有前台（包含在表层可见的事物，像 shell 提示符）
+这个程序放到后台(background)执行。把终端想象是一个有前台（包含在表层可见的事物，像 shell 提示符）
 和后台（包含表层之下的隐藏的事物）（的设备）。为了启动一个程序并让它立即在后台
 运行，我们在程序命令之后，加上"&"字符：
 
@@ -688,8 +689,8 @@ job control. With this message, the shell is telling us that we have started job
 (“[1]”) and that it has PID 28236. If we run ps, we can see our process:
 
 执行命令之后，这个 xlogo 窗口出现，并且 shell 提示符返回，同时打印一些有趣的数字。
-这条信息是 shell 特性的一部分，叫做任务控制。通过这条信息，shell 告诉我们，已经启动了
-任务号为1（“［1］”），PID 为28236的程序。如果我们运行 ps 命令，可以看到我们的进程：
+这条信息是 shell 特性的一部分，叫做任务控制 (job control)。通过这条信息，shell 告诉我们，已经启动了
+任务号(job number)为1（“［1］”），PID 为28236的程序。如果我们运行 ps 命令，可以看到我们的进程：
 
     [me@linuxbox ~]$ ps
       PID TTY         TIME   CMD
@@ -717,7 +718,7 @@ interrupt it with a Ctrl-c. To return a process to the foreground, use the fg co
 this way:
 
 一个在后台运行的进程对一切来自键盘的输入都免疫，也不能用 Ctrl-c 来中断它。
-为了让一个进程返回前端，这样使用 fg 命令：
+为了让一个进程返回前台 (foreground)，这样使用 fg 命令：
 
     [me@linuxbox ~]$ jobs
     [1]+ Running        xlogo &
@@ -728,8 +729,8 @@ The command fg followed by a percent sign and the job number (called a jobspec) 
 the trick. If we only have one background job, the jobspec is optional. To terminate
 xlogo, type Ctrl-c.
 
-fg 命令之后，跟随着一个百分号和任务序号（叫做 jobspec）就可以了。如果我们只有一个后台任务，那么
-jobspec 是可有可无的。输入 Ctrl-c 来终止 xlogo 程序。
+fg 命令之后，跟随着一个百分号和任务序号（叫做 jobspec,如此处的%1）就可以了。如果我们只有一个后台任务，那么
+jobspec(job specification) 是可有可无的。输入 Ctrl-c 来终止 xlogo 程序。
 
 ### 停止一个进程
 
@@ -816,9 +817,9 @@ do things like save work in progress when it is sent a termination signal.
 虽然这个命令看上去很直白， 但是它的含义不止于此。这个 kill 命令不是真的“杀死”程序，而是给程序
 发送信号。信号是操作系统与程序之间进行通信时所采用的几种方式中的一种。
 在使用 Ctrl-c 和 Ctrl-z 的过程中我们已经看到信号的实际用法。当终端接受了其中一个按键组合后，它会给在前端运行
-的程序发送一个信号。在使用 Ctrl-c 的情况下，会发送一个叫做 INT（中断）的信号；当使用
-Ctrl-z 时，则发送一个叫做 TSTP（终端停止）的信号。程序，相应地，倾听信号的到来，当程序
-接到信号之后，则做出响应。一个程序能够倾听和响应信号这件事允许一个程序做些事情，
+的程序发送一个信号。在使用 Ctrl-c 的情况下，会发送一个叫做 INT（Interrupt,中断）的信号；当使用
+Ctrl-z 时，则发送一个叫做 TSTP（Terminal Stop,终端停止）的信号。程序，相应地，监听信号的到来，当程序
+接到信号之后，则做出响应。一个程序能够监听和响应信号这件事允许一个程序做些事情，
 比如，当程序接到一个终止信号时，它可以保存所做的工作。
 
 ### 通过 kill 命令给进程发送信号
@@ -833,7 +834,7 @@ kill 命令被用来给程序发送信号。它最常见的语法形式看起来
 If no signal is specified on the command line, then the TERM (Terminate) signal is sent by
 default. The kill command is most often used to send the following signals:
 
-如果在命令行中没有指定信号，那么默认情况下，发送 TERM（终止）信号。kill 命令被经常
+如果在命令行中没有指定信号，那么默认情况下，发送 TERM（Terminate，终止）信号。kill 命令被经常
 用来发送以下命令：
 
 <table class="multi">
@@ -905,8 +906,8 @@ thus it cannot be ignored.</td>
 <tr>
 <td valign="top" width="10%">1</td>
 <td valign="top" width="10%">HUP</td>
-<td valign="top">挂起。这是美好往昔的残留部分，那时候终端机通过电话线和调制解调器连接到
-远端的计算机。这个信号被用来告诉程序，控制的终端机已经“挂起”。
+<td valign="top">挂起（Hangup）。这是美好往昔的残留部分，那时候终端机通过电话线和调制解调器连接到
+远端的计算机。这个信号被用来告诉程序，控制的终端机已经“挂断”。
 通过关闭一个终端会话，可以展示这个信号的作用。在当前终端运行的前台程序将会收到这个信号并终止。
 <p>许多守护进程也使用这个信号，来重新初始化。这意味着，当一个守护进程收到这个信号后，
 这个进程会重新启动，并且重新读取它的配置文件。Apache 网络服务器守护进程就是一个例子。</p>
@@ -1046,20 +1047,20 @@ signal by redrawing themselves to fit the new window dimensions.</td>
 <td valign="top">11</td>
 <td valign="top">SEGV</td>
 <td
-valign="top">段错误。如果一个程序非法使用内存，就会发送这个信号。也就是说，
+valign="top">段错误(Segmentation Violation)。如果一个程序非法使用内存，就会发送这个信号。也就是说，
 程序试图写入内存，而这个内存空间是不允许此程序写入的。</td>
 </tr>
 <tr>
 <td valign="top">20</td>
 <td valign="top">TSTP</td>
 <td
-valign="top">终端停止。当按下 Ctrl-z 组合键后，终端发送这个信号。不像 STOP 信号，
+valign="top">终端停止(Terminal Stop)。当按下 Ctrl-z 组合键后，终端发送这个信号。不像 STOP 信号，
 TSTP 信号由目标进程接收，且可能被忽略。</td>
 </tr>
 <tr>
 <td valign="top">28</td>
 <td valign="top">WINCH</td>
-<td valign="top">改变窗口大小。当改变窗口大小时，系统会发送这个信号。
+<td valign="top">改变窗口大小(Window Change)。当改变窗口大小时，系统会发送这个信号。
 一些程序，像 top 和 less 程序会响应这个信号，按照新窗口的尺寸，刷新显示的内容。
 </td>
 </tr>
@@ -1143,7 +1144,7 @@ Terminate the output with Ctrl-c.</td>
 </tr>
 <tr>
 <td valign="top" width="15%">pstree </td>
-<td valign="top">输出一个树型结构的进程列表，这个列表展示了进程间父/子关系。</td>
+<td valign="top">输出一个树型结构的进程列表(processtree)，这个列表展示了进程间父/子关系。</td>
 </tr>
 <tr>
 <td valign="top">vmstat</td>
@@ -1157,6 +1158,6 @@ Terminate the output with Ctrl-c.</td>
 </tr>
 <tr>
 <td valign="top">tload</td>
-<td valign="top">与 xload 程序相似，但是在终端中画出图形。使用 Ctrl-c，来终止输出。</td>
+<td valign="top">terminal load与 xload 程序相似，但是在终端中画出图形。使用 Ctrl-c，来终止输出。</td>
 </tr>
 </table>
