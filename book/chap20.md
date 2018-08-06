@@ -533,11 +533,7 @@ letters and a few more punctuation symbols. The final thirty-one (numbers 96-127
 contain the lowercase letters and yet more punctuation symbols. Based on this
 arrangement, systems using ASCII used a `collation order` that looked like this:
 
-追溯到 Unix 刚刚开发的时候，它只知道 ASCII 字符，并且Unix特性也如实反映了这一事实。在 ASCII 中，前32个字符
-（数字0－31）都是控制码（如 tabs、backspaces和回车）。随后的32个字符（32－63）包含可打印的字符，
-包括大多数的标点符号和数字0到9。再随后的32个字符（64－95）包含大写字符和一些更多的标点符号。
-最后的31个字符（96－127）包含小写字母和更多的标点符号。基于这种安排方式，系统使用这种排序规则
-的 ASCII：
+追溯到 Unix 刚刚开发的时候，它只知道 ASCII 字符，并且Unix特性也如实反映了这一事实。在 ASCII 中，前32个字符（数字0－31）都是控制码（如 tabs、backspaces和回车）。随后的32个字符（32－63）包含可打印的字符，包括大多数的标点符号和数字0到9。再随后的32个字符（64－95）包含大写字符和一些更多的标点符号。最后的31个字符（96－127）包含小写字母和更多的标点符号。基于这种安排方式，使用ASCII的系统的排序规则像下面这样：
 
     ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
 
@@ -551,9 +547,7 @@ As the popularity of Unix spread beyond the United States, there grew a need to 
 characters not found in U.S. English. The ASCII table was expanded to use a full eight
 bits, adding characters numbers 128-255, which accommodated many more languages.
 
-随着 Unix 系统的知名度在美国之外的国家传播开来，就需要支持不在 U.S.英语范围内的字符。
-于是就扩展了这个 ASCII 字符表，使用了整个8位，添加了字符（数字128－255），这样就
-容纳了更多的语言。
+随着 Unix 系统的知名度在美国之外的国家传播开来，就需要支持不在 U.S.英语范围内的字符。于是就扩展了这个 ASCII 字符表，使用了整个8位，添加了字符（数字128－255），这样就容纳了更多的语言。
 
 To support this ability, the POSIX standards introduced a concept called a locale, which
 could be adjusted to select the character set needed for a particular location. We can see
@@ -569,15 +563,13 @@ rather than ASCII order. This explains the behavior of the commands above. A cha
 range of [A-Z] when interpreted in dictionary order includes all of the alphabetic
 characters except the lowercase “a”, hence our results.
 
-通过这个设置，POSIX 相容的应用程序将会使用字典排列顺序而不是 ASCII 顺序。这就解释了上述命令的行为。
-当[A-Z]字符区域按照字典顺序解释的时候，包含除了小写字母“a”之外的所有字母，因此得到这样的结果。
+通过这个设置，POSIX 相容的应用程序将会使用字典排列顺序而不是 ASCII 顺序。这就解释了上述命令的行为。当[A-Z]字符区域按照字典顺序解释的时候，包含除了小写字母“a”之外的所有字母，因此得到这样的结果。
 
 To partially work around this problem, the POSIX standard includes a number of
 character classes which provide useful ranges of characters. They are described in the
 table below:
 
-为了部分地解决这个问题，POSIX 标准包含了大量的字符集，其提供了有用的字符区域。
-下表中描述了它们：
+为了部分地解决这个问题，POSIX 标准包含了大量的字符集，其提供了有用的字符区域。如下表中所示：
 
 <table class="multi">
 <caption class="cap">Table 20-2: POSIX Character Classes </caption>
