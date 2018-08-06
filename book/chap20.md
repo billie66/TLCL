@@ -612,7 +612,7 @@ through thirty-one and 127.  </td>
 </tr>
 <tr>
 <td valign="top">[:punct:] </td>
-<td valign="top">The punctuation characters. In ASCII, equivalent to:
+<td valign="top">The punctuation characters. In ASCII, equivalent to:[-!"#$%&'()*+,./:;<=>?@[\\\]_`{|}~]
 </td>
 </tr>
 <tr>
@@ -677,7 +677,7 @@ equivalent to: [0-9A-Fa-f] </td>
 </tr>
 <tr>
 <td valign="top">[:punct:] </td>
-<td valign="top">标点符号字符。在 ASCII 中，等价于：</td>
+<td valign="top">标点符号字符。在 ASCII 中，等价于：[-!"#$%&'()*+,./:;<=>?@[\\\]_`{|}~]</td>
 </tr>
 <tr>
 <td valign="top">[:print:] </td>
