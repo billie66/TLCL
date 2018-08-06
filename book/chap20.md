@@ -24,7 +24,7 @@ What Are Regular Expressions?
 
 我们已经浏览了许多由命令行提供的功能和工具，我们遇到了一些真正神秘的 shell 功能和命令，
 比如 shell 展开和引用、键盘快捷键和命令历史，更不用说 vi 编辑器了。正则表达式延续了
-这种“传统”，而且有可能（备受争议地）是其中最神秘的功能。这并不是说花费时间来学习它们
+这种“传统”，而且有可能（备受争议地）是这些‘神秘功能’中最神秘的那个。这并不是说花费时间来学习它们
 是不值得的，而是恰恰相反。虽然它们的全部价值可能不能立即显现，但是较强理解这些功能
 使我们能够表演令人惊奇的技艺。什么是正则表达式？
 
@@ -206,7 +206,7 @@ could do this:
     dirlist-usr-bin.txt
     dirlist-usr-sbin.txt
 
-### 元字符和文本
+### 元字符和原义字符(Metacharacters And Literals)
 
 While it may not seem apparent, our grep searches have been using regular expressions
 all along, albeit very simple ones. The regular expression “bzip” is taken to mean that a
@@ -229,8 +229,8 @@ All other characters are considered literals, though the backslash character is 
 few cases to create meta sequences, as well as allowing the metacharacters to be escaped
 and treated as literals instead of being interpreted as metacharacters.
 
-然后其它所有字符都被认为是原义字符，虽然在个别情况下，反斜杠会被用来创建元序列，
-也允许元字符被转义为原义字符，而不是被解释为元字符。
+其它所有字符都被认为是原义字符。在个别情况下，反斜杠会被用来创建元序列，
+元字符也可以被转义为原义字符，而不是被解释为元字符。
 
 ---
 
