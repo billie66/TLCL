@@ -206,7 +206,7 @@ could do this:
     dirlist-usr-bin.txt
     dirlist-usr-sbin.txt
 
-### 元字符和文本
+### 元字符和原义字符(Metacharacters And Literals)
 
 While it may not seem apparent, our grep searches have been using regular expressions
 all along, albeit very simple ones. The regular expression “bzip” is taken to mean that a
@@ -229,8 +229,8 @@ All other characters are considered literals, though the backslash character is 
 few cases to create meta sequences, as well as allowing the metacharacters to be escaped
 and treated as literals instead of being interpreted as metacharacters.
 
-然后其它所有字符都被认为是原义字符，虽然在个别情况下，反斜杠会被用来创建元序列，
-也允许元字符被转义为原义字符，而不是被解释为元字符。
+其它所有字符都被认为是原义字符。在个别情况下，反斜杠会被用来创建元序列，
+元字符也可以被转义为原义字符，而不是被解释为元字符。
 
 ---
 
