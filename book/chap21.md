@@ -1749,9 +1749,7 @@ The name sed is short for stream editor. It performs text editing on a stream of
 either a set of specified files or standard input. sed is a powerful and somewhat complex
 program (there are entire books about it), so we will not cover it completely here.
 
-名字 sed 是 stream editor（流编辑器）的简称。它对文本流进行编辑，要不是一系列指定的文件，
-要不就是标准输入。sed 是一款强大的，并且有些复杂的程序（有整本内容都是关于 sed 程序的书籍），
-所以在这里我们不会详尽的讨论它。
+名字 sed 是 stream editor（流编辑器）的简称。它对文本流，即一系列指定的文件或标准输入进行编辑。sed 是一款强大的，并且有些复杂的程序（有整本内容都是关于 sed 程序的书籍），所以在这里我们不会详尽的讨论它。
 
 In general, the way that sed works is that it is given either a single editing command (on
 the command line) or the name of a script file containing multiple commands, and it then
