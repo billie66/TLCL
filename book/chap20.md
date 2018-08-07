@@ -533,11 +533,7 @@ letters and a few more punctuation symbols. The final thirty-one (numbers 96-127
 contain the lowercase letters and yet more punctuation symbols. Based on this
 arrangement, systems using ASCII used a `collation order` that looked like this:
 
-追溯到 Unix 刚刚开发的时候，它只知道 ASCII 字符，并且Unix特性也如实反映了这一事实。在 ASCII 中，前32个字符
-（数字0－31）都是控制码（如 tabs、backspaces和回车）。随后的32个字符（32－63）包含可打印的字符，
-包括大多数的标点符号和数字0到9。再随后的32个字符（64－95）包含大写字符和一些更多的标点符号。
-最后的31个字符（96－127）包含小写字母和更多的标点符号。基于这种安排方式，系统使用这种排序规则
-的 ASCII：
+追溯到 Unix 刚刚开发的时候，它只知道 ASCII 字符，并且Unix特性也如实反映了这一事实。在 ASCII 中，前32个字符（数字0－31）都是控制码（如 tabs、backspaces和回车）。随后的32个字符（32－63）包含可打印的字符，包括大多数的标点符号和数字0到9。再随后的32个字符（64－95）包含大写字符和一些更多的标点符号。最后的31个字符（96－127）包含小写字母和更多的标点符号。基于这种安排方式，使用ASCII的系统的排序规则像下面这样：
 
     ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
 
@@ -551,9 +547,7 @@ As the popularity of Unix spread beyond the United States, there grew a need to 
 characters not found in U.S. English. The ASCII table was expanded to use a full eight
 bits, adding characters numbers 128-255, which accommodated many more languages.
 
-随着 Unix 系统的知名度在美国之外的国家传播开来，就需要支持不在 U.S.英语范围内的字符。
-于是就扩展了这个 ASCII 字符表，使用了整个8位，添加了字符（数字128－255），这样就
-容纳了更多的语言。
+随着 Unix 系统的知名度在美国之外的国家传播开来，就需要支持不在 U.S.英语范围内的字符。于是就扩展了这个 ASCII 字符表，使用了整个8位，添加了字符（数字128－255），这样就容纳了更多的语言。
 
 To support this ability, the POSIX standards introduced a concept called a locale, which
 could be adjusted to select the character set needed for a particular location. We can see
@@ -569,15 +563,13 @@ rather than ASCII order. This explains the behavior of the commands above. A cha
 range of [A-Z] when interpreted in dictionary order includes all of the alphabetic
 characters except the lowercase “a”, hence our results.
 
-通过这个设置，POSIX 相容的应用程序将会使用字典排列顺序而不是 ASCII 顺序。这就解释了上述命令的行为。
-当[A-Z]字符区域按照字典顺序解释的时候，包含除了小写字母“a”之外的所有字母，因此得到这样的结果。
+通过这个设置，POSIX 相容的应用程序将会使用字典排列顺序而不是 ASCII 顺序。这就解释了上述命令的行为。当[A-Z]字符区域按照字典顺序解释的时候，包含除了小写字母“a”之外的所有字母，因此得到这样的结果。
 
 To partially work around this problem, the POSIX standard includes a number of
 character classes which provide useful ranges of characters. They are described in the
 table below:
 
-为了部分地解决这个问题，POSIX 标准包含了大量的字符集，其提供了有用的字符区域。
-下表中描述了它们：
+为了部分地解决这个问题，POSIX 标准包含了大量的字符集，其提供了有用的字符区域。如下表中所示：
 
 <table class="multi">
 <caption class="cap">Table 20-2: POSIX Character Classes </caption>
@@ -620,7 +612,7 @@ through thirty-one and 127.  </td>
 </tr>
 <tr>
 <td valign="top">[:punct:] </td>
-<td valign="top">The punctuation characters. In ASCII, equivalent to:
+<td valign="top">The punctuation characters. In ASCII, equivalent to:[-!"#$%&'()*+,./:;<=>?@[\\\]_`{|}~]
 </td>
 </tr>
 <tr>
@@ -685,7 +677,7 @@ equivalent to: [0-9A-Fa-f] </td>
 </tr>
 <tr>
 <td valign="top">[:punct:] </td>
-<td valign="top">标点符号字符。在 ASCII 中，等价于：</td>
+<td valign="top">标点符号字符。在 ASCII 中，等价于：[-!"#$%&'()*+,./:;<=>?@[\\\]_`{|}~]</td>
 </tr>
 <tr>
 <td valign="top">[:print:] </td>
@@ -977,14 +969,11 @@ Let’s try it:
 
 让我们试一下：
 
-    [me@linuxbox ~]$ echo "(555) 123-4567" | grep -E '^\(?[0-9][0-9][0-9]
-    \)? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'
+    [me@linuxbox ~]$ echo "(555) 123-4567" | grep -E '^\(?[0-9][0-9][0-9]\)? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'
     (555) 123-4567
-    [me@linuxbox ~]$ echo "555 123-4567" | grep -E '^\(?[0-9][0-9][0-9]\)
-    ? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'
+    [me@linuxbox ~]$ echo "555 123-4567" | grep -E '^\(?[0-9][0-9][0-9]\)? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'
     555 123-4567
-    [me@linuxbox ~]$ echo "AAA 123-4567" | grep -E '^\(?[0-9][0-9][0-9]\)
-    ? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'
+    [me@linuxbox ~]$ echo "AAA 123-4567" | grep -E '^\(?[0-9][0-9][0-9]\)? [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'
     [me@linuxbox ~]$
 
 Here we see that the expression matches both forms of the phone number, but does not
@@ -1159,8 +1148,7 @@ not. We will get there in future chapters. Here is the incantation:
 它会很神奇，因为我们还没有涵盖所涉及的大部分命令，但是不要担心。我们将在后面的章节里面
 讨论那些命令。这就是那个咒语：
 
-    [me@linuxbox ~]$ for i in {1..10}; do echo "(${RANDOM:0:3}) ${RANDO
-    M:0:3}-${RANDOM:0:4}" >> phonelist.txt; done
+    [me@linuxbox ~]$ for i in {1..10}; do echo "(${RANDOM:0:3}) ${RANDOM:0:3}-${RANDOM:0:4}" >> phonelist.txt; done
 
 This command will produce a file named phonelist.txt containing ten phone
 numbers. Each time the command is repeated, another ten numbers are added to the list.
@@ -1168,9 +1156,7 @@ We can also change the value 10 near the beginning of the command to produce mor
 fewer phone numbers. If we examine the contents of the file, however, we see we have a
 problem:
 
-这个命令会创建一个包含10个电话号码的名为 phonelist.txt 的文件。每次重复这个命令的时候，
-另外10个号码会被添加到这个列表中。我们也能够更改命令开头附近的数值10，来生成或多或少的
-电话号码。如果我们查看这个文件的内容，然而我们会发现一个问题：
+这个命令会创建一个包含10个电话号码的名为 phonelist.txt 的文件。每次重复这个命令的时候，另外10个号码会被添加到这个列表中。我们也能够更改命令开头附近的数值10，来生成或多或少的电话号码。如果我们查看这个文件的内容，然而我们会发现一个问题：
 
     [me@linuxbox ~]$ cat phonelist.txt
     (232) 298-2265
@@ -1187,15 +1173,14 @@ problem:
 Some of the numbers are malformed, which is perfect for our purposes, since we will use
 grep to validate them.
 
-一些号码是残缺不全的，但是它们很适合我们的需求，因为我们将使用 grep 命令来验证它们。
+一些号码是残缺不全的，这正是我们想要的，因为我们将使用 grep 命令来验证电话号码的正确性。
 
 One useful method of validation would be to scan the file for invalid numbers and display
 the resulting list on the display:
 
 一个有用的验证方法是扫描这个文件，查找无效的号码，并把搜索结果显示到屏幕上：
 
-    [me@linuxbox ~]$ grep -Ev '^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$'
-    phonelist.txt
+    [me@linuxbox ~]$ grep -Ev '^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$'    phonelist.txt
     (292) 108-518
     (129) 44-1379
     [me@linuxbox ~]$
