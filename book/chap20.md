@@ -1148,8 +1148,7 @@ not. We will get there in future chapters. Here is the incantation:
 它会很神奇，因为我们还没有涵盖所涉及的大部分命令，但是不要担心。我们将在后面的章节里面
 讨论那些命令。这就是那个咒语：
 
-    [me@linuxbox ~]$ for i in {1..10}; do echo "(${RANDOM:0:3}) ${RANDO
-    M:0:3}-${RANDOM:0:4}" >> phonelist.txt; done
+    [me@linuxbox ~]$ for i in {1..10}; do echo "(${RANDOM:0:3}) ${RANDOM:0:3}-${RANDOM:0:4}" >> phonelist.txt; done
 
 This command will produce a file named phonelist.txt containing ten phone
 numbers. Each time the command is repeated, another ten numbers are added to the list.
@@ -1157,9 +1156,7 @@ We can also change the value 10 near the beginning of the command to produce mor
 fewer phone numbers. If we examine the contents of the file, however, we see we have a
 problem:
 
-这个命令会创建一个包含10个电话号码的名为 phonelist.txt 的文件。每次重复这个命令的时候，
-另外10个号码会被添加到这个列表中。我们也能够更改命令开头附近的数值10，来生成或多或少的
-电话号码。如果我们查看这个文件的内容，然而我们会发现一个问题：
+这个命令会创建一个包含10个电话号码的名为 phonelist.txt 的文件。每次重复这个命令的时候，另外10个号码会被添加到这个列表中。我们也能够更改命令开头附近的数值10，来生成或多或少的电话号码。如果我们查看这个文件的内容，然而我们会发现一个问题：
 
     [me@linuxbox ~]$ cat phonelist.txt
     (232) 298-2265
@@ -1176,15 +1173,14 @@ problem:
 Some of the numbers are malformed, which is perfect for our purposes, since we will use
 grep to validate them.
 
-一些号码是残缺不全的，但是它们很适合我们的需求，因为我们将使用 grep 命令来验证它们。
+一些号码是残缺不全的，这正是我们想要的，因为我们将使用 grep 命令来验证电话号码的正确性。
 
 One useful method of validation would be to scan the file for invalid numbers and display
 the resulting list on the display:
 
 一个有用的验证方法是扫描这个文件，查找无效的号码，并把搜索结果显示到屏幕上：
 
-    [me@linuxbox ~]$ grep -Ev '^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$'
-    phonelist.txt
+    [me@linuxbox ~]$ grep -Ev '^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$'    phonelist.txt
     (292) 108-518
     (129) 44-1379
     [me@linuxbox ~]$
