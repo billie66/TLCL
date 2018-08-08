@@ -2219,9 +2219,11 @@ and enter the following:
 大写的发行版名称为特征。为此，我们需要编写一个脚本，所以我们将打开文本编辑器，然后输入以下文字：
 
     # sed script to produce Linux distributions report
+    
     1 i\
     \
     Linux Distributions Report\
+    
     s/\([0-9]\{2\}\)\/\([0-9]\{2\}\)\/\([0-9]\{4\}\)$/\3-\1-\2/
     y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/
 
