@@ -317,8 +317,7 @@ fold a simple stream of text, we can see how it works:
 折叠是将文本的行限制到特定的宽的过程。像我们的其他命令，fold 接受一个或多个文件及标准输入。如果我们将
 一个简单的文本流 fold，我们可以看到它工作的方式：
 
-    [me@linuxbox ~]$ echo "The quick brown fox jumped over the lazy dog."
-    | fold -w 12
+    [me@linuxbox ~]$ echo "The quick brown fox jumped over the lazy dog."  | fold -w 12
     The quick br
     own fox jump
     ed over the
