@@ -520,7 +520,7 @@ list of arguments. The formatted result is sent to standard output. Here is a tr
 
 首先，发送包含有格式化描述的字符串的指令，接着，这些描述被应用于参数列表上。格式化的结果在标准输出中显示。下面是一个小例子：
 
-    [me@linuxbox ~]$ printf "I formatted the string: %s\n" foo
+    [me@linuxbox ~]$ printf "I formatted the string: %s\n" foo
     I formatted the string: foo
 
 The format string may contain literal text (like “I formatted the string:”), escape sequences
