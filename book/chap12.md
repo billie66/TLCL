@@ -541,8 +541,7 @@ many cases it would be sensible to do so, but for now, let's play it safe.
  .bash_profile 文件中（或者其替代文件中，根据不同的发行版。例如，Ubuntu 使用 .profile 文件）。
 对于其它的更改，要放到 .bashrc 文件中。除非你是系统管理员，需要为系统中的所有用户修改
 默认设置，那么则限定你只能对自己家目录下的文件进行修改。当然，有可能会更改 /etc 目录中的
-文件，比如说 profile 文件，而且在许多情况下，修改这些文件也是明智的，但是现在，我们要
-谨慎行事。
+文件，比如说 profile 文件，而且在许多情况下，修改这些文件也是明智的，但是现在，我们要谨慎行事。
 
 ### 文本编辑器
 
