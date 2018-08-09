@@ -317,8 +317,7 @@ fold a simple stream of text, we can see how it works:
 折叠是将文本的行限制到特定的宽的过程。像我们的其他命令，fold 接受一个或多个文件及标准输入。如果我们将
 一个简单的文本流 fold，我们可以看到它工作的方式：
 
-    [me@linuxbox ~]$ echo "The quick brown fox jumped over the lazy dog."
-    | fold -w 12
+    [me@linuxbox ~]$ echo "The quick brown fox jumped over the lazy dog." | fold -w 12
     The quick br
     own fox jump
     ed over the
@@ -521,7 +520,7 @@ list of arguments. The formatted result is sent to standard output. Here is a tr
 
 首先，发送包含有格式化描述的字符串的指令，接着，这些描述被应用于参数列表上。格式化的结果在标准输出中显示。下面是一个小例子：
 
-    [me@linuxbox ~]$ printf "I formatted the string: %s\n" foo
+    [me@linuxbox ~]$ printf "I formatted the string: %s\n" foo
     I formatted the string: foo
 
 The format string may contain literal text (like “I formatted the string:”), escape sequences
@@ -619,8 +618,7 @@ We’ll demonstrate the effect each of the conversion specifiers on the string �
 
 下面我们以字符串 "380" 为例，展示每种转换符的效果。
 
-    [me@linuxbox ~]$ printf "%d, %f, %o, %s, %x, %X\n" 380 380 380 380
-    380 380
+    [me@linuxbox ~]$ printf "%d, %f, %o, %s, %x, %X\n" 380 380 380 380 380 380
     380, 380.000000, 574, 380, 17c, 17C
 
 Since we specified six conversion specifiers, we must also supply six arguments for
