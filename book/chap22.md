@@ -618,8 +618,7 @@ We’ll demonstrate the effect each of the conversion specifiers on the string �
 
 下面我们以字符串 "380" 为例，展示每种转换符的效果。
 
-    [me@linuxbox ~]$ printf "%d, %f, %o, %s, %x, %X\n" 380 380 380 380
-    380 380
+    [me@linuxbox ~]$ printf "%d, %f, %o, %s, %x, %X\n" 380 380 380 380 380 380
     380, 380.000000, 574, 380, 17c, 17C
 
 Since we specified six conversion specifiers, we must also supply six arguments for
