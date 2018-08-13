@@ -496,10 +496,8 @@ fragment could be modified to determine if the removed section was related to an
             exit 1
         fi
     # else
-    #
-        echo "no such directory: '$dir_name'" >&2
-    #
-        exit 1
+    # echo "no such directory: '$dir_name'" >&2
+    # exit 1
     fi
 
 By placing comment symbols at the beginning of each line in a logical section of a script,
