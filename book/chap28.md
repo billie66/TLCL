@@ -779,7 +779,7 @@ arithmetic evaluations, a subject we will cover fully in Chapter 35.
 `(( ))` is used to perform arithmetic truth tests. An arithmetic truth test results in true if
 the result of the arithmetic evaluation is non-zero.
 
-`(( ))`被用来执行算术真测试。如果算术计算的结果是非零值，则一个算术真测试值为真。
+`(( ))`被用来执行算术真测试。如果算术计算的结果是非零值，则其测试值为真。
 
     [me@linuxbox ~]$ if ((1)); then echo "It is true."; fi
     It is true.
