@@ -38,7 +38,7 @@ In this modern age of graphical editors and easy-to-use text-based editors such 
 why should we learn vi? There are three good reasons:
 
 在现在这个图形化编辑器和易于使用的基于文本编辑器的时代，比如说 nano，为什么我们还应该学习 vi 呢？
-下面有三个充分的理由：
+下面有三个理由：
 
 * vi is always available. This can be a lifesaver if we have a system with no
   graphical interface, such as a remote server or a local system with a broken X
