@@ -11,7 +11,7 @@ to adjust their behavior. Knowing this, we can use the environment to customize 
 shell experience.
 
 恰如我们之前所讲的，shell 在 shell 会话中保存着大量信息。这些信息被称为 (shell 的) 环境。
-程序获取环境中的数据（即环境变量）来了解本机的配置。虽然大多数程序用配置文件来存储程序设置，
+程序获取环境中的数据（即环境变量）来了解本机的配置。然而大多数程序用配置文件来存储程序设置，
 一些程序会根据环境变量来调整他们的行为。知道了这些，我们就可以用环境变量来自定制 shell 体验。
 
 In this chapter, we will work with the following commands:
