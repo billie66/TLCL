@@ -28,7 +28,7 @@ In this chapter, we will work with the following commands:
 
 * printenv - 打印部分或所有的环境变量
 
-* set - 设置 shell 选项
+* set - 设置 shell 
 
 * export — 导出环境变量，让随后执行的程序知道。
 
