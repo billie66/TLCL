@@ -438,7 +438,7 @@ will notice that the system seems to fill up memory the longer it is used. This
 does not mean Linux is “using“ all the memory, it means that Linux is taking
 advantage of all the available memory to do as much buffering as it can.
 >
-> 缓存被广泛地应用于计算机中，使其运行地更快。别让偶尔地读取或写入慢设备的需求阻碍了
+> 缓存被广泛地应用于计算机中，使其运行得更快。别让偶尔地的读取或写入慢设备的需求阻碍了
 系统的运行速度。在真正与比较慢的设备交互之前，操作系统会尽可能多的读取或写入数据到内存中的
 存储设备里。以 Linux 操作系统为例，你会注意到系统看似填充了多于它所需要的内存。
 这不意味着 Linux 正在使用所有的内存，它意味着 Linux 正在利用所有可用的内存，来作为缓存区。
@@ -448,7 +448,7 @@ the writing to the physical device is being deferred to a future time. In the
 meantime, the data destined for the device is piling up in memory. From time to
 time, the operating system will write this data to the physical device.
 >
-> 这个缓存区允许非常快速地写入存储设备，因为写入物理设备的操作被延迟到后面进行。同时，
+> 这个缓存区允许非常快速地对存储设备进行写入，因为写入物理设备的操作被延迟到后面进行。同时，
 这些注定要传送到设备中的数据正在内存中堆积起来。时不时地，操作系统会把这些数据
 写入物理设备。
 >
