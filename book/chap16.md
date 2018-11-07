@@ -420,7 +420,7 @@ could accept it.
 > 如果你看一下 free 命令的输出结果，这个命令用来显示关于内存使用情况的统计信息，你
 会看到一个统计值叫做”buffers“。计算机系统旨在尽可能快地运行。系统运行速度的
 一个阻碍是缓慢的设备。打印机是一个很好的例子。即使最快速的打印机相比于计算机标准也
-极其地缓慢。一台计算机确实会运行地非常慢，如果它要停下来等待一台打印机打印完一页。
+极其地缓慢。一台计算机确实会运行得非常慢，如果它要停下来等待一台打印机打印完一页。
 在早期的个人电脑时代（多任务之前），这真是个问题。如果你正在编辑电子表格
 或者是文本文档，每次你要打印文件时，计算机都会停下来而且变得不能使用。
 计算机能以打印机可接受的最快速度把数据发送给打印机，但由于打印机不能快速地打印，
@@ -438,7 +438,7 @@ will notice that the system seems to fill up memory the longer it is used. This
 does not mean Linux is “using“ all the memory, it means that Linux is taking
 advantage of all the available memory to do as much buffering as it can.
 >
-> 缓存被广泛地应用于计算机中，使其运行地更快。别让偶尔地读取或写入慢设备的需求阻碍了
+> 缓存被广泛地应用于计算机中，使其运行得更快。别让偶尔地的读取或写入慢设备的需求阻碍了
 系统的运行速度。在真正与比较慢的设备交互之前，操作系统会尽可能多的读取或写入数据到内存中的
 存储设备里。以 Linux 操作系统为例，你会注意到系统看似填充了多于它所需要的内存。
 这不意味着 Linux 正在使用所有的内存，它意味着 Linux 正在利用所有可用的内存，来作为缓存区。
@@ -448,7 +448,7 @@ the writing to the physical device is being deferred to a future time. In the
 meantime, the data destined for the device is piling up in memory. From time to
 time, the operating system will write this data to the physical device.
 >
-> 这个缓存区允许非常快速地写入存储设备，因为写入物理设备的操作被延迟到后面进行。同时，
+> 这个缓存区允许非常快速地对存储设备进行写入，因为写入物理设备的操作被延迟到后面进行。同时，
 这些注定要传送到设备中的数据正在内存中堆积起来。时不时地，操作系统会把这些数据
 写入物理设备。
 >
@@ -550,7 +550,7 @@ similar to the older /dev/hd* naming scheme described above.</td>
 <td valign="top">/dev/hd* </td>
 <td valign="top">老系统中的 IDE(PATA)磁盘。典型的主板包含两个 IDE 连接器或者是通道，每个连接器
 带有一根缆线，每根缆线上有两个硬盘驱动器连接点。缆线上的第一个驱动器叫做主设备，
-第二个叫做从设备。设备名称这样安排，/dev/hdb 是指第一通道上的主设备名；/dev/hdb
+第二个叫做从设备。设备名称这样安排，/dev/hda 是指第一通道上的主设备名；/dev/hdb
 是第一通道上的从设备名；/dev/hdc 是第二通道上的主设备名，等等。末尾的数字表示
 硬盘驱动器上的分区。例如，/dev/hda1是指系统中第一硬盘驱动器上的第一个分区，而
 /dev/hda 则是指整个硬盘驱动器。</td>
