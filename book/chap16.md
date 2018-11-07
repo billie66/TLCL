@@ -550,7 +550,7 @@ similar to the older /dev/hd* naming scheme described above.</td>
 <td valign="top">/dev/hd* </td>
 <td valign="top">老系统中的 IDE(PATA)磁盘。典型的主板包含两个 IDE 连接器或者是通道，每个连接器
 带有一根缆线，每根缆线上有两个硬盘驱动器连接点。缆线上的第一个驱动器叫做主设备，
-第二个叫做从设备。设备名称这样安排，/dev/hdb 是指第一通道上的主设备名；/dev/hdb
+第二个叫做从设备。设备名称这样安排，/dev/hda 是指第一通道上的主设备名；/dev/hdb
 是第一通道上的从设备名；/dev/hdc 是第二通道上的主设备名，等等。末尾的数字表示
 硬盘驱动器上的分区。例如，/dev/hda1是指系统中第一硬盘驱动器上的第一个分区，而
 /dev/hda 则是指整个硬盘驱动器。</td>
