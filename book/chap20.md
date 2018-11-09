@@ -393,7 +393,7 @@ If the first character in a bracket expression is a caret (^), the remaining cha
 taken to be a set of characters that must not be present at the given character position. We
 do this by modifying our previous example:
 
-如果在中括号表示式中的第一个字符是一个插入字符，则剩余的字符被看作是不会在给定的字符位置出现的
+如果在中括号表示式中的第一个字符是一个插入字符（^），则剩余的字符被看作是不会在给定的字符位置出现的
 字符集合。通过修改之前的例子，我们试验一下：
 
     [me@linuxbox ~]$ grep -h '[^bg]zip' dirlist*.txt
