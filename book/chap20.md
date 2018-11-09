@@ -861,7 +861,7 @@ Stallman), and was adopted by the IEEE.
 操作系统中找到。“POSIX” 这个名字，象征着可移植的操作系统接口（为了时髦一点，添加了末尾的 “X” ），
 是由 Richard Stallman 建议的（ 是的，的确是 Richard Stallman ），后来被 IEEE 采纳。
 
-### Alternation
+### 交替
 
 The first of the extended regular expression features we will discuss is called alternation,
 which is the facility that allows a match to occur from among a set of expressions. Just
