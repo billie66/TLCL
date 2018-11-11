@@ -278,7 +278,7 @@ because the period character in the file extension is treated as “any characte
 
 我们在文件中查找包含正则表达式“.zip”的文本行。对于搜索结果，有几点需要注意一下。
 注意没有找到这个 zip 程序。这是因为在我们的正则表达式中包含的圆点字符把所要求的匹配项的长度
-增加到四个字符，并且字符串“zip”只包含三个字符，所以这个 zip 程序不匹配。另外，如果我们的文件列表
+增加到四个字符，并且因为字符串“zip”只包含三个字符，所以这个 zip 程序不匹配。另外，如果我们的文件列表
 中有一些文件的扩展名是.zip，则它们也会成为匹配项，因为文件扩展名中的圆点符号也会被看作是
 “任意字符”。
 
@@ -385,7 +385,7 @@ is used to indicate a character range.
 
 一个字符集合可能包含任意多个字符，并且元字符被放置到中括号里面后会失去了它们的特殊含义。
 然而，在两种情况下，会在中括号表达式中使用元字符，并且有着不同的含义。第一个元字符
-是插入字符，其被用来表示否定；第二个是连字符字符，其被用来表示一个字符范围。
+是插入字符（^），其被用来表示否定；第二个是连字符字符（-），其被用来表示一个字符范围。
 
 ### 否定
 
@@ -393,7 +393,7 @@ If the first character in a bracket expression is a caret (^), the remaining cha
 taken to be a set of characters that must not be present at the given character position. We
 do this by modifying our previous example:
 
-如果在中括号表示式中的第一个字符是一个插入字符，则剩余的字符被看作是不会在给定的字符位置出现的
+如果在中括号表示式中的第一个字符是一个插入字符（^），则剩余的字符被看作是不会在给定的字符位置出现的
 字符集合。通过修改之前的例子，我们试验一下：
 
     [me@linuxbox ~]$ grep -h '[^bg]zip' dirlist*.txt
@@ -861,7 +861,7 @@ Stallman), and was adopted by the IEEE.
 操作系统中找到。“POSIX” 这个名字，象征着可移植的操作系统接口（为了时髦一点，添加了末尾的 “X” ），
 是由 Richard Stallman 建议的（ 是的，的确是 Richard Stallman ），后来被 IEEE 采纳。
 
-### Alternation
+### 交替
 
 The first of the extended regular expression features we will discuss is called alternation,
 which is the facility that allows a match to occur from among a set of expressions. Just
