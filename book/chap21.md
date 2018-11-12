@@ -2141,8 +2141,8 @@ _replacement_ where n is a number from one to nine, the sequence will refer to t
 corresponding subexpression in the preceding regular expression. To create the subexpressions,
 we simply enclose them in parentheses like so:
 
-此表达式匹配两位数字，一个斜杠，两位数字，一个斜杠，四位数字，以及行尾。如此关心_regexp_，
-那么_replacement_又怎样呢？为了解决此问题，我们必须介绍一个正则表达式的新功能，它出现
+此表达式匹配两位数字，一个斜杠，两位数字，一个斜杠，四位数字，以及行尾。如此关心 __regexp__，
+那么 __replacement__ 又怎样呢？为了解决此问题，我们必须介绍一个正则表达式的新功能，它出现
 在一些使用 BRE 的应用程序中。这个功能叫做_逆参照_，像这样工作：如果序列\n 出现在_replacement_中
 ，这里 n 是指从 1 到 9 的数字，则这个序列指的是在前面正则表达式中相对应的子表达式。为了
 创建这个子表达式，我们简单地把它们用圆括号括起来，像这样：
