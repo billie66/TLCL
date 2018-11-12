@@ -2143,7 +2143,7 @@ we simply enclose them in parentheses like so:
 
 此表达式匹配两位数字，一个斜杠，两位数字，一个斜杠，四位数字，以及行尾。如此关心 __regexp__，
 那么 __replacement__ 又怎样呢？为了解决此问题，我们必须介绍一个正则表达式的新功能，它出现
-在一些使用 BRE 的应用程序中。这个功能叫做_逆参照_，像这样工作：如果序列\n 出现在_replacement_中
+在一些使用 BRE 的应用程序中。这个功能叫做 __逆参照__ ，像这样工作：如果序列 `\n` 出现在 __replacement__ 中
 ，这里 n 是指从 1 到 9 的数字，则这个序列指的是在前面正则表达式中相对应的子表达式。为了
 创建这个子表达式，我们简单地把它们用圆括号括起来，像这样：
 
@@ -2154,7 +2154,7 @@ day of the month, and the third contains the year. Now we can construct replacem
 follows:
 
 现在我们有了三个子表达式。第一个表达式包含月份，第二个包含某月中的某天，以及第三个包含年份。
-现在我们就可以构建_replacement_，如下所示：
+现在我们就可以构建 __replacement__ ，如下所示：
 
     \3-\1-\2
 
@@ -2174,10 +2174,9 @@ our regular expression will be taken as literals, rather than as metacharacters.
 solve both these problems with a liberal application of backslashes to escape the
 offending characters:
 
-我们还有两个问题。第一个是在我们表达式中额外的斜杠将会迷惑 sed，当 sed 试图解释这个 s 命令
-的时候。第二个是由于sed默认情况下只接受基本的正则表达式，在表达式中的几个字符会
-被当作文字字面值，而不是元字符。我们能够解决这两个问题，通过反斜杠的自由应用来转义
-令人不快的字符：
+我们还有两个问题。第一个是当 sed 试图解释这个 s 命令的时候在我们表达式中额外的斜杠将会使 sed 迷惑。
+第二个是由于sed默认情况下只接受基本的正则表达式，在表达式中的几个字符会
+被当作文字字面值，而不是元字符。我们能够通过反斜杠的自由应用来转义令人不快的字符解决这两个问题，：
 
     sed 's/\([0-9]\{2\}\)\/\([0-9]\{2\}\)\/\([0-9]\{4\}\)$/\3-\1-\2/' distros.txt
 
