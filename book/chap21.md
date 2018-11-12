@@ -2537,7 +2537,7 @@ behavior can be overridden with command line options. It is also possible to
 specify which markup tags are checked and skipped. See the aspell man page
 for details.
 
-注意：默认情况下，aspell 会忽略文本中 URL 和电子邮件地址。通过命令行选项，可以重写此行为。
+注意：默认情况下，aspell 会忽略文本中的 URL 和电子邮件地址。通过命令行选项，可以重写此行为。
 也有可能指定哪些标志进行检查及跳过。详细内容查看 aspell 命令手册。
 
 ---
