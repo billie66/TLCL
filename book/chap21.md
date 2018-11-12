@@ -660,7 +660,7 @@ trivial task. When given a sorted file (including standard input), it removes an
 lines and sends the results to standard output. It is often used in conjunction with sort
 to clean the output of duplicates.
 
-与 sort 程序相比，这个 uniq 程序是个轻量级程序。uniq 执行一个看似琐碎的认为。当给定一个
+与 sort 程序相比，这个 uniq 程序是个轻量级程序。uniq 执行一个看似琐碎的行为。当给定一个
 排好序的文件（包括标准输出），uniq 会删除任意重复行，并且把结果发送到标准输出。
 它常常和 sort 程序一块使用，来清理重复的输出。
 
