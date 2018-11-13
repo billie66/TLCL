@@ -1063,12 +1063,13 @@ ps2pdf 程序是 ghostscript 包的一部分，它安装在大多数支持打印
 
 Tip: Linux systems often include many command line programs for file format
 conversion. They are often named using the convention of format2format. Try using the command
+提示：Linux 系统通常包含许多用于文件格式转换的命令行程序。它们通常以 format2format 命名。尝试使用该命令
 
     ls /usr/bin/*[[:alpha:]]2[[:alpha:]]*
 
 to identify them. Also try searching for programs named formattoformat.
 
-提示：Linux 系统通常包含许多用于文件格式转换的命令行程序。它们通常以 format2format 命名。尝试使用该命令或 formattoformat
+去识别它们。同样也可以尝试搜索 formattoformat 程序。
 
 
 ---
