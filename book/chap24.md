@@ -316,7 +316,7 @@ These files contain the description of the program, information on how to build 
 stall it, and its licensing terms. It is always a good idea to carefully read the README and
 INSTALL files before attempting to build the program.
 
-这些文件包含了程序描述，如何建立和安装它的信息，还有它许可条款。在试图建立程序之前，仔细阅读 README 和 INSTALL 文件，总是一个不错的主意。
+这些文件包含了程序描述，如何建立和安装它的信息，还有其它许可条款。在试图建立程序之前，仔细阅读 README 和 INSTALL 文件，总是一个不错的主意。
 
 The other interesting files in this directory are the ones ending with .c and .h:
 
