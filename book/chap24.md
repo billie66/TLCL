@@ -595,11 +595,16 @@ the superuser to perform the installation:
 来执行安装操作：
 
     [me@linuxbox diction-1.11]$ sudo make install
-    After we perform the installation, we can check that the program is ready to go:
+
+After we perform the installation, we can check that the program is ready to go:
+执行了安装后，我们可以检查下程序是否已经可用：
+
     [me@linuxbox diction-1.11]$ which diction
     /usr/local/bin/diction
     [me@linuxbox diction-1.11]$ man diction
-    And there we have it!
+
+And there we have it!
+完美！
 
 ### 总结
 
