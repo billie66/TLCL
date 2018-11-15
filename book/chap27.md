@@ -300,7 +300,7 @@ Having local variables allows the programmer to use variables with names that ma
 already exist, either in the script globally or in other shell functions, without having to
 worry about potential name conflicts.
 
-拥有局部变量允许程序员使用的局部变量名，可以与已存在的变量名相同，这些变量可以是全局变量，
+局部变量的存在使得程序员可以使用可能已存在的变量，这些变量可以是全局变量，
 或者是其它 shell 函数中的局部变量，却不必担心潜在的名字冲突。
 
 Here is an example script that demonstrates how local variables are defined and used:
