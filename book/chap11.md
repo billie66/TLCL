@@ -91,7 +91,7 @@ IDs, etc.
 The most commonly used command to view processes (there are several) is ps. The ps
 program has a lot of options, but in it simplest form it is used like this:
 
-查看进程，最常使用地命令（有几个命令）是 ps(process)。ps 程序有许多选项，它最简单地使用形式是这样的：
+查看进程，最常使用地命令（有几个命令）是 ps(process status)。ps 程序有许多选项，它最简单地使用形式是这样的：
 
     [me@linuxbox ~]$ ps
     PID TTY           TIME CMD
