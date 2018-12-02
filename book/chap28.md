@@ -120,7 +120,7 @@ terminate with either a zero or one exit status. The true command always execute
 successfully and the false command always executes unsuccessfully:
 
 shell 提供了两个极其简单的内部命令，它们不做任何事情，除了以一个0或1退出状态来终止执行。
-True 命令总是执行成功，而 false 命令总是执行失败：
+true 命令总是执行成功，而 false 命令总是执行失败：
 
     [me@linuxbox~]$ true
     [me@linuxbox~]$ echo $?
