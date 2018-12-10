@@ -1205,7 +1205,7 @@ variable __finished__ is given the value of one, making finished arithmetically 
 thereby terminating the loop. Running the script gives this result:
 
 在这个脚本中，我们基于变量 finished 的值实现了一个 until 循环。首先，把变量 finished 的值设为零（算术假），
-继续执行循环之道它的值变为非零。在循环体内，我们计算计数器 a 的平方和立方。在循环末尾，计算计数器变量 a 的值。
+继续执行循环直到它的值变为非零。在循环体内，我们计算计数器 a 的平方和立方。在循环末尾，计算计数器变量 a 的值。
 若它小于10（最大迭代次数），则 a 的值加1，否则给变量 finished 赋值为1，使得变量 finished 算术为真，
 从而终止循环。运行该脚本得到这样的结果：
 
