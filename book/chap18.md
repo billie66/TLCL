@@ -601,7 +601,7 @@ logical evaluations. By default, find evaluates from left to right. It is often 
 </tr>
 <tr>
 <td valign="top">-not</td>
-<td valign="top">若操作符后面的测试条件是真，则匹配。可以简写为一个感叹号（!）。</td>
+<td valign="top">若操作符后面的测试条件是假，则匹配。可以简写为一个感叹号（!）。</td>
 </tr>
 <tr>
 <td valign="top">()</td>
