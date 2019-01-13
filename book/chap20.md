@@ -782,7 +782,7 @@ ASCII) for its character set, so be sure if this is really what you want.
 >
 >  _export LANG=POSIX_
 
-### POSIX 基本的 Vs.扩展的正则表达式
+### POSIX基本正则表达式 与 POSIX扩展正则表达式
 
 Just when we thought this couldn’t get any more confusing, we discover that POSIX also
 splits regular expression implementations into two kinds: basic regular expressions
