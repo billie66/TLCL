@@ -147,7 +147,7 @@ locate 程序只能依据文件名来查找文件，而 find 程序能基于各�
 In its simplest use, find is given one or more names of directories to search. For
 example, to produce a list of our home directory:
 
-在它的最简单的使用方式中，find 命令接收一个或多个目录名来执行搜索搜索。例如，输出我们的家目录的路径名列表（包括文件及目录，译者注）。
+在它的最简单的使用方式中，find 命令接收一个或多个目录名来执行搜索。例如，输出我们的家目录的路径名列表（包括文件及目录，译者注）。
 
     [me@linuxbox ~]$ find ~
 
@@ -601,7 +601,7 @@ logical evaluations. By default, find evaluates from left to right. It is often 
 </tr>
 <tr>
 <td valign="top">-not</td>
-<td valign="top">若操作符后面的测试条件是真，则匹配。可以简写为一个感叹号（!）。</td>
+<td valign="top">若操作符后面的测试条件是假，则匹配。可以简写为一个感叹号（!）。</td>
 </tr>
 <tr>
 <td valign="top">()</td>

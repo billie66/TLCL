@@ -268,13 +268,13 @@ conflict with an existing uncompressed file:
 这个 gunzip 程序，会解压缩 gzip 文件，假定那些文件名的扩展名是.gz，所以没有必要指定它，
 只要指定的名字与现有的未压缩文件不冲突就可以：
 
-    [me@linuxbox ~]$ gunzip foo.txt
+    [me@linuxbox ~]$ gunzip foo.txt.gz
 
 If our goal were only to view the contents of a compressed text file, we can do this:
 
 如果我们的目标只是为了浏览一下压缩文本文件的内容，我们可以这样做：
 
-    [me@linuxbox ~]$ gunzip -c foo.txt | less
+    [me@linuxbox ~]$ gunzip -c foo.txt.gz | less
 
 Alternately, there is a program supplied with gzip, called zcat, that is equivalent to
 gunzip with the -c option. It can be used like the cat command on gzip compressed

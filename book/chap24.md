@@ -316,7 +316,7 @@ These files contain the description of the program, information on how to build 
 stall it, and its licensing terms. It is always a good idea to carefully read the README and
 INSTALL files before attempting to build the program.
 
-这些文件包含了程序描述，如何建立和安装它的信息，还有它许可条款。在试图建立程序之前，仔细阅读 README 和 INSTALL 文件，总是一个不错的主意。
+这些文件包含了程序描述，如何建立和安装它的信息，还有其它许可条款。在试图建立程序之前，仔细阅读 README 和 INSTALL 文件，总是一个不错的主意。
 
 The other interesting files in this directory are the ones ending with .c and .h:
 
@@ -595,11 +595,18 @@ the superuser to perform the installation:
 来执行安装操作：
 
     [me@linuxbox diction-1.11]$ sudo make install
-    After we perform the installation, we can check that the program is ready to go:
+
+After we perform the installation, we can check that the program is ready to go:
+
+执行了安装后，我们可以检查下程序是否已经可用：
+
     [me@linuxbox diction-1.11]$ which diction
     /usr/local/bin/diction
     [me@linuxbox diction-1.11]$ man diction
-    And there we have it!
+
+And there we have it!
+
+完美！
 
 ### 总结
 

@@ -339,7 +339,7 @@ declare -r TITLE="Page Title"
 the shell would prevent any subsequent assignment to TITLE. This feature is
 rarely used, but it exists for very formal scripts.
 
-那么 shell 会阻止之后给 TITLE 的任意赋值。这个功能极少被使用，但为了很早之前的脚本，
+那么随后所有给 TITLE 的赋值都会被 shell 阻止。这个功能极少被使用，但为了很早之前的脚本，
 它仍然存在。
 
 ---
