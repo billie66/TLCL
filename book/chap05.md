@@ -438,7 +438,7 @@ performed.</td>
 <tr>
 <td valign="top" width="25%">-a, --archive</td>
 <td valign="top">复制文件和目录，以及它们的属性，包括所有权和权限。
-通常，复本具有用户所操作文件的默认属性。</td>
+通常，副本具有用户所操作文件的默认属性。</td>
 </tr>
 <tr>
 <td valign="top">-i, --interactive</td>
