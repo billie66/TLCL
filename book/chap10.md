@@ -28,8 +28,8 @@ system, for example, consisted of a large central computer located in one buildi
 terminals which were located throughout the campus, each connected to the large central
 computer. The computer would support many users at the same time.
 
-Linux 系统的多用户性能，不是最近的“创新”，而是一种特性，它深深地嵌入到了 Linux 操作系统的
-设计过程中。想一下 Unix 系统的诞生环境，这会很有意义。多年前，在个人电脑出现之前，计算机
+Linux 系统的多用户性能，不是最近的“创新”，而是一种深深地嵌入到了 Linux 操作系统的
+设计中的特性。想一下 Unix 系统的诞生环境，这会很有意义。多年前，在个人电脑出现之前，计算机
 都是大型、昂贵的、集中化的。例如一个典型的大学计算机系统，是由坐落在一座建筑中的一台
 大型中央计算机和许多散布在校园各处的终端机组成，每个终端都连接到这台大型中央计算机。
 这台计算机可以同时支持很多用户。
