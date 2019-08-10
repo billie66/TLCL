@@ -10,9 +10,9 @@ multiple commands together into powerful command pipelines. To show off this fac
 we will introduce the following commands:
 
 这堂课，我们来介绍可能是命令行最酷的特性。它叫做 I/O 重定向。"I/O"代表输入/输出，
-通过这个工具，你可以重定向命令的输入输出，命令的输入来自文件，而输出也存到文件。
-也可以把多个命令连接起来组成一个强大的命令管道。为了展示这个工具，我们将叙述
+通过这个工具，你可以将命令的输入来源以及输出地点重定向为文件。也可以把多个命令连接起来组成一个强大的命令管道。为了展示这个工具，我们将叙述
 以下命令：
+
 
 * cat - Concatenate files
 
