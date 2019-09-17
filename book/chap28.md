@@ -586,7 +586,7 @@ the string is not empty, we evaluate the value of the string to see if it is equ
 using elif, we are able to construct a more complex logical test.
 
 在这个脚本中，我们计算常量 ANSWER。我们首先确定是否此字符串为空。如果为空，我们就终止
-脚本，并把退出状态设为零。注意这个应用于 echo 命令的重定向操作。其把错误信息 “There
+脚本，并把退出状态设为1。注意这个应用于 echo 命令的重定向操作。其把错误信息 “There
 is no answer.” 重定向到标准错误，这是处理错误信息的“正确”方法。如果字符串不为空，我们就计算
 字符串的值，看看它是否等于“yes,” "no," 或者“maybe”。为此使用了 elif，它是 “else if” 的简写。
 通过使用 elif，我们能够构建更复杂的逻辑测试。
