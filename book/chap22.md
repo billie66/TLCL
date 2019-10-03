@@ -347,7 +347,7 @@ The fmt program also folds text, plus a lot more. It accepts either files or sta
 and performs paragraph formatting on the text stream. Basically, it fills and joins lines in
 text while preserving blank lines and indentation.
 
-fmt 程序同样折叠文本，外加很多功能。它接受文本或标准输入并且在文本流上呈现照片转换。它主要是填充和连接文本行，同时保留空白符和缩进。
+fmt 程序同样折叠文本，外加很多功能。它接受文本或标准输入并且在文本流上格式化段落。它主要是填充和连接文本行，同时保留空白符和缩进。
 
 To demonstrate, we’ll need some text. Let’s lift some from the fmt info page:
 
