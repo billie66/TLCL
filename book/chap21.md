@@ -1892,7 +1892,7 @@ fifth line thereafter.</td>
 <td valign="top">first~step </td>
 <td
 valign="top">匹配由数字 first 代表的文本行，然后随后的每个在 step 间隔处的文本行。例如
-1~2 是指每个位于偶数行号的文本行，5~5 则指第五行和之后每五行位置的文本行。</td>
+1~2 是指每个位于奇数行号的文本行，5~5 则指第五行和之后每五行位置的文本行。</td>
 </tr>
 <tr>
 <td valign="top">addr1,+n </td>
