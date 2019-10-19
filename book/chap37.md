@@ -664,8 +664,8 @@ Named pipes behave like files, but actually form first-in first-out (FIFO) buffe
 ordinary (unnamed) pipes, data goes in one end and emerges out the other. With named
 pipes, it is possible to set up something like this:
 
-命令管道的行为类似于文件，但实际上形成了先入先出（FIFO）的缓冲。和普通（未命令的）管道一样，
-数据从一端进入，然后从另一端出现。通过命令管道，有可能像这样设置一些东西：
+命名管道的行为类似于文件，但实际上形成了先入先出（FIFO）的缓冲。和普通（未命令的）管道一样，
+数据从一端进入，然后从另一端出现。通过命名管道，有可能像这样设置一些东西：
 
     process1 > named_pipe
 
@@ -685,7 +685,7 @@ and it will behave as if:
 
 First, we must create a named pipe. This is done using the mkfifo command:
 
-首先，我们必须创建一个命名管道。使用 mkfifo 命令能够创建命令管道：
+首先，我们必须创建一个命名管道。使用 mkfifo 命令能够创建命名管道：
 
     [me@linuxbox ~]$ mkfifo pipe1
     [me@linuxbox ~]$ ls -l pipe1
@@ -760,7 +760,7 @@ substitution.
 
 * Linux Journal has two good articles on named pipes. The first, from September 1997:
 
-* 《Linux 杂志》有两篇关于命令管道的好文章。第一篇，源于1997年9月：
+* 《Linux 杂志》有两篇关于命名管道的好文章。第一篇，源于1997年9月：
 
     <http://www.linuxjournal.com/article/2156>
 
