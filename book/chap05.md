@@ -336,8 +336,8 @@ into the location bar and it will display the result.
 the graphical interface, too. It is one of the many things that make the Linux
 desktop so powerful.
 >
-> 最初源于命令行界面中的想法，在图形界面中也适用。这就是使 Linux 桌面系统
-如此强大的众多原因中的一个
+> 最初源于命令行界面中的想法，在图形界面中也适用。这就是 Linux 桌面系统
+如此强大的众多原因之一。
 
 ### mkdir - 创建目录
 
@@ -998,7 +998,7 @@ Responding to the prompt by entering a “y” will cause the file to be
 overwritten, any other character (for example, “n”)
 will cause cp to leave the file alone.
 
-在提示信息后输入"y"，文件就会被重写，输入其它的字符（例如，"n"） cp 命令会保留原文件。
+在提示信息后输入"y"，文件就会被覆盖，输入其它的字符（例如，"n"） cp 命令会保留原文件。
 
 ### 移动和重命名文件
 

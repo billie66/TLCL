@@ -195,8 +195,8 @@ command's supported syntax and options. For example:
 Some programs don't support the “-\-help” option, but try it anyway. Often it results in an
 error message that will reveal the same usage information.
 
-一些程序不支持 -\-help 选项，但不管怎样试一下。这经常会导致输出错误信息，但同时能
-揭示一样的命令用法信息。
+一些程序不支持 -\-help 选项，但不管怎样试一下。通常输出的错误提示也同样能
+揭示命令的用法信息。
 
 ### man － 显示程序手册页
 
@@ -580,10 +580,10 @@ command. Let's try “test”. Before we do that, it would be a good idea to fin
 name “test” is already being used. To find out, we can use the type command again:
 
 正如我们看到的，我们在一行上联合了三个命令。首先更改目录到/usr，然后列出目录
-内容，最后回到原始目录（用命令"cd -"）,结束在开始的地方。现在，通过 alias 命令
+内容，最后回到之前的目录（用命令"cd -"）,结束在开始的地方。现在，通过 alias 命令
 把这一串命令转变为一个命令。我们要做的第一件事就是为我们的新命令构想一个名字。
-比方说"test"。在使用"test"之前，查明是否"test"命令名已经存在系统中，是个很不错
-的主意。为了查清此事，可以使用 type 命令：
+比方说"test"。在使用"test"之前，最好先查明"test"命令名是否已经存在于系统中。
+为此，可以使用 type 命令：
 
     [me@linuxbox ~]$ type test
     test is a shell builtin
@@ -652,8 +652,8 @@ To see all the aliases defined in the environment, use the alias command without
 arguments. Here are some of the aliases defined by default on a Fedora system. Try and
 figure out what they all do:
 
-要查看所有定义在系统环境中的别名，使用不带参数的 alias 命令。下面在 Fedora 系统中
-默认定义的别名。试着弄明白，它们是做什么的：
+要查看所有定义在系统环境中的别名，可使用不带参数的 alias 命令。下面是 Fedora 系统中
+默认定义的别名。试着弄明白它们是做什么的：
 
     [me@linuxbox ~]$ alias
     alias l.='ls -d .* --color=tty'
@@ -664,9 +664,9 @@ your shell session ends. In a later chapter, we will see how to add our own alia
 files that establish the environment each time we log on, but for now, enjoy the fact that
 we have taken our first, albeit tiny, step into the world of shell programming!
 
-在命令行中定义别名有点儿小问题。当你的 shell 会话结束时，它们会消失。随后的章节里，
+在命令行中定义别名有点个小问题。当你的 shell 会话结束时，它们会消失。随后的章节里，
 我们会了解怎样把自己的别名添加到文件中去，每次我们登录系统，这些文件会建立系统环境。
-现在，好好享受我们刚经历过的，步入 shell 编程世界的第一步吧，虽然微小。
+现在，好好享受我们刚经历过的，步入 shell 编程世界的第一步吧，虽然是小小的一步。
 
 ### 拜访老朋友
 
@@ -682,7 +682,7 @@ additional options are available and try them out!
 * There are many online sources of documentation for Linux and the command line. Here
   are some of the best:
 
-* 在网上，有许多关于 Linux 和命令行的文档。以下是一些最好的文档：
+* 在网上，有许多关于 Linux 和命令行的文档。以下是其中最好的一些：
 
 * The Bash Reference Manual is a reference guide to the bash shell. It’s still a
   reference work but contains examples and is easier to read than the bash man
@@ -706,7 +706,7 @@ additional options are available and try them out!
   the core of the Linux command line experience. You can see a complete list
   here:
 
-* GUN 项目为它的程序提供了大量的文档，这些文档组成了 Linux 命令行实验的核心。
+* GNU 项目为它的程序提供了大量的文档，这些文档组成了 Linux 命令行实验的核心。
   这里你可以看到一个完整的列表：
 
     <http://www.gnu.org/manual/manual.html>

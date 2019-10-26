@@ -140,9 +140,9 @@ your boss has told you to administer a Linux server, or maybe you're just a
 desktop user who is tired of all the security problems and want to give Linux
 a try. That's fine.here.All are welcome
 
-这本书是为已经从其它平台移民到 Linux 系统的新手而写的。最有可能，你是使用某个 Windows 版本的高手。
+这本书是为从其它平台迁移到 Linux 系统的新手而写的。可能你是使用某个版本 Windows 系统的高手,
 或许是老板让你去管理一个 Linux 服务器，或许你只是一个桌面用户，厌倦了系统出现的各种
-安全防御问题，而想要体验一下 Linux。很好，这里欢迎你们！
+安全问题而想要体验一下 Linux。很好，这里欢迎你们！
 
 That being said, there is no shortcut to Linux enlightenment. Learning the
 command line is challenging and takes real effort. It's not that it's so hard,
@@ -151,8 +151,8 @@ programs you can employ on the command line. Consider yourself warned;
 learning the command line is not a casual endeavor.
 
 不过一般来说，对于 Linux 的启蒙教育，没有捷径可言。学习命令行富于挑战性，而且很费气力。
-这并不是说 Linux 命令行很难学，而是它的知识量很大，不容易掌握。Linux 操作系统，
-差不多有数以千计的命令可供用户操作。由此可见，要给自己提个醒，命令行可不是轻轻松松就能学好的。
+这并不是说 Linux 命令行很难学，而是它的知识量很大，不容易掌握。Linux 操作系统
+差不多有数以千计的命令可供用户操作。有必要给自己提个醒，命令行可不是轻轻松松就能学好的。
 
 On the other hand, learning the Linux command line is extremely rewarding. If
 you think you're a “power user” now, just wait. You don't know what real power
@@ -160,9 +160,9 @@ is — yet. And, unlike many other computer skills, knowledge of the command
 line is long lasting. The skills learned today will still be useful ten years
 from now. The command line has survived the test of time.
 
-另一方面，学习 Linux 命令行会让你受益匪浅，给你极大的回报。如果你认为，
+另一方面，学习 Linux 命令行会让你受益匪浅，给你极大的回报。如果你认为
 现在你已经是高手了。别急，其实你还不知道什么才是真正的高手。不像其他一些计算机技能，
-一段时间之后可能就被淘汰了，命令行知识却不会落伍，你今天所学到的，在十年以后，
+一段时间之后可能就被淘汰了，命令行知识却不会落伍，你今天所学到的，在十年以后
 都会有用处。命令行通过了时间的考验。
 
 It is also assumed that you have no programming experience, but not to worry,
@@ -321,9 +321,9 @@ AIX. I have chosen to use the popular format. If, however, you prefer to use
 从技术层面讲，Linux 只是操作系统的内核名字，没别的含义。当然内核非常重要，因为有它，
 操作系统才能运行起来，但它并不能构成一个完备的操作系统。
 >
-> Richard Stallman 是一个天才的哲学家，自由软件运动创始人，自由软件基金会创办者，他创建了 GNU 工程，
+> Richard Stallman 是一个天才的哲学家，自由软件运动创始人，自由软件基金会创办者，他创建了 GNU 项目，
 编写了第一版 GNU C 编译器（gcc），创立了 GNU 通用公共协议（the GPL)等等。
-他坚持把 Linux 称为“GNU/Linux”，为的是准确地反映 GNU 工程对 Linux 操作系统的贡献。
+他坚持把 Linux 称为“GNU/Linux”，为的是准确地反映 GNU 项目对 Linux 操作系统的贡献。
 然而，尽管 GNU 项目早于 Linux 内核，项目的贡献应该得到极高的赞誉，但是把 GNU 用在 Linux 名字里，
 这对其他为 Linux 的发展做出重大贡献的程序员来说，就不公平了。而且，我觉得要是叫也要叫 “Linux/GNU" 比较准确一些，
 因为内核会先启动，其他一切都运行在内核之上。
