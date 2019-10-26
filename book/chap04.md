@@ -572,7 +572,7 @@ Linux system tick. This will give you a chance to practice your navigation skill
 the things we will discover is that many of the interesting files are in plain human-
 readable text. As we go about our tour, try the following:
 
-下一步，我们将在文件系统中漫游，来了解 Linux 系统的工作原理。这会给你一个温习跳转命令的机会。
+下一步，我们将在文件系统中游览，来了解 Linux 系统的工作原理。这会给你一个温习跳转命令的机会。
 我们会发现很多有趣的文件都是纯人类可读文本。下面旅行开始，做做以下练习：
 
 1. cd into a given directory
@@ -601,7 +601,7 @@ complains about something, just move on to something else. Spend some time looki
 around. The system is ours to explore. Remember, in Linux, there are no secrets!
 Table 4-4 lists just a few of the directories we can explore. Feel free to try more!
 
-在系统中漫游时，不要害怕四处看看。普通用户是很难把东西弄乱的。那是系统管理员的工作！
+在系统中游览时，不要害怕四处看看。普通用户是很难把东西弄乱的。那是系统管理员的工作！
 如果一个命令抱怨一些事情，不要管它，尝试一下别的东西。花一些时间四处看看。
 系统是我们自己的，尽情地探究吧。记住在 Linux 中，没有秘密存在！
 表4-4仅仅列出了一些我们可以浏览的目录。随意尝试更多！

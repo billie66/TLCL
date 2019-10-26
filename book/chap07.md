@@ -55,7 +55,7 @@ displays its results and its error messages on the screen.
 
 到目前为止，我们用到的许多程序都会产生某种输出。这种输出，经常由两种类型组成。
 第一，程序运行结果；这是说，程序要完成的功能。第二，我们得到状态和错误信息，
-这些告诉我们程序进展。如果我们观察一个命令，像 ls，会看到它的运行结果和错误信息
+这些告诉我们程序进展。如果我们观察一个命令，例如 ls，会看到它的运行结果和错误信息
 显示在屏幕上。
 
 Keeping with the Unix theme of “everything is a file,” programs such as ls actually send
@@ -65,7 +65,7 @@ output and standard error are linked to the screen and not saved into a disk fil
 In addition, many programs take input from a facility called standard input (stdin) which
 is, by default, attached to the keyboard.
 
-与 Unix 主题“任何东西都是一个文件”保持一致，程序，比方说 ls，实际上把他们的运行结果
+与 Unix 主题“任何东西都是一个文件”保持一致，像 ls这样的程序实际上把他们的运行结果
 输送到一个叫做标准输出的特殊文件（经常用 stdout 表示），而它们的状态信息则送到另一个
 叫做标准错误的文件（stderr）。默认情况下，标准输出和标准错误都连接到屏幕，而不是
 保存到磁盘文件。除此之外，许多程序从一个叫做标准输入（stdin）的设备得到输入，默认情况下，
@@ -75,7 +75,7 @@ I/O redirection allows us to change where output goes and where input comes from
 Normally, output goes to the screen and input comes from the keyboard, but with I/O
 redirection, we can change that.
 
-I/O 重定向允许我们更改输出地点和输入来源。一般地，输出送到屏幕，输入来自键盘，
+I/O 重定向允许我们更改输出地点和输入来源。一般来说，输入来自键盘，输出送到屏幕，
 但是通过 I/O 重定向，我们可以做出改变。
 
 ### 标准输出重定向
@@ -212,8 +212,8 @@ single file. To do this, we must redirect both standard output and standard erro
 same time. There are two ways to do this. First, the traditional way, which works with
 old versions of the shell:
 
-可能有这种情况，我们希望捕捉一个命令的所有输出到一个文件。为了完成这个，我们
-必须同时重定向标准输出和标准错误。有两种方法来完成任务。第一个，传统的方法，
+有时我们希望将一个命令的所有输出保存到一个文件。为此，我们
+必须同时重定向标准输出和标准错误。有两种方法来完成任务。第一个是传统的方法，
 在旧版本 shell 中也有效：
 
     [me@linuxbox ~]$ ls -l /bin/usr > ls-output.txt 2>&1

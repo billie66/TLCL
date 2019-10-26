@@ -56,12 +56,12 @@ logged in as the root user or we selected a terminal emulator that provides
 superuser (administrative) privileges.
 
 如果提示符的最后一个字符是“#”, 而不是“$”, 那么这个终端会话就有超级用户权限。
-这意味着，我们或者是以 root 用户的身份登录，或者是我们选择的终端仿真器提供超级用户（管理员）权限。
+这意味着，我们要么是以 root 用户的身份登录，要么是我们选择的终端仿真器提供超级用户（管理员）权限。
 
 Assuming that things are good so far, let's try some typing. Type some
 gibberish at the prompt like so:
 
-假定到目前为止，所有事情都进行顺利，那我们试着键入字符吧。在提示符下敲入
+假定到目前为止，所有事情都进展顺利，那我们试着键入字符吧。在提示符下敲入
 一些像下面一样的乱七八糟的字符：
 
     [me@linuxbox ~]$ kaekfjaeifj
@@ -91,7 +91,7 @@ Recall the previous command with the up-arrow key again. Now try the left and ri
 See how we can position the cursor anywhere on the command line? This makes editing commands easy.
 
 可借助上箭头按键，来获得上次输入的命令。现在试着使用左右箭头按键。
-看一下怎样把光标定位到命令行的任意位置？通过使用箭头按键，使编辑命令变得轻松些。
+看一下怎样把光标定位到命令行的任意位置？使用箭头按键可以使编辑命令变得轻松些。
 
 ### 关于鼠标和光标
 
@@ -130,7 +130,7 @@ window manager.
 
 你的图形桌面环境（像 KDE 或 GNOME），努力想和 Windows 一样，可能会把它的聚焦策略
 设置成“单击聚焦”。这意味着，为了让窗口聚焦（变成活动窗口）你需要单击它。
-这与“聚焦跟随着鼠标”的传统 X 行为不同，传统 X 行为是指只要把鼠标移动到一个窗口的上方。
+这与“焦点跟随着鼠标”的传统 X 行为不同，传统 X 行为是指只要把鼠标移动到一个窗口的上方。
 它能接受输入， 但是直到你单击窗口之前它都不会成为前端窗口。
 设置聚焦策略为“聚焦跟随着鼠标”，可以使拷贝和粘贴更方便易用。尝试一下。
 我想如果你试了一下你会喜欢上它的。你能在窗口管理器的配置程序中找到这个设置。

@@ -136,7 +136,7 @@ pathname) there is a directory called "usr" which contains a directory called
 
 绝对路径开始于根目录，紧跟着目录树的一个个分支，一直到达所期望的目录或文件。
 例如，你的系统中有一个目录，大多数系统程序都安装在这个目录下。这个目录的
-路径名是 /usr/bin。它意味着从根目录（用开头的“/"表示）开始，有一个叫 "usr" 的
+路径名是 /usr/bin。它意味着从根目录（用开头的"/"表示）开始，有一个叫 "usr" 的
 目录包含了目录 "bin"。
 
     [me@linuxbox ~]$ cd /usr/bin
