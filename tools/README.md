@@ -1,6 +1,7 @@
 * makepdf 目录是生成中文 pdf 的工具，首先需要安装 `kramdown`,
 
 ```
+gem install kramdown-parser-gfm
 gem install kramdown
 ```
 Linux下需要安装 texlive-xetex 及相关软件包。 在Ubuntu14.10下：
