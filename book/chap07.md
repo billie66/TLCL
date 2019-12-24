@@ -408,7 +408,7 @@ single filename argument. This is not particularly useful compared to passing a 
 argument, but it serves to demonstrate using a file as a source of standard input. Other
 commands make better use of standard input, as we shall soon see.
 
-使用“<”重定向操作符，我们把标准输入源从键盘改到文件 lazy_dog.tx。我们看到结果
+使用“<”重定向操作符，我们把标准输入源从键盘改到文件 lazy_dog.txt。我们看到结果
 和传递单个文件名作为参数的执行结果一样。把这和传递一个文件名参数作比较，不是特别有意义，
 但它是用来说明把一个文件作为标准输入源。有其他的命令更好地利用了标准输入，我们不久将会看到。
 
