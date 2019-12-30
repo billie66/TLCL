@@ -911,8 +911,8 @@ distinguishing color, such as red, to reveal their presence.
 The concept of links can seem very confusing, but hang in there. We're going to try all
 this stuff and it will, hopefully, become clear.
 
-关于链接的概念，看起来很迷惑，但不要胆怯。我们将要试着练习
-这些命令，希望，它变得清晰起来。
+关于链接的概念，看起来很迷惑，但不要胆怯。我们将要努力地练习
+这些命令而且尽可能得使它变得清晰。
 
 ### 创建游戏场（实战演习）
 
