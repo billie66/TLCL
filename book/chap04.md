@@ -51,7 +51,7 @@ directory (symbolized by the “~” character) and the /usr directory:
     [me@linuxbox ~]$ ls ~ /usr
     /home/me:
     Desktop  Documents  Music  Pictures  Public  Templates  Videos
-
+    
     /usr:
     bin  games      kerberos  libexec  sbin   src
     etc  include    lib       local    share  tmp
@@ -951,7 +951,7 @@ Imagine that “foo-2.7” has a bug (damn those developers!) and we need to rev
 old version. Again, we just delete the symbolic link pointing to the new version and
 create a new symbolic link pointing to the old version.
 
-这就是符号链接存在至今的原因。比方说，我们安装了文件 “foo” 的 2.6 版本，它的
+符号链接避免了这种情况。比方说，我们安装了文件 “foo” 的 2.6 版本，它的
 文件名是 “foo-2.6”，然后创建了叫做 “foo” 的符号链接，这个符号链接指向 “foo-2.6”。
 这意味着，当一个程序打开文件 “foo” 时，它实际上是打开文件 “foo-2.6”。
 现在，每个人都很高兴。依赖于 “foo” 文件的程序能找到这个文件，并且我们能知道安装了哪个文件版本。

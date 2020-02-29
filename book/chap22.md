@@ -194,7 +194,7 @@ Here are the common options for nl:
 </tr>
 <tr>
 <td valign="top">-h style </td>
-<td valign="top">将 header 按被要求设置数。默认是</td>
+<td valign="top">将 header 按被要求设置数。默认是无</td>
 </tr>
 <tr>
 <td valign="top">-i number </td>
