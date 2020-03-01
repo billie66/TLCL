@@ -1265,7 +1265,7 @@ which column(s) to suppress. For example, if we only wanted to output the lines 
 by both files, we would suppress the output of columns one and two:
 
 正如我们所见到的，comm 命令产生了三列输出。第一列包含第一个文件独有的文本行；第二列，
-文本行是第二列独有的；第三列包含两个文件共有的文本行。comm 支持 -n 形式的选项，这里 n 代表
+文本行是第二个文件独有的；第三列包含两个文件共有的文本行。comm 支持 -n 形式的选项，这里 n 代表
 1，2 或 3。这些选项使用的时候，指定了要隐藏的列。例如，如果我们只想输出两个文件共享的文本行，
 我们将隐藏第一列和第二列的输出结果：
 

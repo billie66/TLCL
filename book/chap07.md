@@ -285,7 +285,7 @@ comments to /dev/null, now you know what it means. For more examples,
 see the Wikipedia article on “/dev/null”.
 >
 > 位存储桶是个古老的 Unix 概念，由于它的普遍性，它的身影出现在 Unix 文化的
-许多部分。当有人说他/她正在发送你的评论到/dev/null，现在你应该知道那是
+许多部分。当有人说他/她正在把你的评论送到/dev/null，现在你应该知道那是
 什么意思了。更多的例子，可以阅读 Wikipedia 关于"/dev/null"的文章。
 
 ### 标准输入重定向
