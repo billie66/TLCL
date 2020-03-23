@@ -1125,8 +1125,7 @@ Let’s try it:
 As we can see, our revised expression can successfully validate numbers both with and
 without the parentheses, while rejecting those numbers that are not properly formatted.
 
-我们可以看到，我们修订的表达式能成功地验证带有和不带有圆括号的数字，而拒绝那些格式
-不正确的数字。
+我们可以看到，修改后的表达式能成功地匹配带有和不带有圆括号的号码，而不匹配那些格式不正确的号码。
 
 ### 让正则表达式工作起来
 
