@@ -248,7 +248,7 @@ one of two ways:
 
 1. Install Linux on a (not so new) computer. It doesn't matter which
 distribution you choose, though most people today start out with either
-Ubuntu, Fedora, or . If in doubt, try Ubuntu first. Installing a modern
+Ubuntu, Fedora, or OpenSUSE. If in doubt, try Ubuntu first. Installing a modern
 Linux distribution can be ridiculously easy or ridiculously difficult
 depending on your hardware. I suggest a desktop computer that is a couple
 of years old and has at least 256 megabytes of RAM and 6 gigabytes of free
