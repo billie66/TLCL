@@ -94,8 +94,8 @@ over, say, Windows NT was the powerful command line interface which made the
 “difficult tasks possible.”
 
 因为 Linux 是以 Unix 家族的操作系统为模型写成的，所以它分享了 Unix 丰富的命令行工具。
-Unix 在20世纪80年代初显赫一时(虽然，开发它在更早之前），结果，在普遍地使用图形界面之前，
-开发了一种广泛的命令行界面。事实上，很多人选择 Linux（而不是其他的系统，比如说 Windows NT）是因为其可以使“完成复杂的任务成为可能”的强大的命令行界面。
+Unix 在20世纪80年代初显赫一时(虽然，开发它在更早之前），这使得图形界面的流行之前，命令行界面就已被广泛应用。
+事实上，很多人选择 Linux（而不是其他的系统，比如说 Windows NT）是因为其可以使“完成复杂的任务成为可能”的强大的命令行界面。
 
 ### 这本书讲什么
 
