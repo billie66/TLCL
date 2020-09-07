@@ -106,7 +106,7 @@ line interface in a larger sense. How does it all work? What can it do? What's
 the best way to use it?
 
 这本书介绍如何生存在 Linux 命令行的世界。不像一些书籍仅仅涉及一个程序，比如像 shell 程序，bash。
-这本书将试着向你传授如何与命令行界面友好相处。
+本书着眼于更宏大的视角，试着向你传授如何与命令行界面友好相处。
 它是怎样工作的？ 它能做什么？ 使用它的最好方法是什么？
 
 This is not a book about Linux system administration. While any serious
