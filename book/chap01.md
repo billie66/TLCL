@@ -272,7 +272,9 @@ others) have live CD versions.
    笔记本电脑和无线网络，在 Linux 环境下，它们经常不能工作。
 
 2. 使用“Live CD.” 许多 Linux 发行版都自带一个比较酷的功能，你可以直接从系统安装盘 CDROM 中运行 Linux，
-   而不必安装 Linux。开机进入 BIOS 设置界面，更改引导项，设置为“从 CDROM 启动”。
+   而不必安装 Linux。开机进入 BIOS 设置界面，更改引导项，设置为“从 CDROM 启动”。插入live CD，然后重启。
+   采用live CD而非直接安装可以很好的测试你的电脑对linux的兼容性。缺点就是相较于在硬盘上安装linux，这种方式
+   过程较慢。Ubuntu和Fedora等都有live CD的版本。
 
 Regardless of how you install Linux, you will need to have occasional
 superuser (i.e., administrative) privileges to carry out the lessons in this
