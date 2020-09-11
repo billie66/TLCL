@@ -94,8 +94,8 @@ over, say, Windows NT was the powerful command line interface which made the
 “difficult tasks possible.”
 
 因为 Linux 是以 Unix 家族的操作系统为模型写成的，所以它分享了 Unix 丰富的命令行工具。
-Unix 在20世纪80年代初显赫一时(虽然，开发它在更早之前），结果，在普遍地使用图形界面之前，
-开发了一种广泛的命令行界面。事实上，很多人选择 Linux（而不是其他的系统，比如说 Windows NT）是因为其可以使“完成复杂的任务成为可能”的强大的命令行界面。
+Unix 在20世纪80年代初显赫一时(虽然，开发它在更早之前），这使得图形界面的流行之前，命令行界面就已被广泛应用。
+事实上，很多人选择 Linux（而不是其他的系统，比如说 Windows NT）是因为其可以使“完成复杂的任务成为可能”的强大的命令行界面。
 
 ### 这本书讲什么
 
@@ -106,7 +106,7 @@ line interface in a larger sense. How does it all work? What can it do? What's
 the best way to use it?
 
 这本书介绍如何生存在 Linux 命令行的世界。不像一些书籍仅仅涉及一个程序，比如像 shell 程序，bash。
-这本书将试着向你传授如何与命令行界面友好相处。
+本书着眼于更宏大的视角，试着向你传授如何与命令行界面友好相处。
 它是怎样工作的？ 它能做什么？ 使用它的最好方法是什么？
 
 This is not a book about Linux system administration. While any serious
@@ -248,7 +248,7 @@ one of two ways:
 
 1. Install Linux on a (not so new) computer. It doesn't matter which
 distribution you choose, though most people today start out with either
-Ubuntu, Fedora, or . If in doubt, try Ubuntu first. Installing a modern
+Ubuntu, Fedora, or OpenSUSE. If in doubt, try Ubuntu first. Installing a modern
 Linux distribution can be ridiculously easy or ridiculously difficult
 depending on your hardware. I suggest a desktop computer that is a couple
 of years old and has at least 256 megabytes of RAM and 6 gigabytes of free
@@ -272,7 +272,9 @@ others) have live CD versions.
    笔记本电脑和无线网络，在 Linux 环境下，它们经常不能工作。
 
 2. 使用“Live CD.” 许多 Linux 发行版都自带一个比较酷的功能，你可以直接从系统安装盘 CDROM 中运行 Linux，
-   而不必安装 Linux。开机进入 BIOS 设置界面，更改引导项，设置为“从 CDROM 启动”。
+   而不必安装 Linux。开机进入 BIOS 设置界面，更改引导项，设置为“从 CDROM 启动”。插入live CD，然后重启。
+   采用live CD而非直接安装可以很好的测试你的电脑对linux的兼容性。缺点就是相较于在硬盘上安装linux，这种方式
+   过程较慢。Ubuntu和Fedora等都有live CD的版本。
 
 Regardless of how you install Linux, you will need to have occasional
 superuser (i.e., administrative) privileges to carry out the lessons in this
