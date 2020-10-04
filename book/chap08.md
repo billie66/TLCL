@@ -146,7 +146,7 @@ employ a more specific pattern. This will work correctly:
 > 为了在这种情况下正确地完成路径名展开，我们应该使用一个更精确的模式。
 这个模式会正确地工作：
 >
->  _ls -d .[!.]?*_
+>  _ls -d .[!.]*_
 >
 > This pattern expands into every filename that begins with a period, does not
 include a second period, contains at least one additional character and can be
