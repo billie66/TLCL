@@ -14,10 +14,26 @@ body {
   font-family: 'Georgia', "Hiragino Sans GB", serif;
   color: #3C3C3C;
 }
+#slider{
+  margin: 0 auto;
+  width: 1327px;
+  max-width: 1327px;
+}
+#slider2{
+  background-color: #fff;
+  width: 300px;
+  height: 1500px;
+  float: left;
+  margin: 0px 15px 0px 0px;
+  display: block;
+  padding:25px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
 #wrapper {
   margin: 0 auto;
   padding: 3% 5%;
-  width: 95%;
+  width: 960px;
   max-width: 960px;
   border: 1px solid #ddd;
   -webkit-border-radius: 5px;
@@ -28,6 +44,9 @@ body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  float: left;
+  top: -1500px;
+  left: 300px;
 }
 
 .contents .title {
@@ -102,3 +121,4 @@ blockquote {
   padding: 0.6em 1em;
   background-color: #F1F1F1;
 }
+
