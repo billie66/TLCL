@@ -50,8 +50,7 @@ are newer than the versions in the destination directory? Pretty hard with a fil
 manager. Pretty easy with the command line:
 
 答案是命令行程序，功能强大灵活。虽然图形文件管理器能轻松地实现简单的文件操作，但是对于
-复杂的文件操作任务，则使用命令行程序比较容易完成。例如，怎样拷贝一个目录下所有的HTML文件
-——这些文件在目标目录不存在或者版本比目标目录的文件更新——到目标目录呢？
+复杂的文件操作任务，则使用命令行程序比较容易完成。例如，怎样拷贝一个目录下的 HTML 文件到目标目录，同时保证只拷贝目标目录不存在或者版本比目标目录的文件更新的文件？
 要完成这个任务，使用文件管理器相当难，使用命令行相当容易：
 
     cp -u *.html destination
@@ -65,9 +64,9 @@ characters are called wildcards. Using wildcards (which is also known as globbin
 to select filenames based on patterns of characters. The table below lists the wildcards
 and what they select:
 
-在开始使用命令之前，我们需要介绍一个使命令行如此强大的 shell 特性。因为 shell 频繁地使用
+在开始使用命令之前，我们需要介绍一个使命令行变得非常强大的 shell 特性。因为 shell 频繁地使用
 文件名，shell 提供了特殊字符来帮助你快速指定一组文件名。这些特殊字符叫做通配符。
-使用通配符（也以文件名代换著称）允许你依据字符的组合模式来选择文件名。下表列出这些通配符
+通配符允许你依据字符的组合模式来选择文件名。下表列出这些通配符
 以及它们所选择的对象：
 
 <table class="multi" >
@@ -115,7 +114,7 @@ characters</td>
 </tr>
 <tr>
 <td valign="top">[characters]</td>
-<td valign="top">匹配任意一个属于字符集中的字符</td>
+<td valign="top">匹配任意一个属于字符集（characters）中的字符</td>
 </tr>
 <tr>
 <td valign="top">[!characters]</td>
@@ -351,8 +350,8 @@ __A note on notation:__ When three periods follow an argument in the
 description of a command (as above), it means that the argument can be
 repeated, thus:
 
-__注意表示法:__ 在描述一个命令时（如上所示），当有三个圆点跟在一个命令的参数后面，
-这意味着那个参数可以重复，就像这样：
+__注意:__ 在描述一个命令时（如上所示），当有三个圆点跟在一个命令的参数后面，
+这意味着那个参数可以跟多个，就像这样：
 
     mkdir dir1
 
@@ -438,22 +437,22 @@ performed.</td>
 <tr>
 <td valign="top" width="25%">-a, --archive</td>
 <td valign="top">复制文件和目录，以及它们的属性，包括拥有者和所有权。
-通常，副本具有用户所操作文件的默认属性。</td>
+通常情况下，文件拷贝具有执行拷贝操作的用户的默认属性。</td>
 </tr>
 <tr>
 <td valign="top">-i, --interactive</td>
-<td valign="top">在重写已存在文件之前，提示用户确认。如果这个选项不指定，
-cp 命令会默认重写文件。</td>
+<td valign="top">在覆盖已存在文件之前，提示用户确认。如果这个选项不指定，
+cp 命令会默认覆盖文件。</td>
 </tr>
 <tr>
 <td valign="top">-r, --recursive</td>
 <td valign="top">递归地复制目录及目录中的内容。当复制目录时，
-需要这个选项（或者-a 选项）。</td>
+需要这个选项（或者 -a 选项）。</td>
 </tr>
 <tr>
 <td valign="top">-u, --update </td>
 <td valign="top">当把文件从一个目录复制到另一个目录时，仅复制
-目标目录中不存在的文件，或者是文件内容新于目标目录中已经存在的文件。</td>
+目标目录中不存在的文件，或者是文件内容新于目标目录中已经存在文件的内容的文件。</td>
 </tr>
 <tr>
 <td valign="top">-v, --verbose</td>
@@ -508,11 +507,11 @@ its contents) will be copied into dir2.
 <tr>
 <td valign="top" width="25%">cp file1 file2</td>
 <td valign="top">复制文件 file1 内容到文件 file2。如果 file2 已经存在，
-file2 的内容会被 file1 的内容重写。如果 file2 不存在，则会创建 file2。</td>
+file2 的内容会被 file1 的内容覆盖。如果 file2 不存在，则会创建 file2。</td>
 </tr>
 <tr>
 <td valign="top">cp -i file1 file2 </td>
-<td valign="top">这条命令和上面的命令一样，除了如果文件 file2 存在的话，在文件 file2 被重写之前，
+<td valign="top">这条命令和上面的命令一样，除了如果文件 file2 存在的话，在文件 file2 被覆盖之前，
 会提示用户确认信息。</td>
 </tr>
 <tr>
@@ -539,7 +538,7 @@ The mv command performs both file moving and file renaming, depending on how it 
 In either case, the original filename no longer exists after the operation.
 mv is used in much the same way as cp:
 
-mv 命令可以执行文件移动和文件命名任务，这依赖于你怎样使用它。任何一种
+mv 命令可以执行文件移动和文件命名任务，这取决于你怎样使用它。任何一种
 情况下，完成操作之后，原来的文件名不再存在。mv 使用方法与 cp 很相像：
 
     mv item1 item2
@@ -594,13 +593,13 @@ directory.
 </tr>
 <tr>
 <td valign="top" width="25%">-i --interactive</td>
-<td valign="top">在重写一个已经存在的文件之前，提示用户确认信息。
-<b>如果不指定这个选项，mv 命令会默认重写文件内容。</b></td>
+<td valign="top">在覆盖一个已经存在的文件之前，提示用户确认信息。
+<b>如果不指定这个选项，mv 命令会默认覆盖文件内容。</b></td>
 </tr>
 <tr>
 <td valign="top">-u --update</td>
 <td valign="top">当把文件从一个目录移动另一个目录时，只是移动不存在的文件，
-或者文件内容新于目标目录相对应文件的内容。</td>
+或者文件内容新于目标目录相对应文件的内容的文件。</td>
 </tr>
 <tr>
 <td valign="top">-v --verbose</td>
@@ -640,12 +639,12 @@ directory dir2.</td>
 <caption class="cap">表5-7: mv 实例</caption>
 <tr>
 <td class="title">mv file1 file2</td>
-<td class="title">移动 file1 到 file2。<b>如果 file2 存在，它的内容会被 file1 的内容重写。
+<td class="title">移动 file1 到 file2。<b>如果 file2 存在，它的内容会被 file1 的内容覆盖。
 </b>如果 file2 不存在，则创建 file2。<b> 这两种情况下，file1 都不再存在。</b></td>
 </tr>
 <tr>
 <td valign="top" width="25%">mv -i file1 file2</td>
-<td valign="top">除了如果 file2 存在的话，在 file2 被重写之前，用户会得到
+<td valign="top">除了如果 file2 存在的话，在 file2 被覆盖之前，用户会得到
 提示信息外，这个和上面的选项一样。</td>
 </tr>
 <tr>
@@ -663,7 +662,7 @@ directory dir2.</td>
 
 The rm command is used to remove(delete)files and directories:
 
-rm 命令用来移除（删除）文件和目录：
+rm 命令用来删除文件和目录：
 
     rm item...
 
@@ -822,7 +821,7 @@ checking your typing!), test the wildcard first with ls. This will let you see t
 files that will be deleted. Then press the up arrow key to recall the command and
 replace the ls with rm.
 >
-> _小贴士。_ 当你使用带有通配符的rm命令时（除了仔细检查输入的内容外），
+> _小贴士。_ 当你使用带有通配符的 rm 命令时（除了仔细检查输入的内容外），
 先用 ls 命令来测试通配符。这会让你看到将要被删除的文件是什么。然后按下上箭头按键，重新调用
 刚刚执行的命令，用 rm 替换 ls。
 
@@ -831,7 +830,7 @@ replace the ls with rm.
 The ln command is used to create either hard or symbolic links. It is used in one of two
 ways:
 
-ln 命令既可创建硬链接，也可以创建符号链接。可以用其中一种方法来使用它：
+ln 命令既可创建硬链接，也可以创建符号链接。可以用两者中的任意一种形式来使用它：
 
     ln file link
 
@@ -851,7 +850,6 @@ Hard links are the original Unix way of creating links; symbolic links are
 more modern. By default, every file has a single hard link that gives the file
 its name. When we create a hard link, we create an additional directory entry 
 for a file. Hard links have two important limitations:
-
 
 与更加现代的符号链接相比，硬链接是最初 Unix 创建链接的方式。每个文件默认会有一个硬链接，
 这个硬链接给予文件名字。我们每创建一个硬链接，就为一个文件创建了一个额外的目录项。
@@ -875,9 +873,9 @@ hard link is deleted, the link is removed but the contents of the file itself co
 It is important to be aware of hard links because you might encounter them from time to
 time, but modern practice prefers symbolic links, which we will cover next.
 
-一个硬链接和文件本身没有什么区别。不像符号链接，当你列出一个包含硬链接的目录
-内容时，你会看到没有特殊的链接指示说明。当一个硬链接被删除时，这个链接
-被删除，但是文件本身的内容仍然存在（这是说，它所占的磁盘空间不会被重新分配），
+一个硬链接和文件本身表面上看不出什么区别。它跟符号链接很不一样，当你列出一个包含硬链接的目录
+内容时，你会看不到有什么特殊说明来表示这是一个链接。当一个硬链接被删除时，这个链接
+被删除，但是文件本身的内容仍然存在（这是说，它所占的磁盘空间不会被释放），
 直到所有关联这个文件的链接都删除掉。知道硬链接很重要，因为你可能有时
 会遇到它们，但现在实际中更喜欢使用符号链接，下一步我们会讨论符号链接。
 
@@ -976,7 +974,7 @@ period. So now if we perform an ls, we will see our file:
 
 Now, just for fun, let's repeat the copy using the “-v” option (verbose) to see what it does:
 
-现在，仅仅是为了高兴，重复操作复制命令，使用"-v"选项（详细），看看它做了些什么：
+现在，仅仅是为了好玩，重复操作复制命令，使用"-v"选项（详细），看看它做了些什么：
 
     [me@linuxbox playground]$ cp -v /etc/passwd .
     `/etc/passwd' -> `./passwd'
@@ -988,7 +986,7 @@ you know what you’re are doing. To get a warning, we'll include
 the “-i” (interactive) option:
 
 cp 命令再一次执行了复制操作，但是这次显示了一条简洁的信息，指明它
-进行了什么操作。注意，cp 没有警告，就重写了第一次复制的文件。这是一个案例，
+进行了什么操作。注意，cp 没有警告，就覆盖了第一次复制的文件。这是一个案例，
 cp 会假设你知道自己在做什么。如果希望得到警告的话，需要加入“-i”（互动）选项：
 
     [me@linuxbox playground]$ cp -i /etc/passwd .
@@ -1039,7 +1037,7 @@ First we will move our data file into dir1 again:
 
 then move dir1 into dir2 and confirm it with ls:
 
-然后移动 dir1到 dir2目录，用 ls 来确认执行结果:
+然后移动 dir1 到 dir2 目录，用 ls 来确认执行结果:
 
     [me@linuxbox playground]$ mv dir1 dir2
     [me@linuxbox playground]$ ls -l dir2
@@ -1053,7 +1051,7 @@ Note that since dir2 already existed, mv moved dir1 into dir2. If dir2 had not
 existed, mv would have renamed dir1 to dir2. Lastly, let's put everything back:
 
 注意：因为目录 dir2 已经存在，mv 命令会把 dir1 移动到 dir2 目录中。如果 dir2 不存在，
-mv 会把dir1重命名为 dir2。最后，让我们把所有的东西放回原处：
+mv 会把 dir1 重命名为 dir2。最后，让我们把所有的东西放回原处：
 
     [me@linuxbox playground]$ mv dir2/dir1 .
     [me@linuxbox playground]$ mv dir1/fun .
@@ -1109,7 +1107,7 @@ specific inode containing the file's contents.
 当考虑到硬链接的时候，我们可以假设文件由两部分组成：包含文件内容的数据部分和持有文件名的名字部分
 ，这将有助于我们理解这个概念。当我们创建文件硬链接的时候，实际上是为文件创建了额外的名字部分，
 并且这些名字都关联到相同的数据部分。这时系统会分配一连串的磁盘块给所谓的索引节点，然后索引节点与文
-件名字部分相关联。因此每一个硬链接都关系到一个具体的包含文件内容的索引节点。
+件名字部分相关联。因此每一个硬链接都指向一个包含文件内容的索引节点。
 
 The ls command has a way to reveal this information. It is invoked with the “-i” option:
 
@@ -1155,7 +1153,7 @@ relative to the symbolic link. It's easier to see if we look at the ls output:
 
 第一个例子相当直接，在 ln 命令中，简单地加上"-s"选项就可以创建一个符号链接，
 而不是一个硬链接。下面两个例子又是怎样呢？ 记住，当我们创建一个符号链接
-的时候，会建立一个目标文件在哪里和符号链接有关联的文本描述。如果我们看看
+的时候，会建立一个文本，其中描述了目标文件的具体位置。如果我们看看
 ls 命令的输出结果，比较容易理解。
 
     [me@linuxbox playground]$ ls -l dir1
@@ -1304,5 +1302,5 @@ take the time to learn how they work. They can be a real lifesaver.
 反复练习 playground 例题，直到你觉得它有意义。能够良好地理解基本文件操作
 命令和通配符，非常重要。随意通过添加文件和目录来拓展 playground 练习，
 使用通配符来为各种各样的操作命令指定文件。关于链接的概念，在刚开始接触
-时会觉得有点迷惑，花些时间来学习它们是怎样工作的。它们能成为真正的救星。
+时会觉得有点迷惑，值得花些时间来学习它们是怎样工作的，因为它们有时候真的特别有用。
 
