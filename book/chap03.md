@@ -8,7 +8,7 @@ navigate the file system on our Linux system. In this chapter we will
 introduce the following commands:
 
 我们需要学习的第一件事（除了打字之外）是如何在 Linux 文件系统中跳转。
-在这一章节中，我们将介绍以下命令：
+在这部分，我们将介绍以下命令：
 
 * pwd - Print name of current working directory
 
@@ -45,7 +45,7 @@ the computer. Storage devices are attached (or more correctly, mounted) at
 various points on the tree according to the whims of the system administrator,
 the person (or persons) responsible for the maintenance of the system.
 
-注意(类 Unix 系统)不像 Windows ，每个存储设备都有一个独自的文件系统。类 Unix 操作系统，
+注意(类 Unix 系统)不像 Windows ，每个存储设备都有一个独自的文件系统树。类 Unix 操作系统，
 比如 Linux，总是只有一个单一的文件系统树，不管有多少个磁盘或者存储设备连接到计算机上。
 根据负责维护系统安全的系统管理员的兴致，存储设备连接到（或着更精确些，是挂载到）目录树的各个节点上。
 
@@ -66,7 +66,7 @@ branches descending below.
 However, the command line has no pictures, so to navigate the file system tree
 we need to think of it in a different way.
 
-然而，命令行没有这样的图片，所以我们需要把文件系统树想象成别的样子（而不是这张图片）。
+然而，命令行不能显示图像，所以我们需要把文件系统树想象成别的样子（而不是图片中的这个形象）。
 
 Imagine that the file system is a maze shaped like an upside-down tree and we
 are able to stand in the middle of it. At any given time, we are inside a
@@ -151,7 +151,7 @@ convenience, it is usually set up to automatically display the name of the
 working directory.
 
 我们把工作目录转到 /usr/bin 目录下，里面装满了文件。注意 shell 提示符是怎样改变的吗？
-为了方便，通常终端提示符自动显示工作目录名。
+为了方便，通常终端提示符自动显示工作目录。
 
 ### 相对路径
 
@@ -168,7 +168,7 @@ The "." symbol refers to the working directory and the ".." symbol refers to
 the working directory's parent directory. Here is how it works. Let's change
 the working directory to /usr/bin again:
 
-符号 "." 指的是工作目录，".." 指的是工作目录的父目录。下面的例子说明怎样使用它。
+符号 "." 指的是工作目录，".." 指的是工作目录的父目录。举个例子，
 让我们再次把工作目录切换到 /usr/bin：
 
     [me@linuxbox ~]$ cd /usr/bin
@@ -225,7 +225,7 @@ cases, you can omit the "./". It is implied. Typing:
 does the same thing. In general, if you do not specify a pathname to
 something, the working directory will be assumed.
 
-实现相同的效果。如果不指定一个文件的路径，那它被默认为在当前工作目录下。
+可以实现相同的效果。总的来说，如果不指定一个文件的路径，那它被默认为在当前工作目录下。
 
 ### 有用的快捷键
 
@@ -325,5 +325,5 @@ later.
 >
 >4. 虽然 Linux 支持长文件名，文件名可能包含空格，标点符号，但标点符号仅限
 使用 “.”，“－”，下划线。最重要的是，不要在文件名中使用空格。如果你想表示词与
-词间的空格，用下划线字符来代替。过些时候，你会感激自己这样做。
+词间的空格，用下划线字符来代替。将来你就会明白这样做的好处。
 
