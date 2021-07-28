@@ -80,7 +80,7 @@ This brings us to a very important point about how most commands work. Commands 
 followed by one or more options that modify their behavior, and further, by one or more arguments,
 the items upon which the command acts. So most commands look kind of like this:
 
-我们将学习一个非常重要的知识点，即大多数命令是如何工作的。命令名经常会带有一个或多个用来更正命令行为的选项，
+我们将学习一个非常重要的知识点，看看大多数命令都是如何工作的。命令名经常会带有一个或多个用来改变命令行为的选项，
 更进一步，选项后面会带有一个或多个参数，这些参数是命令作用的对象。所以大多数命令看起来像这样：
 
     command -options arguments
@@ -382,7 +382,7 @@ called ASCII text. ASCII (pronounced "As-Key") is short for American Standard
 Code for Information Interchange. This is a simple encoding scheme that was first
 used on Teletype machines to map keyboard characters to numbers.
 >
-> 有些数值表达法非常复杂（例如压缩的视频文件），而其它的就相当简单。最早也是最简单的一种表达法，叫做
+> 有些表达法非常复杂（例如压缩的视频文件），而其它的就相当简单。最早也是最简单的一种表达法，叫做
 ASCII 文本。ASCII（发音是"As-Key"）是美国信息交换标准码的简称。这是一个简单的编码方法，它首先
 被用在电传打字机上，用来实现键盘字符到数字的映射。
 >
@@ -400,9 +400,9 @@ Windows recognizes the importance of this format. The well-known NOTEPAD.EXE
 program is an editor for plain ASCII text files.
 >
 > 文本是简单的字符与数字之间的一对一映射。它非常紧凑。五十个字符的文本翻译成五十个字节的数据。文本只是包含
-简单的字符到数字的映射，理解这点很重要。它和一些文字处理器文档不一样，比如说由微软或
-OpenOffice.org 文档 编辑器创建的文件。这些文件，和简单的 ASCII
-文件形成鲜明对比，它们包含许多非文本元素，来描述它的结构和格式。 纯 ASCII
+简单的字符到数字的映射，理解这点很重要。它和一些常见办公文档编辑软件，比如说由微软 Office 或
+OpenOffice.org，创建的文字内容不同。和简单的 ASCII
+文件形成鲜明对比，这些文档内容中包含许多非文本元素，来描述它的结构和格式。纯 ASCII
 文件只包含字符本身，和一些基本的控制符，像制表符、回车符及换行符。纵观 Linux
 系统，许多文件以文本格式存储，也有许多 Linux 工具来处理文本文件。甚至 Windows
 也承认这种文件格式的重要性。著名的 NOTEPAD.EXE 程序就是一个纯 ASCII
@@ -539,13 +539,13 @@ The table below lists the most common keyboard commands used by less.
 </tr>
 </table>
 
-### less 就是 more（禅语：色即是空）
+### 少就是多
 
 The less program was designed as an improved replacement of an earlier Unix
 program called more. The name “less” is a play on the phrase “less is more”—a
 motto of modernist architects and designers.
 
-less 程序是早期 Unix 程序 more 的改进版。“less” 这个名字，对习语 “less is more” 开了个玩笑，
+less 程序是早期 Unix 程序 more 的改进版。“less” 这个名字，套用习语 “less is more” ，
 这个习语是现代主义建筑师和设计者的座右铭。
 
 less falls into the class of programs called “pagers,” programs that allow the
@@ -564,7 +564,7 @@ Filesystem Hierarchy Standard. Not all Linux distributions conform to the standa
 exactly but most come pretty close.
 
 Linux 系统中，文件系统布局与类 Unix 系统的文件布局很相似。实际上，一个已经发布的标准，
-叫做 Linux 文件系统层次标准，详细说明了这种设计模式。不是所有Linux发行版都根据这个标准，但
+叫做 Linux 文件系统层级标准，详细说明了这种设计模式。不是所有 Linux 发行版都遵守这个标准，但
 大多数都是。
 
 Next, we are going to wander around the file system ourselves to see what makes our
@@ -816,7 +816,7 @@ some systems, you must be the superuser to view log files.</td>
 </tr>
 <tr>
 <td valign="top">/home</td>
-<td valign="top">在通常的配置环境下，系统会在/home 下，给每个用户分配一个目录。普通用户只能
+<td valign="top">在通常的配置环境下，系统会在 /home 下，给每个用户分配一个目录。普通用户只能
 在自己的目录下写文件。这个限制保护系统免受错误的用户活动破坏。</td>
 </tr>
 <tr>
@@ -860,7 +860,7 @@ some systems, you must be the superuser to view log files.</td>
 </tr>
 <tr>
 <td>/tmp</td>
-<td>这个/tmp 目录，是用来存储由各种程序创建的临时文件的地方。一些配置导致系统每次
+<td>这个/tmp 目录，是用来存储由各种程序创建的临时文件的地方。系统每次
 重新启动时，都会清空这个目录。</td>
 </tr>
 <tr>
@@ -887,7 +887,7 @@ some systems, you must be the superuser to view log files.</td>
 </tr>
 <tr>
 <td>/usr/share</td>
-<td>/usr/share 目录包含许多由/usr/bin 目录中的程序使用的共享数据。
+<td>/usr/share 目录包含许多由 /usr/bin 目录中的程序使用的共享数据。
 其中包括像默认的配置文件、图标、桌面背景、音频文件等等。</td>
 </tr>
 <tr>
@@ -904,7 +904,7 @@ some systems, you must be the superuser to view log files.</td>
 <tr>
 <td>/var/log</td>
 <td>这个/var/log 目录包含日志文件、各种系统活动的记录。这些文件非常重要，并且
-应该时时监测它们。其中最重要的一个文件是/var/log/messages。注意，为了系统安全，在一些系统中，
+应该时时监测它们。其中最重要的一个文件是 /var/log/messages。注意，为了系统安全，在一些系统中，
 你必须是超级用户才能查看这些日志文件。</td></tr>
 </table>
 
@@ -923,7 +923,7 @@ names. While the value of this may not be obvious, it is really a useful feature
 
 注意看，为何这条信息第一个字符是“l”，并且有两个文件名呢？
 这是一个特殊文件，叫做符号链接（也称为软链接或者 symlink ）。 在大多数“类 Unix” 系统中，
-有可能一个文件被多个文件名所指向。虽然这种特性的意义并不明显，但它真的很有用。
+有可能一个文件被多个文件名所指向。这个特性实际中真的很有用。
 
 Picture this scenario: a program requires the use of a shared resource of some kind
 contained in a file named “foo,” but “foo” has frequent version changes. It would be
@@ -983,7 +983,7 @@ links in the next chapter.
 
 * The full version of the Linux Filesystem Hierarchy Standard can be found here:
 
-* 完整的 Linux 文件系统层次体系标准可通过以下链接找到：
+* 完整的 Linux 文件系统层级标准可通过以下链接找到：
 
     <http://www.pathname.com/fhs/>
 
