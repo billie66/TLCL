@@ -13,7 +13,7 @@ for sh, the original Unix shell program written by Steve Bourne.
 一说到命令行，我们真正指的是 shell。shell 就是一个程序，它接受从键盘输入的命令，
 然后把命令传递给操作系统去执行。几乎所有的 Linux 发行版都提供一个名为 bash 的
 来自 GNU 项目的 shell 程序。“bash” 是 “Bourne Again SHell” 的首字母缩写，
-所指的是这样一个事实，bash 是最初 Unix 上由 Steve Bourne 写成 shell 程序 sh 的增强版。
+是最初在 Unix 上由 Steve Bourne 写成 shell 程序 sh 的增强版。
 
 ### 终端仿真器
 
@@ -28,9 +28,9 @@ whistles it has.
 
 当使用图形用户界面时，我们需要另一个和 shell 交互的叫做终端仿真器的程序。
 如果我们浏览一下桌面菜单，可能会找到一个。虽然在菜单里它可能都
-被简单地称为 “terminal”，但是 KDE 用的是 konsole , 而 GNOME 则使用 gnome-terminal。
+被简单地称为 “terminal”。 KDE 用的是 konsole ,  GNOME 则使用 gnome-terminal。
 还有其他一些终端仿真器可供 Linux 使用，但基本上，它们都完成同样的事情，
-让我们能访问 shell。也许，你可能会因为附加的一系列花俏功能而喜欢上某个终端。
+让我们能访问 shell。也许，你可能会因为它附加的一系列花俏功能而喜欢上某个终端仿真器。
 
 ### 第一次按键
 
@@ -46,7 +46,7 @@ distribution, it will usually include your username@machinename, followed by
 the current working directory (more about that in a little bit) and a dollar
 sign.
 
-这叫做 shell 提示符，无论何时当 shell 准备好了去接受输入时，它就会出现。然而，
+这叫做 shell 提示符，当 shell 准备好了去接受输入时，它就会出现。然而，
 它可能会以各种各样的面孔显示，这则取决于不同的 Linux 发行版，
 它通常包括你的用户名@主机名，紧接着当前工作目录（稍后会有更多介绍）和一个美元符号。
 
@@ -133,7 +133,7 @@ window manager.
 这与“焦点跟随着鼠标”的传统 X 行为不同，传统 X 行为是指只要把鼠标移动到一个窗口的上方。
 它能接受输入， 但是直到你单击窗口之前它都不会成为前端窗口。
 设置聚焦策略为“聚焦跟随着鼠标”，可以使拷贝和粘贴更方便易用。尝试一下。
-我想如果你试了一下你会喜欢上它的。你能在窗口管理器的配置程序中找到这个设置。
+我想如果你试了一下你会喜欢上它的。你能在窗口管理器的配置中找到这个设置。
 
 ### 试试运行一些简单命令
 
@@ -172,7 +172,7 @@ To see the current amount of free space on your disk drives, type df:
 
 Likewise, to display the amount of free memory, type the free command.
 
-同样地，显示空闲内存的数量，输入命令 free。
+同样地，显示空闲内存的数量，输入命令 free 。
 
     [me@linuxbox ~]$ free
     total       used       free     shared    buffers     cached
@@ -217,6 +217,6 @@ Wikipedia article:
 
 Here is an article about the concept of shells in computing:
 
-*  这是一篇关于在计算机领域里，shells 概念的文章：
+*  这是一篇关于在计算机领域里，shell 概念的文章：
 
     <http://en.wikipedia.org/wiki/Shell_(computing)>
