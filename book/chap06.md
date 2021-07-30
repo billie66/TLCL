@@ -14,7 +14,7 @@ this chapter are:
 
 * type – Indicate how a command name is interpreted
 
-* type – 说明怎样解释一个命令名
+* type – 说明一个命令名是如何被解释的（这里的“解释”是一个计算机术语，例如，解释型语言）
 
 * which – Display which executable program will be executed
 
@@ -61,33 +61,33 @@ functions in later chapters, but for now, just be aware that they exist.
 4. An alias. Commands that we can define ourselves, built from other commands.
 
 ^
-1. 是一个可执行程序，就像我们所看到的位于目录/usr/bin 中的文件一样。
-这一类程序可以是用诸如 C 和 C++语言写成的程序编译的二进制文件,
-也可以是由诸如shell，perl，python，ruby等等脚本语言写成的程序 。
+1. 一个可执行程序，就像我们所看到的位于目录/usr/bin 中的文件一样。
+这一类程序可以是用诸如 C 和 C++ 语言写成的程序然后编译得到的二进制文件,
+也可以是由诸如 shell，perl，python，ruby 等等脚本语言写成的程序。
 
-2. 是一个内建于 shell 自身的命令。bash 支持若干命令，内部叫做 shell 内部命令
+2. 一个内建于 shell 自身的命令。bash 支持若干命令，内部叫做 shell 内部命令
 (builtins)。例如，cd 命令，就是一个 shell 内部命令。
 
-3. 是一个 shell 函数。这些是小规模的 shell 脚本，它们混合到环境变量中。
+3. 一个 shell 函数。这些是小规模的 shell 脚本，它们混合到环境变量中。
 在后续的章节里，我们将讨论配置环境变量以及书写 shell 函数。但是现在，
 仅仅意识到它们的存在就可以了。
 
-4. 是一个命令别名。我们可以定义自己的命令，建立在其它命令之上。
+4. 一个命令别名。我们可以定义自己的命令，建立在其它命令之上。
 
 ### 识别命令
 
 It is often useful to know exactly which of the four kinds of commands is being used and
 Linux provides a couple of ways to find out.
 
-这经常很有用，能确切地知道正在使用四类命令中的哪一类。Linux 提供了一对方法来
-弄明白命令类型。
+准确地知道正在使用的四种命令中的哪一种通常很有用
+Linux 提供了几种查找方法。
 
 ### type － 显示命令的类型
 
 The type command is a shell builtin that displays the kind of command the shell will
 execute, given a particular command name. It works like this:
 
-type 命令是 shell 内部命令，它会显示命令的类别，给出一个特定的命令名（做为参数）。
+type 命令是 shell 内部命令，它会显示命令的类型，给出一个特定的命令名（做为参数）。
 它像这样工作：
 
     type command
@@ -95,7 +95,7 @@ type 命令是 shell 内部命令，它会显示命令的类别，给出一个�
 Where "command" is the name of the command you want to examine. Here are some
 examples:
 
-"command"是你要检测的命令名。这里有些例子：
+command 是你要检测的命令名。这里有些例子：
 
     [me@linuxbox ~]$ type type
     type is a shell builtins
@@ -129,7 +129,7 @@ which only works for executable programs, not builtins nor aliases that are subs
 for actual executable programs. When we try to use which on a shell builtin, for
 example, cd, we either get no response or an error message:
 
-这个命令只对可执行程序有效，不包括内建命令和命令别名，别名是真正的可执行程序的替代物。
+which 命令只对可执行程序有效，不包括内建命令和命令别名。
 当我们试着使用 shell 内建命令时，例如，cd 命令，我们或者得不到回应，或者是个错误信息：
 
     [me@linuxbox ~]$ which cd
@@ -139,21 +139,21 @@ example, cd, we either get no response or an error message:
 
 which is a fancy way of saying “command not found.”
 
-说“命令没有找到”，真是很奇特。
+这些信息真正的意思就是“命令没有找到”。
 
 ### 得到命令文档
 
 With this knowledge of what a command is, we can now search for the documentation
 available for each kind of command.
 
-知道了什么是命令，现在我们来寻找每一类命令的可得到的文档。
+知道了什么是命令，现在我们来查找每一类命令的文档。
 
 ### help － 得到 shell 内建命令的帮助文档
 
 bash has a built-in help facility available for each of the shell builtins. To use it, type
 “help” followed by the name of the shell builtin. For example:
 
-bash 有一个内建的帮助工具，可供每一个 shell 内建命令使用。输入“help”，接着是 shell
+bash 有一个内建的 help 命令，可查找每一个 shell 内建命令的文档。输入“help”，接着是 shell
 内部命令名。例如：
 
     [me@linuxbox ~]$ help cd
@@ -164,7 +164,7 @@ A note on notation: When square brackets appear in the description of a command'
 syntax, they indicate optional items. A vertical bar character indicates mutually exclusive
 items. In the case of the cd command above:
 
-注意表示法：出现在命令语法说明中的方括号，表示可选的项目。一个竖杠字符
+注意：出现在命令语法说明中的方括号证的内容是可选的项目。一个竖杠字符
 表示互斥选项。在上面 cd 命令的例子中：
 
     cd [-L|-P] [dir]
@@ -172,7 +172,7 @@ items. In the case of the cd command above:
 This notation says that the command cd may be followed optionally by either a “-L” or a
 “-P” and further, optionally followed by the argument “dir”.
 
-这种表示法说明，cd 命令可能有一个“-L”选项或者“-P”选项，进一步，可能有参数“dir”。
+这种表示法说明，cd 命令可以跟一个“-L”选项“-P”选项其中之一或者什么都不跟，“dir”也是可选参数。
 
 While the output of help for the cd commands is concise and accurate, it is by no
 means tutorial and as we can see, it also seems to mention a lot of things we haven't
@@ -198,7 +198,7 @@ error message that will reveal the same usage information.
 一些程序不支持 -\-help 选项，但不管怎样试一下。通常输出的错误提示也同样能
 揭示命令的用法信息。
 
-### man － 显示程序手册页
+### man － 显示用户手册
 
 Most executable programs intended for command line use provide a formal piece of
 documentation called a manual or man page. A special paging program called man is
@@ -349,13 +349,13 @@ This will display the man page describing the file format of the /etc/passwd fil
 
 命令运行结果会显示文件 /etc/passwd 的文件格式说明手册。
 
-### apropos － 显示适当的命令
+### apropos － 显示适合的命令
 
 It is also possible to search the list of man pages for possible matches based on a search
 term. It's very crude but sometimes helpful. Here is an example of a search for man
 pages using the search term “floppy”:
 
-也有可能搜索参考手册列表，基于某个关键字的匹配项。虽然很粗糙但有时很有用。
+我们也可以搜索全部参考手册来找到自己需要的命令，这个方法虽然很粗糙但有时很有用。
 下面是一个以"floppy"为关键词来搜索参考手册的例子：
 
     [me@linuxbox ~]$ apropos floppy
@@ -430,7 +430,7 @@ info 文件包含超级链接，它可以让你从一个结点跳到另一个结
 To invoke info, type “info” followed optionally by the name of a program. Below is a
 table of commands used to control the reader while displaying an info page:
 
-输入"info"，接着输入程序名称，启动 info。下表中的命令，当显示一个 info 页面时，
+输入"info"，接着输入程序名称，启动 info。当显示一个 info 页面时，下表中的命令
 用来控制阅读器。
 
 <table class="multi">
@@ -547,7 +547,7 @@ of gzip-compressed text files.
 许多安装在你系统中的软件，都有自己的文档文件，这些文件位于/usr/share/doc 目录下。
 这些文件大多数是以文本文件的形式存储的，可用 less 阅读器来浏览。一些文件是 HTML 格式，
 可用网页浏览器来阅读。我们可能遇到许多以".gz"结尾的文件。这表示 gzip 压缩程序
-已经压缩了这些文件。gzip 软件包包括一个特殊的 less 版本，叫做 zless，zless 可以显示由
+已经压缩了这些文件。gzip 软件包包括一个特殊版本的 less ，叫做 zless，zless 可以显示由
 gzip 压缩的文本文件的内容。
 
 ### 用别名（alias）创建你自己的命令
@@ -641,7 +641,7 @@ not uncommon to do so. This is often done to apply a commonly desired option to 
 invocation of a common command. For instance, we saw earlier how the ls command is
 often aliased to add color support:
 
-虽然我们有意避免使用已经存在的命令名来命名我们的别名，但这是常做的事情。通常，
+虽然我们有意避免使用已经存在的命令名来命名我们的别名，但有时候也会故意这么做。通常，
 会把一个普遍用到的选项加到一个经常使用的命令后面。例如，之前见到的 ls 命令，会
 带有色彩支持：
 
