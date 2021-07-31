@@ -10,7 +10,7 @@ multiple commands together into powerful command pipelines. To show off this fac
 we will introduce the following commands:
 
 这堂课，我们来介绍可能是命令行最酷的特性。它叫做 I/O 重定向。"I/O"代表输入/输出，
-通过这个工具，你可以将命令的输入来源以及输出地点重定向为文件。也可以把多个命令连接起来组成一个强大的命令管道。为了展示这个工具，我们将叙述
+通过这个机制，你可以将命令的输入来源以及输出地点重定向为文件。也可以把多个命令连接起来组成一个强大的命令管道。为了展示这个工具，我们将用到
 以下命令：
 
 
@@ -43,9 +43,10 @@ we will introduce the following commands:
 * head － 输出文件第一部分
 
 * tail - 输出文件最后一部分
+
 * tee - 从标准输入读取数据，并同时写到标准输出和文件
 
-### 标准输入、输出和错误
+### 标准输入、标准输出和标准错误输出
 
 Many of the programs that we have used so far produce output of some kind. This output
 often consists of two types. First, we have the program's results; that is, the data the
@@ -67,7 +68,7 @@ is, by default, attached to the keyboard.
 
 与 Unix 主题“任何东西都是一个文件”保持一致，像 ls这样的程序实际上把他们的运行结果
 输送到一个叫做标准输出的特殊文件（经常用 stdout 表示），而它们的状态信息则送到另一个
-叫做标准错误的文件（stderr）。默认情况下，标准输出和标准错误都连接到屏幕，而不是
+叫做标准错误输出的文件（stderr）。默认情况下，标准输出和标准错误输出都连接到屏幕，而不是
 保存到磁盘文件。除此之外，许多程序从一个叫做标准输入（stdin）的设备得到输入，默认情况下，
 标准输入连接到键盘。
 
@@ -96,7 +97,7 @@ I/O 重定向允许我们来重定义标准输出的地点。我们使用 ">" �
 Here, we created a long listing of the /usr/bin directory and sent the results to the file
 ls-output.txt. Let's examine the redirected output of the command:
 
-这里，我们创建了一个长长的目录/usr/bin 列表，并且输送程序运行结果到文件 ls-output.txt 中。
+这里，我们创建了一个长长的目录 /usr/bin 列表，并且输送程序运行结果到文件 ls-output.txt 中。
 我们检查一下重定向的命令输出结果：
 
     [me@linuxbox ~]$ ls -l ls-output.txt
@@ -127,11 +128,11 @@ output and not standard error, the error message was still sent to the screen. W
 how to redirect standard error in just a minute, but first, let's look at what happened to our
 output file:
 
-我们收到一个错误信息。这讲得通，因为我们指定了一个不存在的目录/bin/usr,
+我们收到一个错误信息。这讲得通，因为我们指定了一个不存在的目录 /bin/usr ，
 但是为什么这条错误信息显示在屏幕上而不是被重定向到文件 ls-output.txt？答案是，
-ls 程序不把它的错误信息输送到标准输出。反而，像许多写得不错的 Unix 程序，ls 把
-错误信息送到标准错误。因为我们只是重定向了标准输出，而没有重定向标准错误，
-所以错误信息被送到屏幕。马上，我们将知道怎样重定向标准错误，但是首先看一下
+ls 程序不把它的错误信息输送到标准输出。像许多写得正规的 Unix 程序，ls 会把
+错误信息送到标准错误输出。因为我们只是重定向了标准输出，而没有重定向标准错误输出，
+所以错误信息被送到屏幕。马上，我们将知道怎样重定向标准错误输出，但是首先看一下
 我们的输出文件发生了什么事情。
 
     me@linuxbox ~]$ ls -l ls-output.txt
@@ -170,7 +171,7 @@ does not already exist, it is created just as though the “>” operator had be
 put it to the test:
 
 使用">\>"操作符，将导致输出结果添加到文件内容之后。如果文件不存在，文件会
-被创建，就如使用了">"操作符。把它放到测试中：
+被创建，就如使用了">"操作符。来试一下：
 
     [me@linuxbox ~]$ ls -l /usr/bin >> ls-output.txt
     [me@linuxbox ~]$ ls -l /usr/bin >> ls-output.txt
@@ -182,7 +183,7 @@ We repeated the command three times resulting in an output file three times as l
 
 我们重复执行命令三次，导致输出文件大小是原来的三倍。
 
-### 标准错误重定向
+### 标准错误输出重定向
 
 Redirecting standard error lacks the ease of a dedicated redirection operator. To redirect
 standard error we must refer to its file descriptor. A program can produce output on any
@@ -192,18 +193,18 @@ descriptors zero, one and two, respectively. The shell provides a notation for r
 files using the file descriptor number. Since standard error is the same as file descriptor
 number two, we can redirect standard error with this notation:
 
-标准错误重定向没有专用的重定向操作符。为了重定向标准错误，我们必须参考其文件描述符。
-一个程序可以在几个编号的文件流中的任一个上产生输出。虽然我们已经将这些文件流的前
-三个称作标准输入、输出和错误，shell 内部分别将其称为文件描述符0、1和2。shell 使用文件描述符提供
-了一种表示法来重定向文件。因为标准错误和文件描述符2一样，我们用这种
-表示法来重定向标准错误：
+标准错误输出重定向没有专用的重定向操作符。为了重定向标准错误输出，我们必须用到其文件描述符。
+一个程序的输出会流入到几个带编号的文件中。这些文件的前
+三个称作标准输入、标准输出和标准错误输出，shell 内部分别将其称为文件描述符0、1和2。shell 使用文件描述符提供
+了一种表示法来重定向文件。因为标准错误输出和文件描述符2一样，我们用这种
+表示法来重定向标准错误输出：
 
     [me@linuxbox ~]$ ls -l /bin/usr 2> ls-error.txt
 
 The file descriptor “2” is placed immediately before the redirection operator to perform
 the redirection of standard error to the file ls-error.txt.
 
-文件描述符"2"，紧挨着放在重定向操作符之前，来执行重定向标准错误到文件 ls-error.txt 任务。
+文件描述符"2"，紧挨着放在重定向操作符之前，来执行重定向标准错误输出到文件 ls-error.txt 任务。
 
 ### 重定向标准输出和错误到同一个文件
 
@@ -213,7 +214,7 @@ same time. There are two ways to do this. First, the traditional way, which work
 old versions of the shell:
 
 有时我们希望将一个命令的所有输出保存到一个文件。为此，我们
-必须同时重定向标准输出和标准错误。有两种方法来完成任务。第一个是传统的方法，
+必须同时重定向标准输出和标准错误输出。有两种方法来完成任务。第一个是传统的方法，
 在旧版本 shell 中也有效：
 
     [me@linuxbox ~]$ ls -l /bin/usr > ls-output.txt 2>&1
@@ -223,7 +224,7 @@ file ls-output.txt and then we redirect file descriptor two (standard error) to 
 descriptor one (standard output) using the notation 2>&1.
 
 使用这种方法，我们完成两个重定向。首先重定向标准输出到文件 ls-output.txt，然后
-重定向文件描述符2（标准错误）到文件描述符1（标准输出）使用表示法2>&1。
+重定向文件描述符2（标准错误输出）到文件描述符1（标准输出）使用表示法2>&1。
 
 ---
 
@@ -231,20 +232,20 @@ Notice that the order of the redirections is significant. The redirection of
 standard error must always occur after redirecting standard output or it doesn't
 work. In the example above,
 
-注意重定向的顺序安排非常重要。标准错误的重定向必须总是出现在标准输出
+注意重定向的顺序安排非常重要。标准错误输出的重定向必须总是出现在标准输出
 重定向之后，要不然它不起作用。上面的例子，
 
     >ls-output.txt 2>&1
 
 redirects standard error to the file ls-output.txt, but if the order is changed to
 
-重定向标准错误到文件 ls-output.txt，但是如果命令顺序改为：
+重定向标准错误输出到文件 ls-output.txt，但是如果命令顺序改为：
 
     2>&1 >ls-output.txt
 
 standard error is directed to the screen.
 
-则标准错误定向到屏幕。
+则标准错误输出会定向到屏幕。
 
 ---
 
@@ -269,23 +270,21 @@ file is a system device called a bit bucket which accepts input and does nothing
 To suppress error messages from a command, we do this:
 
 有时候“沉默是金”，我们不想要一个命令的输出结果，只想把它们扔掉。这种情况
-尤其适用于错误和状态信息。系统通过重定向输出结果到一个叫做"/dev/null"的特殊文件，
-为我们提供了解决问题的方法。这个文件是系统设备，叫做位存储桶，它可以
-接受输入，并且对输入不做任何处理。为了隐瞒命令错误信息，我们这样做：
+尤其适用于错误和状态信息。具体做法是重定向输出结果到一个叫做"/dev/null"的特殊文件。这个文件是系统设备，叫做数字存储桶，它可以
+接受输入，并且对输入不做任何处理。为了丢掉命令错误信息，我们这样做：
 
     [me@linuxbox ~]$ ls -l /bin/usr 2> /dev/null
 
 > /dev/null in Unix Culture
 >
-> Unix 文化中的/dev/null
+> Unix 文化中的 /dev/null
 >
 > The bit bucket is an ancient Unix concept and due to its universality, has appeared
 in many parts of Unix culture. When someone says he/she is sending your
 comments to /dev/null, now you know what it means. For more examples,
 see the Wikipedia article on “/dev/null”.
 >
-> 位存储桶是个古老的 Unix 概念，由于它的普遍性，它的身影出现在 Unix 文化的
-许多部分。当有人说他/她正在把你的评论送到/dev/null，现在你应该知道那是
+> 数字存储桶是个古老的 Unix 概念，由于它的普遍性，它的身影出现在 Unix 文化的很多角落。当有人说我把你的评论送到/dev/null 了，现在你应该知道那是
 什么意思了。更多的例子，可以阅读 Wikipedia 关于"/dev/null"的文章。
 
 ### 标准输入重定向
@@ -348,7 +347,7 @@ but let's try something else. What happens if we type “cat” with no argument
 Nothing happens, it just sits there like it's hung. It may seem that way, but it's really
 doing exactly what it's supposed to.
 
-没有发生任何事情，它只是坐在那里，好像挂掉了一样。看起来是那样，但是它正在做它该做的事情：
+似乎没有发生任何事情，但是它正在做它该做的事情：
 
 If cat is not given any arguments, it reads from standard input and since standard input
 is, by default, attached to the keyboard, it's waiting for us to type something! Try this:
@@ -414,7 +413,7 @@ commands make better use of standard input, as we shall soon see.
 
 Before we move on, check out the man page for cat, as it has several interesting options.
 
-在我们继续之前，查看 cat 的手册页，因为它有几个有趣的选项。
+在我们继续之前，请查看 cat 的手册页，因为它有几个有趣的选项。
 
 ### 管道线
 
@@ -422,7 +421,7 @@ The ability of commands to read data from standard input and send to standard ou
 utilized by a shell feature called pipelines. Using the pipe operator “|” (vertical bar), the
 standard output of one command can be piped into the standard input of another:
 
-命令从标准输入读取数据并输送到标准输出的能力被一个称为管道线的 shell 特性所利用。
+命令从标准输入读取数据并输送到标准输出的能力被一个称为管道线的 shell 功能所利用。
 使用管道操作符"|"（竖杠），一个命令的标准输出可以通过管道送至另一个命令的标准输入：
 
     command1 | command2
@@ -486,7 +485,7 @@ command. If we want to see the list of duplicates instead, we add the “-d” o
 uniq like so:
 
 在这个例子中，我们使用 uniq 从 sort 命令的输出结果中，来删除任何重复行。如果我们想看到
-重复的数据列表，让 uniq 命令带上"-d"选项，就像这样：
+重复内容，让 uniq 命令带上"-d"选项，就像这样：
 
     [me@linuxbox ~]$ ls /bin /usr/bin | sort | uniq -d | less
 
@@ -495,7 +494,7 @@ uniq like so:
 The wc (word count) command is used to display the number of lines, words, and bytes
 contained in files. For example:
 
-wc（字计数）命令是用来显示文件所包含的行数、字数和字节数。例如：
+wc（字数统计）命令是用来显示文件所包含的行数、字数和字节数。例如：
 
     [me@linuxbox ~]$ wc ls-output.txt
     7902 64566 503634 ls-output.txt
@@ -584,7 +583,7 @@ security information:
 
 tail 有一个选项允许你实时地浏览文件。当观察日志文件的进展时，这很有用，因为
 它们同时在被写入。在以下的例子里，我们要查看目录/var/log 里面的信息文件。在
-一些 Linux 发行版中，要求有超级用户权限才能阅读这些文件，因为文件/var/log/messages
+一些 Linux 发行版中，要求有超级用户权限才能阅读这些文件，因为文件 /var/log/messages
 可能包含安全信息。
 
     [me@linuxbox ~]$ tail -f /var/log/messages
@@ -608,7 +607,7 @@ capture the entire directory listing to the file ls.txt before grep filters the 
 contents:
 
 为了和我们的管道隐喻保持一致，Linux 提供了一个叫做 tee 的命令，这个命令制造了
-一个"tee"，安装到我们的管道上。tee 程序从标准输入读入数据，并且同时复制数据
+一个"tee"（三通管件，做水管工人会对这个非常熟悉），安装到我们的管道上。tee 程序从标准输入读入数据，并且同时复制数据
 到标准输出（允许数据继续随着管道线流动）和一个或多个文件。当在某个中间处理
 阶段来捕捉一个管道线的内容时，这很有帮助。这里，我们重复执行一个先前的例子，
 这次包含 tee 命令，在 grep 过滤管道线的内容之前，来捕捉整个目录列表到文件 ls.txt：
@@ -629,8 +628,8 @@ line programs use standard error to display their informative messages.
 
 一如既往，查看这章学到的每一个命令的文档。我们已经知道了他们最基本的用法。
 它们还有很多有趣的选项。随着我们 Linux 经验的积累，我们会了解命令行重定向特性
-在解决特殊问题时非常有用处。有许多命令利用标准输入和输出，而几乎所有的命令行
-程序都使用标准错误来显示它们的详细信息。
+在解决特殊问题时非常有用处。有许多命令利用标准输入和标准输出，而几乎所有的命令行
+程序都使用标准错误输出来显示特别重要的信息。
 
 > Linux Is About Imagination
 >
@@ -668,7 +667,7 @@ that you have your own ideas of what to make. You don't ever have to go back to
 the store, as you already have everything you need. The Erector Set takes on the
 shape of your imagination. It does what you want.
 >
-> 另一方面，Linux 就像一个全世界上最大的建造模型。你打开它，发现它只是一个巨大的
+> 另一方面，Linux 就像一个全世界上最大的零件盒子。你打开它，发现它只是一个巨大的
 部件集合。有许多钢支柱、螺钉、螺母、齿轮、滑轮、发动机和一些怎样来建造它的说明书。
 然后你开始摆弄它。你建造了一个又一个样板模型。过了一会儿，你发现你要建造自己的模型。
 你不必返回商店，因为你已经拥有了你需要的一切。建造模型以你构想的形状为模板，搭建
