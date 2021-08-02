@@ -7,8 +7,8 @@ In this chapter we are going to look at some of the "magic" that occurs on the c
 line when you press the enter key. While we will examine several interesting and
 complex features of the shell, we will do it with just one new command:
 
-在这一章我们将看到，当你按下 enter 键后，发生在命令行中的一些“魔法”。尽管我们会
-深入研究几个复杂而有趣的 shell 特性，但我们只需要使用一个新命令：
+在这一章我们将看到，当你按下 enter 键后，发生在命令行中的一些“魔法”。我们会
+深入研究几个复杂而有趣的 shell 特性，需要使用一个新命令：
 
 * echo - Display a line of text
 
@@ -186,7 +186,7 @@ If user “foo” has an account, then:
 The shell allows arithmetic to be performed by expansion. This allow us to use the shell
 prompt as a calculator:
 
-shell 在展开中执行算数表达式。这允许我们把 shell 提示当作计算器来使用：
+shell 在展开中执行算数表达式。这允许我们把 shell 当作计算器来使用：
 
     [me@linuxbox ~]$ echo $((2 + 2))
     4
@@ -322,7 +322,7 @@ trailing portion called a postscript. The brace expression itself may contain ei
 comma-separated list of strings, or a range of integers or single characters. The pattern
 may not contain embedded whitespace. Here is an example using a range of integers:
 
-花括号展开模式可能包含一个开头部分叫做报头，一个结尾部分叫做附言。花括号表达式本身可
+花括号展开模式可能包含一个开头部分叫做前言，一个结尾部分叫做附言。花括号表达式本身可
 能包含一个由逗号分开的字符串列表，或者一个整数区间，或者单个的字符的区间。这种模式不能
 嵌入空白字符。这个例子中使用了一个整数区间：
 
@@ -351,7 +351,7 @@ way, the directory names will sort in chronological order. We could type out a c
 list of directories, but that's a lot of work and it's error-prone too. Instead, we could do
 this:
 
-那么这对什么有好处呢？最常见的应用是，创建一系列的文件或目录列表。例如，
+那这个有啥用呢？最常见的应用是，创建一系列的文件或目录列表。例如，
 如果我们是摄影师，有大量的相片。我们想把这些相片按年月先后组织起来。首先，
 我们要创建一系列以数值"年－月"形式命名的目录。通过这种方式，可以使目录名按照
 年代顺序排列。我们可以手动键入整个目录列表，但是工作量太大了，并且易于出错。
@@ -382,7 +382,7 @@ properly called variables, are available for your examination. For example, the 
 named “USER” contains your user name. To invoke parameter expansion and reveal the
 contents of USER you would do this:
 
-在这一章我们将会简单介绍参数展开，但会在后续章节中进行详细讨论。这个特性在 shell 脚本中比直接在命令行中更有用。
+在这一章我们将会简单介绍参数展开，会在后续章节中进行详细讨论。这个特性在 shell 脚本中比直接在命令行中更有用。
 它的许多功能和系统存储小块数据，并给每块数据命名的能力有关系。许多像这样的小块数据，
 更恰当的称呼应该是变量，可供你方便地检查它们。例如，叫做"USER"的变量包含你的
 用户名。可以这样做来调用参数，并查看 USER 中的内容，：
@@ -401,8 +401,8 @@ expansion will not take place and the echo command will simply display the misty
 pattern. With parameter expansion, if you misspell the name of a variable, the expansion
 will still take place, but will result in an empty string:
 
-你可能注意到在其它展开类型中，如果你误输入一个模式，展开就不会发生。这时
-echo 命令只简单地显示误键入的模式。但在参数展开中，如果你拼写错了一个变量名，
+你可能注意到在其它展开类型中，如果你误输入一个字符串，展开就不会发生。这时
+echo 命令只简单地显示误键入的字符串。但在参数展开中，如果你拼写错了一个变量名，
 展开仍然会进行，只是展开的结果是一个空字符串：
 
     [me@linuxbox ~]$ echo $SUER
@@ -413,7 +413,7 @@ echo 命令只简单地显示误键入的模式。但在参数展开中，如果
 
 Command substitution allows us to use the output of a command as an expansion:
 
-命令替换允许我们把一个命令的输出作为一个展开模式来使用：
+命令替换允许我们把一个命令的输出作为另一个命令的一部分来使用：
 
     [me@linuxbox ~]$ echo $(ls)
     Desktop Documents ls-output.txt Music Pictures Public Templates
@@ -432,7 +432,7 @@ not limited to just simple commands. Entire pipelines can be used (only partial 
 shown):
 
 这里我们把 which cp 的执行结果作为一个参数传递给 ls 命令，因此可以在不知道 cp 命令
-完整路径名的情况下得到它的文件属性列表。我们不只限制于简单命令。也可以使用整个管道线
+完整路径名的情况下得到它的文件属性列表。我们不只限于简单命令。也可以使用整个管道线
 （只展示部分输出）：
 
     [me@linuxbox ~]$ file $(ls /usr/bin/* | grep zip)
@@ -497,8 +497,7 @@ be treated as two separate arguments rather than the desired single argument:
 shell 使用的特殊字符，都失去它们的特殊含义，被当作普通字符来看待。
 有几个例外： $，\\ (反斜杠），和 \`（倒引号）。这意味着单词分割、路径名展开、
 波浪线展开和花括号展开都将失效，然而参数展开、算术展开和命令替换
-仍然执行。使用双引号，我们可以处理包含空格的文件名。比方说我们是不幸的
-名为 _two words.txt_ 文件的受害者。如果我们试图在命令行中使用这个
+仍然执行。使用双引号，我们可以处理包含空格的文件名。比方说 _two words.txt_ 文件，如果我们试图在命令行中使用这个
 文件，单词分割机制会导致这个文件名被看作两个独自的参数，而不是所期望
 的单个参数：
 
@@ -518,7 +517,7 @@ can even repair the damage:
 
 There! Now we don't have to keep typing those pesky double quotes.
 
-你瞧！现在我们不必一直输入那些讨厌的双引号了。
+用来下划线，现在我们不必一直输入那些讨厌的双引号了。
 
 Remember, parameter expansion, arithmetic expansion, and command substitution still
 take place within double quotes:
@@ -579,7 +578,7 @@ In the first instance, the unquoted command substitution resulted in a command l
 containing thirty-eight arguments. In the second, a command line with one argument that
 includes the embedded spaces and newlines.
 
-在第一个实例中，没有引用的命令替换导致命令行包含38个参数。在第二个例子中，
+在第一个例子，没有引用的命令替换导致命令行包含38个参数。在第二个例子中，
 命令行只有一个参数，参数中包括嵌入的空格和换行符。
 
 ### 单引号
@@ -702,11 +701,11 @@ be a source of mystery and confusion, and much of it potential power wasted.
 * The bash man page has major sections on both expansion and quoting which
   cover these topics in a more formal manner.
 
-* Bash 手册页有主要段落是关于展开和引用的，它们以更正式的方式介绍了这些题目。
+* Bash 手册页有主要段落是关于展开和引用的，内容更全面。
 
 * The Bash Reference Manual also contains chapters on expansion and quoting:
 
-* Bash 参考手册也包含章节，介绍展开和引用：
+* Bash 参考手册也包含绍展开和引用的相关内容：
 
     <http://www.gnu.org/software/bash/manual/bashref.html>
 
