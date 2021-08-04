@@ -12,8 +12,8 @@ is never having to lift your fingers from the keyboard, never reaching for the m
 this chapter, we will look at bash features that make keyboard use faster and more
 efficient.
 
-开玩笑地说，我经常把 Unix 描述为“这个操作系统是为喜欢敲键盘的人们服务的。”
-当然，Unix 甚至还有一个命令行这件事证明了我所说的话。但是命令行用户不喜欢敲入
+开玩笑地说，我经常把 Unix 描述为“这个操作系统是为喜欢敲键盘的人们而生的。”
+当然，Unix 有命令行这件事证明了我所说的话。但是命令行用户不喜欢敲入
 那么多字。要不为什么会有如此多的命令有这样简短的命令名，像cp、ls、mv和 rm？事实上
 ，命令行最为珍视的目标之一就是懒惰；用最少的击键次数来完成最多的工作。另一个
 目标是你的手指永远不必离开键盘，永不触摸鼠标。在这一章节，我们将看一下 bash 特性
@@ -40,17 +40,15 @@ features. Think of these as additional tools that we can employ in our work. It�
 important to learn all of them, but many of them are very useful. Pick and choose as
 desired.
 
-Bash 使用了一个名为 Readline 的库（共享的例程集合，可以被不同的程序使用），
-来实现命令行编辑。我们已经看到一些例子。我们知道，例如，箭头按键可以移动光标，
-此外还有许多特性。想想这些额外的工具，我们可以在工作中使用。学会所有的特性
-并不重要，但许多特性非常有帮助。选择自己需要的特性。
+Bash 使用了一个名为 Readline 的库（一系列功能的集合，可以被不同的程序使用），
+来实现命令行编辑。我们已经用过一些这个库所带的功能了。例如，用箭头按键可以移动光标等等。这些功能可以在工作中帮我们提高命令行编辑的效率。不一定要把所有的功能都学会，但会一些是非常有帮助的。选择自己常用的学吧。
 
 Note: Some of the key sequences below (particularly those which use the Alt key)
 may be intercepted by the GUI for other functions. All of the key sequences should
 work properly when using a virtual console.
 
-注意：下面一些按键组合（尤其使用 Alt 键的组合），可能会被 GUI 拦截来触发其它的功能。
-当使用虚拟控制台时，所有的按键组合都应该正确地工作。
+注意：当我们处于图形化环境时，下面一些按键组合（尤其使用 Alt 键的组合），可能会被图形界面拦截来触发其它的功能。
+但是当切换到虚拟控制台时，所有的按键组合都会正常工作。
 
 ### 移动光标
 
@@ -716,8 +714,7 @@ become more involved with the command line, you will refer back to this chapter 
 up more of these tricks. For now, consider them optional and potentially helpful.
 
 在这一章中，我们已经讨论了一些由 shell 提供的键盘操作技巧，这些技巧是来帮助打字员减少工作量的。
-随着时光流逝，你和命令行打交道越来越多，我猜想你会重新翻阅这一章的内容，学会更多的技巧。
-目前，你就认为它们是可选的，潜在地有帮助的。
+随着时光流逝，你和命令行打交道越来越多，我猜想你会重新翻阅这一章的内容，学会更多的技巧。现在不用一下子全记住。ß˙
 
 ### 拓展阅读
 
