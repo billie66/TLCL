@@ -105,8 +105,8 @@ information about your identity, use the id command:
 在 Unix 安全模型中，一个用户可能拥有文件和目录。当一个用户拥有一个文件或目录时，
 用户对这个文件或目录的访问权限拥有控制权。用户反过来又属于一个由一个或多个
 用户组成的用户组，用户组成员由文件和目录的所有者授予对文件和目录的访问权限。除了
-对一个用户组授予权限之外，文件所有者可能会给每个人一些权限，在 Unix 术语中，每个人
-是指整个世界。可以用 id 命令，来找到关于你自己身份的信息：
+对一个用户组授予权限之外，文件所有者可能会给所有的人授权，在 Unix 术语中，”所有的人“
+也被称作“整个世界”（ world ）。可以用 id 命令，来找到关于你自己身份的信息：
 
     [me@linuxbox ~]$ id
     uid=500(me) gid=500(me) groups=500(me)
@@ -119,8 +119,8 @@ may look a little different:
 
 让我们看一下输出结果。当用户创建帐户之后，系统会给用户分配一个号码，叫做用户 ID
 或者 uid，然后，为了符合人类的习惯，这个 ID 映射到一个用户名。系统又会给这个用户
-分配一个原始的组 ID(即 gid)。一个用户可以属于额外的组(除gid外,有更多的组)。上面的例子来自于 Fedora 系统，
-比方说 Ubuntu 的输出结果可能看起来有点儿不同：
+分配一个原始的组 ID(即 gid)。一个用户可以属于多个组。上面的例子来自于 Fedora 系统，
+下面 Ubuntu 的输出结果看起来有点儿不同：
 
     [me@linuxbox ~]$ id
     uid=1000(me) gid=1000(me)
@@ -145,11 +145,11 @@ the account's real name, home directory, and login shell. If you examine the con
 /etc/passwd and /etc/group, you will notice that besides the regular user
 accounts, there are accounts for the superuser (uid 0) and various other system users.
 
-那么这些信息来源于哪里呢？像 Linux 系统中的许多东西一样，来自一系列的文本文件。用户帐户
-定义在/etc/passwd 文件里面，用户组定义在/etc/group 文件里面。当用户帐户和用户组创建以后，
-这些文件随着文件/etc/shadow 的变动而修改，文件/etc/shadow 包含了关于用户密码的信息。
-对于每个用户帐号，文件/etc/passwd 定义了用户（登录）名、uid、gid、帐号的真实姓名、家目录
-和登录 shell。如果你查看一下文件/etc/passwd 和文件/etc/group 的内容，你会注意到除了普通
+那么这些信息存在哪里呢？像 Linux 系统中的许多东西一样，存到了一系列的文本文件。用户帐户
+定义在 /etc/passwd 文件里面，用户组定义在 /etc/group 文件里面。当用户帐户和用户组创建以后，
+这些文件随着文件 /etc/shadow 的变动而修改，文件 /etc/shadow 包含了关于用户密码的信息。
+对于每个用户帐号，文件 /etc/passwd 定义了用户（登录）名、uid、gid、帐号的真实姓名、家目录
+和登录 shell。如果你查看一下文件 /etc/passwd 和文件 /etc/group 的内容，你会注意到除了普通
 用户帐号之外，还有超级用户（uid 0）帐号，和各种各样的系统用户。
 
 In the next chapter, when we cover processes, you will see that some of these other
@@ -161,7 +161,7 @@ While many Unix-like systems assign regular users to a common group such as “u
 modern Linux practice is to create a unique, single-member group with the same name as
 the user. This makes certain types of permission assignment easier.
 
-然而许多像 Unix 的系统会把普通用户分配到一个公共的用户组中，例如“users”，现在的 Linux
+然而许多像 Unix 的系统会把普通用户分配到一个公共的用户组中，例如 users ，现在的 Linux
 会创建一个独一无二的，只有一个成员的用户组，这个用户组与用户同名。这样使某种类型的
 权限分配更容易些。
 
@@ -171,7 +171,7 @@ Access rights to files and directories are defined in terms of read access, writ
 execution access. If we look at the output of the ls command, we can get some clue as
 to how this is implemented:
 
-对于文件和目录的访问权力是根据读访问、写访问和执行访问来定义的。如果我们看一下 ls
+对于文件和目录的访问权力是根据”读权限“、”写权限“和“执行权限“来定义的。如果我们看一下 ls
 命令的输出结果，我们能得到一些线索，这是怎样实现的：
 
     [me@linuxbox ~]$ > foo.txt
@@ -471,7 +471,7 @@ number we can see that the red component of our color is “43”, the green “
 >
 > 因为十六进制中的两个数字对应二进制的8位数字，我们可以看到”43“代表红色，“6F”
 代表绿色，“CD”代表蓝色。
->
+>†
 > These days, hexadecimal notation (often spoken as “hex”) is more common than
 octal, but as we shall soon see, octal's ability to express three bits of binary will
 be very useful...
@@ -705,8 +705,8 @@ octal representation of our mask. We next create a new instance of the file foo.
 observe its permissions.
 
 首先，删除文件 foo.txt，以此确定我们从新开始。下一步，运行不带参数的 umask 命令，
-看一下当前的掩码值。响应的数值是0002（0022是另一个常用值），这个数值是掩码的八进制
-表示形式。下一步，我们创建文件 foo.txt，并且保留它的权限。
+看一下当前的掩码值，数值是0002（0022是另一个常用的默认值），这个数值是掩码的八进制
+表示形式。下一步，我们创建文件 foo.txt，看看它的权限。
 
 We can see that both the owner and group both get read and write permission, while
 everyone else only gets read permission. The reason that world does not have write
@@ -742,10 +742,9 @@ of the mask, an attribute is unset. If we look at a mask value of 0022, we can s
 does:
 
 此刻先忽略掉开头的三个零（我们一会儿再讨论），注意掩码中若出现一个数字1，则
-删除文件模式中和这个1在相同位置的属性，在这是指其他人的写权限。这就是掩码要完成的
+删除文件模式中和这个1在相同位置的权限，在这是其他人的写权限。这就是掩码要完成的
 任务。掩码的二进制形式中，出现数字1的位置，相应地关掉一个文件模式属性。看一下
 掩码0022的作用：
-
 
 |Original file mode | -\-\- rw- rw- rw-|
 |Mask | 000 000 010 010|
@@ -870,7 +869,7 @@ we want to gain superuser privileges to carry out some administrative task, but 
 possible to “become” another regular user for such things as testing an account. There
 are three ways to take on an alternate identity:
 
-在不同的时候，我们会发现很有必要具有另一个用户的身份。经常地，我们想要得到超级
+很多时候，我们会发现很有必要使用另一个用户的身份来执行一些操作。经常地，我们想要得到超级
 用户特权，来执行一些管理任务，但是也有可能"变为"另一个普通用户，比如说测试一个帐号。
 有三种方式，可以拥有多重身份：
 
@@ -900,9 +899,9 @@ either one or the other. We'll start with su.
 我们将跳过第一种方法，因为我们知道怎样使用它，并且它缺乏其它两种方法的方便性。
 在我们自己的 shell 会话中，su 命令允许你假定为另一个用户的身份，以这个用户的 ID
 启动一个新的 shell 会话，或者是以这个用户的身份来发布一个命令。sudo 命令允许一个管理员
-设置一个叫做/etc/sudoers 的配置文件，并且定义了一些具体命令，在假定的身份下，特殊用户
-可以执行这些命令。选择使用哪个命令，很大程度上是由你使用的 Linux 发行版来决定的。
-你的发行版可能这两个命令都包含，但系统配置可能会偏袒其中之一。我们先介绍 su 命令。
+设置一个叫做 /etc/sudoers 的配置文件，并且定义了一些具体命令，允许变身用户
+执行这些命令。选择使用哪个命令，很大程度上是由你使用的 Linux 发行版来决定的。
+你的发行版可能这两个命令都包含，但系统配置可能会禁用其中一个。我们先介绍 su 命令。
 
 ### su － 以其他用户身份和组 ID 运行一个 shell
 
@@ -1133,7 +1132,7 @@ tony, who does not. User janet wants to copy a file from her home directory to t
 home directory of user tony. Since user janet wants tony to be able to edit the file,
 janet changes the ownership of the copied file from janet to tony:
 
-比方说，我们有两个用户，janet拥有超级用户访问权限，而 tony 没有。用户 janet 想要从
+比方说，我们有两个用户，janet 拥有超级用户访问权限，而 tony 没有。用户 janet 想要从
 她的家目录复制一个文件到用户 tony 的家目录。因为用户 janet 想要 tony 能够编辑这个文件，
 janet 把这个文件的所有者更改为 tony:
 

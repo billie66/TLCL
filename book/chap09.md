@@ -714,7 +714,7 @@ become more involved with the command line, you will refer back to this chapter 
 up more of these tricks. For now, consider them optional and potentially helpful.
 
 在这一章中，我们已经讨论了一些由 shell 提供的键盘操作技巧，这些技巧是来帮助打字员减少工作量的。
-随着时光流逝，你和命令行打交道越来越多，我猜想你会重新翻阅这一章的内容，学会更多的技巧。现在不用一下子全记住。ß˙
+随着时光流逝，你和命令行打交道越来越多，我猜想你会重新翻阅这一章的内容，学会更多的技巧。现在不用一下子全记住。
 
 ### 拓展阅读
 
