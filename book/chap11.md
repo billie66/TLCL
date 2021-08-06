@@ -10,7 +10,7 @@ Linux organizes the different programs waiting for their turn at the CPU.
 
 通常，现在的操作系统都支持多任务，意味着操作系统通过在一个执行中的程序和另一个
 程序之间快速地切换造成了一种它同时能够做多件事情的假象。Linux 内核通过使用进程来
-管理多任务。进程，就是Linux 组织安排正在等待使用 CPU的各种程序的方式。
+管理多任务。进程，就是 Linux 组织安排正在等待使用 CPU 的各种程序的方式。
 
 Sometimes a computer will become sluggish or an application will stop responding. In
 this chapter, we will look at some of the tools available at the command line that let us
@@ -66,14 +66,14 @@ thing without having any user interface. So even if we are not logged in, the sy
 least a little busy performing routine stuff.
 
 当系统启动的时候，内核先把一些它自己的活动初始化为进程，然后运行一个叫做 init 的程序。init，
-依次地，再运行一系列的称为 init 脚本的 shell 脚本（位于/etc），它们可以启动所有的系统服务。
-其中许多系统服务以守护（daemon）程序的形式实现，守护程序仅在后台运行，没有任何用户接口(User Interface)。
-这样，即使我们没有登录系统，至少系统也在忙于执行一些例行事务。
+依次地，再运行一系列的称为 init 脚本的 shell 脚本（位于 /etc ），它们可以启动所有的系统服务。
+其中许多系统服务以守护进程（daemon）的形式实现，守护进程仅在后台运行，没有任何用户接口(User Interface)。
+即使我们没有登录系统，系统也在执行一些例行事务。
 
 The fact that a program can launch other programs is expressed in the process scheme as
 a parent process producing a child process.
 
-在进程方案中，一个程序可以发动另一个程序被表述为一个父进程可以产生一个子进程。
+从进程的角度而言，一个程序启动另一个程序可以被表述为一个父进程可以产生一个子进程。
 
 The kernel maintains information about each process to help keep things organized. For
 example, each process is assigned a number called a process ID or PID. PIDs are
@@ -109,7 +109,7 @@ process. As we can see, neither process makes the computer work very hard.
 上例中，列出了两个进程，进程 5198 和进程 10129，各自代表命令 bash 和 ps。正如我们所看到的，
 默认情况下，ps 不会显示很多进程信息，只是列出与当前终端会话相关的进程。为了得到更多信息，
 我们需要加上一些选项，但是在这样做之前，我们先看一下 ps 命令运行结果的其它字段。
-TTY 是 "Teletype"(直译电传打字机) 的简写，是指进程的控制终端。TTY足足显示了 Unix 的年代久远。TIME 字段表示
+TTY 是 "Teletype"(直译电传打字机) 的简写，是指进程的控制终端。TTY 体现了 Unix 的年代久远。TIME 字段表示
 进程所消耗的 CPU 时间数量。正如我们所看到的，这两个进程使计算机工作起来很轻松。
 
 If we add an option, we can get a bigger picture of what the system is doing:
@@ -137,8 +137,8 @@ to pipe the output from ps into less for easier viewing. Some option combination
 produce long lines of output, so maximizing the terminal emulator window may be a
 good idea, too.
 
-因为系统中正运行着许多进程，所以 ps 命令的输出结果很长。为了方便查看，将ps的输出管道
-到less中通常很有帮助。一些选项组合也会产生很长的输出结果，所以最大化
+因为系统中正运行着许多进程，所以 ps 命令的输出结果很长。为了方便查看，将 ps 的输出管道
+到 less 中通常很有帮助。一些选项组合也会产生很长的输出结果，所以最大化
 终端仿真器窗口可能也是一个好主意。
 
 A new column titled STAT has been added to the output. STAT is short for “state” and
@@ -241,7 +241,7 @@ valign="top">一个高优先级进程。这可能会授予一个进程更多重�
 <tr>
 <td valign="top">N</td>
 <td valign="top">低优先级进程。
-一个低优先级进程（一个“nice”进程）只有当其它高优先级进程被服务了之后，才会得到处理器时间。
+一个低优先级进程，只有当其它高优先级进程被服务了之后，才会得到处理器时间。
 </td>
 </tr>
 </tbody>
@@ -250,7 +250,7 @@ valign="top">一个高优先级进程。这可能会授予一个进程更多重�
 The process state may be followed by other characters. These indicate various exotic
 process characteristics. See the ps man page for more detail.
 
-进程状态信息之后，可能还跟随其他的字符。这表示各种外来进程的特性。详细信息请看 ps 手册页。
+进程状态信息之后，可能还跟随其他的字符，来表示各种外来进程的特性。详细信息请看 ps 手册页。
 
 Another popular set of options is “aux” (without a leading dash). This gives us even
 more information:
@@ -559,7 +559,7 @@ valign="top">加载平均值是指，等待运行的进程数目，也就是说�
 <tr>
 <td valign="top"></td>
 <td valign="top">0.0%ni </td>
-<td valign="top">0.0%的 CPU 时间被用于"nice"（低优先级）进程。
+<td valign="top">0.0%的 CPU 时间被用于低优先级进程。
 </td>
 </tr>
 <tr>
@@ -599,9 +599,8 @@ fewer system resources. After all, our system monitor program shouldn't be the s
 the system slowdown that we are trying to track.
 
 两个主要的桌面环境都提供了图形化应用程序，来显示与 top 程序相似的信息
-（和 Windows 中的任务管理器差别不多），但是我觉得 top 程序要好于图形化的版本，
-因为它运行速度快，并且消费很少的系统资源。毕竟，我们的系统监测程序不能成为
-我们试图追踪的系统怠工的原因。
+（和 Windows 中的任务管理器类似），但是我觉得 top 程序要好于图形化的版本，
+因为它运行速度快，并且消费很少的系统资源。总不至于因为启动了监控界面，让那被监控的系统都变慢。
 
 ### 控制进程
 
@@ -676,7 +675,7 @@ immediately placed in the background, we follow the command with an- “&” cha
 
 假如说我们想让 shell 提示符返回，却不终止 xlogo 程序。我们可以把
 这个程序放到后台(background)执行。把终端想象是一个有前台（包含在表层可见的事物，像 shell 提示符）
-和后台（包含表层之下的隐藏的事物）（的设备）。为了启动一个程序并让它立即在后台
+和后台（包含表层之下的隐藏的事物）的设备。为了启动一个程序并让它立即在后台
 运行，我们在程序命令之后，加上"&"字符：
 
     [me@linuxbox ~]$ xlogo &
@@ -729,7 +728,7 @@ The command fg followed by a percent sign and the job number (called a jobspec) 
 the trick. If we only have one background job, the jobspec is optional. To terminate
 xlogo, type Ctrl-c.
 
-fg 命令之后，跟随着一个百分号和任务序号（叫做 jobspec,如此处的%1）就可以了。如果我们只有一个后台任务，那么
+fg 命令之后，跟随着一个百分号和任务序号（叫做 jobspec ，如此处的 %1）就可以了。如果我们只有一个后台任务，那么
 jobspec(job specification) 是可有可无的。输入 Ctrl-c 来终止 xlogo 程序。
 
 ### 停止一个进程
@@ -739,8 +738,8 @@ allow a foreground process to be moved to the background. To stop a foreground
 process, type Ctrl-z. Let's try it. At the command prompt, type xlogo, the Enter
 key, then Ctrl-z:
 
-有时候，我们想要停止一个进程，而不是终止它。我们这么做通常是为了允许前台进程被移动到后台。
-输入 Ctrl-z，可以停止一个前台进程。让我们试一下。在命令提示符下，执行 xlogo 命令，
+有时候，我们想要停下一个进程，而不是终止它。我们这么做通常是为了允许前台进程被移动到后台。
+输入 Ctrl-z，可以停下一个前台进程。让我们试一下。在命令提示符下，执行 xlogo 命令，
 然后输入 Ctrl-z:
 
     [me@linuxbox ~]$ xlogo
@@ -816,9 +815,9 @@ do things like save work in progress when it is sent a termination signal.
 
 虽然这个命令看上去很直白， 但是它的含义不止于此。这个 kill 命令不是真的“杀死”程序，而是给程序
 发送信号。信号是操作系统与程序之间进行通信时所采用的几种方式中的一种。
-在使用 Ctrl-c 和 Ctrl-z 的过程中我们已经看到信号的实际用法。当终端接受了其中一个按键组合后，它会给在前端运行
-的程序发送一个信号。在使用 Ctrl-c 的情况下，会发送一个叫做 INT（Interrupt,中断）的信号；当使用
-Ctrl-z 时，则发送一个叫做 TSTP（Terminal Stop,终端停止）的信号。程序，相应地，监听信号的到来，当程序
+ Ctrl-c 和 Ctrl-z 就是信号的实际例子。当终端接受了其中一个按键组合后，它会给在前端运行
+的程序发送一个信号。在使用 Ctrl-c 的情况下，会发送一个叫做 INT（Interrupt ，中断）的信号；当使用
+Ctrl-z 时，则发送一个叫做 TSTP（Terminal Stop ，终端停止）的信号。程序，相应地，监听信号的到来，当程序
 接到信号之后，则做出响应。一个程序能够监听和响应信号这件事允许一个程序做些事情，
 比如，当程序接到一个终止信号时，它可以保存所做的工作。
 
@@ -906,7 +905,7 @@ thus it cannot be ignored.</td>
 <tr>
 <td valign="top" width="10%">1</td>
 <td valign="top" width="10%">HUP</td>
-<td valign="top">挂起（Hangup）。这是美好往昔的残留部分，那时候终端机通过电话线和调制解调器连接到
+<td valign="top">挂起（Hangup）。名字来源于很久以前，那时候终端机通过电话线和调制解调器连接到
 远端的计算机。这个信号被用来告诉程序，控制的终端机已经“挂断”。
 通过关闭一个终端会话，可以展示这个信号的作用。在当前终端运行的前台程序将会收到这个信号并终止。
 <p>许多守护进程也使用这个信号，来重新初始化。这意味着，当一个守护进程收到这个信号后，
@@ -1158,6 +1157,6 @@ Terminate the output with Ctrl-c.</td>
 </tr>
 <tr>
 <td valign="top">tload</td>
-<td valign="top">terminal load与 xload 程序相似，但是在终端中画出图形。使用 Ctrl-c，来终止输出。</td>
+<td valign="top">terminal load 与 xload 程序相似，但是在终端中画出图形。使用 Ctrl-c，来终止输出。</td>
 </tr>
 </table>
