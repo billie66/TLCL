@@ -43,7 +43,7 @@ basically everything else. In addition to variables, the shell also stores some
 programmatic data, namely aliases and shell functions. We covered aliases in Chapter 6,
 and shell functions (which are related to shell scripting) will be covered in Part 5.
 
-shell 在环境中存储了两种基本类型的数据，虽然 bash 几乎无法分辨这些数据的类型。
+shell 在环境中存储了两种基本类型的数据，虽然在 bash 里，我们几乎无法区分它们。
 它们是环境变量和 shell 变量。Shell 变量是 bash 存放的少量数据。剩下的都是
 环境变量。除了变量，shell 也存储了一些可编程的数据，即别名和 shell 函数。我们
 已经在第六章讨论了别名，而 shell 函数（涉及到 shell 脚本）将会在本章第五部分叙述。
@@ -92,8 +92,8 @@ What we see is a list of environment variables and their values. For example, we
 variable called USER, which contains the value "me". The printenv command can
 also list the value of a specific variable:
 
-我们所看到的是环境变量及其数值的列表。例如，我们看到一个叫做 USER 的变量，这个变量值是
-"me"。printenv 命令也能够列出特定变量的数值：
+我们所看到的是环境变量及其值的列表。例如，我们看到一个叫做 USER 的变量，这个变量值是
+"me"。printenv 命令也能够列出特定变量的值：
 
     [me@linuxbox ~]$ printenv USER
     me
@@ -133,7 +133,7 @@ The environment contains quite a few variables, and though your environment may 
 from the one presented here, you will likely see the following variables in your
 environment:
 
-shell 环境中包含相当多的变量。虽然你的 shell 环境可能与这里的不同，你可能会看到
+shell 环境中包含相当多的变量。虽然你的 shell 环境可能与我这里的不同，但也大概率会看到
 以下的环境变量：
 
 <table class="multi">
@@ -290,7 +290,7 @@ personal environment. The exact sequence depends on the type of shell session be
 started. There are two kinds: a login shell session and a non-login shell session.
 
 当我们登录系统后， bash 程序启动，并且会读取一系列称为启动文件的配置脚本，
-这些文件定义了默认的可供所有用户共享的 shell 环境。然后是读取更多位于我们自己家目录中
+这些文件定义了默认的可供所有用户共享的 shell 环境。然后是读取更于当前用户自己家目录中
 的启动文件，这些启动文件定义了用户个人的 shell 环境。确切的启动顺序依赖于要运行的 shell 会话
 类型。有两种 shell 会话类型：一个是登录 shell 会话，另一个是非登录 shell 会话。
 
@@ -467,7 +467,7 @@ list of directories that are contained in the PATH variable.
 
 是否曾经对 shell 怎样知道在哪里找到我们在命令行中输入的命令感到迷惑？例如，当我们输入 ls 后，
 shell 不会查找整个计算机系统来找到 /bin/ls（ls 命令的全路径名），相反，它查找一个目录列表，
-这些目录包含在 PATH 变量中。
+这个列表就包含在 PATH 变量中。
 
 The PATH variable is often (but not always, depending on the distribution) set by the
 /etc/profile startup file and with this code:
@@ -585,7 +585,7 @@ emacs editor was originally written by Richard Stallman. It is a gigantic, all-p
 does-everything programming environment. While readily available, it is seldom
 installed on most Linux systems by default.
 
-有许多基于文本的编辑器。你将会遇到一些流行的编辑器，它们是 nano、vi和 emacs。 nano 编辑器
+另外，也有许多文本界面（无 GUI ）的编辑器。你将会遇到一些流行的编辑器，例如 nano、vi 和 emacs 。 nano 编辑器
 是一个简单易用的编辑器，用于替代随 PINE 邮件套件提供的 pico 编辑器。vi 编辑器
 （在大多数 Linux 系统中被 vim 替代，vim 是 "Vi IMproved"的简写）是类 Unix 操作系统的传统编辑器。
 vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stallman 写成。它是一个庞大、多用途的，
@@ -596,7 +596,7 @@ vim 是我们下一章节的讨论对象。emacs 编辑器最初由 Richard Stal
 All text editors can be invoked from the command line by typing the name of the editor
 followed by the name of the file you want to edit. If the file does not already exist, the
 editor will assume that you want to create a new file. Here is an example using gedit:
-
+ 
 所有的文本编辑器都可以通过在命令行中输入编辑器的名字，加上你所想要编辑的文件来唤醒。如果所
 输入的文件名不存在，编辑器则会假定你想要创建一个新文件。下面是一个使用 gedit 的例子：
 
@@ -815,7 +815,7 @@ uncommenting, you will activate the aliases. Conversely, if you add a "#"
 symbol to the beginning of a line, you can deactivate a configuration line while
 preserving the information it contains.
 >
-> 最后三行是有效的被注释掉的别名定义。如果你删除这三行开头的 "#" 符号，此技术程称为
+> 最后三行是有效的被注释掉的别名定义。如果你删除这三行开头的 "#" 符号，此操作称为
 uncommenting (取消注释)，这样你就会激活这些别名。相反地，如果你在一行的开头加上 "#" 符号，
 你可以注销掉这一行，但会保留它所包含的信息。
 
