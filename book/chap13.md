@@ -25,10 +25,9 @@ great art. We won't become masters in this chapter, but when we are done, we wil
 how to play “chopsticks” in vi.
 
 学习 Linux 命令行，就像要成为一名造诣很深的钢琴家一样，它不是我们一下午就能学会的技能。这需要
-经历几年的勤苦练习。在这一章中，我们将介绍 vi（发音“vee eye”）文本编辑器，它是 Unix 传统中核心程序之一。
-vi 因它难用的用户界面而有点声名狼藉，但是当我们看到一位大师坐在钢琴前开始演奏时，我们的确成了
-伟大艺术的见证人。虽然我们在这里不能成为 vi 大师，但是当我们学完这一章后，
-我们会知道怎样在 vi 中弹奏像“Chopsticks”那样的钢琴小品。
+经历多年的勤苦练习。在这一章中，我们将介绍 vi（发音“vee eye”）文本编辑器，它是 Unix 传统中核心程序之一。
+vi 因它难用的用户界面而有点声名狼藉，但是一位大师操作它的过程也的确非常具有艺术性。虽然我们在这里不能成为 vi 大师，但是当我们学完这一章后，
+我们会知道怎样在 vi 中完成日常任务。
 
 Why We Should Learn vi
 
@@ -37,7 +36,7 @@ Why We Should Learn vi
 In this modern age of graphical editors and easy-to-use text-based editors such as nano,
 why should we learn vi? There are three good reasons:
 
-在现在这个图形化编辑器和易于使用的基于文本编辑器的时代，比如说 nano，为什么我们还应该学习 vi 呢？
+在现在这个图形化编辑器和易于使用的基于文本编辑器的时代，为什么我们还应该学习 vi 呢？
 下面有三个充分的理由：
 
 * vi is always available. This can be a lifesaver if we have a system with no
@@ -83,10 +82,10 @@ use line editing commands while using vi.
 第一版 vi 是在1976由 Bill Joy 写成的，当时他是加州大学伯克利分校的学生，
 后来他共同创建了 Sun 微系统公司。vi 这个名字
 来源于单词“visual”，因为它打算在带有可移动光标的视频终端上编辑文本。在发明可视化编辑器之前，
-有一次只能操作一行文本的行编辑器。为了编辑，我们需要告诉行编辑器到一个特殊行并且
+人们使用的是一次只能操作一行文本的行编辑器。为了编辑，用户需要告诉行编辑器到哪一行并且
 说明做什么修改，比方说添加或删除文本。视频终端（而不是基于打印机的终端，像电传打印机）的出现
 ，使可视化编辑成为可能。vi 实际上整合了一个强大的行编辑器 ———— ex ,
-所以我们在使用 vi 时能运行行编辑命令。
+所以我们在使用 vi 时也能运行行编辑命令。
 
 Most Linux distributions don't include real vi; rather, they ship with an enhanced
 replacement called vim (which is short for “vi improved”) written by Bram Moolenaar.
@@ -97,7 +96,7 @@ will assume that we have a program called “vi” that is really vim.
 大多数 Linux 发行版不包含真正的 vi；而是自带一款高级替代版本，叫做 vim（它是“vi
 improved”的简写）由 Bram Moolenaar 开发的。vim 相对于传统的 Unix
 vi 来说，取得了实质性进步。通常，vim 在 Linux 系统中是“vi”的符号链接（或别名）。
-在随后的讨论中，我们将会假定我们有一个叫做“vi”的程序，但它其实是 vim。
+后面的内容我们专注 vim ，但我们会把 vim 简称 vi 。
 
 Starting And Stopping vi
 
@@ -119,7 +118,7 @@ And a screen like this should appear:
 Just as we did with nano earlier, the first thing to learn is how to exit. To exit, we enter
 the following command (note that the colon character is part of the command):
 
-正如我们之前操作 nano 时，首先要学的是怎样退出 vi。要退出 vi，输入下面的命令（注意冒号是命令的一部分）：
+首先要学的是怎样退出 vi。要退出 vi，输入下面的命令（注意冒号是命令的一部分）：
 
     :q
 
@@ -464,7 +463,7 @@ cursor to the end of the line and type “a”, the cursor will move past the en
 and vi will enter insert mode. This will allow us to add some more text:
 
 如果我们想要在这个句子的末尾添加一些文本，我们会发现 i 命令不能完成任务，因为我们不能把
-光标移到行尾。vi 提供了追加文本的命令，明智地命名为"a"。如果我们把光标移动到行尾，输入"a",
+光标移到行尾。vi 提供了追加文本的命令，根据英文单词命名为"a"。如果我们把光标移动到行尾，输入"a",
 光标就会越过行尾，同时 vi 会进入插入模式。这让我们能添加文本到行末：
 
     The quick brown fox jumped over the lazy dog. It was cool.
@@ -507,7 +506,7 @@ Opening A Line
 Another way we can insert text is by “opening” a line. This inserts a blank line between
 two existing lines and enters insert mode. This has two variants:
 
-我们插入文本的另一种方式是“打开（open）”一行。这会在两行之间插入一个空白行，并且进入到插入模式。
+我们插入文本的另一种方式是“另起（open）”一行。这会在两行之间插入一个空白行，并且进入到插入模式。
 这种方式有两个变体：
 
 <table class="multi">
@@ -527,18 +526,18 @@ two existing lines and enters insert mode. This has two variants:
 </table>
 
 <table class="multi">
-<caption class="cap">表13-2: 文本行打开按键</caption>
+<caption class="cap">表13-2: 另起一行按键</caption>
 <tr>
 <th class="title">命令</th>
 <th class="title">打开行</th>
 </tr>
 <tr>
 <td valign="top" width="25%">o</td>
-<td valign="top">当前行的下方打开一行。</td>
+<td valign="top">当前行的下方另起一行。</td>
 </tr>
 <tr>
 <td valign="top">O</td>
-<td valign="top">当前行的上方打开一行。</td>
+<td valign="top">当前行的上方另起一行。</td>
 </tr>
 </table>
 
@@ -556,11 +555,11 @@ We can demonstrate this as follows: place the cursor on “Line 3” then press 
 A new line was opened below the third line and we entered insert mode. Exit insert mode
 by pressing the Esc key. Press the u key to undo our change.
 
-在第三行之下打开了新的一行，并且进入插入模式。按下 Esc，退出插入模式。按下 u 按键，撤销我们的修改。
+在第三行之下另起了新的一行，并且进入插入模式。按下 Esc，退出插入模式。按下 u 按键，撤销我们的修改。
 
 Press the O key to open the line above the cursor:
 
-按下大 O 按键在光标之上打开新的一行：
+按下大 O 按键在光标之上另起新的一行：
 
     The quick brown fox jumped over the lazy dog. It was cool.
     Line 2
@@ -584,7 +583,7 @@ more general purpose. Like x, it may be preceded by a number specifying the numb
 times the deletion is to be performed. In addition, d is always followed by a movement
 command that controls the size of the deletion. Here are some examples:
 
-正如我们所愿，vi 提供了各种删除文本到的方法，而且只需一或两个按键。首先，
+正如我们所愿，vi 提供了各种删除文本的方法，而且只需一或两个按键。首先，
 x 按键会删除光标位置的一个字符。可以在 x 命令之前带上一个数字，来指明要删除的字符个数。
 d 按键更通用一些。跟 x 命令一样，d 命令之前可以带上一个数字，来指定要执行的删除次数。另外，
 d 命令之后总是带上一个移动命令，用来控制删除的范围。这里有些实例：
@@ -694,7 +693,7 @@ deletion is undone.
 
 Note: Real vi only supports a single level of undo. vim supports multiple levels.
 
-注意：真正的 vi 只是支持单层面的 undo 命令。vim 则支持多个层面的。
+注意：真正的 vi 只是支持单层的 undo 命令。vim 则支持多层的。
 
 Let's try the deletion again, this time using the d command. Again, move the cursor to
 the word “It” and press dW to delete the word:
@@ -957,7 +956,7 @@ vi uses an ex command to perform search and replace operations (called “substi
 in vi) over a range of lines or the entire file. To change the word “Line” to “line” for the
 entire file, we would enter the following command:
 
-vi 使用 ex 命令来执行查找和替代操作（vi 中叫做“替换”）。将整个文件中的单词“Line”更改为“line”，
+vi 使用 ex 命令来执行查找和替代操作。将整个文件中的单词“Line”更改为“line”，
 输入以下命令：
 
     :%s/Line/line/g
@@ -1074,6 +1073,7 @@ Each of the characters within the parentheses is a possible choice as follows:
 </tr>
 <tr>
 <td valign="top">n</td>
+
 <td valign="top">Skip this instance of the pattern.</td>
 </tr>
 <tr>
@@ -1361,7 +1361,7 @@ Like everything else in vi, there are several different ways to save our edited 
 have already covered the ex command :w, but there are some others we may also find
 helpful.
 
-像 vi 中的其它操作一样，有几种不同的方法来保存我们所修改的文件。我们已经研究了:w 这个
+像 vi 中的其它操作一样，有几种不同的方法来保存我们所修改的文件。我们已经研究了 :w 这个
 ex 命令， 但还有几种方法，可能我们也觉得有帮助。
 
 In command mode, typing ZZ will save the current file and exit vi. Likewise, the ex
@@ -1429,12 +1429,4 @@ continue your journey towards vi mastery:
 
   <http://en.wikipedia.org/wiki/Bram_Moolenaar>
 
-* Wikipedia 上关于开头作者提到的Chopsticks钢琴曲的介绍：
-
-  https://en.wikipedia.org/wiki/Chopsticks_(music)
-  
-* Youku 上视频一段 Chopsticks” (The Celebrated Chop Waltz) on Piano：
-
-  http://v.youku.com/v_show/id_XMzEyOTk4ODkwMA==.html
-  
 
