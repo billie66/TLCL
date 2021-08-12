@@ -7,15 +7,15 @@ In this chapter we will look at a seemingly trivial detail — our shell prompt.
 examination will reveal some of the inner workings of the shell and the terminal emulator
 program itself.
 
-在这一章中，我们将会看一下表面上看来很琐碎的细节－shell 提示符。但这会揭示一些 shell 和
+在这一章中，我们将关注一个很小的细节－shell 提示符。但这会揭示一些 shell 和
 终端仿真器的内部工作方式。
 
 Like so many things in Linux, the shell prompt is highly configurable, and while we have
 pretty much taken it for granted, the prompt is a really useful device once we learn how
 to control it.
 
-和 Linux 内的许多程序一样，shell 提示符是可高度配置的，虽然我们把它相当多地看作是理所当然的，
-但是我们一旦学会了怎样控制它，shell 提示符是一个相当有用的工具。
+和 Linux 内的许多程序一样，shell 提示符是可高度配置的，虽然我们把它看作是理所当然，
+但是我们一旦学会了怎样控制它，就会发现自定制的 shell 提示符是相当有用的。
 
 Anatomy Of A Prompt
 
@@ -242,7 +242,7 @@ cursor or changing text colors.
 </tr>
 <tr>
 <td valign="top">\V</td>
-<td valign="top">Version and release numbers of the shell.</td>
+<td valign="top">shell 的版本号</td>
 </tr>
 <tr>
 <td valign="top">\w</td>
@@ -281,7 +281,7 @@ cursor or changing text colors.
 
 Trying Some Alternate Prompt Designs
 
-### 试试一些可替代的提示符设计
+### 自定制提示符
 
 With this list of special characters, we can change the prompt to see the effect. First,
 we'll back up the existing string so we can restore it later. To do this, we will copy the
@@ -297,7 +297,7 @@ We create a new variable called ps1_old and assign the value of PS1 to it. We ca
 verify that the string has been copied with the echo command:
 
 我们新创建了一个叫做 ps1_old 的变量，并把变量 PS1的值赋 ps1_old。通过 echo 命令可以证明
-我们的确复制了 PS1的值。
+我们的确复制了 PS1 的值。
 
     [me@linuxbox ~]$ echo $ps1_old
     [\u@\h \W]\$
@@ -320,7 +320,7 @@ If we assign nothing to the prompt string, we get nothing. No prompt string at a
 prompt is still there, but displays nothing, just as we asked it to. Since this is kind of
 disconcerting to look at, we'll replace it with a minimal prompt:
 
-如果我们没有给提示字符串赋值，那么我们什么也得不到。根本没有提示字符串！提示符仍然在那里，
+如果我们没有给提示字符串赋值，那么我们什么也看不到。根本没有提示字符串！提示符仍然在那里，
 但是什么也不显示，正如我们所要求的那样。我们将用一个最小的提示符来代替它：
 
     PS1="\$ "
@@ -329,7 +329,7 @@ That's better. At least now we can see what we are doing. Notice the trailing sp
 within the double quotes. This provides the space between the dollar sign and the cursor
 when the prompt is displayed.
 
-这样要好一些。至少能看到我们在做什么。注意双引号中末尾的空格。当提示符显示的时候，
+这样要好一些。至少能看到我们在做了什么。注意双引号中末尾的空格。当提示符显示的时候，
 这个空格把美元符号和光标分离开。
 
 Let's add a bell to our prompt:
@@ -368,7 +368,7 @@ text) and cursor position. We'll cover cursor position in a little bit, but firs
 color.
 
 大多数终端仿真器程序支持一定的非打印字符序列来控制，比方说字符属性（像颜色，黑体和可怕的闪烁）
-和光标位置。我们会更深入地讨论光标位置，但首先我们要看一下字体颜色。
+和光标位置。我们后续会更深入地讨论光标位置，但首先我们要看一下字体颜色。
 
 > Terminal Confusion
 >
@@ -382,8 +382,8 @@ deal with the babel of terminal control (called termcap and terminfo). If
 you look in the deepest recesses of your terminal emulator settings you may find
 a setting for the type of terminal emulation.
 >
-> 回溯到终端连接到远端计算机的时代，有许多竞争的终端品牌，它们各自工作不同。
-它们有着不同的键盘，以不同的方式来解释控制信息。Unix 和类 Unix 的系统有两个
+> 回溯到终端连接到远端计算机的时代，有许多竞争的终端品牌，它们各自工作方式都不同。
+有着不同的键盘，以不同的方式来解释控制信息。Unix 和类 Unix 的系统有两个
 相当复杂的子系统来处理终端控制领域的混乱局面（称为 termcap 和 terminfo）。如果你
 查看一下终端仿真器最底层的属性设置，可能会找到一个关于终端仿真器类型的设置。
 >
@@ -749,7 +749,7 @@ screen containing a clock (rendered in yellow text) each time the prompt is disp
 The code for the prompt is this formidable looking string:
 
 使用上面的编码，我们将构建一个提示符，每次当这个提示符出现的时候，会在屏幕的上方画出一个
-包含时钟（由黄色文本渲染）的红色长条。构建好的提示符的编码就是这串看起来令人敬畏的字符串：
+包含时钟（由黄色文本渲染）的红色长条。构建好的提示符的编码就是这串看起来很唬人的字符串：
 
 
     PS1='\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\]
