@@ -57,7 +57,7 @@ We will look at the following commands:
 
 * dd – Write block oriented data directly to a device
 
-* dd — 把面向块的数据直接写入设备
+* dd — 把块数据直接写入设备
 
 * genisoimage (mkisofs) – Create an ISO 9660 image file
 
@@ -81,7 +81,7 @@ have extreme storage needs and complex configuration requirements.
 
 Linux 桌面系统的最新进展已经使存储设备管理对于桌面用户来说极其容易。大多数情况下，我们
 只要把设备连接到系统中，它就能工作。在过去（比如说，2004年），这个工作必须手动完成。
-在非桌面系统中（例如，服务器中），这仍然是一个主要地手动过程，因为服务器经常有极端的存储需求
+在非桌面系统中（例如，服务器中），还是挺麻烦的一个过程，因为服务器经常有特有的存储需求
 和复杂的配置要求。
 
 The first step in managing a storage device is attaching the device to the file system tree.
@@ -92,16 +92,16 @@ operating systems such as MS-DOS and Windows that maintain separate trees for ea
 device (for example C:\, D:\, etc.).
 
 管理存储设备的第一步是把设备连接到文件系统树中。这个叫做"挂载"的过程允许设备连接到操作系统中。
-回想一下第三章，类 Unix 的操作系统，比如Linux在单一文件系统树中维护连接在各个节点的各种设备。
+回想一下第三章，类 Unix 操作系统，比如 Linux ，会在一个文件系统树中挂载各种设备。
 这与其它操作系统形成对照，比如说 MS-DOS 和 Windows 系统中，每个设备（例如 C:\，D:\，等）
-保持着单独的文件系统树。
+会拥有自己的文件系统树。
 
 There is a file named /etc/fstab that lists the devices (typically hard disk partitions)
 that are to be mounted at boot time. Here is an example /etc/fstab file from a
 Fedora 7 system:
 
-有一个叫做/etc/fstab 的文件可以列出系统启动时要挂载的设备（典型地，硬盘分区）。下面是
-来自于 Fedora 7系统的/etc/fstab 文件实例：
+有一个叫做 /etc/fstab 的文件可以列出系统启动时要挂载的设备（典型地，硬盘分区）。下面是
+来自于 Fedora 7 系统的/etc/fstab 文件实例：
 
     LABEL=/12               /               ext3        defaults        1   1
     LABEL=/home             /home           ext3        defaults        1   2
@@ -200,7 +200,7 @@ systems should be checked with the fsck command.</td>
 <td valign="top" width="8%">1</td>
 <td valign="top" width="12%">设备名</td>
 <td valign="top">
-传统上，这个字段包含与物理设备相关联的设备文件的实际名字，比如说/dev/hda1（第一个 IDE
+传统上，这个字段包含与物理设备相关联的设备文件的名字，比如说 /dev/hda1（第一个 IDE
 通道上第一个主设备分区）。然而今天的计算机，有很多热插拔设备（像 USB 驱动设备），许多
 现代的 Linux 发行版用一个文本标签和设备相关联。当这个设备连接到系统中时，
 这个标签（当储存媒介格式化时，这个标签会被添加到存储媒介中）会被操作系统读取。
@@ -317,7 +317,7 @@ When you conduct this experiment yourself, the device name will most likely be
 different.
 
 当我们插入光盘后，除了额外的一行之外，我们看到和原来一样的列表。在列表的末尾，我们
-看到 CD-ROM 已经挂载到了/media/live-1.0.10-8上，它的文件类型是 iso9660（CD-ROM）。
+看到 CD-ROM 已经挂载到了 /media/live-1.0.10-8 上，它的文件类型是 iso9660（CD-ROM）。
 就我们的实验目的而言，我们对这个设备的名字感兴趣。当你自己进行这个实验时，这个
 设备名字是最有可能不同的。
 
@@ -361,7 +361,7 @@ For our purposes, we will create a new directory:
 Finally, we mount the CD-ROM at the new mount point. The -t option is used to
 specify the file system type:
 
-最后，我们把这个 CD-ROW 挂载到一个新的挂载点上。这个-t 选项用来指定文件系统类型：
+最后，我们把这个 CD-ROW 挂载到一个新的挂载点上。这个 -t 选项用来指定文件系统类型：
 
     [root@linuxbox ~]# mount -t iso9660 /dev/hdc /mnt/cdrom
 
@@ -397,7 +397,7 @@ Now the device unmounts successfully.
 
 > Why Unmounting Is Important
 >
-> 为什么卸载重要
+> 为什么记得卸载很重要
 >
 > If you look at the output of the free command, which displays statistics about
 memory usage, you will see a statistic called “buffers.” Computer systems are
@@ -420,11 +420,11 @@ could accept it.
 > 如果你看一下 free 命令的输出结果，这个命令用来显示关于内存使用情况的统计信息，你
 会看到一个统计值叫做”buffers“。计算机系统旨在尽可能快地运行。系统运行速度的
 一个阻碍是缓慢的设备。打印机是一个很好的例子。即使最快速的打印机相比于计算机标准也
-极其地缓慢。一台计算机确实会运行得非常慢，如果它要停下来等待一台打印机打印完一页。
+极其地缓慢。一台计算机如果它要停下来等待一台打印机打印完一页，再去执行其他操作，就会变得很慢。
 在早期的个人电脑时代（多任务之前），这真是个问题。如果你正在编辑电子表格
 或者是文本文档，每次你要打印文件时，计算机都会停下来而且变得不能使用。
 计算机能以打印机可接受的最快速度把数据发送给打印机，但由于打印机不能快速地打印，
-这个发送速度会非常慢。由于打印机缓存的出现，这个问题被解决了。打印机缓存是一个包含一些 RAM 内存
+这个发送速度会非常慢。由于打印机缓存的出现，这个问题被解决了。打印机缓存是一个包含 RAM 内存
 的设备，位于计算机和打印机之间。通过打印机缓存，计算机把要打印的结果发送到这个缓存区，
 数据会迅速地存储到这个 RAM 中，这样计算机就能回去工作，而不用等待。与此同时，打印机缓存将会
 以打印机可接受的速度把缓存中的数据缓慢地输出给打印机。
@@ -440,8 +440,8 @@ advantage of all the available memory to do as much buffering as it can.
 >
 > 缓存被广泛地应用于计算机中，使其运行得更快。别让偶尔地的读取或写入慢设备的需求阻碍了
 系统的运行速度。在真正与比较慢的设备交互之前，操作系统会尽可能多的读取或写入数据到内存中的
-存储设备里。以 Linux 操作系统为例，你会注意到系统看似填充了多于它所需要的内存。
-这不意味着 Linux 正在使用所有的内存，它意味着 Linux 正在利用所有可用的内存，来作为缓存区。
+存储设备里。以 Linux 操作系统为例，你会注意到系统看似占用了多于它所需要的内存。
+这不意味着 Linux 正在使用这些内存，而是意味着 Linux 正在利用所有可用的内存，来作为缓存区。
 >
 > This buffering allows writing to storage devices to be done very quickly, because
 the writing to the physical device is being deferred to a future time. In the
@@ -475,12 +475,12 @@ In the examples above we took advantage of the modern Linux desktop's ability to
 if we are managing a server or some other environment where this does not occur? How
 can we figure it out?
 
-有时很难来确定设备名称。在以前，这并不是很难。一台设备总是在某个固定的位置，也不会
-挪动它。类 Unix 的系统喜欢设备那样安排。退回到 Unix 系统的时代，“更改一个磁盘驱动器”更像是要用一辆
-叉车从机房中移除一台如洗衣机大小的设备那样困难。最近几年，典型的桌面硬件配置已经变得相当动态，并且
+有时很难来给设备起名字。在以前，这并不是很难。一台设备总是在某个固定的位置，也不会
+挪动它。类 Unix 的系统也喜欢这样。退回到 Unix 系统的时代，“更改一个磁盘驱动器”是要用一辆
+叉车从机房中移除一台如洗衣机大小的设备。最近几年，典型的桌面硬件配置已经变得相当动态，并且
 Linux 已经发展地比其祖先更加灵活。在以上事例中，我们利用现代 Linux 桌面系统的功能来“自动地”挂载
-设备，然后再确定设备名称。但是如果我们正在管理一台服务器或者是其它一些（这种自动挂载功能）不会
-发生的环境，我们又如何能查清设备名呢？
+设备，然后再确定设备名称。但是如果我们正在管理一台服务器或者是其它一些这种自动挂载功能不会
+发生的环境，我们又如何能确定设备名呢？
 
 First, let's look at how the system names devices. If we list the contents of the /dev
 directory (where all devices live), we can see that there are lots and lots of devices:
@@ -579,9 +579,9 @@ you can use the following technique to determine how the removable device is nam
 when it is attached. First, start a real-time view of the /var/log/messages file (you
 may require superuser privileges for this):
 
-另外，我们经常看到符号链接比如说/dev/cdrom，/dev/dvd 和/dev/floppy，它们指向实际的
+另外，我们经常看到符号链接比如说 /dev/cdrom，/dev/dvd 和/dev/floppy，它们指向实际的
 设备文件，提供这些链接是为了方便使用。如果你工作的系统不能自动挂载可移动的设备，你可以使用
-下面的技巧来决定当可移动设备连接后，它是怎样被命名的。首先，启动一个实时查看文件/var/log/messages
+下面的技巧来决定当可移动设备连接后，它是怎样被命名的。首先，启动一个实时查看文件 /var/log/messages
 （你可能需要超级用户权限）：
 
     [me@linuxbox ~]$ sudo tail -f /var/log/messages
@@ -637,8 +637,8 @@ This tells us the device name is /dev/sdb for the entire device and /dev/sdb1 fo
 the first partition on the device. As we have seen, working with Linux is full of
 interesting detective work!
 
-这告诉我们这个设备名称是/dev/sdb 指整个设备，/dev/sdb1是这个设备的第一分区。
-正如我们所看到的，使用 Linux 系统充满了有趣的监测工作。
+这告诉我们这个设备名称是/dev/sdb 指整个设备，/dev/sdb1 是这个设备的第一分区。
+正如我们所看到的，使用 Linux 系统充满了有趣的侦探工作。
 
 Tip: Using the tail -f /var/log/messages technique is a great way to
 watch what the system is doing in near real-time.
@@ -672,8 +672,8 @@ than the FAT32 system it has now. This involves two steps: 1. (optional) create 
 partition layout if the existing one is not to our liking, and 2. create a new, empty file
 system on the drive.
 
-假若我们想要用 Linux 本地文件系统来重新格式化这个闪存驱动器，而不是它现用的 FAT32系统。
-这涉及到两个步骤：1.（可选的）创建一个新的分区布局若已存在的分区不是我们喜欢的。2.
+假若我们想要用 Linux 本地文件系统来重新格式化这个闪存驱动器，而不是它现用的 FAT32 系统。
+这涉及到两个步骤：1.（可选的）创建一个新的分区布局，如果已存在的分区不是我们喜欢的。2.
 在这个闪存上创建一个新的空的文件系统。
 
 Warning! In the following exercise, we are going to format a flash drive. Use a
@@ -742,7 +742,7 @@ choice:
 
 在此例中，我们看到一个16MB 的设备只有一个分区(1)，此分区占用了可用的1008个柱面中的1006个,
 并被标识为 Windows 95 FAT32分区。有些程序会使用这个标志符来限制一些可以对磁盘所做的操作，
-但大多数情况下更改这个标志符没有危害。然而，为了叙述方便，我们将会更改它，
+但大多数情况下更改这个标志符没有危害。为了叙述方便，我们将会更改它，
 以此来表明是个 Linux 分区。在更改之前，首先我们必须找到被用来识别一个 Linux 分区的 ID 号码。
 在上面列表中，我们看到 ID 号码“b”被用来指定这个已存在的分区。要查看可用的分区类型列表，
 参考之前的程序菜单。我们会看到以下选项：
@@ -793,7 +793,7 @@ which would have exited the program without writing the changes. We can safely i
 the ominous sounding warning message.
 
 如果我们已经决定保持设备不变，可在提示符下输入"q"，这将退出程序而没有写更改。我们
-可以安全地忽略这些不祥的警告信息。
+可以安全地忽略这些警告信息。
 
 ### 用 mkfs 命令创建一个新的文件系统
 
@@ -834,7 +834,7 @@ The program will display a lot of information when ext3 is the chosen file syste
 To re-format the device to its original FAT32 file system, specify “vfat” as the file system
 type:
 
-当 ext3被选为文件系统类型时，这个程序会显示许多信息。若把这个设备重新格式化为它最初的 FAT32文件
+当 ext3 被选为文件系统类型时，这个程序会显示许多信息。若把这个设备重新格式化为它最初的 FAT32 文件
 系统，指定"vfat"作为文件系统类型：
 
     [me@linuxbox ~]$ sudo mkfs -t vfat /dev/sdb1
@@ -845,8 +845,8 @@ process can be applied to internal hard disks and other removable storage device
 USB hard drives.
 
 任何时候添加额外的存储设备到系统中时，都可以使用这个分区和格式化的过程。虽然我们
-只以一个小小的闪存驱动器为例，同样的操作可以被应用到内部硬盘和其它可移动的存储设备上
-像 USB 硬盘驱动器。
+只以一个小小的闪存驱动器为例，同样的操作可以被应用到内部硬盘和其它可移动的存储设备上，
+例如 USB 硬盘驱动器。
 
 ### 测试和修复文件系统
 
@@ -858,7 +858,7 @@ checked. In our example above, we see that the root file system is checked first
 by the home and boot file systems. Devices with a zero as the last digit are not
 routinely checked.
 
-在之前讨论文件/etc/fstab 时，我们会在每行的末尾看到一些神秘的数字。每次系统启动时，
+在之前讨论文件 /etc/fstab 时，我们会在每行的末尾看到一些神秘的数字。每次系统启动时，
 在挂载系统之前，都会按照惯例检查文件系统的完整性。这个任务由 fsck 程序（是"file system
 check"的简写）完成。每个 fstab 项中的最后一个数字指定了设备的检查顺序。
 在上面的实例中，我们看到首先检查根文件系统，然后是 home 和 boot 文件系统。若最后一个数字
@@ -901,6 +901,7 @@ where you are forced to run fsck.
 >
 > 在 Unix 文化中，"fsck"这个单词往往会被用来指代另一个和它仅有一个字母差别的常用词。
 因为如果你遇到了迫不得已需要运行 fsck 命令的糟糕境遇时，这个词经常会脱口而出。
+
 ### 格式化软盘
 
 For those of us still using computers old enough to be equipped with floppy diskette
@@ -1024,7 +1025,7 @@ rom.iso with the following command:
 
 创建一个包含目录内容的 iso 映像文件，我们使用 genisoimage 程序。为此，我们首先创建
 一个目录，这个目录中包含了要包括到此映像中的所有文件，然后执行这个 genisoimage 命令
-来创建映像文件。例如，如果我们已经创建一个叫做~/cd-rom-files 的目录，然后用文件
+来创建映像文件。例如，如果我们已经创建一个叫做 ~/cd-rom-files 的目录，然后用文件
 填充此目录，再通过下面的命令来创建一个叫做 cd-rom.iso 映像文件：
 
     genisoimage -o cd-rom.iso -R -J ~/cd-rom-files
@@ -1085,8 +1086,8 @@ mounted the image file image.iso at that mount point. After the image is mounted
 can be treated just as though it were a real CD-ROM or DVD. Remember to unmount the
 image when it is no longer needed.
 
-上面的示例中，我们创建了一个挂载点叫做/mnt/iso_image，然后把此映像文件
-image.iso 挂载到挂载点上。映像文件被挂载之后，可以把它当作，就好像它是一张
+上面的示例中，我们创建了一个挂载点叫做 /mnt/iso_image，然后把此映像文件
+image.iso 挂载到挂载点上。映像文件被挂载之后，可以把它当作是一张
 真正的 CD-ROM 或者 DVD。当不再需要此映像文件后，记得卸载它。
 
 #### 清除一张可重写入的 CD-ROM
@@ -1167,10 +1168,10 @@ checked this way:
 
 除了检查下载文件的完整性之外，我们也可以使用 md5sum 程序验证新写入的光学存储介质。
 为此，首先我们计算映像文件的 checksum 数值，然后计算此光学存储介质的 checksum 数值。
-这种验证光学介质的技巧是限定只对 光学存储介质中包含映像文件的部分计算 checksum 数值。
+这种验证光学介质的技巧是限定只对光学存储介质中包含映像文件的部分计算 checksum 数值。
 通过确定映像文件所包含的 2048 个字节块的数目（光学存储介质总是以 2048 个字节块的方式写入）
 并从存储介质中读取那么多的字节块，我们就可以完成操作。
-某些类型的存储介质，并不需要这样做。一个以 disk-at-once 模式写入的 CD-R，可以用下面的方式检验：
+某些类型的存储介质，并不需要这样做。一个以 disk-at-once 模式写入的 CD-R ，可以用下面的方式检验：
 
     md5sum /dev/cdrom
     34e354760f9bb7fbf85c96f6a3f94ece    /dev/cdrom
