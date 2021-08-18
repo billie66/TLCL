@@ -113,7 +113,7 @@ block IMCP traffic.
 For example, to see if we can reach linuxcommand.org (one of our favorite sites ;-),
 we can use use ping like this:
 
-例如，看看我们能否连接到网站 linuxcommand.org（我们最喜欢的网站之一），
+例如，看看我们能否连接到网站 linuxcommand.org（我们最喜欢的网站之一 ;-），
 我们可以这样使用 ping 命令：
 
     [me@linuxbox ~]$ ping linuxcommand.org
@@ -279,7 +279,7 @@ What good is a network unless we know how to move files across it? There are man
 programs that move data over networks. We will cover two of them now and several
 more in later sections.
 
-网络有什么用处呢？除非我们知道了怎样通过网络来传输文件。有许多程序可以用来在网络中
+如果不能通过网络来传输文件，那么要网络有什么用呢？有许多程序可以用来在网络中
 传送数据。我们先讨论两个，随后的章节里再介绍几个。
 
 #### ftp
@@ -303,7 +303,7 @@ them. Because of this, almost all FTP done over the Internet is done by anonymou
 servers. An anonymous server allows anyone to login using the login name
 “anonymous” and a meaningless password.
 
-FTP（它的原始形式）并不是安全的，因为它会以明码形式发送帐号的姓名和密码。这就意味着
+FTP（它的原始版本）并不是安全的，因为它会以明码形式发送帐号的姓名和密码。这就意味着
 这些数据没有加密，任何嗅探网络的人都能看到。由于此种原因，几乎因特网中所有 FTP 服务器
 都是匿名的。一个匿名服务器能允许任何人使用注册名“anonymous”和无意义的密码登录系统。
 
@@ -830,7 +830,7 @@ for the scp and sftp programs.
 * For a broad (albeit dated) look at network administration, the Linux
   Documentation Project provides the Linux Network Administrator’s Guide:
 
-* Linux 文档项目提供了 Linux 网络管理指南，可以广泛地（虽然过时了）了解网络管理方面的知识。
+* Linux 文档项目提供了 Linux 网络管理指南，可以广泛地（虽然有点过时的）了解网络管理方面的知识。
 
     <http://tldp.org/LDP/nag2/index.html>
 
