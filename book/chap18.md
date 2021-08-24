@@ -11,9 +11,9 @@ next, but the sheer number of files can present a daunting problem.
 In this chapter, we will look at two tools that are used to find files on a system. These
 tools are:
 
-随着我们在Linux 系统中的不断探索， 一件事已经变得非常清楚：一个典型的 Linux 系统包含很多文件！
+随着我们在 Linux 系统中的不断探索，会逐渐发觉：一个典型的 Linux 系统包含很多文件！
 这就引发了一个问题，“我们怎样查找东西？”。虽然我们已经知道 Linux 文件系统已经根据类 Unix 系统的
-代代相传的惯例而被良好地组织起来了。但是海量的文件会引起一个可怕的问题。在这一章中，我们将察看
+代代相传的惯例而被良好地组织起来了。但是海量的文件也真是可怕的。在这一章中，我们将察看
 两个用来在系统中查找文件的工具。这些工具是：
 
 * locate – Find files by name
@@ -53,8 +53,7 @@ with names that begin with “zip.” Since we are looking for programs, we can 
 that the directory containing the programs would end with "bin/". Therefore, we could
 try to use locate this way to find our files:
 
-这个 locate 程序会执行一次快速的路径名数据库搜索，并且输出每个与给定子字符串相匹配的路径名。比如说，
-例如，我们想要找到所有名字以“zip”开头的程序。因为我们正在查找程序，可以假定包含
+这个 locate 程序会执行一次快速的路径名数据库搜索，并且输出每个与给定子字符串相匹配的路径名。比如说，我们想要找到所有名字以“zip”开头的程序。因为我们正在查找程序，可以假定包含
 程序的目录以"bin/"结尾。因此，我们试着以这种方式使用 locate 命令，来找到我们的文件：
 
     [me@linuxbox ~]$ locate bin/zip
@@ -124,7 +123,7 @@ continuously, you will notice that very recent files do not show up when using
 locate. To overcome this, it’s possible to run the updatedb program manually
 by becoming the superuser and running updatedb at the prompt.
 >
-> 你可能注意到了，在一些发行版中，仅仅在系统安装之后，locate 不能工作，
+> 你可能注意到了，在一些发行版中，在系统安装之后，locate 开始是不能正常工作的，
 但是如果你第二天再试一下，它就正常工作了。怎么回事呢？locate 数据库由另一个叫做 updatedb
 的程序创建。通常，这个程序作为一个定时任务（jobs）周期性运转；也就是说，一个任务
 在特定的时间间隔内被 cron 守护进程执行。大多数装有 locate 的系统会每隔一天运行一回
@@ -155,7 +154,7 @@ On most active user accounts, this will produce a large list. Since the list is 
 standard output, we can pipe the list into other programs. Let’s use wc to count the
 number of files:
 
-在最活跃的用户帐号中，这将产生一张很大的列表。因为这张列表被发送到标准输出，
+对于活跃的用户帐号，这将产生一张很大的列表。因为这张列表被发送到标准输出，
 我们可以把这个列表管道到其它的程序中。让我们使用 wc 程序来计算出文件的数量：
 
     [me@linuxbox ~]$ find ~ | wc -l
@@ -181,7 +180,7 @@ following test:
 Adding the test -type d limited the search to directories. Conversely, we could have
 limited the search to regular files with this test:
 
-添加测试条件-type d 限制了只搜索目录。相反地，我们可以使用这个测试条件来限定搜索普通文件：
+添加测试条件 -type d 限制了只搜索目录。相反地，我们可以使用这个测试条件来限定搜索普通文件：
 
     [me@linuxbox ~]$ find ~ -type f | wc -l
     38737
@@ -252,7 +251,7 @@ for all the regular files that match the wild card pattern “*.JPG” and are l
 megabyte:
 
 我们也可以通过加入一些额外的测试条件，根据文件大小和文件名来搜索：让我们查找所有文件名匹配
-通配符模式“*.JPG”和文件大小大于1M 的普通文件：
+通配符模式“*.JPG”和文件大小大于 1M 的普通文件：
 
     [me@linuxbox ~]$ find ~ -type f -name "*.JPG" -size +1M | wc -l
     840
@@ -748,9 +747,9 @@ expr2, as we already know that the expression expr1 -or expr2 is true.
 OK, so it helps it go faster. Why is this important? It’s important because we can rely on
 this behavior to control how actions are performed, as we shall soon see..
 
-为什么这会发生呢？这样做是为了提高性能。以 -and 为例，我们知道如果表达式 expr1的结果为假，
-表达式 expr1 -and expr2不能为真，所以没有必要执行 expr2。同样地，如果我们有表达式
-expr1 -or expr2，并且表达式 expr1的结果为真，那么就没有必要执行 expr2，因为我们已经知道
+为什么这会发生呢？这样做是为了提高性能。以 -and 为例，我们知道如果表达式 expr1 的结果为假，
+表达式 expr1 -and expr2 不能为真，所以没有必要执行 expr2。同样地，如果我们有表达式
+expr1 -or expr2，并且表达式 expr1 的结果为真，那么就没有必要执行 expr2，因为我们已经知道
 表达式 expr1 -or expr2 为真。好，这样会执行快一些。为什么这个很重要？
 它很重要是因为我们能依靠这种行为来控制怎样来执行操作。我们会很快看到...
 
@@ -831,7 +830,7 @@ which produced a list of every file and subdirectory contained within our home d
 It produced a list because the -print action is implied if no other action is specified.
 Thus our command could also be expressed as:
 
-这个命令输出了我们家目录中包含的每个文件和子目录。它会输出一个列表，因为会默认使用-print 操作
+这个命令输出了我们家目录中包含的每个文件和子目录。它会输出一个列表，因为会默认使用 -print 操作
 ，如果没有指定其它操作的话。因此我们的命令也可以这样表述：
 
     find ~ -print
@@ -848,7 +847,7 @@ could use this command:
 In this example, every file in the user’s home directory (and its subdirectories) is searched
 for filenames ending in .BAK. When they are found, they are deleted.
 
-在这个例子里面，用户家目录（和它的子目录）下的每个文件中搜索以.BAK 结尾的文件名。当找到后，就删除它们。
+在这个例子里面，用户家目录（和它的子目录）下的每个文件中搜索以 .BAK 结尾的文件名。当找到后，就删除它们。
 
 ---
 
@@ -876,7 +875,7 @@ actions. Remember, there is, by default, an implied -and relationship between ea
 and action. We could also express the command this way to make the logical
 relationships easier to see:
 
-正如我们所见到的，这个命令会查找每个文件名以.BAK (-name '*.BAK') 结尾的普通文件 (-type f)，
+正如我们所见到的，这个命令会查找每个文件名以 .BAK (-name '*.BAK') 结尾的普通文件 (-type f)，
 并把每个匹配文件的相对路径名输出到标准输出 (-print)。然而，此命令按这个方式执行的原因，是
 由每个测试和操作之间的逻辑关系决定的。记住，在每个测试和操作之间会默认应用 -and 逻辑运算符。
 我们也可以这样表达这个命令，使逻辑关系更容易看出：
@@ -956,7 +955,7 @@ where command is the name of a command, {} is a symbolic representation of the c
 pathname and the semicolon is a required delimiter indicating the end of the command.
 Here’s an example of using -exec to act like the -delete action discussed earlier:
 
-这里的 command 就是指一个命令的名字，{}是当前路径名的符号表示，分号是必要的分隔符
+这里的 command 就是指一个命令的名字，{} 是当前路径名的符号表示，分号是必要的分隔符
 表明命令的结束。这里是一个使用 -exec 行为的例子，其作用如之前讨论的 -delete 行为：
 
     -exec rm '{}' ';'
@@ -1130,7 +1129,7 @@ directories of the specified paths) with brace expansion, we were able to create
 hundred directories.
 
 我们用来创造这个奇迹的方法中包含一个熟悉的命令（mkdir），一个奇异的 shell 扩展（花括号）
-和一个新命令，touch。通过结合 mkdir 命令和-p 选项（导致 mkdir 命令创建指定路径的父目录），以及
+和一个新命令，touch。通过结合 mkdir 命令和 -p 选项（导致 mkdir 命令创建指定路径的父目录），以及
 花括号展开，我们能够创建一百个目录。
 
 The touch command is usually used to set or update the access, change, and modify
