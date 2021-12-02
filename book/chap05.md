@@ -1194,7 +1194,7 @@ In addition to regular files, symbolic links can also reference directories:
     total 16
     ...省略
 
-### 移动文件和目录
+### 删除文件和目录
 
 As we covered earlier, the rm command is used to delete files and directories. We are
 going to use it to clean up our playground a little bit. First, let's delete one of our hard
